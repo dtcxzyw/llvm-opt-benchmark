@@ -1028,36 +1028,35 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
 define internal noundef i32 @nfnetlink_bind(ptr nocapture readnone %0, i32 noundef %1) #0 align 16 {
   %3 = add i32 %1, -10
   %4 = icmp ult i32 %3, -9
-  br i1 %4, label %21, label %5
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr [10 x i32], ptr @nfnl_group2type, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   tail call void @__rcu_read_lock() #9
-  %9 = trunc i32 %8 to i16
-  %10 = shl i16 %9, 8
-  %11 = icmp ugt i16 %10, 3327
-  br i1 %11, label %18, label %12
+  %9 = trunc i32 %8 to i8
+  %10 = icmp ugt i8 %9, 12
+  br i1 %10, label %17, label %11
 
-12:                                               ; preds = %5
-  %13 = and i16 %9, 255
-  %14 = zext nneg i16 %13 to i64
-  %15 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %14, i32 1
-  %16 = load volatile ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
+11:                                               ; preds = %5
+  %12 = and i32 %8, 15
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %13, i32 1
+  %15 = load volatile ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
   tail call void @__rcu_read_unlock() #9
-  br i1 %17, label %19, label %21
+  br i1 %16, label %18, label %20
 
-18:                                               ; preds = %5
+17:                                               ; preds = %5
   tail call void @__rcu_read_unlock() #9
-  br label %19
+  br label %18
 
-19:                                               ; preds = %18, %12
-  %20 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef %8) #9
-  br label %21
+18:                                               ; preds = %17, %11
+  %19 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef %8) #9
+  br label %20
 
-21:                                               ; preds = %19, %12, %2
+20:                                               ; preds = %18, %11, %2
   ret i32 0
 }
 
