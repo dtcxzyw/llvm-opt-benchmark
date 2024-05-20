@@ -1803,9 +1803,9 @@ mi_span_queue_for.exit.i:                         ; preds = %if.end3.i.i.i.i, %i
   br i1 %cmp1.not38.i, label %if.then, label %for.cond.preheader.preheader.i
 
 for.cond.preheader.preheader.i:                   ; preds = %mi_span_queue_for.exit.i, %entry
-  %spec.store.select49.i = phi i64 [ %div13, %mi_span_queue_for.exit.i ], [ 1, %entry ]
-  %retval.0.i.i.i48.i = phi i64 [ %retval.0.i.i.i.i, %mi_span_queue_for.exit.i ], [ %div13, %entry ]
-  %arrayidx.i.idx.i = mul nuw nsw i64 %retval.0.i.i.i48.i, 24
+  %spec.store.select52.i = phi i64 [ %div13, %mi_span_queue_for.exit.i ], [ 1, %entry ]
+  %retval.0.i.i.i51.i = phi i64 [ %retval.0.i.i.i.i, %mi_span_queue_for.exit.i ], [ %div13, %entry ]
+  %arrayidx.i.idx.i = mul nuw nsw i64 %retval.0.i.i.i51.i, 24
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %for.end.i, %for.cond.preheader.preheader.i
@@ -1819,7 +1819,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %slice.036.i = phi ptr [ %slice.0.i, %for.inc.i ], [ %slice.034.i, %for.cond.preheader.i ]
   %2 = load i32, ptr %slice.036.i, align 8
   %conv.i = zext i32 %2 to i64
-  %cmp4.not.i = icmp ugt i64 %spec.store.select49.i, %conv.i
+  %cmp4.not.i = icmp ugt i64 %spec.store.select52.i, %conv.i
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
@@ -1880,16 +1880,15 @@ mi_span_queue_delete.exit.i:                      ; preds = %if.then16.i.i, %if.
   store i32 1, ptr %xblock_size.i.i, align 4
   %10 = load i32, ptr %slice.036.i, align 8
   %conv11.i = zext i32 %10 to i64
-  %cmp12.i = icmp ult i64 %spec.store.select49.i, %conv11.i
+  %cmp12.i = icmp ult i64 %spec.store.select52.i, %conv11.i
+  %sub.ptr.rhs.cast.neg.i.i.i = add i64 %3, -264
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.rhs.cast.neg.i.i.i, %and.i.i
+  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
   br i1 %cmp12.i, label %if.end.i25.i, label %if.end15.i
 
 if.end.i25.i:                                     ; preds = %mi_span_queue_delete.exit.i
-  %slices.i.i.i = getelementptr inbounds i8, ptr %4, i64 264
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %slices.i.i.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %3, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
-  %add.i.i = add nsw i64 %sub.ptr.div.i.i.i, %spec.store.select49.i
-  %sub.i28.i = sub nsw i64 %conv11.i, %spec.store.select49.i
+  %add.i.i = add nsw i64 %sub.ptr.div.i.i.i, %spec.store.select52.i
+  %sub.i28.i = sub nsw i64 %conv11.i, %spec.store.select52.i
   %kind.i.i.i = getelementptr inbounds i8, ptr %4, i64 240
   %11 = load i32, ptr %kind.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %11, 1
@@ -1929,6 +1928,7 @@ mi_span_queue_for.exit.i.i.i:                     ; preds = %if.end3.i.i.i.i.i.i
 cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.exit.i.i.i, %lor.lhs.false.i.i.i, %if.end.i25.i
   %cond.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %mi_span_queue_for.exit.i.i.i ], [ null, %lor.lhs.false.i.i.i ], [ null, %if.end.i25.i ]
   %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.i28.i, i64 1)
+  %slices.i.i.i = getelementptr inbounds i8, ptr %4, i64 264
   %arrayidx.i.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %add.i.i
   %conv.i.i.i = trunc i64 %spec.store.select.i.i.i to i32
   store i32 %conv.i.i.i, ptr %arrayidx.i.i.i, align 8
@@ -1972,19 +1972,15 @@ if.then20.i.i.i:                                  ; preds = %if.end13.i.i.i
 mi_segment_slice_split.exit.i:                    ; preds = %if.then20.i.i.i, %if.end13.i.i.i
   %16 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 28
   store i32 0, ptr %16, align 4
-  %conv5.i.i = trunc nuw i64 %spec.store.select49.i to i32
+  %conv5.i.i = trunc nuw i64 %spec.store.select52.i to i32
   store i32 %conv5.i.i, ptr %slice.036.i, align 8
   br label %if.end15.i
 
-if.end15.i:                                       ; preds = %mi_span_queue_delete.exit.i, %mi_segment_slice_split.exit.i
-  %conv18.pre-phi.i = phi i64 [ %spec.store.select49.i, %mi_segment_slice_split.exit.i ], [ %conv11.i, %mi_span_queue_delete.exit.i ]
-  %slices.i.i = getelementptr inbounds i8, ptr %4, i64 264
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %slices.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %3, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
+if.end15.i:                                       ; preds = %mi_segment_slice_split.exit.i, %mi_span_queue_delete.exit.i
+  %conv18.pre-phi.i = phi i64 [ %spec.store.select52.i, %mi_segment_slice_split.exit.i ], [ %conv11.i, %mi_span_queue_delete.exit.i ]
   %17 = getelementptr i8, ptr %tld, i64 896
   %tld.val.i = load ptr, ptr %17, align 8
-  %call19.i = tail call fastcc ptr @mi_segment_span_allocate(ptr noundef %4, i64 noundef %sub.ptr.div.i.i, i64 noundef %conv18.pre-phi.i, ptr %tld.val.i) #12
+  %call19.i = tail call fastcc ptr @mi_segment_span_allocate(ptr noundef %4, i64 noundef %sub.ptr.div.i.i.i, i64 noundef %conv18.pre-phi.i, ptr %tld.val.i) #12
   %cmp20.i = icmp eq ptr %call19.i, null
   br i1 %cmp20.i, label %if.then22.i, label %if.end
 
@@ -2511,10 +2507,8 @@ if.end32:                                         ; preds = %if.then24, %mi_segm
   %22 = ptrtoint ptr %slice.addr.0 to i64
   %sub.i.i = add i64 %22, -1
   %and.i.i = and i64 %sub.i.i, -33554432
-  %23 = inttoptr i64 %and.i.i to ptr
-  %slices.i61 = getelementptr inbounds i8, ptr %23, i64 264
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %slices.i61 to i64
-  %sub.ptr.sub.i = sub i64 %22, %sub.ptr.rhs.cast.i
+  %sub.ptr.rhs.cast.neg.i = add i64 %22, -264
+  %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast.neg.i, %and.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
   tail call fastcc void @mi_segment_span_free(ptr noundef nonnull %1, i64 noundef %sub.ptr.div.i, i64 noundef %slice_count.1, i1 noundef zeroext true, ptr noundef %tld) #12
   br label %return

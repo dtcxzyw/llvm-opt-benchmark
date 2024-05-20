@@ -162,12 +162,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_loops_per_ji
 %struct.efi = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.efi_memory_map, i64 }
 %struct.efi_memory_map = type { i64, ptr, ptr, i32, i64, i64, i64 }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.page = type { i64, %union.anon.22, %union.anon.30, %struct.atomic_t, [8 x i8] }
-%union.anon.22 = type { %struct.anon.23 }
-%struct.anon.23 = type { %union.anon.24, ptr, %union.anon.26, i64 }
-%union.anon.24 = type { %struct.list_head }
-%union.anon.26 = type { i64 }
-%union.anon.30 = type { %struct.atomic_t }
 
 @__tpstrtab_initcall_level = internal constant [15 x i8] c"initcall_level\00", section "__tracepoints_strings", align 1
 @__SCK__tp_func_initcall_level = dso_local global %struct.static_call_key { ptr @__traceiter_initcall_level, %union.anon.0 { i64 1 } }, align 8
@@ -256,7 +250,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_loops_per_ji
 @panic_param = internal unnamed_addr global ptr null, align 8
 @initrd_start = external dso_local local_unnamed_addr global i64, align 8
 @initrd_below_start_ok = external dso_local local_unnamed_addr global i32, align 4
-@vmemmap_base = external dso_local local_unnamed_addr global i64, align 8
 @min_low_pfn = external dso_local local_unnamed_addr global i64, align 8
 @.str.13 = private unnamed_addr constant [58 x i8] c"\012initrd overwritten (0x%08lx < 0x%08lx) - disabling it.\0A\00", align 1
 @late_time_init = dso_local local_unnamed_addr global ptr null, section ".init.data", align 8
@@ -1284,67 +1277,61 @@ define dso_local void @start_kernel() local_unnamed_addr #9 section ".init.text"
   %45 = load i32, ptr @initrd_below_start_ok, align 4
   %46 = icmp ne i32 %45, 0
   %47 = select i1 %44, i1 true, i1 %46
-  br i1 %47, label %67, label %48
+  br i1 %47, label %61, label %48
 
 48:                                               ; preds = %42
-  %49 = load i64, ptr @vmemmap_base, align 8
-  %50 = inttoptr i64 %49 to ptr
-  %51 = add i64 %43, 2147483648
-  %52 = icmp ugt i64 %43, -2147483649
-  %53 = load i64, ptr @phys_base, align 8
-  %54 = load i64, ptr @page_offset_base, align 8
-  %55 = sub i64 -2147483648, %54
-  %56 = select i1 %52, i64 %53, i64 %55
-  %57 = add i64 %51, %56
-  %58 = lshr i64 %57, 12
-  %59 = getelementptr %struct.page, ptr %50, i64 %58
-  %60 = ptrtoint ptr %59 to i64
-  %61 = sub i64 %60, %49
-  %62 = ashr exact i64 %61, 6
-  %63 = load i64, ptr @min_low_pfn, align 8
-  %64 = icmp ult i64 %62, %63
-  br i1 %64, label %65, label %67
+  %49 = add i64 %43, 2147483648
+  %50 = icmp ugt i64 %43, -2147483649
+  %51 = load i64, ptr @phys_base, align 8
+  %52 = load i64, ptr @page_offset_base, align 8
+  %53 = sub i64 -2147483648, %52
+  %54 = select i1 %50, i64 %51, i64 %53
+  %55 = add i64 %49, %54
+  %56 = lshr i64 %55, 12
+  %57 = load i64, ptr @min_low_pfn, align 8
+  %58 = icmp ult i64 %56, %57
+  br i1 %58, label %59, label %61
 
-65:                                               ; preds = %48
-  %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i64 noundef %62, i64 noundef %63) #27
+59:                                               ; preds = %48
+  %60 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i64 noundef %56, i64 noundef %57) #27
   store i64 0, ptr @initrd_start, align 8
-  br label %67
+  br label %61
 
-67:                                               ; preds = %65, %48, %42
+61:                                               ; preds = %59, %48, %42
   call void @setup_per_cpu_pageset() #25
   call void @numa_policy_init() #25
   call void @acpi_early_init() #25
-  %68 = load ptr, ptr @late_time_init, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %71, label %70
+  %62 = load ptr, ptr @late_time_init, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %65, label %64
 
-70:                                               ; preds = %67
-  call void %68() #25
-  br label %71
+64:                                               ; preds = %61
+  call void %62() #25
+  br label %65
 
-71:                                               ; preds = %70, %67
+65:                                               ; preds = %64, %61
   call void @sched_clock_init() #25
   call void @calibrate_delay() #25
   call void @arch_cpu_finalize_init() #25
   call void @pid_idr_init() #25
   call void @anon_vma_init() #25
-  %72 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
-  %73 = and i64 %72, 8
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %76, label %75
+  %66 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %67 = and i64 %66, 8
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %70, label %69
 
-75:                                               ; preds = %71
+69:                                               ; preds = %65
   call void @efi_enter_virtual_mode() #25
-  br label %76
+  br label %70
 
-76:                                               ; preds = %75, %71
+70:                                               ; preds = %69, %65
   call void @thread_stack_cache_init() #29
   call void @cred_init() #27
   call void @fork_init() #25
   call void @proc_caches_init() #25
   call void @uts_ns_init() #25
   call void @key_init() #25
-  %77 = call i32 @security_init() #25
+  %71 = call i32 @security_init() #25
   call void @net_ns_init() #25
   call void @vfs_caches_init() #27
   call void @pagecache_init() #27
@@ -1352,8 +1339,8 @@ define dso_local void @start_kernel() local_unnamed_addr #9 section ".init.text"
   call void @seq_file_init() #25
   call void @proc_root_init() #25
   call void @nsfs_init() #25
-  %78 = call i32 @cpuset_init() #25
-  %79 = call i32 @cgroup_init() #25
+  %72 = call i32 @cpuset_init() #25
+  %73 = call i32 @cgroup_init() #25
   call void @taskstats_init_early() #25
   call void @delayacct_init() #25
   call void @acpi_subsystem_init() #25

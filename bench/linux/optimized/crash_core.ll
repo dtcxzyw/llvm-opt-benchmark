@@ -45,12 +45,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.kexec_segment = type { %union.anon.1, i64, i64, i64 }
 %union.anon.1 = type { ptr }
-%struct.page = type { i64, %union.anon.3, %union.anon.11, %struct.atomic_t, [8 x i8] }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { %union.anon.5, ptr, %union.anon.7, i64 }
-%union.anon.5 = type { %struct.list_head }
-%union.anon.7 = type { i64 }
-%union.anon.11 = type { %struct.atomic_t }
 
 @.str = private unnamed_addr constant [13 x i8] c"Crash kernel\00", align 1
 @crashk_res = dso_local global %struct.resource { i64 0, i64 0, ptr @.str, i64 2164261376, i64 1, ptr null, ptr null, ptr null }, align 8
@@ -184,7 +178,6 @@ module asm ".previous\09\09\09\09\09"
 @.str.90 = private unnamed_addr constant [59 x i8] c"\014Memory allocation for saving cpu register states failed\0A\00", align 1
 @__kexec_lock = external dso_local global %struct.atomic_t, align 4
 @.str.91 = private unnamed_addr constant [12 x i8] c"crash/cpuhp\00", align 1
-@vmemmap_base = external dso_local local_unnamed_addr global i64, align 8
 @.str.92 = private unnamed_addr constant [48 x i8] c"\013crash hp: unable to locate elfcorehdr segment\00", align 1
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_crash_hotplug_init400, ptr @__UNIQUE_ID___addressable_crash_notes_memory_init397, ptr @__UNIQUE_ID___addressable_crash_save_vmcoreinfo_init392, ptr @__UNIQUE_ID___addressable_insert_crashkernel_resources383, ptr @__UNIQUE_ID___addressable_paddr_vmcoreinfo_note390, ptr @__setup_parse_crashkernel_dummy], section "llvm.metadata"
 
@@ -1435,19 +1428,19 @@ define internal fastcc void @crash_handle_hotplug_event(i32 noundef %0) unnamed_
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #20
-  br label %53
+  br label %46
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @kexec_crash_image, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %52, label %9
+  br i1 %8, label %45, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %7, i64 632
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 12
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %52, label %14
+  br i1 %13, label %45, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %7, i64 676
@@ -1463,68 +1456,62 @@ define internal fastcc void @crash_handle_hotplug_event(i32 noundef %0) unnamed_
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %7, i64 64
-  %24 = load i64, ptr @vmemmap_base, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %26 = load i64, ptr @page_offset_base, align 8
-  br label %27
+  %24 = load i64, ptr @page_offset_base, align 8
+  br label %25
 
-27:                                               ; preds = %44, %22
-  %.pr4 = phi i32 [ %16, %22 ], [ %.pr3, %44 ]
-  %28 = phi i64 [ 0, %22 ], [ %46, %44 ]
-  %29 = phi i32 [ 0, %22 ], [ %45, %44 ]
-  %30 = getelementptr [16 x %struct.kexec_segment], ptr %23, i64 0, i64 %28, i32 2
-  %31 = load i64, ptr %30, align 8
-  %32 = lshr i64 %31, 12
-  %33 = getelementptr %struct.page, ptr %25, i64 %32
-  %34 = ptrtoint ptr %33 to i64
-  %35 = sub i64 %34, %24
-  %36 = shl i64 %35, 6
-  %37 = add i64 %36, %26
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %44, label %39
+25:                                               ; preds = %37, %22
+  %.pr4 = phi i32 [ %16, %22 ], [ %.pr3, %37 ]
+  %26 = phi i64 [ 0, %22 ], [ %39, %37 ]
+  %27 = phi i32 [ 0, %22 ], [ %38, %37 ]
+  %28 = getelementptr [16 x %struct.kexec_segment], ptr %23, i64 0, i64 %26, i32 2
+  %29 = load i64, ptr %28, align 8
+  %.idx = and i64 %29, -4096
+  %30 = add i64 %.idx, %24
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %37, label %32
 
-39:                                               ; preds = %27
-  %40 = inttoptr i64 %37 to ptr
-  %41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %40, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %44
+32:                                               ; preds = %25
+  %33 = inttoptr i64 %30 to ptr
+  %34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %33, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %37
 
-43:                                               ; preds = %39
-  store i32 %29, ptr %15, align 4
-  br label %44
+36:                                               ; preds = %32
+  store i32 %27, ptr %15, align 4
+  br label %37
 
-44:                                               ; preds = %43, %39, %27
-  %.pr3 = phi i32 [ %29, %43 ], [ %.pr4, %39 ], [ %.pr4, %27 ]
-  %45 = add i32 %29, 1
-  %46 = zext i32 %45 to i64
-  %47 = icmp ugt i64 %20, %46
-  br i1 %47, label %27, label %.loopexit, !llvm.loop !31
+37:                                               ; preds = %36, %32, %25
+  %.pr3 = phi i32 [ %27, %36 ], [ %.pr4, %32 ], [ %.pr4, %25 ]
+  %38 = add i32 %27, 1
+  %39 = zext i32 %38 to i64
+  %40 = icmp ugt i64 %20, %39
+  br i1 %40, label %25, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %44
-  %48 = icmp slt i32 %.pr3, 0
-  br i1 %48, label %.loopexit.thread, label %.thread
+.loopexit:                                        ; preds = %37
+  %41 = icmp slt i32 %.pr3, 0
+  br i1 %41, label %.loopexit.thread, label %.thread
 
 .loopexit.thread:                                 ; preds = %18, %.loopexit
-  %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.92) #20
-  br label %52
+  %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.92) #20
+  br label %45
 
 .thread:                                          ; preds = %14, %.loopexit
   tail call void @arch_kexec_unprotect_crashkres() #19
-  %50 = getelementptr inbounds i8, ptr %7, i64 672
-  store i32 %0, ptr %50, align 8
+  %43 = getelementptr inbounds i8, ptr %7, i64 672
+  store i32 %0, ptr %43, align 8
   tail call void @arch_crash_handle_hotplug_event(ptr noundef nonnull %7) #19
-  store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %7, i64 680
-  store i8 1, ptr %51, align 8
+  store i32 0, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %7, i64 680
+  store i8 1, ptr %44, align 8
   tail call void @arch_kexec_protect_crashkres() #19
-  br label %52
+  br label %45
 
-52:                                               ; preds = %.thread, %.loopexit.thread, %9, %6
+45:                                               ; preds = %.thread, %.loopexit.thread, %9, %6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !27
   store volatile i32 0, ptr @__kexec_lock, align 4
-  br label %53
+  br label %46
 
-53:                                               ; preds = %52, %4
+46:                                               ; preds = %45, %4
   tail call void @mutex_unlock(ptr noundef nonnull @__crash_hotplug_lock) #19
   ret void
 }

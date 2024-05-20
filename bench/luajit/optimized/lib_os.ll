@@ -375,10 +375,8 @@ if.else57:                                        ; preds = %sub_0
   store ptr %incdec.ptr59, ptr %top58, align 8
   %glref60 = getelementptr inbounds i8, ptr %L, i64 16
   %31 = load i64, ptr %glref60, align 8
-  %32 = inttoptr i64 %31 to ptr
-  %strempty = getelementptr inbounds i8, ptr %32, i64 120
-  %33 = ptrtoint ptr %strempty to i64
-  %or.i = or i64 %33, -703687441776640
+  %32 = add nuw i64 %31, 120
+  %or.i = or i64 %32, -703687441776640
   store i64 %or.i, ptr %30, align 8
   br label %if.end64
 

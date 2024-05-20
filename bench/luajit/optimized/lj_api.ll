@@ -5937,18 +5937,16 @@ if.then22:                                        ; preds = %if.else
   %5 = load ptr, ptr %top23, align 8
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %6 = load i64, ptr %glref, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %strempty = getelementptr inbounds i8, ptr %7, i64 120
-  %8 = ptrtoint ptr %strempty to i64
-  %or.i.i = or i64 %8, -703687441776640
+  %7 = add nuw i64 %6, 120
+  %or.i.i = or i64 %7, -703687441776640
   store i64 %or.i.i, ptr %5, align 8
-  %9 = load ptr, ptr %top23, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %9, i64 8
+  %8 = load ptr, ptr %top23, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %incdec.ptr, ptr %top23, align 8
   %maxstack = getelementptr inbounds i8, ptr %L, i64 48
-  %10 = load i64, ptr %maxstack, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %cmp26.not = icmp ult ptr %incdec.ptr, %11
+  %9 = load i64, ptr %maxstack, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %cmp26.not = icmp ult ptr %incdec.ptr, %10
   br i1 %cmp26.not, label %if.end29, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then22
@@ -9325,20 +9323,18 @@ if.else:                                          ; preds = %if.then
   %incdec.ptr22 = getelementptr inbounds i8, ptr %10, i64 16
   %add.ptr23 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = load i64, ptr %add.ptr23, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %add.ptr25 = getelementptr inbounds i8, ptr %13, i64 -4
-  %14 = ptrtoint ptr %add.ptr25 to i64
-  store i64 %14, ptr %incdec.ptr22, align 8
+  %13 = add i64 %12, -4
+  store i64 %13, ptr %incdec.ptr22, align 8
   %incdec.ptr26 = getelementptr inbounds i8, ptr %10, i64 24
-  %15 = ptrtoint ptr %L to i64
-  %or.i = or i64 %15, -985162418487296
+  %14 = ptrtoint ptr %L to i64
+  %or.i = or i64 %14, -985162418487296
   store i64 %or.i, ptr %incdec.ptr26, align 8
   %incdec.ptr27 = getelementptr inbounds i8, ptr %10, i64 32
   %add.ptr28 = getelementptr inbounds i8, ptr %10, i64 40
   %base29 = getelementptr inbounds i8, ptr %L, i64 32
-  %16 = load ptr, ptr %base29, align 8
+  %15 = load ptr, ptr %base29, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr28 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
   %sub.ptr.sub = add i64 %sub.ptr.lhs.cast, 2
   %add = sub i64 %sub.ptr.sub, %sub.ptr.rhs.cast
   store i64 %add, ptr %incdec.ptr27, align 8

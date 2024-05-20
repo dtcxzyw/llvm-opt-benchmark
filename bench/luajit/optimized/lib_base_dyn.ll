@@ -1908,11 +1908,9 @@ lj_cf_coroutine_create.exit:                      ; preds = %land.lhs.true.i
   %call1 = tail call ptr @lj_lib_pushcc(ptr noundef nonnull %L, ptr noundef nonnull @lj_ffh_coroutine_wrap_aux, i32 noundef 36, i32 noundef 1) #10
   %6 = getelementptr i8, ptr %L, i64 16
   %L.val = load i64, ptr %6, align 8
-  %7 = inttoptr i64 %L.val to ptr
-  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 5972
-  %8 = ptrtoint ptr %arrayidx.i to i64
+  %7 = add nuw i64 %L.val, 5972
   %pc.i = getelementptr inbounds i8, ptr %call1, i64 32
-  store i64 %8, ptr %pc.i, align 8
+  store i64 %7, ptr %pc.i, align 8
   ret i32 1
 }
 

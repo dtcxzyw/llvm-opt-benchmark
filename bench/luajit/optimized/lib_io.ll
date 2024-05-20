@@ -902,10 +902,8 @@ if.else.i55:                                      ; preds = %if.then55
   %incdec.ptr19.i = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %incdec.ptr19.i, ptr %top, align 8
   %28 = load i64, ptr %glref.i50, align 8
-  %29 = inttoptr i64 %28 to ptr
-  %strempty.i = getelementptr inbounds i8, ptr %29, i64 120
-  %30 = ptrtoint ptr %strempty.i to i64
-  %or.i.i56 = or i64 %30, -703687441776640
+  %29 = add nuw i64 %28, 120
+  %or.i.i56 = or i64 %29, -703687441776640
   store i64 %or.i.i56, ptr %27, align 8
   %cmp22.i = icmp ne i32 %call16.i, -1
   br label %io_file_readlen.exit
@@ -924,16 +922,16 @@ for.inc:                                          ; preds = %if.then13.i, %if.th
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %tobool = icmp ne i32 %dec8, 0
   %tobool4 = icmp ne i32 %ok.1, 0
-  %31 = select i1 %tobool, i1 %tobool4, i1 false
-  br i1 %31, label %for.body, label %if.end63.loopexit, !llvm.loop !6
+  %30 = select i1 %tobool, i1 %tobool4, i1 false
+  br i1 %30, label %for.body, label %if.end63.loopexit, !llvm.loop !6
 
 if.end63.loopexit:                                ; preds = %for.inc
-  %32 = trunc nsw i64 %indvars.iv.next to i32
+  %31 = trunc nsw i64 %indvars.iv.next to i32
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.loopexit, %if.then
   %ok.2 = phi i32 [ %call, %if.then ], [ %ok.1, %if.end63.loopexit ]
-  %n.1 = phi i32 [ %add, %if.then ], [ %32, %if.end63.loopexit ]
+  %n.1 = phi i32 [ %add, %if.then ], [ %31, %if.end63.loopexit ]
   %call64 = call i32 @ferror(ptr noundef %iof.0.val) #10
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.end68, label %if.then66
@@ -947,8 +945,8 @@ if.end68:                                         ; preds = %if.end63
   br i1 %tobool69.not, label %if.then70, label %if.end73
 
 if.then70:                                        ; preds = %if.end68
-  %33 = load ptr, ptr %top, align 8
-  %add.ptr72 = getelementptr inbounds i8, ptr %33, i64 -8
+  %32 = load ptr, ptr %top, align 8
+  %add.ptr72 = getelementptr inbounds i8, ptr %32, i64 -8
   store i64 -1, ptr %add.ptr72, align 8
   br label %if.end73
 

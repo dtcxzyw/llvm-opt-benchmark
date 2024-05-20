@@ -166,14 +166,12 @@ entry:
   store i8 %conv1, ptr %nupvalues, align 1
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %bc_cfunc_ext = getelementptr inbounds i8, ptr %1, i64 364
-  %2 = ptrtoint ptr %bc_cfunc_ext to i64
+  %1 = add nuw i64 %0, 364
   %pc = getelementptr inbounds i8, ptr %call, i64 32
-  store i64 %2, ptr %pc, align 8
-  %3 = ptrtoint ptr %env to i64
+  store i64 %1, ptr %pc, align 8
+  %2 = ptrtoint ptr %env to i64
   %env3 = getelementptr inbounds i8, ptr %call, i64 16
-  store i64 %3, ptr %env3, align 8
+  store i64 %2, ptr %env3, align 8
   ret ptr %call
 }
 

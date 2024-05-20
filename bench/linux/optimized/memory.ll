@@ -69,16 +69,16 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_access_proce
 %struct.static_key_false = type { %struct.static_key }
 %struct.vm_event_state = type { [74 x i64] }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.pgd_t = type { i64 }
+%struct.p4d_t = type { i64 }
+%struct.pud_t = type { i64 }
+%struct.pmd_t = type { i64 }
 %struct.page = type { i64, %union.anon.9, %union.anon.17, %struct.atomic_t, [8 x i8] }
 %union.anon.9 = type { %struct.anon.10 }
 %struct.anon.10 = type { %union.anon.11, ptr, %union.anon.13, i64 }
 %union.anon.11 = type { %struct.list_head }
 %union.anon.13 = type { i64 }
 %union.anon.17 = type { %struct.atomic_t }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
 %struct.mmu_notifier_range = type { ptr, i64, i64, i32, i32, ptr }
 %struct.zap_details = type { ptr, i8, i32 }
 %struct.mmu_gather = type { ptr, ptr, i64, i64, i16, i32, ptr, %struct.mmu_gather_batch, [8 x ptr] }
@@ -189,19 +189,13 @@ define internal noundef i32 @disable_randmaps(ptr nocapture readnone %0) #0 sect
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
 define internal noundef i32 @init_zero_pfn() #1 section ".init.text" align 16 {
-  %1 = load i64, ptr @vmemmap_base, align 8
-  %2 = inttoptr i64 %1 to ptr
-  %3 = load i64, ptr @phys_base, align 8
-  %4 = load i64, ptr @page_offset_base, align 8
-  %5 = sub i64 -2147483648, %4
-  %6 = select i1 icmp ugt (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483649), i64 %3, i64 %5
-  %7 = add i64 %6, add (i64 ptrtoint (ptr @empty_zero_page to i64), i64 2147483648)
-  %8 = lshr i64 %7, 12
-  %9 = getelementptr %struct.page, ptr %2, i64 %8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = sub i64 %10, %1
-  %12 = ashr exact i64 %11, 6
-  store i64 %12, ptr @zero_pfn, align 8
+  %1 = load i64, ptr @phys_base, align 8
+  %2 = load i64, ptr @page_offset_base, align 8
+  %3 = sub i64 -2147483648, %2
+  %4 = select i1 icmp ugt (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483649), i64 %1, i64 %3
+  %5 = add i64 %4, add (i64 ptrtoint (ptr @empty_zero_page to i64), i64 2147483648)
+  %6 = lshr i64 %5, 12
+  store i64 %6, ptr @zero_pfn, align 8
   ret i32 0
 }
 

@@ -5,14 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.efi = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.efi_memory_map, i64 }
 %struct.efi_memory_map = type { i64, ptr, ptr, i32, i64, i64, i64 }
-%struct.page = type { i64, %union.anon, %union.anon.6, %struct.atomic_t, [8 x i8] }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %union.anon.0, ptr, %union.anon.2, i64 }
-%union.anon.0 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.2 = type { i64 }
-%union.anon.6 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @vmemmap_base = external dso_local local_unnamed_addr global i64, align 8
 @.str = private unnamed_addr constant [31 x i8] c"arch/x86/platform/efi/memmap.c\00", align 1
@@ -31,35 +23,29 @@ define dso_local void @__efi_memmap_free(i64 noundef %0, i64 noundef %1, i64 nou
 
 8:                                                ; preds = %6
   tail call void @memblock_free_late(i64 noundef %0, i64 noundef %1) #5
-  br label %28
+  br label %21
 
 9:                                                ; preds = %6
   %10 = tail call i32 @memblock_phys_free(i64 noundef %0, i64 noundef %1) #5
-  br label %28
+  br label %21
 
 11:                                               ; preds = %3
   %12 = and i64 %2, 4
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %28, label %14
+  br i1 %13, label %21, label %14
 
 14:                                               ; preds = %11
-  %15 = load i64, ptr @vmemmap_base, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %17 = lshr i64 %0, 12
-  %18 = getelementptr %struct.page, ptr %16, i64 %17
-  %19 = add i64 %1, -1
-  %20 = lshr i64 %19, 12
-  %21 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %20, i32 -1) #6, !srcloc !5
-  %22 = add i32 %21, 1
-  %23 = ptrtoint ptr %18 to i64
-  %24 = sub i64 %23, %15
-  %25 = shl i64 %24, 6
-  %26 = load i64, ptr @page_offset_base, align 8
-  %27 = add i64 %25, %26
-  tail call void @free_pages(i64 noundef %27, i32 noundef %22) #5
-  br label %28
+  %15 = add i64 %1, -1
+  %16 = lshr i64 %15, 12
+  %17 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %16, i32 -1) #6, !srcloc !5
+  %18 = add i32 %17, 1
+  %.idx = and i64 %0, -4096
+  %19 = load i64, ptr @page_offset_base, align 8
+  %20 = add i64 %19, %.idx
+  tail call void @free_pages(i64 noundef %20, i32 noundef %18) #5
+  br label %21
 
-28:                                               ; preds = %14, %11, %9, %8
+21:                                               ; preds = %14, %11, %9, %8
   ret void
 }
 

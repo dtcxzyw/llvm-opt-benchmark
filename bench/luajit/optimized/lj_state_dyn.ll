@@ -48,19 +48,17 @@ while.end.i:                                      ; preds = %land.lhs.true
   br i1 %cmp23.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end.i
-  %10 = inttoptr i64 %9 to ptr
-  %add.ptr29.i = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i
-  %11 = ptrtoint ptr %add.ptr29.i to i64
-  store i64 %11, ptr %jit_base.i, align 8
+  %10 = add i64 %9, %sub.ptr.sub.i
+  store i64 %10, ptr %jit_base.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.end.i
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
-  %12 = load ptr, ptr %base.i, align 8
-  %add.ptr34.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i
+  %11 = load ptr, ptr %base.i, align 8
+  %add.ptr34.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i
   store ptr %add.ptr34.i, ptr %base.i, align 8
-  %13 = load ptr, ptr %top, align 8
-  %add.ptr36.i = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i
+  %12 = load ptr, ptr %top, align 8
+  %add.ptr36.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i
   store ptr %add.ptr36.i, ptr %top, align 8
   %openupval.i = getelementptr inbounds i8, ptr %L, i64 64
   %up.0.in33.i = load i64, ptr %openupval.i, align 8
@@ -71,11 +69,9 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %up.0.in35.i = phi i64 [ %up.0.in.i, %for.body.i ], [ %up.0.in33.i, %if.end.i ]
   %up.0.i = inttoptr i64 %up.0.in35.i to ptr
   %v.i = getelementptr inbounds i8, ptr %up.0.i, i64 32
-  %14 = load i64, ptr %v.i, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %add.ptr41.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i
-  %16 = ptrtoint ptr %add.ptr41.i to i64
-  store i64 %16, ptr %v.i, align 8
+  %13 = load i64, ptr %v.i, align 8
+  %14 = add i64 %13, %sub.ptr.sub.i
+  store i64 %14, ptr %v.i, align 8
   %up.0.in.i = load i64, ptr %up.0.i, align 8
   %cmp38.not.i = icmp eq i64 %up.0.in.i, 0
   br i1 %cmp38.not.i, label %if.end, label %for.body.i, !llvm.loop !3
@@ -159,20 +155,18 @@ while.end.i:                                      ; preds = %while.body.preheade
   br i1 %cmp23.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end.i
-  %21 = inttoptr i64 %20 to ptr
-  %add.ptr29.i = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub.i
-  %22 = ptrtoint ptr %add.ptr29.i to i64
-  store i64 %22, ptr %jit_base.i, align 8
+  %21 = add i64 %20, %sub.ptr.sub.i
+  store i64 %21, ptr %jit_base.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.end.i
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
-  %23 = load ptr, ptr %base.i, align 8
-  %add.ptr34.i = getelementptr inbounds i8, ptr %23, i64 %sub.ptr.sub.i
+  %22 = load ptr, ptr %base.i, align 8
+  %add.ptr34.i = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub.i
   store ptr %add.ptr34.i, ptr %base.i, align 8
   %top.i = getelementptr inbounds i8, ptr %L, i64 40
-  %24 = load ptr, ptr %top.i, align 8
-  %add.ptr36.i = getelementptr inbounds i8, ptr %24, i64 %sub.ptr.sub.i
+  %23 = load ptr, ptr %top.i, align 8
+  %add.ptr36.i = getelementptr inbounds i8, ptr %23, i64 %sub.ptr.sub.i
   store ptr %add.ptr36.i, ptr %top.i, align 8
   %openupval.i = getelementptr inbounds i8, ptr %L, i64 64
   %up.0.in33.i = load i64, ptr %openupval.i, align 8
@@ -183,11 +177,9 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %up.0.in35.i = phi i64 [ %up.0.in.i, %for.body.i ], [ %up.0.in33.i, %if.end.i ]
   %up.0.i = inttoptr i64 %up.0.in35.i to ptr
   %v.i = getelementptr inbounds i8, ptr %up.0.i, i64 32
-  %25 = load i64, ptr %v.i, align 8
-  %26 = inttoptr i64 %25 to ptr
-  %add.ptr41.i = getelementptr inbounds i8, ptr %26, i64 %sub.ptr.sub.i
-  %27 = ptrtoint ptr %add.ptr41.i to i64
-  store i64 %27, ptr %v.i, align 8
+  %24 = load i64, ptr %v.i, align 8
+  %25 = add i64 %24, %sub.ptr.sub.i
+  store i64 %25, ptr %v.i, align 8
   %up.0.in.i = load i64, ptr %up.0.i, align 8
   %cmp38.not.i = icmp eq i64 %up.0.in.i, 0
   br i1 %cmp38.not.i, label %if.end13, label %for.body.i, !llvm.loop !3
@@ -289,20 +281,18 @@ while.end.i:                                      ; preds = %while.body.preheade
   br i1 %cmp23.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end.i
-  %15 = inttoptr i64 %14 to ptr
-  %add.ptr29.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i
-  %16 = ptrtoint ptr %add.ptr29.i to i64
-  store i64 %16, ptr %jit_base.i, align 8
+  %15 = add i64 %14, %sub.ptr.sub.i
+  store i64 %15, ptr %jit_base.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.end.i
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
-  %17 = load ptr, ptr %base.i, align 8
-  %add.ptr34.i = getelementptr inbounds i8, ptr %17, i64 %sub.ptr.sub.i
+  %16 = load ptr, ptr %base.i, align 8
+  %add.ptr34.i = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub.i
   store ptr %add.ptr34.i, ptr %base.i, align 8
   %top.i = getelementptr inbounds i8, ptr %L, i64 40
-  %18 = load ptr, ptr %top.i, align 8
-  %add.ptr36.i = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i
+  %17 = load ptr, ptr %top.i, align 8
+  %add.ptr36.i = getelementptr inbounds i8, ptr %17, i64 %sub.ptr.sub.i
   store ptr %add.ptr36.i, ptr %top.i, align 8
   %openupval.i = getelementptr inbounds i8, ptr %L, i64 64
   %up.0.in33.i = load i64, ptr %openupval.i, align 8
@@ -313,11 +303,9 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %up.0.in35.i = phi i64 [ %up.0.in.i, %for.body.i ], [ %up.0.in33.i, %if.end.i ]
   %up.0.i = inttoptr i64 %up.0.in35.i to ptr
   %v.i = getelementptr inbounds i8, ptr %up.0.i, i64 32
-  %19 = load i64, ptr %v.i, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %add.ptr41.i = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i
-  %21 = ptrtoint ptr %add.ptr41.i to i64
-  store i64 %21, ptr %v.i, align 8
+  %18 = load i64, ptr %v.i, align 8
+  %19 = add i64 %18, %sub.ptr.sub.i
+  store i64 %19, ptr %v.i, align 8
   %up.0.in.i = load i64, ptr %up.0.i, align 8
   %cmp38.not.i = icmp eq i64 %up.0.in.i, 0
   br i1 %cmp38.not.i, label %resizestack.exit, label %for.body.i, !llvm.loop !3

@@ -3280,118 +3280,117 @@ sw.bb:                                            ; preds = %entry
   %21 = ptrtoint ptr %add.ptr.i to i64
   %sub.i.i = add i64 %21, 3
   %and.i.i = and i64 %sub.i.i, -4
-  %22 = inttoptr i64 %and.i.i to ptr
   %op4.i = getelementptr inbounds i8, ptr %ip, i64 10
-  %23 = load i32, ptr %op4.i, align 1
+  %22 = load i32, ptr %op4.i, align 1
   %op5.i = getelementptr inbounds i8, ptr %ip, i64 14
-  %24 = load i32, ptr %op5.i, align 1
-  %reass.sub = sub i32 %24, %23
+  %23 = load i32, ptr %op5.i, align 1
+  %reass.sub = sub i32 %23, %22
   %add.i = add i32 %reass.sub, 1
   %idxprom.i = zext i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %22, i64 %idxprom.i
-  %25 = ptrtoint ptr %arrayidx.i to i64
+  %arrayidx.idx.i = shl nuw nsw i64 %idxprom.i, 2
+  %24 = add nuw i64 %and.i.i, %arrayidx.idx.i
   %functionEnd_.i = getelementptr inbounds i8, ptr %this, i64 96
-  %26 = load i64, ptr %functionEnd_.i, align 8
-  %cmp.i = icmp ult i64 %26, %25
+  %25 = load i64, ptr %functionEnd_.i, align 8
+  %cmp.i = icmp ugt i64 %24, %25
   br i1 %cmp.i, label %if.then.i, label %sw.epilog
 
 if.then.i:                                        ; preds = %sw.bb
-  store i64 %25, ptr %functionEnd_.i, align 8
+  store i64 %24, ptr %functionEnd_.i, align 8
   br label %sw.epilog
 
 sw.bb92:                                          ; preds = %entry
   %bcProvider_ = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load ptr, ptr %bcProvider_, align 8
-  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %27, i64 88
+  %26 = load ptr, ptr %bcProvider_, align 8
+  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %26, i64 88
   %retval.sroa.0.0.copyload.i = load ptr, ptr %objKeyBuffer_.i, align 8
   %op494 = getelementptr inbounds i8, ptr %ip, i64 6
-  %28 = load i16, ptr %op494, align 1
-  %conv95 = zext i16 %28 to i32
+  %27 = load i16, ptr %op494, align 1
+  %conv95 = zext i16 %27 to i32
   %op396 = getelementptr inbounds i8, ptr %ip, i64 4
-  %29 = load i16, ptr %op396, align 1
-  %conv97 = zext i16 %29 to i32
+  %28 = load i16, ptr %op396, align 1
+  %conv97 = zext i16 %28 to i32
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i, i32 noundef %conv95, i32 noundef %conv97)
-  %30 = load ptr, ptr %bcProvider_, align 8
-  %objValueBuffer_.i = getelementptr inbounds i8, ptr %30, i64 104
+  %29 = load ptr, ptr %bcProvider_, align 8
+  %objValueBuffer_.i = getelementptr inbounds i8, ptr %29, i64 104
   %retval.sroa.0.0.copyload.i58 = load ptr, ptr %objValueBuffer_.i, align 8
   %op5 = getelementptr inbounds i8, ptr %ip, i64 8
-  %31 = load i16, ptr %op5, align 1
-  %conv102 = zext i16 %31 to i32
-  %32 = load i16, ptr %op396, align 1
-  %conv104 = zext i16 %32 to i32
+  %30 = load i16, ptr %op5, align 1
+  %conv102 = zext i16 %30 to i32
+  %31 = load i16, ptr %op396, align 1
+  %conv104 = zext i16 %31 to i32
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i58, i32 noundef %conv102, i32 noundef %conv104)
   br label %sw.epilog
 
 sw.bb105:                                         ; preds = %entry
   %bcProvider_107 = getelementptr inbounds i8, ptr %this, i64 8
-  %33 = load ptr, ptr %bcProvider_107, align 8
-  %objKeyBuffer_.i62 = getelementptr inbounds i8, ptr %33, i64 88
+  %32 = load ptr, ptr %bcProvider_107, align 8
+  %objKeyBuffer_.i62 = getelementptr inbounds i8, ptr %32, i64 88
   %retval.sroa.0.0.copyload.i63 = load ptr, ptr %objKeyBuffer_.i62, align 8
   %op4110 = getelementptr inbounds i8, ptr %ip, i64 6
-  %34 = load i32, ptr %op4110, align 1
+  %33 = load i32, ptr %op4110, align 1
   %op3111 = getelementptr inbounds i8, ptr %ip, i64 4
-  %35 = load i16, ptr %op3111, align 1
-  %conv112 = zext i16 %35 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i63, i32 noundef %34, i32 noundef %conv112)
-  %36 = load ptr, ptr %bcProvider_107, align 8
-  %objValueBuffer_.i68 = getelementptr inbounds i8, ptr %36, i64 104
+  %34 = load i16, ptr %op3111, align 1
+  %conv112 = zext i16 %34 to i32
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i63, i32 noundef %33, i32 noundef %conv112)
+  %35 = load ptr, ptr %bcProvider_107, align 8
+  %objValueBuffer_.i68 = getelementptr inbounds i8, ptr %35, i64 104
   %retval.sroa.0.0.copyload.i69 = load ptr, ptr %objValueBuffer_.i68, align 8
   %op5117 = getelementptr inbounds i8, ptr %ip, i64 10
-  %37 = load i32, ptr %op5117, align 1
-  %38 = load i16, ptr %op3111, align 1
-  %conv119 = zext i16 %38 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i69, i32 noundef %37, i32 noundef %conv119)
+  %36 = load i32, ptr %op5117, align 1
+  %37 = load i16, ptr %op3111, align 1
+  %conv119 = zext i16 %37 to i32
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i69, i32 noundef %36, i32 noundef %conv119)
   br label %sw.epilog
 
 sw.bb120:                                         ; preds = %entry
   %bcProvider_122 = getelementptr inbounds i8, ptr %this, i64 8
-  %39 = load ptr, ptr %bcProvider_122, align 8
-  %arrayBuffer_.i = getelementptr inbounds i8, ptr %39, i64 72
+  %38 = load ptr, ptr %bcProvider_122, align 8
+  %arrayBuffer_.i = getelementptr inbounds i8, ptr %38, i64 72
   %retval.sroa.0.0.copyload.i74 = load ptr, ptr %arrayBuffer_.i, align 8
   %op4125 = getelementptr inbounds i8, ptr %ip, i64 6
-  %40 = load i16, ptr %op4125, align 1
-  %conv126 = zext i16 %40 to i32
+  %39 = load i16, ptr %op4125, align 1
+  %conv126 = zext i16 %39 to i32
   %op3127 = getelementptr inbounds i8, ptr %ip, i64 4
-  %41 = load i16, ptr %op3127, align 1
-  %conv128 = zext i16 %41 to i32
+  %40 = load i16, ptr %op3127, align 1
+  %conv128 = zext i16 %40 to i32
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i74, i32 noundef %conv126, i32 noundef %conv128)
   br label %sw.epilog
 
 sw.bb129:                                         ; preds = %entry
   %bcProvider_131 = getelementptr inbounds i8, ptr %this, i64 8
-  %42 = load ptr, ptr %bcProvider_131, align 8
-  %arrayBuffer_.i78 = getelementptr inbounds i8, ptr %42, i64 72
+  %41 = load ptr, ptr %bcProvider_131, align 8
+  %arrayBuffer_.i78 = getelementptr inbounds i8, ptr %41, i64 72
   %retval.sroa.0.0.copyload.i79 = load ptr, ptr %arrayBuffer_.i78, align 8
   %op4134 = getelementptr inbounds i8, ptr %ip, i64 6
-  %43 = load i32, ptr %op4134, align 1
+  %42 = load i32, ptr %op4134, align 1
   %op3135 = getelementptr inbounds i8, ptr %ip, i64 4
-  %44 = load i16, ptr %op3135, align 1
-  %conv136 = zext i16 %44 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i79, i32 noundef %43, i32 noundef %conv136)
+  %43 = load i16, ptr %op3135, align 1
+  %conv136 = zext i16 %43 to i32
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i79, i32 noundef %42, i32 noundef %conv136)
   br label %sw.epilog
 
 sw.bb137:                                         ; preds = %entry
   %op286 = getelementptr inbounds i8, ptr %ip, i64 2
-  %45 = load i32, ptr %op286, align 1
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter18countStringLiteralEj(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %45)
+  %44 = load i32, ptr %op286, align 1
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter18countStringLiteralEj(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %44)
   %op390 = getelementptr inbounds i8, ptr %ip, i64 6
-  %46 = load i32, ptr %op390, align 1
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter18countStringLiteralEj(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %46)
+  %45 = load i32, ptr %op390, align 1
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter18countStringLiteralEj(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %45)
   %op4138 = getelementptr inbounds i8, ptr %ip, i64 10
-  %47 = load i32, ptr %op4138, align 1
-  %cmp.i84 = icmp eq i32 %47, -1
+  %46 = load i32, ptr %op4138, align 1
+  %cmp.i84 = icmp eq i32 %46, -1
   br i1 %cmp.i84, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb137
   %bcProvider_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %48 = load ptr, ptr %bcProvider_.i, align 8
-  %regExpTable_.i.i = getelementptr inbounds i8, ptr %48, i64 152
+  %47 = load ptr, ptr %bcProvider_.i, align 8
+  %regExpTable_.i.i = getelementptr inbounds i8, ptr %47, i64 152
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %regExpTable_.i.i, align 8
-  %conv.i = zext i32 %47 to i64
+  %conv.i = zext i32 %46 to i64
   %regex.sroa.1.0.call3.sroa_idx.i = getelementptr inbounds %"struct.hermes::RegExpTableEntry", ptr %retval.sroa.0.0.copyload.i.i, i64 %conv.i, i32 1
   %regex.sroa.1.0.copyload.i = load i32, ptr %regex.sroa.1.0.call3.sroa_idx.i, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.48, i64 16, i32 noundef %47, i32 noundef 8)
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.49, i64 19, i32 noundef %47, i32 noundef %regex.sroa.1.0.copyload.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.48, i64 16, i32 noundef %46, i32 noundef 8)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.49, i64 19, i32 noundef %46, i32 noundef %regex.sroa.1.0.copyload.i)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %if.then81, %if.then, %if.then3, %if.then7, %if.then10, %if.then15, %if.then19, %if.then24, %if.then28, %if.then33, %if.then37, %if.then42, %if.then46, %if.then50, %if.then55, %if.then59, %if.then64, %if.then68, %if.then73, %if.then77, %if.end.i, %sw.bb137, %if.then.i, %sw.bb, %sw.bb129, %sw.bb120, %sw.bb105, %sw.bb92

@@ -66,44 +66,36 @@ define void @mpi_wtick_f90__(ptr nocapture noundef writeonly %0) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @MPI_AINT_ADD_F90(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = load i64, ptr %0, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 %6
-  %8 = ptrtoint ptr %7 to i64
-  store i64 %8, ptr %2, align 8
+  %5 = load i64, ptr %1, align 8
+  %6 = add i64 %5, %4
+  store i64 %6, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @mpi_aint_add_f90(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = load i64, ptr %0, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 %6
-  %8 = ptrtoint ptr %7 to i64
-  store i64 %8, ptr %2, align 8
+  %5 = load i64, ptr %1, align 8
+  %6 = add i64 %5, %4
+  store i64 %6, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @mpi_aint_add_f90_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = load i64, ptr %0, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 %6
-  %8 = ptrtoint ptr %7 to i64
-  store i64 %8, ptr %2, align 8
+  %5 = load i64, ptr %1, align 8
+  %6 = add i64 %5, %4
+  store i64 %6, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @mpi_aint_add_f90__(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = load i64, ptr %0, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 %6
-  %8 = ptrtoint ptr %7 to i64
-  store i64 %8, ptr %2, align 8
+  %5 = load i64, ptr %1, align 8
+  %6 = add i64 %5, %4
+  store i64 %6, ptr %2, align 8
   ret void
 }
 

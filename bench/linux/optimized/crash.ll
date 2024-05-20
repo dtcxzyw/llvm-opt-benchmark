@@ -10,14 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 %struct.kexec_segment = type { %union.anon.0, i64, i64, i64 }
 %union.anon.0 = type { ptr }
-%struct.page = type { i64, %union.anon.1, %union.anon.9, %struct.atomic_t, [8 x i8] }
-%union.anon.1 = type { %struct.anon.2 }
-%struct.anon.2 = type { %union.anon.3, ptr, %union.anon.5, i64 }
-%union.anon.3 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.5 = type { i64 }
-%union.anon.9 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 %struct.range = type { i64, i64 }
 
 @crash_smp_send_stop.cpus_stopped = internal unnamed_addr global i1 false, align 4
@@ -25,7 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 @.str.1 = private unnamed_addr constant [44 x i8] c"\013crash hp: unable to create new elfcorehdr\00", align 1
 @.str.2 = private unnamed_addr constant [52 x i8] c"\013crash hp: update elfcorehdr elfsz %lu > memsz %lu\00", align 1
-@vmemmap_base = external dso_local local_unnamed_addr global i64, align 8
 @.str.3 = private unnamed_addr constant [47 x i8] c"\013crash hp: mapping elfcorehdr segment failed\0A\00", align 1
 @kexec_crash_image = external dso_local global ptr, align 8
 @crashk_res = external dso_local local_unnamed_addr global %struct.resource, align 8
@@ -183,7 +174,7 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -1
   %17 = icmp ult i32 %16, 2
-  br i1 %17, label %90, label %18
+  br i1 %17, label %83, label %18
 
 18:                                               ; preds = %13, %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
@@ -252,7 +243,7 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
 
 53:                                               ; preds = %.thread, %52, %49
   %54 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
-  br label %88
+  br label %81
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds i8, ptr %0, i64 64
@@ -268,42 +259,36 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
 
 65:                                               ; preds = %55
   %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i64 noundef %63, i64 noundef %62) #10
-  br label %88
+  br label %81
 
 67:                                               ; preds = %55
   %68 = getelementptr inbounds i8, ptr %60, i64 16
   %69 = load i64, ptr %68, align 8
-  %70 = load i64, ptr @vmemmap_base, align 8
-  %71 = inttoptr i64 %70 to ptr
-  %72 = lshr i64 %69, 12
-  %73 = getelementptr %struct.page, ptr %71, i64 %72
-  %74 = ptrtoint ptr %73 to i64
-  %75 = sub i64 %74, %70
-  %76 = shl i64 %75, 6
-  %77 = load i64, ptr @page_offset_base, align 8
-  %78 = add i64 %76, %77
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %80, label %82
+  %.idx = and i64 %69, -4096
+  %70 = load i64, ptr @page_offset_base, align 8
+  %71 = add i64 %.idx, %70
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %73, label %75
 
-80:                                               ; preds = %67
-  %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #10
-  br label %88
+73:                                               ; preds = %67
+  %74 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #10
+  br label %81
 
-82:                                               ; preds = %67
-  %83 = inttoptr i64 %78 to ptr
-  %84 = call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @kexec_crash_image, ptr null, ptr nonnull elementtype(ptr) @kexec_crash_image) #7, !srcloc !9
-  %85 = load i64, ptr %4, align 8
-  %86 = load ptr, ptr %3, align 8
-  call void @__memcpy_flushcache(ptr noundef nonnull %83, ptr noundef %86, i64 noundef %85) #7
-  %87 = call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @kexec_crash_image, ptr %0, ptr nonnull elementtype(ptr) @kexec_crash_image) #7, !srcloc !10
-  br label %88
+75:                                               ; preds = %67
+  %76 = inttoptr i64 %71 to ptr
+  %77 = call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @kexec_crash_image, ptr null, ptr nonnull elementtype(ptr) @kexec_crash_image) #7, !srcloc !9
+  %78 = load i64, ptr %4, align 8
+  %79 = load ptr, ptr %3, align 8
+  call void @__memcpy_flushcache(ptr noundef nonnull %76, ptr noundef %79, i64 noundef %78) #7
+  %80 = call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @kexec_crash_image, ptr %0, ptr nonnull elementtype(ptr) @kexec_crash_image) #7, !srcloc !10
+  br label %81
 
-88:                                               ; preds = %82, %80, %65, %53
-  %89 = load ptr, ptr %3, align 8
-  call void @vfree(ptr noundef %89) #7
-  br label %90
+81:                                               ; preds = %75, %73, %65, %53
+  %82 = load ptr, ptr %3, align 8
+  call void @vfree(ptr noundef %82) #7
+  br label %83
 
-90:                                               ; preds = %88, %13
+83:                                               ; preds = %81, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
