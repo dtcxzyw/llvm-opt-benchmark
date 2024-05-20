@@ -1229,11 +1229,11 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 if.end.i:                                         ; preds = %if.end
   %2 = getelementptr i8, ptr %0, i64 8
   %mapping.val.i = load ptr, ptr %2, align 8
-  %call3.i = tail call ptr @_PyType_Lookup(ptr noundef %mapping.val.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 384)) #9
-  %call4.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull @PyDict_Type, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 384)) #9
+  %call3.i = tail call ptr @_PyType_Lookup(ptr noundef %mapping.val.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46576)) #9
+  %call4.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull @PyDict_Type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46576)) #9
   %mapping.val59.i = load ptr, ptr %2, align 8
-  %call6.i = tail call ptr @_PyType_Lookup(ptr noundef %mapping.val59.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 150)) #9
-  %call7.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull @PyDict_Type, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 150)) #9
+  %call6.i = tail call ptr @_PyType_Lookup(ptr noundef %mapping.val59.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34008)) #9
+  %call7.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull @PyDict_Type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34008)) #9
   %cmp8.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp8.not.i, label %if.else55.i, label %land.lhs.true.i
 
@@ -1288,12 +1288,12 @@ if.then34.i:                                      ; preds = %if.end31.i
   br i1 %tobool36.not.i, label %if.end38.i, label %done.i
 
 if.end38.i:                                       ; preds = %if.then34.i
-  %call39.i = tail call i32 @_PyDict_SetItem_KnownHash(ptr noundef %0, ptr noundef nonnull %call186.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), i64 noundef %hash.0.i) #9
+  %call39.i = tail call i32 @_PyDict_SetItem_KnownHash(ptr noundef %0, ptr noundef nonnull %call186.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), i64 noundef %hash.0.i) #9
   %cmp40.i = icmp slt i32 %call39.i, 0
   br i1 %cmp40.i, label %done.i, label %if.end54.i
 
 if.else.i:                                        ; preds = %if.end31.i
-  %call43.i = tail call ptr @PyNumber_Add(ptr noundef nonnull %call32.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6)) #9
+  %call43.i = tail call ptr @PyNumber_Add(ptr noundef nonnull %call32.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #9
   %cmp44.i = icmp eq ptr %call43.i, null
   br i1 %cmp44.i, label %done.i, label %if.end46.i
 
@@ -1340,7 +1340,7 @@ Py_DECREF.exit126.i:                              ; preds = %if.then1.i124.i, %i
   br i1 %cmp19.i, label %done.i, label %if.end21.i
 
 if.else55.i:                                      ; preds = %land.lhs.true14.i, %land.lhs.true.i, %if.end.i
-  %call56.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 384)) #9
+  %call56.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46576)) #9
   %cmp57.i = icmp eq ptr %call56.i, null
   br i1 %cmp57.i, label %done.i, label %while.body61.preheader.i
 
@@ -1351,12 +1351,12 @@ while.body61.preheader.i:                         ; preds = %if.else55.i
 
 if.end65.i:                                       ; preds = %while.body61.preheader.i, %Py_DECREF.exit99.i
   %call6220.i = phi ptr [ %call62.i, %Py_DECREF.exit99.i ], [ %call6218.i, %while.body61.preheader.i ]
-  %call66.i = tail call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef nonnull %call56.i, ptr noundef nonnull %call6220.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), ptr noundef null) #9
+  %call66.i = tail call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef nonnull %call56.i, ptr noundef nonnull %call6220.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr noundef null) #9
   %cmp67.i = icmp eq ptr %call66.i, null
   br i1 %cmp67.i, label %done.i, label %if.end69.i
 
 if.end69.i:                                       ; preds = %if.end65.i
-  %call70.i = tail call ptr @PyNumber_Add(ptr noundef nonnull %call66.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6)) #9
+  %call70.i = tail call ptr @PyNumber_Add(ptr noundef nonnull %call66.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #9
   %11 = load i64, ptr %call66.i, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i144.not.i = icmp eq i64 %12, 0
@@ -5645,7 +5645,7 @@ if.then1.i7:                                      ; preds = %if.end.i4
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then, %if.then1.i7, %if.end.i4
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 48), align 8
   tail call void %4(ptr noundef nonnull %dd) #9
   %5 = load i64, ptr %dd.val, align 8
   %6 = and i64 %5, 2147483648
@@ -5669,7 +5669,7 @@ Py_DECREF.exit:                                   ; preds = %do.end, %if.then1.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @defdict_repr(ptr noundef %dd) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 9), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 88), align 8
   %call = tail call ptr %0(ptr noundef %dd) #9
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
@@ -5886,7 +5886,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.end16, label %return
 
 do.end16:                                         ; preds = %do.body6, %if.then8
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 21), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 184), align 8
   %call17 = tail call i32 %2(ptr noundef nonnull %self, ptr noundef %visit, ptr noundef %arg) #9
   br label %return
 
@@ -5921,7 +5921,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then, %if.then1.i, %if.end.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 22), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 192), align 8
   %call = tail call i32 %3(ptr noundef nonnull %dd) #9
   ret i32 %call
 }
@@ -5996,7 +5996,7 @@ _Py_XNewRef.exit:                                 ; preds = %if.end12.thread27, 
   %newargs.02026 = phi ptr [ %call11, %if.end15 ], [ %call11, %if.then.i.i ], [ %call11, %if.end.i.i.i ], [ %call2, %if.end12.thread ], [ %call1129, %if.end12.thread27 ]
   %newdefault.12125 = phi ptr [ null, %if.end15 ], [ %5, %if.then.i.i ], [ %5, %if.end.i.i.i ], [ null, %if.end12.thread ], [ null, %if.end12.thread27 ]
   store ptr %newdefault.12125, ptr %default_factory, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 35), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 296), align 8
   %call18 = tail call i32 %8(ptr noundef nonnull %self, ptr noundef nonnull %newargs.02026, ptr noundef %kwds) #9
   %9 = load i64, ptr %newargs.02026, align 8
   %10 = and i64 %9, 2147483648
@@ -6171,7 +6171,7 @@ if.end:                                           ; preds = %if.else, %if.then
 if.end7:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %dd, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 433), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #9
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49128), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %cmp9 = icmp eq ptr %call.i, null
   br i1 %cmp9, label %if.then10, label %if.end11

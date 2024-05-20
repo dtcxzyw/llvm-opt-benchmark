@@ -1361,11 +1361,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_1EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i, align 8, !noalias !4
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 16
   %0 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 24
   store i64 0, ptr %0, align 8, !noalias !4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_1EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !4
   store float 1.000000e+00, ptr %0, align 8, !noalias !4
   br label %return
 
@@ -1375,11 +1375,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_2EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i11, align 8, !noalias !7
   %_M_weak_count.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i10, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i12, align 4, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i10, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i10, align 8, !noalias !7
   %_M_impl.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i10, i64 16
   %1 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i10, i64 24
   store i64 0, ptr %1, align 8, !noalias !7
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_2EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i13, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i13, align 8, !noalias !7
   store float 0x40100C0C00000000, ptr %1, align 8, !noalias !7
   br label %return
 
@@ -1389,11 +1389,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_3EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i49, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i48, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i50, align 4, !noalias !10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i48, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i48, align 8, !noalias !10
   %_M_impl.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i48, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i48, i64 24
   store i64 0, ptr %2, align 8, !noalias !10
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_3EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i51, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i51, align 8, !noalias !10
   store float 0x40300F0F00000000, ptr %2, align 8, !noalias !10
   br label %return
 
@@ -1403,11 +1403,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_5EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i87, align 8, !noalias !13
   %_M_weak_count.i.i.i.i.i.i88 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i86, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i88, align 4, !noalias !13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i86, align 8, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i86, align 8, !noalias !13
   %_M_impl.i.i.i.i.i.i89 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i86, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i86, i64 24
   store i64 0, ptr %3, align 8, !noalias !13
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_5EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i89, align 8, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i89, align 8, !noalias !13
   store float 2.570000e+02, ptr %3, align 8, !noalias !13
   br label %return
 
@@ -1417,11 +1417,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_7EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i125, align 8, !noalias !16
   %_M_weak_count.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i124, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i126, align 4, !noalias !16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i124, align 8, !noalias !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i124, align 8, !noalias !16
   %_M_impl.i.i.i.i.i.i127 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i124, i64 16
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i124, i64 24
   store i64 0, ptr %4, align 8, !noalias !16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_7EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i127, align 8, !noalias !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i127, align 8, !noalias !16
   store float 0x3F70101020000000, ptr %4, align 8, !noalias !16
   br label %return
 
@@ -1431,11 +1431,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_8EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i163, align 8, !noalias !19
   %_M_weak_count.i.i.i.i.i.i164 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i162, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i164, align 4, !noalias !19
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i162, align 8, !noalias !19
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE1ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i162, align 8, !noalias !19
   %_M_impl.i.i.i.i.i.i165 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i162, i64 16
   %5 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i162, i64 24
   store i64 0, ptr %5, align 8, !noalias !19
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_8EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i165, align 8, !noalias !19
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE1ELS1_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i165, align 8, !noalias !19
   store float 0x3F70101020000000, ptr %5, align 8, !noalias !19
   br label %return
 
@@ -1469,11 +1469,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_1EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i201, align 8, !noalias !22
   %_M_weak_count.i.i.i.i.i.i202 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i200, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i202, align 4, !noalias !22
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i200, align 8, !noalias !22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i200, align 8, !noalias !22
   %_M_impl.i.i.i.i.i.i203 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i200, i64 16
   %7 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i200, i64 24
   store i64 0, ptr %7, align 8, !noalias !22
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_1EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i203, align 8, !noalias !22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i203, align 8, !noalias !22
   store float 0x3FCFE7FA00000000, ptr %7, align 8, !noalias !22
   br label %return
 
@@ -1483,11 +1483,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_2EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i239, align 8, !noalias !25
   %_M_weak_count.i.i.i.i.i.i240 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i238, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i240, align 4, !noalias !25
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i238, align 8, !noalias !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i238, align 8, !noalias !25
   %_M_impl.i.i.i.i.i.i241 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i238, i64 16
   %8 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i238, i64 24
   store i64 0, ptr %8, align 8, !noalias !25
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_2EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i241, align 8, !noalias !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i241, align 8, !noalias !25
   store float 1.000000e+00, ptr %8, align 8, !noalias !25
   br label %return
 
@@ -1497,11 +1497,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_3EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i277, align 8, !noalias !28
   %_M_weak_count.i.i.i.i.i.i278 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i276, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i278, align 4, !noalias !28
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i276, align 8, !noalias !28
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i276, align 8, !noalias !28
   %_M_impl.i.i.i.i.i.i279 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i276, i64 16
   %9 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i276, i64 24
   store i64 0, ptr %9, align 8, !noalias !28
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_3EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i279, align 8, !noalias !28
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i279, align 8, !noalias !28
   store float 0x40100300C0000000, ptr %9, align 8, !noalias !28
   br label %return
 
@@ -1511,11 +1511,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_5EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i315, align 8, !noalias !31
   %_M_weak_count.i.i.i.i.i.i316 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i314, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i316, align 4, !noalias !31
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i314, align 8, !noalias !31
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i314, align 8, !noalias !31
   %_M_impl.i.i.i.i.i.i317 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i314, i64 16
   %10 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i314, i64 24
   store i64 0, ptr %10, align 8, !noalias !31
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_5EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i317, align 8, !noalias !31
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i317, align 8, !noalias !31
   store float 0x405003F100000000, ptr %10, align 8, !noalias !31
   br label %return
 
@@ -1525,11 +1525,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_7EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i353, align 8, !noalias !34
   %_M_weak_count.i.i.i.i.i.i354 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i352, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i354, align 4, !noalias !34
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i352, align 8, !noalias !34
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i352, align 8, !noalias !34
   %_M_impl.i.i.i.i.i.i355 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i352, i64 16
   %11 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i352, i64 24
   store i64 0, ptr %11, align 8, !noalias !34
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_7EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i355, align 8, !noalias !34
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i355, align 8, !noalias !34
   store float 0x3F50040100000000, ptr %11, align 8, !noalias !34
   br label %return
 
@@ -1539,11 +1539,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_8EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i391, align 8, !noalias !37
   %_M_weak_count.i.i.i.i.i.i392 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i390, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i392, align 4, !noalias !37
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i390, align 8, !noalias !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE2ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i390, align 8, !noalias !37
   %_M_impl.i.i.i.i.i.i393 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i390, i64 16
   %12 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i390, i64 24
   store i64 0, ptr %12, align 8, !noalias !37
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_8EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i393, align 8, !noalias !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE2ELS1_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i393, align 8, !noalias !37
   store float 0x3F50040100000000, ptr %12, align 8, !noalias !37
   br label %return
 
@@ -1577,11 +1577,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_1EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i429, align 8, !noalias !40
   %_M_weak_count.i.i.i.i.i.i430 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i428, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i430, align 4, !noalias !40
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i428, align 8, !noalias !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i428, align 8, !noalias !40
   %_M_impl.i.i.i.i.i.i431 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i428, i64 16
   %14 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i428, i64 24
   store i64 0, ptr %14, align 8, !noalias !40
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_1EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i431, align 8, !noalias !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i431, align 8, !noalias !40
   store float 0x3FAFE1FE20000000, ptr %14, align 8, !noalias !40
   br label %return
 
@@ -1591,11 +1591,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_2EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i467, align 8, !noalias !43
   %_M_weak_count.i.i.i.i.i.i468 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i466, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i468, align 4, !noalias !43
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i466, align 8, !noalias !43
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i466, align 8, !noalias !43
   %_M_impl.i.i.i.i.i.i469 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i466, i64 16
   %15 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i466, i64 24
   store i64 0, ptr %15, align 8, !noalias !43
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_2EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i469, align 8, !noalias !43
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i469, align 8, !noalias !43
   store float 0x3FCFF9FFA0000000, ptr %15, align 8, !noalias !43
   br label %return
 
@@ -1605,11 +1605,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_3EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i505, align 8, !noalias !46
   %_M_weak_count.i.i.i.i.i.i506 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i504, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i506, align 4, !noalias !46
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i504, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i504, align 8, !noalias !46
   %_M_impl.i.i.i.i.i.i507 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i504, i64 16
   %16 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i504, i64 24
   store i64 0, ptr %16, align 8, !noalias !46
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_3EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i507, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i507, align 8, !noalias !46
   store float 1.000000e+00, ptr %16, align 8, !noalias !46
   br label %return
 
@@ -1619,11 +1619,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_5EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i543, align 8, !noalias !49
   %_M_weak_count.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i542, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i544, align 4, !noalias !49
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i542, align 8, !noalias !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i542, align 8, !noalias !49
   %_M_impl.i.i.i.i.i.i545 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i542, i64 16
   %17 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i542, i64 24
   store i64 0, ptr %17, align 8, !noalias !49
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_5EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i545, align 8, !noalias !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i545, align 8, !noalias !49
   store float 0x403000F000000000, ptr %17, align 8, !noalias !49
   br label %return
 
@@ -1633,11 +1633,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_7EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i581, align 8, !noalias !52
   %_M_weak_count.i.i.i.i.i.i582 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i580, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i582, align 4, !noalias !52
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i580, align 8, !noalias !52
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i580, align 8, !noalias !52
   %_M_impl.i.i.i.i.i.i583 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i580, i64 16
   %18 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i580, i64 24
   store i64 0, ptr %18, align 8, !noalias !52
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_7EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i583, align 8, !noalias !52
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i583, align 8, !noalias !52
   store float 0x3F30010020000000, ptr %18, align 8, !noalias !52
   br label %return
 
@@ -1647,11 +1647,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_8EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i619, align 8, !noalias !55
   %_M_weak_count.i.i.i.i.i.i620 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i618, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i620, align 4, !noalias !55
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i618, align 8, !noalias !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE3ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i618, align 8, !noalias !55
   %_M_impl.i.i.i.i.i.i621 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i618, i64 16
   %19 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i618, i64 24
   store i64 0, ptr %19, align 8, !noalias !55
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_8EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i621, align 8, !noalias !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE3ELS1_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i621, align 8, !noalias !55
   store float 0x3F30010020000000, ptr %19, align 8, !noalias !55
   br label %return
 
@@ -1685,11 +1685,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_1EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i657, align 8, !noalias !58
   %_M_weak_count.i.i.i.i.i.i658 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i656, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i658, align 4, !noalias !58
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i656, align 8, !noalias !58
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i656, align 8, !noalias !58
   %_M_impl.i.i.i.i.i.i659 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i656, i64 16
   %21 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i656, i64 24
   store i64 0, ptr %21, align 8, !noalias !58
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_1EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i659, align 8, !noalias !58
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i659, align 8, !noalias !58
   store float 0x3F6FE01FE0000000, ptr %21, align 8, !noalias !58
   br label %return
 
@@ -1699,11 +1699,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_2EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i695, align 8, !noalias !61
   %_M_weak_count.i.i.i.i.i.i696 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i694, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i696, align 4, !noalias !61
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i694, align 8, !noalias !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i694, align 8, !noalias !61
   %_M_impl.i.i.i.i.i.i697 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i694, i64 16
   %22 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i694, i64 24
   store i64 0, ptr %22, align 8, !noalias !61
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_2EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i697, align 8, !noalias !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i697, align 8, !noalias !61
   store float 0x3F8FF82000000000, ptr %22, align 8, !noalias !61
   br label %return
 
@@ -1713,11 +1713,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_3EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i733, align 8, !noalias !64
   %_M_weak_count.i.i.i.i.i.i734 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i732, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i734, align 4, !noalias !64
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i732, align 8, !noalias !64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i732, align 8, !noalias !64
   %_M_impl.i.i.i.i.i.i735 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i732, i64 16
   %23 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i732, i64 24
   store i64 0, ptr %23, align 8, !noalias !64
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_3EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i735, align 8, !noalias !64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i735, align 8, !noalias !64
   store float 0x3FAFFE2000000000, ptr %23, align 8, !noalias !64
   br label %return
 
@@ -1727,11 +1727,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_5EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i771, align 8, !noalias !67
   %_M_weak_count.i.i.i.i.i.i772 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i770, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i772, align 4, !noalias !67
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i770, align 8, !noalias !67
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i770, align 8, !noalias !67
   %_M_impl.i.i.i.i.i.i773 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i770, i64 16
   %24 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i770, i64 24
   store i64 0, ptr %24, align 8, !noalias !67
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_5EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i773, align 8, !noalias !67
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i773, align 8, !noalias !67
   store float 1.000000e+00, ptr %24, align 8, !noalias !67
   br label %return
 
@@ -1741,11 +1741,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_7EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i809, align 8, !noalias !70
   %_M_weak_count.i.i.i.i.i.i810 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i808, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i810, align 4, !noalias !70
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i808, align 8, !noalias !70
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i808, align 8, !noalias !70
   %_M_impl.i.i.i.i.i.i811 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i808, i64 16
   %25 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i808, i64 24
   store i64 0, ptr %25, align 8, !noalias !70
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_7EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i811, align 8, !noalias !70
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i811, align 8, !noalias !70
   store float 0x3EF0001000000000, ptr %25, align 8, !noalias !70
   br label %return
 
@@ -1755,11 +1755,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_8EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i847, align 8, !noalias !73
   %_M_weak_count.i.i.i.i.i.i848 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i846, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i848, align 4, !noalias !73
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i846, align 8, !noalias !73
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE5ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i846, align 8, !noalias !73
   %_M_impl.i.i.i.i.i.i849 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i846, i64 16
   %26 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i846, i64 24
   store i64 0, ptr %26, align 8, !noalias !73
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_8EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i849, align 8, !noalias !73
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE5ELS1_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i849, align 8, !noalias !73
   store float 0x3EF0001000000000, ptr %26, align 8, !noalias !73
   br label %return
 
@@ -1793,11 +1793,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_1EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i885, align 8, !noalias !76
   %_M_weak_count.i.i.i.i.i.i886 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i884, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i886, align 4, !noalias !76
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i884, align 8, !noalias !76
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i884, align 8, !noalias !76
   %_M_impl.i.i.i.i.i.i887 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i884, i64 16
   %28 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i884, i64 24
   store i64 0, ptr %28, align 8, !noalias !76
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_1EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i887, align 8, !noalias !76
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i887, align 8, !noalias !76
   store float 2.550000e+02, ptr %28, align 8, !noalias !76
   br label %return
 
@@ -1807,11 +1807,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_2EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i923, align 8, !noalias !79
   %_M_weak_count.i.i.i.i.i.i924 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i922, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i924, align 4, !noalias !79
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i922, align 8, !noalias !79
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i922, align 8, !noalias !79
   %_M_impl.i.i.i.i.i.i925 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i922, i64 16
   %29 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i922, i64 24
   store i64 0, ptr %29, align 8, !noalias !79
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_2EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i925, align 8, !noalias !79
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i925, align 8, !noalias !79
   store float 1.023000e+03, ptr %29, align 8, !noalias !79
   br label %return
 
@@ -1821,11 +1821,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_3EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i961, align 8, !noalias !82
   %_M_weak_count.i.i.i.i.i.i962 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i960, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i962, align 4, !noalias !82
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i960, align 8, !noalias !82
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i960, align 8, !noalias !82
   %_M_impl.i.i.i.i.i.i963 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i960, i64 16
   %30 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i960, i64 24
   store i64 0, ptr %30, align 8, !noalias !82
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_3EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i963, align 8, !noalias !82
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i963, align 8, !noalias !82
   store float 4.095000e+03, ptr %30, align 8, !noalias !82
   br label %return
 
@@ -1835,11 +1835,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_5EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i999, align 8, !noalias !85
   %_M_weak_count.i.i.i.i.i.i1000 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i998, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1000, align 4, !noalias !85
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i998, align 8, !noalias !85
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i998, align 8, !noalias !85
   %_M_impl.i.i.i.i.i.i1001 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i998, i64 16
   %31 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i998, i64 24
   store i64 0, ptr %31, align 8, !noalias !85
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_5EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1001, align 8, !noalias !85
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1001, align 8, !noalias !85
   store float 6.553500e+04, ptr %31, align 8, !noalias !85
   br label %return
 
@@ -1849,11 +1849,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_7EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1037, align 8, !noalias !88
   %_M_weak_count.i.i.i.i.i.i1038 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1036, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1038, align 4, !noalias !88
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1036, align 8, !noalias !88
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1036, align 8, !noalias !88
   %_M_impl.i.i.i.i.i.i1039 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1036, i64 16
   %32 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1036, i64 24
   store i64 0, ptr %32, align 8, !noalias !88
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_7EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1039, align 8, !noalias !88
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1039, align 8, !noalias !88
   store float 1.000000e+00, ptr %32, align 8, !noalias !88
   br label %return
 
@@ -1863,11 +1863,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_8EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1075, align 8, !noalias !91
   %_M_weak_count.i.i.i.i.i.i1076 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1074, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1076, align 4, !noalias !91
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1074, align 8, !noalias !91
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE7ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1074, align 8, !noalias !91
   %_M_impl.i.i.i.i.i.i1077 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1074, i64 16
   %33 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1074, i64 24
   store i64 0, ptr %33, align 8, !noalias !91
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_8EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1077, align 8, !noalias !91
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE7ELS1_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1077, align 8, !noalias !91
   store float 1.000000e+00, ptr %33, align 8, !noalias !91
   br label %return
 
@@ -1901,11 +1901,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_1EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1113, align 8, !noalias !94
   %_M_weak_count.i.i.i.i.i.i1114 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1112, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1114, align 4, !noalias !94
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1112, align 8, !noalias !94
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1112, align 8, !noalias !94
   %_M_impl.i.i.i.i.i.i1115 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1112, i64 16
   %35 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1112, i64 24
   store i64 0, ptr %35, align 8, !noalias !94
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_1EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1115, align 8, !noalias !94
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1115, align 8, !noalias !94
   store float 2.550000e+02, ptr %35, align 8, !noalias !94
   br label %return
 
@@ -1915,11 +1915,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_2EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1151, align 8, !noalias !97
   %_M_weak_count.i.i.i.i.i.i1152 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1150, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1152, align 4, !noalias !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1150, align 8, !noalias !97
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1150, align 8, !noalias !97
   %_M_impl.i.i.i.i.i.i1153 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1150, i64 16
   %36 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1150, i64 24
   store i64 0, ptr %36, align 8, !noalias !97
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_2EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1153, align 8, !noalias !97
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1153, align 8, !noalias !97
   store float 1.023000e+03, ptr %36, align 8, !noalias !97
   br label %return
 
@@ -1929,11 +1929,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_3EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1189, align 8, !noalias !100
   %_M_weak_count.i.i.i.i.i.i1190 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1188, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1190, align 4, !noalias !100
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1188, align 8, !noalias !100
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1188, align 8, !noalias !100
   %_M_impl.i.i.i.i.i.i1191 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1188, i64 16
   %37 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1188, i64 24
   store i64 0, ptr %37, align 8, !noalias !100
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_3EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1191, align 8, !noalias !100
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1191, align 8, !noalias !100
   store float 4.095000e+03, ptr %37, align 8, !noalias !100
   br label %return
 
@@ -1943,11 +1943,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_5EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1227, align 8, !noalias !103
   %_M_weak_count.i.i.i.i.i.i1228 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1226, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1228, align 4, !noalias !103
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1226, align 8, !noalias !103
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1226, align 8, !noalias !103
   %_M_impl.i.i.i.i.i.i1229 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1226, i64 16
   %38 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1226, i64 24
   store i64 0, ptr %38, align 8, !noalias !103
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_5EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1229, align 8, !noalias !103
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1229, align 8, !noalias !103
   store float 6.553500e+04, ptr %38, align 8, !noalias !103
   br label %return
 
@@ -1957,11 +1957,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_7EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1265, align 8, !noalias !106
   %_M_weak_count.i.i.i.i.i.i1266 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1264, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1266, align 4, !noalias !106
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1264, align 8, !noalias !106
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1264, align 8, !noalias !106
   %_M_impl.i.i.i.i.i.i1267 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1264, i64 16
   %39 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1264, i64 24
   store i64 0, ptr %39, align 8, !noalias !106
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_7EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1267, align 8, !noalias !106
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1267, align 8, !noalias !106
   store float 1.000000e+00, ptr %39, align 8, !noalias !106
   br label %return
 
@@ -1971,9 +1971,9 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_8EEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1303, align 8, !noalias !109
   %_M_weak_count.i.i.i.i.i.i1304 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1302, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1304, align 4, !noalias !109
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1302, align 8, !noalias !109
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12BitDepthCastILNS0_8BitDepthE8ELS2_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1302, align 8, !noalias !109
   %_M_impl.i.i.i.i.i.i1305 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1302, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_8EEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i1305, align 8, !noalias !109
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12BitDepthCastILNS_8BitDepthE8ELS1_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i1305, align 8, !noalias !109
   br label %return
 
 sw.default99:                                     ; preds = %sw.bb85

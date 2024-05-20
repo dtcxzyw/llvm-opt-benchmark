@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @opal_ring_buffer_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -29,7 +29,7 @@ define internal void @opal_ring_buffer_construct(ptr noundef %0) #0 {
   store ptr @opal_mutex_t_class, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -45,7 +45,7 @@ define internal void @opal_ring_buffer_construct(ptr noundef %0) #0 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_condition_t_class, i64 0, i32 4), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_condition_t_class, i64 32), align 8
   %.not11 = icmp eq i32 %13, %14
   br i1 %.not11, label %16, label %15
 
@@ -58,7 +58,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   store ptr @opal_condition_t_class, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 88
   store volatile i32 1, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_condition_t_class, i64 0, i32 6), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_condition_t_class, i64 40), align 8
   %20 = load ptr, ptr %19, align 8
   %.not6.i12 = icmp eq ptr %20, null
   br i1 %.not6.i12, label %opal_obj_run_constructors.exit16, label %.lr.ph.i13

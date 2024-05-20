@@ -49,7 +49,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #9, !noalias !5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 16), ptr %call.i, align 8, !noalias !5
   %ctx_2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call.i1.i = invoke i32 @SHA256_Init(ptr noundef nonnull %ctx_2.i.i)
           to label %return unwind label %lpad.i, !noalias !5
@@ -127,7 +127,7 @@ declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6crypto12_GLOBAL__N_116SecureHashSHA256D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 16), ptr %this, align 8
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @OPENSSL_cleanse(ptr noundef nonnull %ctx_, i64 noundef 112)
           to label %invoke.cont unwind label %terminate.lpad
@@ -146,7 +146,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6crypto12_GLOBAL__N_116SecureHashSHA256D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 16), ptr %this, align 8
   %ctx_.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @OPENSSL_cleanse(ptr noundef nonnull %ctx_.i, i64 noundef 112)
           to label %_ZN6crypto12_GLOBAL__N_116SecureHashSHA256D2Ev.exit unwind label %terminate.lpad.i
@@ -224,7 +224,7 @@ entry:
 define internal void @_ZNK6crypto12_GLOBAL__N_116SecureHashSHA2565CloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6crypto12_GLOBAL__N_116SecureHashSHA256ESt14default_deleteIS2_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #9, !noalias !8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 16), ptr %call.i, align 8, !noalias !8
   %ctx_2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %ctx_3.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %ctx_2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(112) %ctx_3.i.i, i64 112, i1 false), !noalias !8

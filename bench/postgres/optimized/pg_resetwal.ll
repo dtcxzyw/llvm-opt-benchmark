@@ -926,7 +926,7 @@ CheckDataVersion.exit:                            ; preds = %278
 
 318:                                              ; preds = %317, %310
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) @ControlFile, ptr noundef nonnull align 1 dereferenceable(296) %298, i64 296, i1 false)
-  %319 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 26), align 4
+  %319 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
   %.not18.i = icmp eq i32 %319, 0
   br i1 %.not18.i, label %325, label %320
 
@@ -952,8 +952,8 @@ CheckDataVersion.exit:                            ; preds = %278
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   store i1 true, ptr @guessed, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) @ControlFile, i8 0, i64 296, i1 false)
-  store i32 1300, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 1), align 8
-  store i32 202402291, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 2), align 4
+  store i32 1300, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 8), align 8
+  store i32 202402291, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 12), align 4
   %330 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #15
   %331 = load i64, ptr %13, align 8
   %332 = shl i64 %331, 32
@@ -966,34 +966,34 @@ CheckDataVersion.exit:                            ; preds = %278
   %339 = zext nneg i32 %338 to i64
   %340 = or disjoint i64 %336, %339
   store i64 %340, ptr @ControlFile, align 8
-  store i64 40, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 2), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 3), align 8
-  store i64 3, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 4), align 8
-  store <4 x i32> <i32 10000, i32 1, i32 0, i32 3>, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 9), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 10), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 11), align 8
+  store i64 40, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 52), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 56), align 8
+  store i64 3, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
+  store <4 x i32> <i32 10000, i32 1, i32 0, i32 3>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 72), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 88), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 92), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 96), align 8
   %341 = call i64 @time(ptr noundef null) #15
-  store i64 %341, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 12), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 15), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 3), align 8
+  store i64 %341, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 104), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 120), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 16), align 8
   %342 = call i64 @time(ptr noundef null) #15
-  store i64 %342, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 4), align 8
-  %343 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6), align 8
-  store i64 %343, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 5), align 8
-  store i64 1000, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 7), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 13), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 14), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 20), align 8
-  store <4 x i32> <i32 100, i32 8, i32 10, i32 0>, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 15), align 4
-  store i32 64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 19), align 4
-  store i32 8, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 21), align 4
-  store double 0x4132D68700000000, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 22), align 8
-  store <4 x i32> <i32 8192, i32 131072, i32 8192, i32 16777216>, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 23), align 8
-  store <4 x i32> <i32 64, i32 32, i32 1996, i32 2048>, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 27), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 31), align 8
+  store i64 %342, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 24), align 8
+  %343 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 40), align 8
+  store i64 %343, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 32), align 8
+  store i64 1000, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 128), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 172), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 176), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 200), align 8
+  store <4 x i32> <i32 100, i32 8, i32 10, i32 0>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 180), align 4
+  store i32 64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 196), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 204), align 4
+  store double 0x4132D68700000000, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 208), align 8
+  store <4 x i32> <i32 8192, i32 131072, i32 8192, i32 16777216>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 216), align 8
+  store <4 x i32> <i32 64, i32 32, i32 1996, i32 2048>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 232), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 248), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %read_controlfile.exit
 
@@ -1021,13 +1021,13 @@ read_controlfile.exit:                            ; preds = %320, %329
   store i64 %355, ptr @minXlogSegNo, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  %.pre369 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 26), align 4
+  %.pre369 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
   br label %356
 
 356:                                              ; preds = %346, %read_controlfile.exit
   %357 = phi i32 [ %.pre369, %346 ], [ %344, %read_controlfile.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %358 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6), align 8
+  %358 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 40), align 8
   %359 = zext i32 %357 to i64
   %360 = udiv i64 %358, %359
   store i64 %360, ptr @newXlogSegNo, align 8
@@ -1072,7 +1072,7 @@ IsPartialXLogFileName.exit.i:                     ; preds = %370
   br i1 %375, label %376, label %IsPartialXLogFileName.exit.thread.i
 
 376:                                              ; preds = %IsPartialXLogFileName.exit.i, %IsXLogFileName.exit.i
-  %377 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 26), align 4
+  %377 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %378 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %366, ptr noundef nonnull @.str.56, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
@@ -1122,7 +1122,7 @@ IsPartialXLogFileName.exit.thread.i:              ; preds = %389, %376, %IsParti
 
 FindEndOfXLOG.exit:                               ; preds = %393
   %396 = load i64, ptr @newXlogSegNo, align 8
-  %397 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 26), align 4
+  %397 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
   %398 = zext i32 %397 to i64
   %399 = add i64 %396, 1
   %400 = mul i64 %399, %398
@@ -1147,67 +1147,67 @@ FindEndOfXLOG.exit:                               ; preds = %393
 410:                                              ; preds = %408, %406
   %.str.70..str.71.i = select i1 %.b7175, ptr @.str.70, ptr @.str.71
   %411 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %.str.70..str.71.i) #15
-  %412 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 1), align 8
+  %412 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 8), align 8
   %413 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.72, i32 noundef %412) #15
-  %414 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 2), align 4
+  %414 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 12), align 4
   %415 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.73, i32 noundef %414) #15
   %416 = load i64, ptr @ControlFile, align 8
   %417 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.74, i64 noundef %416) #15
-  %418 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 1), align 8
+  %418 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
   %419 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.75, i32 noundef %418) #15
-  %420 = load i8, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 3), align 8
+  %420 = load i8, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 56), align 8
   %421 = trunc i8 %420 to i1
   %422 = select i1 %421, ptr @.str.77, ptr @.str.78
   %423 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.76, ptr noundef nonnull %422) #15
-  %424 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 4), align 8
+  %424 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
   %425 = lshr i64 %424, 32
   %426 = trunc nuw i64 %425 to i32
   %427 = trunc i64 %424 to i32
   %428 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.79, i32 noundef %426, i32 noundef %427) #15
-  %429 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 5), align 8
+  %429 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 72), align 8
   %430 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.80, i32 noundef %429) #15
-  %431 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 6), align 4
+  %431 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 76), align 4
   %432 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.81, i32 noundef %431) #15
-  %433 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 7), align 8
+  %433 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 80), align 8
   %434 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.82, i32 noundef %433) #15
-  %435 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 8), align 4
+  %435 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 84), align 4
   %436 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.83, i32 noundef %435) #15
-  %437 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 9), align 8
+  %437 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 88), align 8
   %438 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.84, i32 noundef %437) #15
-  %439 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 15), align 8
+  %439 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 120), align 8
   %440 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.85, i32 noundef %439) #15
-  %441 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 10), align 4
+  %441 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 92), align 4
   %442 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.86, i32 noundef %441) #15
-  %443 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 11), align 8
+  %443 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 96), align 8
   %444 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.87, i32 noundef %443) #15
-  %445 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 13), align 8
+  %445 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 112), align 8
   %446 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.88, i32 noundef %445) #15
-  %447 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 14), align 4
+  %447 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 116), align 4
   %448 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.89, i32 noundef %447) #15
-  %449 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 21), align 4
+  %449 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 204), align 4
   %450 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.90, i32 noundef %449) #15
-  %451 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 23), align 8
+  %451 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 216), align 8
   %452 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.91, i32 noundef %451) #15
-  %453 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 24), align 4
+  %453 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 220), align 4
   %454 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.92, i32 noundef %453) #15
-  %455 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 25), align 8
+  %455 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 224), align 8
   %456 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.93, i32 noundef %455) #15
-  %457 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 26), align 4
+  %457 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
   %458 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.94, i32 noundef %457) #15
-  %459 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 27), align 8
+  %459 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 232), align 8
   %460 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.95, i32 noundef %459) #15
-  %461 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 28), align 4
+  %461 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 236), align 4
   %462 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.96, i32 noundef %461) #15
-  %463 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 29), align 8
+  %463 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 240), align 8
   %464 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.97, i32 noundef %463) #15
-  %465 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 30), align 4
+  %465 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 244), align 4
   %466 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.98, i32 noundef %465) #15
   %467 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100) #15
-  %468 = load i8, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 31), align 8
+  %468 = load i8, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 248), align 8
   %469 = trunc i8 %468 to i1
   %470 = select i1 %469, ptr @.str.102, ptr @.str.103
   %471 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.101, ptr noundef nonnull %470) #15
-  %472 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 32), align 4
+  %472 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 252), align 4
   %473 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.104, i32 noundef %472) #15
   br label %474
 
@@ -1217,12 +1217,12 @@ FindEndOfXLOG.exit:                               ; preds = %393
   br i1 %.not77, label %482, label %476
 
 476:                                              ; preds = %474
-  %477 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 4), align 8
+  %477 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
   %478 = zext i32 %475 to i64
   %479 = shl nuw i64 %478, 32
   %480 = and i64 %477, 4294967295
   %481 = or disjoint i64 %480, %479
-  store i64 %481, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 4), align 8
+  store i64 %481, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
   br label %482
 
 482:                                              ; preds = %476, %474
@@ -1231,8 +1231,8 @@ FindEndOfXLOG.exit:                               ; preds = %393
   br i1 %.not78, label %485, label %484
 
 484:                                              ; preds = %482
-  store i32 %483, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 8), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 9), align 8
+  store i32 %483, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 84), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 88), align 8
   br label %485
 
 485:                                              ; preds = %484, %482
@@ -1241,11 +1241,11 @@ FindEndOfXLOG.exit:                               ; preds = %393
   br i1 %.not79, label %492, label %487
 
 487:                                              ; preds = %485
-  %488 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 4), align 8
+  %488 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
   %489 = and i64 %488, -4294967296
   %490 = zext i32 %486 to i64
   %491 = or disjoint i64 %489, %490
-  store i64 %491, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 4), align 8
+  store i64 %491, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
   br label %492
 
 492:                                              ; preds = %487, %485
@@ -1254,7 +1254,7 @@ FindEndOfXLOG.exit:                               ; preds = %393
   br i1 %.not80, label %495, label %494
 
 494:                                              ; preds = %492
-  store i32 %493, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 13), align 8
+  store i32 %493, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 112), align 8
   br label %495
 
 495:                                              ; preds = %494, %492
@@ -1263,7 +1263,7 @@ FindEndOfXLOG.exit:                               ; preds = %393
   br i1 %.not81, label %498, label %497
 
 497:                                              ; preds = %495
-  store i32 %496, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 14), align 4
+  store i32 %496, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 116), align 4
   br label %498
 
 498:                                              ; preds = %497, %495
@@ -1272,7 +1272,7 @@ FindEndOfXLOG.exit:                               ; preds = %393
   br i1 %.not82, label %501, label %500
 
 500:                                              ; preds = %498
-  store i32 %499, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 5), align 8
+  store i32 %499, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 72), align 8
   br label %501
 
 501:                                              ; preds = %500, %498
@@ -1281,10 +1281,10 @@ FindEndOfXLOG.exit:                               ; preds = %393
   br i1 %.not83, label %504, label %503
 
 503:                                              ; preds = %501
-  store i32 %502, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 6), align 4
+  store i32 %502, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 76), align 4
   %spec.select = call i32 @llvm.umax.i32(i32 %.039, i32 1)
-  store i32 %spec.select, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 10), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 11), align 8
+  store i32 %spec.select, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 92), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 96), align 8
   br label %504
 
 504:                                              ; preds = %503, %501
@@ -1293,18 +1293,18 @@ FindEndOfXLOG.exit:                               ; preds = %393
   br i1 %.not85, label %507, label %506
 
 506:                                              ; preds = %504
-  store i32 %505, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 7), align 8
+  store i32 %505, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 80), align 8
   br label %507
 
 507:                                              ; preds = %506, %504
   %508 = load i32, ptr @minXlogTli, align 4
-  %509 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 1), align 8
+  %509 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
   %510 = icmp ugt i32 %508, %509
   br i1 %510, label %511, label %512
 
 511:                                              ; preds = %507
-  store i32 %508, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 1), align 8
-  store i32 %508, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 2), align 4
+  store i32 %508, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
+  store i32 %508, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 52), align 4
   br label %512
 
 512:                                              ; preds = %511, %507
@@ -1314,7 +1314,7 @@ FindEndOfXLOG.exit:                               ; preds = %393
 
 514:                                              ; preds = %512
   %515 = load i32, ptr @WalSegSz, align 4
-  store i32 %515, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 26), align 4
+  store i32 %515, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
   br label %516
 
 516:                                              ; preds = %514, %512
@@ -1353,7 +1353,7 @@ FindEndOfXLOG.exit:                               ; preds = %393
   unreachable
 
 529:                                              ; preds = %526, %525
-  %530 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 3), align 8
+  %530 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 16), align 8
   %.not88 = icmp eq i32 %530, 1
   br i1 %.not88, label %534, label %531
 
@@ -1373,20 +1373,20 @@ FindEndOfXLOG.exit:                               ; preds = %393
   %536 = sext i32 %535 to i64
   %537 = mul i64 %522, %536
   %538 = add i64 %537, 40
-  store i64 %538, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6), align 8
+  store i64 %538, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 40), align 8
   %539 = call i64 @time(ptr noundef null) #15
-  store i64 %539, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 12), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 3), align 8
-  %540 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6), align 8
-  store i64 %540, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 5), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 8), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 9), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 13), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 14), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 20), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 10), i8 0, i64 17, i1 false)
-  store <4 x i32> <i32 100, i32 8, i32 10, i32 0>, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 15), align 4
-  store i32 64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 19), align 4
+  store i64 %539, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 104), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 16), align 8
+  %540 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 40), align 8
+  store i64 %540, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 144), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 172), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 176), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 200), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @ControlFile, i64 152), i8 0, i64 17, i1 false)
+  store <4 x i32> <i32 100, i32 8, i32 10, i32 0>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 180), align 4
+  store i32 64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 196), align 4
   call void @update_controlfile(ptr noundef nonnull @.str.118, ptr noundef nonnull @ControlFile, i1 noundef zeroext true) #15
   call void @llvm.lifetime.start.p0(i64 1031, ptr nonnull %7)
   %541 = call ptr @opendir(ptr noundef nonnull @.str.119)
@@ -1625,10 +1625,10 @@ KillExistingWALSummaries.exit:                    ; preds = %621
   store i16 -12012, ptr %3, align 4096
   %624 = getelementptr inbounds i8, ptr %3, i64 2
   store i16 2, ptr %624, align 2
-  %625 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 1), align 8
+  %625 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
   %626 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %625, ptr %626, align 4
-  %627 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6), align 8
+  %627 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 40), align 8
   %628 = add i64 %627, -40
   %629 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %628, ptr %629, align 8
@@ -1647,7 +1647,7 @@ KillExistingWALSummaries.exit:                    ; preds = %621
   store i8 -1, ptr %636, align 64
   %638 = getelementptr inbounds i8, ptr %3, i64 66
   store i8 88, ptr %637, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(88) %638, ptr noundef nonnull align 8 dereferenceable(88) getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6), i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(88) %638, ptr noundef nonnull align 8 dereferenceable(88) getelementptr inbounds (i8, ptr @ControlFile, i64 40), i64 88, i1 false)
   %639 = load ptr, ptr @pg_comp_crc32c, align 8
   %640 = call i32 %639(i32 noundef -1, ptr noundef nonnull %636, i64 noundef 90) #15
   %641 = load ptr, ptr @pg_comp_crc32c, align 8
@@ -1655,7 +1655,7 @@ KillExistingWALSummaries.exit:                    ; preds = %621
   %643 = xor i32 %642, -1
   %644 = getelementptr inbounds i8, ptr %3, i64 60
   store i32 %643, ptr %644, align 4
-  %645 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 1), align 8
+  %645 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
   %646 = load i64, ptr @newXlogSegNo, align 8
   %647 = load i32, ptr @WalSegSz, align 4
   %648 = sext i32 %647 to i64
@@ -1831,7 +1831,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   %1 = alloca [64 x i8], align 16
   %2 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.105) #15
-  %3 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
   %4 = load i64, ptr @newXlogSegNo, align 8
   %5 = load i32, ptr @WalSegSz, align 4
   %6 = sext i32 %5 to i64
@@ -1847,11 +1847,11 @@ define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %0
-  %16 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 6), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 76), align 4
   %17 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.107, i32 noundef %16) #15
-  %18 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 10), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 92), align 4
   %19 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.108, i32 noundef %18) #15
-  %20 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 11), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 96), align 8
   %21 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.109, i32 noundef %20) #15
   br label %22
 
@@ -1861,7 +1861,7 @@ define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   br i1 %.not1, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 7), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 80), align 8
   %26 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.110, i32 noundef %25) #15
   br label %27
 
@@ -1871,7 +1871,7 @@ define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   br i1 %.not2, label %32, label %29
 
 29:                                               ; preds = %27
-  %30 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 5), align 8
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 72), align 8
   %31 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.111, i32 noundef %30) #15
   br label %32
 
@@ -1881,12 +1881,12 @@ define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   br i1 %.not3, label %42, label %34
 
 34:                                               ; preds = %32
-  %35 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 4), align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
   %36 = trunc i64 %35 to i32
   %37 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.112, i32 noundef %36) #15
-  %38 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 8), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 84), align 4
   %39 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.113, i32 noundef %38) #15
-  %40 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 9), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 88), align 8
   %41 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.114, i32 noundef %40) #15
   br label %42
 
@@ -1896,7 +1896,7 @@ define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   br i1 %.not4, label %49, label %44
 
 44:                                               ; preds = %42
-  %45 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 4), align 8
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
   %46 = lshr i64 %45, 32
   %47 = trunc nuw i64 %46 to i32
   %48 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.115, i32 noundef %47) #15
@@ -1908,7 +1908,7 @@ define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   br i1 %.not5, label %54, label %51
 
 51:                                               ; preds = %49
-  %52 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 13), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 112), align 8
   %53 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.116, i32 noundef %52) #15
   br label %54
 
@@ -1918,7 +1918,7 @@ define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   br i1 %.not6, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 6, i32 14), align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 116), align 4
   %58 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.117, i32 noundef %57) #15
   br label %59
 
@@ -1928,7 +1928,7 @@ define internal fastcc void @PrintNewControlValues() unnamed_addr #0 {
   br i1 %.not7, label %64, label %61
 
 61:                                               ; preds = %59
-  %62 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile, i64 0, i32 26), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
   %63 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.94, i32 noundef %62) #15
   br label %64
 

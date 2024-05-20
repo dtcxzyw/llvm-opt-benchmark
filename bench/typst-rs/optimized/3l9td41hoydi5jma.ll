@@ -299,17 +299,17 @@ define void @"_ZN67_$LT$typst_timing..TimingScope$u20$as$u20$core..ops..drop..Dr
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit": ; preds = %1, %12
-  %14 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !noalias !71, !noundef !7
-  %15 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 0), align 8, !noalias !71, !noundef !7
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !71, !noundef !7
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), align 8, !noalias !71, !noundef !7
   %16 = icmp eq i64 %14, %15
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 0), i64 noundef %14)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), i64 noundef %14)
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %17
-  %.pre.i = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !noalias !71
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !71
   br label %23
 
 18:                                               ; preds = %17
@@ -325,7 +325,7 @@ define void @"_ZN67_$LT$typst_timing..TimingScope$u20$as$u20$core..ops..drop..Dr
 
 23:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
   %24 = phi i64 [ %.pre.i, %.noexc ], [ %14, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit" ]
-  %25 = load ptr, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 8), align 8, !noalias !71, !nonnull !7, !noundef !7
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 16), align 8, !noalias !71, !nonnull !7, !noundef !7
   %26 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { ptr, i64 }, i64, i64, i64, i8, [7 x i8] }, ptr %25, i64 %24
   store i64 %3, ptr %26, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
@@ -340,7 +340,7 @@ define void @"_ZN67_$LT$typst_timing..TimingScope$u20$as$u20$core..ops..drop..Dr
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 56
   store i8 1, ptr %.sroa.8.0..sroa_idx, align 8
   %28 = add i64 %24, 1
-  store i64 %28, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !noalias !71
+  store i64 %28, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !71
   %29 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
   %30 = extractvalue { i8, i1 } %29, 1
   br i1 %30, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3", label %31

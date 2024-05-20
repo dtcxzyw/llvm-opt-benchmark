@@ -93,7 +93,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN5eastl8Internal21shared_ptr_auto_mutexC2EPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %attr.i.i.i = alloca %union.pthread_mutexattr_t, align 4
-  %1 = load ptr, ptr getelementptr inbounds (%"class.eastl::late_constructed", ptr @_ZN5eastl8Internal15gSharedPtrMutexE, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl8Internal15gSharedPtrMutexE, i64 40), align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE9constructIJEEEvDpOT_.exit.i, label %_ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE3getEv.exit
 
@@ -104,7 +104,7 @@ _ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE9constructIJEEEvDpOT_.ex
   %call4.i.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull @_ZN5eastl8Internal15gSharedPtrMutexE, ptr noundef nonnull %attr.i.i.i) #6
   %call5.i.i.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i.i)
-  store ptr @_ZN5eastl8Internal15gSharedPtrMutexE, ptr getelementptr inbounds (%"class.eastl::late_constructed", ptr @_ZN5eastl8Internal15gSharedPtrMutexE, i64 0, i32 1), align 8
+  store ptr @_ZN5eastl8Internal15gSharedPtrMutexE, ptr getelementptr inbounds (i8, ptr @_ZN5eastl8Internal15gSharedPtrMutexE, i64 40), align 8
   br label %_ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE3getEv.exit
 
 _ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE3getEv.exit: ; preds = %entry, %_ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE9constructIJEEEvDpOT_.exit.i

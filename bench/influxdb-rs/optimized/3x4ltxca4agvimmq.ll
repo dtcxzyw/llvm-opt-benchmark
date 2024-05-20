@@ -6755,12 +6755,12 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5tokio7runtime7context7current12with
 6:                                                ; preds = %3
   %7 = add nuw nsw i64 %4, 1
   store i64 %7, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, align 8, !noalias !1079
-  %8 = load i64, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !range !352, !noalias !1079, !noundef !9
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 8), align 8, !range !352, !noalias !1079, !noundef !9
   %.not = icmp eq i64 %8, 3
   br i1 %.not, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h33263ae2a46e7b83E.llvm.6305840527560983182.exit", label %switch.lookup
 
 switch.lookup:                                    ; preds = %6
-  %.val3.i.i.i = load ptr, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8, !alias.scope !1082, !noalias !1079, !nonnull !9, !noundef !9
+  %.val3.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 16), align 8, !alias.scope !1082, !noalias !1079, !nonnull !9, !noundef !9
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = getelementptr inbounds i8, ptr %.val3.i.i.i, i64 %switch.load

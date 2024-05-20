@@ -359,7 +359,7 @@ entry:
   store ptr %device, ptr %param, align 8
   %msg2 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %msg, ptr %msg2, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.CompatPolicy, ptr @compat_policy, i64 0, i32 3), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @compat_policy, i64 12), align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %return, label %if.end
 

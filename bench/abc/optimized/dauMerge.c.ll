@@ -1604,7 +1604,7 @@ Dau_DsdMergeMatches.exit162:                      ; preds = %267, %250
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr @Dau_DsdMerge.pRes, ptr %17, align 8
-  %270 = load i8, ptr getelementptr inbounds ([4010 x i8], ptr @Dau_DsdMerge.pRes, i64 0, i64 1), align 1
+  %270 = load i8, ptr getelementptr inbounds (i8, ptr @Dau_DsdMerge.pRes, i64 1), align 1
   %271 = icmp eq i8 %270, 0
   br i1 %271, label %Dau_DsdRemoveBraces.exit, label %272
 
@@ -1689,9 +1689,9 @@ Abc_Clock.exit170:                                ; preds = %296, %299
   %.0.i169 = phi i64 [ %305, %299 ], [ -1, %296 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   %306 = add i64 %.0.i169, %.0.i.neg320
-  %307 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 3), align 8
+  %307 = load i64, ptr getelementptr inbounds (i8, ptr @s_TimeComp, i64 24), align 8
   %308 = add nsw i64 %306, %307
-  store i64 %308, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 3), align 8
+  store i64 %308, ptr getelementptr inbounds (i8, ptr @s_TimeComp, i64 24), align 8
   br label %309
 
 309:                                              ; preds = %324, %Abc_Clock.exit170
@@ -2270,7 +2270,7 @@ Dau_DsdMergeMatches.exit270:                      ; preds = %485, %Dau_DsdMergeI
 Dau_DsdMergeReplace.exit298:                      ; preds = %488
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr @Dau_DsdMerge.pRes, ptr %8, align 8
-  %518 = load i8, ptr getelementptr inbounds ([4010 x i8], ptr @Dau_DsdMerge.pRes, i64 0, i64 1), align 1
+  %518 = load i8, ptr getelementptr inbounds (i8, ptr @Dau_DsdMerge.pRes, i64 1), align 1
   %519 = icmp eq i8 %518, 0
   br i1 %519, label %Dau_DsdRemoveBraces.exit304, label %520
 
@@ -2319,15 +2319,15 @@ Dau_DsdRemoveBraces.exit304:                      ; preds = %Dau_DsdMergeReplace
   br i1 %532, label %535, label %538
 
 535:                                              ; preds = %Dau_DsdRemoveBraces.exit304
-  %536 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 1), align 8
+  %536 = load i64, ptr getelementptr inbounds (i8, ptr @s_TimeComp, i64 8), align 8
   %537 = add nsw i64 %534, %536
-  store i64 %537, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 1), align 8
+  store i64 %537, ptr getelementptr inbounds (i8, ptr @s_TimeComp, i64 8), align 8
   br label %541
 
 538:                                              ; preds = %Dau_DsdRemoveBraces.exit304
-  %539 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 2), align 16
+  %539 = load i64, ptr getelementptr inbounds (i8, ptr @s_TimeComp, i64 16), align 16
   %540 = add nsw i64 %534, %539
-  store i64 %540, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 2), align 16
+  store i64 %540, ptr getelementptr inbounds (i8, ptr @s_TimeComp, i64 16), align 16
   br label %541
 
 541:                                              ; preds = %535, %538, %Dau_DsdMergeStoreClean.exit, %77, %87, %89, %91, %81, %408, %Abc_Clock.exit168

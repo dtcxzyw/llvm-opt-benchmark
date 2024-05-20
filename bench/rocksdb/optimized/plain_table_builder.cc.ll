@@ -332,7 +332,7 @@ entry:
   %ref.tmp70 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp78 = alloca %"class.std::allocator.24", align 1
   %val = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb17PlainTableBuilderE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17PlainTableBuilderE, i64 16), ptr %this, align 16
   %arena_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) %arena_, i64 noundef 4096, ptr noundef null, i64 noundef 0)
   %ioptions_ = getelementptr inbounds i8, ptr %this, i64 2304
@@ -508,7 +508,7 @@ if.then63:                                        ; preds = %_ZN7rocksdb6StatusD
   %11 = load ptr, ptr %ioptions_, align 16
   %logger = getelementptr inbounds i8, ptr %11, i64 544
   %12 = load ptr, ptr %logger, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %12, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.2, i64 0, i64 93))
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %12, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 93))
           to label %if.end68 unwind label %lpad16
 
 if.end68:                                         ; preds = %if.then63, %_ZN7rocksdb6StatusD2Ev.exit
@@ -533,7 +533,7 @@ call.i.noexc:                                     ; preds = %cond.false
           to label %.noexc unwind label %lpad79
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.3, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 7))
           to label %cond.end unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -889,7 +889,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN7rocksdb16ImmutableOptionsC2ERKS0_.exit:       ; preds = %entry
   %keys_per_prefix_hist_ = getelementptr inbounds i8, ptr %this, i64 872
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb13HistogramImplE, i64 0, i32 0, i64 2), ptr %keys_per_prefix_hist_, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb13HistogramImplE, i64 16), ptr %keys_per_prefix_hist_, align 8
   %stats_.i = getelementptr inbounds i8, ptr %this, i64 880
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %stats_.i)
           to label %.noexc unwind label %lpad
@@ -1146,7 +1146,7 @@ declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb17PlainTableBuilderD2Ev(ptr noundef nonnull align 16 dereferenceable(3288) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb17PlainTableBuilderE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17PlainTableBuilderE, i64 16), ptr %this, align 16
   %keys_or_prefixes_hashes_ = getelementptr inbounds i8, ptr %this, i64 3248
   %0 = load ptr, ptr %keys_or_prefixes_hashes_, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3986,7 +3986,7 @@ define linkonce_odr void @_ZN7rocksdb18ImmutableCFOptionsC2ERKS0_(ptr noundef no
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %internal_comparator = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 0, i32 0, i64 2), ptr %internal_comparator, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %internal_comparator, align 8
   %user_comparator_.i = getelementptr inbounds i8, ptr %this, i64 24
   %user_comparator_2.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %user_comparator_2.i, align 8

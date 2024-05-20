@@ -621,7 +621,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %call17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #21
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %21, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([126 x i8], ptr @.str.2, i64 0, i64 93), ptr noundef %call17)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %21, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 93), ptr noundef %call17)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont16
@@ -840,7 +840,7 @@ entry:
   %0 = load ptr, ptr %logger, align 8
   %sub_index_size_ = getelementptr inbounds i8, ptr %this, i64 1916
   %1 = load i32, ptr %sub_index_size_, align 4
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 0, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([126 x i8], ptr @.str.2, i64 0, i64 93), i32 noundef %1)
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 0, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 93), i32 noundef %1)
   %index_size_.i = getelementptr inbounds i8, ptr %this, i64 1912
   %2 = load i32, ptr %index_size_.i, align 8
   %cmp3.i.i = icmp ugt i32 %2, 127
@@ -987,7 +987,7 @@ for.end40:                                        ; preds = %for.inc39, %_ZNK7ro
   %.lcssa = phi i32 [ 0, %_ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit ], [ %22, %for.inc39 ]
   %24 = load ptr, ptr %logger, align 8
   %25 = load i32, ptr %sub_index_size_, align 4
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 0, ptr noundef %24, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([126 x i8], ptr @.str.2, i64 0, i64 93), i32 noundef %.lcssa, i32 noundef %25)
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 0, ptr noundef %24, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 93), i32 noundef %.lcssa, i32 noundef %25)
   %26 = load i32, ptr %index_size_.i, align 8
   %cmp3.i.i29 = icmp ugt i32 %26, 127
   br i1 %cmp3.i.i29, label %while.body.i.preheader.i48, label %_ZN7rocksdb12VarintLengthEm.exit.i30
@@ -1197,7 +1197,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb22PlainTableIndexBuilder21kPlainTableIndexBlockB5cxx11E, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([21 x i8], ptr @.str.5, i64 0, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb22PlainTableIndexBuilder21kPlainTableIndexBlockB5cxx11E, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 20))
           to label %__cxx_global_var_init.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i

@@ -127,7 +127,7 @@ define hidden void @zim_DOM_XMLDocument_createEmpty(ptr nocapture noundef readon
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %37
@@ -147,7 +147,7 @@ define hidden void @zim_DOM_XMLDocument_createEmpty(ptr nocapture noundef readon
 
 22:                                               ; preds = %14
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #4
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %37
@@ -167,7 +167,7 @@ define hidden void @zim_DOM_XMLDocument_createEmpty(ptr nocapture noundef readon
 
 34:                                               ; preds = %17
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #4
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %37
@@ -285,7 +285,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not22 = icmp eq ptr %41, null
   br i1 %.not22, label %42, label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
@@ -367,7 +367,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   br i1 %77, label %.preheader.i, label %.lr.ph.i.backedge
 
 dom_mark_namespaces_as_attributes_too.exit.sink.split: ; preds = %43, %46, %40, %2, %12, %15, %21, %25, %30
-  %78 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %79 = icmp ne ptr %78, null
   call void @llvm.assume(i1 %79)
   br label %dom_mark_namespaces_as_attributes_too.exit

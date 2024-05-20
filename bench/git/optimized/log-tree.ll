@@ -337,7 +337,7 @@ declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal noundef i32 @add_ref_decoration(ptr noundef %refname, ptr noundef %oid, i32 %flags, ptr noundef readonly %cb_data) #0 {
 entry:
   %original_oid = alloca %struct.object_id, align 4
-  %0 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 5), align 16
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 80), align 16
   %tobool.not = icmp eq ptr %cb_data, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
@@ -1305,8 +1305,8 @@ if.end33:                                         ; preds = %for.end, %land.lhs.
 if.then37:                                        ; preds = %if.end33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filename, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_remerge_diff.parent2_desc, i64 24, i1 false)
   store i32 -1, ptr %need_8bit_cte_p, align 4
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @log_write_email_headers.subject_buffer, i64 0, i32 1), align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @log_write_email_headers.subject_buffer, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %18, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -1315,8 +1315,8 @@ if.then4.i:                                       ; preds = %if.then37
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.then37, %if.then4.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @log_write_email_headers.buffer, i64 0, i32 1), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @log_write_email_headers.buffer, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 16), align 8
   %cmp3.not.i36 = icmp eq ptr %19, @strbuf_slopbuf
   br i1 %cmp3.not.i36, label %strbuf_setlen.exit38, label %if.then4.i37
 
@@ -1329,7 +1329,7 @@ strbuf_setlen.exit38:                             ; preds = %strbuf_setlen.exit,
   %cond42 = select i1 %tobool38.not, ptr @.str.12, ptr %0
   %20 = load ptr, ptr %mime_boundary, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @log_write_email_headers.subject_buffer, ptr noundef nonnull @.str.21, ptr noundef nonnull %cond42, ptr noundef nonnull @mime_boundary_leader, ptr noundef %20, ptr noundef nonnull @mime_boundary_leader, ptr noundef %20) #12
-  %21 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @log_write_email_headers.subject_buffer, i64 0, i32 2), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 16), align 8
   %numbered_files = getelementptr inbounds i8, ptr %opt, i64 368
   %22 = load i32, ptr %numbered_files, align 8
   %tobool45.not = icmp eq i32 %22, 0
@@ -1365,7 +1365,7 @@ if.end48:                                         ; preds = %if.else, %if.then46
   %tobool50.not = icmp eq i32 %28, 0
   %cond51 = select i1 %tobool50.not, ptr @.str.25, ptr @.str.24
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @log_write_email_headers.buffer, ptr noundef nonnull @.str.23, ptr noundef nonnull @mime_boundary_leader, ptr noundef %26, ptr noundef %27, ptr noundef nonnull %cond51, ptr noundef %27) #12
-  %29 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @log_write_email_headers.buffer, i64 0, i32 2), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 16), align 8
   %stat_sep = getelementptr inbounds i8, ptr %opt, i64 1824
   store ptr %29, ptr %stat_sep, align 8
   call void @strbuf_release(ptr noundef nonnull %filename) #12

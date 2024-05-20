@@ -114,7 +114,7 @@ declare i32 @common_topo_choose_nodes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @topology_p_generate_node_ranking() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 211), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1456), align 8
   %2 = tail call ptr @slurm_xstrcasestr(ptr noundef %1, ptr noundef nonnull @.str.1) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %39, label %3
@@ -724,7 +724,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %176 = getelementptr inbounds ptr, ptr %173, i64 %175
   store ptr %172, ptr %176, align 8
   call void @bit_and_not(ptr noundef %151, ptr noundef %168) #10
-  %177 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %177 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %178 = and i64 %177, 536870912
   %.not28.i = icmp eq i64 %178, 0
   br i1 %.not28.i, label %195, label %179
@@ -805,7 +805,7 @@ _subtree_split_hostlist.exit:                     ; preds = %150, %._crit_edge.i
 212:                                              ; preds = %._crit_edge120
   %213 = load ptr, ptr %1, align 8
   %214 = call i64 @slurm_xsize(ptr noundef %213) #10
-  %215 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %215 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %216 = and i64 %215, 536870912
   %.not82 = icmp eq i64 %216, 0
   br i1 %.not82, label %224, label %217

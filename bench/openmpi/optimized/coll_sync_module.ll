@@ -539,18 +539,18 @@ define noundef i32 @mca_coll_sync_init_query(i1 noundef zeroext %0, i1 noundef z
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_coll_sync_comm_query(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i64 0, i32 2), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 284), align 4
   %4 = icmp eq i32 %3, 0
-  %5 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i64 0, i32 3), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 288), align 8
   %6 = icmp eq i32 %5, 0
   %or.cond = select i1 %4, i1 %6, i1 false
   br i1 %or.cond, label %opal_obj_new.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_sync_module_t_class, i64 0, i32 8), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_module_t_class, i64 56), align 8
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #9
   %10 = load i32, ptr @opal_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_sync_module_t_class, i64 0, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %10, %11
   br i1 %.not.i, label %13, label %12
 
@@ -566,7 +566,7 @@ define noundef ptr @mca_coll_sync_comm_query(ptr nocapture noundef readnone %0, 
   store ptr @mca_coll_sync_module_t_class, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %9, i64 8
   store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_sync_module_t_class, i64 0, i32 6), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_module_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread23, label %.lr.ph.i.i
@@ -581,7 +581,7 @@ define noundef ptr @mca_coll_sync_comm_query(ptr nocapture noundef readnone %0, 
   br i1 %.not.i.i, label %opal_obj_new.exit.thread23, label %.lr.ph.i.i, !llvm.loop !6
 
 opal_obj_new.exit.thread23:                       ; preds = %.lr.ph.i.i, %14
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i64 0, i32 1), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 280), align 8
   store i32 %21, ptr %1, align 4
   %22 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr @mca_coll_sync_module_enable, ptr %22, align 8
@@ -886,8 +886,8 @@ opal_thread_add_fetch_32.exit85:                  ; preds = %opal_thread_add_fet
 opal_thread_add_fetch_32.exit85.thread:           ; preds = %131, %opal_thread_add_fetch_32.exit83, %opal_thread_add_fetch_32.exit85
   %.888 = phi ptr [ %.6, %opal_thread_add_fetch_32.exit85 ], [ @.str.9, %opal_thread_add_fetch_32.exit83 ], [ %.7, %131 ]
   %143 = load ptr, ptr @opal_show_help, align 8
-  %144 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
-  %145 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i64 0, i32 1), align 8
+  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %145 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 280), align 8
   %146 = tail call i32 (ptr, ptr, i32, ...) %143(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef %144, i32 noundef %145, ptr noundef %.888) #8
   br label %opal_thread_add_fetch_32.exit85.thread89
 

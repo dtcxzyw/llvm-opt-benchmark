@@ -1514,9 +1514,9 @@ SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %1
   br i1 %.not68.i, label %.thread, label %181
 
 181:                                              ; preds = %180
-  %182 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 5), align 8
+  %182 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
   %183 = add i32 %182, 1
-  store i32 %183, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 5), align 8
+  store i32 %183, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.critedge, %33, %181, %180

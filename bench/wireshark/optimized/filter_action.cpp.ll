@@ -228,7 +228,7 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7QStringE8metaTypeE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12FilterActionC2EP7QObjectNS_6ActionENS_10ActionTypeE7QString(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterAction, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 20
@@ -299,7 +299,7 @@ declare void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) u
 define void @_ZN12FilterActionC2EP7QObjectNS_6ActionENS_10ActionTypeENS_15ActionDirectionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   tail call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterAction, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 20
@@ -394,7 +394,7 @@ switch.lookup:                                    ; preds = %2
 define void @_ZN12FilterActionC2EP7QObjectNS_6ActionENS_10ActionTypeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   tail call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterAction, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 20
@@ -489,7 +489,7 @@ switch.lookup:                                    ; preds = %2
 define void @_ZN12FilterActionC2EP7QObjectNS_6ActionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   tail call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterAction, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 20
@@ -652,9 +652,9 @@ define void @_ZN12FilterAction7actionsEv(ptr dead_on_unwind noalias nocapture wr
   store ptr %26, ptr @_ZZN12FilterAction7actionsEvE8actions_, align 8
   %27 = getelementptr inbounds i8, ptr %8, i64 8
   %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr getelementptr inbounds (%class.QList, ptr @_ZZN12FilterAction7actionsEvE8actions_, i64 0, i32 0, i32 1), align 8
+  store ptr %28, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction7actionsEvE8actions_, i64 8), align 8
   %29 = load i64, ptr %14, align 8
-  store i64 %29, ptr getelementptr inbounds (%class.QList, ptr @_ZZN12FilterAction7actionsEvE8actions_, i64 0, i32 0, i32 2), align 8
+  store i64 %29, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction7actionsEvE8actions_, i64 16), align 8
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %_ZN5QListIN12FilterAction6ActionEED2Ev.exit, label %_ZN5QListIN12FilterAction6ActionEEC2ERKS2_.exit
 
@@ -683,10 +683,10 @@ _ZN5QListIN12FilterAction6ActionEED2Ev.exit:      ; preds = %25, %_ZN5QListIN12F
   %36 = load ptr, ptr @_ZZN12FilterAction7actionsEvE8actions_, align 8
   store ptr %36, ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZZN12FilterAction7actionsEvE8actions_, i64 0, i32 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction7actionsEvE8actions_, i64 8), align 8
   store ptr %38, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZZN12FilterAction7actionsEvE8actions_, i64 0, i32 0, i32 2), align 8
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction7actionsEvE8actions_, i64 16), align 8
   store i64 %40, ptr %39, align 8
   %.not.i.i.i7 = icmp eq ptr %36, null
   br i1 %.not.i.i.i7, label %_ZN5QListIN12FilterAction6ActionEEC2ERKS2_.exit8, label %41
@@ -830,9 +830,9 @@ define void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind noali
   store ptr %30, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, align 8
   %31 = getelementptr inbounds i8, ptr %11, i64 8
   %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr getelementptr inbounds (%class.QList.1, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 0, i32 0, i32 1), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 8), align 8
   %33 = load i64, ptr %18, align 8
-  store i64 %33, ptr getelementptr inbounds (%class.QList.1, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 0, i32 0, i32 2), align 8
+  store i64 %33, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 16), align 8
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit
 
@@ -889,9 +889,9 @@ _ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit: ; preds = %29, %_ZN5QListIN12F
   store ptr %49, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, align 8
   %50 = getelementptr inbounds i8, ptr %12, i64 8
   %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr getelementptr inbounds (%class.QList.1, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 0, i32 0, i32 1), align 8
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 8), align 8
   %52 = load i64, ptr %45, align 8
-  store i64 %52, ptr getelementptr inbounds (%class.QList.1, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 0, i32 0, i32 2), align 8
+  store i64 %52, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 16), align 8
   %.not.i.i.i13 = icmp eq ptr %49, null
   br i1 %.not.i.i.i13, label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit18, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit14
 
@@ -950,10 +950,10 @@ _ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24: ; preds
   %68 = load ptr, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, align 8
   store ptr %68, ptr %0, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 8
-  %70 = load ptr, ptr getelementptr inbounds (%class.QList.1, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 0, i32 0, i32 1), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 8), align 8
   store ptr %70, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 16
-  %72 = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 0, i32 0, i32 2), align 8
+  %72 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 16), align 8
   store i64 %72, ptr %71, align 8
   %.not.i.i.i27 = icmp eq ptr %68, null
   br i1 %.not.i.i.i27, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28.sink.split
@@ -962,10 +962,10 @@ _ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24: ; preds
   %74 = load ptr, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, align 8
   store ptr %74, ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 8
-  %76 = load ptr, ptr getelementptr inbounds (%class.QList.1, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 0, i32 0, i32 1), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 8), align 8
   store ptr %76, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 16
-  %78 = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 0, i32 0, i32 2), align 8
+  %78 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 16), align 8
   store i64 %78, ptr %77, align 8
   %.not.i.i.i29 = icmp eq ptr %74, null
   br i1 %.not.i.i.i29, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28.sink.split
@@ -1112,9 +1112,9 @@ define void @_ZN12FilterAction16actionDirectionsEv(ptr dead_on_unwind noalias no
   store ptr %35, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, align 8
   %36 = getelementptr inbounds i8, ptr %11, i64 8
   %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr getelementptr inbounds (%class.QList.5, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, i64 0, i32 0, i32 1), align 8
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, i64 8), align 8
   %38 = load i64, ptr %17, align 8
-  store i64 %38, ptr getelementptr inbounds (%class.QList.5, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, i64 0, i32 0, i32 2), align 8
+  store i64 %38, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, i64 16), align 8
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %_ZN5QListIN12FilterAction15ActionDirectionEED2Ev.exit, label %_ZN5QListIN12FilterAction15ActionDirectionEEC2ERKS2_.exit
 
@@ -1143,10 +1143,10 @@ _ZN5QListIN12FilterAction15ActionDirectionEED2Ev.exit: ; preds = %34, %_ZN5QList
   %45 = load ptr, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, align 8
   store ptr %45, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = load ptr, ptr getelementptr inbounds (%class.QList.5, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, i64 0, i32 0, i32 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, i64 8), align 8
   store ptr %47, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = load i64, ptr getelementptr inbounds (%class.QList.5, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, i64 0, i32 0, i32 2), align 8
+  %49 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN12FilterAction16actionDirectionsEvE18action_directions_, i64 16), align 8
   store i64 %49, ptr %48, align 8
   %.not.i.i.i10 = icmp eq ptr %45, null
   br i1 %.not.i.i.i10, label %_ZN5QListIN12FilterAction15ActionDirectionEEC2ERKS2_.exit11, label %50
@@ -4634,7 +4634,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %29, %_ZN17QArrayDat
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIN12FilterAction10ActionTypeEEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction10ActionTypeEE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction10ActionTypeEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction10ActionTypeEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -4906,7 +4906,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %29, %_ZN17QArrayDat
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIN12FilterAction6ActionEEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction6ActionEE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction6ActionEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction6ActionEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -5023,7 +5023,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction6ActionEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction6ActionEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -5129,7 +5129,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction10ActionTypeEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction10ActionTypeEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 

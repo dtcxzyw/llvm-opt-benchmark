@@ -63,7 +63,7 @@ declare dso_local ptr @debugfs_create_dir(ptr noundef, ptr noundef) local_unname
 define internal fastcc noundef range(i32 -12, 1) i32 @boot_params_kdebugfs_init() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @arch_debugfs_dir, align 8
   %2 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.1, ptr noundef %1) #8
-  tail call void @debugfs_create_x16(ptr noundef nonnull @.str.2, i16 noundef zeroext 292, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 9)) #8
+  tail call void @debugfs_create_x16(ptr noundef nonnull @.str.2, i16 noundef zeroext 292, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @boot_params, i64 518)) #8
   %3 = tail call ptr @debugfs_create_blob(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %2, ptr noundef nonnull @boot_params_blob) #8
   %4 = tail call fastcc i32 @create_setup_data_nodes(ptr noundef %2) #9, !range !5
   %5 = icmp eq i32 %4, 0
@@ -89,14 +89,14 @@ declare dso_local ptr @debugfs_create_blob(ptr noundef, i16 noundef zeroext, ptr
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -12, 1) i32 @create_setup_data_nodes(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.4, ptr noundef %0) #8
-  %3 = load i64, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 34), align 1
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 592), align 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.loopexit5, label %.preheader
 
 .preheader:                                       ; preds = %1, %48
   %5 = phi i32 [ %52, %48 ], [ 0, %1 ]
   %6 = phi i64 [ %14, %48 ], [ %3, %1 ]
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 16) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10

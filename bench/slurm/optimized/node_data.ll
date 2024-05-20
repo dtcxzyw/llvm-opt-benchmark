@@ -74,7 +74,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @node_data_dump() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %3 = and i64 %2, 1
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.loopexit, label %.preheader

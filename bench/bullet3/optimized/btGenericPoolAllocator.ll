@@ -343,7 +343,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count, align 8
   %cmp6.not = icmp eq i64 %0, 0
@@ -413,7 +413,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btGenericPoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count.i, align 8
   %cmp6.not.i = icmp eq i64 %0, 0
@@ -687,7 +687,7 @@ return:                                           ; preds = %while.end.thread, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22GIM_STANDARD_ALLOCATORD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count.i, align 8
   %cmp6.not.i = icmp eq i64 %0, 0
@@ -747,17 +747,17 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z11btPoolAllocm(i64 noundef %size) local_unnamed_addr #2 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 4), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 152), align 8
   %cmp6.not.i = icmp eq i64 %0, 0
   br i1 %cmp6.not.i, label %if.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %i.07.i = phi i64 [ %inc.i, %while.body.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 3, i64 0), i64 0, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %i.07.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call noundef ptr @_ZN19btGenericMemoryPool8allocateEm(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %size)
   %inc.i = add nuw i64 %i.07.i, 1
-  %2 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 4), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 152), align 8
   %cmp.i = icmp ult i64 %inc.i, %2
   %cmp2.i = icmp eq ptr %call.i, null
   %3 = and i1 %cmp2.i, %cmp.i
@@ -767,8 +767,8 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp2.i, label %if.end.i, label %_ZN22btGenericPoolAllocator8allocateEm.exit
 
 if.end.i:                                         ; preds = %while.end.i, %entry
-  %4 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 1), align 8
-  %5 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 2), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 8), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 16), align 8
   %mul.i.i.i = mul i64 %5, %4
   %cmp.not.i.i = icmp ult i64 %mul.i.i.i, %size
   br i1 %cmp.not.i.i, label %if.then4.i.i, label %if.end.i.i
@@ -794,17 +794,17 @@ _ZN22btGenericPoolAllocator8allocateEm.exit:      ; preds = %while.end.i, %if.th
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z13btPoolReallocPvmm(ptr noundef %ptr, i64 noundef %oldsize, i64 noundef %newsize) local_unnamed_addr #2 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 4), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 152), align 8
   %cmp6.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp6.not.i.i, label %if.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %i.07.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ 0, %entry ]
-  %arrayidx.i.i = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 3, i64 0), i64 0, i64 %i.07.i.i
+  %arrayidx.i.i = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %i.07.i.i
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i = tail call noundef ptr @_ZN19btGenericMemoryPool8allocateEm(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %newsize)
   %inc.i.i = add nuw i64 %i.07.i.i, 1
-  %2 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 4), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 152), align 8
   %cmp.i.i = icmp ult i64 %inc.i.i, %2
   %cmp2.i.i = icmp eq ptr %call.i.i, null
   %3 = and i1 %cmp2.i.i, %cmp.i.i
@@ -814,8 +814,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp2.i.i, label %if.end.i.i, label %_Z11btPoolAllocm.exit
 
 if.end.i.i:                                       ; preds = %while.end.i.i, %entry
-  %4 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 1), align 8
-  %5 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 2), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 8), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 16), align 8
   %mul.i.i.i.i = mul i64 %5, %4
   %cmp.not.i.i.i = icmp ult i64 %mul.i.i.i.i, %newsize
   br i1 %cmp.not.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
@@ -837,7 +837,7 @@ _Z11btPoolAllocm.exit:                            ; preds = %while.end.i.i, %if.
   %retval.0.i.i = phi ptr [ %call.i.i, %while.end.i.i ], [ %call5.i.i.i, %if.then4.i.i.i ], [ %call7.i.i.i, %if.end6.i.i.i ]
   %cond = tail call i64 @llvm.umin.i64(i64 %oldsize, i64 %newsize)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr align 1 %ptr, i64 %cond, i1 false)
-  %6 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 4), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 152), align 8
   %cmp5.i.i = icmp eq i64 %6, 0
   br i1 %cmp5.i.i, label %if.end.i.i11, label %while.body.lr.ph.i.i
 
@@ -847,7 +847,7 @@ while.body.lr.ph.i.i:                             ; preds = %_Z11btPoolAllocm.ex
 
 while.body.i.i6:                                  ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i, %while.body.lr.ph.i.i
   %i.06.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %inc.i.i10, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i ]
-  %arrayidx.i.i7 = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 3, i64 0), i64 0, i64 %i.06.i.i
+  %arrayidx.i.i7 = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %i.06.i.i
   %7 = load ptr, ptr %arrayidx.i.i7, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp.i.i.i = icmp ugt ptr %8, %ptr
@@ -896,7 +896,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z10btPoolFreePv(ptr noundef %ptr) local_unnamed_addr #2 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 4), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 152), align 8
   %cmp5.i = icmp eq i64 %0, 0
   br i1 %cmp5.i, label %if.end.i, label %while.body.lr.ph.i
 
@@ -906,7 +906,7 @@ while.body.lr.ph.i:                               ; preds = %entry
 
 while.body.i:                                     ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i, %while.body.lr.ph.i
   %i.06.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %inc.i, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i ]
-  %arrayidx.i = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 3, i64 0), i64 0, i64 %i.06.i
+  %arrayidx.i = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %i.06.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp.i.i = icmp ugt ptr %2, %ptr
@@ -952,7 +952,7 @@ _ZN22btGenericPoolAllocator10freeMemoryEPv.exit:  ; preds = %while.end.thread.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22GIM_STANDARD_ALLOCATORD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count.i.i, align 8
   %cmp6.not.i.i = icmp eq i64 %0, 0
@@ -1010,10 +1010,10 @@ _ZN22GIM_STANDARD_ALLOCATORD2Ev.exit:             ; preds = %for.inc.i.i, %entry
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_btGenericPoolAllocator.cpp() #9 section ".text.startup" {
 entry:
-  store i64 0, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 4), align 8
-  store i64 8, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 1), align 8
-  store i64 32768, ptr getelementptr inbounds (%class.GIM_STANDARD_ALLOCATOR, ptr @g_main_allocator, i64 0, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i64 0, i32 0, i64 2), ptr @g_main_allocator, align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 152), align 8
+  store i64 8, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 8), align 8
+  store i64 32768, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i64 16), ptr @g_main_allocator, align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN22GIM_STANDARD_ALLOCATORD2Ev, ptr nonnull @g_main_allocator, ptr nonnull @__dso_handle) #13
   ret void
 }

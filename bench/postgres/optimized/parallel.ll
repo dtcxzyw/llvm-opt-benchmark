@@ -42,7 +42,7 @@ define dso_local void @init_parallel_dump_utils() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @on_exit_close_archive(ptr noundef %0) local_unnamed_addr #1 {
-  store ptr %0, ptr getelementptr inbounds (%struct.ShutdownInformation, ptr @shutdown_info, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @shutdown_info, i64 8), align 8
   tail call void @on_exit_nicely(ptr noundef nonnull @archive_close_connection, ptr noundef nonnull @shutdown_info) #18
   ret void
 }
@@ -253,12 +253,12 @@ ShutdownWorkersHard.exit:                         ; preds = %HasEveryWorkerTermi
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @set_archive_cancel_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %3 = load volatile i8, ptr getelementptr inbounds (i8, ptr @signal_info, i64 16), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %set_cancel_handler.exit, label %5
 
 5:                                                ; preds = %2
-  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @signal_info, i64 16), align 8
   %6 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @sigTermHandler) #18
   %7 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @sigTermHandler) #18
   %8 = tail call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull @sigTermHandler) #18
@@ -319,12 +319,12 @@ define dso_local noundef ptr @ParallelBackupStart(ptr noundef %0) local_unnamed_
   %18 = tail call ptr @pg_malloc0(i64 noundef %17) #18
   store ptr %18, ptr %8, align 8
   store ptr %4, ptr @shutdown_info, align 8
-  %19 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %19 = load volatile i8, ptr getelementptr inbounds (i8, ptr @signal_info, i64 16), align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %set_cancel_handler.exit.i, label %21
 
 21:                                               ; preds = %11
-  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @signal_info, i64 16), align 8
   %22 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @sigTermHandler) #18
   %23 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @sigTermHandler) #18
   %24 = tail call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull @sigTermHandler) #18
@@ -393,7 +393,7 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
   %54 = call i32 @getpid() #18
   %55 = getelementptr inbounds i8, ptr %35, i64 48
   store i32 %54, ptr %55, align 8
-  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 3), align 1
+  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @signal_info, i64 17), align 1
   %56 = load i32, ptr %3, align 4
   %57 = call i32 @close(i32 noundef %56) #18
   %58 = load i32, ptr %31, align 4
@@ -452,12 +452,12 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
   %80 = call ptr @pqsignal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
   %81 = getelementptr inbounds i8, ptr %0, i64 440
   %82 = load ptr, ptr %81, align 8
-  %83 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %83 = load volatile i8, ptr getelementptr inbounds (i8, ptr @signal_info, i64 16), align 8
   %84 = trunc i8 %83 to i1
   br i1 %84, label %set_cancel_handler.exit.i43, label %85
 
 85:                                               ; preds = %._crit_edge
-  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @signal_info, i64 16), align 8
   %86 = call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @sigTermHandler) #18
   %87 = call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @sigTermHandler) #18
   %88 = call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull @sigTermHandler) #18
@@ -484,7 +484,7 @@ set_cancel_handler.exit.i43:                      ; preds = %85, %._crit_edge
 
 set_archive_cancel_info.exit45:                   ; preds = %91, %92
   store volatile ptr %0, ptr @signal_info, align 8
-  store volatile ptr %4, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  store volatile ptr %4, ptr getelementptr inbounds (i8, ptr @signal_info, i64 8), align 8
   br label %94
 
 94:                                               ; preds = %1, %set_archive_cancel_info.exit45
@@ -828,7 +828,7 @@ HasEveryWorkerTerminated.exit.i:                  ; preds = %26
 WaitForTerminatingWorkers.exit:                   ; preds = %HasEveryWorkerTerminated.exit.i, %.loopexit.i, %.lr.ph.i, %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store ptr null, ptr @shutdown_info, align 8
-  store volatile ptr null, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  store volatile ptr null, ptr getelementptr inbounds (i8, ptr @signal_info, i64 8), align 8
   %49 = getelementptr inbounds i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   call void @free(ptr noundef %50) #18
@@ -1321,19 +1321,19 @@ define internal void @sigTermHandler(i32 %0) #9 {
   %3 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
   %4 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
   %5 = tail call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @signal_info, i64 8), align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %7 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @signal_info, i64 8), align 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
-  %10 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @signal_info, i64 8), align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr %struct.ParallelSlot, ptr %12, i64 %indvars.iv, i32 8
@@ -1347,7 +1347,7 @@ define internal void @sigTermHandler(i32 %0) #9 {
 
 17:                                               ; preds = %.lr.ph, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @signal_info, i64 8), align 8
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
@@ -1373,7 +1373,7 @@ define internal void @sigTermHandler(i32 %0) #9 {
   br label %32
 
 32:                                               ; preds = %27, %23, %.loopexit
-  %33 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 3), align 1
+  %33 = load volatile i8, ptr getelementptr inbounds (i8, ptr @signal_info, i64 17), align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %49, label %35
 

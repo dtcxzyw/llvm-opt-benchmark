@@ -232,8 +232,8 @@ define dso_local i32 @pcmcia_register_socket(ptr noundef %0) #0 align 16 {
   %33 = getelementptr inbounds i8, ptr %0, i64 312
   store i32 %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 264
-  %35 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pcmcia_socket_list, i64 0, i32 1), align 8
-  store ptr %34, ptr getelementptr inbounds (%struct.list_head, ptr @pcmcia_socket_list, i64 0, i32 1), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @pcmcia_socket_list, i64 8), align 8
+  store ptr %34, ptr getelementptr inbounds (i8, ptr @pcmcia_socket_list, i64 8), align 8
   store ptr @pcmcia_socket_list, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 272
   store ptr %35, ptr %36, align 8
@@ -1201,7 +1201,7 @@ declare dso_local void @class_unregister(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @init_pcmcia_cs() #5 section ".init.text" align 16 {
   store i32 0, ptr @pcmcia_unload, align 8
-  tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds (%struct.completion, ptr @pcmcia_unload, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
+  tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds (i8, ptr @pcmcia_unload, i64 8), ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
   %1 = tail call i32 @class_register(ptr noundef nonnull @pcmcia_socket_class) #6
   ret i32 %1
 }

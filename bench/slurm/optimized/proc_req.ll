@@ -212,7 +212,7 @@ define dso_local i32 @proc_req(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   unreachable
 
 15:                                               ; preds = %3
-  %16 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %17 = and i64 %16, 67108864
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %44, label %18
@@ -923,7 +923,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   unreachable
 
 350:                                              ; preds = %341
-  %351 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i64 0, i32 2), align 8
+  %351 = load ptr, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 16), align 8
   %352 = call ptr @list_find_first(ptr noundef %351, ptr noundef nonnull @_find_rpc_obj_in_list, ptr noundef nonnull %45) #10
   %.not268 = icmp eq ptr %352, null
   br i1 %.not268, label %353, label %359
@@ -934,7 +934,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %356 = zext i16 %355 to i32
   %357 = getelementptr inbounds i8, ptr %354, i64 4
   store i32 %356, ptr %357, align 4
-  %358 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i64 0, i32 2), align 8
+  %358 = load ptr, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 16), align 8
   call void @list_append(ptr noundef %358, ptr noundef %354) #10
   br label %359
 
@@ -948,7 +948,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %364 = load i64, ptr %363, align 8
   %365 = add i64 %364, %362
   store i64 %365, ptr %363, align 8
-  %366 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i64 0, i32 4), align 8
+  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 32), align 8
   %367 = load ptr, ptr %0, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 8
   %369 = call ptr @list_find_first(ptr noundef %366, ptr noundef nonnull @_find_rpc_obj_in_list, ptr noundef nonnull %368) #10
@@ -962,7 +962,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %374 = load i32, ptr %373, align 8
   %375 = getelementptr inbounds i8, ptr %371, i64 4
   store i32 %374, ptr %375, align 4
-  %376 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i64 0, i32 4), align 8
+  %376 = load ptr, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 32), align 8
   call void @list_append(ptr noundef %376, ptr noundef %371) #10
   br label %377
 
@@ -1285,7 +1285,7 @@ define internal fastcc noundef i32 @_add_assocs(ptr noundef %0, ptr nocapture re
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
-  %15 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %16 = icmp eq i32 %13, %15
   %or.cond.i = select i1 %14, i1 true, i1 %16
   br i1 %or.cond.i, label %_validate_operator.exit.thread, label %_validate_operator.exit
@@ -1679,7 +1679,7 @@ define internal fastcc noundef i32 @_add_reservation(ptr nocapture noundef reado
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
-  %5 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %6 = icmp eq i32 %5, %.val.val
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %9, label %7
@@ -1734,7 +1734,7 @@ define internal fastcc noundef i32 @_archive_dump(ptr noundef %0, ptr nocapture 
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  %14 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %15 = icmp eq i32 %12, %14
   %or.cond.i = select i1 %13, i1 true, i1 %15
   br i1 %or.cond.i, label %_validate_super_user.exit.thread, label %_validate_super_user.exit
@@ -1910,7 +1910,7 @@ define internal fastcc noundef i32 @_archive_load(ptr noundef %0, ptr %.8.val, p
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  %14 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %15 = icmp eq i32 %12, %14
   %or.cond.i = select i1 %13, i1 true, i1 %15
   br i1 %or.cond.i, label %_validate_super_user.exit.thread, label %_validate_super_user.exit
@@ -1957,7 +1957,7 @@ define internal fastcc noundef i32 @_cluster_tres(ptr noundef %0, ptr nocapture 
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
-  %5 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %6 = icmp eq i32 %5, %.val.val
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %9, label %7
@@ -2657,7 +2657,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_jobs_cond(ptr noundef %0, ptr 
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
-  %20 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %21 = icmp eq i32 %18, %20
   %or.cond.i = select i1 %19, i1 true, i1 %21
   br i1 %or.cond.i, label %_validate_operator.exit.thread, label %_validate_operator.exit
@@ -2696,7 +2696,7 @@ _validate_operator.exit.thread:                   ; preds = %15, %_validate_oper
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
-  %41 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %42 = icmp eq i32 %39, %41
   %or.cond.i39 = select i1 %40, i1 true, i1 %42
   br i1 %or.cond.i39, label %_validate_operator.exit41.thread, label %_validate_operator.exit41
@@ -3134,7 +3134,7 @@ define internal fastcc range(i32 -1, 2003) i32 @_get_wckeys(ptr noundef %0, ptr 
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  %16 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %17 = icmp eq i32 %14, %16
   %or.cond.i = select i1 %15, i1 true, i1 %17
   br i1 %or.cond.i, label %_validate_operator.exit.thread, label %_validate_operator.exit
@@ -3409,7 +3409,7 @@ define internal fastcc noundef i32 @_flush_jobs(ptr nocapture noundef readonly %
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
-  %5 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %6 = icmp eq i32 %5, %.val.val
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %9, label %7
@@ -3538,7 +3538,7 @@ define internal fastcc void @_job_complete(ptr noundef %0, ptr nocapture readonl
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %7, %.val.val
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %13, label %9
@@ -3716,7 +3716,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_start(ptr noundef %0, ptr noca
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %4, align 8
   %5 = icmp eq i32 %.val.val, 0
-  %6 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %7 = icmp eq i32 %6, %.val.val
   %or.cond.i = select i1 %5, i1 true, i1 %7
   br i1 %or.cond.i, label %14, label %8
@@ -3755,7 +3755,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_heavy(ptr nocapture noundef re
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %7, %.val.val
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %15, label %9
@@ -3834,7 +3834,7 @@ define internal fastcc void @_job_suspend(ptr nocapture noundef readonly %0, ptr
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %7, %.val.val
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %13, label %9
@@ -4642,7 +4642,7 @@ define internal fastcc i32 @_modify_users(ptr noundef %0, ptr nocapture readonly
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
-  %19 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %20 = icmp eq i32 %17, %19
   %or.cond.i = select i1 %18, i1 true, i1 %20
   br i1 %or.cond.i, label %.critedge, label %_validate_operator.exit
@@ -4728,7 +4728,7 @@ _validate_operator.exit..critedge_crit_edge:      ; preds = %_validate_operator.
   %62 = getelementptr inbounds i8, ptr %.pre4, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 0
-  %65 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %66 = icmp eq i32 %63, %65
   %or.cond.i63 = select i1 %64, i1 true, i1 %66
   br i1 %or.cond.i63, label %.critedge.thread, label %_validate_super_user.exit
@@ -4917,7 +4917,7 @@ define internal fastcc noundef i32 @_modify_reservation(ptr nocapture noundef re
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
-  %5 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %6 = icmp eq i32 %5, %.val.val
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %11, label %7
@@ -4963,7 +4963,7 @@ define internal fastcc void @_node_state(ptr nocapture noundef readonly %0, ptr 
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %4, align 8
   %5 = icmp eq i32 %.val.val, 0
-  %6 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %7 = icmp eq i32 %6, %.val.val
   %or.cond.i = select i1 %5, i1 true, i1 %7
   br i1 %or.cond.i, label %12, label %8
@@ -5112,7 +5112,7 @@ define internal fastcc range(i32 0, 2003) i32 @_reconfig(ptr noundef %0, ptr noc
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %5, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %_validate_super_user.exit.thread, label %_validate_super_user.exit
@@ -5161,7 +5161,7 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %7, %.val.val
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %13, label %9
@@ -6258,7 +6258,7 @@ define internal fastcc noundef i32 @_remove_reservation(ptr nocapture noundef re
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
-  %5 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %6 = icmp eq i32 %5, %.val.val
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %9, label %7
@@ -6320,7 +6320,7 @@ define internal fastcc noundef i32 @_roll_usage(ptr noundef %0, ptr nocapture re
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
-  %19 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %20 = icmp eq i32 %17, %19
   %or.cond.i = select i1 %18, i1 true, i1 %20
   br i1 %or.cond.i, label %_validate_operator.exit.thread, label %_validate_operator.exit
@@ -6382,7 +6382,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_job_start(ptr noundef %0
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %7, %.val.val
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %13, label %9
@@ -6449,7 +6449,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_msg(ptr noundef %0, ptr 
   %10 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %10, align 8
   %11 = icmp eq i32 %.val.val, 0
-  %12 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %13 = icmp eq i32 %12, %.val.val
   %or.cond.i = select i1 %11, i1 true, i1 %13
   br i1 %or.cond.i, label %18, label %14
@@ -6535,7 +6535,7 @@ define internal fastcc noundef i32 @_step_complete(ptr noundef %0, ptr %.8.val, 
   %6 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %6, align 8
   %7 = icmp eq i32 %.val.val, 0
-  %8 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %9 = icmp eq i32 %8, %.val.val
   %or.cond.i = select i1 %7, i1 true, i1 %9
   br i1 %or.cond.i, label %12, label %10
@@ -6690,7 +6690,7 @@ define internal fastcc noundef i32 @_step_start(ptr noundef %0, ptr %.8.val, ptr
   %7 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %7, align 8
   %8 = icmp eq i32 %.val.val, 0
-  %9 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %10 = icmp eq i32 %9, %.val.val
   %or.cond.i = select i1 %8, i1 true, i1 %10
   br i1 %or.cond.i, label %13, label %11
@@ -6884,7 +6884,7 @@ define internal fastcc noundef i32 @_fix_runaway_jobs(ptr noundef %0, ptr nocapt
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %5, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %_validate_operator.exit.thread, label %_validate_operator.exit
@@ -6931,7 +6931,7 @@ define internal fastcc range(i32 0, 2003) i32 @_get_stats(ptr noundef %0, ptr no
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %5, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %_validate_super_user.exit.thread, label %_validate_super_user.exit
@@ -7004,7 +7004,7 @@ define internal fastcc range(i32 0, 2003) i32 @_clear_stats(ptr noundef %0, ptr 
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %5, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %_validate_super_user.exit.thread, label %_validate_super_user.exit
@@ -7054,7 +7054,7 @@ define internal fastcc range(i32 0, 2003) i32 @_shutdown(ptr noundef %0, ptr noc
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %5, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %_validate_super_user.exit.thread, label %_validate_super_user.exit

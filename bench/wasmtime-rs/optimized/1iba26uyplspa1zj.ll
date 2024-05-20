@@ -34406,12 +34406,12 @@ define internal fastcc void @_ZN8wasmtime7compile22UnlinkedCompileOutputs8pre_li
   %41 = extractvalue { i64, i64 } %40, 0
   %42 = extractvalue { i64, i64 } %40, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !4998
-  store i64 %42, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !4998
+  store i64 %42, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !4998
   br label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7037975dac1ce5e8E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h410b342ab9df90deE.exit.i": ; preds = %2
-  %.pre.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !5009
-  %.pre1.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !4995
+  %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !5009
+  %.pre1.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !4995
   br label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7037975dac1ce5e8E.exit"
 
 43:                                               ; preds = %"_ZN4core3ptr317drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$alloc..collections..btree..map..IntoIter$LT$u32$C$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$C$wasmtime..compile..UnlinkedCompileOutputs..pre_link..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcba01597ae9a623cE.exit", %.body
@@ -34430,7 +34430,7 @@ define internal fastcc void @_ZN8wasmtime7compile22UnlinkedCompileOutputs8pre_li
   %.sroa.5.0 = phi i64 [ %41, %.noexc ], [ %.pre.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h410b342ab9df90deE.exit.i" ]
   %.sink = add i64 %.sroa.5.0, 1
   %45 = add i64 %.sroa.5.0, 2
-  store i64 %45, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !5010
+  store i64 %45, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !5010
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) @anon.f899a82c9ff5a3fb5164138d66d13f67.762, i64 32, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 32
   store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8

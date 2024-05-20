@@ -45,7 +45,7 @@ $_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12v2_encoder_tC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 16), ptr %this, align 8
   %_write_pos.i = getelementptr inbounds i8, ptr %this, i64 8
   %_buf_size.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %_write_pos.i, i8 0, i64 33, i1 false)
@@ -67,7 +67,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3zmq14encoder_base_tINS_12v2_encoder_tEEC2Em.exit
 
 _ZN3zmq14encoder_base_tINS_12v2_encoder_tEEC2Em.exit: ; preds = %entry, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq12v2_encoder_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12v2_encoder_tE, i64 16), ptr %this, align 8
   %_next.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_write_pos.i, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN3zmq12v2_encoder_t13message_readyEv to i64), ptr %_next.i, align 8
@@ -216,7 +216,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_ZN3zmq12v2_encoder_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 16), ptr %this, align 8
   %_buf.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf.i, align 8
   tail call void @free(ptr noundef %0) #15
@@ -471,7 +471,7 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 16), ptr %this, align 8
   %_buf = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf, align 8
   tail call void @free(ptr noundef %0) #15
@@ -481,7 +481,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 16), ptr %this, align 8
   %_buf.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf.i, align 8
   tail call void @free(ptr noundef %0) #15

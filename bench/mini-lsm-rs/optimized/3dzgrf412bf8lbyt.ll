@@ -7798,7 +7798,7 @@ _ZN15crossbeam_epoch7default6HANDLE7__getit17hca412f4b36e00003E.exit.i.i.i: ; pr
   br i1 %7, label %39, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hca412f4b36e00003E.exit.thread.i.i.i
 
 _ZN15crossbeam_epoch7default6HANDLE7__getit17hca412f4b36e00003E.exit.thread.i.i.i: ; preds = %.noexc, %1
-  %.0.i.i2.i.i.i = phi ptr [ %6, %.noexc ], [ getelementptr inbounds ({ { i64, ptr }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 0, i32 0, i32 1), %1 ]
+  %.0.i.i2.i.i.i = phi ptr [ %6, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 8), %1 ]
   %.0.val.i.i.i = load ptr, ptr %.0.i.i2.i.i.i, align 8, !noalias !1932, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1932
   store ptr %.0.val.i.i.i, ptr %3, align 8, !noalias !1932

@@ -545,9 +545,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @trace_probe_log_init(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
   store ptr %0, ptr @trace_probe_log, align 8
-  store i32 %1, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 2), align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 3), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 16), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 20), align 4
   ret void
 }
 
@@ -562,23 +562,23 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @trace_probe_log_set_index(i32 noundef %0) local_unnamed_addr #3 align 16 {
-  store i32 %0, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 3), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 20), align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 8), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %61, label %5
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 2), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 16), align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %.loopexit4
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 3), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 20), align 4
   %10 = zext i32 %9 to i64
   %11 = zext nneg i32 %6 to i64
   br label %12
@@ -608,14 +608,14 @@ define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) loc
   br i1 %30, label %61, label %31
 
 31:                                               ; preds = %.loopexit4
-  %32 = load i32, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 3), align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 2), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 20), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 16), align 8
   %34 = icmp slt i32 %32, %33
   %35 = icmp sgt i32 %33, 0
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %31
-  %37 = load ptr, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 8), align 8
   %38 = zext nneg i32 %33 to i64
   br label %39
 
@@ -1231,7 +1231,7 @@ sub_1:                                            ; preds = %sub_0
   br label %416
 
 224:                                              ; preds = %211
-  %225 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %226 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %225, i32 noundef 3520, i64 noundef 256) #18
   store ptr %226, ptr %5, align 8
   %227 = icmp eq ptr %226, null
@@ -1668,7 +1668,7 @@ define dso_local noundef ptr @traceprobe_expand_meta_args(i32 noundef %0, ptr no
 19:                                               ; preds = %11
   %20 = trunc i64 %13 to i32
   %21 = add i32 %20, 2
-  store i32 %21, ptr getelementptr inbounds (%struct.trace_probe_log, ptr @trace_probe_log, i64 0, i32 3), align 4
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @trace_probe_log, i64 20), align 4
   %22 = load i32, ptr %9, align 8
   %23 = and i32 %22, 31
   %24 = icmp eq i32 %23, 6
@@ -2543,7 +2543,7 @@ declare dso_local i32 @unregister_trace_event(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @trace_probe_add_file(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 24) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6

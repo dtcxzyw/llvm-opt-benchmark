@@ -162,7 +162,7 @@ define internal fastcc i32 @do_nfs4_mount(ptr noundef %0, ptr noundef %1, ptr no
   br label %90
 
 49:                                               ; preds = %43
-  %50 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %51 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3264, i64 noundef 32) #11
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread14, label %53

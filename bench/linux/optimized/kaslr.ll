@@ -22,7 +22,7 @@ define dso_local i64 @kaslr_get_random_long(ptr noundef %0) local_unnamed_addr #
   br i1 %2, label %3, label %.thread
 
 3:                                                ; preds = %1
-  %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
+  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %5 = and i64 %4, 1073741824
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.thread13, label %.preheader
@@ -30,7 +30,7 @@ define dso_local i64 @kaslr_get_random_long(ptr noundef %0) local_unnamed_addr #
 .thread:                                          ; preds = %1
   tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull %0) #3
   tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
-  %7 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
+  %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %8 = and i64 %7, 1073741824
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %.thread2, label %10
@@ -58,19 +58,19 @@ define dso_local i64 @kaslr_get_random_long(ptr noundef %0) local_unnamed_addr #
   %21 = extractvalue { i8, i64 } %13, 1
   %22 = xor i64 %21, sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432)
   %23 = select i1 %16, i64 %22, i64 sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432)
-  %24 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
+  %24 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %25 = and i64 %24, 16
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %42, label %33
 
 .thread13:                                        ; preds = %3
-  %27 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
+  %27 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %28 = and i64 %27, 16
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.thread16, label %.thread5
 
 .thread2:                                         ; preds = %.thread
-  %30 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
+  %30 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %31 = and i64 %30, 16
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %.thread6, label %.thread3

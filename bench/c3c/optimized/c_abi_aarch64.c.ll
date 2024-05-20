@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @aarch64_coerce_illegal_vector(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @type_size(ptr noundef %0) #4
-  %3 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 7), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 44), align 4
   %4 = icmp eq i32 %3, 12
   %5 = icmp ult i32 %2, 3
   %or.cond = select i1 %4, i1 %5, i1 false
@@ -152,12 +152,12 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
   %34 = getelementptr inbounds i8, ptr %4, i64 56
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 255
-  %37 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 33), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   %38 = icmp ult i32 %36, %37
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %33
-  %40 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %40 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %41 = and i8 %40, 2
   %.not44 = icmp eq i8 %41, 0
   br i1 %.not44, label %.critedge, label %42
@@ -205,7 +205,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
 
 61:                                               ; preds = %59
   %62 = call i32 @type_abi_alignment(ptr noundef nonnull %4) #4
-  %63 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %63 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %67
 
@@ -496,12 +496,12 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
   %41 = getelementptr inbounds i8, ptr %5, i64 56
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 255
-  %44 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 33), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   %45 = icmp ult i32 %43, %44
   br i1 %45, label %46, label %.critedge
 
 46:                                               ; preds = %40
-  %47 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %47 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %48 = and i8 %47, 2
   %.not46 = icmp eq i8 %48, 0
   br i1 %.not46, label %.critedge, label %49
@@ -529,7 +529,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
-  %58 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %59 = icmp eq i32 %58, 5
   %brmerge.not = and i1 %59, %1
   br i1 %brmerge.not, label %62, label %60
@@ -547,7 +547,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %64
-  %67 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 17), align 8
+  %67 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 272), align 8
   %68 = trunc i8 %67 to i1
   br i1 %68, label %74, label %69
 

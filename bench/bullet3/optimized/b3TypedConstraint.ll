@@ -34,7 +34,7 @@ define dso_local void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr no
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17b3TypedConstraint, i64 16), ptr %this, align 16
   %m_userConstraintType = getelementptr inbounds i8, ptr %this, i64 12
   store i32 -1, ptr %m_userConstraintType, align 4
   %1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -373,7 +373,7 @@ _Z16b3NormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17b3TypedConstraintD2Ev(ptr noundef nonnull align 16 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17b3TypedConstraint, i64 16), ptr %this, align 16
   ret void
 }
 

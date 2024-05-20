@@ -373,8 +373,8 @@ initDisc.exit.thread:                             ; preds = %12
 agxbsizeof.exit.i.i.i:                            ; preds = %66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.189, ptr noundef nonnull @mkBlock.PREFIX, i64 noundef %.080)
-  store i64 29, ptr getelementptr inbounds ([139 x %struct.Exid_s], ptr @symbols, i64 0, i64 0, i32 3), align 16
-  store i16 64, ptr getelementptr inbounds ([27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1), align 2
+  store i64 29, ptr getelementptr inbounds (i8, ptr @symbols, i64 32), align 16
+  store i16 64, ptr getelementptr inbounds (i8, ptr @tchk, i64 6), align 2
   %71 = load ptr, ptr %69, align 8
   %72 = load i32, ptr %.04879, align 8
   %.val.i.i.i.i = load i8, ptr %56, align 1
@@ -459,8 +459,8 @@ agxbfree.exit.i:                                  ; preds = %94, %agxbuse.exit.i
 
 agxbsizeof.exit.i.i47.i:                          ; preds = %96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  store i64 27, ptr getelementptr inbounds ([139 x %struct.Exid_s], ptr @symbols, i64 0, i64 0, i32 3), align 16
-  store i16 16, ptr getelementptr inbounds ([27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1), align 2
+  store i64 27, ptr getelementptr inbounds (i8, ptr @symbols, i64 32), align 16
+  store i16 16, ptr getelementptr inbounds (i8, ptr @tchk, i64 6), align 2
   %99 = getelementptr inbounds i8, ptr %.04879, i64 16
   %100 = load i64, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %.04978, i64 16
@@ -549,8 +549,8 @@ agxbfree.exit60.i:                                ; preds = %123, %agxbuse.exit5
 
 agxbsizeof.exit.i.i64.i:                          ; preds = %129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  store i64 28, ptr getelementptr inbounds ([139 x %struct.Exid_s], ptr @symbols, i64 0, i64 0, i32 3), align 16
-  store i16 32, ptr getelementptr inbounds ([27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1), align 2
+  store i64 28, ptr getelementptr inbounds (i8, ptr @symbols, i64 32), align 16
+  store i16 32, ptr getelementptr inbounds (i8, ptr @tchk, i64 6), align 2
   %132 = getelementptr inbounds i8, ptr %.04879, i64 24
   %133 = load i64, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %.04978, i64 24
@@ -683,8 +683,8 @@ mkBlock.exit:                                     ; preds = %162, %164
   br i1 %or.cond, label %188, label %195
 
 188:                                              ; preds = %.loopexit
-  store i64 29, ptr getelementptr inbounds ([139 x %struct.Exid_s], ptr @symbols, i64 0, i64 0, i32 3), align 16
-  store i16 64, ptr getelementptr inbounds ([27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1), align 2
+  store i64 29, ptr getelementptr inbounds (i8, ptr @symbols, i64 32), align 16
+  store i16 64, ptr getelementptr inbounds (i8, ptr @tchk, i64 6), align 2
   %189 = load ptr, ptr %0, align 8
   %190 = getelementptr inbounds i8, ptr %0, i64 16
   %191 = load i32, ptr %190, align 8
@@ -707,7 +707,7 @@ mkBlock.exit:                                     ; preds = %162, %164
   br label %.loopexit75
 
 198:                                              ; preds = %195
-  store i64 30, ptr getelementptr inbounds ([139 x %struct.Exid_s], ptr @symbols, i64 0, i64 0, i32 3), align 16
+  store i64 30, ptr getelementptr inbounds (i8, ptr @symbols, i64 32), align 16
   %199 = load ptr, ptr %0, align 8
   %200 = getelementptr inbounds i8, ptr %0, i64 12
   %201 = load i32, ptr %200, align 4
@@ -5553,7 +5553,7 @@ declare i32 @compare(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @xargs(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %.sroa.0.0.copyload = load i8, ptr @Agdirected, align 4
-  %.sroa.10.sroa.0.0.copyload = load i24, ptr getelementptr inbounds (%struct.Agdesc_s, ptr @Agdirected, i64 0, i32 1, i64 0), align 1
+  %.sroa.10.sroa.0.0.copyload = load i24, ptr getelementptr inbounds (i8, ptr @Agdirected, i64 1), align 1
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %1

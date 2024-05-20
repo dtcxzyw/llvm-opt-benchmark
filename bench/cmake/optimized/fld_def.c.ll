@@ -284,10 +284,10 @@ define dso_local noundef ptr @new_field(i32 noundef %0, i32 noundef %1, i32 noun
   store ptr %15, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  %32 = load ptr, ptr getelementptr inbounds (%struct.fieldnode, ptr @default_field, i64 0, i32 21), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @default_field, i64 88), align 8
   %33 = getelementptr inbounds i8, ptr %15, i64 88
   store ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.fieldnode, ptr @default_field, i64 0, i32 22), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @default_field, i64 96), align 8
   %35 = call ptr @_nc_Copy_Argument(ptr noundef %32, ptr noundef %34, ptr noundef nonnull %7)
   %36 = getelementptr inbounds i8, ptr %15, i64 96
   store ptr %35, ptr %36, align 8

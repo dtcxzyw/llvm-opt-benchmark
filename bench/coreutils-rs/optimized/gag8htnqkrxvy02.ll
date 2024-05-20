@@ -1872,16 +1872,16 @@ define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17
 
 5:                                                ; preds = %2
   store i32 1, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, align 4, !noalias !160
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !160
-  store i8 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 4, !noalias !160
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), align 4, !noalias !160
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 8), align 4, !noalias !160
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 9), align 1, !noalias !160
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 2), align 4, !noalias !160
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 12), align 4, !noalias !160
   br label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i: ; preds = %5, %2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !165
   %6 = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), ptr %6, align 8, !noalias !165
+  store ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), ptr %6, align 8, !noalias !165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
   %7 = getelementptr inbounds i8, ptr %3, i64 104
   store i64 0, ptr %7, align 8, !noalias !165
@@ -1947,15 +1947,15 @@ define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17
 
 6:                                                ; preds = %3
   store i32 1, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, align 4, !noalias !176
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !176
-  store i8 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 4, !noalias !176
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), align 4, !noalias !176
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 8), align 4, !noalias !176
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 9), align 1, !noalias !176
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 2), align 4, !noalias !176
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 12), align 4, !noalias !176
   br label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i: ; preds = %6, %3
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4), !noalias !181
-  store ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), ptr %4, align 8, !noalias !181
+  store ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), ptr %4, align 8, !noalias !181
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false), !noalias !185
   %8 = getelementptr inbounds i8, ptr %4, i64 144
@@ -2032,16 +2032,16 @@ define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17
 
 5:                                                ; preds = %2
   store i32 1, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, align 4, !noalias !198
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !198
-  store i8 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 4, !noalias !198
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), align 4, !noalias !198
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 8), align 4, !noalias !198
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 9), align 1, !noalias !198
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 2), align 4, !noalias !198
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 12), align 4, !noalias !198
   br label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i: ; preds = %5, %2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3), !noalias !203
   %6 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), ptr %6, align 8, !noalias !203
+  store ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), ptr %6, align 8, !noalias !203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %7 = getelementptr inbounds i8, ptr %3, i64 88
   store i64 0, ptr %7, align 8, !noalias !203
@@ -2105,17 +2105,17 @@ define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17
 
 5:                                                ; preds = %2
   store i32 1, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, align 4, !noalias !213
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !213
-  store i8 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 4, !noalias !213
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), align 4, !noalias !213
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 8), align 4, !noalias !213
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 9), align 1, !noalias !213
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 2), align 4, !noalias !213
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 12), align 4, !noalias !213
   br label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i: ; preds = %5, %2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !218
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), ptr %6, align 8, !noalias !218
+  store ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), ptr %6, align 8, !noalias !218
   %7 = getelementptr inbounds i8, ptr %3, i64 104
   store i64 0, ptr %7, align 8, !noalias !218
   invoke void @_ZN10rayon_core8registry8Registry6inject17hb2e5f712afc6da48E(ptr noundef nonnull align 128 %0, ptr noundef nonnull @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as$u20$rayon_core..job..Job$GT$7execute17hc4cfb61a9de4480dE", ptr noundef nonnull %3)
@@ -2180,15 +2180,15 @@ define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17
 
 6:                                                ; preds = %3
   store i32 1, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, align 4, !noalias !229
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !229
-  store i8 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 4, !noalias !229
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), align 4, !noalias !229
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 8), align 4, !noalias !229
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 9), align 1, !noalias !229
-  store i32 0, ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 2), align 4, !noalias !229
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 12), align 4, !noalias !229
   br label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h8fe0ccbdaa0fc875E.exit.i: ; preds = %6, %3
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %4), !noalias !234
-  store ptr getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), ptr %4, align 8, !noalias !234
+  store ptr getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, i64 4), ptr %4, align 8, !noalias !234
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) %2, i64 168, i1 false), !noalias !238
   %8 = getelementptr inbounds i8, ptr %4, i64 176

@@ -486,7 +486,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   tail call void @_ZN3irr5video11CNullDriverC2EPNS_2io11IFileSystemERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull %0, ptr noundef %io, ptr noundef nonnull align 4 dereferenceable(8) %WindowSize) #24
   %1 = getelementptr inbounds i8, ptr %this, i64 1168
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %1, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %this, i64 1176
   tail call void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(1872) %2) #24
   %3 = load ptr, ptr %vtt, align 8
@@ -498,8 +498,8 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %5, ptr %add.ptr, align 8, !tbaa !3
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [135 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 1, i64 2), ptr %add.ptr3, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [135 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 1096), ptr %add.ptr3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 1160), ptr %1, align 8, !tbaa !3
   %CacheHandler = getelementptr inbounds i8, ptr %this, i64 3048
   store ptr null, ptr %CacheHandler, align 8, !tbaa !6
   %Name = getelementptr inbounds i8, ptr %this, i64 3056
@@ -859,22 +859,22 @@ declare void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr noundef nonnull ali
 define void @_ZN3irr5video13COpenGLDriverC1ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 4344
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 4352
   store ptr null, ptr %DebugName.i, align 8, !tbaa !139
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 4360
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !141
   %WindowSize = getelementptr inbounds i8, ptr %params, i64 8
-  tail call void @_ZN3irr5video11CNullDriverC2EPNS_2io11IFileSystemERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video13COpenGLDriverE, i64 0, i64 1), ptr noundef %io, ptr noundef nonnull align 4 dereferenceable(8) %WindowSize) #24
+  tail call void @_ZN3irr5video11CNullDriverC2EPNS_2io11IFileSystemERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video13COpenGLDriverE, i64 8), ptr noundef %io, ptr noundef nonnull align 4 dereferenceable(8) %WindowSize) #24
   %1 = getelementptr inbounds i8, ptr %this, i64 1168
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %1, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %this, i64 1176
   tail call void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(1872) %2) #24
-  store ptr getelementptr inbounds inrange(-24, 1056) ({ [135 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [135 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 3, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 1056) (i8, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 1280), ptr %0, align 8, !tbaa !3
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [135 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 1, i64 2), ptr %add.ptr2, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [135 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 1096), ptr %add.ptr2, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 1160), ptr %1, align 8, !tbaa !3
   %CacheHandler = getelementptr inbounds i8, ptr %this, i64 3048
   store ptr null, ptr %CacheHandler, align 8, !tbaa !6
   %Name = getelementptr inbounds i8, ptr %this, i64 3056
@@ -1960,9 +1960,9 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [135 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 1, i64 2), ptr %add.ptr3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 1096), ptr %add.ptr3, align 8, !tbaa !3
   %add.ptr4 = getelementptr inbounds i8, ptr %this, i64 1168
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [135 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 2, i64 2), ptr %add.ptr4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 1160), ptr %add.ptr4, align 8, !tbaa !3
   tail call void @_ZN3irr5video11CNullDriver21deleteMaterialRendersEv(ptr noundef nonnull align 8 dereferenceable(1164) %this) #24
   %CacheHandler = getelementptr inbounds i8, ptr %this, i64 3048
   %3 = load ptr, ptr %CacheHandler, align 8, !tbaa !6
@@ -2775,8 +2775,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !139
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !141
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video29COpenGLMaterialRenderer_SOLIDE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video29COpenGLMaterialRenderer_SOLIDE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr5video29COpenGLMaterialRenderer_SOLIDE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video29COpenGLMaterialRenderer_SOLIDE, i64 112), ptr %0, align 8, !tbaa !3
   %Driver.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %this, ptr %Driver.i, align 8, !tbaa !196
   %call2 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull %call) #24
@@ -2786,8 +2786,8 @@ entry:
   store ptr null, ptr %DebugName.i.i11, align 8, !tbaa !139
   %ReferenceCounter.i.i12 = getelementptr inbounds i8, ptr %call3, i64 32
   store i32 1, ptr %ReferenceCounter.i.i12, align 8, !tbaa !141
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video49COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNELE, i64 0, i32 0, i64 3), ptr %call3, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video49COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNELE, i64 0, i32 1, i64 3), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr5video49COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNELE, i64 24), ptr %call3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video49COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNELE, i64 112), ptr %1, align 8, !tbaa !3
   %Driver.i13 = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %this, ptr %Driver.i13, align 8, !tbaa !199
   %call4 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull %call3) #24
@@ -2797,8 +2797,8 @@ entry:
   store ptr null, ptr %DebugName.i.i14, align 8, !tbaa !139
   %ReferenceCounter.i.i15 = getelementptr inbounds i8, ptr %call5, i64 32
   store i32 1, ptr %ReferenceCounter.i.i15, align 8, !tbaa !141
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video53COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNEL_REFE, i64 0, i32 0, i64 3), ptr %call5, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video53COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNEL_REFE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr5video53COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNEL_REFE, i64 24), ptr %call5, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video53COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNEL_REFE, i64 112), ptr %2, align 8, !tbaa !3
   %Driver.i16 = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %this, ptr %Driver.i16, align 8, !tbaa !201
   %call6 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull %call5) #24
@@ -2808,8 +2808,8 @@ entry:
   store ptr null, ptr %DebugName.i.i17, align 8, !tbaa !139
   %ReferenceCounter.i.i18 = getelementptr inbounds i8, ptr %call7, i64 32
   store i32 1, ptr %ReferenceCounter.i.i18, align 8, !tbaa !141
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video48COpenGLMaterialRenderer_TRANSPARENT_VERTEX_ALPHAE, i64 0, i32 0, i64 3), ptr %call7, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video48COpenGLMaterialRenderer_TRANSPARENT_VERTEX_ALPHAE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr5video48COpenGLMaterialRenderer_TRANSPARENT_VERTEX_ALPHAE, i64 24), ptr %call7, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video48COpenGLMaterialRenderer_TRANSPARENT_VERTEX_ALPHAE, i64 112), ptr %3, align 8, !tbaa !3
   %Driver.i19 = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %this, ptr %Driver.i19, align 8, !tbaa !203
   %call8 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull %call7) #24
@@ -2819,8 +2819,8 @@ entry:
   store ptr null, ptr %DebugName.i.i20, align 8, !tbaa !139
   %ReferenceCounter.i.i21 = getelementptr inbounds i8, ptr %call9, i64 32
   store i32 1, ptr %ReferenceCounter.i.i21, align 8, !tbaa !141
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLENDE, i64 0, i32 0, i64 3), ptr %call9, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLENDE, i64 0, i32 1, i64 3), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLENDE, i64 24), ptr %call9, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLENDE, i64 112), ptr %4, align 8, !tbaa !3
   %Driver.i22 = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr %this, ptr %Driver.i22, align 8, !tbaa !205
   %call10 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull %call9) #24
@@ -2850,7 +2850,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %.val22.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val22.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   tail call void %.val22.i(i32 noundef 3042) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -2904,7 +2904,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i81, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit, label %if.then.i77
 
 if.then.i77:                                      ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit
-  %19 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !216
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !216
   tail call void %19(i32 noundef 770, i32 noundef 771) #24
   %FrameBufferCount.i78 = getelementptr inbounds i8, ptr %9, i64 72
   %20 = load i32, ptr %FrameBufferCount.i78, align 8, !tbaa !210
@@ -3955,7 +3955,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 
 _ZN3irr5video13COpenGLDriver20SHWBufferLink_openglC2EPKNS_5scene11IMeshBufferE.exit: ; preds = %land.lhs.true, %lor.lhs.false
   %call6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, i32 0, i64 2), ptr %call6, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 16), ptr %call6, align 8, !tbaa !3
   %MeshBuffer.i.i = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %mb, ptr %MeshBuffer.i.i, align 8, !tbaa !245
   %ChangedID_Vertex.i.i = getelementptr inbounds i8, ptr %call6, i64 16
@@ -3971,7 +3971,7 @@ _ZN3irr5video13COpenGLDriver20SHWBufferLink_openglC2EPKNS_5scene11IMeshBufferE.e
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 208
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %mb, ptr noundef nonnull %call6) #24
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriver20SHWBufferLink_openglE, i64 0, i32 0, i64 2), ptr %call6, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video13COpenGLDriver20SHWBufferLink_openglE, i64 16), ptr %call6, align 8, !tbaa !3
   %vbo_verticesID.i = getelementptr inbounds i8, ptr %call6, i64 40
   store i32 0, ptr %vbo_verticesID.i, align 8, !tbaa !252
   %vbo_indicesID.i = getelementptr inbounds i8, ptr %call6, i64 44
@@ -5310,8 +5310,8 @@ entry:
   store i8 1, ptr %is_sorted.i3.i, align 8, !tbaa !288
   %DriverType.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %DriverType.i, align 8, !tbaa !294
-  store ptr getelementptr inbounds inrange(-24, 24) ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 72), ptr %0, align 8, !tbaa !3
   %AssignedTextures = getelementptr inbounds i8, ptr %this, i64 88
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %AssignedTextures, i8 0, i64 24, i1 false)
@@ -6401,19 +6401,19 @@ cond.end:                                         ; preds = %if.then15
   br i1 %cmp19.not, label %if.end30.thread, label %if.then20
 
 if.then20:                                        ; preds = %cond.end
-  %18 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %18(i32 noundef %17, i32 noundef 0) #24
-  %19 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %19(i32 noundef %17) #24
   br label %if.end30.thread.sink.split
 
 if.end30.thread.sink.split:                       ; preds = %if.then20, %if.then15
-  %20 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8, !tbaa !336
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8, !tbaa !336
   tail call void %20(i32 noundef %16) #24
   br label %if.end30.thread
 
 if.end30.thread:                                  ; preds = %if.end30.thread.sink.split, %cond.end
-  %21 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   %TextureName.i = getelementptr inbounds i8, ptr %texture, i64 132
   %22 = load i32, ptr %TextureName.i, align 4, !tbaa !337
   tail call void %21(i32 noundef %16, i32 noundef %22) #24
@@ -6475,9 +6475,9 @@ if.end30:                                         ; preds = %_ZN3irr4core6string
 if.then34:                                        ; preds = %if.end30
   %TextureType.i104 = getelementptr inbounds i8, ptr %7, i64 128
   %30 = load i32, ptr %TextureType.i104, align 8, !tbaa !326
-  %31 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   call void %31(i32 noundef %30, i32 noundef 0) #24
-  %32 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   call void %32(i32 noundef %30) #24
   store ptr null, ptr %arrayidx, align 8, !tbaa !135
   br label %if.then42
@@ -6640,7 +6640,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %if.end31
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !216
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !216
   call void %26(i32 noundef 770, i32 noundef 771) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %16, i64 72
   %27 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -6814,9 +6814,9 @@ if.end.i:                                         ; preds = %_ZN3irr5video23COpe
 if.then34.i:                                      ; preds = %if.end.i
   %TextureType.i104.i = getelementptr inbounds i8, ptr %55, i64 128
   %56 = load i32, ptr %TextureType.i104.i, align 8, !tbaa !326
-  %57 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   call void %57(i32 noundef %56, i32 noundef 0) #24
-  %58 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   call void %58(i32 noundef %56) #24
   store ptr null, ptr %Texture.i, align 8, !tbaa !135
   %vtable43.i = load ptr, ptr %55, align 8, !tbaa !3
@@ -6917,7 +6917,7 @@ if.then66:                                        ; preds = %_ZN3irr5video23COpe
   br i1 %or.cond.i147, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i148
 
 if.then.i148:                                     ; preds = %if.then66
-  %.val.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i(i32 noundef 3042) #24
   %FrameBufferCount.i149 = getelementptr inbounds i8, ptr %62, i64 72
   %74 = load i32, ptr %FrameBufferCount.i149, align 8, !tbaa !210
@@ -6948,7 +6948,7 @@ if.else70:                                        ; preds = %_ZN3irr5video23COpe
   br i1 %or.cond.i156, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit164, label %if.then.i157
 
 if.then.i157:                                     ; preds = %if.else70
-  %.val22.i159 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val22.i159 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   call void %.val22.i159(i32 noundef 3042) #24
   %FrameBufferCount.i160 = getelementptr inbounds i8, ptr %62, i64 72
   %79 = load i32, ptr %FrameBufferCount.i160, align 8, !tbaa !210
@@ -7311,9 +7311,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %38, i64 128
   %44 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %45 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %45(i32 noundef %44, i32 noundef 0) #24
-  %46 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %46(i32 noundef %44) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %38, align 8, !tbaa !3
@@ -7386,9 +7386,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel38
 if.then34.i.i.peel389:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel387, %if.then6.i.i.peel373
   %TextureType.i104.i.i.peel390 = getelementptr inbounds i8, ptr %52, i64 128
   %58 = load i32, ptr %TextureType.i104.i.i.peel390, align 8, !tbaa !326
-  %59 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %59(i32 noundef %58, i32 noundef 0) #24
-  %60 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %60(i32 noundef %58) #24
   store ptr null, ptr %arrayidx.i.i.peel371, align 8, !tbaa !135
   %vtable43.i.i.peel391 = load ptr, ptr %52, align 8, !tbaa !3
@@ -7461,9 +7461,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel42
 if.then34.i.i.peel431:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel429, %if.then6.i.i.peel415
   %TextureType.i104.i.i.peel432 = getelementptr inbounds i8, ptr %66, i64 128
   %72 = load i32, ptr %TextureType.i104.i.i.peel432, align 8, !tbaa !326
-  %73 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %73(i32 noundef %72, i32 noundef 0) #24
-  %74 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %74(i32 noundef %72) #24
   store ptr null, ptr %arrayidx.i.i.peel413, align 8, !tbaa !135
   %vtable43.i.i.peel433 = load ptr, ptr %66, align 8, !tbaa !3
@@ -7670,9 +7670,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i: ; preds
 if.then34.i:                                      ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i, %if.then6.i
   %TextureType.i104.i = getelementptr inbounds i8, ptr %6, i64 128
   %15 = load i32, ptr %TextureType.i104.i, align 8, !tbaa !326
-  %16 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %16(i32 noundef %15, i32 noundef 0) #24
-  %17 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %17(i32 noundef %15) #24
   store ptr null, ptr %arrayidx.i, align 8, !tbaa !135
   %vtable43.i = load ptr, ptr %6, align 8, !tbaa !3
@@ -7777,9 +7777,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %12, i64 128
   %18 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %19 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %19(i32 noundef %18, i32 noundef 0) #24
-  %20 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %20(i32 noundef %18) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %12, align 8, !tbaa !3
@@ -7852,9 +7852,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel33
 if.then34.i.i.peel335:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel333, %if.then6.i.i.peel319
   %TextureType.i104.i.i.peel336 = getelementptr inbounds i8, ptr %26, i64 128
   %32 = load i32, ptr %TextureType.i104.i.i.peel336, align 8, !tbaa !326
-  %33 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %33(i32 noundef %32, i32 noundef 0) #24
-  %34 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %34(i32 noundef %32) #24
   store ptr null, ptr %arrayidx.i.i.peel317, align 8, !tbaa !135
   %vtable43.i.i.peel337 = load ptr, ptr %26, align 8, !tbaa !3
@@ -7927,9 +7927,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel37
 if.then34.i.i.peel377:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel375, %if.then6.i.i.peel361
   %TextureType.i104.i.i.peel378 = getelementptr inbounds i8, ptr %40, i64 128
   %46 = load i32, ptr %TextureType.i104.i.i.peel378, align 8, !tbaa !326
-  %47 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %47(i32 noundef %46, i32 noundef 0) #24
-  %48 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %48(i32 noundef %46) #24
   store ptr null, ptr %arrayidx.i.i.peel359, align 8, !tbaa !135
   %vtable43.i.i.peel379 = load ptr, ptr %40, align 8, !tbaa !3
@@ -8296,9 +8296,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %4, i64 128
   %10 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %11 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %11(i32 noundef %10, i32 noundef 0) #24
-  %12 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %12(i32 noundef %10) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %4, align 8, !tbaa !3
@@ -8371,9 +8371,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel88
 if.then34.i.i.peel90:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel88, %if.then6.i.i.peel74
   %TextureType.i104.i.i.peel91 = getelementptr inbounds i8, ptr %18, i64 128
   %24 = load i32, ptr %TextureType.i104.i.i.peel91, align 8, !tbaa !326
-  %25 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %25(i32 noundef %24, i32 noundef 0) #24
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %26(i32 noundef %24) #24
   store ptr null, ptr %arrayidx.i.i.peel72, align 8, !tbaa !135
   %vtable43.i.i.peel92 = load ptr, ptr %18, align 8, !tbaa !3
@@ -8446,9 +8446,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel13
 if.then34.i.i.peel132:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel130, %if.then6.i.i.peel116
   %TextureType.i104.i.i.peel133 = getelementptr inbounds i8, ptr %32, i64 128
   %38 = load i32, ptr %TextureType.i104.i.i.peel133, align 8, !tbaa !326
-  %39 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %39(i32 noundef %38, i32 noundef 0) #24
-  %40 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %40(i32 noundef %38) #24
   store ptr null, ptr %arrayidx.i.i.peel114, align 8, !tbaa !135
   %vtable43.i.i.peel134 = load ptr, ptr %32, align 8, !tbaa !3
@@ -8630,9 +8630,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %11, i64 128
   %17 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %18 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %18(i32 noundef %17, i32 noundef 0) #24
-  %19 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %19(i32 noundef %17) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %11, align 8, !tbaa !3
@@ -8705,9 +8705,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel46
 if.then34.i.i.peel469:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel467, %if.then6.i.i.peel453
   %TextureType.i104.i.i.peel470 = getelementptr inbounds i8, ptr %25, i64 128
   %31 = load i32, ptr %TextureType.i104.i.i.peel470, align 8, !tbaa !326
-  %32 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %32(i32 noundef %31, i32 noundef 0) #24
-  %33 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %33(i32 noundef %31) #24
   store ptr null, ptr %arrayidx.i.i.peel451, align 8, !tbaa !135
   %vtable43.i.i.peel471 = load ptr, ptr %25, align 8, !tbaa !3
@@ -8780,9 +8780,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel50
 if.then34.i.i.peel511:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel509, %if.then6.i.i.peel495
   %TextureType.i104.i.i.peel512 = getelementptr inbounds i8, ptr %39, i64 128
   %45 = load i32, ptr %TextureType.i104.i.i.peel512, align 8, !tbaa !326
-  %46 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %46(i32 noundef %45, i32 noundef 0) #24
-  %47 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %47(i32 noundef %45) #24
   store ptr null, ptr %arrayidx.i.i.peel493, align 8, !tbaa !135
   %vtable43.i.i.peel513 = load ptr, ptr %39, align 8, !tbaa !3
@@ -9231,9 +9231,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %3, i64 128
   %9 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %10 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %10(i32 noundef %9, i32 noundef 0) #24
-  %11 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %11(i32 noundef %9) #24
   store ptr null, ptr %Texture.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %3, align 8, !tbaa !3
@@ -9306,9 +9306,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel69
 if.then34.i.i.peel71:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel69, %if.then6.i.i.peel55
   %TextureType.i104.i.i.peel72 = getelementptr inbounds i8, ptr %17, i64 128
   %23 = load i32, ptr %TextureType.i104.i.i.peel72, align 8, !tbaa !326
-  %24 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %24(i32 noundef %23, i32 noundef 0) #24
-  %25 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %25(i32 noundef %23) #24
   store ptr null, ptr %arrayidx.i.i.peel53, align 8, !tbaa !135
   %vtable43.i.i.peel73 = load ptr, ptr %17, align 8, !tbaa !3
@@ -9381,9 +9381,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel11
 if.then34.i.i.peel113:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel111, %if.then6.i.i.peel97
   %TextureType.i104.i.i.peel114 = getelementptr inbounds i8, ptr %31, i64 128
   %37 = load i32, ptr %TextureType.i104.i.i.peel114, align 8, !tbaa !326
-  %38 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %38(i32 noundef %37, i32 noundef 0) #24
-  %39 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %39(i32 noundef %37) #24
   store ptr null, ptr %arrayidx.i.i.peel95, align 8, !tbaa !135
   %vtable43.i.i.peel115 = load ptr, ptr %31, align 8, !tbaa !3
@@ -9456,9 +9456,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel15
 if.then34.i.i.peel155:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel153, %if.then6.i.i.peel139
   %TextureType.i104.i.i.peel156 = getelementptr inbounds i8, ptr %45, i64 128
   %51 = load i32, ptr %TextureType.i104.i.i.peel156, align 8, !tbaa !326
-  %52 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %52(i32 noundef %51, i32 noundef 0) #24
-  %53 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %53(i32 noundef %51) #24
   store ptr null, ptr %arrayidx.i.i.peel137, align 8, !tbaa !135
   %vtable43.i.i.peel157 = load ptr, ptr %45, align 8, !tbaa !3
@@ -9639,9 +9639,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %8, i64 128
   %14 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %15 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %15(i32 noundef %14, i32 noundef 0) #24
-  %16 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %16(i32 noundef %14) #24
   store ptr null, ptr %Texture.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %8, align 8, !tbaa !3
@@ -9714,9 +9714,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel16
 if.then34.i.i.peel163:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel161, %if.then6.i.i.peel147
   %TextureType.i104.i.i.peel164 = getelementptr inbounds i8, ptr %22, i64 128
   %28 = load i32, ptr %TextureType.i104.i.i.peel164, align 8, !tbaa !326
-  %29 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %29(i32 noundef %28, i32 noundef 0) #24
-  %30 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %30(i32 noundef %28) #24
   store ptr null, ptr %arrayidx.i.i.peel145, align 8, !tbaa !135
   %vtable43.i.i.peel165 = load ptr, ptr %22, align 8, !tbaa !3
@@ -9789,9 +9789,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel20
 if.then34.i.i.peel205:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel203, %if.then6.i.i.peel189
   %TextureType.i104.i.i.peel206 = getelementptr inbounds i8, ptr %36, i64 128
   %42 = load i32, ptr %TextureType.i104.i.i.peel206, align 8, !tbaa !326
-  %43 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %43(i32 noundef %42, i32 noundef 0) #24
-  %44 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %44(i32 noundef %42) #24
   store ptr null, ptr %arrayidx.i.i.peel187, align 8, !tbaa !135
   %vtable43.i.i.peel207 = load ptr, ptr %36, align 8, !tbaa !3
@@ -9864,9 +9864,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel24
 if.then34.i.i.peel247:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel245, %if.then6.i.i.peel231
   %TextureType.i104.i.i.peel248 = getelementptr inbounds i8, ptr %50, i64 128
   %56 = load i32, ptr %TextureType.i104.i.i.peel248, align 8, !tbaa !326
-  %57 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %57(i32 noundef %56, i32 noundef 0) #24
-  %58 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %58(i32 noundef %56) #24
   store ptr null, ptr %arrayidx.i.i.peel229, align 8, !tbaa !135
   %vtable43.i.i.peel249 = load ptr, ptr %50, align 8, !tbaa !3
@@ -10111,9 +10111,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %3, i64 128
   %9 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %10 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %10(i32 noundef %9, i32 noundef 0) #24
-  %11 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %11(i32 noundef %9) #24
   store ptr null, ptr %Texture.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %3, align 8, !tbaa !3
@@ -10186,9 +10186,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel84
 if.then34.i.i.peel86:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel84, %if.then6.i.i.peel70
   %TextureType.i104.i.i.peel87 = getelementptr inbounds i8, ptr %17, i64 128
   %23 = load i32, ptr %TextureType.i104.i.i.peel87, align 8, !tbaa !326
-  %24 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %24(i32 noundef %23, i32 noundef 0) #24
-  %25 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %25(i32 noundef %23) #24
   store ptr null, ptr %arrayidx.i.i.peel68, align 8, !tbaa !135
   %vtable43.i.i.peel88 = load ptr, ptr %17, align 8, !tbaa !3
@@ -10261,9 +10261,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel12
 if.then34.i.i.peel128:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel126, %if.then6.i.i.peel112
   %TextureType.i104.i.i.peel129 = getelementptr inbounds i8, ptr %31, i64 128
   %37 = load i32, ptr %TextureType.i104.i.i.peel129, align 8, !tbaa !326
-  %38 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %38(i32 noundef %37, i32 noundef 0) #24
-  %39 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %39(i32 noundef %37) #24
   store ptr null, ptr %arrayidx.i.i.peel110, align 8, !tbaa !135
   %vtable43.i.i.peel130 = load ptr, ptr %31, align 8, !tbaa !3
@@ -10336,9 +10336,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel16
 if.then34.i.i.peel170:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel168, %if.then6.i.i.peel154
   %TextureType.i104.i.i.peel171 = getelementptr inbounds i8, ptr %45, i64 128
   %51 = load i32, ptr %TextureType.i104.i.i.peel171, align 8, !tbaa !326
-  %52 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %52(i32 noundef %51, i32 noundef 0) #24
-  %53 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %53(i32 noundef %51) #24
   store ptr null, ptr %arrayidx.i.i.peel152, align 8, !tbaa !135
   %vtable43.i.i.peel172 = load ptr, ptr %45, align 8, !tbaa !3
@@ -10495,14 +10495,14 @@ define linkonce_odr void @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverE
 entry:
   %ref.tmp = alloca %"class.irr::core::vector2d", align 4
   %0 = getelementptr inbounds i8, ptr %this, i64 240
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 248
   store ptr null, ptr %DebugName.i, align 8, !tbaa !139
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 256
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !141
-  tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type)
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type)
+  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 88), ptr %0, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %driver, ptr %Driver, align 8, !tbaa !368
   %TextureType = getelementptr inbounds i8, ptr %this, i64 128
@@ -10820,7 +10820,7 @@ for.inc:                                          ; preds = %do.end.i, %_ZNK3irr
 
 if.end69:                                         ; preds = %for.inc, %_ZN3irr4core5arrayIPNS_5video6IImageEE8set_usedEj.exit, %lor.lhs.false20
   %tmpImages.0 = phi ptr [ %images, %lor.lhs.false20 ], [ %Images, %_ZN3irr4core5arrayIPNS_5video6IImageEE8set_usedEj.exit ], [ %Images, %for.inc ]
-  %64 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 61), align 8, !tbaa !391
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 536), align 8, !tbaa !391
   call void %64(i32 noundef 1, ptr noundef nonnull %TextureName) #24
   %65 = load ptr, ptr %Driver, align 8, !tbaa !368
   %CacheHandler.i = getelementptr inbounds i8, ptr %65, i64 3048
@@ -10829,10 +10829,10 @@ if.end69:                                         ; preds = %for.inc, %_ZN3irr4c
   %Texture.i = getelementptr inbounds i8, ptr %66, i64 32
   %67 = load ptr, ptr %Texture.i, align 8, !tbaa !135
   %call78 = call noundef zeroext i1 @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE(ptr noundef nonnull align 8 dereferenceable(52) %TextureCache.i, i32 noundef 0, ptr noundef nonnull %this, i32 noundef 0)
-  %68 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 10), align 8, !tbaa !392
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 128), align 8, !tbaa !392
   %69 = load i32, ptr %TextureType, align 8, !tbaa !326
   call void %68(i32 noundef %69, i32 noundef 10241, i32 noundef 9728) #24
-  %70 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 10), align 8, !tbaa !392
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 128), align 8, !tbaa !392
   %71 = load i32, ptr %TextureType, align 8, !tbaa !326
   call void %70(i32 noundef %71, i32 noundef 10240, i32 noundef 9728) #24
   %72 = load i8, ptr %HasMipMaps, align 8, !tbaa !377, !range !131, !noundef !132
@@ -10848,7 +10848,7 @@ if.then83:                                        ; preds = %if.end69
   br i1 %call87, label %if.then88, label %if.else89
 
 if.then88:                                        ; preds = %if.then83
-  %75 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 3), align 8, !tbaa !393
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 72), align 8, !tbaa !393
   call void %75(i32 noundef 33170, i32 noundef 4353) #24
   br label %if.end98
 
@@ -10858,7 +10858,7 @@ if.else89:                                        ; preds = %if.then83
   %vfn92 = getelementptr inbounds i8, ptr %vtable91, i64 544
   %77 = load ptr, ptr %vfn92, align 8
   %call93 = call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(1164) %76, i32 noundef 4) #24
-  %78 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 3), align 8, !tbaa !393
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 72), align 8, !tbaa !393
   br i1 %call93, label %if.then94, label %if.else95
 
 if.then94:                                        ; preds = %if.else89
@@ -11233,9 +11233,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i: ; preds
 if.then34.i:                                      ; preds = %if.then6.i, %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i
   %TextureType.i104.i = getelementptr inbounds i8, ptr %24, i64 128
   %30 = load i32, ptr %TextureType.i104.i, align 8, !tbaa !326
-  %31 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %31(i32 noundef %30, i32 noundef 0) #24
-  %32 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %32(i32 noundef %30) #24
   store ptr null, ptr %arrayidx.i, align 8, !tbaa !135
   %vtable43.i = load ptr, ptr %24, align 8, !tbaa !3
@@ -13239,7 +13239,7 @@ sw.bb383:                                         ; preds = %if.end381
   br i1 %cmp.not.i, label %sw.epilog408, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb383
-  %.val13.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val13.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   call void %.val13.i(i32 noundef 2929) #24
   store i8 0, ptr %DepthTest.i, align 1, !tbaa !418
   br label %sw.epilog408
@@ -13253,7 +13253,7 @@ sw.bb384:                                         ; preds = %if.end381
   br i1 %cmp.not.i862.not, label %if.then.i863, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit866
 
 if.then.i863:                                     ; preds = %sw.bb384
-  %.val.i864 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i864 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i864(i32 noundef 2929) #24
   store i8 1, ptr %DepthTest.i861, align 1, !tbaa !418
   %.pre1342 = load ptr, ptr %CacheHandler385, align 8, !tbaa !6
@@ -13267,7 +13267,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i867, label %sw.epilog408, label %if.then.i868
 
 if.then.i868:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit866
-  %56 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 30), align 8, !tbaa !420
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 288), align 8, !tbaa !420
   call void %56(i32 noundef 515) #24
   store i32 515, ptr %DepthFunc.i, align 4, !tbaa !419
   br label %sw.epilog408
@@ -13281,7 +13281,7 @@ sw.bb387:                                         ; preds = %if.end381
   br i1 %cmp.not.i870.not, label %if.then.i871, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit874
 
 if.then.i871:                                     ; preds = %sw.bb387
-  %.val.i872 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i872 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i872(i32 noundef 2929) #24
   store i8 1, ptr %DepthTest.i869, align 1, !tbaa !418
   %.pre1341 = load ptr, ptr %CacheHandler388, align 8, !tbaa !6
@@ -13295,7 +13295,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i876, label %sw.epilog408, label %if.then.i877
 
 if.then.i877:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit874
-  %61 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 30), align 8, !tbaa !420
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 288), align 8, !tbaa !420
   call void %61(i32 noundef 514) #24
   store i32 514, ptr %DepthFunc.i875, align 4, !tbaa !419
   br label %sw.epilog408
@@ -13309,7 +13309,7 @@ sw.bb390:                                         ; preds = %if.end381
   br i1 %cmp.not.i880.not, label %if.then.i881, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit884
 
 if.then.i881:                                     ; preds = %sw.bb390
-  %.val.i882 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i882 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i882(i32 noundef 2929) #24
   store i8 1, ptr %DepthTest.i879, align 1, !tbaa !418
   %.pre1340 = load ptr, ptr %CacheHandler391, align 8, !tbaa !6
@@ -13323,7 +13323,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i886, label %sw.epilog408, label %if.then.i887
 
 if.then.i887:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit884
-  %66 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 30), align 8, !tbaa !420
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 288), align 8, !tbaa !420
   call void %66(i32 noundef 513) #24
   store i32 513, ptr %DepthFunc.i885, align 4, !tbaa !419
   br label %sw.epilog408
@@ -13337,7 +13337,7 @@ sw.bb393:                                         ; preds = %if.end381
   br i1 %cmp.not.i890.not, label %if.then.i891, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit894
 
 if.then.i891:                                     ; preds = %sw.bb393
-  %.val.i892 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i892 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i892(i32 noundef 2929) #24
   store i8 1, ptr %DepthTest.i889, align 1, !tbaa !418
   %.pre1339 = load ptr, ptr %CacheHandler394, align 8, !tbaa !6
@@ -13351,7 +13351,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i896, label %sw.epilog408, label %if.then.i897
 
 if.then.i897:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit894
-  %71 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 30), align 8, !tbaa !420
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 288), align 8, !tbaa !420
   call void %71(i32 noundef 517) #24
   store i32 517, ptr %DepthFunc.i895, align 4, !tbaa !419
   br label %sw.epilog408
@@ -13365,7 +13365,7 @@ sw.bb396:                                         ; preds = %if.end381
   br i1 %cmp.not.i900.not, label %if.then.i901, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit904
 
 if.then.i901:                                     ; preds = %sw.bb396
-  %.val.i902 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i902 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i902(i32 noundef 2929) #24
   store i8 1, ptr %DepthTest.i899, align 1, !tbaa !418
   %.pre1338 = load ptr, ptr %CacheHandler397, align 8, !tbaa !6
@@ -13379,7 +13379,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i906, label %sw.epilog408, label %if.then.i907
 
 if.then.i907:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit904
-  %76 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 30), align 8, !tbaa !420
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 288), align 8, !tbaa !420
   call void %76(i32 noundef 518) #24
   store i32 518, ptr %DepthFunc.i905, align 4, !tbaa !419
   br label %sw.epilog408
@@ -13393,7 +13393,7 @@ sw.bb399:                                         ; preds = %if.end381
   br i1 %cmp.not.i910.not, label %if.then.i911, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit914
 
 if.then.i911:                                     ; preds = %sw.bb399
-  %.val.i912 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i912 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i912(i32 noundef 2929) #24
   store i8 1, ptr %DepthTest.i909, align 1, !tbaa !418
   %.pre1337 = load ptr, ptr %CacheHandler400, align 8, !tbaa !6
@@ -13407,7 +13407,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i916, label %sw.epilog408, label %if.then.i917
 
 if.then.i917:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit914
-  %81 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 30), align 8, !tbaa !420
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 288), align 8, !tbaa !420
   call void %81(i32 noundef 516) #24
   store i32 516, ptr %DepthFunc.i915, align 4, !tbaa !419
   br label %sw.epilog408
@@ -13421,7 +13421,7 @@ sw.bb402:                                         ; preds = %if.end381
   br i1 %cmp.not.i920.not, label %if.then.i921, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit924
 
 if.then.i921:                                     ; preds = %sw.bb402
-  %.val.i922 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i922 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i922(i32 noundef 2929) #24
   store i8 1, ptr %DepthTest.i919, align 1, !tbaa !418
   %.pre1336 = load ptr, ptr %CacheHandler403, align 8, !tbaa !6
@@ -13435,7 +13435,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i926, label %sw.epilog408, label %if.then.i927
 
 if.then.i927:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit924
-  %86 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 30), align 8, !tbaa !420
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 288), align 8, !tbaa !420
   call void %86(i32 noundef 519) #24
   store i32 519, ptr %DepthFunc.i925, align 4, !tbaa !419
   br label %sw.epilog408
@@ -13449,7 +13449,7 @@ sw.bb405:                                         ; preds = %if.end381
   br i1 %cmp.not.i930.not, label %if.then.i931, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit934
 
 if.then.i931:                                     ; preds = %sw.bb405
-  %.val.i932 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i932 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i932(i32 noundef 2929) #24
   store i8 1, ptr %DepthTest.i929, align 1, !tbaa !418
   %.pre = load ptr, ptr %CacheHandler406, align 8, !tbaa !6
@@ -13463,7 +13463,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i936, label %sw.epilog408, label %if.then.i937
 
 if.then.i937:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthTestEb.exit934
-  %91 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 30), align 8, !tbaa !420
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 288), align 8, !tbaa !420
   call void %91(i32 noundef 512) #24
   store i32 512, ptr %DepthFunc.i935, align 4, !tbaa !419
   br label %sw.epilog408
@@ -13500,7 +13500,7 @@ if.then410:                                       ; preds = %_ZNK3irr5video11CNu
   br i1 %cmp.not.i939.not, label %if.then.i940, label %if.end414
 
 if.then.i940:                                     ; preds = %if.then410
-  %96 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 21), align 8, !tbaa !423
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 216), align 8, !tbaa !423
   call void %96(i8 noundef zeroext 1) #24
   store i8 1, ptr %DepthMask.i, align 8, !tbaa !422
   br label %if.end414
@@ -13514,7 +13514,7 @@ if.else412:                                       ; preds = %_ZNK3irr5video11CNu
   br i1 %cmp.not.i942, label %if.end414, label %if.then.i943
 
 if.then.i943:                                     ; preds = %if.else412
-  %99 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 21), align 8, !tbaa !423
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 216), align 8, !tbaa !423
   call void %99(i8 noundef zeroext 0) #24
   store i8 0, ptr %DepthMask.i941, align 8, !tbaa !422
   br label %if.end414
@@ -13536,7 +13536,7 @@ if.then424:                                       ; preds = %if.end414
   br i1 %cmp.not.i945, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE15setCullFaceFuncEj.exit, label %if.then.i946
 
 if.then.i946:                                     ; preds = %if.then424
-  %104 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 1), align 8, !tbaa !425
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 56), align 8, !tbaa !425
   call void %104(i32 noundef 1032) #24
   store i32 1032, ptr %CullFaceMode.i, align 4, !tbaa !424
   %.pre1345 = load ptr, ptr %CacheHandler425, align 8, !tbaa !6
@@ -13550,7 +13550,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i947.not, label %if.then.i948, label %if.end449
 
 if.then.i948:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE15setCullFaceFuncEj.exit
-  %.val.i949 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i949 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i949(i32 noundef 2884) #24
   store i8 1, ptr %CullFace.i, align 8, !tbaa !426
   br label %if.end449
@@ -13569,7 +13569,7 @@ if.then433:                                       ; preds = %if.else427
   br i1 %cmp.not.i952, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE15setCullFaceFuncEj.exit954, label %if.then.i953
 
 if.then.i953:                                     ; preds = %if.then433
-  %110 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 1), align 8, !tbaa !425
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 56), align 8, !tbaa !425
   call void %110(i32 noundef 1029) #24
   store i32 1029, ptr %CullFaceMode.i951, align 4, !tbaa !424
   %.pre1343 = load ptr, ptr %CacheHandler446, align 8, !tbaa !6
@@ -13583,7 +13583,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i956.not, label %if.then.i957, label %if.end449
 
 if.then.i957:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE15setCullFaceFuncEj.exit954
-  %.val.i958 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i958 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i958(i32 noundef 2884) #24
   store i8 1, ptr %CullFace.i955, align 8, !tbaa !426
   br label %if.end449
@@ -13598,7 +13598,7 @@ if.then442:                                       ; preds = %if.else436
   br i1 %cmp.not.i962, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE15setCullFaceFuncEj.exit964, label %if.then.i963
 
 if.then.i963:                                     ; preds = %if.then442
-  %114 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 1), align 8, !tbaa !425
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 56), align 8, !tbaa !425
   call void %114(i32 noundef 1028) #24
   store i32 1028, ptr %CullFaceMode.i961, align 4, !tbaa !424
   %.pre1344 = load ptr, ptr %CacheHandler446, align 8, !tbaa !6
@@ -13612,7 +13612,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i966.not, label %if.then.i967, label %if.end449
 
 if.then.i967:                                     ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE15setCullFaceFuncEj.exit964
-  %.val.i968 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i968 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i968(i32 noundef 2884) #24
   store i8 1, ptr %CullFace.i965, align 8, !tbaa !426
   br label %if.end449
@@ -13624,7 +13624,7 @@ if.else445:                                       ; preds = %if.else436
   br i1 %cmp.not.i972, label %if.end449, label %if.then.i973
 
 if.then.i973:                                     ; preds = %if.else445
-  %.val13.i975 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val13.i975 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   call void %.val13.i975(i32 noundef 2884) #24
   store i8 0, ptr %CullFace.i971, align 8, !tbaa !426
   br label %if.end449
@@ -13647,7 +13647,7 @@ if.end449:                                        ; preds = %if.then.i973, %if.e
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setColorMaskEh.exit, label %if.then.i979
 
 if.then.i979:                                     ; preds = %if.end449
-  %123 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 20), align 8, !tbaa !428
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 208), align 8, !tbaa !428
   %and.i980 = lshr i8 %119, 1
   %and.lobit.i = and i8 %and.i980, 1
   %and7.i = lshr i8 %119, 2
@@ -13696,7 +13696,7 @@ if.then459:                                       ; preds = %_ZN3irr5video23COpe
   br i1 %or.cond.i982, label %if.end534, label %if.then.i983
 
 if.then.i983:                                     ; preds = %if.then459
-  %.val22.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val22.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   call void %.val22.i(i32 noundef 3042) #24
   %FrameBufferCount.i985 = getelementptr inbounds i8, ptr %129, i64 72
   %134 = load i32, ptr %FrameBufferCount.i985, align 8, !tbaa !210
@@ -13719,7 +13719,7 @@ if.else461:                                       ; preds = %_ZN3irr5video23COpe
   br i1 %or.cond.i991, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit999, label %if.then.i992
 
 if.then.i992:                                     ; preds = %if.else461
-  %.val.i993 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i993 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   call void %.val.i993(i32 noundef 3042) #24
   %FrameBufferCount.i995 = getelementptr inbounds i8, ptr %129, i64 72
   %137 = load i32, ptr %FrameBufferCount.i995, align 8, !tbaa !210
@@ -14439,7 +14439,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i1290, label %if.end555, label %if.then.i1282
 
 if.then.i1282:                                    ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1280
-  %272 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !216
+  %272 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !216
   call void %272(i32 noundef %r.0.i1257, i32 noundef %r.0.i1270) #24
   %FrameBufferCount.i1283 = getelementptr inbounds i8, ptr %251, i64 72
   %273 = load i32, ptr %FrameBufferCount.i1283, align 8, !tbaa !210
@@ -14882,7 +14882,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i, label %if.end28, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %if.else
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !216
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !216
   tail call void %26(i32 noundef %sourceRGB, i32 noundef %destinationRGB) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %this, i64 72
   %27 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -16183,7 +16183,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %or.cond20.i, label %if.end, label %if.then.i29
 
 if.then.i29:                                      ; preds = %if.then
-  %11 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 48), align 8, !tbaa !449
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 432), align 8, !tbaa !449
   tail call void %11(i32 noundef %vp.sroa.0.1, i32 noundef %sub14, i32 noundef %sub.i20, i32 noundef %sub.i) #24
   store i32 %vp.sroa.0.1, ptr %ViewportX.i, align 8, !tbaa !448
   store i32 %sub14, ptr %ViewportY.i, align 4, !tbaa !450
@@ -16222,7 +16222,7 @@ if.then.i:                                        ; preds = %entry
   %ViewportHeight.i = getelementptr inbounds i8, ptr %0, i64 188
   %ViewportWidth.i = getelementptr inbounds i8, ptr %0, i64 184
   %ViewportY.i = getelementptr inbounds i8, ptr %0, i64 180
-  %8 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 48), align 8, !tbaa !449
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 432), align 8, !tbaa !449
   tail call void %8(i32 noundef 0, i32 noundef 0, i32 noundef %width, i32 noundef %height) #24
   store i32 0, ptr %ViewportX.i, align 8, !tbaa !448
   store i32 0, ptr %ViewportY.i, align 4, !tbaa !450
@@ -17168,7 +17168,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %ViewportWidth.i = getelementptr inbounds i8, ptr %0, i64 184
   %ViewportY.i = getelementptr inbounds i8, ptr %0, i64 180
-  %9 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 48), align 8, !tbaa !449
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 432), align 8, !tbaa !449
   %10 = extractelement <2 x i32> %1, i64 0
   %11 = extractelement <2 x i32> %1, i64 1
   tail call void %9(i32 noundef 0, i32 noundef 0, i32 noundef %10, i32 noundef %11) #24
@@ -17542,14 +17542,14 @@ return:                                           ; preds = %delete.notnull.i, %
 define linkonce_odr void @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEC1ERKNS_4core6stringIcEERKNS4_11dimension2dIjEENS0_14E_TEXTURE_TYPEENS0_13ECOLOR_FORMATEPS2_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 4 dereferenceable(8) %size, i32 noundef %type, i32 noundef %format, ptr noundef %driver) unnamed_addr #0 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 240
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 248
   store ptr null, ptr %DebugName.i, align 8, !tbaa !139
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 256
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !141
-  tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type)
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type)
+  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 88), ptr %0, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %driver, ptr %Driver, align 8, !tbaa !368
   %TextureType = getelementptr inbounds i8, ptr %this, i64 128
@@ -17661,7 +17661,7 @@ if.then24:                                        ; preds = %_ZN3irr5video6IImag
   br label %return
 
 if.end28:                                         ; preds = %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
-  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 61), align 8, !tbaa !391
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 536), align 8, !tbaa !391
   tail call void %13(i32 noundef 1, ptr noundef nonnull %TextureName) #24
   %14 = load ptr, ptr %Driver, align 8, !tbaa !368
   %CacheHandler.i = getelementptr inbounds i8, ptr %14, i64 3048
@@ -17670,19 +17670,19 @@ if.end28:                                         ; preds = %_ZN3irr5video6IImag
   %Texture.i = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load ptr, ptr %Texture.i, align 8, !tbaa !135
   %call37 = tail call noundef zeroext i1 @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE(ptr noundef nonnull align 8 dereferenceable(52) %TextureCache.i, i32 noundef 0, ptr noundef nonnull %this, i32 noundef 0)
-  %17 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 10), align 8, !tbaa !392
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 128), align 8, !tbaa !392
   %18 = load i32, ptr %TextureType, align 8, !tbaa !326
   tail call void %17(i32 noundef %18, i32 noundef 10241, i32 noundef 9728) #24
-  %19 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 10), align 8, !tbaa !392
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 128), align 8, !tbaa !392
   %20 = load i32, ptr %TextureType, align 8, !tbaa !326
   tail call void %19(i32 noundef %20, i32 noundef 10240, i32 noundef 9728) #24
-  %21 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 10), align 8, !tbaa !392
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 128), align 8, !tbaa !392
   %22 = load i32, ptr %TextureType, align 8, !tbaa !326
   tail call void %21(i32 noundef %22, i32 noundef 10242, i32 noundef 33071) #24
-  %23 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 10), align 8, !tbaa !392
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 128), align 8, !tbaa !392
   %24 = load i32, ptr %TextureType, align 8, !tbaa !326
   tail call void %23(i32 noundef %24, i32 noundef 10243, i32 noundef 33071) #24
-  %25 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 10), align 8, !tbaa !392
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 128), align 8, !tbaa !392
   %26 = load i32, ptr %TextureType, align 8, !tbaa !326
   tail call void %25(i32 noundef %26, i32 noundef 32882, i32 noundef 33071) #24
   store i8 2, ptr %StatesCache, align 4, !tbaa !458
@@ -17697,7 +17697,7 @@ if.end28:                                         ; preds = %_ZN3irr5video6IImag
   ]
 
 sw.bb:                                            ; preds = %if.end28
-  %28 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 13), align 8, !tbaa !461
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 152), align 8, !tbaa !461
   %29 = load i32, ptr %InternalFormat, align 8, !tbaa !378
   %30 = load i32, ptr %Size, align 8, !tbaa !462
   %Height = getelementptr inbounds i8, ptr %this, i64 84
@@ -17708,7 +17708,7 @@ sw.bb:                                            ; preds = %if.end28
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end28
-  %34 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 13), align 8, !tbaa !461
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 152), align 8, !tbaa !461
   %35 = load i32, ptr %InternalFormat, align 8, !tbaa !378
   %36 = load i32, ptr %Size, align 8, !tbaa !462
   %Height58 = getelementptr inbounds i8, ptr %this, i64 84
@@ -17716,35 +17716,35 @@ sw.bb53:                                          ; preds = %if.end28
   %38 = load i32, ptr %PixelFormat, align 4, !tbaa !464
   %39 = load i32, ptr %PixelType, align 8, !tbaa !369
   tail call void %34(i32 noundef 34069, i32 noundef 0, i32 noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef 0, i32 noundef %38, i32 noundef %39, ptr noundef null) #24
-  %40 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 13), align 8, !tbaa !461
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 152), align 8, !tbaa !461
   %41 = load i32, ptr %InternalFormat, align 8, !tbaa !378
   %42 = load i32, ptr %Size, align 8, !tbaa !462
   %43 = load i32, ptr %Height58, align 4, !tbaa !463
   %44 = load i32, ptr %PixelFormat, align 4, !tbaa !464
   %45 = load i32, ptr %PixelType, align 8, !tbaa !369
   tail call void %40(i32 noundef 34070, i32 noundef 0, i32 noundef %41, i32 noundef %42, i32 noundef %43, i32 noundef 0, i32 noundef %44, i32 noundef %45, ptr noundef null) #24
-  %46 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 13), align 8, !tbaa !461
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 152), align 8, !tbaa !461
   %47 = load i32, ptr %InternalFormat, align 8, !tbaa !378
   %48 = load i32, ptr %Size, align 8, !tbaa !462
   %49 = load i32, ptr %Height58, align 4, !tbaa !463
   %50 = load i32, ptr %PixelFormat, align 4, !tbaa !464
   %51 = load i32, ptr %PixelType, align 8, !tbaa !369
   tail call void %46(i32 noundef 34071, i32 noundef 0, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef 0, i32 noundef %50, i32 noundef %51, ptr noundef null) #24
-  %52 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 13), align 8, !tbaa !461
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 152), align 8, !tbaa !461
   %53 = load i32, ptr %InternalFormat, align 8, !tbaa !378
   %54 = load i32, ptr %Size, align 8, !tbaa !462
   %55 = load i32, ptr %Height58, align 4, !tbaa !463
   %56 = load i32, ptr %PixelFormat, align 4, !tbaa !464
   %57 = load i32, ptr %PixelType, align 8, !tbaa !369
   tail call void %52(i32 noundef 34072, i32 noundef 0, i32 noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef 0, i32 noundef %56, i32 noundef %57, ptr noundef null) #24
-  %58 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 13), align 8, !tbaa !461
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 152), align 8, !tbaa !461
   %59 = load i32, ptr %InternalFormat, align 8, !tbaa !378
   %60 = load i32, ptr %Size, align 8, !tbaa !462
   %61 = load i32, ptr %Height58, align 4, !tbaa !463
   %62 = load i32, ptr %PixelFormat, align 4, !tbaa !464
   %63 = load i32, ptr %PixelType, align 8, !tbaa !369
   tail call void %58(i32 noundef 34073, i32 noundef 0, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef 0, i32 noundef %62, i32 noundef %63, ptr noundef null) #24
-  %64 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 13), align 8, !tbaa !461
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 152), align 8, !tbaa !461
   %65 = load i32, ptr %InternalFormat, align 8, !tbaa !378
   %66 = load i32, ptr %Size, align 8, !tbaa !462
   %67 = load i32, ptr %Height58, align 4, !tbaa !463
@@ -18568,7 +18568,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setColorMaskEh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %5 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 20), align 8, !tbaa !428
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 208), align 8, !tbaa !428
   tail call void %5(i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -18622,7 +18622,7 @@ if.then17:                                        ; preds = %if.end
   br i1 %cmp.not.i47.not, label %if.then.i48, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthMaskEb.exit
 
 if.then.i48:                                      ; preds = %if.then17
-  %12 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 21), align 8, !tbaa !423
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 216), align 8, !tbaa !423
   tail call void %12(i8 noundef zeroext 1) #24
   store i8 1, ptr %DepthMask.i46, align 8, !tbaa !422
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthMaskEb.exit
@@ -18667,7 +18667,7 @@ if.end31:                                         ; preds = %if.then30, %if.end2
   br i1 %or.cond.i53, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setColorMaskEh.exit64, label %if.then.i54
 
 if.then.i54:                                      ; preds = %if.end31
-  %17 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 20), align 8, !tbaa !428
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 208), align 8, !tbaa !428
   %and.i55 = lshr i8 %2, 1
   %and.lobit.i = and i8 %and.i55, 1
   %and7.i = lshr i8 %2, 2
@@ -18705,7 +18705,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %cmp.not.i66, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthMaskEb.exit68, label %if.then.i67
 
 if.then.i67:                                      ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setColorMaskEh.exit64
-  %25 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 21), align 8, !tbaa !423
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 216), align 8, !tbaa !423
   tail call void %25(i8 noundef zeroext %3) #24
   store i8 %3, ptr %DepthMask.i65, align 8, !tbaa !422
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setDepthMaskEb.exit68
@@ -19643,9 +19643,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %5, i64 128
   %11 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %12 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %12(i32 noundef %11, i32 noundef 0) #24
-  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %13(i32 noundef %11) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %5, align 8, !tbaa !3
@@ -19718,9 +19718,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel34
 if.then34.i.i.peel36:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel34, %if.then6.i.i.peel20
   %TextureType.i104.i.i.peel37 = getelementptr inbounds i8, ptr %19, i64 128
   %25 = load i32, ptr %TextureType.i104.i.i.peel37, align 8, !tbaa !326
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %26(i32 noundef %25, i32 noundef 0) #24
-  %27 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %27(i32 noundef %25) #24
   store ptr null, ptr %arrayidx.i.i.peel18, align 8, !tbaa !135
   %vtable43.i.i.peel38 = load ptr, ptr %19, align 8, !tbaa !3
@@ -19793,9 +19793,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel76
 if.then34.i.i.peel78:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel76, %if.then6.i.i.peel62
   %TextureType.i104.i.i.peel79 = getelementptr inbounds i8, ptr %33, i64 128
   %39 = load i32, ptr %TextureType.i104.i.i.peel79, align 8, !tbaa !326
-  %40 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %40(i32 noundef %39, i32 noundef 0) #24
-  %41 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %41(i32 noundef %39) #24
   store ptr null, ptr %arrayidx.i.i.peel60, align 8, !tbaa !135
   %vtable43.i.i.peel80 = load ptr, ptr %33, align 8, !tbaa !3
@@ -19922,9 +19922,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %5, i64 128
   %11 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %12 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %12(i32 noundef %11, i32 noundef 0) #24
-  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %13(i32 noundef %11) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %5, align 8, !tbaa !3
@@ -19997,9 +19997,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel76
 if.then34.i.i.peel78:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel76, %if.then6.i.i.peel62
   %TextureType.i104.i.i.peel79 = getelementptr inbounds i8, ptr %19, i64 128
   %25 = load i32, ptr %TextureType.i104.i.i.peel79, align 8, !tbaa !326
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %26(i32 noundef %25, i32 noundef 0) #24
-  %27 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %27(i32 noundef %25) #24
   store ptr null, ptr %arrayidx.i.i.peel60, align 8, !tbaa !135
   %vtable43.i.i.peel80 = load ptr, ptr %19, align 8, !tbaa !3
@@ -20072,9 +20072,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel11
 if.then34.i.i.peel120:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel118, %if.then6.i.i.peel104
   %TextureType.i104.i.i.peel121 = getelementptr inbounds i8, ptr %33, i64 128
   %39 = load i32, ptr %TextureType.i104.i.i.peel121, align 8, !tbaa !326
-  %40 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %40(i32 noundef %39, i32 noundef 0) #24
-  %41 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %41(i32 noundef %39) #24
   store ptr null, ptr %arrayidx.i.i.peel102, align 8, !tbaa !135
   %vtable43.i.i.peel122 = load ptr, ptr %33, align 8, !tbaa !3
@@ -20140,7 +20140,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
-  %57 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !216
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !216
   tail call void %57(i32 noundef 770, i32 noundef 771) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %47, i64 72
   %58 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -20194,7 +20194,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %or.cond.i41, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i42
 
 if.then.i42:                                      ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit
-  %.val.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   tail call void %.val.i(i32 noundef 3042) #24
   %FrameBufferCount.i43 = getelementptr inbounds i8, ptr %65, i64 72
   %69 = load i32, ptr %FrameBufferCount.i43, align 8, !tbaa !210
@@ -20339,7 +20339,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE16setActiveTextureEj.exit
-  %.val22.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val22.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   tail call void %.val22.i(i32 noundef 3042) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %9, i64 72
   %13 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -20459,9 +20459,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %5, i64 128
   %11 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %12 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %12(i32 noundef %11, i32 noundef 0) #24
-  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %13(i32 noundef %11) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %5, align 8, !tbaa !3
@@ -20534,9 +20534,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel48
 if.then34.i.i.peel50:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel48, %if.then6.i.i.peel34
   %TextureType.i104.i.i.peel51 = getelementptr inbounds i8, ptr %19, i64 128
   %25 = load i32, ptr %TextureType.i104.i.i.peel51, align 8, !tbaa !326
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %26(i32 noundef %25, i32 noundef 0) #24
-  %27 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %27(i32 noundef %25) #24
   store ptr null, ptr %arrayidx.i.i.peel32, align 8, !tbaa !135
   %vtable43.i.i.peel52 = load ptr, ptr %19, align 8, !tbaa !3
@@ -20609,9 +20609,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel90
 if.then34.i.i.peel92:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel90, %if.then6.i.i.peel76
   %TextureType.i104.i.i.peel93 = getelementptr inbounds i8, ptr %33, i64 128
   %39 = load i32, ptr %TextureType.i104.i.i.peel93, align 8, !tbaa !326
-  %40 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %40(i32 noundef %39, i32 noundef 0) #24
-  %41 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %41(i32 noundef %39) #24
   store ptr null, ptr %arrayidx.i.i.peel74, align 8, !tbaa !135
   %vtable43.i.i.peel94 = load ptr, ptr %33, align 8, !tbaa !3
@@ -20775,9 +20775,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %5, i64 128
   %11 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %12 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %12(i32 noundef %11, i32 noundef 0) #24
-  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %13(i32 noundef %11) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %5, align 8, !tbaa !3
@@ -20850,9 +20850,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel63
 if.then34.i.i.peel65:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel63, %if.then6.i.i.peel49
   %TextureType.i104.i.i.peel66 = getelementptr inbounds i8, ptr %19, i64 128
   %25 = load i32, ptr %TextureType.i104.i.i.peel66, align 8, !tbaa !326
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %26(i32 noundef %25, i32 noundef 0) #24
-  %27 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %27(i32 noundef %25) #24
   store ptr null, ptr %arrayidx.i.i.peel47, align 8, !tbaa !135
   %vtable43.i.i.peel67 = load ptr, ptr %19, align 8, !tbaa !3
@@ -20925,9 +20925,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel10
 if.then34.i.i.peel107:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel105, %if.then6.i.i.peel91
   %TextureType.i104.i.i.peel108 = getelementptr inbounds i8, ptr %33, i64 128
   %39 = load i32, ptr %TextureType.i104.i.i.peel108, align 8, !tbaa !326
-  %40 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %40(i32 noundef %39, i32 noundef 0) #24
-  %41 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %41(i32 noundef %39) #24
   store ptr null, ptr %arrayidx.i.i.peel89, align 8, !tbaa !135
   %vtable43.i.i.peel109 = load ptr, ptr %33, align 8, !tbaa !3
@@ -20993,7 +20993,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
-  %57 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !216
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !216
   tail call void %57(i32 noundef 770, i32 noundef 771) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %47, i64 72
   %58 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -21047,7 +21047,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %or.cond.i30, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i31
 
 if.then.i31:                                      ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit
-  %.val.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   tail call void %.val.i(i32 noundef 3042) #24
   %FrameBufferCount.i32 = getelementptr inbounds i8, ptr %65, i64 72
   %69 = load i32, ptr %FrameBufferCount.i32, align 8, !tbaa !210
@@ -21171,7 +21171,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE16setActiveTextureEj.exit
-  %.val22.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val22.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   tail call void %.val22.i(i32 noundef 3042) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %7, i64 72
   %11 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -21291,9 +21291,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
   %TextureType.i104.i.i.peel = getelementptr inbounds i8, ptr %5, i64 128
   %11 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !326
-  %12 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %12(i32 noundef %11, i32 noundef 0) #24
-  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %13(i32 noundef %11) #24
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
   %vtable43.i.i.peel = load ptr, ptr %5, align 8, !tbaa !3
@@ -21366,9 +21366,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel16
 if.then34.i.i.peel170:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel168, %if.then6.i.i.peel154
   %TextureType.i104.i.i.peel171 = getelementptr inbounds i8, ptr %19, i64 128
   %25 = load i32, ptr %TextureType.i104.i.i.peel171, align 8, !tbaa !326
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %26(i32 noundef %25, i32 noundef 0) #24
-  %27 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %27(i32 noundef %25) #24
   store ptr null, ptr %arrayidx.i.i.peel152, align 8, !tbaa !135
   %vtable43.i.i.peel172 = load ptr, ptr %19, align 8, !tbaa !3
@@ -21441,9 +21441,9 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel21
 if.then34.i.i.peel212:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel210, %if.then6.i.i.peel196
   %TextureType.i104.i.i.peel213 = getelementptr inbounds i8, ptr %33, i64 128
   %39 = load i32, ptr %TextureType.i104.i.i.peel213, align 8, !tbaa !326
-  %40 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !334
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 520), align 8, !tbaa !334
   tail call void %40(i32 noundef %39, i32 noundef 0) #24
-  %41 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !335
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8, !tbaa !335
   tail call void %41(i32 noundef %39) #24
   store ptr null, ptr %arrayidx.i.i.peel194, align 8, !tbaa !135
   %vtable43.i.i.peel214 = load ptr, ptr %33, align 8, !tbaa !3
@@ -21501,7 +21501,7 @@ _ZN3irr5video13COpenGLDriver15disableTexturesEj.exit: ; preds = %_ZN3irr5video13
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
-  %.val.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   tail call void %.val.i(i32 noundef 3042) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %48, i64 72
   %52 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -21637,7 +21637,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i125, label %if.end31, label %if.then.i118
 
 if.then.i118:                                     ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit116
-  %79 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !216
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !216
   tail call void %79(i32 noundef %r.0.i94, i32 noundef %r.0.i106) #24
   %FrameBufferCount.i119 = getelementptr inbounds i8, ptr %58, i64 72
   %80 = load i32, ptr %FrameBufferCount.i119, align 8, !tbaa !210
@@ -21807,7 +21807,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE16setActiveTextureEj.exit
-  %.val22.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val22.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   tail call void %.val22.i(i32 noundef 3042) #24
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %7, i64 72
   %11 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
@@ -21870,7 +21870,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver13SHWBufferLinkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 16), ptr %this, align 8, !tbaa !3
   %MeshBuffer = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %MeshBuffer, align 8, !tbaa !245
   %tobool.not = icmp eq ptr %0, null
@@ -21907,7 +21907,7 @@ if.end:                                           ; preds = %delete.notnull.i, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video13COpenGLDriver20SHWBufferLink_openglD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 16), ptr %this, align 8, !tbaa !3
   %MeshBuffer.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %MeshBuffer.i, align 8, !tbaa !245
   %tobool.not.i = icmp eq ptr %0, null
@@ -21945,7 +21945,7 @@ _ZN3irr5video11CNullDriver13SHWBufferLinkD2Ev.exit: ; preds = %delete.notnull.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver13SHWBufferLinkD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 16), ptr %this, align 8, !tbaa !3
   %MeshBuffer.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %MeshBuffer.i, align 8, !tbaa !245
   %tobool.not.i = icmp eq ptr %0, null
@@ -24824,7 +24824,7 @@ sw.bb:                                            ; preds = %if.end20, %if.end20
   br i1 %initTexture, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %sw.bb
-  %10 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 13), align 8, !tbaa !461
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 152), align 8, !tbaa !461
   %InternalFormat = getelementptr inbounds i8, ptr %this, i64 136
   %11 = load i32, ptr %InternalFormat, align 8, !tbaa !378
   %PixelFormat = getelementptr inbounds i8, ptr %this, i64 140
@@ -24835,7 +24835,7 @@ if.then23:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb
-  %14 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 58), align 8, !tbaa !531
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 512), align 8, !tbaa !531
   %PixelFormat24 = getelementptr inbounds i8, ptr %this, i64 140
   %15 = load i32, ptr %PixelFormat24, align 4, !tbaa !464
   %PixelType25 = getelementptr inbounds i8, ptr %this, i64 144
@@ -25051,7 +25051,7 @@ if.then44:                                        ; preds = %_ZN3irr5video6IImag
   %cmp52 = icmp eq i32 %16, 34067
   %add = add i32 %layer, 34069
   %spec.select = select i1 %cmp52, i32 %add, i32 %16
-  %17 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 41), align 8, !tbaa !534
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 376), align 8, !tbaa !534
   %18 = load i8, ptr %MipLevelStored10, align 8, !tbaa !375
   %conv56 = zext i8 %18 to i32
   %PixelFormat = getelementptr inbounds i8, ptr %this, i64 140
@@ -25687,7 +25687,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 60), align 8, !tbaa !539
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 528), align 8, !tbaa !539
   tail call void %4(i32 noundef 1, ptr noundef nonnull %TextureName) #24
   br label %if.end
 

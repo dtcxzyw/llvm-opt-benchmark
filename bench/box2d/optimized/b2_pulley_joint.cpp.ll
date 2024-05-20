@@ -123,7 +123,7 @@ entry:
 define void @_ZN13b2PulleyJointC2EPK16b2PulleyJointDef(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %def) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %def)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13b2PulleyJoint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b2PulleyJoint, i64 16), ptr %this, align 8
   %groundAnchorA = getelementptr inbounds i8, ptr %def, i64 36
   %m_groundAnchorA2 = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i64, ptr %groundAnchorA, align 4

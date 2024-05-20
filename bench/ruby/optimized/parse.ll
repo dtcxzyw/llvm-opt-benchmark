@@ -38560,7 +38560,7 @@ RSTRING_PTR.exit223.i:                            ; preds = %1244, %ruby_nonempt
 
 1245:                                             ; preds = %1216, %.preheader.i894
   %1246 = getelementptr i8, ptr %.0147.i895, i64 24
-  %1247 = icmp ult ptr %1246, getelementptr inbounds ([5 x %struct.magic_comment], ptr @magic_comments, i64 1, i64 0)
+  %1247 = icmp ult ptr %1246, getelementptr inbounds (i8, ptr @magic_comments, i64 120)
   br i1 %1247, label %.preheader.i894, label %.loopexit.i896, !llvm.loop !141
 
 .loopexit.i896:                                   ; preds = %1245, %RSTRING_PTR.exit223.i

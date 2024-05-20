@@ -994,7 +994,7 @@ declare dso_local void @sock_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @p9_socket_open(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(384) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 384) #16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -1834,8 +1834,8 @@ define internal noundef i32 @p9_pollwake(ptr nocapture noundef readonly %0, i32 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @p9_poll_pending_list, i64 0, i32 1), align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.list_head, ptr @p9_poll_pending_list, i64 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @p9_poll_pending_list, i64 8), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @p9_poll_pending_list, i64 8), align 8
   store ptr @p9_poll_pending_list, ptr %8, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 160
   store ptr %12, ptr %13, align 8
@@ -1976,7 +1976,7 @@ define internal noundef range(i32 -92, 1) i32 @p9_fd_create(ptr noundef %0, ptr 
   br label %.thread
 
 18:                                               ; preds = %7
-  %19 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %20 = tail call noalias noundef align 8 dereferenceable_or_null(384) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 384) #16
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread, label %22

@@ -549,7 +549,7 @@ new.notnull:                                      ; preds = %entry
 
 new.cont:                                         ; preds = %new.notnull, %entry
   tail call void @_ZN6icu_7513DecimalFormatC2EPKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds ({ [77 x ptr] }, ptr @_ZTVN6icu_7520CompactDecimalFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520CompactDecimalFormatE, i64 16), ptr %this, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %invoke.cont11
@@ -603,7 +603,7 @@ declare void @_ZN6icu_7513DecimalFormatD2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7520CompactDecimalFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 8 dereferenceable(368) %source) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7513DecimalFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 8 dereferenceable(368) %source)
-  store ptr getelementptr inbounds ({ [77 x ptr] }, ptr @_ZTVN6icu_7520CompactDecimalFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520CompactDecimalFormatE, i64 16), ptr %this, align 8
   ret void
 }
 

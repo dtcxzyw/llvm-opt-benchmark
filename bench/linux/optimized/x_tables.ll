@@ -2241,7 +2241,7 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
 
 .thread:                                          ; preds = %28, %24, %33, %17
   %52 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !37
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !38
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !38
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !39
   %53 = getelementptr inbounds i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8
@@ -2568,7 +2568,7 @@ define dso_local noundef range(i32 -17, 1) i32 @xt_register_template(ptr noundef
   br label %33
 
 19:                                               ; preds = %10
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 64) #26
   %22 = icmp eq ptr %21, null
   br i1 %22, label %33, label %23
@@ -2868,7 +2868,7 @@ define internal i32 @xt_init() #14 section ".init.text" align 16 {
   br i1 %19, label %.thread, label %1, !prof !31, !llvm.loop !58
 
 .thread:                                          ; preds = %1, %11, %7
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(704) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 704) #26
   store ptr %21, ptr @xt, align 8
   %22 = icmp eq ptr %21, null

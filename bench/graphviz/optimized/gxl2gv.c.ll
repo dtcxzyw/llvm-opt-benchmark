@@ -173,7 +173,7 @@ agxbfree.exit6.i:                                 ; preds = %29, %agxbfree.exit.
   br label %freeUserdata.exit
 
 freeUserdata.exit:                                ; preds = %agxbfree.exit6.i, %31
-  store i64 0, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %32 = load ptr, ptr @Gstack, align 8
   call void @free(ptr noundef %32) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @Gstack, i8 0, i64 24, i1 false)
@@ -288,7 +288,7 @@ get_xml_attr.exit163:                             ; preds = %.lr.ph.i158
 
 get_xml_attr.exit163.thread:                      ; preds = %45, %get_xml_attr.exit163
   %.0132 = phi ptr [ %51, %get_xml_attr.exit163 ], [ @.str.3, %45 ]
-  %52 = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %54, label %68
 
@@ -1015,7 +1015,7 @@ define internal void @endElementHandler(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %12
 
@@ -1028,7 +1028,7 @@ define internal void @endElementHandler(ptr noundef %0, ptr noundef %1) #0 {
 12:                                               ; preds = %6
   %13 = load ptr, ptr @Gstack, align 8
   %14 = add i64 %7, -1
-  store i64 %14, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  store i64 %14, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %pop_subg.exit, label %16
 
@@ -1778,8 +1778,8 @@ declare ptr @agopen(ptr noundef, i32, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @push_subg(ptr noundef %0) unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 2), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 16), align 8
   %4 = icmp eq i64 %2, %3
   br i1 %4, label %5, label %._crit_edge.i.i.i.i
 
@@ -1802,15 +1802,15 @@ define internal fastcc void @push_subg(ptr noundef %0) unnamed_addr #0 {
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %8
-  %14 = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 2), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 16), align 8
   %15 = shl i64 %14, 3
   %16 = getelementptr inbounds i8, ptr %11, i64 %15
   %17 = sub i64 %spec.select.i.i.i.i, %14
   %18 = shl i64 %17, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %18, i1 false)
   store ptr %11, ptr @Gstack, align 8
-  store i64 %spec.select.i.i.i.i, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 2), align 8
-  %.pre1.i.i.i.i = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  store i64 %spec.select.i.i.i.i, ptr getelementptr inbounds (i8, ptr @Gstack, i64 16), align 8
+  %.pre1.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   br label %stack_push.exit
 
 19:                                               ; preds = %8, %5
@@ -1826,9 +1826,9 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %24 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %11, %13 ]
   %25 = getelementptr inbounds ptr, ptr %24, i64 %23
   store ptr %0, ptr %25, align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %27 = add i64 %26, 1
-  store i64 %27, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  store i64 %27, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %29, label %30
 

@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @opal_util_keyval_parse_init() local_unnamed_addr #0 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -50,8 +50,8 @@ define noundef i32 @opal_util_keyval_parse_init() local_unnamed_addr #0 {
 
 4:                                                ; preds = %3, %0
   store ptr @opal_mutex_t_class, ptr @keyval_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_mutex_t, ptr @keyval_mutex, i64 0, i32 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @keyval_mutex, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not1.i = icmp eq ptr %6, null
   br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -107,7 +107,7 @@ define range(i32 -13, 1) i32 @opal_util_keyval_parse(ptr noundef %0, ptr noundef
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @keyval_mutex, i64 0, i32 1)) #13
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @keyval_mutex, i64 16)) #13
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -624,7 +624,7 @@ parse_line.exit:                                  ; preds = %237, %233, %188, %1
   br i1 %251, label %252, label %254
 
 252:                                              ; preds = %249
-  %253 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @keyval_mutex, i64 0, i32 1)) #13
+  %253 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @keyval_mutex, i64 16)) #13
   br label %254
 
 254:                                              ; preds = %249, %252

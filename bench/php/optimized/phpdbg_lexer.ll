@@ -31,13 +31,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
 define hidden void @phpdbg_init_lexer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  store ptr %0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 9), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %4 = trunc i64 %3 to i32
-  store i32 %4, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %4, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   ret void
 }
 
@@ -46,8 +46,8 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 278) i32 @phpdbg_lex(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
-  %.promoted1236 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
-  %.promoted1239 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  %.promoted1236 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
+  %.promoted1239 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %1
@@ -72,7 +72,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 16:                                               ; preds = %.backedge1156, %thread-pre-split
   %.pr1237 = phi i32 [ %.pr1238, %thread-pre-split ], [ %.be, %.backedge1156 ]
-  store ptr %.pre1430, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  store ptr %.pre1430, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   %17 = icmp slt i32 %.pr1237, 2
   %18 = load i8, ptr %.pre1430, align 1
   br i1 %17, label %19, label %20
@@ -136,16 +136,16 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 28:                                               ; preds = %27, %27, %27
   %29 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %29, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   br label %1248
 
 .loopexit1099:                                    ; preds = %535, %524, %740, %732, %572, %532, %528, %149, %730, %570, %147, %739, %735, %582, %579, %575, %542, %527, %159, %156, %152, %33, %27
   %.pre14301640 = phi ptr [ %.pre1430, %524 ], [ %.pre1430, %740 ], [ %.pre1430, %732 ], [ %.pre1430, %572 ], [ %.pre1430, %532 ], [ %.pre1430, %528 ], [ %.pre1430, %149 ], [ %.pre1430, %730 ], [ %.pre1430, %570 ], [ %.pre1430, %147 ], [ %.pre1430, %739 ], [ %.pre1430, %735 ], [ %.pre1430, %582 ], [ %.pre1430, %579 ], [ %.pre1430, %575 ], [ %.pre1430, %542 ], [ %.pre1430, %527 ], [ %.pre1430, %159 ], [ %.pre1430, %156 ], [ %.pre1430, %152 ], [ %.pre14301641, %33 ], [ %.pre1430, %27 ], [ %.pre1430, %535 ]
   %30 = phi ptr [ %522, %524 ], [ %721, %740 ], [ %721, %732 ], [ %560, %572 ], [ %530, %532 ], [ %522, %528 ], [ %137, %149 ], [ %721, %730 ], [ %560, %570 ], [ %137, %147 ], [ %721, %739 ], [ %721, %735 ], [ %560, %582 ], [ %560, %579 ], [ %560, %575 ], [ %530, %542 ], [ %522, %527 ], [ %137, %159 ], [ %137, %156 ], [ %137, %152 ], [ %34, %33 ], [ %.pre1430, %27 ], [ %530, %535 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 1
-  store ptr %31, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %31, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %32 = load i8, ptr %31, align 1
   br label %33
 
@@ -175,18 +175,18 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 .loopexit:                                        ; preds = %401, %395, %395, %398, %393, %477, %476, %471, %469, %91, %40, %479
   %45 = phi ptr [ %464, %477 ], [ %464, %476 ], [ %464, %471 ], [ %464, %469 ], [ %92, %91 ], [ %34, %40 ], [ %481, %479 ], [ %388, %393 ], [ %388, %398 ], [ %388, %395 ], [ %388, %395 ], [ %388, %401 ]
   %46 = ptrtoint ptr %45 to i64
-  %47 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %46, %48
   %50 = trunc i64 %49 to i32
-  store i32 %50, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   store i32 5, ptr %0, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   %52 = getelementptr inbounds i8, ptr %0, i64 56
   %53 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, i8 0, i64 80, i1 false)
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
-  %55 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   %56 = load i8, ptr %54, align 1
   switch i8 %56, label %unescape_string.exit [
     i8 39, label %57
@@ -225,7 +225,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %70 = zext i32 %69 to i64
   %71 = tail call noalias ptr @_estrndup(ptr noundef nonnull %54, i64 noundef %70) #8
   store ptr %71, ptr %52, align 8
-  %72 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   %73 = zext i32 %72 to i64
   store i64 %73, ptr %53, align 8
   br label %1248
@@ -233,7 +233,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1153:                                   ; preds = %22, %.preheader1153
   %74 = phi ptr [ %75, %.preheader1153 ], [ %.pre1430, %22 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 1
-  store ptr %75, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %75, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i64
   %78 = or disjoint i64 %77, 256
@@ -244,22 +244,22 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 81:                                               ; preds = %27
   %82 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %82, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %82, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, 34
   br i1 %84, label %.loopexit1084, label %.preheader1081
 
 .thread1077:                                      ; preds = %504, %499, %355, %594, %672, %107, %303, %296, %296, %294, %266, %266, %352, %352, %351, %351, %351, %323, %323, %509, %506
   %.1.ph = phi i32 [ 0, %351 ], [ 0, %351 ], [ 0, %672 ], [ 0, %352 ], [ 0, %323 ], [ 1, %107 ], [ 0, %296 ], [ 0, %266 ], [ 0, %303 ], [ 0, %296 ], [ 0, %294 ], [ 0, %266 ], [ 0, %352 ], [ 0, %351 ], [ 0, %323 ], [ 0, %509 ], [ 0, %506 ], [ 0, %594 ], [ 0, %355 ], [ 0, %499 ], [ 0, %504 ]
-  %85 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
-  store ptr %85, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
+  store ptr %85, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   br label %91
 
 86:                                               ; preds = %489, %482, %251, %458, %.loopexit1085, %341, %284, %249
   %.pre14301635 = phi ptr [ %.pre14301638, %249 ], [ %.pre14301637, %.loopexit1085 ], [ %.pre14301633, %458 ], [ %.pre14301876, %341 ], [ %.pre14301876, %489 ], [ %.pre14301878, %284 ], [ %.pre14301878, %482 ], [ %.pre14301636, %251 ]
   %.1 = phi i32 [ %.3, %249 ], [ %.9, %.loopexit1085 ], [ %.10, %458 ], [ %.8, %341 ], [ %.8, %489 ], [ %.6, %284 ], [ %.6, %482 ], [ %.4, %251 ]
-  %87 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
-  store ptr %87, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
+  store ptr %87, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %88 = icmp ult i32 %.1, 4
   br i1 %88, label %89, label %96
 
@@ -275,7 +275,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 94:                                               ; preds = %89
   %95 = icmp eq i32 %.1, 2
-  %.pre1431 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  %.pre1431 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   br i1 %95, label %._crit_edge1426, label %.loopexit1094
 
 96:                                               ; preds = %86
@@ -287,13 +287,13 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   br i1 %99, label %584, label %._crit_edge1425
 
 ._crit_edge1425:                                  ; preds = %98
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   br label %650
 
 100:                                              ; preds = %27
   %101 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %101, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %101, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %102 = load i8, ptr %101, align 1
   %103 = icmp ult i8 %102, 47
   br i1 %103, label %104, label %112
@@ -304,12 +304,12 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 106:                                              ; preds = %104
   %.not1058 = icmp eq i8 %102, 46
-  store ptr %101, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 4), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 816), align 8
   br i1 %.not1058, label %.preheader1086.preheader, label %107
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %108, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %108, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %109 = load i8, ptr %108, align 1
   %110 = icmp ne i8 %109, 46
   %111 = add i8 %109, -58
@@ -328,31 +328,31 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   br i1 %or.cond5, label %115, label %116
 
 115:                                              ; preds = %112
-  store ptr %101, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 4), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 816), align 8
   br label %.preheader1086.preheader
 
 116:                                              ; preds = %112, %104, %91
   %117 = phi ptr [ %101, %112 ], [ %101, %104 ], [ %92, %91 ]
   %118 = ptrtoint ptr %117 to i64
-  %119 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   %120 = ptrtoint ptr %119 to i64
   %121 = sub i64 %118, %120
   %122 = trunc i64 %121 to i32
-  store i32 %122, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
+  store i32 %122, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
   br label %1248
 
 123:                                              ; preds = %27
   %124 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %124, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %124, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %125 = load i8, ptr %124, align 1
   %126 = icmp eq i8 %125, 39
   br i1 %126, label %.loopexit1084, label %.preheader1087
 
 127:                                              ; preds = %27
   %128 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %128, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %128, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %128, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %128, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i64
   %131 = getelementptr inbounds [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %130
@@ -368,8 +368,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1101:                                   ; preds = %.preheader1101.preheader, %.preheader1101
   %136 = phi ptr [ %137, %.preheader1101 ], [ %.ph1958, %.preheader1101.preheader ]
   %137 = getelementptr inbounds i8, ptr %136, i64 1
-  store ptr %137, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %137, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %137, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %137, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i64
   %140 = getelementptr inbounds [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %139
@@ -429,11 +429,11 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %164 = ptrtoint ptr %161 to i64
   %165 = sub i64 %163, %164
   %166 = trunc i64 %165 to i32
-  store i32 %166, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %166, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   store i32 6, ptr %0, align 8
   %167 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %167, i8 0, i64 80, i1 false)
-  %168 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   %169 = tail call i32 @atoi(ptr nocapture noundef %168) #7
   %170 = sext i32 %169 to i64
   store i64 %170, ptr %167, align 8
@@ -441,8 +441,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 171:                                              ; preds = %27
   %172 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %172, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %172, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %172, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %172, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i64
   %175 = getelementptr inbounds [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %174
@@ -488,7 +488,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 191:                                              ; preds = %27
   %192 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %192, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %192, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %193 = load i8, ptr %192, align 1
   switch i8 %193, label %384 [
     i8 58, label %385
@@ -497,8 +497,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 194:                                              ; preds = %27, %27
   %195 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %195, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %195, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %195, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %195, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %196 = load i8, ptr %195, align 1
   %197 = and i8 %196, -33
   %or.cond23 = icmp eq i8 %197, 73
@@ -506,8 +506,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 198:                                              ; preds = %27, %27
   %199 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %199, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %199, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %199, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %199, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %200 = load i8, ptr %199, align 1
   %201 = and i8 %200, -33
   %or.cond26 = icmp eq i8 %201, 78
@@ -515,8 +515,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 202:                                              ; preds = %27, %27
   %203 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %203, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %203, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %203, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %203, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %204 = load i8, ptr %203, align 1
   %205 = and i8 %204, -33
   %or.cond29 = icmp eq i8 %205, 65
@@ -524,8 +524,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 206:                                              ; preds = %27, %27
   %207 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %207, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %207, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %207, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %207, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %208 = load i8, ptr %207, align 1
   %209 = and i8 %208, -33
   %or.cond32 = icmp eq i8 %209, 70
@@ -533,8 +533,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 210:                                              ; preds = %27, %27
   %211 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %211, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %211, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %211, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %211, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %212 = load i8, ptr %211, align 1
   %213 = and i8 %212, -33
   %or.cond35 = icmp eq i8 %213, 79
@@ -542,8 +542,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 214:                                              ; preds = %27, %27
   %215 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %215, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %215, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %215, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %215, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %216 = load i8, ptr %215, align 1
   %217 = icmp ult i8 %216, 79
   br i1 %217, label %218, label %219
@@ -568,8 +568,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 224:                                              ; preds = %27, %27
   %225 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %225, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %225, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %225, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %225, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %226 = load i8, ptr %225, align 1
   %227 = and i8 %226, -33
   %or.cond38 = icmp eq i8 %227, 82
@@ -577,8 +577,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 228:                                              ; preds = %27, %27
   %229 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %229, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %229, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %229, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %229, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %230 = load i8, ptr %229, align 1
   %231 = and i8 %230, -33
   %or.cond41 = icmp eq i8 %231, 69
@@ -586,16 +586,16 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 232:                                              ; preds = %27
   %233 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %233, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %233, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %233, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %233, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %234 = load i8, ptr %233, align 1
   %235 = icmp eq i8 %234, 69
   br i1 %235, label %447, label %33
 
 236:                                              ; preds = %27
   %237 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %237, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %237, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %237, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %237, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %238 = load i8, ptr %237, align 1
   %239 = icmp eq i8 %238, 101
   br i1 %239, label %451, label %33
@@ -611,7 +611,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %240 = phi ptr [ %34, %43 ], [ %244, %243 ], [ %721, %737 ], [ %721, %740 ], [ %137, %154 ], [ %137, %157 ], [ %560, %577 ], [ %560, %580 ], [ %124, %123 ], [ %330, %352 ], [ %82, %81 ], [ %273, %294 ], [ %273, %296 ], [ %273, %303 ], [ %330, %351 ], [ %522, %528 ], [ %530, %532 ], [ %273, %.loopexit1084.loopexit ], [ %330, %.loopexit1084.loopexit1913 ]
   %.2 = phi i32 [ %.0893, %43 ], [ %.3, %243 ], [ 6, %737 ], [ 6, %740 ], [ 2, %154 ], [ 2, %157 ], [ 4, %577 ], [ 4, %580 ], [ 0, %123 ], [ 0, %352 ], [ 0, %81 ], [ 0, %294 ], [ 0, %296 ], [ 0, %303 ], [ 0, %351 ], [ 3, %528 ], [ 3, %532 ], [ 0, %.loopexit1084.loopexit ], [ 0, %.loopexit1084.loopexit1913 ]
   %241 = getelementptr inbounds i8, ptr %240, i64 1
-  store ptr %241, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %241, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %242 = load i8, ptr %241, align 1
   br label %243
 
@@ -636,7 +636,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %252 = phi ptr [ %34, %43 ], [ %137, %159 ], [ %560, %582 ], [ %530, %542 ], [ %721, %740 ]
   %.4 = phi i32 [ %.0893, %43 ], [ 2, %159 ], [ 4, %582 ], [ 3, %542 ], [ 6, %740 ]
   %253 = getelementptr inbounds i8, ptr %252, i64 1
-  store ptr %253, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %253, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %254 = load i8, ptr %253, align 1
   switch i8 %254, label %86 [
     i8 47, label %458
@@ -650,7 +650,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 255:                                              ; preds = %305, %301, %.preheader1081
   %256 = phi ptr [ %273, %305 ], [ %273, %301 ], [ %259, %.preheader1081 ]
   %257 = getelementptr inbounds i8, ptr %256, i64 1
-  store ptr %257, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %257, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %258 = load i8, ptr %257, align 1
   br label %.preheader1081
 
@@ -685,7 +685,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 271:                                              ; preds = %269
   %272 = icmp ult i8 %.2896, 59
   %273 = getelementptr inbounds i8, ptr %259, i64 1
-  store ptr %273, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %273, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %274 = load i8, ptr %273, align 1
   br i1 %272, label %288, label %290
 
@@ -694,7 +694,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %275 = phi ptr [ %259, %266 ], [ %279, %278 ], [ %483, %482 ], [ %483, %482 ], [ %259, %269 ]
   %.5 = phi i32 [ 0, %266 ], [ %.6, %278 ], [ %.6, %482 ], [ %.6, %482 ], [ 0, %269 ]
   %276 = getelementptr inbounds i8, ptr %275, i64 1
-  store ptr %276, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %276, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %277 = load i8, ptr %276, align 1
   br label %278
 
@@ -766,7 +766,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1086:                                   ; preds = %.preheader1086.preheader, %.preheader1086
   %306 = phi ptr [ %307, %.preheader1086 ], [ %.ph1911, %.preheader1086.preheader ]
   %307 = getelementptr inbounds i8, ptr %306, i64 1
-  store ptr %307, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %307, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %308 = load i8, ptr %307, align 1
   %309 = icmp eq i8 %308, 46
   %310 = add i8 %308, -48
@@ -775,14 +775,14 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   br i1 %or.cond1067, label %.preheader1086, label %311
 
 311:                                              ; preds = %.preheader1086
-  store ptr %101, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   br label %1248
 
 312:                                              ; preds = %356, %355, %.preheader1087
   %313 = phi ptr [ %330, %356 ], [ %330, %355 ], [ %316, %.preheader1087 ]
   %314 = getelementptr inbounds i8, ptr %313, i64 1
-  store ptr %314, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %314, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %315 = load i8, ptr %314, align 1
   br label %.preheader1087
 
@@ -817,7 +817,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 328:                                              ; preds = %326
   %329 = icmp ult i8 %.4898, 59
   %330 = getelementptr inbounds i8, ptr %316, i64 1
-  store ptr %330, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %330, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %331 = load i8, ptr %330, align 1
   br i1 %329, label %345, label %347
 
@@ -826,7 +826,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %332 = phi ptr [ %316, %323 ], [ %336, %335 ], [ %490, %489 ], [ %490, %489 ], [ %316, %324 ]
   %.7 = phi i32 [ 0, %323 ], [ %.8, %335 ], [ %.8, %489 ], [ %.8, %489 ], [ 0, %324 ]
   %333 = getelementptr inbounds i8, ptr %332, i64 1
-  store ptr %333, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %333, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %334 = load i8, ptr %333, align 1
   br label %335
 
@@ -893,8 +893,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 357:                                              ; preds = %134
   %358 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %358, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %358, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %358, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %358, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %359 = load i8, ptr %358, align 1
   %360 = icmp ult i8 %359, 33
   br i1 %360, label %361, label %369
@@ -915,7 +915,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 .preheader1095:                                   ; preds = %363, %365, %365
   %366 = getelementptr inbounds i8, ptr %.pre1430, i64 3
-  store ptr %366, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %366, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %367 = load i8, ptr %366, align 1
   %368 = icmp ult i8 %367, 33
   br i1 %368, label %.lr.ph1295, label %._crit_edge1296
@@ -940,8 +940,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 377:                                              ; preds = %189
   %378 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %378, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %378, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %378, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %378, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %379 = load i8, ptr %378, align 1
   %380 = zext i8 %379 to i64
   %381 = getelementptr inbounds [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %380
@@ -951,20 +951,20 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   br i1 %.not1046, label %33, label %.preheader1102
 
 384:                                              ; preds = %191
-  store i32 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   br label %1248
 
 385:                                              ; preds = %191
   %386 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %386, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store ptr %386, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   br label %1248
 
 .preheader1080:                                   ; preds = %.preheader1080.backedge, %.preheader1080.preheader
   %387 = phi ptr [ %.ph1882, %.preheader1080.preheader ], [ %.be1883, %.preheader1080.backedge ]
   %388 = getelementptr inbounds i8, ptr %387, i64 1
-  store ptr %388, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %388, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %388, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %388, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %389 = load i8, ptr %388, align 1
   %390 = icmp ult i8 %389, 33
   br i1 %390, label %391, label %396
@@ -1006,8 +1006,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 402:                                              ; preds = %194
   %403 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %403, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %403, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %403, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %403, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %404 = load i8, ptr %403, align 1
   %405 = and i8 %404, -33
   %or.cond83 = icmp eq i8 %405, 83
@@ -1015,8 +1015,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 406:                                              ; preds = %198
   %407 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %407, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %407, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %407, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %407, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %408 = load i8, ptr %407, align 1
   %409 = and i8 %408, -33
   %or.cond86 = icmp eq i8 %409, 65
@@ -1024,8 +1024,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 410:                                              ; preds = %202
   %411 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %411, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %411, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %411, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %411, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %412 = load i8, ptr %411, align 1
   %413 = and i8 %412, -33
   %or.cond89 = icmp eq i8 %413, 76
@@ -1033,8 +1033,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 414:                                              ; preds = %206
   %415 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %415, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %415, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %415, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %415, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %416 = load i8, ptr %415, align 1
   %417 = icmp ult i8 %416, 13
   br i1 %417, label %418, label %420
@@ -1055,8 +1055,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 421:                                              ; preds = %756, %690, %428, %210
   %422 = phi ptr [ %757, %756 ], [ %691, %690 ], [ %429, %428 ], [ %211, %210 ]
   %423 = getelementptr inbounds i8, ptr %422, i64 1
-  store ptr %423, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %423, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %423, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %423, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %424 = load i8, ptr %423, align 1
   %425 = icmp ult i8 %424, 13
   br i1 %425, label %426, label %427
@@ -1076,8 +1076,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 428:                                              ; preds = %218, %221
   %429 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %429, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %429, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %429, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %429, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %430 = load i8, ptr %429, align 1
   %431 = and i8 %430, -33
   %or.cond101 = icmp eq i8 %431, 70
@@ -1086,8 +1086,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 432:                                              ; preds = %218, %716, %636, %443, %222
   %433 = phi ptr [ %215, %218 ], [ %717, %716 ], [ %637, %636 ], [ %444, %443 ], [ %215, %222 ]
   %434 = getelementptr inbounds i8, ptr %433, i64 1
-  store ptr %434, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %434, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %434, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %434, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %435 = load i8, ptr %434, align 1
   %436 = icmp ult i8 %435, 13
   br i1 %436, label %437, label %438
@@ -1107,8 +1107,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 439:                                              ; preds = %224
   %440 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %440, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %440, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %440, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %440, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %441 = load i8, ptr %440, align 1
   %442 = and i8 %441, -33
   %or.cond110 = icmp eq i8 %442, 85
@@ -1116,8 +1116,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 443:                                              ; preds = %228
   %444 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %444, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %444, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %444, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %444, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %445 = load i8, ptr %444, align 1
   %446 = and i8 %445, -33
   %or.cond113 = icmp eq i8 %446, 83
@@ -1125,16 +1125,16 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 447:                                              ; preds = %232
   %448 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %448, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %448, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %448, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %448, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %449 = load i8, ptr %448, align 1
   %450 = icmp eq i8 %449, 78
   br i1 %450, label %640, label %33
 
 451:                                              ; preds = %236
   %452 = getelementptr inbounds i8, ptr %.pre1430, i64 2
-  store ptr %452, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %452, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %452, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %452, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %453 = load i8, ptr %452, align 1
   %454 = icmp eq i8 %453, 110
   br i1 %454, label %644, label %33
@@ -1144,7 +1144,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %455 = phi ptr [ %244, %249 ], [ %273, %305 ], [ %330, %356 ]
   %.9 = phi i32 [ %.3, %249 ], [ 0, %305 ], [ 0, %356 ]
   %456 = getelementptr inbounds i8, ptr %455, i64 1
-  store ptr %456, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %456, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %457 = load i8, ptr %456, align 1
   %.not1064 = icmp eq i8 %457, 47
   br i1 %.not1064, label %458, label %86
@@ -1154,7 +1154,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %459 = phi ptr [ %456, %.loopexit1085 ], [ %253, %251 ]
   %.10 = phi i32 [ %.9, %.loopexit1085 ], [ %.4, %251 ]
   %460 = getelementptr inbounds i8, ptr %459, i64 1
-  store ptr %460, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %460, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %461 = load i8, ptr %460, align 1
   %462 = icmp eq i8 %461, 47
   br i1 %462, label %648, label %86
@@ -1162,8 +1162,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .loopexit1082:                                    ; preds = %326, %267
   %463 = phi ptr [ %259, %267 ], [ %316, %326 ]
   %464 = getelementptr inbounds i8, ptr %463, i64 1
-  store ptr %464, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %464, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %464, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %464, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %465 = load i8, ptr %464, align 1
   %466 = icmp ult i8 %465, 14
   br i1 %466, label %467, label %474
@@ -1197,12 +1197,12 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 479:                                              ; preds = %343, %286
   %480 = phi ptr [ %336, %343 ], [ %279, %286 ]
   %481 = getelementptr inbounds i8, ptr %480, i64 1
-  store ptr %481, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %481, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   br label %.loopexit
 
 482:                                              ; preds = %286
   %483 = getelementptr inbounds i8, ptr %279, i64 1
-  store ptr %483, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %483, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %484 = load i8, ptr %483, align 1
   switch i8 %484, label %86 [
     i8 92, label %.loopexit1083
@@ -1211,14 +1211,14 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 485:                                              ; preds = %288
   %486 = getelementptr inbounds i8, ptr %259, i64 2
-  store ptr %486, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %486, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %487 = load i8, ptr %486, align 1
   %488 = icmp eq i8 %487, 47
   br i1 %488, label %666, label %278
 
 489:                                              ; preds = %343
   %490 = getelementptr inbounds i8, ptr %336, i64 1
-  store ptr %490, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %490, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %491 = load i8, ptr %490, align 1
   switch i8 %491, label %86 [
     i8 92, label %.loopexit1088
@@ -1227,7 +1227,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 492:                                              ; preds = %345
   %493 = getelementptr inbounds i8, ptr %316, i64 2
-  store ptr %493, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %493, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %494 = load i8, ptr %493, align 1
   %495 = icmp eq i8 %494, 47
   br i1 %495, label %669, label %335
@@ -1244,7 +1244,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 .backedge1097:                                    ; preds = %499, %504, %504
   %501 = getelementptr inbounds i8, ptr %497, i64 1
-  store ptr %501, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %501, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %502 = load i8, ptr %501, align 1
   %503 = icmp ult i8 %502, 33
   br i1 %503, label %.lr.ph1295, label %._crit_edge1296
@@ -1278,8 +1278,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 512:                                              ; preds = %373
   %513 = getelementptr inbounds i8, ptr %.pre1430, i64 3
-  store ptr %513, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %513, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %513, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %513, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %514 = load i8, ptr %513, align 1
   %515 = icmp ne i8 %514, 46
   %516 = add i8 %514, -58
@@ -1291,8 +1291,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %517 = phi i64 [ 2, %373 ], [ 3, %512 ], [ 2, %374 ]
   %518 = getelementptr inbounds i8, ptr %.pre1430, i64 %517
   %519 = getelementptr inbounds i8, ptr %518, i64 1
-  store ptr %519, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %519, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %519, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %519, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %520 = load i8, ptr %519, align 1
   %521 = icmp ult i8 %520, 35
   br i1 %521, label %._crit_edge, label %.lr.ph1292
@@ -1346,8 +1346,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 .backedge1100:                                    ; preds = %535, %540
   %537 = getelementptr inbounds i8, ptr %530, i64 1
-  store ptr %537, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %537, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %537, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %537, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %538 = load i8, ptr %537, align 1
   %539 = icmp ult i8 %538, 35
   br i1 %539, label %._crit_edge, label %.lr.ph1292
@@ -1367,7 +1367,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %547 = ptrtoint ptr %544 to i64
   %548 = sub i64 %546, %547
   %549 = trunc i64 %548 to i32
-  store i32 %549, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %549, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   %550 = getelementptr inbounds i8, ptr %544, i64 2
   br label %551
 
@@ -1388,8 +1388,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1102:                                   ; preds = %377, %.preheader1102
   %559 = phi ptr [ %560, %.preheader1102 ], [ %378, %377 ]
   %560 = getelementptr inbounds i8, ptr %559, i64 1
-  store ptr %560, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %560, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %560, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %560, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %561 = load i8, ptr %560, align 1
   %562 = zext i8 %561 to i64
   %563 = getelementptr inbounds [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %562
@@ -1449,27 +1449,27 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %587 = ptrtoint ptr %.pre14301642 to i64
   %588 = sub i64 %586, %587
   %589 = trunc i64 %588 to i32
-  store i32 %589, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %589, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   store i32 1, ptr %0, align 8
   %590 = getelementptr inbounds i8, ptr %0, i64 16
   %591 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %591, i8 0, i64 80, i1 false)
-  %592 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  %592 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   %593 = tail call i64 @strtoul(ptr nocapture noundef %592, ptr noundef null, i32 noundef 16) #8
   store i64 %593, ptr %590, align 8
   br label %1248
 
 594:                                              ; preds = %401
   %595 = getelementptr inbounds i8, ptr %387, i64 2
-  store ptr %595, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %595, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %596 = load i8, ptr %595, align 1
   %597 = icmp eq i8 %596, 92
   br i1 %597, label %.preheader1080.backedge, label %.thread1077
 
 598:                                              ; preds = %402
   %599 = getelementptr inbounds i8, ptr %.pre1430, i64 3
-  store ptr %599, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %599, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %599, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %599, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %600 = load i8, ptr %599, align 1
   %601 = and i8 %600, -33
   %or.cond146 = icmp eq i8 %601, 65
@@ -1477,8 +1477,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 602:                                              ; preds = %406
   %603 = getelementptr inbounds i8, ptr %.pre1430, i64 3
-  store ptr %603, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %603, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %603, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %603, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %604 = load i8, ptr %603, align 1
   %605 = and i8 %604, -33
   %or.cond149 = icmp eq i8 %605, 66
@@ -1486,8 +1486,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 606:                                              ; preds = %410
   %607 = getelementptr inbounds i8, ptr %.pre1430, i64 3
-  store ptr %607, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %607, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %607, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %607, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %608 = load i8, ptr %607, align 1
   %609 = and i8 %608, -33
   %or.cond152 = icmp eq i8 %609, 83
@@ -1496,7 +1496,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1103:                                   ; preds = %.preheader1103.backedge, %.preheader1103.preheader
   %610 = phi ptr [ %415, %.preheader1103.preheader ], [ %611, %.preheader1103.backedge ]
   %611 = getelementptr inbounds i8, ptr %610, i64 1
-  store ptr %611, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %611, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %612 = load i8, ptr %611, align 1
   %613 = icmp ult i8 %612, 13
   br i1 %613, label %614, label %616
@@ -1519,8 +1519,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %619 = ptrtoint ptr %.pre1430 to i64
   %620 = sub i64 %618, %619
   %621 = trunc i64 %620 to i32
-  store i32 %621, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
+  store i32 %621, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
   store i32 0, ptr %0, align 8
   %622 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %622, i8 0, i64 80, i1 false)
@@ -1531,7 +1531,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %625 = ptrtoint ptr %.pre1430 to i64
   %626 = sub i64 %624, %625
   %627 = trunc i64 %626 to i32
-  store i32 %627, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %627, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   store i32 6, ptr %0, align 8
   %628 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %628, i8 0, i64 80, i1 false)
@@ -1542,7 +1542,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %631 = ptrtoint ptr %.pre1430 to i64
   %632 = sub i64 %630, %631
   %633 = trunc i64 %632 to i32
-  store i32 %633, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %633, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   store i32 6, ptr %0, align 8
   %634 = getelementptr inbounds i8, ptr %0, i64 8
   %635 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1552,8 +1552,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 636:                                              ; preds = %439
   %637 = getelementptr inbounds i8, ptr %.pre1430, i64 3
-  store ptr %637, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %637, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %637, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %637, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %638 = load i8, ptr %637, align 1
   %639 = and i8 %638, -33
   %or.cond158 = icmp eq i8 %639, 69
@@ -1561,23 +1561,23 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 640:                                              ; preds = %447
   %641 = getelementptr inbounds i8, ptr %.pre1430, i64 3
-  store ptr %641, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %641, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %641, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %641, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %642 = load i8, ptr %641, align 1
   %643 = icmp eq i8 %642, 68
   br i1 %643, label %694, label %33
 
 644:                                              ; preds = %451
   %645 = getelementptr inbounds i8, ptr %.pre1430, i64 3
-  store ptr %645, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %645, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %645, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %645, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %646 = load i8, ptr %645, align 1
   %647 = icmp eq i8 %646, 100
   br i1 %647, label %694, label %33
 
 648:                                              ; preds = %458
   %649 = getelementptr inbounds i8, ptr %459, i64 2
-  store ptr %649, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %649, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   br label %650
 
 650:                                              ; preds = %._crit_edge1425, %669, %669, %666, %666, %648
@@ -1587,26 +1587,26 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %654 = ptrtoint ptr %651 to i64
   %655 = sub i64 %653, %654
   %656 = trunc i64 %655 to i32
-  store i32 %656, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %656, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   store i32 5, ptr %0, align 8
   %657 = getelementptr inbounds i8, ptr %0, i64 8
   %658 = getelementptr inbounds i8, ptr %0, i64 56
   %659 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %657, i8 0, i64 80, i1 false)
-  %660 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
-  %661 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  %660 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
+  %661 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   %662 = zext i32 %661 to i64
   %663 = tail call noalias ptr @_estrndup(ptr noundef %660, i64 noundef %662) #8
   store ptr %663, ptr %658, align 8
-  %664 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  %664 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   %665 = zext i32 %664 to i64
   store i64 %665, ptr %659, align 8
   br label %1248
 
 666:                                              ; preds = %485
   %667 = getelementptr inbounds i8, ptr %259, i64 3
-  store ptr %667, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %667, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %667, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %667, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %668 = load i8, ptr %667, align 1
   switch i8 %668, label %278 [
     i8 10, label %650
@@ -1615,8 +1615,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 669:                                              ; preds = %492
   %670 = getelementptr inbounds i8, ptr %316, i64 3
-  store ptr %670, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %670, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %670, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %670, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %671 = load i8, ptr %670, align 1
   switch i8 %671, label %335 [
     i8 10, label %650
@@ -1625,7 +1625,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 672:                                              ; preds = %508
   %673 = getelementptr inbounds i8, ptr %.lcssa1183, i64 2
-  store ptr %673, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %673, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %674 = load i8, ptr %673, align 1
   %675 = icmp ne i8 %674, 46
   %676 = add i8 %674, -58
@@ -1640,7 +1640,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1093:                                   ; preds = %.preheader1093.preheader, %.preheader1093
   %677 = phi ptr [ %678, %.preheader1093 ], [ %.ph1941, %.preheader1093.preheader ]
   %678 = getelementptr inbounds i8, ptr %677, i64 1
-  store ptr %678, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %678, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %679 = load i8, ptr %678, align 1
   %680 = icmp eq i8 %679, 46
   %681 = add i8 %679, -48
@@ -1650,8 +1650,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 682:                                              ; preds = %598
   %683 = getelementptr inbounds i8, ptr %.pre1430, i64 4
-  store ptr %683, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %683, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %683, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %683, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %684 = load i8, ptr %683, align 1
   %685 = and i8 %684, -33
   %or.cond173 = icmp eq i8 %685, 66
@@ -1659,8 +1659,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 686:                                              ; preds = %602
   %687 = getelementptr inbounds i8, ptr %.pre1430, i64 4
-  store ptr %687, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %687, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %687, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %687, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %688 = load i8, ptr %687, align 1
   %689 = and i8 %688, -33
   %or.cond176 = icmp eq i8 %689, 76
@@ -1668,8 +1668,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 690:                                              ; preds = %606
   %691 = getelementptr inbounds i8, ptr %.pre1430, i64 4
-  store ptr %691, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %691, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %691, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %691, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %692 = load i8, ptr %691, align 1
   %693 = and i8 %692, -33
   %or.cond179 = icmp eq i8 %693, 69
@@ -1677,16 +1677,16 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 694:                                              ; preds = %644, %640
   %695 = getelementptr inbounds i8, ptr %.pre1430, i64 4
-  store ptr %695, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %695, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %695, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %695, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %696 = load i8, ptr %695, align 1
   %697 = icmp eq i8 %696, 95
   br i1 %697, label %706, label %33
 
 698:                                              ; preds = %682
   %699 = getelementptr inbounds i8, ptr %.pre1430, i64 5
-  store ptr %699, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %699, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %699, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %699, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %700 = load i8, ptr %699, align 1
   %701 = and i8 %700, -33
   %or.cond182 = icmp eq i8 %701, 76
@@ -1694,8 +1694,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 702:                                              ; preds = %686
   %703 = getelementptr inbounds i8, ptr %.pre1430, i64 5
-  store ptr %703, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %703, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %703, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %703, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %704 = load i8, ptr %703, align 1
   %705 = and i8 %704, -33
   %or.cond185 = icmp eq i8 %705, 69
@@ -1703,8 +1703,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 706:                                              ; preds = %694
   %707 = getelementptr inbounds i8, ptr %.pre1430, i64 5
-  store ptr %707, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %707, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %707, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %707, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %708 = load i8, ptr %707, align 1
   %709 = zext i8 %708 to i64
   %710 = getelementptr inbounds [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %709
@@ -1714,8 +1714,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 712:                                              ; preds = %698
   %713 = getelementptr inbounds i8, ptr %.pre1430, i64 6
-  store ptr %713, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %713, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %713, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %713, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %714 = load i8, ptr %713, align 1
   %715 = and i8 %714, -33
   %or.cond188 = icmp eq i8 %715, 69
@@ -1723,8 +1723,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 716:                                              ; preds = %702
   %717 = getelementptr inbounds i8, ptr %.pre1430, i64 6
-  store ptr %717, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %717, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %717, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %717, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %718 = load i8, ptr %717, align 1
   %719 = and i8 %718, -33
   %or.cond191 = icmp eq i8 %719, 68
@@ -1733,8 +1733,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1105:                                   ; preds = %706, %.preheader1105
   %720 = phi ptr [ %721, %.preheader1105 ], [ %707, %706 ]
   %721 = getelementptr inbounds i8, ptr %720, i64 1
-  store ptr %721, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %721, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %721, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %721, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %722 = load i8, ptr %721, align 1
   %723 = zext i8 %722 to i64
   %724 = getelementptr inbounds [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %723
@@ -1790,26 +1790,26 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %744 = ptrtoint ptr %.pre14301634 to i64
   %745 = sub i64 %743, %744
   %746 = trunc i64 %745 to i32
-  store i32 %746, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %746, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   store i32 13, ptr %0, align 8
   %747 = getelementptr inbounds i8, ptr %0, i64 8
   %748 = getelementptr inbounds i8, ptr %0, i64 56
   %749 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %747, i8 0, i64 80, i1 false)
-  %750 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
-  %751 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  %750 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
+  %751 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   %752 = zext i32 %751 to i64
   %753 = tail call noalias ptr @_estrndup(ptr noundef %750, i64 noundef %752) #8
   store ptr %753, ptr %748, align 8
-  %754 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  %754 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   %755 = zext i32 %754 to i64
   store i64 %755, ptr %749, align 8
   br label %1248
 
 756:                                              ; preds = %712
   %757 = getelementptr inbounds i8, ptr %.pre1430, i64 7
-  store ptr %757, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %757, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %757, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %757, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %758 = load i8, ptr %757, align 1
   %759 = and i8 %758, -33
   %or.cond200 = icmp eq i8 %759, 68
@@ -1842,13 +1842,13 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %770 = ptrtoint ptr %.sink1665 to i64
   %771 = sub i64 %770, %.sink1664
   %storemerge = trunc i64 %771 to i32
-  store i32 %storemerge, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
-  store i32 %.be, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
-  store ptr %.pre1430, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
+  store i32 %.be, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
+  store ptr %.pre1430, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   br label %16
 
 772:                                              ; preds = %762
-  store ptr %15, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %773 = load i8, ptr %15, align 1
   %774 = zext i8 %773 to i64
   %775 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %774
@@ -1864,7 +1864,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1152:                                   ; preds = %.preheader1152.preheader, %.preheader1152
   %778 = phi ptr [ %779, %.preheader1152 ], [ %.ph2050, %.preheader1152.preheader ]
   %779 = getelementptr inbounds i8, ptr %778, i64 1
-  store ptr %779, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %779, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %780 = load i8, ptr %779, align 1
   %781 = zext i8 %780 to i64
   %782 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %781
@@ -1874,14 +1874,14 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   br i1 %.not1038, label %thread-pre-split.backedge, label %.preheader1152
 
 785:                                              ; preds = %768
-  store ptr %12, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %12, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %786 = load i8, ptr %12, align 1
   %.not1033 = icmp eq i8 %786, 114
   br i1 %.not1033, label %.preheader1149, label %.backedge1156
 
 .preheader1149:                                   ; preds = %785
-  store ptr %13, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %787 = load i8, ptr %13, align 1
   %788 = zext i8 %787 to i64
   %789 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %788
@@ -1903,7 +1903,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 .backedge1151:                                    ; preds = %795, %804
   %797 = getelementptr inbounds i8, ptr %792, i64 1
-  store ptr %797, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %797, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %798 = load i8, ptr %797, align 1
   %799 = zext i8 %798 to i64
   %800 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %799
@@ -1925,7 +1925,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 808:                                              ; preds = %806
   %809 = getelementptr inbounds i8, ptr %793, i64 2
-  store ptr %809, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %809, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %810 = load i8, ptr %809, align 1
   %811 = zext i8 %810 to i64
   %812 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %811
@@ -1944,7 +1944,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %815 = phi ptr [ %816, %.preheader ], [ %.ph, %.preheader.preheader ]
   %816 = getelementptr inbounds i8, ptr %815, i64 1
-  store ptr %816, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %816, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %817 = load i8, ptr %816, align 1
   %818 = zext i8 %817 to i64
   %819 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %818
@@ -1957,7 +1957,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %823 = ptrtoint ptr %.pre1430 to i64
   %824 = sub i64 %822, %823
   %825 = trunc i64 %824 to i32
-  store i32 %825, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %825, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   br label %826
 
 826:                                              ; preds = %826, %821
@@ -2000,15 +2000,15 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 847:                                              ; preds = %839
   %848 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %848, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store ptr %848, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   br label %1248
 
 849:                                              ; preds = %.preheader1130, %849
   %850 = phi ptr [ %.promoted1276, %.preheader1130 ], [ %851, %849 ]
   %851 = getelementptr inbounds i8, ptr %850, i64 1
-  store ptr %851, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %851, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %851, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %851, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %852 = load i8, ptr %851, align 1
   %853 = zext i8 %852 to i64
   %854 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %853
@@ -2045,16 +2045,16 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %867 = ptrtoint ptr %.pre14301610 to i64
   %868 = sub i64 %866, %867
   %869 = trunc i64 %868 to i32
-  store i32 %869, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %869, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   store i32 5, ptr %0, align 8
   %870 = getelementptr inbounds i8, ptr %0, i64 8
   %871 = getelementptr inbounds i8, ptr %0, i64 56
   %872 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %870, i8 0, i64 80, i1 false)
-  %873 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 1), align 8
+  %873 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 792), align 8
   %874 = tail call noalias ptr @_estrdup(ptr noundef %873) #8
   store ptr %874, ptr %871, align 8
-  %875 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  %875 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   %876 = zext i32 %875 to i64
   store i64 %876, ptr %872, align 8
   br label %1248
@@ -2063,7 +2063,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %.pre14301628 = phi ptr [ %.pre14301629, %964 ], [ %.pre14301630, %859 ], [ %.pre1430, %841 ]
   %878 = phi ptr [ %957, %964 ], [ %851, %859 ], [ %.pre1430, %841 ]
   %879 = getelementptr inbounds i8, ptr %878, i64 1
-  store ptr %879, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %879, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %880 = load i8, ptr %879, align 1
   %881 = zext i8 %880 to i64
   %882 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %881
@@ -2078,22 +2078,22 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 
 .loopexit1117:                                    ; preds = %928, %952, %1070, %1057, %1037, %1018, %940, %916, %898, %885
   %.pre14301611 = phi ptr [ %.pre14301623, %1057 ], [ %.pre14301624, %1037 ], [ %.pre14301616, %1018 ], [ %.pre14301612, %940 ], [ %.pre14301615, %916 ], [ %.pre14301632, %898 ], [ %.pre14301628, %885 ], [ %.pre14301620, %1070 ], [ %.pre14301609, %952 ], [ %.pre14301614, %928 ]
-  %887 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
-  store ptr %887, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  %887 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
+  store ptr %887, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   br label %.loopexit1112
 
 888:                                              ; preds = %843
   %889 = getelementptr inbounds i8, ptr %.pre1430, i64 1
-  store ptr %889, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
+  store ptr %889, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
   br label %1248
 
 890:                                              ; preds = %981, %863, %845
   %.pre14301632 = phi ptr [ %.pre14301627, %981 ], [ %.pre14301630, %863 ], [ %.pre1430, %845 ]
   %891 = phi ptr [ %971, %981 ], [ %851, %863 ], [ %.pre1430, %845 ]
   %892 = getelementptr inbounds i8, ptr %891, i64 1
-  store ptr %892, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %892, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %893 = load i8, ptr %892, align 1
   %894 = zext i8 %893 to i64
   %895 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %894
@@ -2109,7 +2109,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 900:                                              ; preds = %.preheader1129, %900
   %901 = phi ptr [ %.promoted1277, %.preheader1129 ], [ %902, %900 ]
   %902 = getelementptr inbounds i8, ptr %901, i64 1
-  store ptr %902, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %902, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %903 = load i8, ptr %902, align 1
   %.not1008.not = icmp eq i8 %903, 92
   br i1 %.not1008.not, label %900, label %904
@@ -2138,7 +2138,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 908:                                              ; preds = %.preheader1131, %908
   %909 = phi ptr [ %.promoted1275, %.preheader1131 ], [ %910, %908 ]
   %910 = getelementptr inbounds i8, ptr %909, i64 1
-  store ptr %910, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %910, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %911 = load i8, ptr %910, align 1
   %912 = zext i8 %911 to i64
   %913 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %912
@@ -2163,7 +2163,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 920:                                              ; preds = %.preheader1140, %930
   %921 = phi ptr [ %.promoted1272, %.preheader1140 ], [ %922, %930 ]
   %922 = getelementptr inbounds i8, ptr %921, i64 1
-  store ptr %922, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %922, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %923 = load i8, ptr %922, align 1
   %924 = zext i8 %923 to i64
   %925 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %924
@@ -2183,7 +2183,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 932:                                              ; preds = %.preheader1106, %932
   %933 = phi ptr [ %.promoted1285, %.preheader1106 ], [ %934, %932 ]
   %934 = getelementptr inbounds i8, ptr %933, i64 1
-  store ptr %934, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %934, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %935 = load i8, ptr %934, align 1
   %936 = zext i8 %935 to i64
   %937 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %936
@@ -2208,7 +2208,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 944:                                              ; preds = %.preheader1126, %954
   %945 = phi ptr [ %.promoted1278, %.preheader1126 ], [ %946, %954 ]
   %946 = getelementptr inbounds i8, ptr %945, i64 1
-  store ptr %946, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %946, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %947 = load i8, ptr %946, align 1
   %948 = zext i8 %947 to i64
   %949 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %948
@@ -2229,8 +2229,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %.pre14301629 = phi ptr [ %.pre14301631, %907 ], [ %.pre14301622, %992 ]
   %956 = phi ptr [ %901, %907 ], [ %984, %992 ]
   %957 = getelementptr inbounds i8, ptr %956, i64 2
-  store ptr %957, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %957, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %957, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %957, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %958 = load i8, ptr %957, align 1
   %959 = icmp ult i8 %958, 35
   br i1 %959, label %960, label %965
@@ -2267,8 +2267,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %.pre14301627 = phi ptr [ %.pre14301631, %907 ], [ %.pre14301625, %1009 ]
   %970 = phi ptr [ %901, %907 ], [ %998, %1009 ]
   %971 = getelementptr inbounds i8, ptr %970, i64 2
-  store ptr %971, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %971, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %971, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %971, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %972 = load i8, ptr %971, align 1
   %973 = icmp ult i8 %972, 35
   br i1 %973, label %974, label %979
@@ -2309,8 +2309,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .backedge1139:                                    ; preds = %.backedge1139.backedge, %.preheader1135
   %984 = phi ptr [ %.promoted1273, %.preheader1135 ], [ %985, %.backedge1139.backedge ]
   %985 = getelementptr inbounds i8, ptr %984, i64 1
-  store ptr %985, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %985, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %985, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %985, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %986 = load i8, ptr %985, align 1
   %987 = icmp ult i8 %986, 35
   br i1 %987, label %988, label %993
@@ -2364,8 +2364,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .backedge1125:                                    ; preds = %.backedge1125.backedge, %.preheader1121
   %998 = phi ptr [ %.promoted1279, %.preheader1121 ], [ %999, %.backedge1125.backedge ]
   %999 = getelementptr inbounds i8, ptr %998, i64 1
-  store ptr %999, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %999, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %999, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %999, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %1000 = load i8, ptr %999, align 1
   %1001 = icmp ult i8 %1000, 35
   br i1 %1001, label %1002, label %1007
@@ -2415,7 +2415,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %.pre14301616 = phi ptr [ %.pre14301618, %1085 ], [ %.pre14301629, %967 ], [ %.pre14301622, %995 ]
   %1012 = phi ptr [ %1075, %1085 ], [ %957, %967 ], [ %985, %995 ]
   %1013 = getelementptr inbounds i8, ptr %1012, i64 1
-  store ptr %1013, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1013, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1014 = load i8, ptr %1013, align 1
   %1015 = zext i8 %1014 to i64
   %1016 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %1015
@@ -2438,7 +2438,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 1024:                                             ; preds = %.preheader1132, %1030
   %1025 = phi ptr [ %.promoted1274, %.preheader1132 ], [ %1026, %1030 ]
   %1026 = getelementptr inbounds i8, ptr %1025, i64 1
-  store ptr %1026, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1026, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1027 = load i8, ptr %1026, align 1
   %1028 = icmp ult i8 %1027, 39
   br i1 %1028, label %1029, label %1030
@@ -2459,7 +2459,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %.pre14301624 = phi ptr [ %.pre14301617, %1096 ], [ %.pre14301627, %978 ], [ %.pre14301625, %1006 ]
   %1031 = phi ptr [ %1089, %1096 ], [ %971, %978 ], [ %999, %1006 ]
   %1032 = getelementptr inbounds i8, ptr %1031, i64 1
-  store ptr %1032, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1032, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1033 = load i8, ptr %1032, align 1
   %1034 = zext i8 %1033 to i64
   %1035 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %1034
@@ -2482,7 +2482,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 1043:                                             ; preds = %.preheader1118, %1049
   %1044 = phi ptr [ %.promoted1280, %.preheader1118 ], [ %1045, %1049 ]
   %1045 = getelementptr inbounds i8, ptr %1044, i64 1
-  store ptr %1045, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1045, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1046 = load i8, ptr %1045, align 1
   %1047 = icmp ult i8 %1046, 34
   br i1 %1047, label %1048, label %1049
@@ -2502,7 +2502,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 1050:                                             ; preds = %.preheader1107, %1050
   %1051 = phi ptr [ %.promoted1284, %.preheader1107 ], [ %1052, %1050 ]
   %1052 = getelementptr inbounds i8, ptr %1051, i64 1
-  store ptr %1052, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1052, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1053 = load i8, ptr %1052, align 1
   %1054 = zext i8 %1053 to i64
   %1055 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %1054
@@ -2530,7 +2530,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 1063:                                             ; preds = %.preheader1115, %1072
   %1064 = phi ptr [ %.promoted1281, %.preheader1115 ], [ %1065, %1072 ]
   %1065 = getelementptr inbounds i8, ptr %1064, i64 1
-  store ptr %1065, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1065, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1066 = load i8, ptr %1065, align 1
   %1067 = zext i8 %1066 to i64
   %1068 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %1067
@@ -2550,8 +2550,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %.pre14301618 = phi ptr [ %.pre14301617, %1099 ], [ %.pre14301619, %1113 ], [ %.pre14301621, %1030 ]
   %1074 = phi ptr [ %1089, %1099 ], [ %1103, %1113 ], [ %1026, %1030 ]
   %1075 = getelementptr inbounds i8, ptr %1074, i64 1
-  store ptr %1075, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %1075, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %1075, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %1075, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %1076 = load i8, ptr %1075, align 1
   %1077 = icmp ult i8 %1076, 35
   br i1 %1077, label %1078, label %1083
@@ -2588,8 +2588,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %.pre14301617 = phi ptr [ %.pre14301618, %1082 ], [ %.pre14301619, %1110 ], [ %.pre14301626, %1049 ]
   %1088 = phi ptr [ %1075, %1082 ], [ %1103, %1110 ], [ %1045, %1049 ]
   %1089 = getelementptr inbounds i8, ptr %1088, i64 1
-  store ptr %1089, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %1089, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %1089, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %1089, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %1090 = load i8, ptr %1089, align 1
   %1091 = icmp ult i8 %1090, 35
   br i1 %1091, label %1092, label %1097
@@ -2630,8 +2630,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .backedge1114:                                    ; preds = %.backedge1114.backedge, %.preheader1110
   %1102 = phi ptr [ %.promoted1282, %.preheader1110 ], [ %1103, %.backedge1114.backedge ]
   %1103 = getelementptr inbounds i8, ptr %1102, i64 1
-  store ptr %1103, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %1103, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %1103, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %1103, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %1104 = load i8, ptr %1103, align 1
   %1105 = icmp ult i8 %1104, 35
   br i1 %1105, label %1106, label %1111
@@ -2680,7 +2680,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 1115:                                             ; preds = %.preheader1108, %1121
   %1116 = phi ptr [ %.promoted1283, %.preheader1108 ], [ %1117, %1121 ]
   %1117 = getelementptr inbounds i8, ptr %1116, i64 1
-  store ptr %1117, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1117, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1118 = load i8, ptr %1117, align 1
   %1119 = icmp ult i8 %1118, 11
   br i1 %1119, label %1120, label %1121
@@ -2747,7 +2747,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   br i1 %1145, label %1167, label %.backedge1156
 
 1146:                                             ; preds = %1127
-  store ptr %11, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1147 = load i8, ptr %11, align 1
   %1148 = zext i8 %1147 to i64
   %1149 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.3, i64 0, i64 %1148
@@ -2762,7 +2762,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .preheader1154:                                   ; preds = %.preheader1154.preheader, %.preheader1154
   %1151 = phi ptr [ %1152, %.preheader1154 ], [ %.ph2052, %.preheader1154.preheader ]
   %1152 = getelementptr inbounds i8, ptr %1151, i64 1
-  store ptr %1152, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1152, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1153 = load i8, ptr %1152, align 1
   %1154 = zext i8 %1153 to i64
   %1155 = getelementptr inbounds [256 x i8], ptr @phpdbg_lex.yybm.3, i64 0, i64 %1154
@@ -2777,36 +2777,36 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
   %1158 = ptrtoint ptr %.pre1430 to i64
   %1159 = sub i64 %1157, %1158
   %1160 = trunc i64 %1159 to i32
-  store i32 %1160, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
+  store i32 %1160, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
   br label %thread-pre-split
 
 1161:                                             ; preds = %1129, %1140
-  store ptr %8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %1162 = load i8, ptr %8, align 1
   %1163 = and i8 %1162, -33
   %or.cond224 = icmp eq i8 %1163, 86
   br i1 %or.cond224, label %1183, label %.backedge1156
 
 1164:                                             ; preds = %1134
-  store ptr %5, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %5, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %1165 = load i8, ptr %5, align 1
   %1166 = and i8 %1165, -33
   %or.cond227 = icmp eq i8 %1166, 85
   br i1 %or.cond227, label %1190, label %.backedge1156
 
 1167:                                             ; preds = %1144, %1136
-  store ptr %3, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %3, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %1168 = load i8, ptr %3, align 1
   %1169 = and i8 %1168, -33
   %or.cond230 = icmp eq i8 %1169, 72
   br i1 %or.cond230, label %1194, label %.backedge1156
 
 1170:                                             ; preds = %1142
-  store ptr %2, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
-  store ptr %2, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 3), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 808), align 8
   %1171 = load i8, ptr %2, align 1
   %1172 = icmp ult i8 %1171, 32
   br i1 %1172, label %1173, label %1178
@@ -2838,7 +2838,7 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
   br i1 %1182, label %1190, label %.backedge1156
 
 1183:                                             ; preds = %1161
-  store ptr %9, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1184 = load i8, ptr %9, align 1
   %1185 = icmp ult i8 %1184, 13
   br i1 %1185, label %1186, label %1188
@@ -2859,14 +2859,14 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
 
 1190:                                             ; preds = %1180, %1181, %1164
   %1191 = phi ptr [ %2, %1180 ], [ %2, %1181 ], [ %5, %1164 ]
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1192 = load i8, ptr %6, align 1
   %1193 = and i8 %1192, -33
   %or.cond236 = icmp eq i8 %1193, 78
   br i1 %or.cond236, label %1227, label %.backedge1156
 
 1194:                                             ; preds = %1167
-  store ptr %4, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1195 = load i8, ptr %4, align 1
   %1196 = icmp ult i8 %1195, 13
   br i1 %1196, label %1197, label %1199
@@ -2888,7 +2888,7 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
 .backedge1146:                                    ; preds = %.backedge1146.backedge, %.backedge1146.preheader
   %1201 = phi ptr [ %.ph2045, %.backedge1146.preheader ], [ %1202, %.backedge1146.backedge ]
   %1202 = getelementptr inbounds i8, ptr %1201, i64 1
-  store ptr %1202, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1202, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1203 = load i8, ptr %1202, align 1
   %1204 = icmp ult i8 %1203, 13
   br i1 %1204, label %1205, label %1207
@@ -2911,8 +2911,8 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
   %1210 = ptrtoint ptr %.pre1430 to i64
   %1211 = sub i64 %1209, %1210
   %1212 = trunc i64 %1211 to i32
-  store i32 %1212, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
+  store i32 %1212, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
   store i32 0, ptr %0, align 8
   %1213 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1213, i8 0, i64 80, i1 false)
@@ -2921,7 +2921,7 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
 .backedge1144:                                    ; preds = %.backedge1144.backedge, %.preheader1143
   %1214 = phi ptr [ %1189, %.preheader1143 ], [ %1215, %.backedge1144.backedge ]
   %1215 = getelementptr inbounds i8, ptr %1214, i64 1
-  store ptr %1215, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1215, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1216 = load i8, ptr %1215, align 1
   %1217 = icmp ult i8 %1216, 13
   br i1 %1217, label %1218, label %1220
@@ -2944,15 +2944,15 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
   %1223 = ptrtoint ptr %.pre1430 to i64
   %1224 = sub i64 %1222, %1223
   %1225 = trunc i64 %1224 to i32
-  store i32 %1225, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
+  store i32 %1225, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
   store i32 0, ptr %0, align 8
   %1226 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1226, i8 0, i64 80, i1 false)
   br label %1248
 
 1227:                                             ; preds = %1190
-  store ptr %7, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1228 = load i8, ptr %7, align 1
   %1229 = icmp ult i8 %1228, 13
   br i1 %1229, label %1230, label %1232
@@ -2982,7 +2982,7 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
 .backedge1148:                                    ; preds = %.backedge1148.backedge, %.preheader1147
   %1235 = phi ptr [ %1200, %.preheader1147 ], [ %1236, %.backedge1148.backedge ]
   %1236 = getelementptr inbounds i8, ptr %1235, i64 1
-  store ptr %1236, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
+  store ptr %1236, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 800), align 8
   %1237 = load i8, ptr %1236, align 1
   %1238 = icmp ult i8 %1237, 13
   br i1 %1238, label %1239, label %1241
@@ -3005,8 +3005,8 @@ thread-pre-split.backedge:                        ; preds = %.preheader1154, %.p
   %1244 = ptrtoint ptr %.pre1430 to i64
   %1245 = sub i64 %1243, %1244
   %1246 = trunc i64 %1245 to i32
-  store i32 %1246, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
+  store i32 %1246, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 784), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 824), align 8
   store i32 0, ptr %0, align 8
   %1247 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1247, i8 0, i64 80, i1 false)

@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_comm_failure_ack_internal(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %3 = load ptr, ptr @ompi_group_all_failed_procs, align 8
   %4 = getelementptr i8, ptr %3, i64 16
   %.val = load i32, ptr %4, align 8
@@ -68,7 +68,7 @@ define noundef i32 @ompi_comm_failure_ack_internal(ptr nocapture noundef writeon
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 352
   store i32 -1, ptr %7, align 8
-  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   ret i32 0
 }
 
@@ -89,21 +89,21 @@ define i32 @ompi_comm_failure_get_acked_internal(ptr nocapture noundef readonly 
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = atomicrmw volatile add ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), i32 1 monotonic, align 4
+  %12 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 13:                                               ; preds = %8
-  %14 = load volatile i32, ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), align 8
+  %14 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   %15 = add nsw i32 %14, 1
-  store volatile i32 %15, ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), align 8
-  %16 = load volatile i32, ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), align 8
+  store volatile i32 %15, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %16 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   br label %opal_thread_add_fetch_32.exit
 
 17:                                               ; preds = %2
-  %18 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_group_t_class, i64 0, i32 8), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_group_t_class, i64 56), align 8
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #11
   %20 = load i32, ptr @opal_class_init_epoch, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_group_t_class, i64 0, i32 4), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_group_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %20, %21
   br i1 %.not.i, label %23, label %22
 
@@ -119,7 +119,7 @@ define i32 @ompi_comm_failure_get_acked_internal(ptr nocapture noundef readonly 
   store ptr @ompi_group_t_class, ptr %19, align 8
   %25 = getelementptr inbounds i8, ptr %19, i64 8
   store volatile i32 1, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_group_t_class, i64 0, i32 6), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_group_t_class, i64 40), align 8
   %27 = load ptr, ptr %26, align 8
   %.not6.i.i = icmp eq ptr %27, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -135,7 +135,7 @@ define i32 @ompi_comm_failure_get_acked_internal(ptr nocapture noundef readonly 
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %23, %24
   store ptr %19, ptr %4, align 8
-  %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   store i32 0, ptr %3, align 4
   %32 = load i32, ptr %5, align 4
   %33 = add nsw i32 %32, -1
@@ -145,7 +145,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %23, %2
   store i32 1, ptr %35, align 4
   %36 = load ptr, ptr @ompi_group_all_failed_procs, align 8
   %37 = call i32 @ompi_group_range_incl(ptr noundef %36, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %39, label %opal_thread_add_fetch_32.exit
 
@@ -248,7 +248,7 @@ define i32 @ompi_comm_ack_failed_internal(ptr noundef %0, i32 noundef %1, ptr no
   %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
   %10 = load ptr, ptr %.in, align 8
   store ptr null, ptr %4, align 8
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %12 = getelementptr inbounds i8, ptr %0, i64 352
   %13 = load i32, ptr %12, align 8
   %.not46 = icmp slt i32 %13, %1
@@ -396,7 +396,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %79
 
 79:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %56
-  %80 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %80 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   ret i32 %.0
 }
 
@@ -411,10 +411,10 @@ define i32 @ompi_comm_get_failed_internal(ptr nocapture noundef readonly %0, ptr
   %.in.v = select i1 %.not, i64 256, i64 248
   %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
   %6 = load ptr, ptr %.in, align 8
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %8 = load ptr, ptr @ompi_group_all_failed_procs, align 8
   %9 = tail call i32 @ompi_group_intersection(ptr noundef %8, ptr noundef %6, ptr noundef %1) #10
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   ret i32 %9
 }
 
@@ -431,12 +431,12 @@ define i32 @ompi_comm_shrink_internal(ptr noundef %0, ptr nocapture noundef writ
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   store ptr @ompi_mpi_comm_null, ptr %1, align 8
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %9 = getelementptr inbounds i8, ptr %0, i64 256
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @ompi_group_all_failed_procs, align 8
   %12 = call i32 @ompi_group_intersection(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %4) #10
-  %13 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_group_afp_mutex, i64 0, i32 1)) #10
+  %13 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %14 = getelementptr inbounds i8, ptr %0, i64 328
   br label %15
 
@@ -732,10 +732,10 @@ define i32 @ompi_comm_ishrink_internal(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %7, label %63, label %8
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_comm_ishrink_context_t_class, i64 0, i32 8), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_comm_ishrink_context_t_class, i64 56), align 8
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #11
   %11 = load i32, ptr @opal_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_comm_ishrink_context_t_class, i64 0, i32 4), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_comm_ishrink_context_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %11, %12
   br i1 %.not.i, label %14, label %13
 
@@ -751,7 +751,7 @@ define i32 @ompi_comm_ishrink_internal(ptr noundef %0, ptr noundef %1, ptr nocap
   store ptr @ompi_comm_ishrink_context_t_class, ptr %10, align 8
   %16 = getelementptr inbounds i8, ptr %10, i64 8
   store volatile i32 1, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_comm_ishrink_context_t_class, i64 0, i32 6), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_comm_ishrink_context_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread38, label %.lr.ph.i.i
@@ -1375,7 +1375,7 @@ define noundef i32 @ompi_comm_set_rank_failed(ptr noundef %0, i32 noundef %1, i1
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   store i8 0, ptr %4, align 8
   fence release
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 6), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 48), align 8
   %6 = tail call i32 %5(ptr noundef %0, i1 noundef zeroext true) #10
   %7 = load ptr, ptr @ompi_rank_failure_cbfunc, align 8
   %.not = icmp eq ptr %7, null

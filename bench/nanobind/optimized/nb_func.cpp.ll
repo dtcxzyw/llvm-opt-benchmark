@@ -862,7 +862,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %.invoke, %75, %69, 
   %102 = icmp eq ptr %98, %101
   %brmerge.not = and i1 %14, %102
   %.mux = or i1 %14, %102
-  %.mux250 = select i1 %102, ptr getelementptr inbounds ([2 x %"struct.nanobind::detail::arg_data"], ptr @_ZN8nanobind6detailL11method_argsE, i64 0, i64 1), ptr %6
+  %.mux250 = select i1 %102, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detailL11method_argsE, i64 40), ptr %6
   br i1 %brmerge.not, label %103, label %.thread
 
 103:                                              ; preds = %99
@@ -2438,8 +2438,8 @@ define hidden noundef ptr @_ZN8nanobind6detail24nb_func_get_nb_signatureEP7_obje
 24:                                               ; preds = %21, %19
   %.063 = phi ptr [ %20, %19 ], [ @_Py_NoneStruct, %21 ]
   %25 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  store ptr %25, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
-  %26 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %25, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i = icmp eq ptr %25, %26
   br i1 %.not.i, label %_ZN8nanobind6detail6Buffer5clearEv.exit, label %27
 
@@ -2679,9 +2679,9 @@ define internal fastcc noundef i32 @_ZN8nanobind6detailL24nb_func_render_signatu
   br i1 %1, label %27, label %52
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 4
-  %30 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i = icmp ult ptr %29, %30
   br i1 %.not.i.i, label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit, label %31
 
@@ -2713,17 +2713,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %31
   tail call void @free(ptr noundef %34) #21
   store ptr %41, ptr @_ZN8nanobind6detail3bufE, align 8
   %47 = getelementptr inbounds i8, ptr %41, i64 %40
-  store ptr %47, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %47, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %48 = getelementptr inbounds i8, ptr %41, i64 %45
-  store ptr %48, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit
 
 _ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit: ; preds = %27, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i
   %49 = phi ptr [ %48, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i ], [ %28, %27 ]
   store i32 543581540, ptr %49, align 1
-  %50 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 4
-  store ptr %51, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %51, align 1
   br label %52
 
@@ -2782,9 +2782,9 @@ _ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit: ; preds = %27, %_ZN8nanobind
 
 76:                                               ; preds = %.preheader336
   %77 = getelementptr inbounds i8, ptr %.1156, i64 1
-  %78 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 1
-  %80 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i = icmp ult ptr %79, %80
   br i1 %.not.i, label %_ZN8nanobind6detail6Buffer3putEc.exit, label %81
 
@@ -2814,16 +2814,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %81
   call void @free(ptr noundef %82) #21
   store ptr %88, ptr @_ZN8nanobind6detail3bufE, align 8
   %95 = getelementptr inbounds i8, ptr %88, i64 %87
-  store ptr %95, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %95, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %96 = getelementptr inbounds i8, ptr %88, i64 %93
   br label %_ZN8nanobind6detail6Buffer3putEc.exit
 
 _ZN8nanobind6detail6Buffer3putEc.exit:            ; preds = %76, %_ZN8nanobind6detail6Buffer6expandEm.exit.i
   %97 = phi ptr [ %96, %_ZN8nanobind6detail6Buffer6expandEm.exit.i ], [ %78, %76 ]
   %98 = getelementptr inbounds i8, ptr %97, i64 1
-  store ptr %98, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %98, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 %75, ptr %97, align 1
-  %99 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %99, align 1
   br label %.preheader336, !llvm.loop !37
 
@@ -2873,9 +2873,9 @@ _ZN8nanobind6detail6Buffer3putEc.exit:            ; preds = %76, %_ZN8nanobind6d
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds i8, ptr %.6, i64 1
-  %113 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 1
-  %115 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i202 = icmp ult ptr %114, %115
   br i1 %.not.i202, label %_ZN8nanobind6detail6Buffer3putEc.exit206, label %116
 
@@ -2905,16 +2905,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i204:    ; preds = %116
   call void @free(ptr noundef %117) #21
   store ptr %123, ptr @_ZN8nanobind6detail3bufE, align 8
   %130 = getelementptr inbounds i8, ptr %123, i64 %122
-  store ptr %130, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %130, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %131 = getelementptr inbounds i8, ptr %123, i64 %128
   br label %_ZN8nanobind6detail6Buffer3putEc.exit206
 
 _ZN8nanobind6detail6Buffer3putEc.exit206:         ; preds = %111, %_ZN8nanobind6detail6Buffer6expandEm.exit.i204
   %132 = phi ptr [ %131, %_ZN8nanobind6detail6Buffer6expandEm.exit.i204 ], [ %113, %111 ]
   %133 = getelementptr inbounds i8, ptr %132, i64 1
-  store ptr %133, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %133, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 %110, ptr %132, align 1
-  %134 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %134, align 1
   br label %109, !llvm.loop !40
 
@@ -2940,9 +2940,9 @@ _ZN8nanobind6detail6Buffer3putEc.exit206:         ; preds = %111, %_ZN8nanobind6
   br i1 %147, label %148, label %177
 
 148:                                              ; preds = %143
-  %149 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 2
-  %151 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i207 = icmp ult ptr %150, %151
   br i1 %.not.i.i207, label %170, label %152
 
@@ -2974,17 +2974,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i209:  ; preds = %152
   call void @free(ptr noundef %155) #21
   store ptr %162, ptr @_ZN8nanobind6detail3bufE, align 8
   %168 = getelementptr inbounds i8, ptr %162, i64 %161
-  store ptr %168, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %168, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %169 = getelementptr inbounds i8, ptr %162, i64 %166
-  store ptr %169, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %169, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %170
 
 170:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209, %148
   %171 = phi ptr [ %169, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209 ], [ %149, %148 ]
   store i16 10794, ptr %171, align 1
-  %172 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 2
-  store ptr %173, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %173, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %173, align 1
   %.not186 = icmp eq ptr %142, null
   %174 = select i1 %.not186, ptr @.str.30, ptr %142
@@ -3002,9 +3002,9 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i209:  ; preds = %152
   br i1 %180, label %181, label %236
 
 181:                                              ; preds = %177
-  %182 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 1
-  %184 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i211 = icmp ult ptr %183, %184
   br i1 %.not.i.i211, label %203, label %185
 
@@ -3036,17 +3036,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i213:  ; preds = %185
   call void @free(ptr noundef %188) #21
   store ptr %195, ptr @_ZN8nanobind6detail3bufE, align 8
   %201 = getelementptr inbounds i8, ptr %195, i64 %194
-  store ptr %201, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %201, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %202 = getelementptr inbounds i8, ptr %195, i64 %199
-  store ptr %202, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %202, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %203
 
 203:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213, %181
   %204 = phi ptr [ %202, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213 ], [ %182, %181 ]
   store i8 42, ptr %204, align 1
-  %205 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %205 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 1
-  store ptr %206, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %206, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %206, align 1
   br i1 %69, label %211, label %207
 
@@ -3061,9 +3061,9 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i213:  ; preds = %185
   br label %.critedge2
 
 211:                                              ; preds = %203
-  %212 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 2
-  %214 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i215 = icmp ult ptr %213, %214
   br i1 %.not.i.i215, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219, label %215
 
@@ -3095,17 +3095,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i217:  ; preds = %215
   call void @free(ptr noundef %218) #21
   store ptr %225, ptr @_ZN8nanobind6detail3bufE, align 8
   %231 = getelementptr inbounds i8, ptr %225, i64 %224
-  store ptr %231, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %231, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %232 = getelementptr inbounds i8, ptr %225, i64 %229
-  store ptr %232, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %232, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219
 
 _ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219: ; preds = %211, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217
   %233 = phi ptr [ %232, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217 ], [ %212, %211 ]
   store i16 8236, ptr %233, align 1
-  %234 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 2
-  store ptr %235, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %235, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %235, align 1
   br label %236
 
@@ -3115,9 +3115,9 @@ _ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219: ; preds = %211, %_ZN8nano
   br i1 %or.cond, label %238, label %269
 
 238:                                              ; preds = %236
-  %239 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %239 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %240 = getelementptr inbounds i8, ptr %239, i64 4
-  %241 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i220 = icmp ult ptr %240, %241
   br i1 %.not.i.i220, label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224, label %242
 
@@ -3149,17 +3149,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i222:  ; preds = %242
   call void @free(ptr noundef %245) #21
   store ptr %252, ptr @_ZN8nanobind6detail3bufE, align 8
   %258 = getelementptr inbounds i8, ptr %252, i64 %251
-  store ptr %258, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %258, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %259 = getelementptr inbounds i8, ptr %252, i64 %256
-  store ptr %259, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %259, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224
 
 _ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224: ; preds = %238, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222
   %260 = phi ptr [ %259, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222 ], [ %239, %238 ]
   store i32 1718379891, ptr %260, align 1
-  %261 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 4
-  store ptr %262, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %262, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %262, align 1
   br label %263
 
@@ -3190,9 +3190,9 @@ _ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224: ; preds = %238, %_ZN8nano
           to label %302 unwind label %.loopexit338
 
 271:                                              ; preds = %269
-  %272 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %272 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %273 = getelementptr inbounds i8, ptr %272, i64 3
-  %274 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i225 = icmp ult ptr %273, %274
   br i1 %.not.i.i225, label %293, label %275
 
@@ -3224,17 +3224,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i227:  ; preds = %275
   call void @free(ptr noundef %278) #21
   store ptr %285, ptr @_ZN8nanobind6detail3bufE, align 8
   %291 = getelementptr inbounds i8, ptr %285, i64 %284
-  store ptr %291, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %291, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %292 = getelementptr inbounds i8, ptr %285, i64 %289
-  store ptr %292, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %292, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %293
 
 293:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227, %271
   %294 = phi ptr [ %292, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227 ], [ %272, %271 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %294, ptr noundef nonnull align 1 dereferenceable(3) @.str.33, i64 3, i1 false)
-  %295 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %295 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 3
-  store ptr %296, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %296, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %296, align 1
   %297 = load i16, ptr %66, align 4
   %298 = zext i16 %297 to i32
@@ -3247,9 +3247,9 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i227:  ; preds = %275
           to label %302 unwind label %.loopexit338
 
 302:                                              ; preds = %270, %300, %293
-  %303 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %303 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 2
-  %305 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %305 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i229 = icmp ult ptr %304, %305
   br i1 %.not.i.i229, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233, label %306
 
@@ -3281,17 +3281,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i231:  ; preds = %306
   call void @free(ptr noundef %309) #21
   store ptr %316, ptr @_ZN8nanobind6detail3bufE, align 8
   %322 = getelementptr inbounds i8, ptr %316, i64 %315
-  store ptr %322, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %322, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %323 = getelementptr inbounds i8, ptr %316, i64 %320
-  store ptr %323, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %323, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233
 
 _ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233: ; preds = %302, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231
   %324 = phi ptr [ %323, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231 ], [ %303, %302 ]
   store i16 8250, ptr %324, align 1
-  %325 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 2
-  store ptr %326, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %326, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %326, align 1
   br label %.critedge2
 
@@ -3307,9 +3307,9 @@ _ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233: ; preds = %302, %_ZN8nano
   br i1 %333, label %334, label %359
 
 334:                                              ; preds = %328
-  %335 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %336 = getelementptr inbounds i8, ptr %335, i64 7
-  %337 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i234 = icmp ult ptr %336, %337
   br i1 %.not.i.i234, label %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit, label %338
 
@@ -3341,17 +3341,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i236:  ; preds = %338
   call void @free(ptr noundef %341) #21
   store ptr %348, ptr @_ZN8nanobind6detail3bufE, align 8
   %354 = getelementptr inbounds i8, ptr %348, i64 %347
-  store ptr %354, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %354, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %355 = getelementptr inbounds i8, ptr %348, i64 %352
-  store ptr %355, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %355, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit
 
 _ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit: ; preds = %334, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236
   %356 = phi ptr [ %355, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236 ], [ %335, %334 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %356, ptr noundef nonnull align 1 dereferenceable(7) @.str.34, i64 7, i1 false)
-  %357 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %357 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 7
-  store ptr %358, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %358, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %358, align 1
   %.pre = load ptr, ptr %64, align 8
   br label %359
@@ -3368,9 +3368,9 @@ _ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit: ; preds = %334, %_ZN8nanobin
   br i1 %1, label %365, label %418
 
 365:                                              ; preds = %364
-  %366 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %367 = getelementptr inbounds i8, ptr %366, i64 4
-  %368 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %368 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i238 = icmp ult ptr %367, %368
   br i1 %.not.i.i238, label %387, label %369
 
@@ -3402,17 +3402,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i240:  ; preds = %369
   call void @free(ptr noundef %372) #21
   store ptr %379, ptr @_ZN8nanobind6detail3bufE, align 8
   %385 = getelementptr inbounds i8, ptr %379, i64 %378
-  store ptr %385, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %385, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %386 = getelementptr inbounds i8, ptr %379, i64 %383
-  store ptr %386, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %386, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %387
 
 387:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240, %365
   %388 = phi ptr [ %386, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240 ], [ %366, %365 ]
   store i32 1545616672, ptr %388, align 1
-  %389 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %390 = getelementptr inbounds i8, ptr %389, i64 4
-  store ptr %390, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %390, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %390, align 1
   %391 = getelementptr inbounds i8, ptr %361, i64 8
   %392 = load ptr, ptr %391, align 8
@@ -3420,9 +3420,9 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i240:  ; preds = %369
   br i1 %.not182, label %416, label %393
 
 393:                                              ; preds = %387
-  %394 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %394 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %395 = getelementptr inbounds i8, ptr %394, i64 1
-  %396 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %396 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i243 = icmp ult ptr %395, %396
   br i1 %.not.i243, label %_ZN8nanobind6detail6Buffer3putEc.exit247, label %397
 
@@ -3452,16 +3452,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i245:    ; preds = %397
   call void @free(ptr noundef %398) #21
   store ptr %404, ptr @_ZN8nanobind6detail3bufE, align 8
   %411 = getelementptr inbounds i8, ptr %404, i64 %403
-  store ptr %411, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %411, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %412 = getelementptr inbounds i8, ptr %404, i64 %409
   br label %_ZN8nanobind6detail6Buffer3putEc.exit247
 
 _ZN8nanobind6detail6Buffer3putEc.exit247:         ; preds = %393, %_ZN8nanobind6detail6Buffer6expandEm.exit.i245
   %413 = phi ptr [ %412, %_ZN8nanobind6detail6Buffer6expandEm.exit.i245 ], [ %394, %393 ]
   %414 = getelementptr inbounds i8, ptr %413, i64 1
-  store ptr %414, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %414, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 61, ptr %413, align 1
-  %415 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %415 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %415, align 1
   br label %416
 
@@ -3477,9 +3477,9 @@ _ZN8nanobind6detail6Buffer3putEc.exit247:         ; preds = %393, %_ZN8nanobind6
   br i1 %.not179, label %448, label %421
 
 421:                                              ; preds = %418
-  %422 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %422 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %423 = getelementptr inbounds i8, ptr %422, i64 3
-  %424 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %424 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i248 = icmp ult ptr %423, %424
   br i1 %.not.i.i248, label %443, label %425
 
@@ -3511,17 +3511,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i250:  ; preds = %425
   call void @free(ptr noundef %428) #21
   store ptr %435, ptr @_ZN8nanobind6detail3bufE, align 8
   %441 = getelementptr inbounds i8, ptr %435, i64 %434
-  store ptr %441, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %441, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %442 = getelementptr inbounds i8, ptr %435, i64 %439
-  store ptr %442, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %442, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %443
 
 443:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250, %421
   %444 = phi ptr [ %442, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250 ], [ %422, %421 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %444, ptr noundef nonnull align 1 dereferenceable(3) @.str.36, i64 3, i1 false)
-  %445 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %445 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %446 = getelementptr inbounds i8, ptr %445, i64 3
-  store ptr %446, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %446, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %446, align 1
   %447 = load ptr, ptr %419, align 8
   invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %447)
@@ -3549,9 +3549,9 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i250:  ; preds = %425
           to label %506 unwind label %.loopexit338
 
 455:                                              ; preds = %453
-  %456 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %456 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %457 = getelementptr inbounds i8, ptr %456, i64 3
-  %458 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %458 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i253 = icmp ult ptr %457, %458
   br i1 %.not.i.i253, label %477, label %459
 
@@ -3583,22 +3583,22 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i255:  ; preds = %459
   call void @free(ptr noundef %462) #21
   store ptr %469, ptr @_ZN8nanobind6detail3bufE, align 8
   %475 = getelementptr inbounds i8, ptr %469, i64 %468
-  store ptr %475, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %475, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %476 = getelementptr inbounds i8, ptr %469, i64 %473
-  store ptr %476, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %476, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %477
 
 477:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255, %455
   %478 = phi ptr [ %476, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255 ], [ %456, %455 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %478, ptr noundef nonnull align 1 dereferenceable(3) @.str.36, i64 3, i1 false)
-  %479 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %479 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %480 = getelementptr inbounds i8, ptr %479, i64 3
-  store ptr %480, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %480, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %480, align 1
   %481 = load i64, ptr %4, align 8
-  %482 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %482 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %483 = getelementptr inbounds i8, ptr %482, i64 %481
-  %484 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %484 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i258 = icmp ult ptr %483, %484
   br i1 %.not.i258, label %_ZN8nanobind6detail6Buffer3putEPKcm.exit, label %485
 
@@ -3631,17 +3631,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i260:    ; preds = %485
   call void @free(ptr noundef %488) #21
   store ptr %495, ptr @_ZN8nanobind6detail3bufE, align 8
   %501 = getelementptr inbounds i8, ptr %495, i64 %494
-  store ptr %501, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %501, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %502 = getelementptr inbounds i8, ptr %495, i64 %499
-  store ptr %502, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %502, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putEPKcm.exit
 
 _ZN8nanobind6detail6Buffer3putEPKcm.exit:         ; preds = %477, %_ZN8nanobind6detail6Buffer6expandEm.exit.i260
   %503 = phi ptr [ %502, %_ZN8nanobind6detail6Buffer6expandEm.exit.i260 ], [ %482, %477 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %503, ptr nonnull align 1 %452, i64 %481, i1 false)
-  %504 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %504 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %505 = getelementptr inbounds i8, ptr %504, i64 %481
-  store ptr %505, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %505, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %505, align 1
   br label %506
 
@@ -3673,9 +3673,9 @@ _ZL10_Py_DECREFP7_object.exit.thread:             ; preds = %327
   br i1 %515, label %.thread, label %.critedge2
 
 .thread:                                          ; preds = %_ZL10_Py_DECREFP7_object.exit.thread
-  %516 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %516 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %517 = getelementptr inbounds i8, ptr %516, i64 3
-  %518 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %518 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i263 = icmp ult ptr %517, %518
   br i1 %.not.i.i263, label %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267, label %519
 
@@ -3707,17 +3707,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i265:  ; preds = %519
   call void @free(ptr noundef %522) #21
   store ptr %529, ptr @_ZN8nanobind6detail3bufE, align 8
   %535 = getelementptr inbounds i8, ptr %529, i64 %528
-  store ptr %535, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %535, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %536 = getelementptr inbounds i8, ptr %529, i64 %533
-  store ptr %536, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %536, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267
 
 _ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267: ; preds = %.thread, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265
   %537 = phi ptr [ %536, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265 ], [ %516, %.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %537, ptr noundef nonnull align 1 dereferenceable(3) @.str.37, i64 3, i1 false)
-  %538 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %538 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %539 = getelementptr inbounds i8, ptr %538, i64 3
-  store ptr %539, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %539, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %539, align 1
   br label %.critedge2
 
@@ -3826,9 +3826,9 @@ _ZN8nanobind3strD2Ev.exit:                        ; preds = %567, %568, %571
   unreachable
 
 _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind3strD2Ev.exit, %576, %579
-  %583 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %583 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %584 = getelementptr inbounds i8, ptr %583, i64 1
-  %585 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %585 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i273 = icmp ult ptr %584, %585
   br i1 %.not.i273, label %602, label %586
 
@@ -3858,16 +3858,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i275:    ; preds = %586
   call void @free(ptr noundef %587) #21
   store ptr %593, ptr @_ZN8nanobind6detail3bufE, align 8
   %600 = getelementptr inbounds i8, ptr %593, i64 %592
-  store ptr %600, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %600, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %601 = getelementptr inbounds i8, ptr %593, i64 %598
   br label %602
 
 602:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i275, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit
   %603 = phi ptr [ %601, %_ZN8nanobind6detail6Buffer6expandEm.exit.i275 ], [ %583, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit ]
   %604 = getelementptr inbounds i8, ptr %603, i64 1
-  store ptr %604, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %604, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 46, ptr %603, align 1
-  %605 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %605 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %605, align 1
   store ptr %560, ptr %6, align 8, !alias.scope !45
   store ptr null, ptr %62, align 8, !alias.scope !45
@@ -3942,9 +3942,9 @@ _ZN8nanobind3strD2Ev.exit285:                     ; preds = %612, %613, %616
   br i1 %1, label %629, label %652
 
 629:                                              ; preds = %628
-  %630 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %630 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %631 = getelementptr inbounds i8, ptr %630, i64 1
-  %632 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %632 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i289 = icmp ult ptr %631, %632
   br i1 %.not.i289, label %_ZN8nanobind6detail6Buffer3putEc.exit293, label %633
 
@@ -3974,16 +3974,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i291:    ; preds = %633
   call void @free(ptr noundef %634) #21
   store ptr %640, ptr @_ZN8nanobind6detail3bufE, align 8
   %647 = getelementptr inbounds i8, ptr %640, i64 %639
-  store ptr %647, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %647, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %648 = getelementptr inbounds i8, ptr %640, i64 %645
   br label %_ZN8nanobind6detail6Buffer3putEc.exit293
 
 _ZN8nanobind6detail6Buffer3putEc.exit293:         ; preds = %629, %_ZN8nanobind6detail6Buffer6expandEm.exit.i291
   %649 = phi ptr [ %648, %_ZN8nanobind6detail6Buffer6expandEm.exit.i291 ], [ %630, %629 ]
   %650 = getelementptr inbounds i8, ptr %649, i64 1
-  store ptr %650, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %650, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 34, ptr %649, align 1
-  %651 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %651 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %651, align 1
   br label %652
 
@@ -4025,9 +4025,9 @@ _ZN8nanobind6detail6Buffer3putEc.exit293:         ; preds = %629, %_ZN8nanobind6
   br i1 %1, label %667, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288
 
 667:                                              ; preds = %666
-  %668 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %668 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %669 = getelementptr inbounds i8, ptr %668, i64 1
-  %670 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %670 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i296 = icmp ult ptr %669, %670
   br i1 %.not.i296, label %_ZN8nanobind6detail6Buffer3putEc.exit300, label %671
 
@@ -4057,16 +4057,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i298:    ; preds = %671
   call void @free(ptr noundef %672) #21
   store ptr %678, ptr @_ZN8nanobind6detail3bufE, align 8
   %685 = getelementptr inbounds i8, ptr %678, i64 %677
-  store ptr %685, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %685, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %686 = getelementptr inbounds i8, ptr %678, i64 %683
   br label %_ZN8nanobind6detail6Buffer3putEc.exit300
 
 _ZN8nanobind6detail6Buffer3putEc.exit300:         ; preds = %667, %_ZN8nanobind6detail6Buffer6expandEm.exit.i298
   %687 = phi ptr [ %686, %_ZN8nanobind6detail6Buffer6expandEm.exit.i298 ], [ %668, %667 ]
   %688 = getelementptr inbounds i8, ptr %687, i64 1
-  store ptr %688, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %688, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 34, ptr %687, align 1
-  %689 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %689 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %689, align 1
   br label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288
 
@@ -4079,9 +4079,9 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288: ; preds = %624, %621, 
   %693 = load i8, ptr %692, align 1
   %694 = icmp eq i8 %693, 62
   %spec.select198 = select i1 %694, i1 true, i1 %.0147
-  %695 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %695 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %696 = getelementptr inbounds i8, ptr %695, i64 1
-  %697 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %697 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i301 = icmp ult ptr %696, %697
   br i1 %.not.i301, label %_ZN8nanobind6detail6Buffer3putEc.exit305, label %698
 
@@ -4111,23 +4111,23 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i303:    ; preds = %698
   call void @free(ptr noundef %699) #21
   store ptr %705, ptr @_ZN8nanobind6detail3bufE, align 8
   %712 = getelementptr inbounds i8, ptr %705, i64 %704
-  store ptr %712, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %712, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %713 = getelementptr inbounds i8, ptr %705, i64 %710
   br label %_ZN8nanobind6detail6Buffer3putEc.exit305
 
 _ZN8nanobind6detail6Buffer3putEc.exit305:         ; preds = %691, %_ZN8nanobind6detail6Buffer6expandEm.exit.i303
   %714 = phi ptr [ %713, %_ZN8nanobind6detail6Buffer6expandEm.exit.i303 ], [ %695, %691 ]
   %715 = getelementptr inbounds i8, ptr %714, i64 1
-  store ptr %715, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %715, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 45, ptr %714, align 1
-  %716 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %716 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %716, align 1
   br label %.critedge2
 
 717:                                              ; preds = %71
-  %718 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %718 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %719 = getelementptr inbounds i8, ptr %718, i64 1
-  %720 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %720 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i306 = icmp ult ptr %719, %720
   br i1 %.not.i306, label %_ZN8nanobind6detail6Buffer3putEc.exit310, label %721
 
@@ -4157,16 +4157,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i308:    ; preds = %721
   call void @free(ptr noundef %722) #21
   store ptr %728, ptr @_ZN8nanobind6detail3bufE, align 8
   %735 = getelementptr inbounds i8, ptr %728, i64 %727
-  store ptr %735, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %735, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %736 = getelementptr inbounds i8, ptr %728, i64 %733
   br label %_ZN8nanobind6detail6Buffer3putEc.exit310
 
 _ZN8nanobind6detail6Buffer3putEc.exit310:         ; preds = %717, %_ZN8nanobind6detail6Buffer6expandEm.exit.i308
   %737 = phi ptr [ %736, %_ZN8nanobind6detail6Buffer6expandEm.exit.i308 ], [ %718, %717 ]
   %738 = getelementptr inbounds i8, ptr %737, i64 1
-  store ptr %738, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %738, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 %72, ptr %737, align 1
-  %739 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %739 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %739, align 1
   br label %.critedge2
 
@@ -4221,8 +4221,8 @@ define hidden noundef ptr @_ZN8nanobind6detail15nb_func_get_docEP7_objectPv(ptr 
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  store ptr %6, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i = icmp eq ptr %6, %7
   br i1 %.not.i, label %_ZN8nanobind6detail6Buffer5clearEv.exit, label %8
 
@@ -4244,9 +4244,9 @@ _ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %2, %8
   %.055 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %42 ]
   %10 = getelementptr inbounds %"struct.nanobind::detail::func_data", ptr %3, i64 %indvars.iv
   %11 = tail call fastcc noundef i32 @_ZN8nanobind6detailL24nb_func_render_signatureEPKNS0_9func_dataEb(ptr noundef nonnull %10, i1 noundef zeroext false) #21
-  %12 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 1
-  %14 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i30 = icmp ult ptr %13, %14
   br i1 %.not.i30, label %_ZN8nanobind6detail6Buffer3putEc.exit, label %15
 
@@ -4276,16 +4276,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %15
   tail call void @free(ptr noundef %16) #21
   store ptr %22, ptr @_ZN8nanobind6detail3bufE, align 8
   %29 = getelementptr inbounds i8, ptr %22, i64 %21
-  store ptr %29, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 %27
   br label %_ZN8nanobind6detail6Buffer3putEc.exit
 
 _ZN8nanobind6detail6Buffer3putEc.exit:            ; preds = %.lr.ph, %_ZN8nanobind6detail6Buffer6expandEm.exit.i
   %31 = phi ptr [ %30, %_ZN8nanobind6detail6Buffer6expandEm.exit.i ], [ %12, %.lr.ph ]
   %32 = getelementptr inbounds i8, ptr %31, i64 1
-  store ptr %32, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 10, ptr %31, align 1
-  %33 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %33, align 1
   %34 = getelementptr inbounds i8, ptr %10, i64 56
   %35 = load i32, ptr %34, align 8
@@ -4313,9 +4313,9 @@ _ZN8nanobind6detail6Buffer3putEc.exit:            ; preds = %.lr.ph, %_ZN8nanobi
   br i1 %43, label %44, label %69
 
 44:                                               ; preds = %._crit_edge
-  %45 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 22
-  %47 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i31 = icmp ult ptr %46, %47
   br i1 %.not.i.i31, label %_ZN8nanobind6detail6Buffer3putILm23EEEvRAT__Kc.exit, label %48
 
@@ -4347,17 +4347,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %48
   tail call void @free(ptr noundef %51) #21
   store ptr %58, ptr @_ZN8nanobind6detail3bufE, align 8
   %64 = getelementptr inbounds i8, ptr %58, i64 %57
-  store ptr %64, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %64, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %65 = getelementptr inbounds i8, ptr %58, i64 %62
-  store ptr %65, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %65, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm23EEEvRAT__Kc.exit
 
 _ZN8nanobind6detail6Buffer3putILm23EEEvRAT__Kc.exit: ; preds = %44, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i
   %66 = phi ptr [ %65, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i ], [ %45, %44 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %66, ptr noundef nonnull align 1 dereferenceable(22) @.str.8, i64 22, i1 false)
-  %67 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 22
-  store ptr %68, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %68, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %68, align 1
   br label %69
 
@@ -4385,9 +4385,9 @@ _ZN8nanobind6detail6Buffer3putILm23EEEvRAT__Kc.exit: ; preds = %44, %_ZN8nanobin
   br i1 %.not27, label %177, label %78
 
 78:                                               ; preds = %74
-  %79 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 1
-  %81 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i32 = icmp ult ptr %80, %81
   br i1 %.not.i32, label %_ZN8nanobind6detail6Buffer3putEc.exit36, label %82
 
@@ -4417,16 +4417,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i34:     ; preds = %82
   tail call void @free(ptr noundef %83) #21
   store ptr %89, ptr @_ZN8nanobind6detail3bufE, align 8
   %96 = getelementptr inbounds i8, ptr %89, i64 %88
-  store ptr %96, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %96, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %97 = getelementptr inbounds i8, ptr %89, i64 %94
   br label %_ZN8nanobind6detail6Buffer3putEc.exit36
 
 _ZN8nanobind6detail6Buffer3putEc.exit36:          ; preds = %78, %_ZN8nanobind6detail6Buffer6expandEm.exit.i34
   %98 = phi ptr [ %97, %_ZN8nanobind6detail6Buffer6expandEm.exit.i34 ], [ %79, %78 ]
   %99 = getelementptr inbounds i8, ptr %98, i64 1
-  store ptr %99, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %99, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 10, ptr %98, align 1
-  %100 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %100, align 1
   br i1 %43, label %101, label %153
 
@@ -4434,9 +4434,9 @@ _ZN8nanobind6detail6Buffer3putEc.exit36:          ; preds = %78, %_ZN8nanobind6d
   %102 = trunc i64 %indvars.iv64 to i32
   %103 = add i32 %102, 1
   tail call void @_ZN8nanobind6detail6Buffer10put_uint32Ej(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, i32 noundef %103)
-  %104 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 4
-  %106 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i37 = icmp ult ptr %105, %106
   br i1 %.not.i.i37, label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit, label %107
 
@@ -4468,22 +4468,22 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i39:   ; preds = %107
   tail call void @free(ptr noundef %110) #21
   store ptr %117, ptr @_ZN8nanobind6detail3bufE, align 8
   %123 = getelementptr inbounds i8, ptr %117, i64 %116
-  store ptr %123, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %123, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %124 = getelementptr inbounds i8, ptr %117, i64 %121
-  store ptr %124, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %124, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit
 
 _ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit: ; preds = %101, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i39
   %125 = phi ptr [ %124, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i39 ], [ %104, %101 ]
   store i32 1616912430, ptr %125, align 1
-  %126 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 4
-  store ptr %127, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %127, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %127, align 1
   %128 = tail call fastcc noundef i32 @_ZN8nanobind6detailL24nb_func_render_signatureEPKNS0_9func_dataEb(ptr noundef nonnull %70, i1 noundef zeroext false) #21
-  %129 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 4
-  %131 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i41 = icmp ult ptr %130, %131
   br i1 %.not.i.i41, label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit45, label %132
 
@@ -4515,26 +4515,26 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i43:   ; preds = %132
   tail call void @free(ptr noundef %135) #21
   store ptr %142, ptr @_ZN8nanobind6detail3bufE, align 8
   %148 = getelementptr inbounds i8, ptr %142, i64 %141
-  store ptr %148, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %148, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %149 = getelementptr inbounds i8, ptr %142, i64 %146
-  store ptr %149, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %149, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit45
 
 _ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit45: ; preds = %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i43
   %150 = phi ptr [ %149, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i43 ], [ %129, %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit ]
   store i32 168452192, ptr %150, align 1
-  %151 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 4
-  store ptr %152, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %152, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %152, align 1
   br label %153
 
 153:                                              ; preds = %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit45, %_ZN8nanobind6detail6Buffer3putEc.exit36
   %154 = load ptr, ptr %75, align 8
   tail call void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %154)
-  %155 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %155 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 1
-  %157 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i46 = icmp ult ptr %156, %157
   br i1 %.not.i46, label %_ZN8nanobind6detail6Buffer3putEc.exit50, label %158
 
@@ -4564,16 +4564,16 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i48:     ; preds = %158
   tail call void @free(ptr noundef %159) #21
   store ptr %165, ptr @_ZN8nanobind6detail3bufE, align 8
   %172 = getelementptr inbounds i8, ptr %165, i64 %164
-  store ptr %172, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %172, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %173 = getelementptr inbounds i8, ptr %165, i64 %170
   br label %_ZN8nanobind6detail6Buffer3putEc.exit50
 
 _ZN8nanobind6detail6Buffer3putEc.exit50:          ; preds = %153, %_ZN8nanobind6detail6Buffer6expandEm.exit.i48
   %174 = phi ptr [ %173, %_ZN8nanobind6detail6Buffer6expandEm.exit.i48 ], [ %155, %153 ]
   %175 = getelementptr inbounds i8, ptr %174, i64 1
-  store ptr %175, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %175, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 10, ptr %174, align 1
-  %176 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %176, align 1
   br label %177
 
@@ -4583,7 +4583,7 @@ _ZN8nanobind6detail6Buffer3putEc.exit50:          ; preds = %153, %_ZN8nanobind6
   br i1 %exitcond68.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !51
 
 ._crit_edge60:                                    ; preds = %177, %_ZN8nanobind6detail6Buffer5clearEv.exit, %69
-  %178 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %179 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
   %.not = icmp eq ptr %178, %179
   br i1 %.not, label %184, label %180
@@ -4593,7 +4593,7 @@ _ZN8nanobind6detail6Buffer3putEc.exit50:          ; preds = %153, %_ZN8nanobind6
   %182 = icmp ult ptr %178, %181
   %183 = getelementptr inbounds i8, ptr %178, i64 -1
   %storemerge.i = select i1 %182, ptr %179, ptr %183
-  store ptr %storemerge.i, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %storemerge.i, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %storemerge.i, align 1
   %.pre = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
   br label %184
@@ -4945,15 +4945,15 @@ define internal noalias noundef ptr @_ZN8nanobind6detailL23nb_func_error_noconve
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  store ptr %8, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i = icmp eq ptr %8, %9
   br i1 %.not.i, label %_ZN8nanobind6detail6Buffer5clearEv.exit, label %10
 
 10:                                               ; preds = %7
   store i8 0, ptr %8, align 1
-  %.pre = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
-  %.pre4 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %.pre4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   br label %_ZN8nanobind6detail6Buffer5clearEv.exit
 
 _ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %7, %10
@@ -4991,17 +4991,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %14
   tail call void @free(ptr noundef %17) #21
   store ptr %24, ptr @_ZN8nanobind6detail3bufE, align 8
   %30 = getelementptr inbounds i8, ptr %24, i64 %23
-  store ptr %30, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %31 = getelementptr inbounds i8, ptr %24, i64 %28
-  store ptr %31, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %32
 
 32:                                               ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i, %_ZN8nanobind6detail6Buffer5clearEv.exit
   %33 = phi ptr [ %31, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i ], [ %12, %_ZN8nanobind6detail6Buffer5clearEv.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %33, ptr noundef nonnull align 1 dereferenceable(80) @.str.18, i64 80, i1 false)
-  %34 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 80
-  store ptr %35, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %35, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %35, align 1
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   %37 = tail call fastcc noundef i32 @_ZN8nanobind6detailL24nb_func_render_signatureEPKNS0_9func_dataEb(ptr noundef nonnull %36, i1 noundef zeroext false) #21
@@ -5197,8 +5197,8 @@ _ZN8nanobind15not_implementedD2Ev.exit:           ; preds = %4
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  store ptr %14, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i = icmp eq ptr %14, %15
   br i1 %.not.i, label %_ZN8nanobind6detail6Buffer5clearEv.exit, label %16
 
@@ -5213,9 +5213,9 @@ _ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %13, %16
           to label %19 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 19:                                               ; preds = %_ZN8nanobind6detail6Buffer5clearEv.exit
-  %20 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 81
-  %22 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i = icmp ult ptr %21, %22
   br i1 %.not.i.i, label %_ZN8nanobind6detail6Buffer3putILm82EEEvRAT__Kc.exit, label %23
 
@@ -5247,17 +5247,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %23
   tail call void @free(ptr noundef %26) #21
   store ptr %33, ptr @_ZN8nanobind6detail3bufE, align 8
   %39 = getelementptr inbounds i8, ptr %33, i64 %32
-  store ptr %39, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %39, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %40 = getelementptr inbounds i8, ptr %33, i64 %37
-  store ptr %40, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %40, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm82EEEvRAT__Kc.exit
 
 _ZN8nanobind6detail6Buffer3putILm82EEEvRAT__Kc.exit: ; preds = %19, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i
   %41 = phi ptr [ %40, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i ], [ %20, %19 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(81) %41, ptr noundef nonnull align 1 dereferenceable(81) @.str.21, i64 81, i1 false)
-  %42 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 81
-  store ptr %43, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %43, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %43, align 1
   %44 = and i64 %6, 4294967295
   %.not131 = icmp eq i64 %44, 0
@@ -5269,9 +5269,9 @@ _ZN8nanobind6detail6Buffer3putILm82EEEvRAT__Kc.exit: ; preds = %19, %_ZN8nanobin
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN8nanobind6detail6Buffer3putEc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN8nanobind6detail6Buffer3putEc.exit ]
-  %45 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 4
-  %47 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i55 = icmp ult ptr %46, %47
   br i1 %.not.i.i55, label %66, label %48
 
@@ -5303,17 +5303,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i57:   ; preds = %48
   tail call void @free(ptr noundef %51) #21
   store ptr %58, ptr @_ZN8nanobind6detail3bufE, align 8
   %64 = getelementptr inbounds i8, ptr %58, i64 %57
-  store ptr %64, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %64, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %65 = getelementptr inbounds i8, ptr %58, i64 %62
-  store ptr %65, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %65, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %66
 
 66:                                               ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i57, %.lr.ph
   %67 = phi ptr [ %65, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i57 ], [ %45, %.lr.ph ]
   store i32 538976288, ptr %67, align 1
-  %68 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 4
-  store ptr %69, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %69, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %69, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = trunc nuw i64 %indvars.iv.next to i32
@@ -5321,9 +5321,9 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i57:   ; preds = %48
           to label %71 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 71:                                               ; preds = %66
-  %72 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 2
-  %74 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i59 = icmp ult ptr %73, %74
   br i1 %.not.i.i59, label %93, label %75
 
@@ -5355,23 +5355,23 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i61:   ; preds = %75
   tail call void @free(ptr noundef %78) #21
   store ptr %85, ptr @_ZN8nanobind6detail3bufE, align 8
   %91 = getelementptr inbounds i8, ptr %85, i64 %84
-  store ptr %91, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %91, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %92 = getelementptr inbounds i8, ptr %85, i64 %89
-  store ptr %92, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %92, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %93
 
 93:                                               ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i61, %71
   %94 = phi ptr [ %92, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i61 ], [ %72, %71 ]
   store i16 8238, ptr %94, align 1
-  %95 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 2
-  store ptr %96, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %96, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %96, align 1
   %97 = getelementptr inbounds %"struct.nanobind::detail::func_data", ptr %7, i64 %indvars.iv
   %98 = tail call fastcc noundef i32 @_ZN8nanobind6detailL24nb_func_render_signatureEPKNS0_9func_dataEb(ptr noundef nonnull %97, i1 noundef zeroext false) #21
-  %99 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 1
-  %101 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i63 = icmp ult ptr %100, %101
   br i1 %.not.i63, label %_ZN8nanobind6detail6Buffer3putEc.exit, label %102
 
@@ -5401,28 +5401,28 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %102
   tail call void @free(ptr noundef %103) #21
   store ptr %109, ptr @_ZN8nanobind6detail3bufE, align 8
   %116 = getelementptr inbounds i8, ptr %109, i64 %108
-  store ptr %116, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %116, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %117 = getelementptr inbounds i8, ptr %109, i64 %114
   br label %_ZN8nanobind6detail6Buffer3putEc.exit
 
 _ZN8nanobind6detail6Buffer3putEc.exit:            ; preds = %93, %_ZN8nanobind6detail6Buffer6expandEm.exit.i
   %118 = phi ptr [ %117, %_ZN8nanobind6detail6Buffer6expandEm.exit.i ], [ %99, %93 ]
   %119 = getelementptr inbounds i8, ptr %118, i64 1
-  store ptr %119, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %119, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 10, ptr %118, align 1
-  %120 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %120, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %_ZN8nanobind6detail6Buffer3putEc.exit
-  %.pre = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN8nanobind6detail6Buffer3putILm82EEEvRAT__Kc.exit
   %121 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %43, %_ZN8nanobind6detail6Buffer3putILm82EEEvRAT__Kc.exit ]
   %122 = getelementptr inbounds i8, ptr %121, i64 21
-  %123 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i65 = icmp ult ptr %122, %123
   br i1 %.not.i.i65, label %_ZN8nanobind6detail6Buffer3putILm22EEEvRAT__Kc.exit, label %124
 
@@ -5454,17 +5454,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i67:   ; preds = %124
   tail call void @free(ptr noundef %127) #21
   store ptr %134, ptr @_ZN8nanobind6detail3bufE, align 8
   %140 = getelementptr inbounds i8, ptr %134, i64 %133
-  store ptr %140, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %140, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %141 = getelementptr inbounds i8, ptr %134, i64 %138
-  store ptr %141, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %141, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm22EEEvRAT__Kc.exit
 
 _ZN8nanobind6detail6Buffer3putILm22EEEvRAT__Kc.exit: ; preds = %._crit_edge, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i67
   %142 = phi ptr [ %141, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i67 ], [ %121, %._crit_edge ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %142, ptr noundef nonnull align 1 dereferenceable(21) @.str.24, i64 21, i1 false)
-  %143 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 21
-  store ptr %144, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %144, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %144, align 1
   %.not132 = icmp eq i64 %2, 0
   br i1 %.not132, label %._crit_edge126.thread, label %.lr.ph125
@@ -5487,9 +5487,9 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.lr.ph125
   br i1 %151, label %152, label %177
 
 152:                                              ; preds = %149
-  %153 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 2
-  %155 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %155 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i69 = icmp ult ptr %154, %155
   br i1 %.not.i.i69, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit73, label %156
 
@@ -5521,17 +5521,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i71:   ; preds = %156
   tail call void @free(ptr noundef %159) #21
   store ptr %166, ptr @_ZN8nanobind6detail3bufE, align 8
   %172 = getelementptr inbounds i8, ptr %166, i64 %165
-  store ptr %172, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %172, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %173 = getelementptr inbounds i8, ptr %166, i64 %170
-  store ptr %173, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %173, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit73
 
 _ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit73: ; preds = %152, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i71
   %174 = phi ptr [ %173, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i71 ], [ %153, %152 ]
   store i16 8236, ptr %174, align 1
-  %175 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %176 = getelementptr inbounds i8, ptr %175, i64 2
-  store ptr %176, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %176, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %176, align 1
   br label %177
 
@@ -5570,16 +5570,16 @@ _ZN8nanobind3strD2Ev.exit:                        ; preds = %177, %178, %181
   br i1 %.not53139, label %336, label %.thread
 
 .thread:                                          ; preds = %._crit_edge126.thread
-  %.pre138140 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %.pre138140 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %210
 
 185:                                              ; preds = %._crit_edge126
-  %.pre138 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %.pre138 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br i1 %.not132, label %210, label %186
 
 186:                                              ; preds = %185
   %187 = getelementptr inbounds i8, ptr %.pre138, i64 2
-  %188 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i76 = icmp ult ptr %187, %188
   br i1 %.not.i.i76, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit80, label %189
 
@@ -5611,25 +5611,25 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i78:   ; preds = %189
   tail call void @free(ptr noundef %192) #21
   store ptr %199, ptr @_ZN8nanobind6detail3bufE, align 8
   %205 = getelementptr inbounds i8, ptr %199, i64 %198
-  store ptr %205, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %205, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %206 = getelementptr inbounds i8, ptr %199, i64 %203
-  store ptr %206, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %206, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit80
 
 _ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit80: ; preds = %186, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i78
   %207 = phi ptr [ %206, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i78 ], [ %.pre138, %186 ]
   store i16 8236, ptr %207, align 1
-  %208 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 2
-  store ptr %209, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %209, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %209, align 1
-  %.pre137 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %.pre137 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %210
 
 210:                                              ; preds = %.thread, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit80, %185
   %211 = phi ptr [ %.pre137, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit80 ], [ %.pre138, %185 ], [ %.pre138140, %.thread ]
   %212 = getelementptr inbounds i8, ptr %211, i64 11
-  %213 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i81 = icmp ult ptr %212, %213
   br i1 %.not.i.i81, label %232, label %214
 
@@ -5661,17 +5661,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i83:   ; preds = %214
   tail call void @free(ptr noundef %217) #21
   store ptr %224, ptr @_ZN8nanobind6detail3bufE, align 8
   %230 = getelementptr inbounds i8, ptr %224, i64 %223
-  store ptr %230, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %230, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %231 = getelementptr inbounds i8, ptr %224, i64 %228
-  store ptr %231, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %231, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %232
 
 232:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i83, %210
   %233 = phi ptr [ %231, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i83 ], [ %211, %210 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %233, ptr noundef nonnull align 1 dereferenceable(11) @.str.26, i64 11, i1 false)
-  %234 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 11
-  store ptr %235, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %235, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %235, align 1
   %236 = getelementptr inbounds i8, ptr %3, i64 16
   %237 = load i64, ptr %236, align 8
@@ -5697,9 +5697,9 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i83:   ; preds = %214
           to label %245 unwind label %.loopexit
 
 245:                                              ; preds = %244
-  %246 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 2
-  %248 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %248 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i85 = icmp ult ptr %247, %248
   br i1 %.not.i.i85, label %267, label %249
 
@@ -5731,17 +5731,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i87:   ; preds = %249
   tail call void @free(ptr noundef %252) #21
   store ptr %259, ptr @_ZN8nanobind6detail3bufE, align 8
   %265 = getelementptr inbounds i8, ptr %259, i64 %258
-  store ptr %265, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %265, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %266 = getelementptr inbounds i8, ptr %259, i64 %263
-  store ptr %266, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %266, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %267
 
 267:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i87, %245
   %268 = phi ptr [ %266, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i87 ], [ %246, %245 ]
   store i16 8250, ptr %268, align 1
-  %269 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 2
-  store ptr %270, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %270, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %270, align 1
   %271 = tail call noundef ptr @_ZN8nanobind6detail12nb_inst_nameEP7_object(ptr noundef %242) #21
   %272 = invoke noundef ptr @PyUnicode_AsUTF8AndSize(ptr noundef %271, ptr noundef null)
@@ -5752,9 +5752,9 @@ _ZNK8nanobind3str5c_strEv.exit90:                 ; preds = %267
           to label %273 unwind label %.loopexit
 
 273:                                              ; preds = %_ZNK8nanobind3str5c_strEv.exit90
-  %274 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 2
-  %276 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i91 = icmp ult ptr %275, %276
   br i1 %.not.i.i91, label %295, label %277
 
@@ -5786,17 +5786,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i93:   ; preds = %277
   tail call void @free(ptr noundef %280) #21
   store ptr %287, ptr @_ZN8nanobind6detail3bufE, align 8
   %293 = getelementptr inbounds i8, ptr %287, i64 %286
-  store ptr %293, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %293, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %294 = getelementptr inbounds i8, ptr %287, i64 %291
-  store ptr %294, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %294, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %295
 
 295:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i93, %273
   %296 = phi ptr [ %294, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i93 ], [ %274, %273 ]
   store i16 8236, ptr %296, align 1
-  %297 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %297 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %298 = getelementptr inbounds i8, ptr %297, i64 2
-  store ptr %298, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %298, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %298, align 1
   %.not.i.i.i.i96 = icmp eq ptr %271, null
   br i1 %.not.i.i.i.i96, label %_ZN8nanobind3strD2Ev.exit98, label %299
@@ -5825,17 +5825,17 @@ _ZN8nanobind3strD2Ev.exit98:                      ; preds = %295, %299, %302
   br i1 %exitcond136.not, label %._crit_edge130, label %239, !llvm.loop !56
 
 ._crit_edge130:                                   ; preds = %_ZN8nanobind3strD2Ev.exit98, %232
-  %307 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %307 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %308 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
   %309 = getelementptr inbounds i8, ptr %308, i64 2
   %310 = icmp ult ptr %307, %309
   %311 = getelementptr inbounds i8, ptr %307, i64 -2
   %storemerge.i = select i1 %310, ptr %308, ptr %311
-  store ptr %storemerge.i, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %storemerge.i, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %storemerge.i, align 1
-  %312 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %312 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %313 = getelementptr inbounds i8, ptr %312, i64 2
-  %314 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  %314 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %.not.i.i99 = icmp ult ptr %313, %314
   br i1 %.not.i.i99, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit103, label %315
 
@@ -5867,17 +5867,17 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i101:  ; preds = %315
   tail call void @free(ptr noundef %318) #21
   store ptr %325, ptr @_ZN8nanobind6detail3bufE, align 8
   %331 = getelementptr inbounds i8, ptr %325, i64 %324
-  store ptr %331, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 2), align 8
+  store ptr %331, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   %332 = getelementptr inbounds i8, ptr %325, i64 %329
-  store ptr %332, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %332, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit103
 
 _ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit103: ; preds = %._crit_edge130, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i101
   %333 = phi ptr [ %332, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i101 ], [ %312, %._crit_edge130 ]
   store i16 32032, ptr %333, align 1
-  %334 = load ptr, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 2
-  store ptr %335, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
+  store ptr %335, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %335, align 1
   br label %336
 
@@ -6713,8 +6713,8 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES
 
 44:                                               ; preds = %42
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
-  store i16 -1, ptr getelementptr inbounds (%"class.tsl::detail_robin_hash::bucket_entry.18", ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 0, i32 1), align 4
-  store i8 1, ptr getelementptr inbounds (%"class.tsl::detail_robin_hash::bucket_entry.18", ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 0, i32 2), align 2
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
   %45 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #21
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #21
   br label %.thread

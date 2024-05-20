@@ -289,7 +289,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr %8, ptr @command_name, align 8
   tail call void @slurm_init(ptr noundef null) #17
   %9 = tail call i32 @log_init(ptr noundef nonnull @.str.19, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.main.opts, i32 noundef 24, ptr noundef null) #17
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 49), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 368), align 8
   %11 = tail call ptr @xstrstr(ptr noundef %10, ptr noundef nonnull @.str.20) #17
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
@@ -2981,7 +2981,7 @@ define internal fastcc void @_print_ping(i32 noundef %0, ptr noundef %1) unnamed
 
 43:                                               ; preds = %38
   %44 = icmp eq i32 %40, 1
-  %45 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 33), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
   %46 = icmp eq i32 %45, 2
   %or.cond = select i1 %44, i1 %46, i1 false
   br i1 %or.cond, label %47, label %48

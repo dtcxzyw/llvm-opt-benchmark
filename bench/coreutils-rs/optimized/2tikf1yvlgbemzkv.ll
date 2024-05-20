@@ -512,83 +512,83 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge: ; preds = %235, 
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 210:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od8prn_char13FORMAT_ITEM_A17h0b69569457c3b189E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od8prn_char13FORMAT_ITEM_A17h0b69569457c3b189E, i64 8), i64 24, i1 false)
   br label %230
 
 211:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h8ad22479d0151b2dE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h8ad22479d0151b2dE, i64 8), i64 24, i1 false)
   br label %230
 
 212:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int16FORMAT_ITEM_OCT817h3bfac0faf756a9f3E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int16FORMAT_ITEM_OCT817h3bfac0faf756a9f3E, i64 8), i64 24, i1 false)
   br label %230
 
 213:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od8prn_char13FORMAT_ITEM_C17h03a7e9a02a6650f3E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od8prn_char13FORMAT_ITEM_C17h03a7e9a02a6650f3E, i64 8), i64 24, i1 false)
   br label %230
 
 214:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC32U17h25ae7d48c80a2d9bE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC32U17h25ae7d48c80a2d9bE, i64 8), i64 24, i1 false)
   br label %230
 
 215:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC16U17h843c6426f7c1bc3aE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC16U17h843c6426f7c1bc3aE, i64 8), i64 24, i1 false)
   br label %230
 
 216:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F6417h286c938133b41537E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F6417h286c938133b41537E, i64 8), i64 24, i1 false)
   br label %230
 
 217:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F6417h286c938133b41537E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F6417h286c938133b41537E, i64 8), i64 24, i1 false)
   br label %230
 
 218:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F3217h11eafe1d906d2d2aE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F3217h11eafe1d906d2d2aE, i64 8), i64 24, i1 false)
   br label %230
 
 219:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX3217hae21bb6c9c379c1dE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX3217hae21bb6c9c379c1dE, i64 8), i64 24, i1 false)
   br label %230
 
 220:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX1617h29a4dc1e0cca58faE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX1617h29a4dc1e0cca58faE, i64 8), i64 24, i1 false)
   br label %230
 
 221:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC32S17h43f0682eab2c0d19E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC32S17h43f0682eab2c0d19E, i64 8), i64 24, i1 false)
   br label %230
 
 222:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64S17h372a5c8df32ba587E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64S17h372a5c8df32ba587E, i64 8), i64 24, i1 false)
   br label %230
 
 223:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64S17h372a5c8df32ba587E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64S17h372a5c8df32ba587E, i64 8), i64 24, i1 false)
   br label %230
 
 224:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64S17h372a5c8df32ba587E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64S17h372a5c8df32ba587E, i64 8), i64 24, i1 false)
   br label %230
 
 225:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT3217hf892cc44e3eec82eE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT3217hf892cc44e3eec82eE, i64 8), i64 24, i1 false)
   br label %230
 
 226:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h8ad22479d0151b2dE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h8ad22479d0151b2dE, i64 8), i64 24, i1 false)
   br label %230
 
 227:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC16S17hb00f19c1eb13fec4E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC16S17hb00f19c1eb13fec4E, i64 8), i64 24, i1 false)
   br label %230
 
 228:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX3217hae21bb6c9c379c1dE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX3217hae21bb6c9c379c1dE, i64 8), i64 24, i1 false)
   br label %230
 
 229:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX1617h29a4dc1e0cca58faE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX1617h29a4dc1e0cca58faE, i64 8), i64 24, i1 false)
   br label %230
 
 230:                                              ; preds = %210, %211, %212, %213, %214, %215, %216, %217, %218, %219, %220, %221, %222, %223, %224, %225, %226, %227, %228, %229
@@ -1712,11 +1712,11 @@ _ZN5uu_od13parse_formats19is_format_dump_char17hb4ed5adaf8b1ce81E.exit.thread: ;
   unreachable
 
 300:                                              ; preds = %_ZN5uu_od13parse_formats19is_format_dump_char17hb4ed5adaf8b1ce81E.exit.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od8prn_char13FORMAT_ITEM_A17h0b69569457c3b189E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od8prn_char13FORMAT_ITEM_A17h0b69569457c3b189E, i64 8), i64 24, i1 false)
   br label %333
 
 301:                                              ; preds = %_ZN5uu_od13parse_formats19is_format_dump_char17hb4ed5adaf8b1ce81E.exit.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od8prn_char13FORMAT_ITEM_C17h03a7e9a02a6650f3E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od8prn_char13FORMAT_ITEM_C17h03a7e9a02a6650f3E, i64 8), i64 24, i1 false)
   br label %333
 
 302:                                              ; preds = %_ZN5uu_od13parse_formats19is_format_dump_char17hb4ed5adaf8b1ce81E.exit.thread
@@ -1764,79 +1764,79 @@ _ZN5uu_od13parse_formats19is_format_dump_char17hb4ed5adaf8b1ce81E.exit.thread: ;
   ]
 
 307:                                              ; preds = %302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_DEC8S17h3fde73b69bb609ccE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_DEC8S17h3fde73b69bb609ccE, i64 8), i64 24, i1 false)
   br label %333
 
 308:                                              ; preds = %302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC16S17hb00f19c1eb13fec4E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC16S17hb00f19c1eb13fec4E, i64 8), i64 24, i1 false)
   br label %333
 
 309:                                              ; preds = %302, %302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC32S17h43f0682eab2c0d19E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC32S17h43f0682eab2c0d19E, i64 8), i64 24, i1 false)
   br label %333
 
 310:                                              ; preds = %302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64S17h372a5c8df32ba587E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64S17h372a5c8df32ba587E, i64 8), i64 24, i1 false)
   br label %333
 
 311:                                              ; preds = %303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int16FORMAT_ITEM_OCT817h3bfac0faf756a9f3E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int16FORMAT_ITEM_OCT817h3bfac0faf756a9f3E, i64 8), i64 24, i1 false)
   br label %333
 
 312:                                              ; preds = %303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h8ad22479d0151b2dE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h8ad22479d0151b2dE, i64 8), i64 24, i1 false)
   br label %333
 
 313:                                              ; preds = %303, %303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT3217hf892cc44e3eec82eE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT3217hf892cc44e3eec82eE, i64 8), i64 24, i1 false)
   br label %333
 
 314:                                              ; preds = %303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT6417h8d2daad7255db727E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_OCT6417h8d2daad7255db727E, i64 8), i64 24, i1 false)
   br label %333
 
 315:                                              ; preds = %304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_DEC8U17h091541face2478bdE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_DEC8U17h091541face2478bdE, i64 8), i64 24, i1 false)
   br label %333
 
 316:                                              ; preds = %304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC16U17h843c6426f7c1bc3aE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC16U17h843c6426f7c1bc3aE, i64 8), i64 24, i1 false)
   br label %333
 
 317:                                              ; preds = %304, %304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC32U17h25ae7d48c80a2d9bE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC32U17h25ae7d48c80a2d9bE, i64 8), i64 24, i1 false)
   br label %333
 
 318:                                              ; preds = %304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64U17hbfd4bbbd9222f2f1E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int18FORMAT_ITEM_DEC64U17hbfd4bbbd9222f2f1E, i64 8), i64 24, i1 false)
   br label %333
 
 319:                                              ; preds = %305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int16FORMAT_ITEM_HEX817h301b7928ebed57f2E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int16FORMAT_ITEM_HEX817h301b7928ebed57f2E, i64 8), i64 24, i1 false)
   br label %333
 
 320:                                              ; preds = %305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX1617h29a4dc1e0cca58faE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX1617h29a4dc1e0cca58faE, i64 8), i64 24, i1 false)
   br label %333
 
 321:                                              ; preds = %305, %305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX3217hae21bb6c9c379c1dE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX3217hae21bb6c9c379c1dE, i64 8), i64 24, i1 false)
   br label %333
 
 322:                                              ; preds = %305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX6417h6b01947ec92c13aaE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od7prn_int17FORMAT_ITEM_HEX6417h6b01947ec92c13aaE, i64 8), i64 24, i1 false)
   br label %333
 
 323:                                              ; preds = %306
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F1617hf22170438273f160E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F1617hf22170438273f160E, i64 8), i64 24, i1 false)
   br label %333
 
 324:                                              ; preds = %306, %306
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F3217h11eafe1d906d2d2aE, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F3217h11eafe1d906d2d2aE, i64 8), i64 24, i1 false)
   br label %333
 
 325:                                              ; preds = %306
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [8 x i8], ptr, [16 x i8] }>, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F6417h286c938133b41537E, i64 0, i32 1), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5uu_od9prn_float15FORMAT_ITEM_F6417h286c938133b41537E, i64 8), i64 24, i1 false)
   br label %333
 
 326:                                              ; preds = %302, %303, %304, %305, %306

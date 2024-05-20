@@ -79,9 +79,9 @@ define void @_ZN17ColumnEditorFrameC2EP7QWidget(ptr noundef nonnull align 8 dere
   %11 = alloca %"class.QMetaObject::Connection", align 8
   %12 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17ColumnEditorFrame, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ColumnEditorFrame, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17ColumnEditorFrame, i64 0, i32 1, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ColumnEditorFrame, i64 456), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #11
           to label %16 unwind label %42
@@ -470,7 +470,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i46:    ; preds = %58
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %64, ptr noundef %65, i32 noundef 0, i32 0)
   %66 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %67 = getelementptr inbounds i8, ptr %66, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %66, align 8
   store <4 x i32> <i32 0, i32 20, i32 5, i32 1507328>, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %66, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %68, align 4
@@ -543,7 +543,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58:    ; preds = %87
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %93, ptr noundef %94, i32 noundef 0, i32 0)
   %95 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %96 = getelementptr inbounds i8, ptr %95, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %95, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %95, align 8
   store <4 x i32> <i32 0, i32 20, i32 5, i32 1507328>, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %95, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %97, align 4
@@ -616,7 +616,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i70:    ; preds = %116
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %122, ptr noundef %123, i32 noundef 0, i32 0)
   %124 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %125 = getelementptr inbounds i8, ptr %124, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %124, align 8
   store <4 x i32> <i32 0, i32 20, i32 5, i32 1507328>, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %124, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %126, align 4
@@ -721,7 +721,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i88:    ; preds = %155
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %162, ptr noundef %163, i32 noundef 0, i32 0)
   %164 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %165 = getelementptr inbounds i8, ptr %164, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %164, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %164, align 8
   store <4 x i32> <i32 0, i32 20, i32 5, i32 1507328>, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %164, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %166, align 4
@@ -1191,9 +1191,9 @@ _ZN7QStringD2Ev.exit20:                           ; preds = %_ZN10QByteArrayD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17ColumnEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17ColumnEditorFrame, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ColumnEditorFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17ColumnEditorFrame, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ColumnEditorFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

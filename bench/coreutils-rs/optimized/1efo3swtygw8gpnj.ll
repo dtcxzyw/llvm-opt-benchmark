@@ -6008,7 +6008,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit130: ; preds = %42
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit131: ; preds = %47
   store ptr @anon.11f9ed1708ad007c3d649fd3ee8621a9.16.llvm.9318380955268835496, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.11f9ed1708ad007c3d649fd3ee8621a9.16.llvm.9318380955268835496, i64 1, i32 0, i64 0), ptr %52, align 8
+  store ptr getelementptr inbounds (i8, ptr @anon.11f9ed1708ad007c3d649fd3ee8621a9.16.llvm.9318380955268835496, i64 2), ptr %52, align 8
   br label %99
 
 53:                                               ; preds = %1
@@ -6136,7 +6136,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit137: ; preds = %78
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit138: ; preds = %83
   store ptr @anon.11f9ed1708ad007c3d649fd3ee8621a9.15.llvm.9318380955268835496, ptr %85, align 8
   %88 = getelementptr inbounds i8, ptr %85, i64 8
-  store ptr getelementptr inbounds (<{ [6 x i8] }>, ptr @anon.11f9ed1708ad007c3d649fd3ee8621a9.15.llvm.9318380955268835496, i64 1, i32 0, i64 0), ptr %88, align 8
+  store ptr getelementptr inbounds (i8, ptr @anon.11f9ed1708ad007c3d649fd3ee8621a9.15.llvm.9318380955268835496, i64 6), ptr %88, align 8
   br label %99
 
 89:                                               ; preds = %1
@@ -6984,7 +6984,7 @@ define hidden void @_ZN5uu_tr9operation8Sequence15parse_backslash17h7e2ecbdf0791
   %6 = alloca { { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6), !noalias !1372
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @_ZN4core4iter6traits8iterator8Iterator3zip17h14cf062947675a4eE.llvm.15859092204462515359(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) %6, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly @anon.4920c289cb5bce572bf2b72717362552.68.llvm.12289024961330098845, ptr noundef nonnull readonly getelementptr inbounds (<{ [1 x i8] }>, ptr @anon.4920c289cb5bce572bf2b72717362552.68.llvm.12289024961330098845, i64 1, i32 0, i64 0)), !noalias !1388
+  call void @_ZN4core4iter6traits8iterator8Iterator3zip17h14cf062947675a4eE.llvm.15859092204462515359(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) %6, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly @anon.4920c289cb5bce572bf2b72717362552.68.llvm.12289024961330098845, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.4920c289cb5bce572bf2b72717362552.68.llvm.12289024961330098845, i64 1)), !noalias !1388
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1372
   store i64 0, ptr %5, align 8, !noalias !1372
   %8 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2fb212d865648534E.llvm.15859092204462515359(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !1388
@@ -7678,7 +7678,7 @@ define hidden void @_ZN5uu_tr9operation8Sequence11parse_class17h3e68b6870bfea4c1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1469)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11), !noalias !1471
   %20 = getelementptr inbounds i8, ptr %1, i64 %2
-  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h14cf062947675a4eE.llvm.15859092204462515359(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) %11, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %20, ptr noundef nonnull readonly @anon.4920c289cb5bce572bf2b72717362552.79, ptr noundef nonnull readonly getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.4920c289cb5bce572bf2b72717362552.79, i64 1, i32 0, i64 0))
+  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h14cf062947675a4eE.llvm.15859092204462515359(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) %11, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %20, ptr noundef nonnull readonly @anon.4920c289cb5bce572bf2b72717362552.79, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.4920c289cb5bce572bf2b72717362552.79, i64 2))
           to label %.noexc unwind label %70
 
 .noexc:                                           ; preds = %3
@@ -7969,7 +7969,7 @@ define hidden void @_ZN5uu_tr9operation8Sequence16parse_char_equal17hc7dadaeb5df
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1573)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11), !noalias !1575
   %20 = getelementptr inbounds i8, ptr %1, i64 %2
-  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h14cf062947675a4eE.llvm.15859092204462515359(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) %11, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %20, ptr noundef nonnull readonly @anon.4920c289cb5bce572bf2b72717362552.93, ptr noundef nonnull readonly getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.4920c289cb5bce572bf2b72717362552.93, i64 1, i32 0, i64 0))
+  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h14cf062947675a4eE.llvm.15859092204462515359(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) %11, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %20, ptr noundef nonnull readonly @anon.4920c289cb5bce572bf2b72717362552.93, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.4920c289cb5bce572bf2b72717362552.93, i64 2))
           to label %.noexc unwind label %70
 
 .noexc:                                           ; preds = %3
@@ -8377,12 +8377,12 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   unreachable
 
 36:                                               ; preds = %.noexc.i, %31
-  %.0.i.i2.i.i = phi ptr [ %33, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %31 ]
+  %.0.i.i2.i.i = phi ptr [ %33, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %31 ]
   %37 = load <2 x i64>, ptr %.0.i.i2.i.i, align 8, !noalias !1714
   %38 = extractelement <2 x i64> %37, i64 0
   %39 = add i64 %38, 1
   store i64 %39, ptr %.0.i.i2.i.i, align 8, !noalias !1714
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.928, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (<{ ptr, [24 x i8] }>, ptr @anon.4920c289cb5bce572bf2b72717362552.3, i64 0, i32 1, i64 8), i64 16, i1 false), !noalias !1705
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.928, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @anon.4920c289cb5bce572bf2b72717362552.3, i64 16), i64 16, i1 false), !noalias !1705
   br label %41
 
 40:                                               ; preds = %35, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i
@@ -8505,7 +8505,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i11
           to label %common.resume unwind label %72, !noalias !1729
 
 _ZN5uu_tr9operation28TranslateOperationComplement3new17h5dcf963ef583cab6E.exit: ; preds = %65, %.noexc.i12
-  %.0.i.i2.i.i13 = phi ptr [ %67, %.noexc.i12 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %65 ]
+  %.0.i.i2.i.i13 = phi ptr [ %67, %.noexc.i12 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %65 ]
   %.sroa.0.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 24
   %.sroa.0.48..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 48
   %.sroa.418.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
@@ -8777,7 +8777,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
   unreachable
 
 16:                                               ; preds = %.noexc.i, %3
-  %.0.i.i2.i.i.i = phi ptr [ %13, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i2.i.i.i = phi ptr [ %13, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %3 ]
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 32
   %17 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !1804
   %18 = extractelement <2 x i64> %17, i64 0

@@ -2735,7 +2735,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb3
   store ptr %208, ptr %31, align 8, !noalias !382
   store ptr %213, ptr %136, align 8, !noalias !382
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.83, ptr %30, align 8, !noalias !382
-  store ptr getelementptr inbounds (<{ [10 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.83, i64 1, i32 0, i64 0), ptr %137, align 8, !noalias !382
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.83, i64 10), ptr %137, align 8, !noalias !382
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29), !noalias !385
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31)
           to label %.noexc556 unwind label %.loopexit1003
@@ -2790,7 +2790,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb3
   store ptr %208, ptr %27, align 8, !noalias !404
   store ptr %231, ptr %138, align 8, !noalias !404
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.84, ptr %26, align 8, !noalias !404
-  store ptr getelementptr inbounds (<{ [5 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.84, i64 1, i32 0, i64 0), ptr %139, align 8, !noalias !404
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.84, i64 5), ptr %139, align 8, !noalias !404
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !407
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %.noexc567 unwind label %.loopexit1003
@@ -2845,7 +2845,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb3
   store ptr %208, ptr %23, align 8, !noalias !426
   store ptr %249, ptr %140, align 8, !noalias !426
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.85, ptr %22, align 8, !noalias !426
-  store ptr getelementptr inbounds (<{ [7 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.85, i64 1, i32 0, i64 0), ptr %141, align 8, !noalias !426
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.85, i64 7), ptr %141, align 8, !noalias !426
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !429
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23)
           to label %.noexc579 unwind label %.loopexit1003
@@ -2898,7 +2898,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb3
   br i1 %269, label %270, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread928
 
 270:                                              ; preds = %267
-  %271 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17h2f34f7d0a1e5d581E, i64 0, i32 1, i64 8) monotonic, align 8
+  %271 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17h2f34f7d0a1e5d581E, i64 16) monotonic, align 8
   switch i8 %271, label %272 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread928
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -3143,7 +3143,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %357, label %358, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit603.thread938
 
 358:                                              ; preds = %355
-  %359 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17hf54c2378509dc3d8E, i64 0, i32 1, i64 8) monotonic, align 8
+  %359 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17hf54c2378509dc3d8E, i64 16) monotonic, align 8
   switch i8 %359, label %360 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit603.thread938
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit603.thread
@@ -3355,7 +3355,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit603
   br i1 %427, label %428, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit622.thread944
 
 428:                                              ; preds = %424
-  %429 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17he6e7bf56e3b382aeE, i64 0, i32 1, i64 8) monotonic, align 8
+  %429 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17he6e7bf56e3b382aeE, i64 16) monotonic, align 8
   switch i8 %429, label %430 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit622.thread944
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit622.thread
@@ -3554,7 +3554,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit622
   br i1 %494, label %495, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit641.thread950
 
 495:                                              ; preds = %.thread932
-  %496 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17h7349ff961ebb2638E, i64 0, i32 1, i64 8) monotonic, align 8
+  %496 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17h7349ff961ebb2638E, i64 16) monotonic, align 8
   switch i8 %496, label %497 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit641.thread950
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit641.thread
@@ -3791,7 +3791,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit641
   store ptr %574, ptr %19, align 8, !noalias !501
   store ptr %579, ptr %128, align 8, !noalias !501
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.103, ptr %18, align 8, !noalias !501
-  store ptr getelementptr inbounds (<{ [7 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.103, i64 1, i32 0, i64 0), ptr %129, align 8, !noalias !501
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.103, i64 7), ptr %129, align 8, !noalias !501
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !504
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
           to label %.noexc675 unwind label %.loopexit1003
@@ -3859,7 +3859,7 @@ thread-pre-split:                                 ; preds = %585
   store ptr %596, ptr %15, align 8, !noalias !523
   store ptr %600, ptr %130, align 8, !noalias !523
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, ptr %14, align 8, !noalias !523
-  store ptr getelementptr inbounds (<{ [8 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, i64 1, i32 0, i64 0), ptr %131, align 8, !noalias !523
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, i64 8), ptr %131, align 8, !noalias !523
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !526
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
           to label %.noexc687 unwind label %.loopexit1003
@@ -3908,7 +3908,7 @@ thread-pre-split:                                 ; preds = %585
   br i1 %617, label %618, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit692.thread962
 
 618:                                              ; preds = %.loopexit1000
-  %619 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17h3e8c03b8b7cda2edE, i64 0, i32 1, i64 8) monotonic, align 8
+  %619 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17h3e8c03b8b7cda2edE, i64 16) monotonic, align 8
   switch i8 %619, label %620 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit692.thread962
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit692.thread
@@ -4112,7 +4112,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit692
   br i1 %685, label %686, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit711.thread968
 
 686:                                              ; preds = %683
-  %687 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17hf408b3172030b9a3E, i64 0, i32 1, i64 8) monotonic, align 8
+  %687 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10actix_http2h17decoder11MessageType11set_headers10__CALLSITE17hf408b3172030b9a3E, i64 16) monotonic, align 8
   switch i8 %687, label %688 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit711.thread968
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit711.thread
@@ -4348,7 +4348,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit711
   store ptr %763, ptr %11, align 8, !noalias !577
   store ptr %768, ptr %124, align 8, !noalias !577
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.111, ptr %10, align 8, !noalias !577
-  store ptr getelementptr inbounds (<{ [9 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.111, i64 1, i32 0, i64 0), ptr %125, align 8, !noalias !577
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.111, i64 9), ptr %125, align 8, !noalias !577
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !580
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
           to label %.noexc741 unwind label %.loopexit1003
@@ -4864,7 +4864,7 @@ default.unreachable331:                           ; preds = %3
   br i1 %157, label %158, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread311
 
 158:                                              ; preds = %154
-  %159 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN95_$LT$actix_http..h1..decoder..PayloadDecoder$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode10__CALLSITE17h65dc809b9e2bac60E", i64 0, i32 1, i64 8) monotonic, align 8
+  %159 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$actix_http..h1..decoder..PayloadDecoder$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode10__CALLSITE17h65dc809b9e2bac60E", i64 16) monotonic, align 8
   switch i8 %159, label %160 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread311
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -5169,7 +5169,7 @@ common.resume:                                    ; preds = %363, %224, %239, %2
   br i1 %262, label %263, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit189.thread317
 
 263:                                              ; preds = %260
-  %264 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN95_$LT$actix_http..h1..decoder..PayloadDecoder$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode10__CALLSITE17hcf2c91ef171ce12bE", i64 0, i32 1, i64 8) monotonic, align 8
+  %264 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$actix_http..h1..decoder..PayloadDecoder$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode10__CALLSITE17hcf2c91ef171ce12bE", i64 16) monotonic, align 8
   switch i8 %264, label %265 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit189.thread317
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit189.thread
@@ -5570,7 +5570,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
   store ptr %28, ptr %29, align 8, !noalias !738
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.118, ptr %21, align 8, !noalias !738
   %30 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.118, i64 1, i32 0, i64 0), ptr %30, align 8, !noalias !738
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.118, i64 2), ptr %30, align 8, !noalias !738
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !741
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22), !noalias !744
   %31 = load i64, ptr %20, align 8, !noalias !741, !noundef !4
@@ -5621,7 +5621,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
   store ptr %48, ptr %49, align 8, !noalias !761
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.119, ptr %17, align 8, !noalias !761
   %50 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr getelementptr inbounds (<{ [4 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.119, i64 1, i32 0, i64 0), ptr %50, align 8, !noalias !761
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.119, i64 4), ptr %50, align 8, !noalias !761
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !764
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !767
   %51 = load i64, ptr %16, align 8, !noalias !764, !noundef !4
@@ -5672,7 +5672,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
   store ptr %68, ptr %69, align 8, !noalias !784
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.120, ptr %13, align 8, !noalias !784
   %70 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr getelementptr inbounds (<{ [7 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.120, i64 1, i32 0, i64 0), ptr %70, align 8, !noalias !784
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.120, i64 7), ptr %70, align 8, !noalias !784
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !787
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !790
   %71 = load i64, ptr %12, align 8, !noalias !787, !noundef !4
@@ -5723,7 +5723,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
   store ptr %88, ptr %89, align 8, !noalias !807
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, ptr %9, align 8, !noalias !807
   %90 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr getelementptr inbounds (<{ [8 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, i64 1, i32 0, i64 0), ptr %90, align 8, !noalias !807
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, i64 8), ptr %90, align 8, !noalias !807
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !810
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !noalias !813
   %91 = load i64, ptr %8, align 8, !noalias !810, !noundef !4
@@ -5773,7 +5773,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
   store ptr %107, ptr %108, align 8, !noalias !830
   store ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.121, ptr %5, align 8, !noalias !830
   %109 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (<{ [4 x i8] }>, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.121, i64 1, i32 0, i64 0), ptr %109, align 8, !noalias !830
+  store ptr getelementptr inbounds (i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.121, i64 4), ptr %109, align 8, !noalias !830
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !833
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3a89d8561c36fdbE.llvm.10144161557925507027"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !836
   %110 = load i64, ptr %4, align 8, !noalias !833, !noundef !4
@@ -7637,7 +7637,7 @@ default.unreachable326:                           ; preds = %53
 88:                                               ; preds = %86
   %89 = icmp ult i64 %87, 5
   tail call void @llvm.assume(i1 %89)
-  %90 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN84_$LT$actix_http..ws..codec..Codec$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode10__CALLSITE17h083711a177433237E", i64 0, i32 1, i64 8) monotonic, align 8
+  %90 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN84_$LT$actix_http..ws..codec..Codec$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode10__CALLSITE17h083711a177433237E", i64 16) monotonic, align 8
   switch i8 %90, label %91 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread303
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -8330,7 +8330,7 @@ define noundef range(i8 0, 11) i8 @"_ZN10actix_http2ws5proto89_$LT$impl$u20$core
 21:                                               ; preds = %18
   %22 = icmp ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN10actix_http2ws5proto89_$LT$impl$u20$core..convert..From$LT$actix_http..ws..proto..OpCode$GT$$u20$for$u20$u8$GT$4from10__CALLSITE17h9ea7c1a63c95135cE", i64 0, i32 1, i64 8) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10actix_http2ws5proto89_$LT$impl$u20$core..convert..From$LT$actix_http..ws..proto..OpCode$GT$$u20$for$u20$u8$GT$4from10__CALLSITE17h9ea7c1a63c95135cE", i64 16) monotonic, align 8
   switch i8 %23, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge56
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread

@@ -104,8 +104,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !23
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 88
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !18
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 112), ptr %0, align 8, !tbaa !3
   %Filename = getelementptr inbounds i8, ptr %this, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %1, ptr %Filename, align 8, !tbaa !6
@@ -206,9 +206,9 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io14CLimitReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 112), ptr %add.ptr.i, align 8, !tbaa !3
   %File.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %File.i, align 8, !tbaa !14
   %tobool.not.i = icmp eq ptr %0, null
@@ -262,9 +262,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !3
   %File.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load ptr, ptr %File.i.i, align 8, !tbaa !14
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -314,9 +314,9 @@ _ZN3irr2io14CLimitReadFileD1Ev.exit:              ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io14CLimitReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !3
   %File.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %File.i.i, align 8, !tbaa !14
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -374,9 +374,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 112), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %File.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load ptr, ptr %File.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -522,8 +522,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !23
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !18
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 112), ptr %0, align 8, !tbaa !3
   %Filename.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %1, ptr %Filename.i, align 8, !tbaa !6

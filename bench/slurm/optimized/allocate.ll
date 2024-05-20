@@ -132,7 +132,7 @@ _allocate_test.exit.thread:                       ; preds = %8, %_allocate_test.
   br i1 %23, label %_allocate_test.exit13, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 12), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
   %.not.i9 = icmp eq ptr %25, null
   br i1 %.not.i9, label %job_desc_msg_destroy.exit.i12, label %26
 
@@ -142,7 +142,7 @@ _allocate_test.exit.thread:                       ; preds = %8, %_allocate_test.
   br i1 %.not10.i10, label %job_desc_msg_destroy.exit.i12, label %28
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 12), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
   tail call void @print_db_notok(ptr noundef %29, i1 noundef zeroext false) #9
   br label %_allocate_test.exit13
 
@@ -204,7 +204,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br label %94
 
 19:                                               ; preds = %15, %12
-  %20 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %21 = tail call ptr @xstrdup(ptr noundef %20) #9
   %22 = getelementptr inbounds i8, ptr %10, i64 464
   store ptr %21, ptr %22, align 8
@@ -467,21 +467,21 @@ define internal fastcc ptr @_job_desc_msg_create_from_opts(ptr noundef %0) unnam
   %42 = getelementptr inbounds i8, ptr %4, i64 872
   %43 = load i16, ptr %42, align 8
   %44 = icmp eq i16 %43, 0
-  %45 = load i16, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 114), align 8
+  %45 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 728), align 8
   %46 = icmp ne i16 %45, 0
   %or.cond = select i1 %44, i1 %46, i1 false
   br i1 %or.cond, label %47, label %56
 
 47:                                               ; preds = %41
-  %48 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 115), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 736), align 8
   %49 = tail call ptr @xstrdup(ptr noundef %48) #9
   %50 = getelementptr inbounds i8, ptr %4, i64 880
   store ptr %49, ptr %50, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 116), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 744), align 8
   %52 = tail call ptr @xstrdup(ptr noundef %51) #9
   %53 = getelementptr inbounds i8, ptr %4, i64 888
   store ptr %52, ptr %53, align 8
-  %54 = load i16, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 117), align 8
+  %54 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 752), align 8
   %55 = getelementptr inbounds i8, ptr %4, i64 896
   store i16 %54, ptr %55, align 8
   br label %56
@@ -742,7 +742,7 @@ define internal fastcc noundef zeroext i1 @_retry() unnamed_addr #0 {
   br label %39
 
 22:                                               ; preds = %0
-  %23 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 50), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 312), align 8
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %29, label %24
 
@@ -998,7 +998,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 18:                                               ; preds = %13
   %.not123 = icmp eq ptr %.086138, null
   %spec.select125 = select i1 %.not123, ptr %14, ptr %.086138
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %20 = tail call ptr @xstrdup(ptr noundef %19) #9
   %21 = getelementptr inbounds i8, ptr %14, i64 464
   store ptr %20, ptr %21, align 8
@@ -1311,12 +1311,12 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 17), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @sropt, i64 84), align 4
   %4 = icmp eq i32 %3, -2
   br i1 %4, label %41, label %5
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 12), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %22, label %7
 
@@ -1327,7 +1327,7 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
   br i1 %.not4, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 12), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
   call void @print_db_notok(ptr noundef %10, i1 noundef zeroext false) #9
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5) #10
   unreachable
@@ -1338,7 +1338,7 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
   store ptr %13, ptr @working_cluster_rec, align 8
   %14 = call i32 @get_log_level() #9
   %15 = icmp sgt i32 %14, 5
-  %.pre5 = load i32, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 17), align 4
+  %.pre5 = load i32, ptr getelementptr inbounds (i8, ptr @sropt, i64 84), align 4
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %11
@@ -1348,7 +1348,7 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
   %20 = getelementptr inbounds i8, ptr %17, i64 152
   %21 = load ptr, ptr %20, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.6, i32 noundef %.pre5, ptr noundef %19, ptr noundef %21) #9
-  %.pre = load i32, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 17), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @sropt, i64 84), align 4
   br label %22
 
 22:                                               ; preds = %11, %16, %5
@@ -1358,7 +1358,7 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %22
-  %27 = load i8, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 32), align 4
+  %27 = load i8, ptr getelementptr inbounds (i8, ptr @sropt, i64 156), align 4
   %28 = trunc i8 %27 to i1
   br i1 %28, label %41, label %29
 

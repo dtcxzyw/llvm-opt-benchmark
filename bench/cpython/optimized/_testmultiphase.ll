@@ -483,7 +483,7 @@ declare i32 @PyState_RemoveModule(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @execfunc(ptr noundef %m) #0 {
 entry:
-  store ptr @PyUnicode_Type, ptr getelementptr inbounds ([2 x %struct.PyType_Slot], ptr @Str_Type_slots, i64 0, i64 0, i32 1), align 8
+  store ptr @PyUnicode_Type, ptr getelementptr inbounds (i8, ptr @Str_Type_slots, i64 8), align 8
   %call = tail call ptr @PyType_FromSpec(ptr noundef nonnull @Example_Type_spec) #3
   %call1 = tail call i32 @PyModule_Add(ptr noundef %m, ptr noundef nonnull @.str.8, ptr noundef %call) #3
   %cmp.not = icmp eq i32 %call1, 0

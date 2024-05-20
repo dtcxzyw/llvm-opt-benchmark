@@ -249,10 +249,10 @@ define internal i32 @process_repository_item(ptr noundef %0, ptr nocapture readn
   br i1 %.not38, label %56, label %18
 
 18:                                               ; preds = %15
-  %19 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 8), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %20 = call noalias ptr @malloc(i64 noundef %19) #15
   %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %21, %22
   br i1 %.not.i, label %24, label %23
 
@@ -272,7 +272,7 @@ opal_obj_new.exit.thread:                         ; preds = %24
   store ptr @opal_list_t_class, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %20, i64 8
   store volatile i32 1, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i = icmp eq ptr %28, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread56, label %.lr.ph.i.i
@@ -370,10 +370,10 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %116
 
 ._crit_edge:                                      ; preds = %60, %56
-  %66 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_repository_item_t_class, i64 0, i32 8), align 8
+  %66 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_component_repository_item_t_class, i64 56), align 8
   %67 = call noalias ptr @malloc(i64 noundef %66) #15
   %68 = load i32, ptr @opal_class_init_epoch, align 4
-  %69 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_repository_item_t_class, i64 0, i32 4), align 8
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_component_repository_item_t_class, i64 32), align 8
   %.not.i42 = icmp eq i32 %68, %69
   br i1 %.not.i42, label %71, label %70
 
@@ -389,7 +389,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   store ptr @mca_base_component_repository_item_t_class, ptr %67, align 8
   %73 = getelementptr inbounds i8, ptr %67, i64 8
   store volatile i32 1, ptr %73, align 8
-  %74 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_repository_item_t_class, i64 0, i32 6), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_component_repository_item_t_class, i64 40), align 8
   %75 = load ptr, ptr %74, align 8
   %.not6.i.i44 = icmp eq ptr %75, null
   br i1 %.not6.i.i44, label %opal_obj_new.exit48.thread57, label %.lr.ph.i.i45
@@ -507,7 +507,7 @@ define i32 @mca_base_component_repository_init() local_unnamed_addr #1 {
 4:                                                ; preds = %1
   %5 = tail call i32 @opal_dl_base_select() #13
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 4), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not12 = icmp eq i32 %6, %7
   br i1 %.not12, label %9, label %8
 
@@ -517,8 +517,8 @@ define i32 @mca_base_component_repository_init() local_unnamed_addr #1 {
 
 9:                                                ; preds = %8, %4
   store ptr @opal_hash_table_t_class, ptr @mca_base_component_repository, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_hash_table_t, ptr @mca_base_component_repository, i64 0, i32 0, i32 1), align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_base_component_repository, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -770,10 +770,10 @@ define range(i32 -8, 1) i32 @mca_base_component_repository_open(ptr noundef %0, 
   br label %34
 
 34:                                               ; preds = %31, %33
-  %35 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 8), align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 56), align 8
   %36 = tail call noalias ptr @malloc(i64 noundef %35) #15
   %37 = load i32, ptr @opal_class_init_epoch, align 4
-  %38 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 4), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %37, %38
   br i1 %.not.i, label %40, label %39
 
@@ -789,7 +789,7 @@ define range(i32 -8, 1) i32 @mca_base_component_repository_open(ptr noundef %0, 
   store ptr @mca_base_component_list_item_t_class, ptr %36, align 8
   %42 = getelementptr inbounds i8, ptr %36, i64 8
   store volatile i32 1, ptr %42, align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 6), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
   %44 = load ptr, ptr %43, align 8
   %.not6.i.i = icmp eq ptr %44, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread93, label %.lr.ph.i.i
@@ -899,10 +899,10 @@ opal_obj_new.exit.thread93:                       ; preds = %.lr.ph.i.i, %41
   br i1 %97, label %98, label %opal_obj_new.exit.thread
 
 98:                                               ; preds = %95
-  %99 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_failed_component_t_class, i64 0, i32 8), align 8
+  %99 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_failed_component_t_class, i64 56), align 8
   %100 = call noalias ptr @malloc(i64 noundef %99) #15
   %101 = load i32, ptr @opal_class_init_epoch, align 4
-  %102 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_failed_component_t_class, i64 0, i32 4), align 8
+  %102 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_failed_component_t_class, i64 32), align 8
   %.not.i85 = icmp eq i32 %101, %102
   br i1 %.not.i85, label %104, label %103
 
@@ -918,7 +918,7 @@ opal_obj_new.exit.thread93:                       ; preds = %.lr.ph.i.i, %41
   store ptr @mca_base_failed_component_t_class, ptr %100, align 8
   %106 = getelementptr inbounds i8, ptr %100, i64 8
   store volatile i32 1, ptr %106, align 8
-  %107 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_failed_component_t_class, i64 0, i32 6), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_failed_component_t_class, i64 40), align 8
   %108 = load ptr, ptr %107, align 8
   %.not6.i.i87 = icmp eq ptr %108, null
   br i1 %.not6.i.i87, label %opal_obj_new.exit91, label %.lr.ph.i.i88

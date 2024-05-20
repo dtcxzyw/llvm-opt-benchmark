@@ -41,7 +41,7 @@ define dso_local i32 @sierra_ms_init(ptr nocapture noundef readonly %0) local_un
   br label %42
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %12 = tail call noalias align 8 dereferenceable_or_null(60) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 60) #4
   %13 = icmp eq ptr %12, null
   br i1 %13, label %42, label %.preheader
@@ -127,7 +127,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @truinst_show(ptr nocaptu
   br label %35
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(60) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 60) #4
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17

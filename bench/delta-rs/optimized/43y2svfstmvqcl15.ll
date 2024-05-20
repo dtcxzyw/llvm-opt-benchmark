@@ -105295,7 +105295,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h6ce1d305d268c909E.exit": ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i, %21
-  %.0.i.i2.i = phi ptr [ %23, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %21 ]
+  %.0.i.i2.i = phi ptr [ %23, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %21 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %26, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -109560,7 +109560,7 @@ define noundef align 8 dereferenceable(8) ptr @"_ZN157_$LT$deltalake_core..delta
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN110_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_DF_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h8aef1cfcdbbba152E.llvm.51275720373526900", ptr %4, align 8
-  %5 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [12 x i8], [4 x i8] }>, ptr @"_ZN110_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_DF_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h8aef1cfcdbbba152E.llvm.51275720373526900", i64 0, i32 0, i64 8), i8 noundef 2), !noalias !16512
+  %5 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN110_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_DF_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h8aef1cfcdbbba152E.llvm.51275720373526900", i64 8), i8 noundef 2), !noalias !16512
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN110_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_DF_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref17ha31d5e615d6b1ed1E.exit", label %7
 
@@ -109569,7 +109569,7 @@ define noundef align 8 dereferenceable(8) ptr @"_ZN157_$LT$deltalake_core..delta
   store ptr %4, ptr %3, align 8, !noalias !16512
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !16512
   store ptr %3, ptr %2, align 8, !noalias !16512
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd4d88a93c54f4c0aE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [12 x i8], [4 x i8] }>, ptr @"_ZN110_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_DF_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h8aef1cfcdbbba152E.llvm.51275720373526900", i64 0, i32 0, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd4d88a93c54f4c0aE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN110_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_DF_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h8aef1cfcdbbba152E.llvm.51275720373526900", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !16512
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !16512
   %.pre.i = load ptr, ptr %4, align 8
@@ -109761,7 +109761,7 @@ define noundef nonnull ptr @"_ZN139_$LT$deltalake_core..delta_datafusion..find_f
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", ptr %4, align 8
-  %5 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [12 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", i64 0, i32 0, i64 8), i8 noundef 2), !noalias !16543
+  %5 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", i64 8), i8 noundef 2), !noalias !16543
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref17hbc4d963c74fcf292E.exit", label %7
 
@@ -109770,7 +109770,7 @@ define noundef nonnull ptr @"_ZN139_$LT$deltalake_core..delta_datafusion..find_f
   store ptr %4, ptr %3, align 8, !noalias !16543
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !16543
   store ptr %3, ptr %2, align 8, !noalias !16543
-  call void @_ZN3std10sys_common4once5futex4Once4call17hb0937b3b8a7edd5cE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [12 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", i64 0, i32 0, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hb0937b3b8a7edd5cE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !16543
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !16543
   %.pre.i = load ptr, ptr %4, align 8
@@ -109870,7 +109870,7 @@ define noundef nonnull ptr @"_ZN129_$LT$deltalake_core..delta_datafusion..find_f
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", ptr %4, align 8
-  %5 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [12 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", i64 0, i32 0, i64 8), i8 noundef 2), !noalias !16572
+  %5 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", i64 8), i8 noundef 2), !noalias !16572
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref17hbc4d963c74fcf292E.exit", label %7
 
@@ -109879,7 +109879,7 @@ define noundef nonnull ptr @"_ZN129_$LT$deltalake_core..delta_datafusion..find_f
   store ptr %4, ptr %3, align 8, !noalias !16572
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !16572
   store ptr %3, ptr %2, align 8, !noalias !16572
-  call void @_ZN3std10sys_common4once5futex4Once4call17hb0937b3b8a7edd5cE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [12 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", i64 0, i32 0, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hb0937b3b8a7edd5cE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN107_$LT$deltalake_core..delta_datafusion..find_files..ONLY_FILES_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc759edc940fc3a92E.llvm.51275720373526900", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !16572
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !16572
   %.pre.i = load ptr, ptr %4, align 8
@@ -111283,7 +111283,7 @@ define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN186_$LT$deltalake_co
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [4 x i8], [8 x i8], [4 x i8] }>, ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", i64 0, i32 2, i64 0) acquire, align 4, !noalias !16702
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", i64 12) acquire, align 4, !noalias !16702
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h22dd2780a05d13b7E.llvm.3020181528030467296.exit, label %7
 
@@ -111292,7 +111292,7 @@ define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN186_$LT$deltalake_co
   store ptr %4, ptr %3, align 8, !noalias !16702
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !16702
   store ptr %3, ptr %2, align 8, !noalias !16702
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd36d55f856415d0fE(ptr noundef nonnull align 4 getelementptr inbounds (<{ [4 x i8], [8 x i8], [4 x i8] }>, ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.64c9b5a7f68c9f4850f85ecf90d05a99.1180.llvm.3020181528030467296)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd36d55f856415d0fE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", i64 12), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.64c9b5a7f68c9f4850f85ecf90d05a99.1180.llvm.3020181528030467296)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !16702
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !16702
   br label %_ZN3std4sync4once4Once9call_once17h22dd2780a05d13b7E.llvm.3020181528030467296.exit
@@ -111313,7 +111313,7 @@ define void @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [4 x i8], [8 x i8], [4 x i8] }>, ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", i64 0, i32 2, i64 0) acquire, align 4, !noalias !16707
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", i64 12) acquire, align 4, !noalias !16707
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref17h880efe2d37294e93E.exit", label %7
 
@@ -111322,7 +111322,7 @@ define void @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$
   store ptr %4, ptr %3, align 8, !noalias !16707
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !16707
   store ptr %3, ptr %2, align 8, !noalias !16707
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd36d55f856415d0fE(ptr noundef nonnull align 4 getelementptr inbounds (<{ [4 x i8], [8 x i8], [4 x i8] }>, ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.64c9b5a7f68c9f4850f85ecf90d05a99.1180.llvm.3020181528030467296)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd36d55f856415d0fE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfd3c906a3c05f209E.llvm.3020181528030467296", i64 12), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.64c9b5a7f68c9f4850f85ecf90d05a99.1180.llvm.3020181528030467296)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !16707
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !16707
   br label %"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref17h880efe2d37294e93E.exit"
@@ -111757,7 +111757,7 @@ common.resume:                                    ; preds = %.body, %37
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i10.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ ptr, [24 x i8] }>, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 0, i32 1, i64 0), i64 24, i1 false), !noalias !16772
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i10.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 8), i64 24, i1 false), !noalias !16772
   br label %91
 
 81:                                               ; preds = %74

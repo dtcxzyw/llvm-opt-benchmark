@@ -437,9 +437,9 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   unreachable
 
 97:                                               ; preds = %20
-  store i32 %.031.ph, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 9), align 8
-  store i64 %.028.ph, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 10), align 8
-  store i64 %.026.ph, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 11), align 8
+  store i32 %.031.ph, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 56), align 8
+  store i64 %.028.ph, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 64), align 8
+  store i64 %.026.ph, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 72), align 8
   store i1 false, ptr @ProcessSyncRequests.sync_in_progress, align 1
   ret void
 }

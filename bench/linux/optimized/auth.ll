@@ -425,7 +425,7 @@ define dso_local void @rpcauth_release(ptr noundef %0) local_unnamed_addr #1 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @rpcauth_init_credcache(ptr nocapture noundef writeonly %0) #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 16) #16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
@@ -942,8 +942,8 @@ define dso_local void @put_rpccred(ptr noundef %0) #1 align 16 {
   %33 = load i64, ptr @number_cred_unused, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr @number_cred_unused, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @cred_unused, i64 0, i32 1), align 8
-  store ptr %26, ptr getelementptr inbounds (%struct.list_head, ptr @cred_unused, i64 0, i32 1), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @cred_unused, i64 8), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @cred_unused, i64 8), align 8
   store ptr @cred_unused, ptr %26, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %35, ptr %36, align 8
@@ -1354,7 +1354,7 @@ define dso_local i32 @rpcauth_refreshcred(ptr noundef %0) local_unnamed_addr #1 
 
 59:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
-  %60 = load ptr, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 92), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1784), align 8
   store ptr %60, ptr %4, align 8
   %61 = getelementptr inbounds i8, ptr %4, i64 8
   %62 = getelementptr inbounds i8, ptr %18, i64 400
@@ -1433,7 +1433,7 @@ define dso_local i32 @rpcauth_refreshcred(ptr noundef %0) local_unnamed_addr #1 
   br i1 %106, label %110, label %107
 
 107:                                              ; preds = %.thread10.thread
-  %108 = load ptr, ptr getelementptr inbounds (%struct.rpc_authops, ptr @authnull_ops, i64 0, i32 6), align 8
+  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @authnull_ops, i64 48), align 8
   %109 = call ptr %108(ptr noundef null, ptr noundef null, i32 noundef 0) #15
   br label %124
 

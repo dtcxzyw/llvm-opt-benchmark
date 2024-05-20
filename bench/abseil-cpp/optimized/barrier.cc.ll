@@ -28,7 +28,7 @@ entry:
 do.body:                                          ; preds = %entry
   %num_to_exit_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %num_to_exit_, align 4
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([131 x i8], ptr @.str, i64 0, i64 120), i32 noundef 36, ptr noundef nonnull @.str.1, i32 noundef %dec, i32 noundef %1)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 36, ptr noundef nonnull @.str.1, i32 noundef %dec, i32 noundef %1)
           to label %do.body4 unwind label %lpad
 
 do.body4:                                         ; preds = %do.body
@@ -67,7 +67,7 @@ invoke.cont10:                                    ; preds = %invoke.cont9
   br i1 %cmp15, label %do.body17, label %do.end27
 
 do.body17:                                        ; preds = %invoke.cont10
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([131 x i8], ptr @.str, i64 0, i64 120), i32 noundef 43, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 43, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
           to label %do.body20 unwind label %lpad
 
 do.body20:                                        ; preds = %do.body17

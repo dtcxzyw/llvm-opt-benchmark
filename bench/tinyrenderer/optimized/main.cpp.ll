@@ -145,7 +145,7 @@ _ZNK3vecILi3EEixEi.exit.i:                        ; preds = %_ZNK3vecILi3EEixEi.
   %.04.i = phi i32 [ 3, %23 ], [ %24, %_ZNK3vecILi3EEixEi.exit.i ]
   %24 = add nsw i32 %.04.i, -1
   %switch.selectcmp = icmp eq i32 %.04.i, 2
-  %switch.select = select i1 %switch.selectcmp, ptr getelementptr inbounds (%struct.vec, ptr @_ZL6center, i64 0, i32 1), ptr getelementptr inbounds (%struct.vec, ptr @_ZL6center, i64 0, i32 2)
+  %switch.select = select i1 %switch.selectcmp, ptr getelementptr inbounds (i8, ptr @_ZL6center, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL6center, i64 16)
   %switch.selectcmp45 = icmp eq i32 %.04.i, 1
   %switch.select46 = select i1 %switch.selectcmp45, ptr @_ZL6center, ptr %switch.select
   %25 = load double, ptr %switch.select46, align 8, !noalias !6
@@ -577,7 +577,7 @@ define linkonce_odr dso_local void @_ZN6ShaderC2ERK5Model(ptr noundef nonnull al
   %3 = alloca %struct.vec, align 8
   %4 = alloca %struct.vec.24, align 8
   %5 = alloca %struct.vec.24, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV6Shader, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV6Shader, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -594,7 +594,7 @@ define linkonce_odr dso_local void @_ZN6ShaderC2ERK5Model(ptr noundef nonnull al
 
 _ZNK3vecILi3EEixEi.exit.i:                        ; preds = %8
   %switch.selectcmp = icmp eq i32 %.06.i, 2
-  %switch.select = select i1 %switch.selectcmp, ptr getelementptr inbounds (%struct.vec, ptr @_ZL9light_dir, i64 0, i32 1), ptr getelementptr inbounds (%struct.vec, ptr @_ZL9light_dir, i64 0, i32 2)
+  %switch.select = select i1 %switch.selectcmp, ptr getelementptr inbounds (i8, ptr @_ZL9light_dir, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL9light_dir, i64 16)
   %switch.selectcmp8 = icmp eq i32 %.06.i, 1
   %switch.select9 = select i1 %switch.selectcmp8, ptr @_ZL9light_dir, ptr %switch.select
   %10 = load double, ptr %switch.select9, align 8, !noalias !15

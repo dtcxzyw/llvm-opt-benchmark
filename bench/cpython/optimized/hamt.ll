@@ -1020,20 +1020,20 @@ if.then4:                                         ; preds = %if.else
   br i1 %cmp.i18, label %if.end.i, label %if.else.i
 
 if.end.i:                                         ; preds = %if.then4
-  %call4.i = tail call fastcc ptr @hamt_node_bitmap_assoc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), i32 noundef %add.i, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
-  %2 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
+  %call4.i = tail call fastcc ptr @hamt_node_bitmap_assoc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), i32 noundef %add.i, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), align 8
   %3 = and i64 %2, 2147483648
   %cmp.i76.not.i = icmp eq i64 %3, 0
   br i1 %cmp.i76.not.i, label %if.end.i69.i, label %Py_DECREF.exit74.i
 
 if.end.i69.i:                                     ; preds = %if.end.i
   %dec.i70.i = add i64 %2, -1
-  store i64 %dec.i70.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
+  store i64 %dec.i70.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), align 8
   %cmp.i71.i = icmp eq i64 %dec.i70.i, 0
   br i1 %cmp.i71.i, label %if.then1.i72.i, label %Py_DECREF.exit74.i
 
 if.then1.i72.i:                                   ; preds = %if.end.i69.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7)) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896)) #11
   br label %Py_DECREF.exit74.i
 
 Py_DECREF.exit74.i:                               ; preds = %if.then1.i72.i, %if.end.i69.i, %if.end.i
@@ -1892,7 +1892,7 @@ _Py_XNewRef.exit.i109:                            ; preds = %if.end.i.i.i.i108, 
   br i1 %cmp3.i, label %for.body.i102, label %do.body47.i, !llvm.loop !11
 
 do.body47.i:                                      ; preds = %_Py_XNewRef.exit.i109, %hamt_node_bitmap_new.exit.i, %if.end41.i
-  %retval.0.i19.i = phi ptr [ %call.i.i83, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end41.i ], [ %call.i.i83, %_Py_XNewRef.exit.i109 ]
+  %retval.0.i19.i = phi ptr [ %call.i.i83, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %if.end41.i ], [ %call.i.i83, %_Py_XNewRef.exit.i109 ]
   %36 = load i32, ptr %b_bitmap.i, align 8
   %b_bitmap7.i = getelementptr inbounds i8, ptr %retval.0.i19.i, i64 24
   store i32 %36, ptr %b_bitmap7.i, align 8
@@ -1983,7 +1983,7 @@ for.end.i.i:                                      ; preds = %for.body.lr.ph.i.i7
   br label %if.end.i67
 
 if.end.i67:                                       ; preds = %for.end.i.i, %if.end66.i
-  %retval.0.i.ph.i = phi ptr [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end66.i ], [ %call.i.i56, %for.end.i.i ]
+  %retval.0.i.ph.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %if.end66.i ], [ %call.i.i56, %for.end.i.i ]
   %52 = load i32, ptr %b_bitmap.i, align 8
   %and.i.i = and i32 %52, %sub.i123
   %53 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and.i.i)
@@ -3974,7 +3974,7 @@ _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if
   br i1 %cmp3.i, label %for.body.i, label %do.body, !llvm.loop !11
 
 do.body:                                          ; preds = %_Py_XNewRef.exit.i, %hamt_node_bitmap_new.exit.i, %if.end14
-  %retval.0.i19.i = phi ptr [ %call.i.i, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end14 ], [ %call.i.i, %_Py_XNewRef.exit.i ]
+  %retval.0.i19.i = phi ptr [ %call.i.i, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %if.end14 ], [ %call.i.i, %_Py_XNewRef.exit.i ]
   %21 = load i32, ptr %b_bitmap, align 8
   %b_bitmap7.i = getelementptr inbounds i8, ptr %retval.0.i19.i, i64 24
   store i32 %21, ptr %b_bitmap7.i, align 8
@@ -4100,7 +4100,7 @@ _Py_XNewRef.exit.i166:                            ; preds = %if.end.i.i.i.i165, 
   br i1 %cmp3.i170, label %for.body.i158, label %do.body38, !llvm.loop !11
 
 do.body38:                                        ; preds = %_Py_XNewRef.exit.i166, %hamt_node_bitmap_new.exit.i140, %if.end32
-  %retval.0.i19.i151 = phi ptr [ %call.i.i135, %hamt_node_bitmap_new.exit.i140 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end32 ], [ %call.i.i135, %_Py_XNewRef.exit.i166 ]
+  %retval.0.i19.i151 = phi ptr [ %call.i.i135, %hamt_node_bitmap_new.exit.i140 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %if.end32 ], [ %call.i.i135, %_Py_XNewRef.exit.i166 ]
   %40 = load i32, ptr %b_bitmap, align 8
   %b_bitmap7.i153 = getelementptr inbounds i8, ptr %retval.0.i19.i151, i64 24
   store i32 %40, ptr %b_bitmap7.i153, align 8
@@ -4231,20 +4231,20 @@ hamt_node_new_bitmap_or_collision.exit.thread332: ; preds = %if.end.i.i287, %_Py
   br label %if.end52
 
 if.end21.i:                                       ; preds = %hamt_hash.exit323
-  %call22.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), i32 noundef %add48, i32 noundef %cond.i321, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %added_leaf.i)
-  %58 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
+  %call22.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), i32 noundef %add48, i32 noundef %cond.i321, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %added_leaf.i)
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), align 8
   %59 = and i64 %58, 2147483648
   %cmp.i40.not.i = icmp eq i64 %59, 0
   br i1 %cmp.i40.not.i, label %if.end.i33.i, label %Py_DECREF.exit38.i
 
 if.end.i33.i:                                     ; preds = %if.end21.i
   %dec.i34.i = add i64 %58, -1
-  store i64 %dec.i34.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
+  store i64 %dec.i34.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), align 8
   %cmp.i35.i = icmp eq i64 %dec.i34.i, 0
   br i1 %cmp.i35.i, label %if.then1.i36.i, label %Py_DECREF.exit38.i
 
 if.then1.i36.i:                                   ; preds = %if.end.i33.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7)) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896)) #11
   br label %Py_DECREF.exit38.i
 
 Py_DECREF.exit38.i:                               ; preds = %if.then1.i36.i, %if.end.i33.i, %if.end21.i
@@ -4374,7 +4374,7 @@ if.then1.i218:                                    ; preds = %if.end.i215
   br label %return
 
 do.body58:                                        ; preds = %_Py_XNewRef.exit.i217, %hamt_node_bitmap_new.exit.i191, %if.end52
-  %retval.0.i19.i202 = phi ptr [ %call.i.i186, %hamt_node_bitmap_new.exit.i191 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end52 ], [ %call.i.i186, %_Py_XNewRef.exit.i217 ]
+  %retval.0.i19.i202 = phi ptr [ %call.i.i186, %hamt_node_bitmap_new.exit.i191 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %if.end52 ], [ %call.i.i186, %_Py_XNewRef.exit.i217 ]
   %78 = load i32, ptr %b_bitmap, align 8
   %b_bitmap7.i204 = getelementptr inbounds i8, ptr %retval.0.i19.i202, i64 24
   store i32 %78, ptr %b_bitmap7.i204, align 8
@@ -4458,7 +4458,7 @@ if.end87:                                         ; preds = %if.then75
   store i64 %94, ptr %add.ptr.i.i.i, align 8
   store i64 %92, ptr %_gc_prev.i.i, align 8
   %add88 = add i32 %shift, 5
-  %call89 = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), i32 noundef %add88, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
+  %call89 = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), i32 noundef %add88, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
   %idxprom90 = zext nneg i32 %and.i.i to i64
   %arrayidx91 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %idxprom90
   store ptr %call89, ptr %arrayidx91, align 8
@@ -4517,7 +4517,7 @@ hamt_hash.exit:                                   ; preds = %if.else117
   %add129 = add i64 %j.0361, 1
   %arrayidx130 = getelementptr [1 x ptr], ptr %b_array106, i64 0, i64 %add129
   %102 = load ptr, ptr %arrayidx130, align 8
-  %call131 = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), i32 noundef %add88, i32 noundef %cond.i, ptr noundef %101, ptr noundef %102, ptr noundef %added_leaf)
+  %call131 = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), i32 noundef %add88, i32 noundef %cond.i, ptr noundef %101, ptr noundef %102, ptr noundef %added_leaf)
   %arrayidx133 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.0359
   store ptr %call131, ptr %arrayidx133, align 8
   %cmp136 = icmp eq ptr %call131, null
@@ -4535,19 +4535,19 @@ for.inc:                                          ; preds = %for.body, %if.end14
 
 if.then.i:                                        ; preds = %if.else117, %hamt_hash.exit, %for.inc, %if.end87
   %res.0.ph = phi ptr [ null, %if.end87 ], [ null, %if.else117 ], [ null, %hamt_hash.exit ], [ %call.i226, %for.inc ]
-  %103 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
+  %103 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), align 8
   %104 = and i64 %103, 2147483648
   %cmp.i2.not.i = icmp eq i64 %104, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i241, label %Py_XDECREF.exit
 
 if.end.i.i241:                                    ; preds = %if.then.i
   %dec.i.i242 = add i64 %103, -1
-  store i64 %dec.i.i242, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
+  store i64 %dec.i.i242, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), align 8
   %cmp.i.i243 = icmp eq i64 %dec.i.i242, 0
   br i1 %cmp.i.i243, label %if.then1.i.i244, label %Py_XDECREF.exit
 
 if.then1.i.i244:                                  ; preds = %if.end.i.i241
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7)) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896)) #11
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.then.i, %if.end.i.i241, %if.then1.i.i244
@@ -4803,7 +4803,7 @@ _Py_XNewRef.exit:                                 ; preds = %for.body, %if.then.
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %_Py_XNewRef.exit, %entry, %hamt_node_bitmap_new.exit
-  %retval.0.i19 = phi ptr [ %call.i, %hamt_node_bitmap_new.exit ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %entry ], [ %call.i, %_Py_XNewRef.exit ]
+  %retval.0.i19 = phi ptr [ %call.i, %hamt_node_bitmap_new.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %entry ], [ %call.i, %_Py_XNewRef.exit ]
   %b_bitmap = getelementptr inbounds i8, ptr %node, i64 24
   %14 = load i32, ptr %b_bitmap, align 8
   %b_bitmap7 = getelementptr inbounds i8, ptr %retval.0.i19, i64 24
@@ -4864,7 +4864,7 @@ for.end:                                          ; preds = %for.body.lr.ph, %if
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %for.end
-  %retval.0 = phi ptr [ %call, %for.end ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %entry ], [ null, %if.end ]
+  %retval.0 = phi ptr [ %call, %for.end ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %entry ], [ null, %if.end ]
   ret ptr %retval.0
 }
 

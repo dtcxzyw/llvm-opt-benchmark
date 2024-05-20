@@ -211,7 +211,7 @@ define dso_local noundef ptr @fsnotify_alloc_group(ptr noundef %0, i32 noundef %
   %3 = and i32 %1, 1
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, i32 3520, i32 4197824
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %6, i32 noundef %5, i64 noundef 200) #6
   %8 = icmp eq ptr %7, null
   br i1 %8, label %21, label %9

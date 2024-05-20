@@ -300,7 +300,7 @@ entry:
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %_ZN12_GLOBAL__N_111PatternInfoD2Ev.exit, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 1, i64 0), %entry ], [ %arraydestroy.element, %_ZN12_GLOBAL__N_111PatternInfoD2Ev.exit ]
+  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1120), %entry ], [ %arraydestroy.element, %_ZN12_GLOBAL__N_111PatternInfoD2Ev.exit ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -80
   %corpus.i = getelementptr i8, ptr %arraydestroy.elementPast, i64 -40
   %1 = load ptr, ptr %corpus.i, align 8
@@ -452,7 +452,7 @@ cleanup.invoke.cont_crit_edge:                    ; preds = %cleanup
 invoke.cont:                                      ; preds = %for.inc, %cleanup.invoke.cont_crit_edge, %entry
   %15 = phi ptr [ %.pre, %cleanup.invoke.cont_crit_edge ], [ %0, %entry ], [ %incdec.ptr.i, %for.inc ]
   %call21 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #31
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEEE, i64 0, i32 0, i64 2), ptr %call21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEEE, i64 16), ptr %call21, align 8
   %test_case_name_.i = getelementptr inbounds i8, ptr %call21, i64 8
   %16 = getelementptr inbounds i8, ptr %call21, i64 24
   store ptr %16, ptr %test_case_name_.i, align 8
@@ -540,7 +540,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31, !noalias !13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEEE, i64 16), ptr %call.i.i, align 8, !noalias !13
   %container_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container_.i.i.i, i8 0, i64 24, i1 false), !noalias !13
   %call5.i.i.i.i4.i3.i2.i.i = invoke noalias noundef nonnull dereferenceable(1120) ptr @_Znwm(i64 noundef 1120) #31
@@ -556,67 +556,67 @@ call5.i.i.i.i4.i3.i.noexc.i.i:                    ; preds = %entry
 
 for.inc.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i4.i3.i.noexc.i.i
   %incdec.ptr1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 80
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 80))
           to label %for.inc.i.i.i.i.i.1.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.1.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.1.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 160
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 160))
           to label %for.inc.i.i.i.i.i.2.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.2.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.1.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.2.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 240
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 240))
           to label %for.inc.i.i.i.i.i.3.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.3.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.2.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.3.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 320
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 320))
           to label %for.inc.i.i.i.i.i.4.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.4.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.3.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.4.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 400
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 400))
           to label %for.inc.i.i.i.i.i.5.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.5.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.4.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.5.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 480
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 480))
           to label %for.inc.i.i.i.i.i.6.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.6.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.5.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.6.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 560
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 560))
           to label %for.inc.i.i.i.i.i.7.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.7.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.6.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.7.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 640
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 640))
           to label %for.inc.i.i.i.i.i.8.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.8.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.7.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.8.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 720
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 720))
           to label %for.inc.i.i.i.i.i.9.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.9.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.8.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.9.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 800
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 800))
           to label %for.inc.i.i.i.i.i.10.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.10.i.i.i.i:                     ; preds = %for.inc.i.i.i.i.i.9.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.10.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 880
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 880))
           to label %for.inc.i.i.i.i.i.11.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.11.i.i.i.i:                     ; preds = %for.inc.i.i.i.i.i.10.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.11.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 960
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.11.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.11.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 960))
           to label %for.inc.i.i.i.i.i.12.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 for.inc.i.i.i.i.i.12.i.i.i.i:                     ; preds = %for.inc.i.i.i.i.i.11.i.i.i.i
   %incdec.ptr1.i.i.i.i.i.12.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i3.i2.i.i, i64 1040
-  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.12.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 0, i32 0, i32 0))
+  invoke fastcc void @_ZN12_GLOBAL__N_111PatternInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %incdec.ptr1.i.i.i.i.i.12.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1040))
           to label %_ZN7testing8ValuesInIN12_GLOBAL__N_111PatternInfoELm14EEENS_8internal14ParamGeneratorIT_EERAT0__KS5_.exit unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !13
 
 lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.12.i.i.i.i, %for.inc.i.i.i.i.i.11.i.i.i.i, %for.inc.i.i.i.i.i.10.i.i.i.i, %for.inc.i.i.i.i.i.9.i.i.i.i, %for.inc.i.i.i.i.i.8.i.i.i.i, %for.inc.i.i.i.i.i.7.i.i.i.i, %for.inc.i.i.i.i.i.6.i.i.i.i, %for.inc.i.i.i.i.i.5.i.i.i.i, %for.inc.i.i.i.i.i.4.i.i.i.i, %for.inc.i.i.i.i.i.3.i.i.i.i, %for.inc.i.i.i.i.i.2.i.i.i.i, %for.inc.i.i.i.i.i.1.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i4.i3.i.noexc.i.i
@@ -1072,7 +1072,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEEE, i64 16), ptr %call, align 8
   %parameter_.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %parameter_.i, align 8
@@ -1375,7 +1375,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEEE, i64 16), ptr %this, align 8
   %parameter_ = getelementptr inbounds i8, ptr %this, i64 8
   %corpus.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %corpus.i, align 8
@@ -1418,7 +1418,7 @@ _ZN12_GLOBAL__N_111PatternInfoD2Ev.exit:          ; preds = %if.then.i.i3.i, %_Z
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEEE, i64 16), ptr %this, align 8
   %parameter_.i = getelementptr inbounds i8, ptr %this, i64 8
   %corpus.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %corpus.i.i, align 8
@@ -1470,8 +1470,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124IdenticalTest_Block_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124IdenticalTest_Block_TestE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124IdenticalTest_Block_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124IdenticalTest_Block_TestE, i64 80), ptr %0, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -5521,15 +5521,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %7 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %7, ptr %ss, align 8
-  %8 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %7, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %8, ptr %add.ptr.i.i, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %9, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8
   %11 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -5548,12 +5548,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %13, ptr %ss, align 8
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %13, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -5671,15 +5671,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -5698,12 +5698,12 @@ if.then.i.i.i.i.i7:                               ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -5910,15 +5910,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -5937,12 +5937,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -6044,15 +6044,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -6071,12 +6071,12 @@ if.then.i.i.i.i.i7:                               ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -6279,15 +6279,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -6306,12 +6306,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -6516,15 +6516,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -6543,12 +6543,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -6760,15 +6760,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -6787,12 +6787,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -6974,7 +6974,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEEE, i64 16), ptr %call, align 8
   %parameter_.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %parameter_.i, align 8
@@ -7149,7 +7149,7 @@ cleanup.action:                                   ; preds = %lpad2.body, %lpad
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEEE, i64 16), ptr %this, align 8
   %parameter_ = getelementptr inbounds i8, ptr %this, i64 8
   %corpus.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %corpus.i, align 8
@@ -7192,7 +7192,7 @@ _ZN12_GLOBAL__N_111PatternInfoD2Ev.exit:          ; preds = %if.then.i.i3.i, %_Z
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEEE, i64 16), ptr %this, align 8
   %parameter_.i = getelementptr inbounds i8, ptr %this, i64 8
   %corpus.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %corpus.i.i, align 8
@@ -7244,8 +7244,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125IdenticalTest_Stream_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125IdenticalTest_Stream_TestE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_125IdenticalTest_Stream_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_125IdenticalTest_Stream_TestE, i64 80), ptr %0, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10829,15 +10829,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -10856,12 +10856,12 @@ if.then.i.i.i.i.i7:                               ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -10909,7 +10909,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEEE, i64 16), ptr %call, align 8
   %parameter_.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %parameter_.i, align 8
@@ -11084,7 +11084,7 @@ cleanup.action:                                   ; preds = %lpad2.body, %lpad
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEEE, i64 16), ptr %this, align 8
   %parameter_ = getelementptr inbounds i8, ptr %this, i64 8
   %corpus.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %corpus.i, align 8
@@ -11127,7 +11127,7 @@ _ZN12_GLOBAL__N_111PatternInfoD2Ev.exit:          ; preds = %if.then.i.i3.i, %_Z
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEEE, i64 16), ptr %this, align 8
   %parameter_.i = getelementptr inbounds i8, ptr %this, i64 8
   %corpus.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %corpus.i.i, align 8
@@ -11179,8 +11179,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127IdenticalTest_Vectored_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127IdenticalTest_Vectored_TestE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_127IdenticalTest_Vectored_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_127IdenticalTest_Vectored_TestE, i64 80), ptr %0, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -13854,7 +13854,7 @@ declare i32 @hs_scan_vector(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEEE, i64 16), ptr %this, align 8
   %container_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %container_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -13923,7 +13923,7 @@ _ZNSt6vectorIN12_GLOBAL__N_111PatternInfoESaIS1_EED2Ev.exit: ; preds = %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEEE, i64 16), ptr %this, align 8
   %container_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %container_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -13996,7 +13996,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %container_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %container_, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 16), ptr %call, align 8
   %base_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %this, ptr %base_.i, align 8
   %iterator_.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -14012,7 +14012,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 16), ptr %call, align 8
   %base_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %this, ptr %base_.i, align 8
   %iterator_.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -14076,7 +14076,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_111PatternInfoEEEvT_S5_.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %value_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -14151,7 +14151,7 @@ _ZN7testing8internal10scoped_ptrIKN12_GLOBAL__N_111PatternInfoEED2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 16), ptr %this, align 8
   %value_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %value_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -14300,7 +14300,7 @@ _ZN7testing8internal10scoped_ptrIKN12_GLOBAL__N_111PatternInfoEE5resetEPS4_.exit
 define internal noalias noundef nonnull ptr @_ZNK7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8Iterator5CloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_111PatternInfoEE8IteratorE, i64 16), ptr %call, align 8
   %base_.i = getelementptr inbounds i8, ptr %call, i64 8
   %base_2.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %base_2.i, align 8
@@ -14575,7 +14575,7 @@ declare void @abort() local_unnamed_addr #21
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %instantiations_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -14672,7 +14672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEEE, i64 16), ptr %this, align 8
   %instantiations_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %instantiations_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -14818,15 +14818,15 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_out_beg.i.i.i.i = getelementptr inbounds i8, ptr %ss.i, i64 56
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss.i, i64 96
   %5 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  %6 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %5, i64 -24
-  %7 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %_M_stringbuf.i.i.i = getelementptr inbounds i8, ptr %ss.i, i64 24
   %8 = getelementptr inbounds i8, ptr %ss.i, i64 112
   %_M_string_length.i.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %ss.i, i64 104
   %_M_buf_locale.i.i.i.i.i = getelementptr inbounds i8, ptr %ss.i, i64 80
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i.i = getelementptr i8, ptr %9, i64 -24
   %_M_gcount.i.i.i.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %11 = getelementptr inbounds i8, ptr %ss.i, i64 128
@@ -15424,7 +15424,7 @@ invoke.cont1.i:                                   ; preds = %if.else.i.i.i, %if.
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ss.i, i64 %vbase.offset.i.i.i
   store ptr %6, ptr %add.ptr.i.i.i, align 8, !noalias !111
   store ptr %7, ptr %add.ptr.i192, align 8, !noalias !111
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !noalias !111
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !noalias !111
   %96 = load ptr, ptr %_M_string.i.i.i, align 8, !noalias !111
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %96, %8
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -15451,7 +15451,7 @@ lpad.body.i:                                      ; preds = %lpad.i193, %if.then
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss.i, i64 %vbase.offset.i.i
   store ptr %6, ptr %add.ptr.i.i, align 8
   store ptr %7, ptr %add.ptr.i192, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8
   %99 = load ptr, ptr %_M_string.i.i.i, align 8
   %cmp.i.i.i.i.i.i309 = icmp eq ptr %99, %8
   br i1 %cmp.i.i.i.i.i.i309, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i311, label %if.then.i.i.i.i.i310
@@ -15467,7 +15467,7 @@ if.then.i.i.i.i.i310:                             ; preds = %lpad.body.i
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i310, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i311
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #28
   store ptr %9, ptr %ss.i, align 8
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i.i, align 8
@@ -15479,7 +15479,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %ehcleanup81
 
 invoke.cont60:                                    ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !noalias !111
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !noalias !111
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #28
   store ptr %9, ptr %ss.i, align 8, !noalias !111
   %vbase.offset.i.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i.i, align 8
@@ -15979,184 +15979,184 @@ entry:
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i)
   %call2.i.i = tail call fastcc noundef ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_113IdenticalTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, i32 noundef 46)
   %call3.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEEE, i64 0, i32 0, i64 2), ptr %call3.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_124IdenticalTest_Block_TestEEE, i64 16), ptr %call3.i.i, align 8
   tail call fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_11PatternInfoEEE(ptr noundef nonnull align 8 dereferenceable(88) %call2.i.i, ptr noundef nonnull @.str.17, ptr noundef nonnull %call3.i.i)
   %call.i.i1 = tail call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %call1.i.i2 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i1)
   %call2.i.i3 = tail call fastcc noundef ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_113IdenticalTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i2, i32 noundef 84)
   %call3.i.i4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEEE, i64 0, i32 0, i64 2), ptr %call3.i.i4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_125IdenticalTest_Stream_TestEEE, i64 16), ptr %call3.i.i4, align 8
   tail call fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_11PatternInfoEEE(ptr noundef nonnull align 8 dereferenceable(88) %call2.i.i3, ptr noundef nonnull @.str.46, ptr noundef nonnull %call3.i.i4)
   %call.i.i5 = tail call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %call1.i.i6 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i5)
   %call2.i.i7 = tail call fastcc noundef ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_113IdenticalTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i6, i32 noundef 132)
   %call3.i.i8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEEE, i64 0, i32 0, i64 2), ptr %call3.i.i8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_127IdenticalTest_Vectored_TestEEE, i64 16), ptr %call3.i.i8, align 8
   tail call fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_11PatternInfoEEE(ptr noundef nonnull align 8 dereferenceable(88) %call2.i.i7, ptr noundef nonnull @.str.48, ptr noundef nonnull %call3.i.i8)
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 0, i32 2), ptr @_ZN12_GLOBAL__N_18patternsE, align 16
-  store i8 97, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 0, i32 2), align 16
-  store i64 1, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 0, i32 2), i64 1), align 1
-  store i32 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 2), align 8
-  store i8 97, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 2, i32 2), align 8
-  store i64 1, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 2, i32 2), i64 1), align 1
-  store i64 1, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 0, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1), align 16
-  store i8 97, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 0, i32 2), align 16
-  store i64 1, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 0, i32 2), i64 1), align 1
-  store i32 8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 2), align 8
-  store i8 97, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 2, i32 2), align 8
-  store i64 1, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 2, i32 2), i64 1), align 1
-  store i64 1, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 1, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2), align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 0, i32 2), ptr noundef nonnull align 1 dereferenceable(10) @.str.5, i64 10, i1 false)
-  store i64 10, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 0, i32 2, i32 1, i64 2), align 2
-  store i32 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 2), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false)
-  store i64 14, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 2, i32 2, i32 1, i64 6), align 2
-  store i64 12, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 2, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3), align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 0, i32 2), ptr noundef nonnull align 1 dereferenceable(10) @.str.5, i64 10, i1 false)
-  store i64 10, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 0, i32 2, i32 1, i64 2), align 2
-  store i32 8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 2), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false)
-  store i64 14, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 2, i32 2, i32 1, i64 6), align 2
-  store i64 12, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 3, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4), align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 0, i32 2), ptr noundef nonnull align 1 dereferenceable(10) @.str.5, i64 10, i1 false)
-  store i64 10, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 0, i32 2, i32 1, i64 2), align 2
-  store i32 256, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 2), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false)
-  store i64 14, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 2, i32 2, i32 1, i64 6), align 2
-  store i64 12, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 4, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5), align 16
-  store i64 8241976726371921766, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 0, i32 2), align 16
-  store i64 8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 0, i32 2, i32 1, i64 0), align 8
-  store i32 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 16), ptr @_ZN12_GLOBAL__N_18patternsE, align 16
+  store i8 97, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 16), align 16
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 17), align 1
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 32), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 56), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 40), align 8
+  store i8 97, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 56), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 48), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 57), align 1
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 72), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 96), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 80), align 16
+  store i8 97, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 96), align 16
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 88), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 97), align 1
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 112), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 136), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 120), align 8
+  store i8 97, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 136), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 128), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 137), align 1
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 152), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 176), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 160), align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 176), ptr noundef nonnull align 1 dereferenceable(10) @.str.5, i64 10, i1 false)
+  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 168), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 186), align 2
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 192), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 216), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 200), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 216), ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false)
+  store i64 14, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 208), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 230), align 2
+  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 232), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 256), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 240), align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 256), ptr noundef nonnull align 1 dereferenceable(10) @.str.5, i64 10, i1 false)
+  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 248), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 266), align 2
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 272), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 296), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 280), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 296), ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false)
+  store i64 14, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 288), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 310), align 2
+  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 312), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 336), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 320), align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 336), ptr noundef nonnull align 1 dereferenceable(10) @.str.5, i64 10, i1 false)
+  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 328), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 346), align 2
+  store i32 256, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 352), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 376), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 360), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 376), ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false)
+  store i64 14, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 368), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 390), align 2
+  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 392), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 416), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 400), align 16
+  store i64 8241976726371921766, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 416), align 16
+  store i64 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 408), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 424), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 432), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 456), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 440), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i345.i) #28
   store i64 23, ptr %__dnew.i.i345.i, align 8
-  %call2.i10.i354.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 2), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i345.i, i64 noundef 0)
+  %call2.i10.i354.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 440), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i345.i, i64 noundef 0)
           to label %call2.i10.i.noexc353.i unwind label %cleanup.action157.i
 
 call2.i10.i.noexc353.i:                           ; preds = %entry
-  store ptr %call2.i10.i354.i, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 2), align 8
+  store ptr %call2.i10.i354.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 440), align 8
   %1 = load i64, ptr %__dnew.i.i345.i, align 8
-  store i64 %1, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 2, i32 2), align 8
+  store i64 %1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 456), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %call2.i10.i354.i, ptr noundef nonnull align 1 dereferenceable(23) @.str.8, i64 23, i1 false)
-  store i64 %1, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 2, i32 1), align 16
-  %2 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 2), align 8
+  store i64 %1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 448), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 440), align 8
   %arrayidx.i.i.i349.i = getelementptr inbounds i8, ptr %2, i64 %1
   store i8 0, ptr %arrayidx.i.i.i349.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i345.i) #28
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6), align 16
-  store i64 8241976726371921766, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 0, i32 2), align 16
-  store i64 8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 0, i32 2, i32 1, i64 0), align 8
-  store i32 8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 2), align 8
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 472), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 496), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 480), align 16
+  store i64 8241976726371921766, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 496), align 16
+  store i64 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 488), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 504), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 512), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 536), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 520), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i367.i) #28
   store i64 23, ptr %__dnew.i.i367.i, align 8
-  %call2.i10.i376.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 2), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i367.i, i64 noundef 0)
+  %call2.i10.i376.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 520), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i367.i, i64 noundef 0)
           to label %call2.i10.i.noexc375.i unwind label %cleanup.action149.i
 
 call2.i10.i.noexc375.i:                           ; preds = %call2.i10.i.noexc353.i
-  store ptr %call2.i10.i376.i, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 2), align 8
+  store ptr %call2.i10.i376.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 520), align 8
   %3 = load i64, ptr %__dnew.i.i367.i, align 8
-  store i64 %3, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 2, i32 2), align 8
+  store i64 %3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 536), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %call2.i10.i376.i, ptr noundef nonnull align 1 dereferenceable(23) @.str.8, i64 23, i1 false)
-  store i64 %3, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 2, i32 1), align 16
-  %4 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 2), align 8
+  store i64 %3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 528), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 520), align 8
   %arrayidx.i.i.i371.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 0, ptr %arrayidx.i.i.i371.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i367.i) #28
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7), align 16
-  store i64 8241976726371921766, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 0, i32 2), align 16
-  store i64 8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 0, i32 2, i32 1, i64 0), align 8
-  store i32 256, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 2), align 8
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 552), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 576), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 560), align 16
+  store i64 8241976726371921766, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 576), align 16
+  store i64 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 568), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 584), align 8
+  store i32 256, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 592), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 616), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 600), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i389.i) #28
   store i64 23, ptr %__dnew.i.i389.i, align 8
-  %call2.i10.i398.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 2), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i389.i, i64 noundef 0)
+  %call2.i10.i398.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 600), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i389.i, i64 noundef 0)
           to label %call2.i10.i.noexc397.i unwind label %cleanup.action141.i
 
 call2.i10.i.noexc397.i:                           ; preds = %call2.i10.i.noexc375.i
-  store ptr %call2.i10.i398.i, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 2), align 8
+  store ptr %call2.i10.i398.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 600), align 8
   %5 = load i64, ptr %__dnew.i.i389.i, align 8
-  store i64 %5, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 2, i32 2), align 8
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 616), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %call2.i10.i398.i, ptr noundef nonnull align 1 dereferenceable(23) @.str.8, i64 23, i1 false)
-  store i64 %5, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 2, i32 1), align 16
-  %6 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 2), align 8
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 608), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 600), align 8
   %arrayidx.i.i.i393.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 0, ptr %arrayidx.i.i.i393.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i389.i) #28
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8), align 16
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 632), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 656), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 640), align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i400.i) #28
   store i64 20, ptr %__dnew.i.i400.i, align 8
-  %call2.i10.i409.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i400.i, i64 noundef 0)
+  %call2.i10.i409.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 640), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i400.i, i64 noundef 0)
           to label %call2.i10.i.noexc408.i unwind label %lpad54.i
 
 call2.i10.i.noexc408.i:                           ; preds = %call2.i10.i.noexc397.i
-  store ptr %call2.i10.i409.i, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8), align 16
+  store ptr %call2.i10.i409.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 640), align 16
   %7 = load i64, ptr %__dnew.i.i400.i, align 8
-  store i64 %7, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 0, i32 2), align 16
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 656), align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call2.i10.i409.i, ptr noundef nonnull align 1 dereferenceable(20) @.str.9, i64 20, i1 false)
-  store i64 %7, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8), align 16
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 648), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 640), align 16
   %arrayidx.i.i.i404.i = getelementptr inbounds i8, ptr %8, i64 %7
   store i8 0, ptr %arrayidx.i.i.i404.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i400.i) #28
-  store i32 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(15) @.str.10, i64 15, i1 false)
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 2, i32 2, i32 1, i64 7), align 1
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 672), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 696), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 680), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 696), ptr noundef nonnull align 1 dereferenceable(15) @.str.10, i64 15, i1 false)
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 688), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 711), align 1
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 712), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 736), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 720), align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i422.i) #28
   store i64 20, ptr %__dnew.i.i422.i, align 8
-  %call2.i10.i431.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i422.i, i64 noundef 0)
+  %call2.i10.i431.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 720), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i422.i, i64 noundef 0)
           to label %call2.i10.i.noexc430.i unwind label %lpad61.i
 
 call2.i10.i.noexc430.i:                           ; preds = %call2.i10.i.noexc408.i
-  store ptr %call2.i10.i431.i, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9), align 16
+  store ptr %call2.i10.i431.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 720), align 16
   %9 = load i64, ptr %__dnew.i.i422.i, align 8
-  store i64 %9, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 0, i32 2), align 16
+  store i64 %9, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 736), align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call2.i10.i431.i, ptr noundef nonnull align 1 dereferenceable(20) @.str.9, i64 20, i1 false)
-  store i64 %9, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 0, i32 1), align 8
-  %10 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9), align 16
+  store i64 %9, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 728), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 720), align 16
   %arrayidx.i.i.i426.i = getelementptr inbounds i8, ptr %10, i64 %9
   store i8 0, ptr %arrayidx.i.i.i426.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i422.i) #28
-  store i32 8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(15) @.str.10, i64 15, i1 false)
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 2, i32 2, i32 1, i64 7), align 1
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10), align 16
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 752), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 776), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 760), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 776), ptr noundef nonnull align 1 dereferenceable(15) @.str.10, i64 15, i1 false)
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 768), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 791), align 1
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 792), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 816), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 800), align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i444.i) #28
   store i64 20, ptr %__dnew.i.i444.i, align 8
-  %call2.i10.i453.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i444.i, i64 noundef 0)
+  %call2.i10.i453.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 800), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i444.i, i64 noundef 0)
           to label %__cxx_global_var_init.4.exit unwind label %lpad68.i
 
 lpad54.i:                                         ; preds = %call2.i10.i.noexc397.i
@@ -16177,12 +16177,12 @@ lpad68.i:                                         ; preds = %call2.i10.i.noexc43
 cleanup.action141.i:                              ; preds = %call2.i10.i.noexc375.i
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7), align 16
-  %cmp.i.i.i558.i = icmp eq ptr %15, getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 0, i32 2)
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 560), align 16
+  %cmp.i.i.i558.i = icmp eq ptr %15, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 576)
   br i1 %cmp.i.i.i558.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i560.i, label %if.then.i.i559.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i560.i: ; preds = %cleanup.action141.i
-  %16 = load i64, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7, i32 0, i32 1), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 568), align 8
   %cmp3.i.i.i561.i = icmp ult i64 %16, 16
   call void @llvm.assume(i1 %cmp3.i.i.i561.i)
   br label %ehcleanup199.i
@@ -16194,12 +16194,12 @@ if.then.i.i559.i:                                 ; preds = %cleanup.action141.i
 cleanup.action149.i:                              ; preds = %call2.i10.i.noexc353.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6), align 16
-  %cmp.i.i.i563.i = icmp eq ptr %18, getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 0, i32 2)
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 480), align 16
+  %cmp.i.i.i563.i = icmp eq ptr %18, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 496)
   br i1 %cmp.i.i.i563.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i565.i, label %if.then.i.i564.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i565.i: ; preds = %cleanup.action149.i
-  %19 = load i64, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6, i32 0, i32 1), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 488), align 8
   %cmp3.i.i.i566.i = icmp ult i64 %19, 16
   call void @llvm.assume(i1 %cmp3.i.i.i566.i)
   br label %ehcleanup199.i
@@ -16211,12 +16211,12 @@ if.then.i.i564.i:                                 ; preds = %cleanup.action149.i
 cleanup.action157.i:                              ; preds = %entry
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5), align 16
-  %cmp.i.i.i568.i = icmp eq ptr %21, getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 0, i32 2)
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 400), align 16
+  %cmp.i.i.i568.i = icmp eq ptr %21, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 416)
   br i1 %cmp.i.i.i568.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i570.i, label %if.then.i.i569.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i570.i: ; preds = %cleanup.action157.i
-  %22 = load i64, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5, i32 0, i32 1), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 408), align 8
   %cmp3.i.i.i571.i = icmp ult i64 %22, 16
   call void @llvm.assume(i1 %cmp3.i.i.i571.i)
   br label %ehcleanup199.i
@@ -16226,7 +16226,7 @@ if.then.i.i569.i:                                 ; preds = %cleanup.action157.i
   br label %ehcleanup199.i
 
 ehcleanup199.i:                                   ; preds = %if.then.i.i569.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i570.i, %if.then.i.i564.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i565.i, %if.then.i.i559.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i560.i, %lpad68.i, %lpad61.i, %lpad54.i
-  %arrayinit.endOfInit.24.ph.i = phi ptr [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5), %if.then.i.i569.i ], [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 5), %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i570.i ], [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6), %if.then.i.i564.i ], [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 6), %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i565.i ], [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7), %if.then.i.i559.i ], [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 7), %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i560.i ], [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 8), %lpad54.i ], [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 9), %lpad61.i ], [ getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10), %lpad68.i ]
+  %arrayinit.endOfInit.24.ph.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 400), %if.then.i.i569.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 400), %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i570.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 480), %if.then.i.i564.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 480), %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i565.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 560), %if.then.i.i559.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 560), %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i560.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 640), %lpad54.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 720), %lpad61.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 800), %lpad68.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i = phi { ptr, i32 } [ %20, %if.then.i.i569.i ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i570.i ], [ %17, %if.then.i.i564.i ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i565.i ], [ %14, %if.then.i.i559.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i560.i ], [ %11, %lpad54.i ], [ %12, %lpad61.i ], [ %13, %lpad68.i ]
   br label %arraydestroy.body.i
 
@@ -16242,51 +16242,51 @@ common.resume:                                    ; preds = %arraydestroy.body.i
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.4.exit:                     ; preds = %call2.i10.i.noexc430.i
-  store ptr %call2.i10.i453.i, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10), align 16
+  store ptr %call2.i10.i453.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 800), align 16
   %23 = load i64, ptr %__dnew.i.i444.i, align 8
-  store i64 %23, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 0, i32 2), align 16
+  store i64 %23, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 816), align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call2.i10.i453.i, ptr noundef nonnull align 1 dereferenceable(20) @.str.9, i64 20, i1 false)
-  store i64 %23, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 0, i32 1), align 8
-  %24 = load ptr, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10), align 16
+  store i64 %23, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 808), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 800), align 16
   %arrayidx.i.i.i448.i = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 0, ptr %arrayidx.i.i.i448.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i444.i) #28
-  store i32 256, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(15) @.str.10, i64 15, i1 false)
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 2, i32 2, i32 1, i64 7), align 1
-  store i64 15, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 10, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11), align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 0, i32 2), ptr noundef nonnull align 1 dereferenceable(5) @.str.11, i64 5, i1 false)
-  store i64 5, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 0, i32 2), i64 5), align 1
-  store i32 0, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(3) @.str.12, i64 3, i1 false)
-  store i64 3, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 2, i32 2), i64 3), align 1
-  store i64 3, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 11, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12), align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 0, i32 2), ptr noundef nonnull align 1 dereferenceable(5) @.str.11, i64 5, i1 false)
-  store i64 5, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 0, i32 2), i64 5), align 1
-  store i32 8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(3) @.str.12, i64 3, i1 false)
-  store i64 3, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 2, i32 2), i64 3), align 1
-  store i64 3, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 12, i32 3), align 8
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 0, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13), align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 0, i32 2), ptr noundef nonnull align 1 dereferenceable(5) @.str.11, i64 5, i1 false)
-  store i64 5, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 0, i32 2), i64 5), align 1
-  store i32 256, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 1), align 16
-  store ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 2, i32 2), ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 2, i32 2), ptr noundef nonnull align 1 dereferenceable(3) @.str.12, i64 3, i1 false)
-  store i64 3, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 2, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 2, i32 2), i64 3), align 1
-  store i64 3, ptr getelementptr inbounds ([14 x %"struct.(anonymous namespace)::PatternInfo"], ptr @_ZN12_GLOBAL__N_18patternsE, i64 0, i64 13, i32 3), align 8
+  store i32 256, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 832), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 856), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 840), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 856), ptr noundef nonnull align 1 dereferenceable(15) @.str.10, i64 15, i1 false)
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 848), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 871), align 1
+  store i64 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 872), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 896), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 880), align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 896), ptr noundef nonnull align 1 dereferenceable(5) @.str.11, i64 5, i1 false)
+  store i64 5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 888), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 901), align 1
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 912), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 936), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 920), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 936), ptr noundef nonnull align 1 dereferenceable(3) @.str.12, i64 3, i1 false)
+  store i64 3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 928), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 939), align 1
+  store i64 3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 952), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 976), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 960), align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 976), ptr noundef nonnull align 1 dereferenceable(5) @.str.11, i64 5, i1 false)
+  store i64 5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 968), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 981), align 1
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 992), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1016), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1000), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1016), ptr noundef nonnull align 1 dereferenceable(3) @.str.12, i64 3, i1 false)
+  store i64 3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1008), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1019), align 1
+  store i64 3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1032), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1056), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1040), align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1056), ptr noundef nonnull align 1 dereferenceable(5) @.str.11, i64 5, i1 false)
+  store i64 5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1048), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1061), align 1
+  store i32 256, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1072), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1096), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1080), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1096), ptr noundef nonnull align 1 dereferenceable(3) @.str.12, i64 3, i1 false)
+  store i64 3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1088), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1099), align 1
+  store i64 3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18patternsE, i64 1112), align 8
   %25 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #28
   %call.i = call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %call1.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24) %call.i)

@@ -461,11 +461,11 @@ _ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit:   ; preds = %sw.bb, %init.check.
   br i1 %tobool1.i, label %invoke.cont, label %invoke.cont7
 
 invoke.cont:                                      ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 16), ptr %call2, align 8
   br label %return
 
 invoke.cont7:                                     ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 16), ptr %call2, align 8
   br label %return
 
 sw.bb11:                                          ; preds = %entry
@@ -503,12 +503,12 @@ _ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14: ; preds = %sw.bb11, %init.chec
 
 invoke.cont18:                                    ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %stats_.i.i15, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 16), ptr %call14, align 8
   br label %return
 
 invoke.cont27:                                    ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %stats_.i.i15, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 0, i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 16), ptr %call14, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -604,9 +604,9 @@ init.i5:                                          ; preds = %init.check.i3
 invoke.cont.i7:                                   ; preds = %init.i5
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
-  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
-  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
   br label %_ZN5arrow12_GLOBAL__N_117SupportedBackendsEv.exit
@@ -848,7 +848,7 @@ return:                                           ; preds = %invoke.cont, %_ZN5a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5arrow17LoggingMemoryPoolC2EPNS_10MemoryPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pool) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow17LoggingMemoryPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17LoggingMemoryPoolE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %pool, ptr %pool_, align 8
   ret void
@@ -1130,7 +1130,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow15ProxyMemoryPoolC2EPNS_10MemoryPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pool) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow15ProxyMemoryPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ProxyMemoryPoolE, i64 16), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %impl_, align 8
   %call = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
@@ -1153,7 +1153,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5arrow15ProxyMemoryPoolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow15ProxyMemoryPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ProxyMemoryPoolE, i64 16), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1395,9 +1395,9 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont.i:                                    ; preds = %init.i
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
-  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
-  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
   br label %invoke.cont
@@ -1410,7 +1410,7 @@ lpad.i:                                           ; preds = %init.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i, %init.check.i, %entry
   %_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends.val.i = load ptr, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
-  %.val.i = load ptr, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %cmp.i.not11 = icmp eq ptr %_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends.val.i, %.val.i
   br i1 %cmp.i.not11, label %nrvo.skipdtor, label %for.body.lr.ph
 
@@ -2516,9 +2516,9 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont.i:                                    ; preds = %init.i
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
-  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 16), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
-  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %3 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
   br label %invoke.cont7
@@ -2548,9 +2548,9 @@ init.i7:                                          ; preds = %init.check.i5
 invoke.cont.i10:                                  ; preds = %init.i7
   store ptr %call5.i.i.i.i5.i1.i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i11 = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i8, i64 32
-  store ptr %add.ptr.i4.i.i11, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i4.i.i11, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 16), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i8, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
-  store ptr %add.ptr.i4.i.i11, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i4.i.i11, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %7 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
   br label %invoke.cont11
@@ -2562,7 +2562,7 @@ lpad.i9:                                          ; preds = %init.i7
   br label %ehcleanup
 
 invoke.cont11:                                    ; preds = %invoke.cont.i10, %init.check.i5, %invoke.cont7
-  %.val.i = load ptr, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %.val.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends.val.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -2680,9 +2680,9 @@ init.i18:                                         ; preds = %init.check.i16
 invoke.cont.i21:                                  ; preds = %init.i18
   store ptr %call5.i.i.i.i5.i1.i19, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i19, i64 32
-  store ptr %add.ptr.i4.i.i22, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i4.i.i22, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 16), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i19, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
-  store ptr %add.ptr.i4.i.i22, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i4.i.i22, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %11 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
   br label %invoke.cont22
@@ -2694,7 +2694,7 @@ lpad.i20:                                         ; preds = %init.i18
   br label %ehcleanup
 
 invoke.cont22:                                    ; preds = %invoke.cont.i21, %init.check.i16, %invoke.cont19
-  %.val.i26 = load ptr, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.val.i26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %cmp.i.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %.val.i26
   br i1 %cmp.i.not, label %if.end29, label %if.then27
 
@@ -2730,9 +2730,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store ptr %call5.i.i.i.i5.i1.i.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i.i, i64 32
-  store ptr %add.ptr.i4.i.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i4.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 16), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
-  store ptr %add.ptr.i4.i.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i4.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %16 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
   br label %invoke.cont.i29
@@ -2745,7 +2745,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 
 invoke.cont.i29:                                  ; preds = %invoke.cont.i.i, %init.check.i.i, %if.end29
   %_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends.val.i.i = load ptr, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
-  %.val.i.i = load ptr, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.val.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 8), align 8
   %cmp.i.not1.i = icmp eq ptr %_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends.val.i.i, %.val.i.i
   br i1 %cmp.i.not1.i, label %for.end.i, label %for.body.lr.ph.i
 
@@ -2783,7 +2783,7 @@ if.end.i:                                         ; preds = %.noexc.i
           to label %invoke.cont.i36 unwind label %lpad.i35
 
 invoke.cont.i36:                                  ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.13, i64 0, i64 1)) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 1)) #26
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i, i64 noundef 1)
           to label %invoke.cont11.i unwind label %lpad.i35
@@ -3314,13 +3314,13 @@ if.then.i.i.i:                                    ; preds = %if.then10
 _ZNSt8functionIFvPhlRKN5arrow6StatusEEEC2EOS6_.exit.i.i: ; preds = %if.then10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1), i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %5 = load <2 x ptr>, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 0, i32 1), align 8
-  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 0, i32 1), align 8
+  %5 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store <2 x ptr> %5, ptr %_M_manager.i.i.i, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 1), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 64), align 8
   %6 = extractelement <2 x ptr> %5, i64 0
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont12, label %if.then.i.i.i.i
@@ -3404,13 +3404,13 @@ if.then.i.i.i22:                                  ; preds = %if.then15
 _ZNSt8functionIFvPhlRKN5arrow6StatusEEEC2EOS6_.exit.i.i29: ; preds = %if.then15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i16, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i19, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1), i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i19, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i64 16, i1 false)
   %_M_manager.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp.i.i19, i64 16
-  %18 = load <2 x ptr>, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 0, i32 1), align 8
-  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 0, i32 1), align 8
+  %18 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store <2 x ptr> %18, ptr %_M_manager.i.i.i30, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 1), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 64), align 8
   %19 = extractelement <2 x ptr> %18, i64 0
   %tobool.not.i.i.i.i31 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i31, label %invoke.cont18, label %if.then.i.i.i.i32
@@ -3489,13 +3489,13 @@ if.then.i.i.i58:                                  ; preds = %if.then21
 _ZNSt8functionIFvPhlRKN5arrow6StatusEEEC2EOS6_.exit.i.i65: ; preds = %if.then21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i55)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i52, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i55, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1), i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i55, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, i64 16, i1 false)
   %_M_manager.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp.i.i55, i64 16
-  %30 = load <2 x ptr>, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 0, i32 1), align 8
-  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 0, i32 1), align 8
+  %30 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store <2 x ptr> %30, ptr %_M_manager.i.i.i66, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 1), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 64), align 8
   %31 = extractelement <2 x ptr> %30, i64 0
   %tobool.not.i.i.i.i67 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i67, label %invoke.cont24, label %if.then.i.i.i.i68
@@ -4283,7 +4283,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.42, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4865,7 +4865,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.31, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.31, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -5202,7 +5202,7 @@ if.then.i.i.i:                                    ; preds = %_ZN5arrow12_GLOBAL_
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZN5arrow12_GLOBAL__N_110DebugState8InstanceEv.exit
-  %5 = load ptr, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   %tobool.not.i.i1.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i1.not.i, label %invoke.cont, label %if.end.i.i
 
@@ -5211,8 +5211,8 @@ if.end.i.i:                                       ; preds = %_ZNSt10lock_guardIS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   store ptr %ptr, ptr %__args.addr.i.i, align 8
   store i64 %4, ptr %__args.addr2.i.i, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 1), align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st)
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 64), align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st)
           to label %_ZNKSt8functionIFvPhlRKN5arrow6StatusEEEclES0_lS4_.exit.i unwind label %lpad.i
 
 _ZNKSt8functionIFvPhlRKN5arrow6StatusEEEclES0_lS4_.exit.i: ; preds = %if.end.i.i
@@ -5741,7 +5741,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.42, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -6180,7 +6180,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.43, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.43, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -6575,7 +6575,7 @@ if.then.i.i.i:                                    ; preds = %_ZN5arrow12_GLOBAL_
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZN5arrow12_GLOBAL__N_110DebugState8InstanceEv.exit
-  %5 = load ptr, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   %tobool.not.i.i1.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i1.not.i, label %invoke.cont, label %if.end.i.i
 
@@ -6584,8 +6584,8 @@ if.end.i.i:                                       ; preds = %_ZNSt10lock_guardIS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   store ptr %ptr, ptr %__args.addr.i.i, align 8
   store i64 %4, ptr %__args.addr2.i.i, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1, i32 1), align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.arrow::(anonymous namespace)::DebugState", ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st)
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 64), align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st)
           to label %_ZNKSt8functionIFvPhlRKN5arrow6StatusEEEclES0_lS4_.exit.i unwind label %lpad.i
 
 _ZNKSt8functionIFvPhlRKN5arrow6StatusEEEclES0_lS4_.exit.i: ; preds = %if.end.i.i
@@ -6905,7 +6905,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.43, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.43, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -7219,7 +7219,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10PoolBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10PoolBufferE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %pool, ptr %pool_, align 8
   %alignment_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -7320,7 +7320,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15ResizableBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ResizableBufferE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -7761,7 +7761,7 @@ if.end8.sink.split.i.i.i.i24:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i11, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i21, %if.end8.sink.split.i.i.i.i24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow13MutableBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13MutableBufferE, i64 16), ptr %this, align 8
   %is_mutable_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %is_mutable_, align 8
   ret void
@@ -7793,7 +7793,7 @@ define linkonce_odr void @_ZN5arrow6BufferC2EPKhlSt10shared_ptrINS_13MemoryManag
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.61", align 8
   %device_type_override.sroa.0.0.extract.trunc = trunc i16 %device_type_override.coerce to i8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6BufferE, i64 16), ptr %this, align 8
   %is_mutable_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_mutable_, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -8104,7 +8104,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6BufferE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -8661,7 +8661,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.31, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.31, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -8797,7 +8797,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.31, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.31, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -8865,14 +8865,14 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   store i8 0, ptr @_ZN5arrowL12global_stateE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 2, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 3, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 4, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 4, i32 0, i32 0, i32 0), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrowL12global_stateE, i64 16), i8 0, i64 32, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN5arrowL12global_stateE, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrowL12global_stateE, i64 56), i8 0, i64 32, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN5arrowL12global_stateE, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrowL12global_stateE, i64 96), i8 0, i64 32, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN5arrowL12global_stateE, i64 88), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrowL12global_stateE, i64 136), i8 0, i64 32, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN5arrowL12global_stateE, i64 128), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5arrow11GlobalStateD2Ev, ptr nonnull @_ZN5arrowL12global_stateE, ptr nonnull @__dso_handle) #26
   ret void
 }

@@ -234,7 +234,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Tune4initERNS_10OptionsMapE(pt
 
 _ZN9Stockfish4Tune8instanceEv.exit:               ; preds = %1, %4, %6
   %8 = load ptr, ptr @_ZZN9Stockfish4Tune8instanceEvE1t, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::Tune", ptr @_ZZN9Stockfish4Tune8instanceEvE1t, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN9Stockfish4Tune8instanceEvE1t, i64 8), align 8
   %.not8 = icmp eq ptr %8, %9
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -268,7 +268,7 @@ _ZN9Stockfish4Tune8instanceEv.exit:               ; preds = %1, %4, %6
 
 _ZN9Stockfish4Tune8instanceEv.exit.i:             ; preds = %19, %17, %._crit_edge
   %21 = load ptr, ptr @_ZZN9Stockfish4Tune8instanceEvE1t, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::Tune", ptr @_ZZN9Stockfish4Tune8instanceEvE1t, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN9Stockfish4Tune8instanceEvE1t, i64 8), align 8
   %.not6.i = icmp eq ptr %21, %22
   br i1 %.not6.i, label %_ZN9Stockfish4Tune12read_optionsEv.exit, label %.lr.ph.i
 

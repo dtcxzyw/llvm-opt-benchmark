@@ -939,7 +939,7 @@ common.resume:                                    ; preds = %18, %14, %10, %6
 _ZNSt10unique_ptrIN5ZXing24GlobalHistogramBinarizerESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %8, %4
   %.sink22 = phi ptr [ %5, %4 ], [ %9, %8 ]
   %.sink19 = phi i8 [ 0, %4 ], [ 127, %8 ]
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing18ThresholdBinarizerE, i64 0, i32 0, i64 2), ptr %.sink22, align 8, !noalias !49
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5ZXing18ThresholdBinarizerE, i64 16), ptr %.sink22, align 8, !noalias !49
   %20 = getelementptr inbounds i8, ptr %.sink22, i64 56
   store i8 %.sink19, ptr %20, align 8, !noalias !49
   br label %_ZNSt10unique_ptrIN5ZXing24GlobalHistogramBinarizerESt14default_deleteIS1_EED2Ev.exit
@@ -3337,7 +3337,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %2
   store i32 1, ptr %8, align 8, !noalias !116
   %9 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %9, align 4, !noalias !116
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN5ZXing9BitMatrixESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !116
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN5ZXing9BitMatrixESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !116
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i64, ptr %3, align 8, !noalias !116
   store i64 %11, ptr %10, align 8, !noalias !116

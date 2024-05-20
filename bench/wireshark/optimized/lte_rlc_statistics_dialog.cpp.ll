@@ -272,9 +272,9 @@ define void @_ZN22LteRlcStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr nounde
   %43 = alloca %"class.QMetaObject::Connection", align 8
   %44 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 229)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22LteRlcStatisticsDialog, i64 16), ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i64 0, i32 1, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22LteRlcStatisticsDialog, i64 560), ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   %47 = getelementptr inbounds i8, ptr %0, i64 288
@@ -625,7 +625,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i130:   ; preds = %169
 
 _ZN7QStringD2Ev.exit132:                          ; preds = %169, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i130, %173
   %175 = load ptr, ptr %170, align 8
-  %176 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
+  %176 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 224), align 8
   %.not = icmp eq i32 %176, 0
   %177 = select i1 %.not, i32 0, i32 2
   invoke void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef nonnull align 8 dereferenceable(40) %175, i32 noundef %177)
@@ -2308,9 +2308,9 @@ declare void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22LteRlcStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22LteRlcStatisticsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22LteRlcStatisticsDialog, i64 560), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -2381,7 +2381,7 @@ define noundef range(i32 0, 2) i32 @_ZN22LteRlcStatisticsDialog9tapPacketEPvP12_
   br i1 %or.cond, label %10, label %67
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 224), align 8
   %.not = icmp eq i32 %11, 0
   %12 = getelementptr inbounds i8, ptr %3, i64 32
   %13 = load i8, ptr %12, align 8
@@ -2530,7 +2530,7 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItemC2EP11QTreeWidgetPK17rlc_3gpp_
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19RlcUeTreeWidgetItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19RlcUeTreeWidgetItem, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 4
@@ -3969,7 +3969,7 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN7QStringD2Ev.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN22LteRlcStatisticsDialog34useRLCFramesFromMacCheckBoxToggledEb(ptr noundef nonnull align 8 dereferenceable(300) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i32
-  store i32 %3, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @recent, i64 224), align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 520
   %6 = load ptr, ptr %5, align 8
@@ -4210,7 +4210,7 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItem16filterExpressionEbb(ptr dead
   %29 = alloca %class.QString, align 16
   %30 = alloca %class.QString, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %31 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 224), align 8
   %.not = icmp eq i32 %31, 0
   %32 = getelementptr inbounds i8, ptr %1, i64 92
   %33 = load i8, ptr %32, align 4
@@ -4989,7 +4989,7 @@ define linkonce_odr void @_ZN24RlcChannelTreeWidgetItem16filterExpressionEbb(ptr
   %37 = alloca %class.QString, align 16
   %38 = alloca %class.QString, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %39 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 224), align 8
   %.not = icmp eq i32 %39, 0
   %40 = getelementptr inbounds i8, ptr %1, i64 92
   %41 = load i8, ptr %40, align 4
@@ -7531,7 +7531,7 @@ define linkonce_odr void @_ZN24RlcChannelTreeWidgetItemC2EP15QTreeWidgetItemhjjj
   %24 = alloca %class.QString, align 8
   %25 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2EPS_i(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, i32 noundef 1001)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24RlcChannelTreeWidgetItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24RlcChannelTreeWidgetItem, i64 16), ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 92
   store i8 %2, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 96

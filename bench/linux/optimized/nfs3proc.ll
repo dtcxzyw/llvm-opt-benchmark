@@ -78,7 +78,7 @@ declare dso_local i32 @nfs_try_get_tree(ptr noundef) #1
 define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 1), ptr %5, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 48), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -152,7 +152,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture nound
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 2), ptr %5, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 96), ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 16
@@ -325,7 +325,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 4), ptr %6, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 192), ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
@@ -422,7 +422,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readlink(ptr noundef %0, pt
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 5), ptr %7, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 240), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 24
@@ -492,7 +492,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr null, ptr %5, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   store ptr null, ptr %6, align 8, !annotation !9
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 688) #12
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread8, label %10
@@ -515,7 +515,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void @nfs_fattr_init(ptr noundef %17) #10
   %20 = load ptr, ptr %13, align 8
   tail call void @nfs_fattr_init(ptr noundef %20) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 8), ptr %8, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 384), ptr %8, align 8
   %21 = getelementptr i8, ptr %0, i64 -424
   store ptr %21, ptr %11, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 40
@@ -710,7 +710,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 12), ptr %5, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 576), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
@@ -779,7 +779,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal void @nfs3_proc_unlink_setup(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 12), ptr %0, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 576), ptr %0, align 8
   ret void
 }
 
@@ -825,7 +825,7 @@ define internal noundef range(i32 0, 2) i32 @nfs3_proc_unlink_done(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal void @nfs3_proc_rename_setup(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 14), ptr %0, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 672), ptr %0, align 8
   ret void
 }
 
@@ -896,7 +896,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 15), ptr %6, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 720), ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 16
@@ -982,7 +982,7 @@ define internal i32 @nfs3_proc_symlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %7, label %41, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 688) #12
   %11 = icmp eq ptr %10, null
   br i1 %11, label %41, label %12
@@ -1005,7 +1005,7 @@ define internal i32 @nfs3_proc_symlink(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @nfs_fattr_init(ptr noundef %19) #10
   %22 = load ptr, ptr %15, align 8
   tail call void @nfs_fattr_init(ptr noundef %22) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 10), ptr %10, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 480), ptr %10, align 8
   %23 = getelementptr i8, ptr %0, i64 -424
   store ptr %23, ptr %13, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1052,7 +1052,7 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr null, ptr %4, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store ptr null, ptr %5, align 8, !annotation !9
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 688) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread8, label %9
@@ -1081,7 +1081,7 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %22, label %23, label %.thread8
 
 23:                                               ; preds = %9
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 9), ptr %7, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 432), ptr %7, align 8
   %24 = getelementptr i8, ptr %0, i64 -424
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1188,7 +1188,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr n
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 13), ptr %4, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 624), ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1289,7 +1289,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr nocapture nound
   %26 = getelementptr inbounds i8, ptr %4, i64 16
   store i8 %17, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 16), ptr %5, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 768), ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1302,7 +1302,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr nocapture nound
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %2
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 17), ptr %5, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 816), ptr %5, align 8
   br label %34
 
 34:                                               ; preds = %33, %2
@@ -1385,7 +1385,7 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr null, ptr %5, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   store ptr null, ptr %6, align 8, !annotation !9
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 688) #12
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread8, label %10
@@ -1414,7 +1414,7 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %23, label %24, label %.thread8
 
 24:                                               ; preds = %10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 11), ptr %8, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 528), ptr %8, align 8
   %25 = getelementptr i8, ptr %0, i64 -424
   store ptr %25, ptr %11, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1531,7 +1531,7 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
 define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 18), ptr %4, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 864), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1586,7 +1586,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 19), ptr %5, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 912), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1646,7 +1646,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture nounde
 
 41:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 19), ptr %4, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 912), ptr %4, align 8
   %42 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1700,7 +1700,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture nounde
 define internal range(i32 -527, -528) i32 @nfs3_proc_pathconf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 20), ptr %4, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 960), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1759,7 +1759,7 @@ define internal noundef i32 @nfs3_proc_pgio_rpc_prepare(ptr noundef %0, ptr noca
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @nfs3_proc_read_setup(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 6), ptr %1, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 288), ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -1833,7 +1833,7 @@ define internal i32 @nfs3_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal void @nfs3_proc_write_setup(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #2 align 16 {
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 7), ptr %1, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 336), ptr %1, align 8
   ret void
 }
 
@@ -1884,7 +1884,7 @@ define internal i32 @nfs3_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal void @nfs3_proc_commit_setup(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #2 align 16 {
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 21), ptr %1, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 1008), ptr %1, align 8
   ret void
 }
 
@@ -2146,7 +2146,7 @@ declare dso_local void @put_nfs_open_context(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 19), ptr %4, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 912), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2196,7 +2196,7 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %28
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 1), ptr %4, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 48), ptr %4, align 8
   store ptr %29, ptr %6, align 8
   br label %34
 
@@ -2275,7 +2275,7 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
   %16 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %4, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #10
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 3), ptr %9, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 144), ptr %9, align 8
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2345,7 +2345,7 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
   br i1 %59, label %60, label %.loopexit
 
 60:                                               ; preds = %56
-  store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 1), ptr %9, align 8
+  store ptr getelementptr (i8, ptr @nfs3_procedures, i64 48), ptr %9, align 8
   store ptr %3, ptr %17, align 8
   store ptr %4, ptr %18, align 8
   %61 = load ptr, ptr %23, align 8

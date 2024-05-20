@@ -191,7 +191,7 @@ _ZSt11make_uniqueIN5ceres8internal22SparseIterativeRefinerEJRKiEENSt8__detail9_M
 
 _ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZSt11make_uniqueIN5ceres8internal22SparseIterativeRefinerEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %65 = ptrtoint ptr %61 to i64
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal21RefinedSparseCholeskyE, i64 0, i32 0, i64 2), ptr %64, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21RefinedSparseCholeskyE, i64 16), ptr %64, align 8, !noalias !7
   %66 = getelementptr inbounds i8, ptr %64, i64 8
   store i64 %56, ptr %66, align 8, !noalias !7
   %67 = getelementptr inbounds i8, ptr %64, i64 16
@@ -285,7 +285,7 @@ define hidden noundef i32 @_ZN5ceres8internal14SparseCholesky14FactorAndSolveEPN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN5ceres8internal21RefinedSparseCholeskyC2ESt10unique_ptrINS0_14SparseCholeskyESt14default_deleteIS3_EES2_INS0_22SparseIterativeRefinerES4_IS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal21RefinedSparseCholeskyE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21RefinedSparseCholeskyE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %1, align 8
   store i64 %5, ptr %4, align 8

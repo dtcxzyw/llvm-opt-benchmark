@@ -586,7 +586,7 @@ if.then227:                                       ; preds = %if.end
   unreachable
 
 if.end229:                                        ; preds = %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @anonymized_seeds, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymized_seeds, i64 8), align 8
   %tobool = icmp eq ptr %2, null
   %3 = load i32, ptr @anonymize, align 4
   %tobool230 = icmp ne i32 %3, 0
@@ -702,7 +702,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp3.not.i, label %if.end6.i, label %for.inc.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %19 = load i32, ptr getelementptr inbounds (%struct.refspec, ptr @refspecs, i64 0, i32 2), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @refspecs, i64 12), align 4
   %tobool7.not.i = icmp eq i32 %19, 0
   %.pre25.i = load ptr, ptr %full_name.i, align 8
   br i1 %tobool7.not.i, label %if.end13.i, label %if.then8.i
@@ -960,7 +960,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %f
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.else.i, %if.then27.i
-  %46 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp3870.i = icmp sgt i32 %46, 0
   br i1 %cmp3870.i, label %for.body.preheader.i, label %for.end.i
 
@@ -985,7 +985,7 @@ for.body.i23:                                     ; preds = %for.inc.i26, %for.b
 if.then41.i:                                      ; preds = %for.body.i23
   call fastcc void @export_blob(ptr noundef nonnull %50)
   %.pre.i25 = load ptr, ptr @diff_queued_diff, align 8
-  %.pre80.i = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %.pre80.i = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   br label %for.inc.i26
 
 for.inc.i26:                                      ; preds = %if.then41.i, %for.body.i23
@@ -1005,8 +1005,8 @@ for.end.i:                                        ; preds = %for.inc.i26, %if.en
   br i1 %tobool48.not.i, label %if.end51.i, label %if.then49.i
 
 if.then49.i:                                      ; preds = %for.end.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 1), align 8
-  %58 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 8), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %58, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %for.body.i.i.preheader, label %if.then4.i.i.i
 
@@ -1050,7 +1050,7 @@ for.inc.i.i:                                      ; preds = %do.cond.i.i.i
 anonymize_refname.exit.i:                         ; preds = %for.inc.i.i, %if.then.i.i22
   %refname.addr.2.i.i = phi ptr [ %str.addr.0.i.i.i, %if.then.i.i22 ], [ %56, %for.inc.i.i ]
   call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.2.i.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
-  %62 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 2), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   call fastcc void @anonymize_ident_line(ptr noundef nonnull %committer.i, ptr noundef nonnull %committer_end.i)
   call fastcc void @anonymize_ident_line(ptr noundef nonnull %author.i, ptr noundef nonnull %author_end.i)
   br label %if.end51.i
@@ -1320,7 +1320,7 @@ handle_commit.exit:                               ; preds = %if.end153.i, %if.en
 while.end:                                        ; preds = %handle_commit.exit, %if.end265
   call fastcc void @handle_tags_and_duplicates(ptr noundef nonnull @extra_refs)
   call fastcc void @handle_tags_and_duplicates(ptr noundef nonnull @tag_refs)
-  %92 = load i32, ptr getelementptr inbounds (%struct.refspec, ptr @refspecs, i64 0, i32 2), align 4
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @refspecs, i64 12), align 4
   %cmp4.i = icmp sgt i32 %92, 0
   br i1 %cmp4.i, label %for.body.preheader.i32, label %handle_deletes.exit
 
@@ -1346,7 +1346,7 @@ if.end.i40:                                       ; preds = %for.body.i33
   %call1.i = call ptr @oid_to_hex(ptr noundef %call.i41) #18
   %call2.i42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.120, ptr noundef %97, ptr noundef %call1.i)
   %.pre.i43 = load ptr, ptr @refspecs, align 8
-  %.pre8.i = load i32, ptr getelementptr inbounds (%struct.refspec, ptr @refspecs, i64 0, i32 2), align 4
+  %.pre8.i = load i32, ptr getelementptr inbounds (i8, ptr @refspecs, i64 12), align 4
   br label %for.inc.i37
 
 for.inc.i37:                                      ; preds = %if.end.i40, %for.body.i33
@@ -1366,13 +1366,13 @@ handle_deletes.exit:                              ; preds = %for.inc.i37, %while
   br i1 %or.cond13, label %if.end280, label %if.then279
 
 if.then279:                                       ; preds = %handle_deletes.exit
-  %103 = load ptr, ptr getelementptr inbounds (%struct.decoration, ptr @idnums, i64 0, i32 3), align 8
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @idnums, i64 16), align 8
   %call.i44 = call ptr @fopen_for_writing(ptr noundef nonnull %101) #18
   %tobool.not.i45 = icmp eq ptr %call.i44, null
   br i1 %tobool.not.i45, label %if.then.i56, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then279
-  %104 = load i32, ptr getelementptr inbounds (%struct.decoration, ptr @idnums, i64 0, i32 1), align 8
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @idnums, i64 8), align 8
   %cmp13.not.i = icmp eq i32 %104, 0
   br i1 %cmp13.not.i, label %for.end.i51, label %for.body.i46
 
@@ -1406,7 +1406,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i47
   br i1 %cmp9.i, label %for.end.i51, label %if.then4.if.end12_crit_edge.i
 
 if.then4.if.end12_crit_edge.i:                    ; preds = %if.then4.i
-  %.pre.i55 = load i32, ptr getelementptr inbounds (%struct.decoration, ptr @idnums, i64 0, i32 1), align 8
+  %.pre.i55 = load i32, ptr getelementptr inbounds (i8, ptr @idnums, i64 8), align 8
   br label %if.end12.i48
 
 if.end12.i48:                                     ; preds = %if.then4.if.end12_crit_edge.i, %land.lhs.true.i47, %for.body.i46
@@ -2161,8 +2161,8 @@ if.end34.i:                                       ; preds = %if.then32.i, %if.th
   br i1 %tobool35.not.i, label %if.end43.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.end34.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 1), align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %10, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %for.body.i.i.preheader, label %if.then4.i.i.i
 
@@ -2206,7 +2206,7 @@ for.inc.i.i:                                      ; preds = %do.cond.i.i.i
 anonymize_refname.exit.i:                         ; preds = %for.inc.i.i, %if.then.i.i
   %refname.addr.2.i.i = phi ptr [ %str.addr.0.i.i.i, %if.then.i.i ], [ %4, %for.inc.i.i ]
   call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.2.i.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   br i1 %tobool20.not.i, label %if.end67.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %anonymize_refname.exit.i
@@ -2489,8 +2489,8 @@ sw.bb5:                                           ; preds = %for.body
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb5
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 1), align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 8), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %42, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %for.body.i.preheader, label %if.then4.i.i
 
@@ -2534,7 +2534,7 @@ for.inc.i:                                        ; preds = %do.cond.i.i19
 anonymize_refname.exit:                           ; preds = %for.inc.i, %if.then.i22
   %refname.addr.2.i = phi ptr [ %str.addr.0.i.i17, %if.then.i22 ], [ %4, %for.inc.i ]
   call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.2.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
-  %46 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @anonymize_refname.anon, i64 0, i32 2), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   br label %if.end
 
 if.end:                                           ; preds = %anonymize_refname.exit, %sw.bb5
@@ -3119,7 +3119,7 @@ if.else6.i:                                       ; preds = %if.else.i
 
 if.else:                                          ; preds = %entry
   tail call fastcc void @anonymize_path(ptr noundef nonnull @print_path.anon, ptr noundef %path, ptr noundef nonnull @print_path.paths, ptr noundef nonnull @anonymize_path_component)
-  %3 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @print_path.anon, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @print_path.anon, i64 16), align 8
   %call.i2 = tail call i64 @quote_c_style(ptr noundef %3, ptr noundef null, ptr noundef null, i32 noundef 0) #18
   %4 = and i64 %call.i2, 4294967295
   %tobool.not.i3 = icmp eq i64 %4, 0
@@ -3144,8 +3144,8 @@ if.else6.i11:                                     ; preds = %if.else.i6
   br label %print_path_1.exit13
 
 print_path_1.exit13:                              ; preds = %if.then.i4, %if.then4.i9, %if.else6.i11
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @print_path.anon, i64 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @print_path.anon, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @print_path.anon, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @print_path.anon, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %6, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %if.end, label %if.then4.i14
 

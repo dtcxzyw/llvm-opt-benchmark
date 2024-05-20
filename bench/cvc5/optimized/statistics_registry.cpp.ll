@@ -145,7 +145,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal18StatisticsRegistryC2ERNS0_3EnvEb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 1 %env, i1 noundef zeroext %registerPublic) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal18StatisticsRegistryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal18StatisticsRegistryE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -299,7 +299,7 @@ if.then:                                          ; preds = %entry, %_ZNSt8_Rb_t
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i, i8 0, i64 32, i1 false), !noalias !6
   %d_internal.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %d_internal.i.i.i, align 8, !noalias !6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal21StatisticAverageValueE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !6
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal21StatisticAverageValueE, i64 16), ptr %call.i, align 8, !noalias !6
   store ptr %call.i, ptr %ref.tmp8, align 8, !alias.scope !6
   %5 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not6.i.i.i.i = icmp eq ptr %5, null
@@ -473,7 +473,7 @@ if.then:                                          ; preds = %entry, %_ZNSt8_Rb_t
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i, i8 0, i64 24, i1 false), !noalias !9
   %d_internal.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %d_internal.i.i.i, align 8, !noalias !9
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal20StatisticBackedValueIlEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal20StatisticBackedValueIlEE, i64 16), ptr %call.i, align 8, !noalias !9
   store ptr %call.i, ptr %ref.tmp8, align 8, !alias.scope !9
   %5 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not6.i.i.i.i = icmp eq ptr %5, null
@@ -647,7 +647,7 @@ if.then:                                          ; preds = %entry, %_ZNSt8_Rb_t
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i, i8 0, i64 40, i1 false), !noalias !12
   %d_internal.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %d_internal.i.i.i, align 8, !noalias !12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal19StatisticTimerValueE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal19StatisticTimerValueE, i64 16), ptr %call.i, align 8, !noalias !12
   store ptr %call.i, ptr %ref.tmp8, align 8, !alias.scope !12
   %5 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not6.i.i.i.i = icmp eq ptr %5, null
@@ -1578,7 +1578,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal18StatisticsRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal18StatisticsRegistryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal18StatisticsRegistryE, i64 16), ptr %this, align 8
   %d_lastSnapshot = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_lastSnapshot, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1623,7 +1623,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal18StatisticsRegistryD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal18StatisticsRegistryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal18StatisticsRegistryE, i64 16), ptr %this, align 8
   %d_lastSnapshot.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_lastSnapshot.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

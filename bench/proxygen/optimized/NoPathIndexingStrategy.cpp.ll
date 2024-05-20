@@ -55,7 +55,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %init
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen22NoPathIndexingStrategyE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22NoPathIndexingStrategyE, i64 16), ptr %call, align 8
   store ptr %call, ptr @_ZZN8proxygen22NoPathIndexingStrategy11getInstanceEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8proxygen22NoPathIndexingStrategy11getInstanceEvE8instance) #8
   br label %init.end

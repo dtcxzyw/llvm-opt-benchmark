@@ -299,7 +299,7 @@ define dso_local noundef zeroext i1 @_Z23cmParseArgumentsCommandRKSt6vectorINSt7
           to label %.noexc80 unwind label %69
 
 .noexc80:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([42 x i8], ptr @.str, i64 0, i64 41))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 41))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %65
 
 65:                                               ; preds = %.noexc80
@@ -360,7 +360,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
           to label %.noexc83 unwind label %88
 
 .noexc83:                                         ; preds = %.noexc82
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([52 x i8], ptr @.str.2, i64 0, i64 51))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 51))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86 unwind label %85
 
 85:                                               ; preds = %.noexc83
@@ -1036,7 +1036,7 @@ _ZN6cmList5clearEv.exit:                          ; preds = %.loopexit254.thread
           to label %.noexc166 unwind label %265
 
 .noexc166:                                        ; preds = %.noexc165
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit169 unwind label %252
 
 252:                                              ; preds = %.noexc166
@@ -1499,7 +1499,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   %.val.us.i = load ptr, ptr %386, align 8
   %.val61.us.i = load ptr, ptr %388, align 8
   %.sroa.0.0.copyload.i2.i.us.i = load i64, ptr @_ZN6cmList17element_separatorE, align 8, !noalias !12
-  %.sroa.2.0.copyload.i.i.us.i = load ptr, ptr getelementptr inbounds (%"class.std::basic_string_view", ptr @_ZN6cmList17element_separatorE, i64 0, i32 1), align 8, !noalias !12
+  %.sroa.2.0.copyload.i.i.us.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6cmList17element_separatorE, i64 8), align 8, !noalias !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !12
   %.not4.i.i.i.i.i.i.i.us.i = icmp eq ptr %.val.us.i, %.val61.us.i
   br i1 %.not4.i.i.i.i.i.i.i.us.i, label %394, label %393
@@ -1604,7 +1604,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   br label %_ZN12_GLOBAL__N_18JoinListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEb.exit.i
 
 419:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit66.i
-  %.sroa.2.0.copyload.i7.i.i = load ptr, ptr getelementptr inbounds (%"class.std::basic_string_view", ptr @_ZN6cmList17element_separatorE, i64 0, i32 1), align 8, !noalias !20
+  %.sroa.2.0.copyload.i7.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6cmList17element_separatorE, i64 8), align 8, !noalias !20
   %.sroa.0.0.copyload.i8.i.i = load i64, ptr @_ZN6cmList17element_separatorE, align 8, !noalias !20
   invoke void @_ZN6cmList4JoinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEEES8_T_SF_St17basic_string_viewIcS6_E(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr %.val.i, ptr %.val61.i, i64 %.sroa.0.0.copyload.i8.i.i, ptr %.sroa.2.0.copyload.i7.i.i)
           to label %_ZN12_GLOBAL__N_18JoinListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEb.exit.i unwind label %.split112.i
@@ -1691,7 +1691,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 441:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i
   %.sroa.0.0.copyload.i2.i71.i = load i64, ptr @_ZN6cmList17element_separatorE, align 8, !noalias !23
-  %.sroa.2.0.copyload.i.i72.i = load ptr, ptr getelementptr inbounds (%"class.std::basic_string_view", ptr @_ZN6cmList17element_separatorE, i64 0, i32 1), align 8, !noalias !23
+  %.sroa.2.0.copyload.i.i72.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6cmList17element_separatorE, i64 8), align 8, !noalias !23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !23
   %.not4.i.i.i.i.i.i.i73.i = icmp eq ptr %.val62.i, %.val63.i
   br i1 %.not4.i.i.i.i.i.i.i73.i, label %442, label %443
@@ -1720,7 +1720,7 @@ _ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorIN9__gnu_cxx17
   br label %_ZN12_GLOBAL__N_18JoinListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEb.exit78.i
 
 447:                                              ; preds = %444
-  %.sroa.2.0.copyload.i7.i69.i = load ptr, ptr getelementptr inbounds (%"class.std::basic_string_view", ptr @_ZN6cmList17element_separatorE, i64 0, i32 1), align 8, !noalias !31
+  %.sroa.2.0.copyload.i7.i69.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6cmList17element_separatorE, i64 8), align 8, !noalias !31
   %.sroa.0.0.copyload.i8.i70.i = load i64, ptr @_ZN6cmList17element_separatorE, align 8, !noalias !31
   invoke void @_ZN6cmList4JoinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEEES8_T_SF_St17basic_string_viewIcS6_E(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr %.val62.i, ptr %.val63.i, i64 %.sroa.0.0.copyload.i8.i70.i, ptr %.sroa.2.0.copyload.i7.i69.i)
           to label %_ZN12_GLOBAL__N_18JoinListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEb.exit78.i unwind label %452
@@ -1795,7 +1795,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %.not4.i.i.i.i.i.i.i, label %471, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %469
-  %.sroa.2.0.copyload.i.i = load ptr, ptr getelementptr inbounds (%"class.std::basic_string_view", ptr @_ZN6cmList17element_separatorE, i64 0, i32 1), align 8, !noalias !34
+  %.sroa.2.0.copyload.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6cmList17element_separatorE, i64 8), align 8, !noalias !34
   %.sroa.0.0.copyload.i.i = load i64, ptr @_ZN6cmList17element_separatorE, align 8, !noalias !34
   invoke void @_ZN6cmList4JoinISt23_Rb_tree_const_iteratorISt17basic_string_viewIcSt11char_traitsIcEEEEENSt7__cxx1112basic_stringIcS4_SaIcEEET_SB_S5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr %470, ptr nonnull %343, i64 %.sroa.0.0.copyload.i.i, ptr %.sroa.2.0.copyload.i.i)
           to label %_ZN6cmList9to_stringI7cmRangeISt23_Rb_tree_const_iteratorISt17basic_string_viewIcSt11char_traitsIcEEEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcS5_SaIcEEERKSA_.exit.i unwind label %476

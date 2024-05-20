@@ -7062,8 +7062,8 @@ define internal void @RoleMembershipCacheCallback(i64 %0, i32 noundef %1, i32 no
 
 9:                                                ; preds = %5, %3
   store i32 0, ptr @cached_role, align 4
-  store i32 0, ptr getelementptr inbounds ([3 x i32], ptr @cached_role, i64 0, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds ([3 x i32], ptr @cached_role, i64 0, i64 2), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @cached_role, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @cached_role, i64 8), align 4
   br label %10
 
 10:                                               ; preds = %5, %9

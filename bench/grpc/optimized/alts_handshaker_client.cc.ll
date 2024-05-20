@@ -185,7 +185,7 @@ call.i.noexc:                                     ; preds = %if.then7
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([63 x i8], ptr @.str.3, i64 0, i64 62))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 62))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -246,7 +246,7 @@ call.i65.noexc:                                   ; preds = %if.then11
           to label %.noexc71 unwind label %lpad14
 
 .noexc71:                                         ; preds = %call.i65.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([23 x i8], ptr @.str.4, i64 0, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 22))
           to label %invoke.cont15 unwind label %lpad.i69
 
 lpad.i69:                                         ; preds = %.noexc71
@@ -312,7 +312,7 @@ call.i86.noexc:                                   ; preds = %if.then22
           to label %.noexc92 unwind label %lpad25
 
 .noexc92:                                         ; preds = %call.i86.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([47 x i8], ptr @.str.5, i64 0, i64 46))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 46))
           to label %invoke.cont26 unwind label %lpad.i90
 
 lpad.i90:                                         ; preds = %.noexc92
@@ -1810,7 +1810,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -1966,7 +1966,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__HandshakerReq_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__HandshakerReq_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %0 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -2013,7 +2013,7 @@ grpc_gcp_HandshakerReq_client_start.exit.i.i:     ; preds = %invoke.cont.i
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont6.i
 
 if.then.i.i:                                      ; preds = %grpc_gcp_HandshakerReq_client_start.exit.i.i, %invoke.cont.i
-  %6 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__StartClientHandshakeReq_msg_init, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__StartClientHandshakeReq_msg_init, i64 16), align 8
   %conv.i.i.i21.i = zext i16 %6 to i64
   %add.i.i.i22.i = add nuw nsw i64 %conv.i.i.i21.i, 8
   %sub.i.i.i23.i = add nuw nsw i64 %conv.i.i.i21.i, 23
@@ -2138,7 +2138,7 @@ invoke.cont15.i:                                  ; preds = %if.end.i57.i, %call
   br i1 %cmp.i69.i, label %if.then.i71.i, label %invoke.cont18.i
 
 if.then.i71.i:                                    ; preds = %invoke.cont15.i
-  %20 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 0, i32 2), align 8
+  %20 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 16), align 8
   %conv.i.i.i72.i = zext i16 %20 to i64
   %add.i.i.i73.i = add nuw nsw i64 %conv.i.i.i72.i, 8
   %sub.i.i.i74.i = add nuw nsw i64 %conv.i.i.i72.i, 23
@@ -2244,7 +2244,7 @@ call.i.i.i.noexc122.i:                            ; preds = %_upb_array_reserve.
 
 if.end.i102.i:                                    ; preds = %call.i.i.i.noexc122.i, %call.i95.noexc.i
   store i64 %add.i99.i, ptr %size.i98.i, align 8
-  %33 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__Identity_msg_init, i64 0, i32 2), align 8
+  %33 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__Identity_msg_init, i64 16), align 8
   %conv.i.i.i103.i = zext i16 %33 to i64
   %add.i.i.i104.i = add nuw nsw i64 %conv.i.i.i103.i, 8
   %sub.i.i.i105.i = add nuw nsw i64 %conv.i.i.i103.i, 23
@@ -2431,7 +2431,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__HandshakerReq_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__HandshakerReq_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %0 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -2478,7 +2478,7 @@ grpc_gcp_HandshakerReq_server_start.exit.i.i:     ; preds = %invoke.cont.i
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont11.i
 
 if.then.i.i:                                      ; preds = %grpc_gcp_HandshakerReq_server_start.exit.i.i, %invoke.cont.i
-  %6 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__StartServerHandshakeReq_msg_init, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__StartServerHandshakeReq_msg_init, i64 16), align 8
   %conv.i.i.i17.i = zext i16 %6 to i64
   %add.i.i.i18.i = add nuw nsw i64 %conv.i.i.i17.i, 8
   %sub.i.i.i19.i = add nuw nsw i64 %conv.i.i.i17.i, 23
@@ -2555,7 +2555,7 @@ if.end.i.i:                                       ; preds = %call.i.i.i.noexc.i,
 
 invoke.cont14.i:                                  ; preds = %if.end.i.i, %call.i.i.i.noexc.i, %call.i36.noexc.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %field.i.i)
-  %14 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__ServerHandshakeParameters_msg_init, i64 0, i32 2), align 8
+  %14 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__ServerHandshakeParameters_msg_init, i64 16), align 8
   %conv.i.i.i42.i = zext i16 %14 to i64
   %add.i.i.i43.i = add nuw nsw i64 %conv.i.i.i42.i, 8
   %sub.i.i.i44.i = add nuw nsw i64 %conv.i.i.i42.i, 23
@@ -2690,7 +2690,7 @@ invoke.cont41.i:                                  ; preds = %cond.false35.i, %co
   br i1 %cmp.i93.i, label %if.then.i95.i, label %invoke.cont43.i
 
 if.then.i95.i:                                    ; preds = %invoke.cont41.i
-  %31 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 0, i32 2), align 8
+  %31 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 16), align 8
   %conv.i.i.i96.i = zext i16 %31 to i64
   %add.i.i.i97.i = add nuw nsw i64 %conv.i.i.i96.i, 8
   %sub.i.i.i98.i = add nuw nsw i64 %conv.i.i.i96.i, 23
@@ -2878,7 +2878,7 @@ if.then.i11:                                      ; preds = %_ZN9grpc_core11CSli
 _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %if.then.i11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %recv_bytes, ptr noundef nonnull align 8 dereferenceable(32) %bytes_received, i64 32, i1 false)
   %call.i.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %5 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__HandshakerReq_msg_init, i64 0, i32 2), align 8
+  %5 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__HandshakerReq_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %5 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -2925,7 +2925,7 @@ grpc_gcp_HandshakerReq_next.exit.i.i:             ; preds = %invoke.cont.i
   br i1 %cmp.i.i13, label %if.then.i.i12, label %invoke.cont3.i
 
 if.then.i.i12:                                    ; preds = %grpc_gcp_HandshakerReq_next.exit.i.i, %invoke.cont.i
-  %11 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__NextHandshakeMessageReq_msg_init, i64 0, i32 2), align 8
+  %11 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__NextHandshakeMessageReq_msg_init, i64 16), align 8
   %conv.i.i.i10.i = zext i16 %11 to i64
   %add.i.i.i11.i = add nuw nsw i64 %conv.i.i.i10.i, 8
   %sub.i.i.i12.i = add nuw nsw i64 %conv.i.i.i10.i, 23

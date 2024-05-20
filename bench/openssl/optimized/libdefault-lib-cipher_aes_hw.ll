@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_cbc(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_cbc.aesni_cbc = select i1 %tobool.not, ptr @aes_cbc, ptr @aesni_cbc
@@ -38,7 +38,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_ecb(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_ecb.aesni_ecb = select i1 %tobool.not, ptr @aes_ecb, ptr @aesni_ecb
@@ -48,7 +48,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_ofb128(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_ofb128.aesni_ofb128 = select i1 %tobool.not, ptr @aes_ofb128, ptr @aesni_ofb128
@@ -58,7 +58,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_cfb128(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_cfb128.aesni_cfb128 = select i1 %tobool.not, ptr @aes_cfb128, ptr @aesni_cfb128
@@ -68,7 +68,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_cfb1(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_cfb1.aesni_cfb1 = select i1 %tobool.not, ptr @aes_cfb1, ptr @aesni_cfb1
@@ -78,7 +78,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_cfb8(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_cfb8.aesni_cfb8 = select i1 %tobool.not, ptr @aes_cfb8, ptr @aesni_cfb8
@@ -88,7 +88,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_ctr(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_ctr.aesni_ctr = select i1 %tobool.not, ptr @aes_ctr, ptr @aesni_ctr
@@ -234,7 +234,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %if.else32
 
 if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %2, 512
   %tobool5.not = icmp eq i32 %and, 0
   %block25 = getelementptr inbounds i8, ptr %dat, i64 48
@@ -270,7 +270,7 @@ if.else21:                                        ; preds = %if.then
   br label %if.end70
 
 if.else32:                                        ; preds = %entry, %land.lhs.true
-  %5 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and33 = and i32 %5, 512
   %tobool34.not = icmp eq i32 %and33, 0
   %block62 = getelementptr inbounds i8, ptr %dat, i64 48

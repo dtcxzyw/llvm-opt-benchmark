@@ -759,7 +759,7 @@ _ZN2mu14ParserErrorMsg8InstanceEv.exit:           ; preds = %19, %16, %2
   store ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, ptr %23, align 8
   %24 = load i32, ptr %13, align 4
   %25 = zext i32 %24 to i64
-  %26 = load ptr, ptr getelementptr inbounds (%"class.mu::ParserErrorMsg", ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !11
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, i64 8), align 8, !noalias !11
   %27 = load ptr, ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, align 8, !noalias !11
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
@@ -1073,7 +1073,7 @@ _ZN2mu14ParserErrorMsg8InstanceEv.exit:           ; preds = %24, %21, %16
   store ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, ptr %28, align 8
   %29 = load i32, ptr %18, align 4
   %30 = zext i32 %29 to i64
-  %31 = load ptr, ptr getelementptr inbounds (%"class.mu::ParserErrorMsg", ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !15
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, i64 8), align 8, !noalias !15
   %32 = load ptr, ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, align 8, !noalias !15
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
@@ -1267,7 +1267,7 @@ _ZN2mu14ParserErrorMsg8InstanceEv.exit:           ; preds = %22, %19, %14
   store ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, ptr %26, align 8
   %27 = load i32, ptr %16, align 4
   %28 = zext i32 %27 to i64
-  %29 = load ptr, ptr getelementptr inbounds (%"class.mu::ParserErrorMsg", ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, i64 8), align 8, !noalias !18
   %30 = load ptr, ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, align 8, !noalias !18
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64

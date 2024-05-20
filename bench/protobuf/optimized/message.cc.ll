@@ -2607,7 +2607,7 @@ init.check.i:                                     ; preds = %sw.bb
   br i1 %tobool.not.i, label %return, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIiEE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIiEEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIiEE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIiEEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb10:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2621,7 +2621,7 @@ init.check.i5:                                    ; preds = %sw.bb10
   br i1 %tobool.not.i6, label %return, label %invoke.cont.i7
 
 invoke.cont.i7:                                   ; preds = %init.check.i5
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIjEE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIjEEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIjEE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIjEEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb12:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2635,7 +2635,7 @@ init.check.i9:                                    ; preds = %sw.bb12
   br i1 %tobool.not.i10, label %return, label %invoke.cont.i11
 
 invoke.cont.i11:                                  ; preds = %init.check.i9
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIlEE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIlEEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIlEE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIlEEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb14:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2649,7 +2649,7 @@ init.check.i13:                                   ; preds = %sw.bb14
   br i1 %tobool.not.i14, label %return, label %invoke.cont.i15
 
 invoke.cont.i15:                                  ; preds = %init.check.i13
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorImEE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorImEEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorImEE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorImEEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb16:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2663,7 +2663,7 @@ init.check.i17:                                   ; preds = %sw.bb16
   br i1 %tobool.not.i18, label %return, label %invoke.cont.i19
 
 invoke.cont.i19:                                  ; preds = %init.check.i17
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIfEE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIfEEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIfEE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIfEEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb18:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2677,7 +2677,7 @@ init.check.i21:                                   ; preds = %sw.bb18
   br i1 %tobool.not.i22, label %return, label %invoke.cont.i23
 
 invoke.cont.i23:                                  ; preds = %init.check.i21
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIdEE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIdEEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIdEE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIdEEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb20:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2691,7 +2691,7 @@ init.check.i25:                                   ; preds = %sw.bb20
   br i1 %tobool.not.i26, label %return, label %invoke.cont.i27
 
 invoke.cont.i27:                                  ; preds = %init.check.i25
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIbEE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIbEEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIbEE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIbEEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb22:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2705,7 +2705,7 @@ init.check.i29:                                   ; preds = %sw.bb22
   br i1 %tobool.not.i30, label %return, label %invoke.cont.i31
 
 invoke.cont.i31:                                  ; preds = %init.check.i29
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIiEE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIiEEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIiEE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIiEEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb24:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2719,7 +2719,7 @@ init.check.i34:                                   ; preds = %sw.bb24
   br i1 %tobool.not.i35, label %return, label %init.i
 
 init.i:                                           ; preds = %init.check.i34
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6google8protobuf8internal30RepeatedPtrFieldStringAccessorE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedPtrFieldStringAccessorEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal30RepeatedPtrFieldStringAccessorE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedPtrFieldStringAccessorEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.bb29:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2772,7 +2772,7 @@ init.check.i50:                                   ; preds = %if.then
   br i1 %tobool.not.i51, label %return, label %init.i52
 
 init.i52:                                         ; preds = %init.check.i50
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal16MapFieldAccessorE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal16MapFieldAccessorEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal16MapFieldAccessorE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal16MapFieldAccessorEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 if.else:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, %_ZNK6google8protobuf15FieldDescriptor6is_mapEv.exit
@@ -2786,7 +2786,7 @@ init.check.i54:                                   ; preds = %if.else
   br i1 %tobool.not.i55, label %return, label %init.i56
 
 init.i56:                                         ; preds = %init.check.i54
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6google8protobuf8internal31RepeatedPtrFieldMessageAccessorE, i64 0, i32 0, i64 2), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal31RepeatedPtrFieldMessageAccessorEEEPT_vE9singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal31RepeatedPtrFieldMessageAccessorE, i64 16), ptr @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal31RepeatedPtrFieldMessageAccessorEEEPT_vE9singleton, align 8
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -2909,9 +2909,9 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactoryE, i64 16), ptr %this, align 8
   %files_ = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %files_, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %files_, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %slots_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %dropped_defaults_factory_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -2922,7 +2922,7 @@ invoke.cont7:                                     ; preds = %entry
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
   store i64 0, ptr %mutex_, align 8
   %type_map_ = getelementptr inbounds i8, ptr %this, i64 112
-  store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %type_map_, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %type_map_, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %delegate_to_generated_factory_.i = getelementptr inbounds i8, ptr %this, i64 56

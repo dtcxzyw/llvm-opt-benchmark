@@ -904,12 +904,12 @@ define hidden void @proto_register_h460() local_unnamed_addr #0 {
   %2 = load i32, ptr @proto_h460, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.386, ptr noundef nonnull @dissect_h460_name, i32 noundef %2) #4
   store ptr %3, ptr @h460_name_handle, align 8
-  %4 = load ptr, ptr getelementptr inbounds ([79 x %struct._h460_feature_t], ptr @h460_feature_tab, i64 0, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @h460_feature_tab, i64 8), align 8
   %.not23 = icmp eq ptr %4, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %44
-  %5 = phi ptr [ %46, %44 ], [ getelementptr inbounds ([79 x %struct._h460_feature_t], ptr @h460_feature_tab, i64 0, i64 0, i32 1), %0 ]
+  %5 = phi ptr [ %46, %44 ], [ getelementptr inbounds (i8, ptr @h460_feature_tab, i64 8), %0 ]
   %.024 = phi ptr [ %45, %44 ], [ @h460_feature_tab, %0 ]
   %6 = load i32, ptr %.024, align 8
   %7 = and i32 %6, 1
@@ -1022,7 +1022,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %1, i64 296
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds ([79 x %struct._h460_feature_t], ptr @h460_feature_tab, i64 0, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @h460_feature_tab, i64 8), align 8
   %.not32.i = icmp eq ptr %13, null
   br i1 %.not32.i, label %find_ftr.exit, label %.lr.ph.i
 
@@ -1114,7 +1114,7 @@ define hidden void @proto_reg_handoff_h460() local_unnamed_addr #0 {
   %3 = load i32, ptr @proto_h460, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.392, i32 noundef %3) #4
   store ptr %4, ptr @h225_ras_handle, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([79 x %struct._h460_feature_t], ptr @h460_feature_tab, i64 0, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @h460_feature_tab, i64 8), align 8
   %.not41 = icmp eq ptr %5, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 

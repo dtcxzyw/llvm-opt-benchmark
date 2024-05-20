@@ -815,7 +815,7 @@ define noundef i32 @mca_fcoll_dynamic_gen2_file_write_all(ptr noundef %0, ptr no
   br i1 %exitcond735.not, label %._crit_edge627, label %.lr.ph626, !llvm.loop !19
 
 ._crit_edge627:                                   ; preds = %.lr.ph626, %.preheader556, %.preheader555
-  %401 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %401 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %402 = load i32, ptr %47, align 8
   %403 = add nsw i32 %402, 1
   %404 = mul nsw i32 %403, %spec.select.i
@@ -892,7 +892,7 @@ define noundef i32 @mca_fcoll_dynamic_gen2_file_write_all(ptr noundef %0, ptr no
   br i1 %exitcond748.not, label %._crit_edge638, label %.lr.ph637, !llvm.loop !22
 
 ._crit_edge638:                                   ; preds = %.lr.ph637, %.preheader552
-  %434 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %434 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %435 = load i32, ptr %47, align 8
   %436 = add nsw i32 %435, 1
   %437 = mul nsw i32 %436, %spec.select.i
@@ -2840,7 +2840,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   br i1 %.not552, label %727, label %719
 
 719:                                              ; preds = %702
-  %720 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %720 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %721 = load ptr, ptr %692, align 8
   %722 = load ptr, ptr %693, align 8
   %723 = getelementptr inbounds i32, ptr %722, i64 %indvars.iv675
@@ -3002,7 +3002,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %802 = call i32 @ompi_datatype_create_hindexed(i32 noundef %801, ptr noundef nonnull %.2493, ptr noundef %.2488, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %6) #11
   %.val555 = load ptr, ptr %6, align 8
   %803 = call i32 @opal_datatype_commit(ptr noundef %.val555) #11
-  %804 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %804 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %805 = inttoptr i64 %.1 to ptr
   %806 = load ptr, ptr %6, align 8
   %807 = add nsw i32 %0, 123

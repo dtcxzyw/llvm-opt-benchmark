@@ -16690,7 +16690,7 @@ define void @_ZN3hir5Crate26query_external_importables17hdc7542bf8dcf90c5E(ptr n
   br label %.body
 
 15:                                               ; preds = %5
-  %16 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir5Crate26query_external_importables10__CALLSITE17he403c2f9249d6fa6E, i64 0, i32 1, i64 8) monotonic, align 8
+  %16 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir5Crate26query_external_importables10__CALLSITE17he403c2f9249d6fa6E, i64 16) monotonic, align 8
   switch i8 %16, label %17 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -20175,7 +20175,7 @@ default.unreachable1234:                          ; preds = %866
   unreachable
 
 92:                                               ; preds = %5
-  %93 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir6Module11diagnostics10__CALLSITE17hee863ccb54713246E, i64 0, i32 1, i64 8) monotonic, align 8
+  %93 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir6Module11diagnostics10__CALLSITE17hee863ccb54713246E, i64 16) monotonic, align 8
   switch i8 %93, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -24254,7 +24254,7 @@ define internal fastcc void @_ZN3hir26emit_macro_def_diagnostics17ha41052a4052cc
   br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %76
-  %80 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir26emit_macro_def_diagnostics10__CALLSITE17h33fe04dc8cad3472E, i64 0, i32 1, i64 8) monotonic, align 8
+  %80 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir26emit_macro_def_diagnostics10__CALLSITE17h33fe04dc8cad3472E, i64 16) monotonic, align 8
   switch i8 %80, label %81 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -25831,7 +25831,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h6dd6e2576a4b826cE.exit: ; preds = %
   br i1 %587, label %588, label %.critedge
 
 588:                                              ; preds = %585
-  %589 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir20emit_def_diagnostic_10__CALLSITE17h1d2822183a8c9352E, i64 0, i32 1, i64 8) monotonic, align 8
+  %589 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir20emit_def_diagnostic_10__CALLSITE17h1d2822183a8c9352E, i64 16) monotonic, align 8
   switch i8 %589, label %590 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -26194,7 +26194,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h6dd6e2576a4b826cE.exit209: ; preds 
   br i1 %702, label %703, label %.critedge99
 
 703:                                              ; preds = %700
-  %704 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir20emit_def_diagnostic_10__CALLSITE17h1768f7e69ddc2f4bE, i64 0, i32 1, i64 8) monotonic, align 8
+  %704 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir20emit_def_diagnostic_10__CALLSITE17h1768f7e69ddc2f4bE, i64 16) monotonic, align 8
   switch i8 %704, label %705 [
     i8 0, label %.critedge99
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit217.thread
@@ -39111,7 +39111,7 @@ _ZN4core3ops8function6FnOnce9call_once17h0c1e69f9527dc097E.exit.thread.i6.i: ; p
   br i1 %302, label %303, label %.critedge
 
 303:                                              ; preds = %300
-  %304 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir8Function14async_ret_type10__CALLSITE17he900a738f9337219E, i64 0, i32 1, i64 8) monotonic, align 8
+  %304 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir8Function14async_ret_type10__CALLSITE17he900a738f9337219E, i64 16) monotonic, align 8
   switch i8 %304, label %305 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -52403,7 +52403,7 @@ default.unreachable:                              ; preds = %33
 53:                                               ; preds = %51
   %54 = icmp ult i64 %52, 5
   tail call void @llvm.assume(i1 %54)
-  %55 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir10ConstParam4name10__CALLSITE17h9271371db439a4e7E, i64 0, i32 1, i64 8) monotonic, align 8
+  %55 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir10ConstParam4name10__CALLSITE17h9271371db439a4e7E, i64 16) monotonic, align 8
   switch i8 %55, label %56 [
     i8 0, label %.critedge27
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -60801,7 +60801,7 @@ define void @_ZN3hir4Type29iterate_method_candidates_dyn17hee32baf3362ba3b8E(ptr
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %9
-  %29 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir4Type29iterate_method_candidates_dyn10__CALLSITE17h1fbca7604db15b17E, i64 0, i32 1, i64 8) monotonic, align 8
+  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir4Type29iterate_method_candidates_dyn10__CALLSITE17h1fbca7604db15b17E, i64 16) monotonic, align 8
   switch i8 %29, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -61138,7 +61138,7 @@ define void @_ZN3hir4Type26applicable_inherent_traits17h7ce7f5b2eca120e8E(ptr no
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %4
-  %13 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir4Type26applicable_inherent_traits10__CALLSITE17he04c0e8224e54bf7E, i64 0, i32 1, i64 8) monotonic, align 8
+  %13 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir4Type26applicable_inherent_traits10__CALLSITE17he04c0e8224e54bf7E, i64 16) monotonic, align 8
   switch i8 %13, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -61304,7 +61304,7 @@ define void @_ZN3hir4Type10env_traits17h6111e62f5f7dd6ffE(ptr noalias nocapture 
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %4
-  %13 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir4Type10env_traits10__CALLSITE17h55840c7e71f0d484E, i64 0, i32 1, i64 8) monotonic, align 8
+  %13 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir4Type10env_traits10__CALLSITE17h55840c7e71f0d484E, i64 16) monotonic, align 8
   switch i8 %13, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -65901,7 +65901,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %54, %51, %9
   br i1 %33, label %34, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread70
 
 34:                                               ; preds = %31
-  %35 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir4Type27iterate_path_candidates_dyn10__CALLSITE17h64e15bed304a943eE, i64 0, i32 1, i64 8) monotonic, align 8
+  %35 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir4Type27iterate_path_candidates_dyn10__CALLSITE17h64e15bed304a943eE, i64 16) monotonic, align 8
   switch i8 %35, label %36 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread70
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

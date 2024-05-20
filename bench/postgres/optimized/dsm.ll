@@ -462,7 +462,7 @@ define dso_local ptr @dsm_create(i64 noundef %0, i32 noundef %1) local_unnamed_a
 9:                                                ; preds = %8, %6
   %10 = load ptr, ptr @TopMemoryContext, align 8
   %11 = tail call ptr @MemoryContextAlloc(ptr noundef %10, i64 noundef 64) #12
-  %12 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %dlist_push_head.exit.i
 
@@ -476,7 +476,7 @@ dlist_push_head.exit.i:                           ; preds = %14, %9
   store ptr %15, ptr %16, align 8
   store ptr @dsm_segment_list, ptr %11, align 8
   store ptr %11, ptr %15, align 8
-  store ptr %11, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %17 = getelementptr inbounds i8, ptr %11, i64 28
   store i32 -1, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %11, i64 32
@@ -763,7 +763,7 @@ define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %1
-  %4 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %4, null
   %.not354356 = icmp eq ptr %4, @dsm_segment_list
   %.not3543 = or i1 %.not, %.not354356
@@ -801,7 +801,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %3
 15:                                               ; preds = %14, %select.unfold._crit_edge
   %16 = load ptr, ptr @TopMemoryContext, align 8
   %17 = tail call ptr @MemoryContextAlloc(ptr noundef %16, i64 noundef 64) #12
-  %18 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %dlist_push_head.exit.i
 
@@ -815,7 +815,7 @@ dlist_push_head.exit.i:                           ; preds = %20, %15
   store ptr %21, ptr %22, align 8
   store ptr @dsm_segment_list, ptr %17, align 8
   store ptr %17, ptr %21, align 8
-  store ptr %17, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %23 = getelementptr inbounds i8, ptr %17, i64 28
   store i32 -1, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %17, i64 32
@@ -1068,7 +1068,7 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dsm_backend_shutdown() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %2 = icmp eq ptr %1, null
   %3 = icmp eq ptr %1, @dsm_segment_list
   %spec.select.i1 = or i1 %2, %3
@@ -1077,7 +1077,7 @@ define dso_local void @dsm_backend_shutdown() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %4 = phi ptr [ %5, %.lr.ph ], [ %1, %0 ]
   tail call void @dsm_detach(ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %5, @dsm_segment_list
   %spec.select.i = or i1 %6, %7
@@ -1092,7 +1092,7 @@ define dso_local void @dsm_detach_all() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = load ptr, ptr @dsm_control, align 8
   store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %4 = icmp eq ptr %3, null
   %5 = icmp eq ptr %3, @dsm_segment_list
   %spec.select.i1 = or i1 %4, %5
@@ -1101,7 +1101,7 @@ define dso_local void @dsm_detach_all() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %6 = phi ptr [ %7, %.lr.ph ], [ %3, %0 ]
   tail call void @dsm_detach(ptr noundef nonnull %6)
-  %7 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %8 = icmp eq ptr %7, null
   %9 = icmp eq ptr %7, @dsm_segment_list
   %spec.select.i = or i1 %8, %9
@@ -1349,7 +1349,7 @@ declare void @dsm_impl_unpin_segment(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @dsm_find_mapping(i32 noundef %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %2, null
   %.not91013 = icmp eq ptr %2, @dsm_segment_list
   %.not910 = or i1 %.not, %.not91013
@@ -1449,7 +1449,7 @@ define dso_local void @cancel_on_dsm_detach(ptr nocapture noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @reset_on_dsm_detach() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @dsm_segment_list, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %1, null
   %.not101315 = icmp eq ptr %1, @dsm_segment_list
   %.not1013 = or i1 %.not, %.not101315

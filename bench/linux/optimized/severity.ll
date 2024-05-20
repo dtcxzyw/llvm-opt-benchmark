@@ -64,7 +64,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local range(i32 0, 256) i32 @mce_severity(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 section ".noinstr.text" align 16 {
-  %5 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %5, label %50 [
     i8 9, label %6
     i8 2, label %6
@@ -208,8 +208,8 @@ error_context.exit.i1:                            ; preds = %71, %66, %61, %56, 
   %.fr5.i = freeze i64 %78
   %79 = and i64 %.fr5.i, 4
   %.not.i2 = icmp eq i64 %79, 0
-  %80 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
-  %81 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3), align 1
+  %80 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
+  %81 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 3), align 1
   %82 = getelementptr inbounds i8, ptr %0, i64 65
   br i1 %.not.i2, label %error_context.exit.split.us.i, label %error_context.exit.split.i
 

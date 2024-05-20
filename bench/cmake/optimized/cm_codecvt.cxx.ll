@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7codecvtC2E16codecvt_Encoding(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 %1) unnamed_addr #0 align 2 {
   tail call void @_ZNSt7codecvtIcc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV7codecvt, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7codecvt, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %3, align 8
   ret void

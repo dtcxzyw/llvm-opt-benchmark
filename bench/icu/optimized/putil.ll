@@ -1165,7 +1165,7 @@ if.end58:                                         ; preds = %_ZL16skipZoneIDPref
   %. = zext i1 %cmp65 to i32
   %daylightType.0 = select i1 %cmp61, i32 2, i32 %.
   %7 = load ptr, ptr @tzname, align 16
-  %8 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @tzname, i64 0, i64 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @tzname, i64 8), align 8
   %9 = load i64, ptr @__timezone, align 8
   %conv.i = trunc i64 %9 to i32
   br label %for.body.i
@@ -1901,12 +1901,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call fastcc void @_ZL21TimeZoneDataDirInitFnR10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
-  store i32 %2, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @gTimeZoneFilesInitOnce_75, i64 0, i32 1), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @gTimeZoneFilesInitOnce_75, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @gTimeZoneFilesInitOnce_75)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %3 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @gTimeZoneFilesInitOnce_75, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @gTimeZoneFilesInitOnce_75, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %3, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -2007,12 +2007,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call fastcc void @_ZL21TimeZoneDataDirInitFnR10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
-  store i32 %2, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @gTimeZoneFilesInitOnce_75, i64 0, i32 1), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @gTimeZoneFilesInitOnce_75, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @gTimeZoneFilesInitOnce_75)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %3 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @gTimeZoneFilesInitOnce_75, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @gTimeZoneFilesInitOnce_75, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %3, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

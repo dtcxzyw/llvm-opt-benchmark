@@ -846,7 +846,7 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
 
 5:                                                ; preds = %1, %22
   %6 = phi ptr [ @.str.21, %1 ], [ %40, %22 ]
-  %7 = phi ptr [ getelementptr inbounds ([7 x %struct.size_pretty_unit], ptr @size_pretty_units, i64 0, i64 1, i32 0), %1 ], [ %39, %22 ]
+  %7 = phi ptr [ getelementptr inbounds (i8, ptr @size_pretty_units, i64 16), %1 ], [ %39, %22 ]
   %.0162228 = phi ptr [ @size_pretty_units, %1 ], [ %7, %22 ]
   %.02327 = phi i64 [ %4, %1 ], [ %38, %22 ]
   %8 = phi ptr [ @.str.20, %1 ], [ %6, %22 ]
@@ -860,7 +860,7 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
 14:                                               ; preds = %5, %22
   %.lcssa = phi ptr [ %8, %5 ], [ %6, %22 ]
   %.023.lcssa = phi i64 [ %.02327, %5 ], [ %38, %22 ]
-  %.01622.lcssa = phi ptr [ %.0162228, %5 ], [ getelementptr inbounds ([7 x %struct.size_pretty_unit], ptr @size_pretty_units, i64 0, i64 5, i32 0), %22 ]
+  %.01622.lcssa = phi ptr [ %.0162228, %5 ], [ getelementptr inbounds (i8, ptr @size_pretty_units, i64 80), %22 ]
   %15 = getelementptr inbounds i8, ptr %.01622.lcssa, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
@@ -920,7 +920,7 @@ define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) 
 
 6:                                                ; preds = %1, %39
   %7 = phi ptr [ @.str.21, %1 ], [ %65, %39 ]
-  %8 = phi ptr [ getelementptr inbounds ([7 x %struct.size_pretty_unit], ptr @size_pretty_units, i64 0, i64 1, i32 0), %1 ], [ %64, %39 ]
+  %8 = phi ptr [ getelementptr inbounds (i8, ptr @size_pretty_units, i64 16), %1 ], [ %64, %39 ]
   %9 = phi ptr [ %5, %1 ], [ %63, %39 ]
   %.0162431 = phi ptr [ @size_pretty_units, %1 ], [ %8, %39 ]
   %10 = phi ptr [ @.str.20, %1 ], [ %7, %39 ]

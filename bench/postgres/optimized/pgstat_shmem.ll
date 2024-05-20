@@ -129,14 +129,14 @@ define dso_local void @pgstat_attach_shmem() local_unnamed_addr #0 {
   %3 = load ptr, ptr @pgStatLocal, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dsa_attach_in_place(ptr noundef %4, ptr noundef null) #14
-  store ptr %5, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   tail call void @dsa_pin_mapping(ptr noundef %5) #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %7 = load ptr, ptr @pgStatLocal, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call ptr @dshash_attach(ptr noundef %6, ptr noundef nonnull @dsh_params, i64 noundef %9, ptr noundef null) #14
-  store ptr %10, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   store ptr %2, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -232,12 +232,12 @@ pgstat_release_matching_entry_refs.exit.i:        ; preds = %pgstat_entry_ref_ha
   br label %pgstat_release_all_entry_refs.exit
 
 pgstat_release_all_entry_refs.exit:               ; preds = %0, %pgstat_release_matching_entry_refs.exit.i
-  %34 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   tail call void @dshash_detach(ptr noundef %34) #14
-  store ptr null, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   tail call void @dsa_detach(ptr noundef %35) #14
-  store ptr null, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   ret void
 }
 
@@ -247,13 +247,13 @@ define dso_local noundef ptr @pgstat_init_entry(i32 noundef %0, ptr noundef %1) 
   store volatile i32 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   store i8 0, ptr %4, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %6 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = tail call i64 @dsa_allocate_extended(ptr noundef %5, i64 noundef %9, i32 noundef 4) #14
-  %11 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %12 = tail call ptr @dsa_get_address(ptr noundef %11, i64 noundef %10) #14
   store i32 -559038737, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 24
@@ -870,14 +870,14 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
 
 332:                                              ; preds = %pgstat_get_entry_ref_cached.exit.thread, %pgstat_get_entry_ref_cached.exit
   %333 = phi ptr [ %.pre.i41, %pgstat_get_entry_ref_cached.exit.thread ], [ %325, %pgstat_get_entry_ref_cached.exit ]
-  %334 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   %335 = call ptr @dshash_find(ptr noundef %334, ptr noundef nonnull %7, i1 noundef zeroext false) #14
   %336 = icmp eq ptr %335, null
   %or.cond.not = select i1 %3, i1 %336, i1 false
   br i1 %or.cond.not, label %337, label %359
 
 337:                                              ; preds = %332
-  %338 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %338 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   %339 = call ptr @dshash_find_or_insert(ptr noundef %338, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
   %340 = load i8, ptr %8, align 1
   %341 = trunc i8 %340 to i1
@@ -888,13 +888,13 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
   store volatile i32 1, ptr %343, align 4
   %344 = getelementptr inbounds i8, ptr %339, i64 12
   store i8 0, ptr %344, align 4
-  %345 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %345 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %346 = call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %347 = getelementptr inbounds i8, ptr %346, i64 4
   %348 = load i32, ptr %347, align 4
   %349 = zext i32 %348 to i64
   %350 = call i64 @dsa_allocate_extended(ptr noundef %345, i64 noundef %349, i32 noundef 4) #14
-  %351 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %351 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %352 = call ptr @dsa_get_address(ptr noundef %351, i64 noundef %350) #14
   store i32 -559038737, ptr %352, align 4
   %353 = getelementptr inbounds i8, ptr %339, i64 24
@@ -902,7 +902,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
   %354 = getelementptr inbounds i8, ptr %352, i64 4
   call void @LWLockInitialize(ptr noundef nonnull %354, i32 noundef 79) #14
   %355 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %343, i32 1, ptr nonnull elementtype(i32) %343) #14, !srcloc !14
-  %356 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %356 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %356, ptr noundef %339) #14
   %357 = getelementptr inbounds i8, ptr %333, i64 8
   store ptr %352, ptr %357, align 8
@@ -932,7 +932,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
   br i1 %brmerge.demorgan, label %365, label %385
 
 365:                                              ; preds = %361
-  %366 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %367 = getelementptr inbounds i8, ptr %.032, i64 24
   %368 = load i64, ptr %367, align 8
   %369 = call ptr @dsa_get_address(ptr noundef %366, i64 noundef %368) #14
@@ -950,7 +950,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
   %380 = zext i32 %379 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %376, i8 0, i64 %380, i1 false)
   %381 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %370, i32 1, ptr nonnull elementtype(i32) %370) #14, !srcloc !14
-  %382 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %382 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %382, ptr noundef nonnull %.032) #14
   %383 = getelementptr inbounds i8, ptr %333, i64 8
   store ptr %369, ptr %383, align 8
@@ -965,7 +965,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
   br i1 %364, label %386, label %388
 
 386:                                              ; preds = %385
-  %387 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %387 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %387, ptr noundef nonnull %.032) #14
   %.sroa.0.0.copyload = load i64, ptr %7, align 8
   %.sroa.2.0.copyload = load i32, ptr %10, align 8
@@ -973,13 +973,13 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
   br label %397
 
 388:                                              ; preds = %385
-  %389 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %390 = getelementptr inbounds i8, ptr %.032, i64 24
   %391 = load i64, ptr %390, align 8
   %392 = call ptr @dsa_get_address(ptr noundef %389, i64 noundef %391) #14
   %393 = getelementptr inbounds i8, ptr %.032, i64 16
   %394 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %393, i32 1, ptr nonnull elementtype(i32) %393) #14, !srcloc !14
-  %395 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %395 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %395, ptr noundef nonnull %.032) #14
   %396 = getelementptr inbounds i8, ptr %333, i64 8
   store ptr %392, ptr %396, align 8
@@ -1038,7 +1038,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   %24 = load ptr, ptr %2, align 8
   %25 = tail call ptr @dshash_find(ptr noundef %23, ptr noundef %24, i1 noundef zeroext true) #14
   %.not18 = icmp eq ptr %25, null
@@ -1054,9 +1054,9 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %25, i64 24
   %31 = load i64, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   tail call void @dshash_delete_entry(ptr noundef %32, ptr noundef nonnull %25) #14
-  %33 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   tail call void @dsa_free(ptr noundef %33, i64 noundef %31) #14
   br label %.critedge
 
@@ -1389,7 +1389,7 @@ pgstat_entry_ref_hash_lookup.exit:                ; preds = %.lr.ph.i.i
   br label %55
 
 55:                                               ; preds = %pgstat_entry_ref_hash_lookup.exit.thread, %pgstat_entry_ref_hash_lookup.exit, %52, %3
-  %56 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   %57 = call ptr @dshash_find(ptr noundef %56, ptr noundef nonnull %6, i1 noundef zeroext true) #14
   %.not14 = icmp eq ptr %57, null
   br i1 %.not14, label %129, label %58
@@ -1491,7 +1491,7 @@ pgstat_entry_ref_hash_iterate.exit.i.i.i:         ; preds = %82
   br label %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer, !llvm.loop !9
 
 pgstat_release_db_entry_refs.exit.i:              ; preds = %pgstat_entry_ref_hash_iterate.exit.i.i.i, %80, %62
-  %102 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %102, i1 noundef zeroext true) #14
   %103 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
   %.not1517.i = icmp eq ptr %103, null
@@ -1536,7 +1536,7 @@ pgstat_release_db_entry_refs.exit.i:              ; preds = %pgstat_entry_ref_ha
   %120 = getelementptr inbounds i8, ptr %106, i64 24
   %121 = load i64, ptr %120, align 8
   call void @dshash_delete_current(ptr noundef nonnull %4) #14
-  %122 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   call void @dsa_free(ptr noundef %122, i64 noundef %121) #14
   br label %pgstat_drop_entry_internal.exit.i
 
@@ -1596,7 +1596,7 @@ define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr nounde
   br i1 %.not.i, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   tail call void @dshash_delete_entry(ptr noundef %17, ptr noundef nonnull %0) #14
   br label %pgstat_free_entry.exit
 
@@ -1605,7 +1605,7 @@ define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr nounde
   br label %pgstat_free_entry.exit
 
 pgstat_free_entry.exit:                           ; preds = %16, %18
-  %19 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   tail call void @dsa_free(ptr noundef %19, i64 noundef %15) #14
   br label %23
 
@@ -1614,7 +1614,7 @@ pgstat_free_entry.exit:                           ; preds = %16, %18
   br i1 %.not, label %21, label %23
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   tail call void @dshash_release_lock(ptr noundef %22, ptr noundef nonnull %0) #14
   br label %23
 
@@ -1625,7 +1625,7 @@ pgstat_free_entry.exit:                           ; preds = %16, %18
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_drop_all_entries() local_unnamed_addr #0 {
   %1 = alloca %struct.dshash_seq_status, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_seq_init(ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext true) #14
   br label %.outer
 
@@ -1656,7 +1656,7 @@ define dso_local void @pgstat_drop_all_entries() local_unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
   call void @dshash_delete_current(ptr noundef nonnull %1) #14
-  %17 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   call void @dsa_free(ptr noundef %17, i64 noundef %16) #14
   br label %pgstat_drop_entry_internal.exit
 
@@ -1738,7 +1738,7 @@ shared_stat_reset_contents.exit:                  ; preds = %11, %29
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_reset_matching_entries(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dshash_seq_status, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %5, i1 noundef zeroext false) #14
   %6 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
   %.not9 = icmp eq ptr %6, null
@@ -1756,7 +1756,7 @@ define dso_local void @pgstat_reset_matching_entries(ptr nocapture noundef reado
   br i1 %12, label %13, label %.backedge
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = call ptr @dsa_get_address(ptr noundef %14, i64 noundef %16) #14

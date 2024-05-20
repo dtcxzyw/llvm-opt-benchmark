@@ -184,7 +184,7 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   store ptr %82, ptr %g_inactivetasks., align 8
   %.not105 = icmp eq ptr %82, null
   %83 = getelementptr inbounds i8, ptr %82, i64 8
-  %.sink111 = select i1 %.not105, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_inactivetasks, i64 0, i32 1), ptr %83
+  %.sink111 = select i1 %.not105, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), ptr %83
   store ptr %81, ptr %.sink111, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %86

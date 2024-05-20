@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 -1, 1) i32 @pam_setup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pam_conv, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.pam_setup.conv, i64 16, i1 false)
-  %4 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %5 = and i32 %4, 16
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %48, label %6
@@ -133,7 +133,7 @@ declare i32 @pam_end(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pam_finish() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %2 = and i32 %1, 16
   %3 = icmp ne i32 %2, 0
   %4 = load ptr, ptr @pam_h, align 8

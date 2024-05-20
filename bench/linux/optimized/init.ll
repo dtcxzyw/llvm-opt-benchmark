@@ -41,7 +41,7 @@ define internal noundef i32 @pci_arch_init() #0 section ".init.text" align 16 {
   br label %6
 
 6:                                                ; preds = %5, %0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 144), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %12, label %9
 

@@ -1372,7 +1372,7 @@ define dso_local void @acpi_early_init() local_unnamed_addr #8 section ".init.te
 
 24:                                               ; preds = %22, %18
   %25 = phi i8 [ %23, %22 ], [ %19, %18 ]
-  %26 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  %26 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %27 = zext i16 %26 to i32
   %28 = lshr i8 %25, 2
   %29 = and i8 %28, 3
@@ -1383,7 +1383,7 @@ define dso_local void @acpi_early_init() local_unnamed_addr #8 section ".init.te
 31:                                               ; preds = %15
   %32 = load i32, ptr @acpi_sci_override_gsi, align 4
   %33 = trunc i32 %32 to i16
-  store i16 %33, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  store i16 %33, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   br label %37
 
 34:                                               ; preds = %12, %8

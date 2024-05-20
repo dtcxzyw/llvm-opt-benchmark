@@ -44,7 +44,7 @@ entry:
   %status.i4 = alloca %"class.icu_75::ErrorCode", align 8
   %status.i = alloca %"class.icu_75::ErrorCode", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %status.i)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i64 0, i32 0, i64 2), ptr %status.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status.i, align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %status.i, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_122_load_installedLocalesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
@@ -152,7 +152,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ul
   %12 = load ptr, ptr @_ZN6icu_75L19availableLocaleListE, align 8
   %arrayidx = getelementptr inbounds %"class.icu_75::Locale", ptr %12, i64 %indvars.iv.next
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %status.i4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i64 0, i32 0, i64 2), ptr %status.i4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status.i4, align 8
   store i32 0, ptr %errorCode.i.i5, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_122_load_installedLocalesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i5)
           to label %invoke.cont2.i unwind label %lpad.i6
@@ -195,7 +195,7 @@ for.end:                                          ; preds = %uloc_getAvailable_7
 define i32 @uloc_countAvailable_75() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.icu_75::ErrorCode", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i64 0, i32 0, i64 2), ptr %status, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_122_load_installedLocalesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
@@ -238,7 +238,7 @@ declare void @_ZN6icu_756Locale14setFromPOSIXIDEPKc(ptr noundef nonnull align 8 
 define ptr @uloc_getAvailable_75(i32 noundef %offset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.icu_75::ErrorCode", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i64 0, i32 0, i64 2), ptr %status, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_122_load_installedLocalesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
@@ -357,7 +357,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call void @ucln_common_registerCleanup_75(i32 noundef 12, ptr noundef nonnull @_ZN12_GLOBAL__N_112uloc_cleanupEv)
   %call.i = tail call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %status)
   store ptr %call.i, ptr %rb.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120AvailableLocalesSinkE, i64 0, i32 0, i64 2), ptr %sink.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120AvailableLocalesSinkE, i64 16), ptr %sink.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %sink.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont4.i unwind label %lpad1.i
 
@@ -388,12 +388,12 @@ _ZN12_GLOBAL__N_120loadInstalledLocalesER10UErrorCode.exit: ; preds = %invoke.co
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sink.i)
   %5 = load i32, ptr %status, align 4
-  store i32 %5, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE, i64 0, i32 1), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %6 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE, i64 0, i32 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %6, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -448,7 +448,7 @@ if.then.i:                                        ; preds = %new.cont
   br label %return
 
 _ZN6icu_7512LocalPointerIN12_GLOBAL__N_133AvailableLocalesStringEnumerationEEC2EPS2_R10UErrorCode.exit: ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_133AvailableLocalesStringEnumerationE, i64 0, i32 0, i64 2), ptr %call8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_133AvailableLocalesStringEnumerationE, i64 16), ptr %call8, align 8
   %fType.i = getelementptr inbounds i8, ptr %call8, i64 116
   store i32 %type, ptr %fType.i, align 4
   %fIndex.i = getelementptr inbounds i8, ptr %call8, i64 120
@@ -509,10 +509,10 @@ entry:
   tail call void @uprv_free_75(ptr noundef %0)
   store ptr null, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, align 16
   store i32 0, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, align 4
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 0, i64 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 8), align 8
   tail call void @uprv_free_75(ptr noundef %1)
-  store ptr null, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 0, i64 1), align 8
-  store i32 0, ptr getelementptr inbounds ([2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 1), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 4), align 4
   store atomic i32 0, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE seq_cst, align 4
   ret i8 1
 }
@@ -693,7 +693,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, align 4
-  %3 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 4), align 4
   %add = add nsw i32 %3, %2
   br label %return
 

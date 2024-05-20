@@ -460,7 +460,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not74, label %75, label %72
 
 72:                                               ; preds = %69
-  %73 = load i32, ptr getelementptr inbounds (%struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i64 0, i32 1), align 8
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @MyClientConnectionInfo, i64 8), align 8
   %74 = tail call ptr @hba_authname(i32 noundef %73) #12
   tail call void @InitializeSystemUser(ptr noundef nonnull %71, ptr noundef %74) #12
   br label %75
@@ -978,7 +978,7 @@ sub_0.i:                                          ; preds = %304
   %335 = phi i8 [ %.pre.i, %333 ], [ %321, %319 ]
   %.0.i96 = phi ptr [ %326, %333 ], [ null, %319 ]
   store i8 %335, ptr @default_locale, align 8
-  store i8 1, ptr getelementptr inbounds (%struct.pg_locale_struct, ptr @default_locale, i64 0, i32 1), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @default_locale, i64 1), align 1
   %336 = call i64 @SysCacheGetAttr(i32 noundef 21, ptr noundef nonnull %231, i16 noundef signext 17, ptr noundef nonnull %7) #12
   %337 = load i8, ptr %7, align 1
   %338 = trunc i8 %337 to i1

@@ -246,10 +246,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_update_color_harmony_gui(ptr %0) unnamed_addr #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   %3 = getelementptr inbounds i8, ptr %2, i64 1544
   %4 = load i32, ptr %3, align 8, !tbaa !23
-  %5 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !45
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !45
   %6 = tail call ptr @dt_image_cache_get(ptr noundef %5, i32 noundef %4, i8 noundef signext 114) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 2772
   tail call void @dt_color_harmony_init(ptr noundef nonnull %7) #16
@@ -259,7 +259,7 @@ define internal fastcc void @_update_color_harmony_gui(ptr %0) unnamed_addr #2 {
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %6, i64 1704
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false)
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !45
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !45
   tail call void @dt_image_cache_read_release(ptr noundef %11, ptr noundef nonnull %6) #16
   br label %12
 
@@ -299,16 +299,16 @@ define void @view_enter(ptr noundef %0, ptr nocapture noundef readnone %1, ptr n
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !53
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
   %12 = and i32 %11, 2
   %13 = icmp ne i32 %12, 0
-  %14 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 21), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3208), align 8
   %15 = icmp ne i32 %14, 0
   %16 = select i1 %13, i1 %15, i1 false
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %10
-  %18 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !54
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !54
   %19 = and i32 %18, 1048576
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %22, label %21
@@ -318,7 +318,7 @@ define void @view_enter(ptr noundef %0, ptr nocapture noundef readnone %1, ptr n
   br label %22
 
 22:                                               ; preds = %21, %17, %10
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !55
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !55
   tail call void @dt_control_signal_connect(ptr noundef %23, i32 noundef 21, ptr noundef nonnull @_lib_histogram_preview_updated_callback, ptr noundef nonnull %0) #16
   br label %24
 
@@ -352,13 +352,13 @@ declare void @gtk_widget_hide(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @view_leave(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #2 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !53
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
   %5 = and i32 %4, 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !54
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !54
   %9 = and i32 %8, 1048576
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %11
@@ -368,7 +368,7 @@ define void @view_leave(ptr noundef %0, ptr nocapture noundef readnone %1, ptr n
   br label %12
 
 12:                                               ; preds = %11, %7, %3
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !55
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !55
   tail call void @dt_control_signal_disconnect(ptr noundef %13, ptr noundef nonnull @_lib_histogram_preview_updated_callback, ptr noundef %0) #16
   ret void
 }
@@ -413,7 +413,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %22
 
 22:                                               ; preds = %21, %6
-  %23 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 1), align 8, !tbaa !61
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 8), align 8, !tbaa !61
   %24 = tail call i32 @g_strcmp0(ptr noundef %16, ptr noundef %23) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %27
@@ -423,7 +423,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %27
 
 27:                                               ; preds = %26, %22
-  %28 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 2), align 16, !tbaa !61
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 16), align 16, !tbaa !61
   %29 = tail call i32 @g_strcmp0(ptr noundef %16, ptr noundef %28) #16
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %32
@@ -433,7 +433,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %32
 
 32:                                               ; preds = %31, %27
-  %33 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 3), align 8, !tbaa !61
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 24), align 8, !tbaa !61
   %34 = tail call i32 @g_strcmp0(ptr noundef %16, ptr noundef %33) #16
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
@@ -455,7 +455,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %44
 
 44:                                               ; preds = %43, %37
-  %45 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @dt_lib_histogram_scale_names, i64 0, i64 1), align 8, !tbaa !61
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scale_names, i64 8), align 8, !tbaa !61
   %46 = tail call i32 @g_strcmp0(ptr noundef %38, ptr noundef %45) #16
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %49
@@ -477,7 +477,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %56
 
 56:                                               ; preds = %55, %49
-  %57 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @dt_lib_histogram_orient_names, i64 0, i64 1), align 8, !tbaa !61
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_orient_names, i64 8), align 8, !tbaa !61
   %58 = tail call i32 @g_strcmp0(ptr noundef %50, ptr noundef %57) #16
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %61
@@ -499,7 +499,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %68
 
 68:                                               ; preds = %67, %61
-  %69 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @dt_lib_histogram_vectorscope_type_names, i64 0, i64 1), align 8, !tbaa !61
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_vectorscope_type_names, i64 8), align 8, !tbaa !61
   %70 = tail call i32 @g_strcmp0(ptr noundef %62, ptr noundef %69) #16
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73
@@ -509,7 +509,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %73
 
 73:                                               ; preds = %72, %68
-  %74 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @dt_lib_histogram_vectorscope_type_names, i64 0, i64 2), align 16, !tbaa !61
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_vectorscope_type_names, i64 16), align 16, !tbaa !61
   %75 = tail call i32 @g_strcmp0(ptr noundef %62, ptr noundef %74) #16
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %78
@@ -531,7 +531,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %85
 
 85:                                               ; preds = %84, %78
-  %86 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @dt_lib_histogram_scale_names, i64 0, i64 1), align 8, !tbaa !61
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scale_names, i64 8), align 8, !tbaa !61
   %87 = tail call i32 @g_strcmp0(ptr noundef %79, ptr noundef %86) #16
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %90
@@ -552,7 +552,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(4096) %95, i8 0, i64 4096, i1 false)
   %96 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %96, align 8, !tbaa !69
-  %97 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !70
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !70
   %98 = getelementptr inbounds i8, ptr %97, i64 36
   %99 = load i32, ptr %98, align 4, !tbaa !71
   %100 = lshr i32 %99, 1
@@ -632,7 +632,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %148
 
 148:                                              ; preds = %147, %90
-  %149 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 1), align 16, !tbaa !86
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 48), align 16, !tbaa !86
   %150 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %149) #16
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %152, label %153
@@ -643,7 +643,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %153
 
 153:                                              ; preds = %152, %148
-  %154 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 2), align 16, !tbaa !86
+  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 96), align 16, !tbaa !86
   %155 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %154) #16
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %158
@@ -654,7 +654,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %158
 
 158:                                              ; preds = %157, %153
-  %159 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 3), align 16, !tbaa !86
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 144), align 16, !tbaa !86
   %160 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %159) #16
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %162, label %163
@@ -665,7 +665,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %163
 
 163:                                              ; preds = %162, %158
-  %164 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 4), align 16, !tbaa !86
+  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 192), align 16, !tbaa !86
   %165 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %164) #16
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %168
@@ -676,7 +676,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %168
 
 168:                                              ; preds = %167, %163
-  %169 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 5), align 16, !tbaa !86
+  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 240), align 16, !tbaa !86
   %170 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %169) #16
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %172, label %173
@@ -687,7 +687,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %173
 
 173:                                              ; preds = %172, %168
-  %174 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 6), align 16, !tbaa !86
+  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 288), align 16, !tbaa !86
   %175 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %174) #16
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %178
@@ -698,7 +698,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %178
 
 178:                                              ; preds = %177, %173
-  %179 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 7), align 16, !tbaa !86
+  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 336), align 16, !tbaa !86
   %180 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %179) #16
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %183
@@ -709,7 +709,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %183
 
 183:                                              ; preds = %182, %178
-  %184 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 8), align 16, !tbaa !86
+  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 384), align 16, !tbaa !86
   %185 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %184) #16
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %187, label %188
@@ -720,7 +720,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %188
 
 188:                                              ; preds = %187, %183
-  %189 = load ptr, ptr getelementptr inbounds ([10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 9), align 16, !tbaa !86
+  %189 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_color_harmonies, i64 432), align 16, !tbaa !86
   %190 = tail call i32 @g_strcmp0(ptr noundef %141, ptr noundef %189) #16
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %193
@@ -737,7 +737,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   %196 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.44) #16
   %197 = getelementptr inbounds i8, ptr %3, i64 2780
   store i32 %196, ptr %197, align 4, !tbaa !49
-  %198 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %199 = getelementptr inbounds i8, ptr %198, i64 112
   store ptr %0, ptr %199, align 8, !tbaa !90
   %200 = getelementptr inbounds i8, ptr %198, i64 120
@@ -748,7 +748,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   %204 = getelementptr inbounds i8, ptr %198, i64 128
   store i32 %203, ptr %204, align 8, !tbaa !96
   %205 = tail call ptr @gtk_overlay_new() #16
-  %206 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !97
+  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !97
   %207 = getelementptr inbounds i8, ptr %206, i64 424
   %208 = load ptr, ptr %207, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -836,14 +836,14 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   %258 = load ptr, ptr %248, align 16, !tbaa !61
   %259 = call ptr @g_type_check_instance_cast(ptr noundef %258, i64 noundef 80) #16
   %260 = call i64 @g_signal_connect_data(ptr noundef %259, ptr noundef nonnull @.str.50, ptr noundef nonnull @_scope_histogram_mode_clicked, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #16
-  %261 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_icons, i64 0, i64 1), align 8, !tbaa !61
+  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_icons, i64 8), align 8, !tbaa !61
   %262 = call ptr @dtgtk_togglebutton_new(ptr noundef %261, i32 noundef 0, ptr noundef null) #16
   %263 = getelementptr inbounds i8, ptr %3, i64 2552
   store ptr %262, ptr %263, align 8, !tbaa !61
-  %264 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 1), align 8, !tbaa !61
+  %264 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 8), align 8, !tbaa !61
   %265 = call ptr @dcgettext(ptr noundef null, ptr noundef %264, i32 noundef 5) #16
   call void @gtk_widget_set_tooltip_text(ptr noundef %262, ptr noundef %265) #16
-  %266 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 1), align 8, !tbaa !61
+  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 8), align 8, !tbaa !61
   %267 = load ptr, ptr %263, align 8, !tbaa !61
   %268 = call ptr @dt_action_define(ptr noundef %210, ptr noundef nonnull @.str.49, ptr noundef %266, ptr noundef %267, ptr noundef nonnull @dt_action_def_toggle) #16
   %269 = call ptr @g_type_check_instance_cast(ptr noundef %221, i64 noundef %223) #16
@@ -852,14 +852,14 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   %271 = load ptr, ptr %263, align 8, !tbaa !61
   %272 = call ptr @g_type_check_instance_cast(ptr noundef %271, i64 noundef 80) #16
   %273 = call i64 @g_signal_connect_data(ptr noundef %272, ptr noundef nonnull @.str.50, ptr noundef nonnull @_scope_histogram_mode_clicked, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #16
-  %274 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_icons, i64 0, i64 2), align 16, !tbaa !61
+  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_icons, i64 16), align 16, !tbaa !61
   %275 = call ptr @dtgtk_togglebutton_new(ptr noundef %274, i32 noundef 0, ptr noundef null) #16
   %276 = getelementptr inbounds i8, ptr %3, i64 2560
   store ptr %275, ptr %276, align 64, !tbaa !61
-  %277 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 2), align 16, !tbaa !61
+  %277 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 16), align 16, !tbaa !61
   %278 = call ptr @dcgettext(ptr noundef null, ptr noundef %277, i32 noundef 5) #16
   call void @gtk_widget_set_tooltip_text(ptr noundef %275, ptr noundef %278) #16
-  %279 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 2), align 16, !tbaa !61
+  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 16), align 16, !tbaa !61
   %280 = load ptr, ptr %276, align 64, !tbaa !61
   %281 = call ptr @dt_action_define(ptr noundef %210, ptr noundef nonnull @.str.49, ptr noundef %279, ptr noundef %280, ptr noundef nonnull @dt_action_def_toggle) #16
   %282 = call ptr @g_type_check_instance_cast(ptr noundef %221, i64 noundef %223) #16
@@ -868,14 +868,14 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   %284 = load ptr, ptr %276, align 64, !tbaa !61
   %285 = call ptr @g_type_check_instance_cast(ptr noundef %284, i64 noundef 80) #16
   %286 = call i64 @g_signal_connect_data(ptr noundef %285, ptr noundef nonnull @.str.50, ptr noundef nonnull @_scope_histogram_mode_clicked, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #16
-  %287 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_icons, i64 0, i64 3), align 8, !tbaa !61
+  %287 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_icons, i64 24), align 8, !tbaa !61
   %288 = call ptr @dtgtk_togglebutton_new(ptr noundef %287, i32 noundef 0, ptr noundef null) #16
   %289 = getelementptr inbounds i8, ptr %3, i64 2568
   store ptr %288, ptr %289, align 8, !tbaa !61
-  %290 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 3), align 8, !tbaa !61
+  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 24), align 8, !tbaa !61
   %291 = call ptr @dcgettext(ptr noundef null, ptr noundef %290, i32 noundef 5) #16
   call void @gtk_widget_set_tooltip_text(ptr noundef %288, ptr noundef %291) #16
-  %292 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 3), align 8, !tbaa !61
+  %292 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_lib_histogram_scope_type_names, i64 24), align 8, !tbaa !61
   %293 = load ptr, ptr %289, align 8, !tbaa !61
   %294 = call ptr @dt_action_define(ptr noundef %210, ptr noundef nonnull @.str.49, ptr noundef %292, ptr noundef %293, ptr noundef nonnull @dt_action_def_toggle) #16
   %295 = call ptr @g_type_check_instance_cast(ptr noundef %221, i64 noundef %223) #16
@@ -891,7 +891,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   %304 = tail call i64 @gtk_toggle_button_get_type() #17
   %305 = call ptr @g_type_check_instance_cast(ptr noundef %303, i64 noundef %304) #16
   call void @gtk_toggle_button_set_active(ptr noundef %305, i32 noundef 1) #16
-  %306 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !97
+  %306 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !97
   %307 = getelementptr inbounds i8, ptr %306, i64 536
   %308 = load ptr, ptr %307, align 8, !tbaa !112
   %309 = icmp eq ptr %308, null
@@ -1031,7 +1031,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   %406 = load ptr, ptr %213, align 64, !tbaa !50
   %407 = call ptr @g_type_check_instance_cast(ptr noundef %406, i64 noundef 80) #16
   %408 = call i64 @g_signal_connect_data(ptr noundef %407, ptr noundef nonnull @.str.73, ptr noundef nonnull @_drawable_motion_notify_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #16
-  %409 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %409 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %410 = getelementptr inbounds i8, ptr %409, i64 5576
   %411 = load i32, ptr %410, align 8, !tbaa !120
   %412 = or i32 %411, 12292
@@ -1046,10 +1046,10 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   %420 = call i64 @g_signal_connect_data(ptr noundef %419, ptr noundef nonnull @.str.73, ptr noundef nonnull @_eventbox_motion_notify_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #16
   %421 = load ptr, ptr %377, align 8, !tbaa !118
   call void @gtk_widget_show_all(ptr noundef %421) #16
-  %422 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !53
+  %422 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
   %423 = and i32 %422, 2
   %424 = icmp ne i32 %423, 0
-  %425 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 29), align 8
+  %425 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3240), align 8
   %426 = icmp ne i32 %425, 0
   %427 = select i1 %424, i1 %426, i1 false
   br i1 %427, label %446, label %451
@@ -1077,7 +1077,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %445, label %365, label %428
 
 446:                                              ; preds = %365
-  %447 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !54
+  %447 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !54
   %448 = and i32 %447, 1048576
   %449 = icmp eq i32 %448, 0
   br i1 %449, label %451, label %450
@@ -1087,7 +1087,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
   br label %451
 
 451:                                              ; preds = %450, %446, %365
-  %452 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !55
+  %452 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !55
   call void @dt_control_signal_connect(ptr noundef %452, i32 noundef 29, ptr noundef nonnull @_signal_image_changed, ptr noundef nonnull %0) #16
   ret void
 }
@@ -1125,7 +1125,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %19 = alloca %struct.dt_times_t, align 8
   %20 = alloca %struct.dt_histogram_roi_t, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #16
-  %21 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !54
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !54
   %22 = and i32 %21, 16
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %43, label %24
@@ -1190,7 +1190,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   br i1 %61, label %62, label %129
 
 62:                                               ; preds = %54
-  %63 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %64 = getelementptr inbounds i8, ptr %63, i64 60
   %65 = load i32, ptr %64, align 4, !tbaa !136
   %66 = icmp eq i32 %65, 0
@@ -1456,7 +1456,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
 .loopexit67:                                      ; preds = %681, %255
   %258 = phi i64 [ %189, %255 ], [ %190, %681 ]
   %259 = phi i32 [ %179, %255 ], [ %182, %681 ]
-  %260 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   %261 = call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %260, i32 noundef 23, ptr noundef nonnull @.str.81, i32 noundef 0) #16
   %262 = getelementptr inbounds i8, ptr %261, i64 736
   %263 = load ptr, ptr %262, align 32, !tbaa !61
@@ -2093,7 +2093,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.82, i32 noundef %745, ptr noundef nonnull %747) #16
   %748 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.84, i32 noundef 5) #16
   call void (ptr, ...) @dt_control_log(ptr noundef %748) #16
-  %749 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %749 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   %750 = call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %749, i32 noundef 4, ptr noundef nonnull @.str.81, i32 noundef 1) #16
   br label %751
 
@@ -2946,7 +2946,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
 .loopexit75:                                      ; preds = %1366, %.preheader74, %1275
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #16
-  %1372 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %1372 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %1373 = getelementptr inbounds i8, ptr %1372, i64 64
   %1374 = load i32, ptr %1373, align 8, !tbaa !156
   %1375 = getelementptr inbounds i8, ptr %1372, i64 24
@@ -2991,7 +2991,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %1404 = getelementptr inbounds i8, ptr %45, i64 80
   %1405 = load ptr, ptr %1404, align 16, !tbaa !82
   %1406 = icmp eq ptr %1405, null
-  %1407 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %1407 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   br i1 %1406, label %1415, label %1408
 
 1408:                                             ; preds = %1400
@@ -3005,7 +3005,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   store ptr null, ptr %1404, align 16, !tbaa !82
   %1413 = getelementptr inbounds i8, ptr %45, i64 88
   store i32 -1, ptr %1413, align 8, !tbaa !83
-  %1414 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %1414 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   br label %1415
 
 1415:                                             ; preds = %1412, %1408, %1400
@@ -3080,7 +3080,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   br i1 %1461, label %.loopexit73, label %1426
 
 .loopexit73:                                      ; preds = %1452, %1415
-  %1462 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %1462 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   %1463 = call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %1462, i32 noundef 23, ptr noundef nonnull @.str.81, i32 noundef 0) #16
   %1464 = getelementptr inbounds i8, ptr %1463, i64 736
   %1465 = load ptr, ptr %1464, align 32, !tbaa !61
@@ -3216,7 +3216,7 @@ declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_histogram_cycle_mode_callback(ptr nocapture readnone %0) #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %3 = getelementptr inbounds i8, ptr %2, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !90
   %5 = getelementptr inbounds i8, ptr %4, i64 280
@@ -3335,7 +3335,7 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr nocapture readnone 
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %55
-  %66 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   tail call void @dt_dev_process_preview(ptr noundef %66) #16
   br label %75
 
@@ -3367,7 +3367,7 @@ declare ptr @dt_action_define(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_histogram_collapse_callback(ptr nocapture readnone %0) #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %3 = getelementptr inbounds i8, ptr %2, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !90
   %5 = tail call i32 @dt_lib_is_visible(ptr noundef %4) #16
@@ -3492,7 +3492,7 @@ define internal noundef i32 @_scope_histogram_mode_clicked(ptr noundef %0, ptr n
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   tail call void @dt_dev_process_preview(ptr noundef %58) #16
   br label %60
 
@@ -3511,7 +3511,7 @@ declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_histogram_change_type_callback(ptr nocapture readnone %0) #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %3 = getelementptr inbounds i8, ptr %2, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !90
   %5 = getelementptr inbounds i8, ptr %4, i64 280
@@ -3765,7 +3765,7 @@ define internal fastcc void @_color_harmony_button_on(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_histogram_cycle_harmony_callback(ptr nocapture readnone %0) #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %3 = getelementptr inbounds i8, ptr %2, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !90
   %5 = getelementptr inbounds i8, ptr %4, i64 280
@@ -3924,7 +3924,7 @@ define internal void @_scope_view_clicked(ptr nocapture readnone %0, ptr nocaptu
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   tail call void @dt_dev_process_preview(ptr noundef %37) #16
   br label %39
 
@@ -3953,7 +3953,7 @@ define internal void @_colorspace_clicked(ptr nocapture readnone %0, ptr nocaptu
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   tail call void @dt_dev_process_preview(ptr noundef %13) #16
   br label %15
 
@@ -4020,7 +4020,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %10 = alloca %struct.dt_times_t, align 8
   %11 = alloca %struct._cairo_rectangle_int, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #16
-  %12 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !54
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !54
   %13 = and i32 %12, 16
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %34, label %15
@@ -4053,7 +4053,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   br label %34
 
 34:                                               ; preds = %15, %3
-  %35 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #16
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %11) #16
   %36 = getelementptr inbounds i8, ptr %11, i64 8
@@ -4061,7 +4061,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %38 = getelementptr inbounds i8, ptr %11, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !167
   %40 = sitofp i32 %37 to double
-  %41 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %42 = getelementptr inbounds i8, ptr %41, i64 1456
   %43 = load double, ptr %42, align 8, !tbaa !168
   %44 = fmul reassoc nsz arcp contract afn double %43, %40
@@ -4070,14 +4070,14 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %47 = fmul reassoc nsz arcp contract afn double %43, %46
   %48 = fptosi double %47 to i32
   %49 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %45, i32 noundef %48) #16
-  %50 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %51 = getelementptr inbounds i8, ptr %50, i64 1456
   %52 = load double, ptr %51, align 8, !tbaa !168
   call void @cairo_surface_set_device_scale(ptr noundef %49, double noundef %52, double noundef %52) #16
   %53 = call ptr @cairo_create(ptr noundef %49) #16
   %54 = call ptr @gtk_widget_get_style_context(ptr noundef %0) #16
   call void @gtk_render_background(ptr noundef %54, ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %40, double noundef %46) #16
-  %55 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %56 = getelementptr inbounds i8, ptr %55, i64 1448
   %57 = load double, ptr %56, align 8, !tbaa !169
   %58 = fmul reassoc nsz arcp contract afn double %57, 5.000000e-01
@@ -4090,7 +4090,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
 62:                                               ; preds = %34
   call void @cairo_save(ptr noundef %53) #16
   call void @cairo_rectangle(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %40, double noundef %46) #16
-  %63 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %64 = getelementptr inbounds i8, ptr %63, i64 592
   %65 = load double, ptr %64, align 1
   %66 = getelementptr inbounds i8, ptr %63, i64 600
@@ -4113,7 +4113,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   ]
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %77 = getelementptr inbounds i8, ptr %76, i64 784
   %78 = load double, ptr %77, align 1
   %79 = getelementptr inbounds i8, ptr %76, i64 792
@@ -4155,7 +4155,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   unreachable
 
 97:                                               ; preds = %72
-  %98 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %99 = getelementptr inbounds i8, ptr %98, i64 784
   %100 = load double, ptr %99, align 1
   %101 = getelementptr inbounds i8, ptr %98, i64 792
@@ -4201,7 +4201,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   br label %120
 
 120:                                              ; preds = %119, %72
-  %121 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %122 = getelementptr inbounds i8, ptr %121, i64 720
   %123 = load double, ptr %122, align 1
   %124 = getelementptr inbounds i8, ptr %121, i64 728
@@ -4469,7 +4469,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %240 = fpext float %239 to double
   call void @cairo_scale(ptr noundef %53, double noundef %236, double noundef %240) #16
   call void @cairo_set_operator(ptr noundef %53, i32 noundef 12) #16
-  %241 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %242 = getelementptr inbounds i8, ptr %241, i64 1448
   %243 = load double, ptr %242, align 8, !tbaa !169
   call void @cairo_set_line_width(ptr noundef %53, double noundef %243) #16
@@ -4477,7 +4477,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   br i1 %244, label %280, label %245
 
 245:                                              ; preds = %234
-  %246 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %247 = getelementptr inbounds i8, ptr %246, i64 848
   %248 = load double, ptr %247, align 1
   %249 = getelementptr inbounds i8, ptr %246, i64 856
@@ -4534,7 +4534,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   br i1 %281, label %318, label %282
 
 282:                                              ; preds = %280
-  %283 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %283 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %284 = getelementptr inbounds i8, ptr %283, i64 880
   %285 = load double, ptr %284, align 1
   %286 = getelementptr inbounds i8, ptr %283, i64 888
@@ -4592,7 +4592,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   br i1 %319, label %356, label %320
 
 320:                                              ; preds = %318
-  %321 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %321 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %322 = getelementptr inbounds i8, ptr %321, i64 912
   %323 = load double, ptr %322, align 1
   %324 = getelementptr inbounds i8, ptr %321, i64 920
@@ -4925,7 +4925,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %493 = fptrunc double %490 to float
   %494 = getelementptr inbounds i8, ptr %2, i64 92
   %495 = load i32, ptr %494, align 4, !tbaa !75
-  %496 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %496 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %497 = getelementptr inbounds i8, ptr %496, i64 1448
   %498 = load double, ptr %497, align 8, !tbaa !169
   %499 = fmul reassoc nsz arcp contract afn double %498, 2.000000e+00
@@ -4945,7 +4945,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %512 = call reassoc nsz arcp contract afn double @hypot(double noundef %505, double noundef %505) #17
   %513 = fmul reassoc nsz arcp contract afn double %512, 5.000000e-01
   %514 = call ptr @cairo_pattern_create_radial(double noundef %509, double noundef %510, double noundef %511, double noundef %509, double noundef %510, double noundef %513) #16
-  %515 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %515 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %516 = getelementptr inbounds i8, ptr %515, i64 592
   %517 = load double, ptr %516, align 8, !tbaa !178
   %518 = getelementptr inbounds i8, ptr %515, i64 600
@@ -4953,7 +4953,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %520 = getelementptr inbounds i8, ptr %515, i64 608
   %521 = load double, ptr %520, align 8, !tbaa !183
   call void @cairo_pattern_add_color_stop_rgb(ptr noundef %514, double noundef 0.000000e+00, double noundef %517, double noundef %519, double noundef %521) #16
-  %522 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %522 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %523 = getelementptr inbounds i8, ptr %522, i64 624
   %524 = load double, ptr %523, align 8, !tbaa !184
   %525 = getelementptr inbounds i8, ptr %522, i64 632
@@ -4970,7 +4970,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %530 = load double, ptr %529, align 8, !tbaa !67
   call void @cairo_rotate(ptr noundef %53, double noundef %530) #16
   call void @cairo_scale(ptr noundef %53, double noundef 1.000000e+00, double noundef -1.000000e+00) #16
-  %531 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %531 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %532 = getelementptr inbounds i8, ptr %531, i64 720
   %533 = load double, ptr %532, align 1
   %534 = getelementptr inbounds i8, ptr %531, i64 728
@@ -4980,7 +4980,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %538 = getelementptr inbounds i8, ptr %531, i64 744
   %539 = load double, ptr %538, align 1
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %533, double noundef %535, double noundef %537, double noundef %539) #16
-  %540 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %540 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %541 = getelementptr inbounds i8, ptr %540, i64 1448
   %542 = load double, ptr %541, align 8, !tbaa !169
   call void @cairo_set_line_width(ptr noundef %53, double noundef %542) #16
@@ -5005,7 +5005,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %556 = load ptr, ptr %555, align 64, !tbaa !77
   %557 = call i32 @cairo_format_stride_for_width(i32 noundef 1, i32 noundef %495) #16
   %558 = call ptr @cairo_image_surface_create_for_data(ptr noundef %556, i32 noundef 1, i32 noundef %495, i32 noundef %495, i32 noundef %557) #16
-  %559 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %559 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %560 = getelementptr inbounds i8, ptr %559, i64 1456
   %561 = load double, ptr %560, align 8, !tbaa !168
   call void @cairo_surface_set_device_scale(ptr noundef %558, double noundef %561, double noundef %561) #16
@@ -5014,12 +5014,12 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
   %563 = sitofp i32 %495 to double
   %564 = fmul reassoc nsz arcp contract afn double %563, 5.000000e-01
-  %565 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %565 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %566 = getelementptr inbounds i8, ptr %565, i64 1456
   %567 = load double, ptr %566, align 8, !tbaa !168
   %568 = fdiv reassoc nsz arcp contract afn double %564, %567
   call void @cairo_matrix_init_translate(ptr noundef nonnull %4, double noundef %568, double noundef %568) #16
-  %569 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %569 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %570 = getelementptr inbounds i8, ptr %569, i64 1456
   %571 = load double, ptr %570, align 8, !tbaa !168
   %572 = fmul reassoc nsz arcp contract afn double %571, %505
@@ -5148,7 +5148,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   call void @cairo_arc(ptr noundef %53, double noundef %653, double noundef %655, double noundef %499, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   call void @cairo_set_source(ptr noundef %53, ptr noundef %562) #16
   call void @cairo_fill_preserve(ptr noundef %53) #16
-  %656 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %656 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %657 = getelementptr inbounds i8, ptr %656, i64 720
   %658 = load double, ptr %657, align 1
   %659 = getelementptr inbounds i8, ptr %656, i64 728
@@ -5170,7 +5170,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   call void @cairo_arc(ptr noundef %53, double noundef %670, double noundef %672, double noundef %499, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   call void @cairo_set_source(ptr noundef %53, ptr noundef %562) #16
   call void @cairo_fill_preserve(ptr noundef %53) #16
-  %673 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %673 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %674 = getelementptr inbounds i8, ptr %673, i64 720
   %675 = load double, ptr %674, align 1
   %676 = getelementptr inbounds i8, ptr %673, i64 728
@@ -5192,7 +5192,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   call void @cairo_arc(ptr noundef %53, double noundef %687, double noundef %689, double noundef %499, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   call void @cairo_set_source(ptr noundef %53, ptr noundef %562) #16
   call void @cairo_fill_preserve(ptr noundef %53) #16
-  %690 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %690 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %691 = getelementptr inbounds i8, ptr %690, i64 720
   %692 = load double, ptr %691, align 1
   %693 = getelementptr inbounds i8, ptr %690, i64 728
@@ -5214,7 +5214,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   call void @cairo_arc(ptr noundef %53, double noundef %704, double noundef %706, double noundef %499, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   call void @cairo_set_source(ptr noundef %53, ptr noundef %562) #16
   call void @cairo_fill_preserve(ptr noundef %53) #16
-  %707 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %707 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %708 = getelementptr inbounds i8, ptr %707, i64 720
   %709 = load double, ptr %708, align 1
   %710 = getelementptr inbounds i8, ptr %707, i64 728
@@ -5236,7 +5236,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   call void @cairo_arc(ptr noundef %53, double noundef %721, double noundef %723, double noundef %499, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   call void @cairo_set_source(ptr noundef %53, ptr noundef %562) #16
   call void @cairo_fill_preserve(ptr noundef %53) #16
-  %724 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %724 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %725 = getelementptr inbounds i8, ptr %724, i64 720
   %726 = load double, ptr %725, align 1
   %727 = getelementptr inbounds i8, ptr %724, i64 728
@@ -5258,7 +5258,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   call void @cairo_arc(ptr noundef %53, double noundef %738, double noundef %740, double noundef %499, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   call void @cairo_set_source(ptr noundef %53, ptr noundef %562) #16
   call void @cairo_fill_preserve(ptr noundef %53) #16
-  %741 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %741 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %742 = getelementptr inbounds i8, ptr %741, i64 720
   %743 = load double, ptr %742, align 1
   %744 = getelementptr inbounds i8, ptr %741, i64 728
@@ -5273,14 +5273,14 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %751 = load ptr, ptr %750, align 8, !tbaa !76
   %752 = call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef %495) #16
   %753 = call ptr @cairo_image_surface_create_for_data(ptr noundef %751, i32 noundef 2, i32 noundef %495, i32 noundef %495, i32 noundef %752) #16
-  %754 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %754 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %755 = getelementptr inbounds i8, ptr %754, i64 1456
   %756 = load double, ptr %755, align 8, !tbaa !168
   call void @cairo_surface_set_device_scale(ptr noundef %753, double noundef %756, double noundef %756) #16
   %757 = call ptr @cairo_pattern_create_for_surface(ptr noundef %753) #16
   call void @cairo_pattern_set_matrix(ptr noundef %757, ptr noundef nonnull %4) #16
   call void @cairo_set_operator(ptr noundef %53, i32 noundef 12) #16
-  %758 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %758 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %759 = getelementptr inbounds i8, ptr %758, i64 60
   %760 = load i32, ptr %759, align 4, !tbaa !136
   %761 = icmp eq i32 %760, 0
@@ -5342,7 +5342,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %801 = zext i32 %800 to i64
   %802 = getelementptr inbounds [4 x float], ptr @dt_lib_histogram_color_harmony_width, i64 0, i64 %801
   %803 = load float, ptr %802, align 4, !tbaa !144
-  %804 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %804 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %805 = getelementptr inbounds i8, ptr %804, i64 1448
   %806 = load double, ptr %805, align 8, !tbaa !169
   call void @cairo_set_line_width(ptr noundef %53, double noundef %806) #16
@@ -5425,7 +5425,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
 .loopexit28:                                      ; preds = %904, %842, %798
   call void @cairo_close_path(ptr noundef %53) #16
   call void @cairo_set_source(ptr noundef %53, ptr noundef %562) #16
-  %864 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %864 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %865 = getelementptr inbounds i8, ptr %864, i64 688
   %866 = load double, ptr %865, align 1
   %867 = getelementptr inbounds i8, ptr %864, i64 696
@@ -5534,12 +5534,12 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
 
 938:                                              ; preds = %932
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
-  %939 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %939 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %940 = getelementptr inbounds i8, ptr %939, i64 336
   %941 = load ptr, ptr %940, align 8, !tbaa !191
   %942 = call ptr @pango_font_description_copy_static(ptr noundef %941) #16
   call void @pango_font_description_set_weight(ptr noundef %942, i32 noundef 400) #16
-  %943 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %943 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %944 = getelementptr inbounds i8, ptr %943, i64 1448
   %945 = load double, ptr %944, align 8, !tbaa !169
   %946 = fmul reassoc nsz arcp contract afn double %945, 1.638400e+04
@@ -5552,7 +5552,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %950 = load ptr, ptr %5, align 8, !tbaa !86
   %951 = call ptr @dcgettext(ptr noundef null, ptr noundef %950, i32 noundef 5) #16
   %952 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.96, i32 noundef %949, ptr noundef %951) #16
-  %953 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %953 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %954 = getelementptr inbounds i8, ptr %953, i64 688
   %955 = load double, ptr %954, align 1
   %956 = getelementptr inbounds i8, ptr %953, i64 696
@@ -5635,7 +5635,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
 
 989:                                              ; preds = %988, %987
   call void @cairo_set_operator(ptr noundef %53, i32 noundef 2) #16
-  %990 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %990 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %991 = getelementptr inbounds i8, ptr %990, i64 720
   %992 = load double, ptr %991, align 1
   %993 = getelementptr inbounds i8, ptr %990, i64 728
@@ -5645,13 +5645,13 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %997 = getelementptr inbounds i8, ptr %990, i64 744
   %998 = load double, ptr %997, align 1
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %992, double noundef %994, double noundef %996, double noundef %998) #16
-  %999 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %999 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %1000 = getelementptr inbounds i8, ptr %999, i64 1448
   %1001 = load double, ptr %1000, align 8, !tbaa !169
   %1002 = fmul reassoc nsz arcp contract afn double %1001, 1.500000e+00
   call void @cairo_set_line_width(ptr noundef %53, double noundef %1002) #16
   call void @cairo_new_sub_path(ptr noundef %53) #16
-  %1003 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %1003 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %1004 = getelementptr inbounds i8, ptr %1003, i64 1448
   %1005 = load double, ptr %1004, align 8, !tbaa !169
   %1006 = fmul reassoc nsz arcp contract afn double %1005, 3.000000e+00
@@ -5660,7 +5660,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   br i1 %781, label %1007, label %1029
 
 1007:                                             ; preds = %989
-  %1008 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %1008 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %1009 = getelementptr inbounds i8, ptr %1008, i64 688
   %1010 = load double, ptr %1009, align 1
   %1011 = getelementptr inbounds i8, ptr %1008, i64 696
@@ -5678,7 +5678,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %1022 = load float, ptr %1021, align 4, !tbaa !144
   %1023 = fpext float %1022 to double
   %1024 = fmul reassoc nsz arcp contract afn double %508, %1023
-  %1025 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %1025 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %1026 = getelementptr inbounds i8, ptr %1025, i64 1448
   %1027 = load double, ptr %1026, align 8, !tbaa !169
   %1028 = fmul reassoc nsz arcp contract afn double %1027, 3.000000e+00
@@ -5704,7 +5704,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %1038 = load ptr, ptr %1036, align 8, !tbaa !160
   %1039 = load i32, ptr %1034, align 8, !tbaa !83
   %1040 = icmp eq i32 %1037, %1039
-  %1041 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %1041 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %1042 = getelementptr inbounds i8, ptr %1038, i64 4
   br i1 %1040, label %1043, label %1062
 
@@ -5724,7 +5724,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %1055 = load float, ptr %1042, align 4, !tbaa !144
   %1056 = fpext float %1055 to double
   %1057 = fmul reassoc nsz arcp contract afn double %508, %1056
-  %1058 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %1058 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %1059 = getelementptr inbounds i8, ptr %1058, i64 1448
   %1060 = load double, ptr %1059, align 8, !tbaa !169
   %1061 = fmul reassoc nsz arcp contract afn double %1060, 6.000000e+00
@@ -5748,7 +5748,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %1074 = load float, ptr %1042, align 4, !tbaa !144
   %1075 = fpext float %1074 to double
   %1076 = fmul reassoc nsz arcp contract afn double %508, %1075
-  %1077 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
+  %1077 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !119
   %1078 = getelementptr inbounds i8, ptr %1077, i64 1448
   %1079 = load double, ptr %1078, align 8, !tbaa !169
   %1080 = fmul reassoc nsz arcp contract afn double %1079, 4.000000e+00
@@ -5775,7 +5775,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
 1087:                                             ; preds = %.loopexit26, %488, %480, %422, %414, %357, %356, %219, %208, %200
   %1088 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %196) #16
   call void @cairo_rectangle(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %40, double noundef %46) #16
-  %1089 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !170
+  %1089 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !170
   %1090 = getelementptr inbounds i8, ptr %1089, i64 656
   %1091 = load double, ptr %1090, align 1
   %1092 = getelementptr inbounds i8, ptr %1089, i64 664
@@ -5821,7 +5821,7 @@ define internal noundef i32 @_drawable_leave_notify_callback(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_drawable_button_press_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #2 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   %5 = getelementptr inbounds i8, ptr %2, i64 2704
   %6 = load i32, ptr %5, align 16, !tbaa !164
   %7 = icmp eq i32 %6, 0
@@ -5881,7 +5881,7 @@ define internal noundef i32 @_drawable_button_release_callback(ptr noundef %0, p
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #2 {
   %4 = alloca %struct._cairo_rectangle_int, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #16
   %6 = getelementptr inbounds i8, ptr %2, i64 2688
@@ -6124,7 +6124,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr noundef %0, ptr nound
   br i1 %25, label %46, label %26
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   switch i32 %24, label %115 [
     i32 2, label %28
     i32 1, label %37
@@ -6387,13 +6387,13 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #2 {
   %27 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @free(ptr noundef %27) #16
   store ptr null, ptr %2, align 8, !tbaa !6
-  %28 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !53
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
   %29 = and i32 %28, 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %19
-  %32 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !54
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !54
   %33 = and i32 %32, 1048576
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %36, label %35
@@ -6403,7 +6403,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #2 {
   br label %36
 
 36:                                               ; preds = %35, %31, %19
-  %37 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !55
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !55
   tail call void @dt_control_signal_disconnect(ptr noundef %37, ptr noundef nonnull @_signal_image_changed, ptr noundef nonnull %0) #16
   ret void
 }
@@ -7273,14 +7273,14 @@ define internal fastcc void @_color_harmony_changed_record(ptr nocapture noundef
   %15 = getelementptr i8, ptr %0, i64 2496
   %16 = load ptr, ptr %15, align 64, !tbaa !50
   tail call void @gtk_widget_queue_draw(ptr noundef %16) #16
-  %17 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   %18 = getelementptr inbounds i8, ptr %17, i64 1544
   %19 = load i32, ptr %18, align 8, !tbaa !23
-  %20 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !45
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !45
   %21 = tail call ptr @dt_image_cache_get(ptr noundef %20, i32 noundef %19, i8 noundef signext 119) #16
   %22 = getelementptr inbounds i8, ptr %21, i64 1704
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !45
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !45
   tail call void @dt_image_cache_write_release_info(ptr noundef %23, ptr noundef %21, i32 noundef 0, ptr noundef nonnull @.str.86) #16
   ret void
 }
@@ -7326,7 +7326,7 @@ define internal fastcc void @_histogram_scale_update(ptr nocapture noundef reado
   %16 = phi i32 [ %.pre, %6 ], [ %3, %1 ]
   %17 = icmp eq i32 %16, 1
   %18 = zext i1 %17 to i32
-  %19 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !89
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !89
   %20 = getelementptr inbounds i8, ptr %19, i64 128
   store i32 %18, ptr %20, align 8, !tbaa !96
   ret void

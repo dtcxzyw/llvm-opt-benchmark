@@ -86,7 +86,7 @@ define dso_local i64 @__sock_gen_cookie(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %15, label %16, label %18, !prof !9
 
 16:                                               ; preds = %11
-  %17 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2)) #11, !srcloc !10
+  %17 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 64), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 64)) #11, !srcloc !10
   br label %18
 
 18:                                               ; preds = %16, %11
@@ -96,7 +96,7 @@ define dso_local i64 @__sock_gen_cookie(ptr noundef %0) local_unnamed_addr #0 al
   br label %24
 
 21:                                               ; preds = %5
-  %22 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3)) #11, !srcloc !10
+  %22 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 72), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 72)) #11, !srcloc !10
   %23 = add i64 %22, -1
   br label %24
 
@@ -131,7 +131,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
   br i1 %8, label %55, label %9
 
 9:                                                ; preds = %5, %2
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !13
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %10 = getelementptr inbounds i8, ptr %0, i64 88
   %11 = load volatile i64, ptr %10, align 8
@@ -154,7 +154,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
   br i1 %23, label %24, label %26, !prof !9
 
 24:                                               ; preds = %19
-  %25 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2)) #11, !srcloc !10
+  %25 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 64), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 64)) #11, !srcloc !10
   br label %26
 
 26:                                               ; preds = %24, %19
@@ -164,7 +164,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
   br label %32
 
 29:                                               ; preds = %13
-  %30 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3)) #11, !srcloc !10
+  %30 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 72), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 72)) #11, !srcloc !10
   %31 = add i64 %30, -1
   br label %32
 
@@ -178,7 +178,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
 36:                                               ; preds = %32, %9
   %37 = phi i64 [ %11, %9 ], [ %35, %32 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
-  %38 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !16
+  %38 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !16
   %39 = icmp ult i8 %38, 2
   tail call void @llvm.assume(i1 %39)
   %40 = icmp eq i8 %38, 0
@@ -212,7 +212,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !13
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load volatile i64, ptr %3, align 8
@@ -235,7 +235,7 @@ define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture nound
   br i1 %16, label %17, label %19, !prof !9
 
 17:                                               ; preds = %12
-  %18 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2)) #11, !srcloc !10
+  %18 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 64), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 64)) #11, !srcloc !10
   br label %19
 
 19:                                               ; preds = %17, %12
@@ -245,7 +245,7 @@ define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture nound
   br label %25
 
 22:                                               ; preds = %6
-  %23 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3)) #11, !srcloc !10
+  %23 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 72), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @sock_cookie, i64 72)) #11, !srcloc !10
   %24 = add i64 %23, -1
   br label %25
 
@@ -259,7 +259,7 @@ define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture nound
 29:                                               ; preds = %25, %2
   %30 = phi i64 [ %4, %2 ], [ %28, %25 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
-  %31 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !16
+  %31 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !16
   %32 = icmp ult i8 %31, 2
   tail call void @llvm.assume(i1 %32)
   %33 = icmp eq i8 %31, 0
@@ -358,7 +358,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sock_diag_broadcast_destroy(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 2080, i64 noundef 40) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -704,12 +704,12 @@ define internal noundef i32 @sock_diag_bind(ptr nocapture readnone %0, i32 nound
   ]
 
 3:                                                ; preds = %2, %2
-  %4 = load ptr, ptr getelementptr inbounds ([46 x ptr], ptr @sock_diag_handlers, i64 0, i64 2), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @sock_diag_handlers, i64 16), align 16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %12
 
 6:                                                ; preds = %2, %2
-  %7 = load ptr, ptr getelementptr inbounds ([46 x ptr], ptr @sock_diag_handlers, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @sock_diag_handlers, i64 80), align 16
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %12
 

@@ -18,10 +18,10 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @pmix_psec_base_get_available_modules() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
-  %2 = load i8, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 1), align 8
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 272), align 8
   %3 = trunc i8 %2 to i1
-  %.059 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not10 = icmp ne ptr %.059, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.059 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 240), align 8
+  %.not10 = icmp ne ptr %.059, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   %or.cond.not = select i1 %3, i1 %.not10, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge.thread
 
@@ -33,7 +33,7 @@ define ptr @pmix_psec_base_get_available_modules() local_unnamed_addr #0 {
   %7 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %1, ptr noundef nonnull %6) #3
   %8 = getelementptr inbounds i8, ptr %.0511, i64 120
   %.05 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %.05, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.05, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -60,7 +60,7 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @pmix_psec_base_assign_module(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 1), align 8
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 272), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %.loopexit30
 
@@ -70,13 +70,13 @@ define ptr @pmix_psec_base_assign_module(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %4
   %6 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 44) #3
-  %.01934 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not2535 = icmp eq ptr %.01934, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.01934 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 240), align 8
+  %.not2535 = icmp eq ptr %.01934, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not2535, label %._crit_edge, label %.lr.ph37
 
 .thread:                                          ; preds = %4
-  %.0193447 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not253548 = icmp eq ptr %.0193447, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.0193447 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 240), align 8
+  %.not253548 = icmp eq ptr %.0193447, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not253548, label %.loopexit30, label %.lr.ph37.split.us.preheader
 
 .lr.ph37:                                         ; preds = %5
@@ -100,7 +100,7 @@ define ptr @pmix_psec_base_assign_module(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %.lr.ph37.split.us
   %14 = getelementptr inbounds i8, ptr %.01936.us, i64 120
   %.019.us = load ptr, ptr %14, align 8
-  %.not25.us = icmp eq ptr %.019.us, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.not25.us = icmp eq ptr %.019.us, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not25.us, label %._crit_edge, label %.lr.ph37.split.us, !llvm.loop !6
 
 .lr.ph37.split:                                   ; preds = %.lr.ph37
@@ -148,7 +148,7 @@ define ptr @pmix_psec_base_assign_module(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %29, %.preheader
   %32 = getelementptr inbounds i8, ptr %.01936, i64 120
   %.019 = load ptr, ptr %32, align 8
-  %.not25 = icmp eq ptr %.019, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.not25 = icmp eq ptr %.019, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not25, label %._crit_edge, label %.preheaderthread-pre-split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %13, %5

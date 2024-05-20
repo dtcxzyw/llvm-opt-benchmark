@@ -318,10 +318,10 @@ define dso_local void @_ZN9Stockfish10Tablebases4initERKNSt7__cxx1112basic_strin
   %15 = alloca %"class.std::vector.18", align 8
   %16 = alloca %"class.std::vector.18", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98328) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i8 0, i64 98328, i1 false)
-  %17 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 0), align 8, !noalias !20
-  %18 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1), align 8, !noalias !20
-  %19 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2), align 8, !noalias !20
-  %20 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3), align 8, !noalias !20
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98344), align 8, !noalias !20
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98352), align 8, !noalias !20
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98360), align 8, !noalias !20
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98368), align 8, !noalias !20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %17, ptr %4, align 8
@@ -332,13 +332,13 @@ define dso_local void @_ZN9Stockfish10Tablebases4initERKNSt7__cxx1112basic_strin
   %23 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %20, ptr %23, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %24 = load <2 x ptr>, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 0), align 8, !noalias !23
+  %24 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8, !noalias !23
   store <2 x ptr> %24, ptr %5, align 16, !alias.scope !23
   %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = load <2 x ptr>, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2), align 8, !noalias !23
+  %26 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98392), align 8, !noalias !23
   store <2 x ptr> %26, ptr %25, align 16, !alias.scope !23
   call fastcc void @_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE15_M_destroy_dataESt15_Deque_iteratorIS4_RS4_PS4_ESA_RKS5_(ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %27 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8
   %28 = icmp ult ptr %20, %27
   br i1 %28, label %.lr.ph.i.i.i.i, label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE5clearEv.exit.i
 
@@ -351,16 +351,16 @@ define dso_local void @_ZN9Stockfish10Tablebases4initERKNSt7__cxx1112basic_strin
   br i1 %30, label %.lr.ph.i.i.i.i, label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE5clearEv.exit.i, !llvm.loop !19
 
 _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i.i, %1
-  store ptr %17, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3), align 8
-  store ptr %18, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
-  store ptr %19, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
-  store ptr %20, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98392), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %31 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 0), align 8, !noalias !26
-  %32 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1), align 8, !noalias !26
-  %33 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2), align 8, !noalias !26
-  %34 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3), align 8, !noalias !26
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98424), align 8, !noalias !26
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98432), align 8, !noalias !26
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98440), align 8, !noalias !26
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98448), align 8, !noalias !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %31, ptr %2, align 8
@@ -371,13 +371,13 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE5clearEv.
   %37 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %34, ptr %37, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %38 = load <2 x ptr>, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 0), align 8, !noalias !29
+  %38 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98456), align 8, !noalias !29
   store <2 x ptr> %38, ptr %3, align 16, !alias.scope !29
   %39 = getelementptr inbounds i8, ptr %3, i64 16
-  %40 = load <2 x ptr>, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 2), align 8, !noalias !29
+  %40 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98472), align 8, !noalias !29
   store <2 x ptr> %40, ptr %39, align 16, !alias.scope !29
   call fastcc void @_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE15_M_destroy_dataESt15_Deque_iteratorIS4_RS4_PS4_ESA_RKS5_(ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %41 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8
   %42 = icmp ult ptr %34, %41
   br i1 %42, label %.lr.ph.i.i.i1.i, label %_ZN9Stockfish12_GLOBAL__N_18TBTables5clearEv.exit
 
@@ -390,10 +390,10 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE5clearEv.
   br i1 %44, label %.lr.ph.i.i.i1.i, label %_ZN9Stockfish12_GLOBAL__N_18TBTables5clearEv.exit, !llvm.loop !11
 
 _ZN9Stockfish12_GLOBAL__N_18TBTables5clearEv.exit: ; preds = %.lr.ph.i.i.i1.i, %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE5clearEv.exit.i
-  store ptr %31, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3), align 8
-  store ptr %32, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
-  store ptr %33, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
-  store ptr %34, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98456), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98464), align 8
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98472), align 8
+  store ptr %34, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   store i32 0, ptr @_ZN9Stockfish10Tablebases14MaxCardinalityE, align 4
@@ -574,7 +574,7 @@ _ZNSt6vectorIN9Stockfish6SquareESaIS1_EE9push_backERKS1_.exit: ; preds = %62, %_
   br i1 %or.cond403, label %.preheader325, label %.loopexit
 
 .preheader325:                                    ; preds = %102
-  %108 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %indvars.iv422
+  %108 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %indvars.iv422
   %109 = shl nuw nsw i64 1, %indvars.iv422
   %110 = trunc nuw nsw i64 %indvars.iv422 to i32
   %111 = lshr i32 %110, 3
@@ -1186,8 +1186,8 @@ _ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev.exit113: ; preds = %.preheader31
 275:                                              ; preds = %273
   %276 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef 0) #24
   %277 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull @.str.3) #24
-  %278 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
-  %279 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3), align 8
+  %278 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8
+  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98368), align 8
   %280 = ptrtoint ptr %278 to i64
   %281 = ptrtoint ptr %279 to i64
   %282 = sub i64 %280, %281
@@ -1195,15 +1195,15 @@ _ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev.exit113: ; preds = %.preheader31
   %284 = icmp ne ptr %278, null
   %.neg.i.i.i = sext i1 %284 to i64
   %285 = add nsw i64 %283, %.neg.i.i.i
-  %286 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3), align 8
-  %287 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8
+  %287 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8
   %288 = ptrtoint ptr %286 to i64
   %289 = ptrtoint ptr %287 to i64
   %290 = sub i64 %288, %289
   %291 = sdiv exact i64 %290, 2168
   %292 = add nsw i64 %285, %291
-  %293 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2), align 8
-  %294 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2), align 8
+  %293 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98360), align 8
+  %294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98344), align 8
   %295 = ptrtoint ptr %293 to i64
   %296 = ptrtoint ptr %294 to i64
   %297 = sub i64 %295, %296
@@ -1285,15 +1285,15 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vecto
   %26 = load i32, ptr @_ZN9Stockfish10Tablebases14MaxCardinalityE, align 4
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %26, i32 %25)
   store i32 %.sroa.speculated, ptr @_ZN9Stockfish10Tablebases14MaxCardinalityE, align 4
-  %27 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3), align 8
-  %28 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98392), align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 -2168
   %.not.i = icmp eq ptr %27, %29
   br i1 %.not.i, label %30, label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS4_DpOT_.exit
 
 30:                                               ; preds = %18
-  %31 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
-  %32 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98368), align 8
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
@@ -1301,14 +1301,14 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vecto
   %37 = icmp ne ptr %31, null
   %.neg.i.i.i.i = sext i1 %37 to i64
   %38 = add nsw i64 %36, %.neg.i.i.i.i
-  %39 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8
   %40 = ptrtoint ptr %27 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 2168
   %44 = add nsw i64 %38, %43
-  %45 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2), align 8
-  %46 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98360), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98344), align 8
   %47 = ptrtoint ptr %45 to i64
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
@@ -1322,8 +1322,8 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vecto
   unreachable
 
 54:                                               ; preds = %30
-  %55 = load i64, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
-  %56 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1), align 8
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98336), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98328), align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = sub i64 %33, %57
   %59 = ashr exact i64 %58, 3
@@ -1406,24 +1406,24 @@ _ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE15
 
 _ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEES6_ET0_T_S8_S7_.exit26.i.i.i.i: ; preds = %98, %_ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE15_M_allocate_mapEm.exit.i.i.i.i
   call void @_ZdlPv(ptr noundef %56) #23
-  store ptr %93, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1), align 8
-  store i64 %86, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %93, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98328), align 8
+  store i64 %86, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98336), align 8
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i: ; preds = %_ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEES6_ET0_T_S8_S7_.exit26.i.i.i.i, %78, %77, %74, %73
   %.0.i.i.i.i = phi ptr [ %96, %_ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEES6_ET0_T_S8_S7_.exit26.i.i.i.i ], [ %70, %73 ], [ %70, %74 ], [ %70, %77 ], [ %70, %78 ]
-  store ptr %.0.i.i.i.i, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3), align 8
+  store ptr %.0.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98368), align 8
   %101 = load ptr, ptr %.0.i.i.i.i, align 8
-  store ptr %101, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98352), align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 2168
-  store ptr %102, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2), align 8
+  store ptr %102, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98360), align 8
   %103 = getelementptr inbounds ptr, ptr %.0.i.i.i.i, i64 %63
   %104 = getelementptr inbounds i8, ptr %103, i64 -8
-  store ptr %104, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  store ptr %104, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8
   %105 = load ptr, ptr %104, align 8
-  store ptr %105, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  store ptr %105, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 2168
-  store ptr %106, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  store ptr %106, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98392), align 8
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS4_DpOT_.exit.thread
 
 _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS4_DpOT_.exit.thread: ; preds = %54, %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i
@@ -1431,29 +1431,29 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace
   %108 = call noalias noundef nonnull dereferenceable(2168) ptr @_Znwm(i64 noundef 2168) #26
   %109 = getelementptr inbounds i8, ptr %107, i64 8
   store ptr %108, ptr %109, align 8
-  %110 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3), align 8
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8
   call fastcc void @_ZNSt16allocator_traitsISaIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEEE9constructIS4_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS5_PT_DpOT0_(ptr noundef %110, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %111 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 8
-  store ptr %112, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  store ptr %112, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8
   %113 = load ptr, ptr %112, align 8
-  store ptr %113, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  store ptr %113, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 2168
-  store ptr %114, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
-  store ptr %113, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3), align 8
+  store ptr %114, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98392), align 8
+  store ptr %113, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8
   br label %118
 
 _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS4_DpOT_.exit: ; preds = %18
   call fastcc void @_ZNSt16allocator_traitsISaIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEEE9constructIS4_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS5_PT_DpOT0_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %115 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3), align 8
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 2168
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8, !noalias !59
-  store ptr %116, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8, !noalias !59
+  store ptr %116, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8
   %117 = icmp eq ptr %116, %.pre
   br i1 %117, label %118, label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit
 
 118:                                              ; preds = %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS4_DpOT_.exit.thread, %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS4_DpOT_.exit
-  %119 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8, !noalias !59
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8, !noalias !59
   %120 = getelementptr inbounds i8, ptr %119, i64 -8
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 2168
@@ -1461,8 +1461,8 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace
 
 _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit: ; preds = %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS4_DpOT_.exit, %118
   %123 = phi ptr [ %122, %118 ], [ %116, %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS4_DpOT_.exit ]
-  %124 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3), align 8
-  %125 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98456), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98472), align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 -1112
   %.not.i5 = icmp eq ptr %124, %126
   br i1 %.not.i5, label %131, label %127
@@ -1483,8 +1483,8 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
   br i1 %130, label %242, label %129
 
 131:                                              ; preds = %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit
-  %132 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
-  %133 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3), align 8
+  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8
+  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98448), align 8
   %134 = ptrtoint ptr %132 to i64
   %135 = ptrtoint ptr %133 to i64
   %136 = sub i64 %134, %135
@@ -1492,14 +1492,14 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
   %138 = icmp ne ptr %132, null
   %.neg.i.i.i.i7 = sext i1 %138 to i64
   %139 = add nsw i64 %137, %.neg.i.i.i.i7
-  %140 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98464), align 8
   %141 = ptrtoint ptr %124 to i64
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %141, %142
   %144 = sdiv exact i64 %143, 1112
   %145 = add nsw i64 %139, %144
-  %146 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2), align 8
-  %147 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2), align 8
+  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98440), align 8
+  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98424), align 8
   %148 = ptrtoint ptr %146 to i64
   %149 = ptrtoint ptr %147 to i64
   %150 = sub i64 %148, %149
@@ -1513,8 +1513,8 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
   unreachable
 
 155:                                              ; preds = %131
-  %156 = load i64, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1), align 8
-  %157 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2), align 8
+  %156 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98416), align 8
+  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98408), align 8
   %158 = ptrtoint ptr %157 to i64
   %159 = sub i64 %134, %158
   %160 = ashr exact i64 %159, 3
@@ -1597,24 +1597,24 @@ _ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE15
 
 _ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEES6_ET0_T_S8_S7_.exit26.i.i.i.i: ; preds = %199, %_ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE15_M_allocate_mapEm.exit.i.i.i.i
   call void @_ZdlPv(ptr noundef %157) #23
-  store ptr %194, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2), align 8
-  store i64 %187, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %194, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98408), align 8
+  store i64 %187, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98416), align 8
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i: ; preds = %_ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEES6_ET0_T_S8_S7_.exit26.i.i.i.i, %179, %178, %175, %174
   %.0.i.i.i.i11 = phi ptr [ %197, %_ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEES6_ET0_T_S8_S7_.exit26.i.i.i.i ], [ %171, %174 ], [ %171, %175 ], [ %171, %178 ], [ %171, %179 ]
-  store ptr %.0.i.i.i.i11, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3), align 8
+  store ptr %.0.i.i.i.i11, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98448), align 8
   %202 = load ptr, ptr %.0.i.i.i.i11, align 8
-  store ptr %202, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1), align 8
+  store ptr %202, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98432), align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 1112
-  store ptr %203, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2), align 8
+  store ptr %203, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98440), align 8
   %204 = getelementptr inbounds ptr, ptr %.0.i.i.i.i11, i64 %164
   %205 = getelementptr inbounds i8, ptr %204, i64 -8
-  store ptr %205, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  store ptr %205, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8
   %206 = load ptr, ptr %205, align 8
-  store ptr %206, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  store ptr %206, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98464), align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 1112
-  store ptr %207, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  store ptr %207, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98472), align 8
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE22_M_reserve_map_at_backEm.exit.i.i
 
 _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE22_M_reserve_map_at_backEm.exit.i.i: ; preds = %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i, %155
@@ -1622,7 +1622,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE22_M_rese
   %209 = call noalias noundef nonnull dereferenceable(1112) ptr @_Znwm(i64 noundef 1112) #26
   %210 = getelementptr inbounds i8, ptr %208, i64 8
   store ptr %209, ptr %210, align 8
-  %211 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3), align 8
+  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98456), align 8
   store i8 0, ptr %211, align 1
   %212 = getelementptr inbounds i8, ptr %211, i64 8
   store ptr null, ptr %212, align 8
@@ -1668,13 +1668,13 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE22_M_rese
   %236 = load i8, ptr %235, align 1
   %237 = getelementptr inbounds i8, ptr %211, i64 55
   store i8 %236, ptr %237, align 1
-  %238 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8
   %239 = getelementptr inbounds i8, ptr %238, i64 8
-  store ptr %239, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  store ptr %239, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8
   %240 = load ptr, ptr %239, align 8
-  store ptr %240, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  store ptr %240, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98464), align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 1112
-  store ptr %241, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  store ptr %241, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98472), align 8
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE12emplace_backIJRNS2_ILS3_0EEEEEERS4_DpOT_.exit
 
 242:                                              ; preds = %129
@@ -1708,15 +1708,15 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE22_M_rese
   %264 = load i8, ptr %263, align 1
   %265 = getelementptr inbounds i8, ptr %124, i64 55
   store i8 %264, ptr %265, align 1
-  %266 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3), align 8
+  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98456), align 8
   %267 = getelementptr inbounds i8, ptr %266, i64 1112
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE12emplace_backIJRNS2_ILS3_0EEEEEERS4_DpOT_.exit
 
 _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE12emplace_backIJRNS2_ILS3_0EEEEEERS4_DpOT_.exit: ; preds = %242, %.thread.i8
   %268 = phi ptr [ %267, %242 ], [ %240, %.thread.i8 ]
-  store ptr %268, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3), align 8
-  %269 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 0), align 8, !noalias !62
-  %270 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8, !noalias !62
+  store ptr %268, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98456), align 8
+  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8, !noalias !62
+  %270 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8, !noalias !62
   %271 = icmp eq ptr %269, %270
   br i1 %271, label %273, label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit14
 
@@ -1725,7 +1725,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit15
 
 273:                                              ; preds = %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE12emplace_backIJRNS2_ILS3_0EEEEEERS4_DpOT_.exit
-  %274 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8, !noalias !62
+  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8, !noalias !62
   %275 = getelementptr inbounds i8, ptr %274, i64 -8
   %276 = load ptr, ptr %275, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 32
@@ -1737,12 +1737,12 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
   %279 = phi ptr [ %278, %273 ], [ %269, %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit14 ]
   %280 = load i64, ptr %.in, align 8
   %281 = getelementptr inbounds i8, ptr %279, i64 -2168
-  %282 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1), align 8, !noalias !63
+  %282 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98464), align 8, !noalias !63
   %283 = icmp eq ptr %268, %282
   br i1 %283, label %284, label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE4backEv.exit
 
 284:                                              ; preds = %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit15
-  %285 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8, !noalias !63
+  %285 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8, !noalias !63
   %286 = getelementptr inbounds i8, ptr %285, i64 -8
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds i8, ptr %287, i64 1112
@@ -1810,8 +1810,8 @@ _ZN9Stockfish12_GLOBAL__N_18TBTables6insertEmPNS0_7TBTableILNS0_6TBTypeE0EEEPNS2
   store ptr %.sroa.4.018.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %295, i64 16
   store ptr %.sroa.5.017.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %309 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 0), align 8, !noalias !62
-  %310 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8, !noalias !62
+  %309 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8, !noalias !62
+  %310 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8, !noalias !62
   %311 = icmp eq ptr %309, %310
   br i1 %311, label %313, label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit17
 
@@ -1820,7 +1820,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit18
 
 313:                                              ; preds = %_ZN9Stockfish12_GLOBAL__N_18TBTables6insertEmPNS0_7TBTableILNS0_6TBTypeE0EEEPNS2_ILS3_1EEE.exit
-  %314 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8, !noalias !62
+  %314 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8, !noalias !62
   %315 = getelementptr inbounds i8, ptr %314, i64 -8
   %316 = load ptr, ptr %315, align 8
   %317 = getelementptr inbounds i8, ptr %316, i64 40
@@ -1832,13 +1832,13 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
   %319 = phi ptr [ %318, %313 ], [ %309, %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit17 ]
   %320 = load i64, ptr %.in5, align 8
   %321 = getelementptr inbounds i8, ptr %319, i64 -2168
-  %322 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 0), align 8, !noalias !67
-  %323 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1), align 8, !noalias !67
+  %322 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98456), align 8, !noalias !67
+  %323 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98464), align 8, !noalias !67
   %324 = icmp eq ptr %322, %323
   br i1 %324, label %325, label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE4backEv.exit19
 
 325:                                              ; preds = %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.exit18
-  %326 = load ptr, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8, !noalias !67
+  %326 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8, !noalias !67
   %327 = getelementptr inbounds i8, ptr %326, i64 -8
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 1112
@@ -1909,12 +1909,12 @@ _ZN9Stockfish12_GLOBAL__N_18TBTables6insertEmPNS0_7TBTableILNS0_6TBTypeE0EEEPNS2
   br label %350
 
 350:                                              ; preds = %._crit_edge, %_ZN9Stockfish12_GLOBAL__N_18TBTables6insertEmPNS0_7TBTableILNS0_6TBTypeE0EEEPNS2_ILS3_1EEE.exit39
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 0, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 24), ptr %3, align 8
   %351 = getelementptr inbounds i8, ptr %3, i64 288
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 1, i64 3), ptr %351, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 64), ptr %351, align 8
   %352 = getelementptr inbounds i8, ptr %3, i64 256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %352) #24
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %3, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1)) #24
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 8)) #24
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %351) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   ret void
@@ -2271,12 +2271,12 @@ _ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit.i.i:   ; preds = %59
   %136 = getelementptr inbounds i8, ptr %.0.val6.i.i, i64 8
   %137 = getelementptr inbounds i8, ptr %.0.val6.i.i, i64 24
   %138 = call fastcc noundef ptr @_ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPmNS0_6TBTypeE(ptr noundef nonnull align 8 dereferenceable(288) %16, ptr noundef nonnull %136, ptr noundef nonnull %137, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 0, i64 3), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 24), ptr %16, align 8
   %139 = getelementptr inbounds i8, ptr %16, i64 288
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 1, i64 3), ptr %139, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 64), ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %16, i64 256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #24
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %16, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1)) #24
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %16, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 8)) #24
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %139) #24
   %.not22.i.i = icmp eq ptr %138, null
   br i1 %.not22.i.i, label %_ZN9Stockfish12_GLOBAL__N_13setINS0_7TBTableILNS0_6TBTypeE1EEEEEvRT_Ph.exit.i.i, label %141
@@ -4170,7 +4170,7 @@ define dso_local { i64, i32 } @_ZN9Stockfish10Tablebases15rank_root_movesERKNS_1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24
   %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.5, i64 0, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 16))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   %25 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #24
   %.not80 = icmp eq i32 %25, 0
@@ -4195,7 +4195,7 @@ _ZN9Stockfish6OptionD2Ev.exit:                    ; preds = %23, %28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
   %33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %9) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.6, i64 0, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 16))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   %34 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #24
   %35 = getelementptr inbounds i8, ptr %7, i64 128
@@ -4219,7 +4219,7 @@ _ZN9Stockfish6OptionD2Ev.exit23:                  ; preds = %_ZN9Stockfish6Optio
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #24
   %42 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %42, ptr noundef nonnull align 1 dereferenceable(1) %12) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.7, i64 0, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 16))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   %43 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %10) #24
   %44 = getelementptr inbounds i8, ptr %10, i64 128
@@ -4283,7 +4283,7 @@ _ZN9Stockfish6OptionD2Ev.exit25:                  ; preds = %_ZN9Stockfish6Optio
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #24
   %80 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %80, ptr noundef nonnull align 1 dereferenceable(1) %15) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.5, i64 0, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 16))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   %81 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %13) #24
   %82 = icmp ne i32 %81, 0
@@ -4312,7 +4312,7 @@ _ZN9Stockfish6OptionD2Ev.exit27:                  ; preds = %79, %86
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #24
   %92 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %92, ptr noundef nonnull align 1 dereferenceable(1) %18) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.5, i64 0, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 16))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %17) #24
   %93 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #24
   %94 = icmp ne i32 %93, 0
@@ -5010,9 +5010,9 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16TBFileC1ERKNSt7__cxx111
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 288
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7) #24
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1)) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 1, i64 3), ptr %7, align 8
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 8)) #24
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 64), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9Stockfish12_GLOBAL__N_16TBFile5PathsB5cxx11E, i32 noundef 24) #24
@@ -5052,12 +5052,12 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9Stockfish12_GLOBAL__N_16TBFileD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 288
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 1, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1)) #24
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 8)) #24
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #24
   ret void
 }
@@ -5110,12 +5110,12 @@ declare void @_ZTv0_n24_NSiD0Ev(ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9Stockfish12_GLOBAL__N_16TBFileD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 288
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 1, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1)) #24
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 8)) #24
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -5127,12 +5127,12 @@ define internal void @_ZTv0_n24_N9Stockfish12_GLOBAL__N_16TBFileD1Ev(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 288
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 1, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1)) #24
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 8)) #24
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #24
   ret void
 }
@@ -5143,12 +5143,12 @@ define internal void @_ZTv0_n24_N9Stockfish12_GLOBAL__N_16TBFileD0Ev(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 288
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 1, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1)) #24
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 8)) #24
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #24
   tail call void @_ZdlPv(ptr noundef nonnull %5) #23
   ret void
@@ -5545,12 +5545,12 @@ _ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit.i:     ; preds = %44
   %121 = getelementptr inbounds i8, ptr %.0.val.i, i64 8
   %122 = getelementptr inbounds i8, ptr %.0.val.i, i64 24
   %123 = call fastcc noundef ptr @_ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPmNS0_6TBTypeE(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull %121, ptr noundef nonnull %122, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 0, i64 3), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 24), ptr %17, align 8
   %124 = getelementptr inbounds i8, ptr %17, i64 288
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i32 1, i64 3), ptr %124, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i64 64), ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %17, i64 256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #24
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %17, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1)) #24
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %17, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 8)) #24
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %124) #24
   %.not22.i = icmp eq ptr %123, null
   br i1 %.not22.i, label %384, label %126
@@ -12053,36 +12053,36 @@ define internal void @_GLOBAL__sub_I_tbprobe.cpp() #9 section ".text.startup" {
   store i1 true, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9Stockfish12_GLOBAL__N_16TBFile5PathsB5cxx11E) #24
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN9Stockfish12_GLOBAL__N_16TBFile5PathsB5cxx11E, ptr nonnull @__dso_handle) #24
-  store i64 8, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 8, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98336), align 8
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
-  store ptr %3, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98328), align 8
   %.01.i.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = tail call noalias noundef nonnull dereferenceable(2168) ptr @_Znwm(i64 noundef 2168) #26
   store ptr %4, ptr %.01.i.ptr.i.i.i.i.i, align 8
-  store ptr %.01.i.ptr.i.i.i.i.i, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3), align 8
-  store ptr %4, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1), align 8
+  store ptr %.01.i.ptr.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98368), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98352), align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 2168
-  store ptr %5, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2), align 8
-  store ptr %.01.i.ptr.i.i.i.i.i, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
-  store ptr %4, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
-  store ptr %5, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
-  store ptr %4, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2), align 8
-  store ptr %4, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3), align 8
-  store i64 8, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98360), align 8
+  store ptr %.01.i.ptr.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98400), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98384), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98392), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98344), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98376), align 8
+  store i64 8, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98416), align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
-  store ptr %6, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98408), align 8
   %.01.i.ptr.i.i.i1.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = tail call noalias noundef nonnull dereferenceable(1112) ptr @_Znwm(i64 noundef 1112) #26
   store ptr %7, ptr %.01.i.ptr.i.i.i1.i.i, align 8
-  store ptr %.01.i.ptr.i.i.i1.i.i, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3), align 8
-  store ptr %7, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1), align 8
+  store ptr %.01.i.ptr.i.i.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98448), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98432), align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1112
-  store ptr %8, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2), align 8
-  store ptr %.01.i.ptr.i.i.i1.i.i, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
-  store ptr %7, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
-  store ptr %8, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
-  store ptr %7, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2), align 8
-  store ptr %7, ptr getelementptr inbounds (%"class.Stockfish::(anonymous namespace)::TBTables", ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98440), align 8
+  store ptr %.01.i.ptr.i.i.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98480), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98464), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98472), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98424), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, i64 98456), align 8
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN9Stockfish12_GLOBAL__N_18TBTablesD2Ev, ptr nonnull @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr nonnull @__dso_handle) #24
   ret void
 }

@@ -83,7 +83,7 @@ define dso_local ptr @audit_alloc_mark(ptr noundef %0, ptr noundef %1, i32 nound
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 160
   call void @up_write(ptr noundef %21) #7
-  %22 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %23 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 104) #8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %50, label %25, !prof !6

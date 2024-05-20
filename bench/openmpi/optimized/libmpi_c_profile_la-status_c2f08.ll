@@ -45,8 +45,8 @@ define i32 @PMPI_Status_c2f08(ptr noundef readonly %0, ptr noundef writeonly %1)
   br i1 %or.cond5, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 19), align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 20), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 296), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 304), align 8
   %16 = tail call i32 @ompi_errhandler_invoke(ptr noundef %14, ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef %15, i32 noundef 18, ptr noundef nonnull @FUNC_NAME) #2
   br label %.loopexit
 

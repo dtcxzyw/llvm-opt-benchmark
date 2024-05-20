@@ -142,7 +142,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_shade_configuration() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_shade_configuration, ptr @proto_register_zbee_zcl_shade_configuration.ett, align 16
-  store ptr @ett_zbee_zcl_shade_configuration_status, ptr getelementptr inbounds ([2 x ptr], ptr @proto_register_zbee_zcl_shade_configuration.ett, i64 0, i64 1), align 8
+  store ptr @ett_zbee_zcl_shade_configuration_status, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_shade_configuration.ett, i64 8), align 8
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #2
   store i32 %1, ptr @proto_zbee_zcl_shade_configuration, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_shade_configuration.hf, i32 noundef 7) #2

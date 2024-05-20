@@ -728,7 +728,7 @@ Ivy_FastMapNodeDelay.exit.i:                      ; preds = %._crit_edge.loopexi
 
 Ivy_ObjFaninId0.exit.i147:                        ; preds = %337, %336
   %341 = phi i32 [ %.val.i.i146, %337 ], [ 0, %336 ]
-  store i32 %341, ptr getelementptr inbounds ([16 x i8], ptr @Ivy_FastMapNodeArea.Supp0, i64 0, i64 12), align 4
+  store i32 %341, ptr getelementptr inbounds (i8, ptr @Ivy_FastMapNodeArea.Supp0, i64 12), align 4
   br label %342
 
 342:                                              ; preds = %Ivy_ObjFaninId0.exit.i147, %330, %Ivy_FastMapNodeDelay.exit.i
@@ -761,7 +761,7 @@ Ivy_ObjFaninId0.exit.i147:                        ; preds = %337, %336
 
 Ivy_ObjFaninId1.exit.i144:                        ; preds = %352, %351
   %356 = phi i32 [ %.val.i98.i, %352 ], [ 0, %351 ]
-  store i32 %356, ptr getelementptr inbounds ([16 x i8], ptr @Ivy_FastMapNodeArea.Supp1, i64 0, i64 12), align 4
+  store i32 %356, ptr getelementptr inbounds (i8, ptr @Ivy_FastMapNodeArea.Supp1, i64 12), align 4
   br label %357
 
 357:                                              ; preds = %Ivy_ObjFaninId1.exit.i144, %345, %342
@@ -2536,7 +2536,7 @@ Ivy_FastMapNodeDelay.exit:                        ; preds = %3, %._crit_edge.loo
 
 Ivy_ObjFaninId0.exit:                             ; preds = %52, %53
   %57 = phi i32 [ %.val.i, %53 ], [ 0, %52 ]
-  store i32 %57, ptr getelementptr inbounds ([16 x i8], ptr @Ivy_FastMapNodeArea2.Supp0, i64 0, i64 12), align 4
+  store i32 %57, ptr getelementptr inbounds (i8, ptr @Ivy_FastMapNodeArea2.Supp0, i64 12), align 4
   br label %58
 
 58:                                               ; preds = %Ivy_ObjFaninId0.exit, %46, %Ivy_FastMapNodeDelay.exit
@@ -2569,7 +2569,7 @@ Ivy_ObjFaninId0.exit:                             ; preds = %52, %53
 
 Ivy_ObjFaninId1.exit:                             ; preds = %67, %68
   %72 = phi i32 [ %.val.i71, %68 ], [ 0, %67 ]
-  store i32 %72, ptr getelementptr inbounds ([16 x i8], ptr @Ivy_FastMapNodeArea2.Supp1, i64 0, i64 12), align 4
+  store i32 %72, ptr getelementptr inbounds (i8, ptr @Ivy_FastMapNodeArea2.Supp1, i64 12), align 4
   br label %73
 
 73:                                               ; preds = %Ivy_ObjFaninId1.exit, %61, %58

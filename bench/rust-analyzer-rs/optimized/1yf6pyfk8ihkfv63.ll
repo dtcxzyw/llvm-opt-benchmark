@@ -21669,7 +21669,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.25102
   unreachable
 
 11:                                               ; preds = %.noexc, %2
-  %.0.i.i2.i = phi ptr [ %8, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i = phi ptr [ %8, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
   %12 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !4258
   %13 = extractelement <2 x i64> %12, i64 0
@@ -27626,7 +27626,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %87, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7fa790d4319df4cdE.exit.thread.i", label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i
 
 _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i: ; preds = %.noexc.i, %84
-  %.0.i.i2.i.i = phi ptr [ %86, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %84 ]
+  %.0.i.i2.i.i = phi ptr [ %86, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 8), %84 ]
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %14), !noalias !5176
   %88 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !5177, !noundef !9
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !5177
@@ -28265,7 +28265,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %102, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb1be8ed04006991eE.exit.thread.i", label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i
 
 _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i: ; preds = %.noexc.i, %99
-  %.0.i.i2.i.i = phi ptr [ %101, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %99 ]
+  %.0.i.i2.i.i = phi ptr [ %101, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 8), %99 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14), !noalias !5322
   %103 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !5323, !noundef !9
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !5323
@@ -28802,7 +28802,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %87, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4351638a55e6d14dE.exit.thread.i", label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i
 
 _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i: ; preds = %.noexc.i, %84
-  %.0.i.i2.i.i = phi ptr [ %86, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %84 ]
+  %.0.i.i2.i.i = phi ptr [ %86, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 8), %84 ]
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %14), !noalias !5418
   %88 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !5419, !noundef !9
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !5419
@@ -29430,7 +29430,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %95, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17had93bf630eeb63baE.exit.thread.i", label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i
 
 _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i: ; preds = %.noexc.i, %92
-  %.0.i.i2.i.i = phi ptr [ %94, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %92 ]
+  %.0.i.i2.i.i = phi ptr [ %94, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 8), %92 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !5547
   %96 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !5548, !noundef !9
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !5548
@@ -30023,7 +30023,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %106, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6cdd111830c5af2cE.exit.thread.i", label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i
 
 _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i: ; preds = %.noexc.i, %103
-  %.0.i.i2.i.i = phi ptr [ %105, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %103 ]
+  %.0.i.i2.i.i = phi ptr [ %105, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 8), %103 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %14), !noalias !5665
   %107 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !5666, !noundef !9
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !5666
@@ -30561,7 +30561,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %87, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hffd94da07c0e3547E.exit.thread.i", label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i
 
 _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i: ; preds = %.noexc.i, %84
-  %.0.i.i2.i.i = phi ptr [ %86, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %84 ]
+  %.0.i.i2.i.i = phi ptr [ %86, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, i64 8), %84 ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %14), !noalias !5761
   %88 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !5762, !noundef !9
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !5762
@@ -36907,7 +36907,7 @@ define hidden noundef align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__g
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h5b1518e18d3ef6ddE.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h5b1518e18d3ef6ddE.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -59444,7 +59444,7 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17hdcef604afe02e13aE.
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -61425,7 +61425,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.25102
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h511d6ce7c1279865E.llvm.2510282452699860474.exit": ; preds = %0, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.2510282452699860474.exit
-  %.0.i.i2 = phi ptr [ %3, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.2510282452699860474.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %0 ]
+  %.0.i.i2 = phi ptr [ %3, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.2510282452699860474.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %0 ]
   %6 = load i64, ptr %.0.i.i2, align 8, !noalias !12653, !noundef !9
   %7 = getelementptr inbounds i8, ptr %.0.i.i2, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !12653, !noundef !9
@@ -72114,7 +72114,7 @@ _ZN13rust_analyzer3cli11rustc_tests31string_to_diagnostic_code_leaky10LEAK_STORE
   br label %.loopexit51.i
 
 _ZN13rust_analyzer3cli11rustc_tests31string_to_diagnostic_code_leaky10LEAK_STORE7__getit17h5b41e5a8c711a1cdE.exit.thread.i.i.i.i: ; preds = %.noexc30.i, %201
-  %.0.i.i15.i.i.i.i = phi ptr [ %203, %.noexc30.i ], [ getelementptr inbounds (<{ [8 x i8], [40 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN13rust_analyzer3cli11rustc_tests31string_to_diagnostic_code_leaky10LEAK_STORE7__getit5__KEY17hd85ecca1826a3da4E, i64 0, i32 1, i64 0), %201 ]
+  %.0.i.i15.i.i.i.i = phi ptr [ %203, %.noexc30.i ], [ getelementptr inbounds (i8, ptr @_ZN13rust_analyzer3cli11rustc_tests31string_to_diagnostic_code_leaky10LEAK_STORE7__getit5__KEY17hd85ecca1826a3da4E, i64 8), %201 ]
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i.i.i.i)
   %205 = load i64, ptr %.0.i.i15.i.i.i.i, align 8, !noalias !15781, !noundef !9
   %206 = icmp eq i64 %205, 0
@@ -72661,7 +72661,7 @@ _ZN3std2fs14read_to_string17h89a6239387473bc6E.exit: ; preds = %296
 379:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !15929
   store ptr @anon.58bff93399cb9162300a2319accc463d.457, ptr %10, align 8, !noalias !15929
-  store ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [8 x i8] }>, ptr @anon.58bff93399cb9162300a2319accc463d.457, i64 1, i32 0, i64 0), ptr %367, align 8, !noalias !15929
+  store ptr getelementptr inbounds (i8, ptr @anon.58bff93399cb9162300a2319accc463d.457, i64 528), ptr %367, align 8, !noalias !15929
   br label %380
 
 380:                                              ; preds = %.noexc191, %379
@@ -72881,7 +72881,7 @@ _ZN3std2fs14read_to_string17h89a6239387473bc6E.exit: ; preds = %296
 447:                                              ; preds = %.noexc196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !15968
   store ptr @anon.58bff93399cb9162300a2319accc463d.457, ptr %9, align 8, !noalias !15968
-  store ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8], ptr, [8 x i8] }>, ptr @anon.58bff93399cb9162300a2319accc463d.457, i64 1, i32 0, i64 0), ptr %440, align 8, !noalias !15968
+  store ptr getelementptr inbounds (i8, ptr @anon.58bff93399cb9162300a2319accc463d.457, i64 528), ptr %440, align 8, !noalias !15968
   br label %448
 
 448:                                              ; preds = %.noexc198, %447
@@ -74677,7 +74677,7 @@ define hidden void @_ZN13rust_analyzer3cli15progress_report14ProgressReport5clea
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i1 } @_ZN13rust_analyzer23hack_recover_crate_name11get_storage17hf2cb21af9bbbf630E.llvm.2510282452699860474() unnamed_addr #6 personality ptr @rust_eh_personality {
   %1 = alloca { { ptr, i8, [7 x i8] } }, align 8
-  %2 = load atomic i32, ptr getelementptr inbounds (<{ [40 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN13rust_analyzer23hack_recover_crate_name7STORAGE17h360723a488b7f5eaE.llvm.2510282452699860474, i64 0, i32 1, i64 0) acquire, align 8
+  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer23hack_recover_crate_name7STORAGE17h360723a488b7f5eaE.llvm.2510282452699860474, i64 40) acquire, align 8
   %.not.i = icmp eq i32 %2, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h52ccb6f197fd1d8cE.llvm.2510282452699860474.exit", label %3
 
@@ -74708,7 +74708,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.2510
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h458f319a167a4b81E.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.2510282452699860474.exit, %9
   %.0.i.i.i = phi i8 [ %12, %9 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.2510282452699860474.exit ]
-  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h2fa7a5cfe25e767eE.llvm.15005499655690089915(ptr noundef nonnull getelementptr inbounds (<{ [40 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN13rust_analyzer23hack_recover_crate_name7STORAGE17h360723a488b7f5eaE.llvm.2510282452699860474, i64 0, i32 0, i64 4), i8 noundef 0), !noalias !16395
+  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h2fa7a5cfe25e767eE.llvm.15005499655690089915(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN13rust_analyzer23hack_recover_crate_name7STORAGE17h360723a488b7f5eaE.llvm.2510282452699860474, i64 4), i8 noundef 0), !noalias !16395
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9c82c2396cf44697E.llvm.2510282452699860474.exit", label %14
 
@@ -75435,7 +75435,7 @@ define hidden void @"_ZN13rust_analyzer6config6Config29linked_or_discovered_proj
 34:                                               ; preds = %29
   %35 = icmp ult i64 %31, 5
   tail call void @llvm.assume(i1 %35)
-  %36 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config6Config29linked_or_discovered_projects28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd7df1ebd1e5f26beE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16572
+  %36 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config6Config29linked_or_discovered_projects28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd7df1ebd1e5f26beE", i64 16) monotonic, align 8, !noalias !16572
   switch i8 %36, label %37 [
     i8 0, label %110
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i
@@ -76331,7 +76331,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17h65e27351fee64b0dE.exit.thread: ; p
   br i1 %29, label %30, label %.critedge35.i
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16668
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8, !noalias !16668
   switch i8 %31, label %32 [
     i8 0, label %.critedge35.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -76952,7 +76952,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17h93833007b85721e6E.exit.thread: ; p
   br i1 %29, label %30, label %.critedge35.i
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16730
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8, !noalias !16730
   switch i8 %31, label %32 [
     i8 0, label %.critedge35.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -77386,7 +77386,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17he2664fcbb4b128c3E.exit.thread: ; p
   br i1 %30, label %31, label %.critedge35.i
 
 31:                                               ; preds = %28
-  %32 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16772
+  %32 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8, !noalias !16772
   switch i8 %32, label %33 [
     i8 0, label %.critedge35.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -85342,7 +85342,7 @@ define hidden noundef range(i8 0, 6) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -85544,7 +85544,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -85746,7 +85746,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -85948,7 +85948,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -86151,7 +86151,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -86355,7 +86355,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -86559,7 +86559,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -86762,7 +86762,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -86964,7 +86964,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -87166,7 +87166,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -87369,7 +87369,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge34
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -87572,7 +87572,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -87776,7 +87776,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge34
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -87980,7 +87980,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -88184,7 +88184,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -88387,7 +88387,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -88590,7 +88590,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge34
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -88793,7 +88793,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -88995,7 +88995,7 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -89197,7 +89197,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -89399,7 +89399,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -89602,7 +89602,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -89806,7 +89806,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge34
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -90009,7 +90009,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -90212,7 +90212,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -90415,7 +90415,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -90617,7 +90617,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -90819,7 +90819,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -91021,7 +91021,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -91224,7 +91224,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge34
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -91428,7 +91428,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -91631,7 +91631,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -91834,7 +91834,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge34
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -92037,7 +92037,7 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -92240,7 +92240,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -92443,7 +92443,7 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -92645,7 +92645,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge35
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -92848,7 +92848,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
-  %26 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %26 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he4b83909ba0cead3E", i64 16) monotonic, align 8
   switch i8 %26, label %27 [
     i8 0, label %.critedge33
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

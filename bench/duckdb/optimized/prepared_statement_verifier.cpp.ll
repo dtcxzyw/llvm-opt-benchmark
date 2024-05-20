@@ -232,7 +232,7 @@ if.then.i.i9:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb25PreparedStatementVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !13
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb25PreparedStatementVerifierE, i64 16), ptr %this, align 8, !tbaa !13
   %values = getelementptr inbounds i8, ptr %this, i64 72
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %_M_single_bucket.i.i, ptr %values, align 8, !tbaa !16
@@ -3472,7 +3472,7 @@ declare void @_ZN6duckdb14PreservedErrorC1ERKNS_9ExceptionE(ptr noundef nonnull 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb25PreparedStatementVerifierD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb25PreparedStatementVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !13
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb25PreparedStatementVerifierE, i64 16), ptr %this, align 8, !tbaa !13
   %dealloc_statement = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %dealloc_statement, align 8, !tbaa !12
   %cmp.not.i = icmp eq ptr %0, null
@@ -3797,7 +3797,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !13
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !13
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !15
   %1 = getelementptr inbounds i8, ptr %this, i64 64

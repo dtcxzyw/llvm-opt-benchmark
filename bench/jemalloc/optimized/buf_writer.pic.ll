@@ -430,11 +430,11 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %cmp2.not.i, ptr @wrtmessage, ptr %3
   %storemerge.i = select i1 %cmp.not.i, ptr %cond.i, ptr %1
   store ptr %storemerge.i, ptr @buf_writer_pipe.backup_buf_writer, align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.buf_writer_t, ptr @buf_writer_pipe.backup_buf_writer, i64 0, i32 1), align 8
-  store ptr @buf_writer_pipe.backup_buf, ptr getelementptr inbounds (%struct.buf_writer_t, ptr @buf_writer_pipe.backup_buf_writer, i64 0, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.buf_writer_t, ptr @buf_writer_pipe.backup_buf_writer, i64 0, i32 5), align 8
-  store i64 15, ptr getelementptr inbounds (%struct.buf_writer_t, ptr @buf_writer_pipe.backup_buf_writer, i64 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.buf_writer_t, ptr @buf_writer_pipe.backup_buf_writer, i64 0, i32 4), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @buf_writer_pipe.backup_buf_writer, i64 8), align 8
+  store ptr @buf_writer_pipe.backup_buf, ptr getelementptr inbounds (i8, ptr @buf_writer_pipe.backup_buf_writer, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @buf_writer_pipe.backup_buf_writer, i64 40), align 8
+  store i64 15, ptr getelementptr inbounds (i8, ptr @buf_writer_pipe.backup_buf_writer, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @buf_writer_pipe.backup_buf_writer, i64 32), align 8
   br label %do.end2
 
 do.end2:                                          ; preds = %if.then, %entry

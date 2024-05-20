@@ -357,7 +357,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %t.017 = phi ptr [ %103, %for.inc ], [ %tok, %entry ]
-  %1 = load i32, ptr getelementptr inbounds (%struct.HashMap, ptr @is_keyword.map, i64 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @is_keyword.map, i64 8), align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %for.body.i, label %is_keyword.exit
 

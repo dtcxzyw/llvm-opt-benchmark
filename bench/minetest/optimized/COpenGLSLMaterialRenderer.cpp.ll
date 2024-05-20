@@ -114,7 +114,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %vtt, align 8
   store ptr %5, ptr %this, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %vtt, i64 24
@@ -123,7 +123,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %7, ptr %add.ptr, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 1, i64 2), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 184), ptr %4, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -385,9 +385,9 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 144) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 2, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 144) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 304), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 184), ptr %1, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -470,7 +470,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %vtt, align 8
   store ptr %5, ptr %this, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %vtt, i64 24
@@ -479,7 +479,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %7, ptr %add.ptr, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 1, i64 2), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 184), ptr %4, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -547,9 +547,9 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 144) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 2, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 144) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 304), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 184), ptr %1, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -624,7 +624,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 0, i32 1, i64 2), ptr %add.ptr3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25COpenGLSLMaterialRendererE, i64 184), ptr %add.ptr3, align 8, !tbaa !3
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %CallBack, align 8, !tbaa !19
   %tobool.not = icmp eq ptr %3, null
@@ -2382,7 +2382,7 @@ if.then25:                                        ; preds = %if.end21
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i77
 
 if.then.i77:                                      ; preds = %if.then25
-  %.val.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   tail call void %.val.i(i32 noundef 3042) #20
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %call5, i64 72
   %17 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !106
@@ -2432,7 +2432,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i84, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit, label %if.then.i79
 
 if.then.i79:                                      ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit
-  %29 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !112
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !112
   tail call void %29(i32 noundef 770, i32 noundef 771) #20
   %FrameBufferCount.i80 = getelementptr inbounds i8, ptr %call5, i64 72
   %30 = load i32, ptr %FrameBufferCount.i80, align 8, !tbaa !106
@@ -2547,7 +2547,7 @@ lor.lhs.false7.i110:                              ; preds = %lor.lhs.false4.i107
   br i1 %or.cond.i115, label %if.end47, label %if.then.i87
 
 if.then.i87:                                      ; preds = %lor.lhs.false7.i110, %lor.lhs.false4.i107, %lor.lhs.false.i104, %if.else42
-  %56 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !112
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !112
   tail call void %56(i32 noundef %call44, i32 noundef %call46) #20
   %FrameBufferCount.i88 = getelementptr inbounds i8, ptr %call5, i64 72
   %57 = load i32, ptr %FrameBufferCount.i88, align 8, !tbaa !106
@@ -2597,7 +2597,7 @@ if.end47:                                         ; preds = %for.cond.cleanup.i1
   br i1 %or.cond.i121, label %if.end53, label %if.then.i122
 
 if.then.i122:                                     ; preds = %if.end47
-  %.val.i123 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i123 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   tail call void %.val.i123(i32 noundef 3042) #20
   %FrameBufferCount.i125 = getelementptr inbounds i8, ptr %call5, i64 72
   %67 = load i32, ptr %FrameBufferCount.i125, align 8, !tbaa !106
@@ -2771,7 +2771,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i, label %if.end28, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %if.else
-  %26 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !112
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !112
   tail call void %26(i32 noundef %sourceRGB, i32 noundef %destinationRGB) #20
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %this, i64 72
   %27 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !106
@@ -2878,7 +2878,7 @@ if.then10:                                        ; preds = %if.end6
   br i1 %or.cond.i, label %if.end11, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.then10
-  %.val22.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8
+  %.val22.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 224), align 8
   tail call void %.val22.i(i32 noundef 3042) #20
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %call, i64 72
   %12 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !106

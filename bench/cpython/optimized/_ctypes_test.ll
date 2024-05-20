@@ -113,7 +113,7 @@ entry:
   %in.sroa.3.0.extract.shift = lshr i64 %in.coerce, 32
   %in.sroa.3.0.extract.trunc = trunc nuw i64 %in.sroa.3.0.extract.shift to i32
   store i32 %in.sroa.0.0.extract.trunc, ptr @last_tfrsuv_arg, align 4
-  store i32 %in.sroa.3.0.extract.trunc, ptr getelementptr inbounds (%struct.TestReg, ptr @last_tfrsuv_arg, i64 0, i32 1), align 4
+  store i32 %in.sroa.3.0.extract.trunc, ptr getelementptr inbounds (i8, ptr @last_tfrsuv_arg, i64 4), align 4
   store volatile i32 195948557, ptr %in.sroa.0, align 4
   store volatile i32 195948557, ptr %in.sroa.3, align 4
   ret void

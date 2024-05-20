@@ -118,9 +118,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10MainWindowC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 472), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
@@ -209,9 +209,9 @@ declare void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10MainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 472), ptr %2, align 8
   invoke void @_ZN10MainWindow21clearAddedPacketMenusEv(ptr nonnull align 8 poison)
           to label %3 unwind label %17
 
@@ -268,7 +268,7 @@ _ZN5QListI21register_stat_group_eED2Ev.exit:      ; preds = %_ZN5QListIjED2Ev.ex
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10MainWindow21clearAddedPacketMenusEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 2), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 16), align 8
   %4 = icmp sgt i64 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -301,7 +301,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread.i.i.i.i: ; preds =
   br label %_ZN5QListIP7QActionEixEx.exit
 
 _ZN5QListIP7QActionEixEx.exit:                    ; preds = %_ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread.i.i.i.i
-  %12 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 8), align 8
   %13 = getelementptr ptr, ptr %12, i64 %5
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -317,7 +317,7 @@ _ZN5QListIP7QActionEixEx.exit:                    ; preds = %_ZNK17QArrayDataPoi
 20:                                               ; preds = %_ZN5QListIP7QActionEixEx.exit, %16
   %21 = add i32 %.05, 1
   %22 = sext i32 %21 to i64
-  %23 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 2), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 16), align 8
   %24 = icmp sgt i64 %23, %22
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
@@ -350,8 +350,8 @@ _ZN17QArrayDataPointerIP7QActionE17allocatedCapacityEv.exit.i: ; preds = %29, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %35 = load ptr, ptr @_ZL27dynamic_packet_menu_actions, align 8
   store ptr %34, ptr @_ZL27dynamic_packet_menu_actions, align 8
-  store ptr %33, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 1), align 8
-  store i64 0, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 2), align 8
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 16), align 8
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %_ZN5QListIP7QActionE5clearEv.exit, label %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i
 
@@ -365,7 +365,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i: ; preds = %_ZN17QArrayDataPo
   br label %_ZN5QListIP7QActionE5clearEv.exit
 
 38:                                               ; preds = %_ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.i
-  store i64 0, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 16), align 8
   br label %_ZN5QListIP7QActionE5clearEv.exit
 
 _ZN5QListIP7QActionE5clearEv.exit:                ; preds = %._crit_edge, %_ZN17QArrayDataPointerIP7QActionE17allocatedCapacityEv.exit.i, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i, %37, %38
@@ -717,7 +717,7 @@ define void @_ZN10MainWindow16appendPacketMenuEP7QAction(ptr nocapture noundef n
   %4 = alloca %"class.QMetaObject::Connection", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  %5 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 2), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 16), align 8
   call void @_ZN9QtPrivate12QPodArrayOpsIP7QActionE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @_ZL27dynamic_packet_menu_actions, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %4, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 0)
@@ -745,10 +745,10 @@ define void @_ZN10MainWindow20getPacketMenuActionsEv(ptr dead_on_unwind noalias 
   %6 = load ptr, ptr @_ZL27dynamic_packet_menu_actions, align 8
   store ptr %6, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 8), align 8
   store ptr %8, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 2), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 16), align 8
   store i64 %10, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %_ZN5QListIP7QActionEC2ERKS2_.exit, label %11
@@ -788,8 +788,8 @@ define noundef zeroext i1 @_ZN10MainWindow14addPacketMenusEP5QMenuP10_GPtrArray(
 
 15:                                               ; preds = %14, %3
   %16 = load ptr, ptr @_ZL27dynamic_packet_menu_actions, align 8, !noalias !9
-  %17 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 1), align 8, !noalias !9
-  %18 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL27dynamic_packet_menu_actions, i64 0, i32 0, i32 2), align 8, !noalias !9
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 8), align 8, !noalias !9
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 16), align 8, !noalias !9
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN10MainWindow20getPacketMenuActionsEv.exit, label %19
 

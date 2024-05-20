@@ -1528,7 +1528,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make8lifetime17hd45873b4b4e05c85E(ptr
 22:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit.thread"
   %23 = icmp ult i64 %21, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6syntax3ast4make8lifetime10__CALLSITE17hcee42e9340374d8aE, i64 0, i32 1, i64 8) monotonic, align 8
+  %24 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6syntax3ast4make8lifetime10__CALLSITE17hcee42e9340374d8aE, i64 16) monotonic, align 8
   switch i8 %24, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

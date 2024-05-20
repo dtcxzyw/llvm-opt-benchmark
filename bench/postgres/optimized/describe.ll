@@ -917,10 +917,10 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef zeroext i1 @describeAggregates(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #9
-  %6 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %7 = icmp sgt i32 %6, 109999
   %.str.5..str.7 = select i1 %7, ptr @.str.5, ptr @.str.7
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull %.str.5..str.7, ptr noundef nonnull @.str.6) #9
@@ -953,8 +953,8 @@ define dso_local noundef zeroext i1 @describeAggregates(ptr noundef %0, i1 nound
   store ptr @.str.13, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 144
   store i8 1, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef %19, i1 noundef zeroext false, ptr noundef %20) #9
   call void @PQclear(ptr noundef nonnull %15) #9
   br label %21
@@ -1049,8 +1049,8 @@ define dso_local noundef zeroext i1 @describeAccessMethods(ptr noundef %0, i1 no
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
   %7 = alloca [32 x i8], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
-  %8 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %9 = icmp slt i32 %8, 90600
   br i1 %9, label %10, label %12
 
@@ -1107,8 +1107,8 @@ define dso_local noundef zeroext i1 @describeAccessMethods(ptr noundef %0, i1 no
   store ptr @describeAccessMethods.translate_columns, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 160
   store i32 4, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %21, ptr noundef nonnull %6, ptr noundef %27, i1 noundef zeroext false, ptr noundef %28) #9
   call void @PQclear(ptr noundef nonnull %21) #9
   br label %29
@@ -1128,7 +1128,7 @@ define dso_local noundef zeroext i1 @describeTablespaces(ptr noundef %0, i1 noun
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #9
   br i1 %1, label %7, label %8
@@ -1174,8 +1174,8 @@ define dso_local noundef zeroext i1 @describeTablespaces(ptr noundef %0, i1 noun
   store ptr @.str.35, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 144
   store i8 1, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %15, ptr noundef nonnull %6, ptr noundef %19, i1 noundef zeroext false, ptr noundef %20) #9
   call void @PQclear(ptr noundef nonnull %15) #9
   br label %21
@@ -1204,7 +1204,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   %20 = icmp ne ptr %19, null
   %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 119) #10
   %22 = icmp ne ptr %21, null
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %24 = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str.36) #10
   %.not83 = icmp eq i64 %23, %24
@@ -1215,7 +1215,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   br label %140
 
 26:                                               ; preds = %6
-  %27 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %28 = icmp slt i32 %27, 110000
   %or.cond = select i1 %18, i1 %28, i1 false
   br i1 %or.cond, label %29, label %31
@@ -1252,7 +1252,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   %.075.shrunk = phi i1 [ %22, %31 ], [ %22, %32 ], [ %22, %33 ], [ %22, %34 ], [ true, %35 ], [ true, %36 ]
   call void @initPQExpBuffer(ptr noundef nonnull %7) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #9
-  %39 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %40 = icmp sgt i32 %39, 109999
   br i1 %40, label %41, label %42
 
@@ -1269,7 +1269,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
 
 44:                                               ; preds = %43
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51) #9
-  %45 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %46 = icmp sgt i32 %45, 90599
   br i1 %46, label %47, label %48
 
@@ -1320,7 +1320,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
 
 .sink.split:                                      ; preds = %58
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.72) #9
-  %59 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %60 = icmp sgt i32 %59, 109999
   %.str.73..str.74 = select i1 %60, ptr @.str.73, ptr @.str.74
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.73..str.74) #9
@@ -1328,7 +1328,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
 
 61:                                               ; preds = %.sink.split, %58
   %.173 = phi i8 [ 0, %58 ], [ 1, %.sink.split ]
-  %62 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %63 = icmp slt i32 %62, 110000
   %or.cond3.not = select i1 %.077.shrunk, i1 true, i1 %63
   br i1 %or.cond3.not, label %66, label %64
@@ -1362,7 +1362,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   %.str.71..str.72106 = select i1 %71, ptr @.str.71, ptr @.str.72
   %.5. = select i1 %71, i8 %.5, i8 1
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.71..str.72106) #9
-  %72 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %73 = icmp sgt i32 %72, 109999
   %spec.select107 = select i1 %73, ptr @.str.77, ptr @.str.78
   br label %.sink.split103
@@ -1372,7 +1372,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   br i1 %.079.shrunk, label %.sink.split101, label %77
 
 .sink.split101:                                   ; preds = %74
-  %75 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %76 = icmp sgt i32 %75, 109999
   %.str.80..str.81 = select i1 %76, ptr @.str.80, ptr @.str.81
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.80..str.81) #9
@@ -1423,7 +1423,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   br label %.sink.split102
 
 .sink.split102:                                   ; preds = %90, %88
-  %91 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %91 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %92 = icmp sgt i32 %91, 109999
   %.str.85..str.86 = select i1 %92, ptr @.str.85, ptr @.str.86
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.85..str.86) #9
@@ -1536,7 +1536,7 @@ map_typename_pattern.exit:                        ; preds = %122, %106, %117
   store ptr @.str.94, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %8, i64 144
   store i8 1, ptr %133, align 8
-  %134 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %135 = icmp sgt i32 %134, 90599
   %spec.select = select i1 %135, ptr @describeFunctions.translate_columns, ptr @describeFunctions.translate_columns_pre_96
   %spec.select104 = select i1 %135, i32 13, i32 12
@@ -1544,8 +1544,8 @@ map_typename_pattern.exit:                        ; preds = %122, %106, %117
   store ptr %spec.select, ptr %136, align 8
   %137 = getelementptr inbounds i8, ptr %8, i64 160
   store i32 %spec.select104, ptr %137, align 8
-  %138 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %139 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %130, ptr noundef nonnull %8, ptr noundef %138, i1 noundef zeroext false, ptr noundef %139) #9
   call void @PQclear(ptr noundef nonnull %130) #9
   br label %140
@@ -1577,7 +1577,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 define dso_local noundef zeroext i1 @describeTypes(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #9
   br i1 %1, label %6, label %7
@@ -1659,8 +1659,8 @@ map_typename_pattern.exit:                        ; preds = %23, %12, %13, %18
   store ptr @.str.109, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 144
   store i8 1, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %28, ptr noundef nonnull %5, ptr noundef %32, i1 noundef zeroext false, ptr noundef %33) #9
   call void @PQclear(ptr noundef nonnull %28) #9
   br label %34
@@ -1681,7 +1681,7 @@ define dso_local noundef zeroext i1 @describeOperators(ptr noundef %0, ptr nocap
   %9 = alloca [64 x i8], align 16
   %10 = alloca [64 x i8], align 16
   %11 = alloca [64 x i8], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113) #9
   br i1 %3, label %12, label %13
@@ -1815,8 +1815,8 @@ map_typename_pattern.exit:                        ; preds = %53, %37, %48
   store ptr @.str.124, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %7, i64 144
   store i8 1, ptr %61, align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %63 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %58, ptr noundef nonnull %7, ptr noundef %62, i1 noundef zeroext false, ptr noundef %63) #9
   call void @PQclear(ptr noundef nonnull %58) #9
   br label %64
@@ -1836,19 +1836,19 @@ define dso_local noundef zeroext i1 @listAllDbs(ptr noundef %0, i1 noundef zeroe
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.126) #9
-  %7 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %8 = icmp sgt i32 %7, 149999
   %.str.127..str.129 = select i1 %8, ptr @.str.127, ptr @.str.129
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull %.str.127..str.129, ptr noundef nonnull @.str.128) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132) #9
-  %9 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %10 = icmp sgt i32 %9, 149999
   %.str.135.sink = select i1 %10, ptr @.str.133, ptr @.str.135
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull %.str.135.sink, ptr noundef nonnull @.str.134) #9
-  %11 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %12 = icmp sgt i32 %11, 159999
   %.str.135.sink11 = select i1 %12, ptr @.str.136, ptr @.str.135
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull %.str.135.sink11, ptr noundef nonnull @.str.137) #9
@@ -1904,8 +1904,8 @@ validateSQLNamePattern.exit.thread:               ; preds = %14
   store ptr @.str.145, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 144
   store i8 1, ptr %24, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %21, ptr noundef nonnull %6, ptr noundef %25, i1 noundef zeroext false, ptr noundef %26) #9
   call void @PQclear(ptr noundef nonnull %21) #9
   br label %27
@@ -1919,19 +1919,19 @@ validateSQLNamePattern.exit.thread:               ; preds = %14
 define dso_local noundef zeroext i1 @permissionsList(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.18) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.883, ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.884, ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.162) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155) #9
-  %5 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %6 = add i32 %5, -90500
   %or.cond = icmp ult i32 %6, 9500
   br i1 %or.cond, label %7, label %8
 
 7:                                                ; preds = %2
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.157) #9
-  %.pr = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -1975,8 +1975,8 @@ define dso_local noundef zeroext i1 @permissionsList(ptr noundef %0, i1 noundef 
   store ptr @permissionsList.translate_columns, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 160
   store i32 6, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef %26, i1 noundef zeroext false, ptr noundef %27) #9
   call void @termPQExpBuffer(ptr noundef nonnull %3) #9
   call void @PQclear(ptr noundef nonnull %19) #9
@@ -1995,7 +1995,7 @@ define dso_local noundef zeroext i1 @permissionsList(ptr noundef %0, i1 noundef 
 define dso_local noundef zeroext i1 @listDefaultACLs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @.str.147, i32 noundef 83, ptr noundef nonnull @.str.150, i32 noundef 102, ptr noundef nonnull @.str.164, i32 noundef 84, ptr noundef nonnull @.str.165, i32 noundef 110, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.18) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.883, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.884, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.162) #9
@@ -2021,8 +2021,8 @@ define dso_local noundef zeroext i1 @listDefaultACLs(ptr noundef %0) local_unnam
   store ptr @listDefaultACLs.translate_columns, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 160
   store i32 4, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %14, i1 noundef zeroext false, ptr noundef %15) #9
   call void @termPQExpBuffer(ptr noundef nonnull %2) #9
   call void @PQclear(ptr noundef nonnull %7) #9
@@ -2041,7 +2041,7 @@ define dso_local noundef zeroext i1 @listDefaultACLs(ptr noundef %0) local_unnam
 define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.6) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.175) #9
@@ -2136,8 +2136,8 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
   store ptr @objectDescription.translate_columns, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 160
   store i32 4, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %32, ptr noundef nonnull %4, ptr noundef %38, i1 noundef zeroext false, ptr noundef %39) #9
   call void @PQclear(ptr noundef nonnull %32) #9
   br label %41
@@ -2192,7 +2192,7 @@ define dso_local noundef zeroext i1 @describeTableDetails(ptr noundef %0, i1 nou
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 19:                                               ; preds = %14
-  %20 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %21 = trunc i8 %20 to i1
   br i1 %21, label %25, label %22
 
@@ -2261,7 +2261,7 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
   %10 = alloca %struct.PQExpBufferData, align 8
   %11 = alloca %struct.printQueryOpt, align 8
   %12 = alloca [2 x ptr], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @pset, i64 48), i64 120, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 27
   store i8 0, ptr %13, align 1
   %14 = getelementptr inbounds i8, ptr %6, i64 4
@@ -2269,7 +2269,7 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   call void @initPQExpBuffer(ptr noundef nonnull %9) #9
   call void @initPQExpBuffer(ptr noundef nonnull %10) #9
-  %15 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %16 = icmp sgt i32 %15, 119999
   %.sink1444.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
   %.sink1444.sroa.gep1459 = getelementptr inbounds i8, ptr %8, i64 8
@@ -2324,7 +2324,7 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
   br i1 %37, label %38, label %sub_01204
 
 38:                                               ; preds = %35
-  %39 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %40 = trunc i8 %39 to i1
   br i1 %40, label %1136, label %41
 
@@ -2468,14 +2468,14 @@ sub_1:                                            ; preds = %.tail1183
   %119 = phi ptr [ %117, %115 ], [ null, %.tail ]
   %120 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 12) #9
   %121 = load i8, ptr %120, align 1
-  %122 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %122 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %123 = icmp sgt i32 %122, 90399
   br i1 %123, label %124, label %.thread
 
 124:                                              ; preds = %118
   %125 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 13) #9
   %126 = load i8, ptr %125, align 1
-  %.pr = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %127 = icmp sgt i32 %.pr, 119999
   br i1 %127, label %128, label %.thread
 
@@ -2498,9 +2498,9 @@ sub_1:                                            ; preds = %.tail1183
   br i1 %135, label %136, label %171
 
 136:                                              ; preds = %.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %11, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %11, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %137 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %137 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %138 = icmp sgt i32 %137, 99999
   br i1 %138, label %139, label %140
 
@@ -2569,8 +2569,8 @@ sub_1:                                            ; preds = %.tail1183
   store ptr %165, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %11, i64 144
   store i8 1, ptr %167, align 8
-  %168 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %169 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %145, ptr noundef nonnull %11, ptr noundef %168, i1 noundef zeroext false, ptr noundef %169) #9
   %170 = load ptr, ptr %12, align 16
   call void @free(ptr noundef %170) #9
@@ -2595,11 +2595,11 @@ sub_1:                                            ; preds = %.tail1183
 .sink.split:                                      ; preds = %171, %171, %171, %171, %171, %171
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.640) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.641) #9
-  %176 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %176 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %177 = icmp sgt i32 %176, 99999
   %.str.642..str.643 = select i1 %177, ptr @.str.642, ptr @.str.643
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.642..str.643) #9
-  %178 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %178 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %179 = icmp sgt i32 %178, 119999
   %.str.644.sink = select i1 %179, ptr @.str.644, ptr @.str.645
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.644.sink) #9
@@ -2620,7 +2620,7 @@ sub_1:                                            ; preds = %.tail1183
   ]
 
 183:                                              ; preds = %180, %180
-  %184 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %184 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %185 = icmp sgt i32 %184, 109999
   br i1 %185, label %186, label %188
 
@@ -2655,12 +2655,12 @@ sub_1:                                            ; preds = %.tail1183
 194:                                              ; preds = %193
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.649) #9
   %195 = add nuw nsw i32 %.3935, 1
-  %196 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %196 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %197 = icmp sgt i32 %196, 139999
   br i1 %197, label %198, label %204
 
 198:                                              ; preds = %194
-  %199 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 35), align 1
+  %199 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 389), align 1
   %200 = trunc i8 %199 to i1
   br i1 %200, label %204, label %201
 
@@ -3062,7 +3062,7 @@ sub_11209:                                        ; preds = %sub_01208
 
 335:                                              ; preds = %._crit_edge
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.687) #9
-  %336 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %336 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %337 = icmp sgt i32 %336, 139999
   %338 = select i1 %337, ptr @.str.688, ptr @.str.689
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %338) #9
@@ -3192,11 +3192,11 @@ sub_11213:                                        ; preds = %sub_01212
 
 390:                                              ; preds = %380, %380
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.700) #9
-  %391 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %391 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %392 = icmp sgt i32 %391, 90399
   %.str.701..str.702 = select i1 %392, ptr @.str.701, ptr @.str.702
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.701..str.702) #9
-  %393 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %393 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %394 = icmp sgt i32 %393, 149999
   %.str.704.sink = select i1 %394, ptr @.str.703, ptr @.str.704
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.704.sink) #9
@@ -3443,12 +3443,12 @@ sub_11245:                                        ; preds = %sub_01244
 
 489:                                              ; preds = %488
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.718) #9
-  %490 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %490 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %491 = icmp sgt i32 %490, 90399
   %.str.719..str.720 = select i1 %491, ptr @.str.719, ptr @.str.720
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.719..str.720) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.721) #9
-  %492 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %492 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %493 = icmp sgt i32 %492, 169999
   %.str.723.sink = select i1 %493, ptr @.str.722, ptr @.str.723
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.723.sink) #9
@@ -3753,7 +3753,7 @@ sub_11285:                                        ; preds = %sub_01284
   br i1 %or.cond99, label %621, label %.critedge
 
 621:                                              ; preds = %620
-  %622 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %622 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %623 = icmp sgt i32 %622, 119999
   %or.cond103 = or i1 %175, %108
   %or.cond = select i1 %623, i1 %or.cond103, i1 false
@@ -3765,7 +3765,7 @@ sub_11285:                                        ; preds = %sub_01284
 
 625:                                              ; preds = %621
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.742, ptr noundef %2) #9
-  %626 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %626 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %627 = icmp sgt i32 %626, 119999
   br i1 %627, label %628, label %629
 
@@ -3838,7 +3838,7 @@ sub_11289:                                        ; preds = %sub_01288
 
 .loopexit1337:                                    ; preds = %657, %633
   call void @PQclear(ptr noundef nonnull %632) #9
-  %660 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %660 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %661 = icmp sgt i32 %660, 119999
   br i1 %661, label %662, label %663
 
@@ -3885,13 +3885,13 @@ sub_11289:                                        ; preds = %sub_01288
   br label %.critedge
 
 .critedge:                                        ; preds = %620, %.loopexit1336
-  %680 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %680 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %681 = icmp sgt i32 %680, 90499
   br i1 %681, label %682, label %.thread1151
 
 682:                                              ; preds = %.critedge
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.755) #9
-  %683 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %683 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %684 = icmp sgt i32 %683, 99999
   %.str.756..str.757 = select i1 %684, ptr @.str.756, ptr @.str.757
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.756..str.757) #9
@@ -4008,7 +4008,7 @@ sub_11289:                                        ; preds = %sub_01288
 
 ._crit_edge1351:                                  ; preds = %721, %._crit_edge1351.sink.split, %.thread1146
   call void @PQclear(ptr noundef nonnull %686) #9
-  %.pr1148 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %.pr1148 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %724 = icmp sgt i32 %.pr1148, 139999
   br i1 %724, label %725, label %791
 
@@ -4170,7 +4170,7 @@ sub_2:                                            ; preds = %sub_11305
 
 793:                                              ; preds = %791
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.781) #9
-  %794 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %794 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %795 = icmp sgt i32 %794, 129999
   %.str.782..str.783 = select i1 %795, ptr @.str.782, ptr @.str.783
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.782..str.783) #9
@@ -4414,7 +4414,7 @@ switch.lookup:                                    ; preds = %884
   br label %893
 
 893:                                              ; preds = %.loopexit1333, %.thread1151
-  %894 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %894 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %895 = icmp sgt i32 %894, 99999
   br i1 %895, label %896, label %917
 
@@ -4601,12 +4601,12 @@ switch.lookup:                                    ; preds = %884
 
 964:                                              ; preds = %.thread1153
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.806) #9
-  %965 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %965 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %966 = icmp sgt i32 %965, 129999
   %.str.807..str.808 = select i1 %966, ptr @.str.807, ptr @.str.808
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.807..str.808) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.809, ptr noundef %2) #9
-  %967 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %967 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %968 = add i32 %967, -110000
   %or.cond129 = icmp ult i32 %968, 40000
   %.str.811.sink = select i1 %or.cond129, ptr @.str.810, ptr @.str.811
@@ -4801,7 +4801,7 @@ switch.lookup1455:                                ; preds = %995
   br i1 %.not1079, label %1135, label %1030
 
 1030:                                             ; preds = %1027
-  %1031 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %1031 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %1032 = call i32 @pg_wcswidth(ptr noundef nonnull @.str.824, i64 noundef 8, i32 noundef %1031) #9
   %1033 = call i32 @PQntuples(ptr noundef nonnull %1029) #9
   %1034 = icmp sgt i32 %1033, 0
@@ -4843,7 +4843,7 @@ switch.lookup1455:                                ; preds = %995
 
 ._crit_edge1378:                                  ; preds = %1045, %1030
   call void @PQclear(ptr noundef nonnull %1029) #9
-  %1048 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %1048 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %1049 = icmp sgt i32 %1048, 139999
   %1050 = icmp sgt i32 %1048, 99999
   %.str.828..str.829 = select i1 %1050, ptr @.str.828, ptr @.str.829
@@ -4882,7 +4882,7 @@ switch.lookup1455:                                ; preds = %995
 1062:                                             ; preds = %1057
   %1063 = select i1 %1011, ptr @.str.833, ptr @.str.834
   %1064 = select i1 %1011, i64 10, i64 12
-  %1065 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %1065 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %1066 = call i32 @pg_wcswidth(ptr noundef nonnull %1063, i64 noundef %1064, i32 noundef %1065) #9
   %1067 = icmp sgt i32 %1054, 0
   br i1 %1067, label %.lr.ph1381, label %.loopexit
@@ -5033,7 +5033,7 @@ sub_11326:                                        ; preds = %sub_01325
   br i1 %or.cond177, label %1121, label %1126
 
 1121:                                             ; preds = %1119
-  %1122 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 36), align 2
+  %1122 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 390), align 2
   %1123 = trunc i8 %1122 to i1
   br i1 %1123, label %1126, label %1124
 
@@ -5060,8 +5060,8 @@ sub_11326:                                        ; preds = %sub_01325
   br label %1132
 
 1132:                                             ; preds = %1130, %1128, %1126
-  %1133 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %1134 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %1133 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %1134 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printTable(ptr noundef nonnull %7, ptr noundef %1133, i1 noundef zeroext false, ptr noundef %1134) #9
   br label %1135
 
@@ -5090,7 +5090,7 @@ define dso_local noundef zeroext i1 @describeRoles(ptr noundef %0, i1 noundef ze
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printTableContent, align 8
   %8 = alloca %struct.printTableOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @pset, i64 48), i64 120, i1 false)
   %9 = getelementptr inbounds i8, ptr %8, i64 27
   store i8 0, ptr %9, align 1
   call void @initPQExpBuffer(ptr noundef nonnull %6) #9
@@ -5104,7 +5104,7 @@ define dso_local noundef zeroext i1 @describeRoles(ptr noundef %0, i1 noundef ze
 11:                                               ; preds = %10, %3
   %.057 = phi i32 [ 3, %10 ], [ 2, %3 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull @.str.200) #9
-  %12 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %13 = icmp sgt i32 %12, 90499
   br i1 %13, label %14, label %15
 
@@ -5374,7 +5374,7 @@ add_role_attribute.exit76:                        ; preds = %107, %109
   br label %110
 
 110:                                              ; preds = %add_role_attribute.exit76, %.tail96
-  %111 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %112 = icmp sgt i32 %111, 90499
   br i1 %112, label %sub_0101, label %125
 
@@ -5480,8 +5480,8 @@ add_role_attribute.exit78:                        ; preds = %122, %124
 
 ._crit_edge:                                      ; preds = %151
   call void @termPQExpBuffer(ptr noundef nonnull %6) #9
-  %152 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %153 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printTable(ptr noundef nonnull %7, ptr noundef %152, i1 noundef zeroext false, ptr noundef %153) #9
   call void @printTableCleanup(ptr noundef nonnull %7) #9
   br i1 %34, label %.lr.ph.preheader, label %._crit_edge107
@@ -5501,8 +5501,8 @@ add_role_attribute.exit78:                        ; preds = %122, %124
 
 ._crit_edge107.critedge:                          ; preds = %33
   call void @termPQExpBuffer(ptr noundef nonnull %6) #9
-  %156 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %157 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printTable(ptr noundef nonnull %7, ptr noundef %156, i1 noundef zeroext false, ptr noundef %157) #9
   call void @printTableCleanup(ptr noundef nonnull %7) #9
   br label %._crit_edge107
@@ -5549,7 +5549,7 @@ define dso_local noundef zeroext i1 @listDbRoleSettings(ptr noundef %0, ptr noun
   %6 = alloca i32, align 4
   %7 = alloca %struct.PQExpBufferData, align 8
   %8 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %7) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.224) #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -5605,7 +5605,7 @@ validateSQLNamePattern.exit19:                    ; preds = %12
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %19
-  %23 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %24 = trunc i8 %23 to i1
   br i1 %24, label %32, label %25
 
@@ -5635,8 +5635,8 @@ validateSQLNamePattern.exit19:                    ; preds = %12
   store ptr @.str.228, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %8, i64 144
   store i8 1, ptr %34, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef %35, i1 noundef zeroext false, ptr noundef %36) #9
   br label %37
 
@@ -5659,10 +5659,10 @@ define dso_local noundef zeroext i1 @describeRoleGrants(ptr noundef %0, i1 nound
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.230) #9
-  %7 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %8 = icmp sgt i32 %7, 159999
   %.str.231..str.232 = select i1 %8, ptr @.str.231, ptr @.str.232
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.231..str.232) #9
@@ -5710,8 +5710,8 @@ define dso_local noundef zeroext i1 @describeRoleGrants(ptr noundef %0, i1 nound
   store ptr @.str.239, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 144
   store i8 1, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef %22, i1 noundef zeroext false, ptr noundef %23) #9
   call void @PQclear(ptr noundef nonnull %18) #9
   br label %24
@@ -5738,7 +5738,7 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
   %15 = icmp ne ptr %14, null
   %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 69) #10
   %17 = icmp ne ptr %16, null
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @__const.listTables.translate_columns, i64 9, i1 false)
   %.0.sroa.gep = getelementptr inbounds i8, ptr %7, i64 5
   %.0.sroa.gep60 = getelementptr inbounds i8, ptr %7, i64 4
@@ -5783,12 +5783,12 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
 27:                                               ; preds = %26
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.249) #9
   store i8 1, ptr %.0.sroa.phi, align 1
-  %28 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %29 = icmp sgt i32 %28, 119999
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 36), align 2
+  %31 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 390), align 2
   %32 = trunc i8 %31 to i1
   %.not62 = xor i1 %32, true
   %brmerge = select i1 %.052.shrunk, i1 true, i1 %.050.shrunk
@@ -5806,12 +5806,12 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
 
 35:                                               ; preds = %34, %26
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.253) #9
-  %36 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %37 = icmp sgt i32 %36, 119999
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %35
-  %39 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 36), align 2
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 390), align 2
   %40 = trunc i8 %39 to i1
   br i1 %40, label %43, label %41
 
@@ -5920,7 +5920,7 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %69
-  %73 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %73 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %74 = trunc i8 %73 to i1
   br i1 %74, label %78, label %75
 
@@ -5944,8 +5944,8 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
   store ptr %7, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %6, i64 160
   store i32 9, ptr %82, align 8
-  %83 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %84 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %68, ptr noundef nonnull %6, ptr noundef %83, i1 noundef zeroext false, ptr noundef %84) #9
   br label %85
 
@@ -5969,9 +5969,9 @@ define dso_local noundef zeroext i1 @listPartitionedTables(ptr noundef readonly 
   %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 105) #10
   %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 110) #10
   %12 = icmp ne ptr %11, null
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, i8 0, i64 9, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %14 = icmp slt i32 %13, 100000
   br i1 %14, label %15, label %17
 
@@ -6048,7 +6048,7 @@ define dso_local noundef zeroext i1 @listPartitionedTables(ptr noundef readonly 
   br i1 %2, label %.sink.split, label %38
 
 .sink.split:                                      ; preds = %35
-  %36 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %37 = icmp slt i32 %36, 120000
   %.str.285..str.286 = select i1 %37, ptr @.str.285, ptr @.str.286
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull %.str.285..str.286) #9
@@ -6111,8 +6111,8 @@ define dso_local noundef zeroext i1 @listPartitionedTables(ptr noundef readonly 
   store ptr %7, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %6, i64 160
   store i32 9, ptr %58, align 8
-  %59 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %52, ptr noundef nonnull %6, ptr noundef %59, i1 noundef zeroext false, ptr noundef %60) #9
   call void @termPQExpBuffer(ptr noundef nonnull %5) #9
   call void @PQclear(ptr noundef nonnull %52) #9
@@ -6130,7 +6130,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 define dso_local noundef zeroext i1 @listLanguages(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.294) #9
   br i1 %1, label %6, label %7
@@ -6173,8 +6173,8 @@ define dso_local noundef zeroext i1 @listLanguages(ptr noundef %0, i1 noundef ze
   store ptr @.str.304, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 144
   store i8 1, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %14, ptr noundef nonnull %5, ptr noundef %18, i1 noundef zeroext false, ptr noundef %19) #9
   call void @PQclear(ptr noundef nonnull %14) #9
   br label %20
@@ -6188,7 +6188,7 @@ define dso_local noundef zeroext i1 @listLanguages(ptr noundef %0, i1 noundef ze
 define dso_local noundef zeroext i1 @listDomains(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.307, ptr noundef nonnull @.str.308, ptr noundef nonnull @.str.309) #9
   br i1 %1, label %6, label %.critedge
@@ -6233,8 +6233,8 @@ define dso_local noundef zeroext i1 @listDomains(ptr noundef %0, i1 noundef zero
   store ptr @.str.314, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 144
   store i8 1, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %14, ptr noundef nonnull %5, ptr noundef %18, i1 noundef zeroext false, ptr noundef %19) #9
   call void @PQclear(ptr noundef nonnull %14) #9
   br label %20
@@ -6248,7 +6248,7 @@ define dso_local noundef zeroext i1 @listDomains(ptr noundef %0, i1 noundef zero
 define dso_local noundef zeroext i1 @listConversions(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.315, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.316, ptr noundef nonnull @.str.317, ptr noundef nonnull @.str.318, ptr noundef nonnull @.str.319, ptr noundef nonnull @.str.320) #9
   br i1 %1, label %6, label %.critedge
@@ -6295,8 +6295,8 @@ define dso_local noundef zeroext i1 @listConversions(ptr noundef %0, i1 noundef 
   store ptr @listConversions.translate_columns, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 160
   store i32 6, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %14, ptr noundef nonnull %5, ptr noundef %20, i1 noundef zeroext false, ptr noundef %21) #9
   call void @PQclear(ptr noundef nonnull %14) #9
   br label %22
@@ -6310,14 +6310,14 @@ define dso_local noundef zeroext i1 @listConversions(ptr noundef %0, i1 noundef 
 define dso_local noundef zeroext i1 @describeConfigurationParameters(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.329, ptr noundef nonnull @.str.330, ptr noundef nonnull @.str.331) #9
   br i1 %1, label %6, label %11
 
 6:                                                ; preds = %3
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.332, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.333) #9
-  %7 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %8 = icmp sgt i32 %7, 149999
   br i1 %8, label %9, label %10
 
@@ -6331,7 +6331,7 @@ define dso_local noundef zeroext i1 @describeConfigurationParameters(ptr noundef
 
 11:                                               ; preds = %9, %10, %3
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.336) #9
-  %12 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %13 = icmp sgt i32 %12, 149999
   %or.cond = select i1 %1, i1 %13, i1 false
   br i1 %or.cond, label %14, label %15
@@ -6367,8 +6367,8 @@ define dso_local noundef zeroext i1 @describeConfigurationParameters(ptr noundef
   store ptr %spec.select, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %5, i64 144
   store i8 1, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef %26, i1 noundef zeroext false, ptr noundef %27) #9
   call void @PQclear(ptr noundef nonnull %22) #9
   br label %28
@@ -6386,8 +6386,8 @@ define dso_local noundef zeroext i1 @listEventTriggers(ptr noundef %0, i1 nounde
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
   %7 = alloca [32 x i8], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
-  %8 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %9 = icmp slt i32 %8, 90300
   br i1 %9, label %10, label %12
 
@@ -6444,8 +6444,8 @@ define dso_local noundef zeroext i1 @listEventTriggers(ptr noundef %0, i1 nounde
   store ptr @listEventTriggers.translate_columns, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 160
   store i32 7, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %21, ptr noundef nonnull %6, ptr noundef %27, i1 noundef zeroext false, ptr noundef %28) #9
   call void @PQclear(ptr noundef nonnull %21) #9
   br label %29
@@ -6460,8 +6460,8 @@ define dso_local noundef zeroext i1 @listExtendedStats(ptr noundef %0) local_unn
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca %struct.printQueryOpt, align 8
   %4 = alloca [32 x i8], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
-  %5 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %6 = icmp slt i32 %5, 100000
   br i1 %6, label %7, label %9
 
@@ -6473,12 +6473,12 @@ define dso_local noundef zeroext i1 @listExtendedStats(ptr noundef %0) local_unn
 9:                                                ; preds = %1
   call void @initPQExpBuffer(ptr noundef nonnull %2) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #9
-  %10 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %11 = icmp sgt i32 %10, 139999
   %.str.358..str.360 = select i1 %11, ptr @.str.358, ptr @.str.360
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull %.str.358..str.360, ptr noundef nonnull @.str.359) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.361, ptr noundef nonnull @.str.362, ptr noundef nonnull @.str.363) #9
-  %12 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %13 = icmp sgt i32 %12, 119999
   br i1 %13, label %14, label %15
 
@@ -6508,8 +6508,8 @@ define dso_local noundef zeroext i1 @listExtendedStats(ptr noundef %0) local_unn
   store ptr @.str.370, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 144
   store i8 1, ptr %23, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %20, ptr noundef nonnull %3, ptr noundef %24, i1 noundef zeroext false, ptr noundef %25) #9
   call void @PQclear(ptr noundef nonnull %20) #9
   br label %26
@@ -6523,7 +6523,7 @@ define dso_local noundef zeroext i1 @listExtendedStats(ptr noundef %0) local_unn
 define dso_local noundef zeroext i1 @listCasts(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.371, ptr noundef nonnull @.str.372, ptr noundef nonnull @.str.373) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.374, i32 noundef 98, i32 noundef 105, ptr noundef nonnull @.str.115) #9
@@ -6564,8 +6564,8 @@ define dso_local noundef zeroext i1 @listCasts(ptr noundef %0, i1 noundef zeroex
   store ptr @listCasts.translate_columns, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 160
   store i32 5, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef %17, i1 noundef zeroext false, ptr noundef %18) #9
   call void @PQclear(ptr noundef nonnull %11) #9
   br label %20
@@ -6583,23 +6583,23 @@ define dso_local noundef zeroext i1 @listCasts(ptr noundef %0, i1 noundef zeroex
 define dso_local noundef zeroext i1 @listCollations(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #9
-  %6 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %7 = icmp sgt i32 %6, 99999
   %.str.393..str.129 = select i1 %7, ptr @.str.393, ptr @.str.129
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull %.str.393..str.129, ptr noundef nonnull @.str.394) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.395, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132) #9
-  %8 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %9 = icmp sgt i32 %8, 149999
   %.str.397.sink = select i1 %9, ptr @.str.396, ptr @.str.397
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull %.str.397.sink, ptr noundef nonnull @.str.134) #9
-  %10 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %11 = icmp sgt i32 %10, 159999
   %.str.399.sink = select i1 %11, ptr @.str.398, ptr @.str.399
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull %.str.399.sink, ptr noundef nonnull @.str.137) #9
-  %12 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %13 = icmp sgt i32 %12, 119999
   br i1 %13, label %14, label %15
 
@@ -6654,8 +6654,8 @@ define dso_local noundef zeroext i1 @listCollations(ptr noundef %0, i1 noundef z
   store ptr @listCollations.translate_columns, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 160
   store i32 9, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %26, ptr noundef nonnull %5, ptr noundef %32, i1 noundef zeroext false, ptr noundef %33) #9
   call void @PQclear(ptr noundef nonnull %26) #9
   br label %34
@@ -6669,7 +6669,7 @@ define dso_local noundef zeroext i1 @listCollations(ptr noundef %0, i1 noundef z
 define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.409, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26) #9
   br i1 %1, label %6, label %7
@@ -6707,7 +6707,7 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
   store ptr @.str.414, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 144
   store i8 1, ptr %18, align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %20 = icmp sgt i32 %19, 149999
   %or.cond3 = select i1 %8, i1 %20, i1 false
   br i1 %or.cond3, label %21, label %45
@@ -6764,8 +6764,8 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
 
 45:                                               ; preds = %44, %16
   %.1 = phi ptr [ %.038, %44 ], [ null, %16 ]
-  %46 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef %46, i1 noundef zeroext false, ptr noundef %47) #9
   call void @termPQExpBuffer(ptr noundef nonnull %4) #9
   call void @PQclear(ptr noundef nonnull %15) #9
@@ -6811,7 +6811,7 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.PQExpBufferData, align 8
   %8 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   br i1 %1, label %9, label %65
 
 9:                                                ; preds = %2
@@ -6853,7 +6853,7 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   br label %37
 
 26:                                               ; preds = %15
-  %27 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %27 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %28 = trunc i8 %27 to i1
   br i1 %28, label %32, label %29
 
@@ -6896,7 +6896,7 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.852, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.854, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.6, ptr noundef %38, ptr noundef nonnull @.str.855, ptr noundef %38, ptr noundef nonnull @.str.856, ptr noundef %38, ptr noundef nonnull @.str.857, ptr noundef %38, ptr noundef nonnull @.str.858, ptr noundef %38) #9
   %44 = load ptr, ptr %3, align 8
@@ -6926,8 +6926,8 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   store i8 1, ptr %23, align 8
   store ptr @describeOneTSParser.translate_columns, ptr %24, align 8
   store i32 3, ptr %25, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %45, ptr noundef nonnull %5, ptr noundef %51, i1 noundef zeroext false, ptr noundef %52) #9
   call void @PQclear(ptr noundef nonnull %45) #9
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
@@ -6968,8 +6968,8 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   store i8 1, ptr %23, align 8
   store ptr null, ptr %24, align 8
   store i32 0, ptr %25, align 8
-  %61 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %54, ptr noundef nonnull %5, ptr noundef %61, i1 noundef zeroext false, ptr noundef %62) #9
   call void @termPQExpBuffer(ptr noundef nonnull %4) #9
   call void @PQclear(ptr noundef nonnull %54) #9
@@ -7016,8 +7016,8 @@ listTSParsersVerbose.exit:                        ; preds = %11, %12, %32, %.loo
   store ptr @.str.421, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %8, i64 144
   store i8 1, ptr %73, align 8
-  %74 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %75 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %70, ptr noundef nonnull %8, ptr noundef %74, i1 noundef zeroext false, ptr noundef %75) #9
   call void @PQclear(ptr noundef nonnull %70) #9
   br label %76
@@ -7031,7 +7031,7 @@ listTSParsersVerbose.exit:                        ; preds = %11, %12, %32, %.loo
 define dso_local noundef zeroext i1 @listTSDictionaries(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.422, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #9
   br i1 %1, label %5, label %6
@@ -7063,8 +7063,8 @@ define dso_local noundef zeroext i1 @listTSDictionaries(ptr noundef %0, i1 nound
   store ptr @.str.430, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 144
   store i8 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef %15, i1 noundef zeroext false, ptr noundef %16) #9
   call void @PQclear(ptr noundef nonnull %11) #9
   br label %17
@@ -7078,7 +7078,7 @@ define dso_local noundef zeroext i1 @listTSDictionaries(ptr noundef %0, i1 nound
 define dso_local noundef zeroext i1 @listTSTemplates(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   br i1 %1, label %5, label %6
 
@@ -7112,8 +7112,8 @@ define dso_local noundef zeroext i1 @listTSTemplates(ptr noundef %0, i1 noundef 
   store ptr @.str.438, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 144
   store i8 1, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %12, ptr noundef nonnull %4, ptr noundef %16, i1 noundef zeroext false, ptr noundef %17) #9
   call void @PQclear(ptr noundef nonnull %12) #9
   br label %18
@@ -7131,7 +7131,7 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.PQExpBufferData, align 8
   %8 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   br i1 %1, label %9, label %62
 
 9:                                                ; preds = %2
@@ -7171,7 +7171,7 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   br label %35
 
 24:                                               ; preds = %15
-  %25 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %25 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %26 = trunc i8 %25 to i1
   br i1 %26, label %30, label %27
 
@@ -7225,7 +7225,7 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.869, ptr noundef nonnull @.str.870, ptr noundef nonnull @.str.871, ptr noundef %36) #9
   %47 = load ptr, ptr %3, align 8
@@ -7272,8 +7272,8 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   store ptr null, ptr %21, align 8
   store i8 0, ptr %22, align 1
   store i8 1, ptr %23, align 8
-  %58 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %59 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %48, ptr noundef nonnull %5, ptr noundef %58, i1 noundef zeroext false, ptr noundef %59) #9
   call void @termPQExpBuffer(ptr noundef nonnull %4) #9
   call void @PQclear(ptr noundef nonnull %48) #9
@@ -7320,8 +7320,8 @@ listTSConfigsVerbose.exit:                        ; preds = %11, %12, %30, %55, 
   store ptr @.str.442, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %8, i64 144
   store i8 1, ptr %70, align 8
-  %71 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %72 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %67, ptr noundef nonnull %8, ptr noundef %71, i1 noundef zeroext false, ptr noundef %72) #9
   call void @PQclear(ptr noundef nonnull %67) #9
   br label %73
@@ -7337,7 +7337,7 @@ define dso_local noundef zeroext i1 @listForeignDataWrappers(ptr noundef %0, i1 
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.443, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.298) #9
   br i1 %1, label %7, label %.critedge
@@ -7385,8 +7385,8 @@ define dso_local noundef zeroext i1 @listForeignDataWrappers(ptr noundef %0, i1 
   store ptr @.str.450, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 144
   store i8 1, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %14, ptr noundef nonnull %6, ptr noundef %18, i1 noundef zeroext false, ptr noundef %19) #9
   call void @PQclear(ptr noundef nonnull %14) #9
   br label %20
@@ -7402,7 +7402,7 @@ define dso_local noundef zeroext i1 @listForeignServers(ptr noundef %0, i1 nound
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.451, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.452) #9
   br i1 %1, label %7, label %.critedge
@@ -7450,8 +7450,8 @@ define dso_local noundef zeroext i1 @listForeignServers(ptr noundef %0, i1 nound
   store ptr @.str.459, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 144
   store i8 1, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %14, ptr noundef nonnull %6, ptr noundef %18, i1 noundef zeroext false, ptr noundef %19) #9
   call void @PQclear(ptr noundef nonnull %14) #9
   br label %20
@@ -7467,7 +7467,7 @@ define dso_local noundef zeroext i1 @listUserMappings(ptr noundef %0, i1 noundef
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.460, ptr noundef nonnull @.str.461, ptr noundef nonnull @.str.462) #9
   br i1 %1, label %7, label %8
@@ -7511,8 +7511,8 @@ define dso_local noundef zeroext i1 @listUserMappings(ptr noundef %0, i1 noundef
   store ptr @.str.467, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 144
   store i8 1, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %15, ptr noundef nonnull %6, ptr noundef %19, i1 noundef zeroext false, ptr noundef %20) #9
   call void @PQclear(ptr noundef nonnull %15) #9
   br label %21
@@ -7526,7 +7526,7 @@ define dso_local noundef zeroext i1 @listUserMappings(ptr noundef %0, i1 noundef
 define dso_local noundef zeroext i1 @listForeignTables(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.468, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.461) #9
   br i1 %1, label %5, label %.critedge
@@ -7559,8 +7559,8 @@ define dso_local noundef zeroext i1 @listForeignTables(ptr noundef %0, i1 nounde
   store ptr @.str.472, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 144
   store i8 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef %14, i1 noundef zeroext false, ptr noundef %15) #9
   call void @PQclear(ptr noundef nonnull %10) #9
   br label %16
@@ -7576,7 +7576,7 @@ define dso_local noundef zeroext i1 @listExtensions(ptr noundef %0) local_unname
   %3 = alloca i32, align 4
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.473, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.455, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -7612,8 +7612,8 @@ define dso_local noundef zeroext i1 @listExtensions(ptr noundef %0) local_unname
   store ptr @.str.475, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 144
   store i8 1, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %12, ptr noundef nonnull %5, ptr noundef %16, i1 noundef zeroext false, ptr noundef %17) #9
   call void @PQclear(ptr noundef nonnull %12) #9
   br label %18
@@ -7677,7 +7677,7 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   br label %33
 
 22:                                               ; preds = %15
-  %23 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %24 = trunc i8 %23 to i1
   br i1 %24, label %28, label %25
 
@@ -7710,7 +7710,7 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.876, ptr noundef nonnull @.str.877, ptr noundef %35) #9
   %36 = load ptr, ptr %2, align 8
@@ -7732,8 +7732,8 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   %40 = load ptr, ptr %3, align 8
   store ptr %40, ptr %20, align 8
   store i8 1, ptr %21, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %37, ptr noundef nonnull %4, ptr noundef %41, i1 noundef zeroext false, ptr noundef %42) #9
   call void @termPQExpBuffer(ptr noundef nonnull %3) #9
   call void @PQclear(ptr noundef nonnull %37) #9
@@ -7764,8 +7764,8 @@ define dso_local noundef zeroext i1 @listPublications(ptr noundef %0) local_unna
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
   %6 = alloca [32 x i8], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
-  %7 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %8 = icmp slt i32 %7, 100000
   br i1 %8, label %9, label %11
 
@@ -7777,13 +7777,13 @@ define dso_local noundef zeroext i1 @listPublications(ptr noundef %0) local_unna
 11:                                               ; preds = %1
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.480, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.481, ptr noundef nonnull @.str.482, ptr noundef nonnull @.str.483, ptr noundef nonnull @.str.484) #9
-  %12 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %13 = icmp sgt i32 %12, 109999
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %11
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.485, ptr noundef nonnull @.str.486) #9
-  %.pr = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %15 = icmp sgt i32 %.pr, 129999
   br i1 %15, label %16, label %.thread
 
@@ -7830,8 +7830,8 @@ define dso_local noundef zeroext i1 @listPublications(ptr noundef %0) local_unna
   store ptr @listPublications.translate_columns, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 160
   store i32 8, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %23, ptr noundef nonnull %5, ptr noundef %29, i1 noundef zeroext false, ptr noundef %30) #9
   call void @PQclear(ptr noundef nonnull %23) #9
   br label %31
@@ -7850,7 +7850,7 @@ define dso_local noundef zeroext i1 @describePublications(ptr noundef %0) local_
   %6 = alloca %struct.printTableContent, align 8
   %7 = alloca [32 x i8], align 16
   %8 = alloca %struct.printTableOpt, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %10 = icmp slt i32 %9, 100000
   br i1 %10, label %11, label %13
 
@@ -7924,7 +7924,7 @@ sub_0.lr.ph:                                      ; preds = %.preheader
   br label %sub_0
 
 32:                                               ; preds = %26
-  %33 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %34 = trunc i8 %33 to i1
   br i1 %34, label %38, label %35
 
@@ -7965,7 +7965,7 @@ sub_1:                                            ; preds = %sub_0
 .tail:                                            ; preds = %sub_0, %sub_1
   %48 = phi i32 [ %44, %sub_0 ], [ %47, %sub_1 ]
   %49 = icmp eq i32 %48, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @pset, i64 48), i64 120, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.498, ptr noundef %40) #9
   %50 = load ptr, ptr %5, align 8
@@ -8022,7 +8022,7 @@ sub_1:                                            ; preds = %sub_0
 
 64:                                               ; preds = %.thread56
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.499) #9
-  %65 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %66 = icmp sgt i32 %65, 149999
   br i1 %66, label %67, label %68
 
@@ -8038,7 +8038,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %69, label %70, label %81
 
 70:                                               ; preds = %68
-  %71 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %72 = icmp sgt i32 %71, 149999
   br i1 %72, label %73, label %75
 
@@ -8048,8 +8048,8 @@ sub_1:                                            ; preds = %sub_0
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %70, %73, %.thread56
-  %76 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %77 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printTable(ptr noundef nonnull %6, ptr noundef %76, i1 noundef zeroext false, ptr noundef %77) #9
   call void @printTableCleanup(ptr noundef nonnull %6) #9
   call void @termPQExpBuffer(ptr noundef nonnull %5) #9
@@ -8147,8 +8147,8 @@ define dso_local noundef zeroext i1 @describeSubscriptions(ptr noundef %0, i1 no
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
   %7 = alloca [32 x i8], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
-  %8 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %9 = icmp slt i32 %8, 100000
   br i1 %9, label %10, label %12
 
@@ -8163,29 +8163,29 @@ define dso_local noundef zeroext i1 @describeSubscriptions(ptr noundef %0, i1 no
   br i1 %1, label %13, label %27
 
 13:                                               ; preds = %12
-  %14 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %15 = icmp sgt i32 %14, 139999
   br i1 %15, label %16, label %.thread11
 
 16:                                               ; preds = %13
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.510, ptr noundef nonnull @.str.511) #9
-  %17 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %18 = icmp sgt i32 %17, 159999
   %.str.512..str.514 = select i1 %18, ptr @.str.512, ptr @.str.514
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull %.str.512..str.514, ptr noundef nonnull @.str.513) #9
-  %.pr = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %19 = icmp sgt i32 %.pr, 149999
   br i1 %19, label %20, label %.thread11
 
 20:                                               ; preds = %16
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.515, ptr noundef nonnull @.str.516, ptr noundef nonnull @.str.517) #9
-  %.pr7 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %.pr7 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %21 = icmp sgt i32 %.pr7, 159999
   br i1 %21, label %.thread8, label %.thread11
 
 .thread8:                                         ; preds = %20
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.518, ptr noundef nonnull @.str.519, ptr noundef nonnull @.str.520, ptr noundef nonnull @.str.521) #9
-  %.pr10.pr = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %.pr10.pr = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %22 = icmp sgt i32 %.pr10.pr, 169999
   br i1 %22, label %23, label %.thread11
 
@@ -8195,7 +8195,7 @@ define dso_local noundef zeroext i1 @describeSubscriptions(ptr noundef %0, i1 no
 
 .thread11:                                        ; preds = %16, %13, %20, %23, %.thread8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.524, ptr noundef nonnull @.str.525, ptr noundef nonnull @.str.526) #9
-  %24 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %25 = icmp sgt i32 %24, 149999
   br i1 %25, label %26, label %27
 
@@ -8242,8 +8242,8 @@ define dso_local noundef zeroext i1 @describeSubscriptions(ptr noundef %0, i1 no
   store ptr @describeSubscriptions.translate_columns, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 160
   store i32 15, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %34, ptr noundef nonnull %6, ptr noundef %40, i1 noundef zeroext false, ptr noundef %41) #9
   call void @PQclear(ptr noundef nonnull %34) #9
   br label %42
@@ -8259,7 +8259,7 @@ define dso_local noundef zeroext i1 @listOperatorClasses(ptr noundef %0, ptr nou
   %5 = alloca i32, align 4
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.532, ptr noundef nonnull @.str.533, ptr noundef nonnull @.str.534, ptr noundef nonnull @.str.535, ptr noundef nonnull @.str.536, ptr noundef nonnull @.str.318, ptr noundef nonnull @.str.319, ptr noundef nonnull @.str.320) #9
   br i1 %2, label %8, label %.critedge
@@ -8324,8 +8324,8 @@ validateSQLNamePattern.exit:                      ; preds = %9
   store ptr @listOperatorClasses.translate_columns, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 160
   store i32 7, ptr %23, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %18, ptr noundef nonnull %7, ptr noundef %24, i1 noundef zeroext false, ptr noundef %25) #9
   call void @PQclear(ptr noundef nonnull %18) #9
   br label %27
@@ -8345,7 +8345,7 @@ define dso_local noundef zeroext i1 @listOperatorFamilies(ptr noundef %0, ptr no
   %5 = alloca i32, align 4
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.544, ptr noundef nonnull @.str.533, ptr noundef nonnull @.str.538, ptr noundef nonnull @.str.545) #9
   br i1 %2, label %8, label %9
@@ -8414,8 +8414,8 @@ validateSQLNamePattern.exit:                      ; preds = %10
   store ptr @listOperatorFamilies.translate_columns, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 160
   store i32 4, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %21, ptr noundef nonnull %7, ptr noundef %27, i1 noundef zeroext false, ptr noundef %28) #9
   call void @PQclear(ptr noundef nonnull %21) #9
   br label %30
@@ -8435,7 +8435,7 @@ define dso_local noundef zeroext i1 @listOpFamilyOperators(ptr noundef %0, ptr n
   %5 = alloca i32, align 4
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.553, ptr noundef nonnull @.str.533, ptr noundef nonnull @.str.538, ptr noundef nonnull @.str.554, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.556, ptr noundef nonnull @.str.557, ptr noundef nonnull @.str.558) #9
   br i1 %2, label %8, label %.critedge
@@ -8500,8 +8500,8 @@ validateSQLNamePattern.exit:                      ; preds = %9
   store ptr @listOpFamilyOperators.translate_columns, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 160
   store i32 6, ptr %23, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %18, ptr noundef nonnull %7, ptr noundef %24, i1 noundef zeroext false, ptr noundef %25) #9
   call void @PQclear(ptr noundef nonnull %18) #9
   br label %27
@@ -8521,7 +8521,7 @@ define dso_local noundef zeroext i1 @listOpFamilyFunctions(ptr noundef %0, ptr n
   %5 = alloca i32, align 4
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.567, ptr noundef nonnull @.str.533, ptr noundef nonnull @.str.538, ptr noundef nonnull @.str.568, ptr noundef nonnull @.str.569, ptr noundef nonnull @.str.570) #9
   %.str.572..str.571 = select i1 %2, ptr @.str.572, ptr @.str.571
@@ -8579,8 +8579,8 @@ validateSQLNamePattern.exit:                      ; preds = %8
   store ptr @listOpFamilyFunctions.translate_columns, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 160
   store i32 6, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %17, ptr noundef nonnull %7, ptr noundef %23, i1 noundef zeroext false, ptr noundef %24) #9
   call void @PQclear(ptr noundef nonnull %17) #9
   br label %26
@@ -8598,7 +8598,7 @@ validateSQLNamePattern.exit:                      ; preds = %8
 define dso_local noundef zeroext i1 @listLargeObjects(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.576, ptr noundef nonnull @.str.577, ptr noundef nonnull @.str.26) #9
   br i1 %0, label %4, label %5
@@ -8621,8 +8621,8 @@ define dso_local noundef zeroext i1 @listLargeObjects(i1 noundef zeroext %0) loc
   store ptr @.str.580, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 144
   store i8 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printQuery(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %11, i1 noundef zeroext false, ptr noundef %12) #9
   call void @PQclear(ptr noundef nonnull %7) #9
   br label %13

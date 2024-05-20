@@ -83,7 +83,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
   %3 = load i32, ptr @acpi_gbl_dsdt_index, align 4
   %4 = zext i32 %3 to i64
   %5 = getelementptr %struct.acpi_table_desc, ptr %2, i64 %4
-  %6 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %81, label %8
 
@@ -138,7 +138,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
 34:                                               ; preds = %33, %25
   %35 = phi i32 [ 0, %33 ], [ 1, %25 ]
   %36 = phi i32 [ 1, %33 ], [ 0, %25 ]
-  %37 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.loopexit, label %.preheader
 
@@ -193,7 +193,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
   %69 = phi i32 [ %41, %50 ], [ %41, %60 ], [ %66, %65 ], [ %41, %.preheader ], [ %41, %47 ]
   %70 = phi i32 [ %40, %50 ], [ %64, %60 ], [ %40, %65 ], [ %40, %.preheader ], [ %40, %47 ]
   %71 = add nuw nsw i64 %39, 1
-  %72 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %73 = zext i32 %72 to i64
   %74 = icmp ult i64 %71, %73
   br i1 %74, label %.preheader, label %.loopexit, !llvm.loop !5
@@ -327,7 +327,7 @@ define dso_local i32 @acpi_unload_parent_table(ptr noundef readonly %0) #3 align
   br i1 %9, label %10, label %34
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.loopexit, label %13
 

@@ -190,7 +190,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7511NGramParserC2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7511NGramParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511NGramParserE, i64 16), ptr %this, align 8
   %ngram = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %ngram, align 8
   %byteIndex = getelementptr inbounds i8, ptr %this, i64 32
@@ -731,7 +731,7 @@ entry:
   store i32 0, ptr %hitCount.i, align 4
   %ngramCount.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %ngramCount.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518NGramParser_IBM420E, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518NGramParser_IBM420E, i64 16), ptr %this, align 8
   %alef = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %alef, align 8
   ret void
@@ -1171,7 +1171,7 @@ while.end:                                        ; preds = %if.end30, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7517CharsetRecog_sbcsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517CharsetRecog_sbcsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharsetRecog_sbcsE, i64 16), ptr %this, align 8
   ret void
 }
 

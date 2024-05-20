@@ -1416,7 +1416,7 @@ define hidden void @_ZN6syntax7parsing10parse_text17hdaba953d92283f04E(ptr noali
   br i1 %18, label %19, label %.thread21
 
 19:                                               ; preds = %16
-  %20 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6syntax7parsing10parse_text10__CALLSITE17hb1295cf207b3e319E, i64 0, i32 1, i64 8) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6syntax7parsing10parse_text10__CALLSITE17hb1295cf207b3e319E, i64 16) monotonic, align 8
   switch i8 %20, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread21
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -1592,7 +1592,7 @@ define hidden void @_ZN6syntax7parsing10build_tree17hc11a0aca47375292E(ptr noali
   br label %.body
 
 20:                                               ; preds = %3
-  %21 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6syntax7parsing10build_tree10__CALLSITE17h8c0cb3f8d0f758ddE, i64 0, i32 1, i64 8) monotonic, align 8
+  %21 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6syntax7parsing10build_tree10__CALLSITE17h8c0cb3f8d0f758ddE, i64 16) monotonic, align 8
   switch i8 %21, label %22 [
     i8 0, label %.thread60
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -2199,7 +2199,7 @@ define void @_ZN6syntax10validation8validate17h21af1b7d35e0ecf4E(ptr noalias noc
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
 
 47:                                               ; preds = %2
-  %48 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6syntax10validation8validate10__CALLSITE17hcf0c269237afe292E, i64 0, i32 1, i64 8) monotonic, align 8
+  %48 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6syntax10validation8validate10__CALLSITE17hcf0c269237afe292E, i64 16) monotonic, align 8
   switch i8 %48, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

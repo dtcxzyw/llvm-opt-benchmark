@@ -2561,7 +2561,7 @@ define hidden void @zif_wordwrap(ptr noundef %0, ptr nocapture noundef writeonly
 
 60:                                               ; preds = %58
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.4) #28
-  %61 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %62 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %62)
   br label %309
@@ -2578,7 +2578,7 @@ define hidden void @zif_wordwrap(ptr noundef %0, ptr nocapture noundef writeonly
 
 69:                                               ; preds = %66
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.5) #28
-  %70 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %309
@@ -3750,7 +3750,7 @@ define hidden void @zif_explode(ptr noundef %0, ptr nocapture noundef %1) local_
 
 41:                                               ; preds = %.thread182
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.4) #28
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %77
@@ -4231,7 +4231,7 @@ define hidden void @zif_implode(ptr noundef %0, ptr nocapture noundef writeonly 
 28:                                               ; preds = %.thread160
   %29 = call ptr @get_active_function_name() #28
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.6, ptr noundef %29) #28
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   call void @llvm.assume(i1 %31)
   br label %42
@@ -4248,7 +4248,7 @@ define hidden void @zif_implode(ptr noundef %0, ptr nocapture noundef writeonly 
 
 37:                                               ; preds = %34
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.7) #28
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %42
@@ -4453,7 +4453,7 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %.not209, label %55, label %28
 
 28:                                               ; preds = %.thread245
-  %29 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 2), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 64), align 8
   %.not210 = icmp eq ptr %29, null
   br i1 %.not210, label %43, label %30
 
@@ -4503,18 +4503,18 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .thread:                                          ; preds = %43, %48
   %51 = phi ptr [ %.pre, %48 ], [ %44, %43 ]
-  store ptr %44, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 2), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 64), align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 24
-  store ptr %52, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 5), align 8
+  store ptr %52, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 88), align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 16
   %54 = load i64, ptr %53, align 8
-  store i64 %54, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 7), align 8
+  store i64 %54, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 352), align 8
   br label %59
 
 55:                                               ; preds = %.thread245
   %56 = load ptr, ptr %3, align 8
   store ptr %56, ptr %4, align 8
-  %.pre277 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 2), align 8
+  %.pre277 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 64), align 8
   %.not214 = icmp eq ptr %.pre277, null
   br i1 %.not214, label %57, label %59
 
@@ -4526,9 +4526,9 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
 
 59:                                               ; preds = %.thread, %55
   %60 = phi ptr [ %44, %.thread ], [ %.pre277, %55 ]
-  %61 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 5), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 88), align 8
   %62 = getelementptr inbounds i8, ptr %60, i64 24
-  %63 = load i64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 7), align 8
+  %63 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 352), align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
   %.not215 = icmp ult ptr %61, %64
   br i1 %.not215, label %67, label %65
@@ -4554,7 +4554,7 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
 .preheader255:                                    ; preds = %.lr.ph, %67
   %73 = load i8, ptr %61, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i64 0, i32 6, i64 %74
+  %75 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @basic_globals, i64 96), i64 0, i64 %74
   %76 = load i8, ptr %75, align 1
   %.not216263 = icmp eq i8 %76, 0
   br i1 %.not216263, label %.preheader, label %.lr.ph266
@@ -4564,7 +4564,7 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
   %77 = getelementptr inbounds i8, ptr %.0191262, i64 1
   %78 = load i8, ptr %.0191262, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i64 0, i32 6, i64 %79
+  %80 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @basic_globals, i64 96), i64 0, i64 %79
   store i8 1, ptr %80, align 1
   %81 = icmp ult ptr %77, %.ptr270
   br i1 %81, label %.lr.ph, label %.preheader255
@@ -4585,7 +4585,7 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
   %84 = add nuw i64 %.0197264, 1
   %85 = load i8, ptr %82, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i64 0, i32 6, i64 %86
+  %87 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @basic_globals, i64 96), i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
   %.not216 = icmp eq i8 %88, 0
   br i1 %.not216, label %.preheader, label %.lr.ph266
@@ -4599,7 +4599,7 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
 92:                                               ; preds = %89
   %93 = load i8, ptr %90, align 1
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i64 0, i32 6, i64 %94
+  %95 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @basic_globals, i64 96), i64 0, i64 %94
   %96 = load i8, ptr %95, align 1
   %.not218 = icmp eq i8 %96, 0
   br i1 %.not218, label %89, label %.loopexit254
@@ -4632,13 +4632,13 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
   %111 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 262, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %.1193, i64 2
-  store ptr %112, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 5), align 8
+  store ptr %112, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 88), align 8
   br label %128
 
 .loopexit256:                                     ; preds = %.lr.ph266, %97
   %113 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %113, align 8
-  %114 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 2), align 8
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 64), align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 64
@@ -4668,7 +4668,7 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %127
 
 127:                                              ; preds = %118, %126, %125, %.loopexit256
-  store ptr null, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 64), align 8
   br label %128
 
 128:                                              ; preds = %127, %.loopexit254
@@ -4685,7 +4685,7 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
   %132 = getelementptr inbounds i8, ptr %.1268, i64 1
   %133 = load i8, ptr %.1268, align 1
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i64 0, i32 6, i64 %134
+  %135 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @basic_globals, i64 96), i64 0, i64 %134
   store i8 0, ptr %135, align 1
   %136 = icmp ult ptr %132, %.ptr270
   br i1 %136, label %.lr.ph269, label %.loopexit
@@ -4888,7 +4888,7 @@ define hidden void @zif_str_increment(ptr noundef %0, ptr nocapture noundef writ
 
 20:                                               ; preds = %15
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.4) #28
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %85
@@ -4899,7 +4899,7 @@ define hidden void @zif_str_increment(ptr noundef %0, ptr nocapture noundef writ
 
 25:                                               ; preds = %23
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #28
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %85
@@ -5074,7 +5074,7 @@ define hidden void @zif_str_decrement(ptr noundef %0, ptr nocapture noundef writ
 
 20:                                               ; preds = %15
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.4) #28
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %112
@@ -5085,7 +5085,7 @@ define hidden void @zif_str_decrement(ptr noundef %0, ptr nocapture noundef writ
 
 25:                                               ; preds = %23
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #28
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %112
@@ -5105,7 +5105,7 @@ define hidden void @zif_str_decrement(ptr noundef %0, ptr nocapture noundef writ
 
 36:                                               ; preds = %32
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %33) #28
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %112
@@ -5198,7 +5198,7 @@ define hidden void @zif_str_decrement(ptr noundef %0, ptr nocapture noundef writ
   %78 = phi ptr [ %49, %71 ], [ %.pre265, %76 ], [ %49, %68 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 24
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %79) #28
-  %80 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %81 = icmp ne ptr %80, null
   call void @llvm.assume(i1 %81)
   br label %112
@@ -5267,7 +5267,7 @@ define hidden void @zif_str_decrement(ptr noundef %0, ptr nocapture noundef writ
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_basename(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 18), align 1
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 155), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %.preheader
 
@@ -5634,7 +5634,7 @@ define internal fastcc void @_zend_dirname(ptr nocapture noundef writeonly %0, p
 21:                                               ; preds = %19
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.45) #28
   tail call void @_efree(ptr noundef nonnull %9) #28
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %29
@@ -7933,7 +7933,7 @@ define internal fastcc void @_zend_strpos(ptr nocapture noundef writeonly %0, pt
 
 12:                                               ; preds = %.thread, %8
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %65
@@ -8442,7 +8442,7 @@ define hidden void @zif_stripos(ptr noundef %0, ptr nocapture noundef writeonly 
 
 47:                                               ; preds = %.thread274, %39
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %48 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %49 = icmp ne ptr %48, null
   call void @llvm.assume(i1 %49)
   br label %143
@@ -8714,7 +8714,7 @@ define hidden void @zif_strrpos(ptr noundef %0, ptr nocapture noundef writeonly 
 
 46:                                               ; preds = %41
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %47 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %48 = icmp ne ptr %47, null
   call void @llvm.assume(i1 %48)
   br label %131
@@ -8745,7 +8745,7 @@ define hidden void @zif_strrpos(ptr noundef %0, ptr nocapture noundef writeonly 
 
 64:                                               ; preds = %58, %56
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %65 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %66 = icmp ne ptr %65, null
   call void @llvm.assume(i1 %66)
   br label %131
@@ -8968,7 +8968,7 @@ define hidden void @zif_strripos(ptr noundef %0, ptr nocapture noundef writeonly
 
 48:                                               ; preds = %44
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %50 = icmp ne ptr %49, null
   call void @llvm.assume(i1 %50)
   br label %245
@@ -8994,7 +8994,7 @@ define hidden void @zif_strripos(ptr noundef %0, ptr nocapture noundef writeonly
 
 64:                                               ; preds = %59, %56
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %65 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %66 = icmp ne ptr %65, null
   call void @llvm.assume(i1 %66)
   br label %245
@@ -9086,7 +9086,7 @@ define hidden void @zif_strripos(ptr noundef %0, ptr nocapture noundef writeonly
 
 114:                                              ; preds = %108, %113, %104
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %115 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %116 = icmp ne ptr %115, null
   call void @llvm.assume(i1 %116)
   br label %245
@@ -9132,7 +9132,7 @@ define hidden void @zif_strripos(ptr noundef %0, ptr nocapture noundef writeonly
 
 139:                                              ; preds = %133, %138, %129
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %140 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %141 = icmp ne ptr %140, null
   call void @llvm.assume(i1 %141)
   br label %245
@@ -9584,7 +9584,7 @@ define hidden void @zif_chunk_split(ptr noundef %0, ptr nocapture noundef writeo
 
 43:                                               ; preds = %.thread214
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.17) #28
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %45 = icmp ne ptr %44, null
   call void @llvm.assume(i1 %45)
   br label %99
@@ -10389,7 +10389,7 @@ define hidden void @zif_substr_replace(ptr noundef %0, ptr noundef %1) local_unn
 
 59:                                               ; preds = %.thread931, %56
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 3, ptr noundef nonnull @.str.18) #28
-  %60 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %61 = icmp ne ptr %60, null
   call void @llvm.assume(i1 %61)
   br label %.loopexit805
@@ -10400,7 +10400,7 @@ define hidden void @zif_substr_replace(ptr noundef %0, ptr noundef %1) local_unn
 
 63:                                               ; preds = %62
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 4, ptr noundef nonnull @.str.18) #28
-  %64 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %65)
   br label %.loopexit805
@@ -15424,7 +15424,7 @@ define ptr @php_addcslashes(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal nonnull ptr @resolve_addslashes() #20 {
   tail call void @__cpu_indicator_init() #28
-  %1 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i64 0, i32 3, i64 0), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
   %2 = and i32 %1, 256
   %.not = icmp eq i32 %2, 0
   %php_addslashes_default.php_addslashes_sse42 = select i1 %.not, ptr @php_addslashes_default, ptr @php_addslashes_sse42
@@ -16313,7 +16313,7 @@ define internal fastcc void @_php_str_replace_common(ptr nocapture noundef %0, p
 
 13:                                               ; preds = %9
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 2, ptr noundef nonnull @.str.51) #28
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %81
@@ -18275,7 +18275,7 @@ define hidden void @zif_setlocale(ptr noundef %0, ptr nocapture noundef writeonl
 42:                                               ; preds = %.lr.ph
   %43 = load i64, ptr %3, align 8
   %44 = call fastcc ptr @try_setlocale_zval(i64 noundef %43, ptr noundef nonnull %.0108142)
-  %45 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not124 = icmp eq ptr %45, null
   br i1 %.not124, label %46, label %.loopexit136
 
@@ -18303,7 +18303,7 @@ define hidden void @zif_setlocale(ptr noundef %0, ptr nocapture noundef writeonl
 56:                                               ; preds = %.lr.ph144
   %57 = load i64, ptr %3, align 8
   %58 = call fastcc ptr @try_setlocale_zval(i64 noundef %57, ptr noundef nonnull %23)
-  %59 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not120 = icmp eq ptr %59, null
   br i1 %.not120, label %60, label %.loopexit136
 
@@ -18390,7 +18390,7 @@ define internal fastcc ptr @try_setlocale_zval(i64 noundef %0, ptr noundef %1) u
 
 23:                                               ; preds = %22
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #30
-  store i8 1, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 4), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 80), align 8
   switch i64 %0, label %75 [
     i64 6, label %25
     i64 0, label %25
@@ -18398,7 +18398,7 @@ define internal fastcc ptr @try_setlocale_zval(i64 noundef %0, ptr noundef %1) u
 
 25:                                               ; preds = %23, %23
   tail call void @zend_update_current_locale() #28
-  %26 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 3), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 72), align 8
   %.not190.i = icmp eq ptr %26, null
   br i1 %.not190.i, label %37, label %27
 
@@ -18432,8 +18432,8 @@ define internal fastcc ptr @try_setlocale_zval(i64 noundef %0, ptr noundef %1) u
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
-  store ptr null, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 3), align 8
-  %43 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @zend_one_char_string, i64 0, i64 67), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 72), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 536), align 8
   br label %try_setlocale_str.exit
 
 44:                                               ; preds = %39, %37
@@ -18461,7 +18461,7 @@ define internal fastcc ptr @try_setlocale_zval(i64 noundef %0, ptr noundef %1) u
   br label %56
 
 56:                                               ; preds = %53, %49
-  store ptr %.0180.i, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 3), align 8
+  store ptr %.0180.i, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 72), align 8
   %57 = load i32, ptr %50, align 4
   %58 = and i32 %57, 64
   %.not196.i = icmp eq i32 %58, 0
@@ -18488,7 +18488,7 @@ define internal fastcc ptr @try_setlocale_zval(i64 noundef %0, ptr noundef %1) u
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 1 %21, i64 %24, i1 false)
   %69 = getelementptr inbounds [1 x i8], ptr %68, i64 0, i64 %24
   store i8 0, ptr %69, align 1
-  store ptr %64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 3), align 8
+  store ptr %64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 72), align 8
   %70 = load i32, ptr %65, align 4
   %71 = and i32 %70, 64
   %.not194.i = icmp eq i32 %71, 0
@@ -18650,7 +18650,7 @@ define hidden void @zif_parse_str(ptr noundef %0, ptr nocapture noundef readnone
   br label %41
 
 38:                                               ; preds = %30
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
   br label %44
@@ -18658,7 +18658,7 @@ define hidden void @zif_parse_str(ptr noundef %0, ptr nocapture noundef readnone
 41:                                               ; preds = %36, %30
   %.099.ph = phi ptr [ %33, %30 ], [ %.0100, %36 ]
   %42 = call noalias ptr @_estrndup(ptr noundef nonnull %20, i64 noundef %19) #28
-  %43 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 22), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 176), align 8
   call void %43(i32 noundef 3, ptr noundef %42, ptr noundef nonnull %.099.ph) #28
   br label %44
 
@@ -19020,7 +19020,7 @@ define hidden void @zif_str_repeat(ptr noundef %0, ptr nocapture noundef writeon
 
 26:                                               ; preds = %.thread187
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.21) #28
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %73
@@ -19181,7 +19181,7 @@ define hidden void @zif_count_chars(ptr noundef %0, ptr noundef %1) local_unname
 
 30:                                               ; preds = %.thread200
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.22) #28
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %94
@@ -19680,7 +19680,7 @@ define hidden void @zif_substr_count(ptr noundef %0, ptr nocapture noundef write
 
 55:                                               ; preds = %.thread420
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.4) #28
-  %56 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %57 = icmp ne ptr %56, null
   call void @llvm.assume(i1 %57)
   br label %177
@@ -19708,7 +19708,7 @@ define hidden void @zif_substr_count(ptr noundef %0, ptr nocapture noundef write
 
 68:                                               ; preds = %64
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %69 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %70 = icmp ne ptr %69, null
   call void @llvm.assume(i1 %70)
   br label %177
@@ -19742,7 +19742,7 @@ define hidden void @zif_substr_count(ptr noundef %0, ptr nocapture noundef write
 
 84:                                               ; preds = %80
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.15) #28
-  %85 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %86 = icmp ne ptr %85, null
   call void @llvm.assume(i1 %86)
   br label %177
@@ -20101,7 +20101,7 @@ define hidden void @zif_str_pad(ptr noundef %0, ptr nocapture noundef writeonly 
 
 67:                                               ; preds = %65
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.42) #28
-  %68 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %69 = icmp ne ptr %68, null
   call void @llvm.assume(i1 %69)
   br label %117
@@ -20113,7 +20113,7 @@ define hidden void @zif_str_pad(ptr noundef %0, ptr nocapture noundef writeonly 
 
 72:                                               ; preds = %70
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.43) #28
-  %73 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %74 = icmp ne ptr %73, null
   call void @llvm.assume(i1 %74)
   br label %117
@@ -20506,7 +20506,7 @@ define noundef zeroext i1 @php_binary_string_shuffle(ptr nocapture readonly %0, 
   %8 = phi i64 [ %19, %18 ], [ %7, %.lr.ph.preheader ]
   %9 = load ptr, ptr %6, align 8
   %10 = tail call i64 %9(ptr noundef %1, i64 noundef 0, i64 noundef %8) #28
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not22 = icmp eq ptr %11, null
   br i1 %.not22, label %12, label %.loopexit
 
@@ -20619,7 +20619,7 @@ define hidden void @zif_str_shuffle(ptr noundef %0, ptr nocapture noundef %1) lo
   %41 = phi i64 [ %52, %51 ], [ %40, %.lr.ph.preheader.i ]
   %42 = load ptr, ptr %39, align 8
   %43 = call i64 %42(ptr noundef %33, i64 noundef 0, i64 noundef %41) #28
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not22.i = icmp eq ptr %44, null
   br i1 %.not22.i, label %45, label %php_binary_string_shuffle.exit
 
@@ -20787,7 +20787,7 @@ define hidden void @zif_str_word_count(ptr noundef %0, ptr noundef %1) local_unn
 
 59:                                               ; preds = %.thread236
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.44) #28
-  %60 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %61 = icmp ne ptr %60, null
   call void @llvm.assume(i1 %61)
   br label %159
@@ -21081,7 +21081,7 @@ define hidden void @zif_str_split(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 29:                                               ; preds = %.thread151
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.17) #28
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   call void @llvm.assume(i1 %31)
   br label %75
@@ -21243,7 +21243,7 @@ define hidden void @zif_strpbrk(ptr noundef %0, ptr nocapture noundef writeonly 
 
 28:                                               ; preds = %24
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.42) #28
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %61
@@ -21468,7 +21468,7 @@ define hidden void @zif_substr_compare(ptr noundef %0, ptr nocapture noundef wri
 
 60:                                               ; preds = %56
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.21) #28
-  %61 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %62 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %62)
   br label %100
@@ -21495,7 +21495,7 @@ define hidden void @zif_substr_compare(ptr noundef %0, ptr nocapture noundef wri
 
 73:                                               ; preds = %._crit_edge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #28
-  %74 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %75 = icmp ne ptr %74, null
   call void @llvm.assume(i1 %75)
   br label %100

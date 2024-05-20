@@ -1002,7 +1002,7 @@ define dso_local void @_ZN5sound19SoundDataOpenBufferC2ESt10unique_ptrINS_11RAII
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"struct.sound::RAIIALSoundBuffer", align 4
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %m_decode_info.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_decode_info.i, align 8, !tbaa !62
@@ -1048,7 +1048,7 @@ _ZN5sound14ISoundDataOpenC2ERKNS_17OggFileDecodeInfoE.exit: ; preds = %if.end.i.
   %is_stereo.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %is_stereo3.i.i = getelementptr inbounds i8, ptr %decode_info, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %is_stereo.i.i, ptr noundef nonnull align 8 dereferenceable(28) %is_stereo3.i.i, i64 28, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound19SoundDataOpenBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound19SoundDataOpenBufferE, i64 16), ptr %this, align 8, !tbaa !24
   %m_buffer = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_buffer, align 8, !tbaa !80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #20
@@ -1182,7 +1182,7 @@ if.end:                                           ; preds = %call1.i.noexc, %inv
 ehcleanup:                                        ; preds = %lpad7, %lpad
   %.pn = phi { ptr, i32 } [ %23, %lpad7 ], [ %22, %lpad ]
   call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #20
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %24 = load ptr, ptr %m_decode_info.i, align 8, !tbaa !27
   %cmp.i.i.i.i.i = icmp eq ptr %24, %0
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i30
@@ -1210,7 +1210,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBu
 define dso_local void @_ZN5sound19SoundDataOpenStreamC2ESt10unique_ptrINS_11RAIIOggFileESt14default_deleteIS2_EERKNS_17OggFileDecodeInfoE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef %oggfile, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %decode_info) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %m_decode_info.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_decode_info.i, align 8, !tbaa !62
@@ -1256,7 +1256,7 @@ _ZN5sound14ISoundDataOpenC2ERKNS_17OggFileDecodeInfoE.exit: ; preds = %if.end.i.
   %is_stereo.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %is_stereo3.i.i = getelementptr inbounds i8, ptr %decode_info, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %is_stereo.i.i, ptr noundef nonnull align 8 dereferenceable(28) %is_stereo3.i.i, i64 28, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound19SoundDataOpenStreamE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound19SoundDataOpenStreamE, i64 16), ptr %this, align 8, !tbaa !24
   %m_oggfile = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load i64, ptr %oggfile, align 8, !tbaa !4
   store i64 %8, ptr %m_oggfile, align 8, !tbaa !4
@@ -1852,7 +1852,7 @@ _ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i: ; preds = %if.then.
 
 _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i, %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EED2Ev.exit
   store ptr null, ptr %m_oggfile, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %m_decode_info.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %m_decode_info.i, align 8, !tbaa !27
   %11 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1893,7 +1893,7 @@ define linkonce_odr dso_local void @_ZN5sound19SoundDataOpenBufferD2Ev(ptr nound
 entry:
   %m_buffer = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #20
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %m_decode_info.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_decode_info.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1920,7 +1920,7 @@ define linkonce_odr dso_local void @_ZN5sound19SoundDataOpenBufferD0Ev(ptr nound
 entry:
   %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i, i32 noundef 0) #20
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %m_decode_info.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_decode_info.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1984,7 +1984,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5sound14ISoundDataOpenD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %m_decode_info = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_decode_info, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2043,7 +2043,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !120
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !122
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19, align 8, !tbaa !24
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   %0 = load i64, ptr %__args, align 8, !tbaa !4
@@ -2108,7 +2108,7 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_buffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i, i32 noundef 0) #20
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %_M_impl.i, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %_M_impl.i, align 8, !tbaa !24
   %m_decode_info.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_decode_info.i.i.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 40
@@ -2182,13 +2182,13 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !120
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !122
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19, align 8, !tbaa !24
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   %0 = load i64, ptr %__args, align 8, !tbaa !4
   store i64 %0, ptr %agg.tmp.i.i.i, align 8, !tbaa !4
   store ptr null, ptr %__args, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound14ISoundDataOpenE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %_M_impl.i.i, align 8, !tbaa !24
   %m_decode_info.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 24
   %1 = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 40
   store ptr %1, ptr %m_decode_info.i.i.i.i.i, align 8, !tbaa !62
@@ -2244,7 +2244,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStre
   %is_stereo.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 56
   %is_stereo3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %is_stereo.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %is_stereo3.i.i.i.i.i.i, i64 28, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5sound19SoundDataOpenStreamE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5sound19SoundDataOpenStreamE, i64 16), ptr %_M_impl.i.i, align 8, !tbaa !24
   %m_oggfile.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 88
   store i64 %0, ptr %m_oggfile.i.i.i.i, align 8, !tbaa !4
   %m_bufferss.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19, i64 96

@@ -281,7 +281,7 @@ invoke.cont.i.i:                                  ; preds = %init.i.i
   %2 = extractvalue { ptr, ptr } %call.i.i, 0
   store ptr %2, ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, align 8, !noalias !6
   %3 = extractvalue { ptr, ptr } %call.i.i, 1
-  store ptr %3, ptr getelementptr inbounds (%"struct.absl::crc_internal::CrcMemcpy::ArchSpecificEngines", ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, i64 0, i32 1), align 8, !noalias !6
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, i64 8), align 8, !noalias !6
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines) #4, !noalias !6
   br label %_ZN4absl12crc_internal13Crc32CAndCopyEPvPKvmNS_8crc32c_tEb.exit
 

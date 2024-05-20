@@ -28,7 +28,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 4)) #5
+  %call1 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @console, i64 80)) #5
   %lnot = xor i1 %call1, true
   ret i1 %lnot
 }
@@ -51,13 +51,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 4)) #5
+  %call1 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @console, i64 80)) #5
   br i1 %call1, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %do.end
-  %0 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @console, i64 64), align 8
   %call3 = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %cs) #5
-  store ptr %call3, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 2), align 8
+  store ptr %call3, ptr getelementptr inbounds (i8, ptr @console, i64 64), align 8
   %halted = getelementptr inbounds i8, ptr %cs, i64 724
   store i32 1, ptr %halted, align 4
   %exception_index = getelementptr inbounds i8, ptr %cs, i64 728
@@ -85,7 +85,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 do.end.i:                                         ; preds = %entry
-  %call1.i = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 4)) #5
+  %call1.i = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @console, i64 80)) #5
   br i1 %call1.i, label %if.then2.i, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.end.i
@@ -95,9 +95,9 @@ do.body.preheader:                                ; preds = %do.end.i
   br label %do.body
 
 if.then2.i:                                       ; preds = %do.end.i
-  %1 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @console, i64 64), align 8
   %call3.i = tail call ptr @g_slist_prepend(ptr noundef %1, ptr noundef %cs) #5
-  store ptr %call3.i, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 2), align 8
+  store ptr %call3.i, ptr getelementptr inbounds (i8, ptr @console, i64 64), align 8
   %halted.i = getelementptr inbounds i8, ptr %cs, i64 724
   store i32 1, ptr %halted.i, align 4
   %exception_index.i = getelementptr inbounds i8, ptr %cs, i64 728
@@ -107,7 +107,7 @@ if.then2.i:                                       ; preds = %do.end.i
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
   %indvars.iv = phi i64 [ 0, %do.body.preheader ], [ %indvars.iv.next, %land.rhs ]
-  %call = tail call zeroext i8 @fifo8_pop(ptr noundef nonnull getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 4)) #5
+  %call = tail call zeroext i8 @fifo8_pop(ptr noundef nonnull getelementptr inbounds (i8, ptr @console, i64 80)) #5
   %add.ptr = getelementptr i8, ptr %buf, i64 %indvars.iv
   store i8 %call, ptr %add.ptr, align 1
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
@@ -115,7 +115,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 land.rhs:                                         ; preds = %do.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %call2 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 4)) #5
+  %call2 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @console, i64 80)) #5
   br i1 %call2, label %do.end.split.loop.exit6, label %do.body, !llvm.loop !5
 
 do.end.split.loop.exit6:                          ; preds = %land.rhs
@@ -132,7 +132,7 @@ declare zeroext i8 @fifo8_pop(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_semihosting_console_write(ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @console, i64 56), align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -161,12 +161,12 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_semihosting_console_init(ptr noundef %chr) local_unnamed_addr #0 {
 entry:
-  store ptr %chr, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 1), align 8
+  store ptr %chr, ptr getelementptr inbounds (i8, ptr @console, i64 56), align 8
   %tobool.not = icmp eq ptr %chr, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @fifo8_create(ptr noundef nonnull getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 4), i32 noundef 1024) #5
+  tail call void @fifo8_create(ptr noundef nonnull getelementptr inbounds (i8, ptr @console, i64 80), i32 noundef 1024) #5
   %call = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull @console, ptr noundef nonnull %chr, ptr noundef nonnull @error_abort) #5
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull @console, ptr noundef nonnull @console_can_read, ptr noundef nonnull @console_read, ptr noundef null, ptr noundef null, ptr noundef nonnull @console, ptr noundef null, i1 noundef zeroext true) #5
   br label %if.end

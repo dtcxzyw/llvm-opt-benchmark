@@ -121,7 +121,7 @@ define ptr @slurm_allocation_msg_thr_create(ptr noundef %0, ptr noundef readonly
   %30 = load i32, ptr %3, align 4
   %31 = load ptr, ptr %4, align 8
   %32 = call ptr @eio_obj_create(i32 noundef %30, ptr noundef nonnull @message_socket_ops, ptr noundef %31) #10
-  %33 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 41), align 8
+  %33 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 312), align 8
   %34 = call ptr @eio_handle_create(i16 noundef zeroext %33) #10
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 40
@@ -418,7 +418,7 @@ define internal void @_handle_msg(ptr nocapture noundef readonly %0, ptr noundef
   %8 = getelementptr inbounds i8, ptr %1, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @auth_g_get_uid(ptr noundef %9) #10
-  %11 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %12 = icmp eq i32 %10, %11
   %13 = icmp eq i32 %10, 0
   %or.cond.not35 = or i1 %13, %12

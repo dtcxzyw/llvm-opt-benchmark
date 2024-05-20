@@ -690,7 +690,7 @@ declare dso_local i32 @__SCT__tp_func_kmem_cache_alloc(ptr noundef, i64 noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_kmem_cache_alloc(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #1 align 16 {
-  %7 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_kmem_cache_alloc, i64 0, i32 8), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_kmem_cache_alloc, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -725,7 +725,7 @@ declare dso_local i32 @__SCT__tp_func_kmalloc(ptr noundef, i64 noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_kmalloc(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
-  %8 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_kmalloc, i64 0, i32 8), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_kmalloc, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
 
@@ -754,7 +754,7 @@ declare dso_local i32 @__SCT__tp_func_kfree(ptr noundef, i64 noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_kfree(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_kfree, i64 0, i32 8), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_kfree, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -783,7 +783,7 @@ declare dso_local i32 @__SCT__tp_func_kmem_cache_free(ptr noundef, i64 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_kmem_cache_free(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_kmem_cache_free, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_kmem_cache_free, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -812,7 +812,7 @@ declare dso_local i32 @__SCT__tp_func_mm_page_free(ptr noundef, ptr noundef, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_mm_page_free(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mm_page_free, i64 0, i32 8), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_mm_page_free, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -841,7 +841,7 @@ declare dso_local i32 @__SCT__tp_func_mm_page_free_batched(ptr noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_mm_page_free_batched(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mm_page_free_batched, i64 0, i32 8), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_mm_page_free_batched, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -870,7 +870,7 @@ declare dso_local i32 @__SCT__tp_func_mm_page_alloc(ptr noundef, ptr noundef, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_mm_page_alloc(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mm_page_alloc, i64 0, i32 8), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_mm_page_alloc, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -899,7 +899,7 @@ declare dso_local i32 @__SCT__tp_func_mm_page_alloc_zone_locked(ptr noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_mm_page_alloc_zone_locked(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mm_page_alloc_zone_locked, i64 0, i32 8), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_mm_page_alloc_zone_locked, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -928,7 +928,7 @@ declare dso_local i32 @__SCT__tp_func_mm_page_pcpu_drain(ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_mm_page_pcpu_drain(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mm_page_pcpu_drain, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_mm_page_pcpu_drain, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -957,7 +957,7 @@ declare dso_local i32 @__SCT__tp_func_mm_page_alloc_extfrag(ptr noundef, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_mm_page_alloc_extfrag(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #1 align 16 {
-  %7 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mm_page_alloc_extfrag, i64 0, i32 8), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_mm_page_alloc_extfrag, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -986,7 +986,7 @@ declare dso_local i32 @__SCT__tp_func_rss_stat(ptr noundef, ptr noundef, i32 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rss_stat(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rss_stat, i64 0, i32 8), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rss_stat, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -2345,7 +2345,7 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 16), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 260), align 4
   br label %16
 
 16:                                               ; preds = %16, %14
@@ -2373,7 +2373,7 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %22
-  %35 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @slab_caches, i64 0, i32 1), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_caches, i64 8), align 8
   %36 = icmp eq ptr %35, @slab_caches
   br i1 %36, label %.loopexit, label %37
 
@@ -2479,7 +2479,7 @@ define dso_local ptr @kmem_cache_create_usercopy(ptr noundef %0, i32 noundef %1,
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 16), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 260), align 4
   br label %31
 
 31:                                               ; preds = %31, %29
@@ -2679,8 +2679,8 @@ define dso_local void @kmem_cache_destroy(ptr noundef %0) #1 align 16 {
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %15
-  %25 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @slab_caches_to_rcu_destroy, i64 0, i32 1), align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.list_head, ptr @slab_caches_to_rcu_destroy, i64 0, i32 1), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_caches_to_rcu_destroy, i64 8), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @slab_caches_to_rcu_destroy, i64 8), align 8
   store ptr @slab_caches_to_rcu_destroy, ptr %16, align 8
   store ptr %25, ptr %17, align 8
   store volatile ptr %16, ptr %25, align 8
@@ -2985,7 +2985,7 @@ define dso_local void @create_boot_cache(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %.thread
-  %19 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 16), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 260), align 4
   br label %20
 
 20:                                               ; preds = %20, %18
@@ -3974,7 +3974,7 @@ define internal void @slab_caches_to_rcu_destroy_workfn(ptr nocapture readnone %
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @slab_caches_to_rcu_destroy, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_caches_to_rcu_destroy, i64 8), align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %9, align 8
   store ptr %4, ptr %2, align 8
@@ -3982,7 +3982,7 @@ define internal void @slab_caches_to_rcu_destroy_workfn(ptr nocapture readnone %
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr @slab_caches_to_rcu_destroy, ptr @slab_caches_to_rcu_destroy, align 8
-  store volatile ptr @slab_caches_to_rcu_destroy, ptr getelementptr inbounds (%struct.list_head, ptr @slab_caches_to_rcu_destroy, i64 0, i32 1), align 8
+  store volatile ptr @slab_caches_to_rcu_destroy, ptr getelementptr inbounds (i8, ptr @slab_caches_to_rcu_destroy, i64 8), align 8
   br label %11
 
 11:                                               ; preds = %6, %1

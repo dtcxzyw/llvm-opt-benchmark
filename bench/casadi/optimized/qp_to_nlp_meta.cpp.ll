@@ -161,7 +161,7 @@ define internal void @_GLOBAL__sub_I_qp_to_nlp_meta.cpp() #6 section ".text.star
           to label %.noexc1.i unwind label %6
 
 .noexc1.i:                                        ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6casadi7QpToNlp8meta_docB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([343 x i8], ptr @.str, i64 0, i64 342))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6casadi7QpToNlp8meta_docB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 342))
           to label %__cxx_global_var_init.1.exit unwind label %4
 
 4:                                                ; preds = %.noexc1.i

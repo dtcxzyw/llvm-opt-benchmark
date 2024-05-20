@@ -2326,9 +2326,9 @@ if.then18:                                        ; preds = %if.end17
 if.end20:                                         ; preds = %if.then18, %if.end17
   %.pre = phi i32 [ %.pre.pre, %if.then18 ], [ %12, %if.end17 ]
   %.pr = load i32, ptr %utf8_mode.i.i, align 4
-  %13 = load <4 x i32>, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28), align 8
-  %14 = load <4 x i32>, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 4), align 8
-  %15 = load <2 x i32>, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 8), align 8
+  %13 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
+  %14 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  %15 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %cmdline, i8 0, i64 48, i1 false)
   %16 = getelementptr inbounds i8, ptr %cmdline, i64 32
   store i32 -1, ptr %16, align 8
@@ -2350,25 +2350,25 @@ if.end28:                                         ; preds = %if.end20, %if.end60
   %inc127 = phi i32 [ 1, %if.end20 ], [ %inc, %if.end60 ]
   %locale_coerced.0126 = phi i32 [ 0, %if.end20 ], [ %locale_coerced.1, %if.end60 ]
   %20 = phi i32 [ %.pr, %if.end20 ], [ %70, %if.end60 ]
-  store i32 %19, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28), align 8
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
   %21 = load i32, ptr %parse_argv.i.i, align 4
-  store i32 %21, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 1), align 4
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
   %22 = load i32, ptr %isolated.i.i, align 4
-  store i32 %22, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 2), align 8
+  store i32 %22, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
   %23 = load i32, ptr %use_environment.i.i, align 4
-  store i32 %23, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 3), align 4
+  store i32 %23, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
   %24 = load i32, ptr %configure_locale.i.i, align 4
-  store i32 %24, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 4), align 8
+  store i32 %24, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
   %25 = load i32, ptr %dev_mode.i.i, align 4
-  store i32 %25, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 8), align 8
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
   %26 = load i32, ptr %coerce_c_locale.i.i, align 4
-  store i32 %26, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 5), align 4
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
   %27 = load i32, ptr %coerce_c_locale_warn.i.i, align 4
-  store i32 %27, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 6), align 8
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
   %28 = load i32, ptr %utf8_mode.i.i, align 4
-  store i32 %28, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 7), align 4
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
   %29 = load i32, ptr %allocator.i.i, align 4
-  store i32 %29, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 9), align 4
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
   br i1 %tobool29.not, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
@@ -2727,9 +2727,9 @@ done:                                             ; preds = %if.then48, %if.else
   %72 = phi <2 x i32> [ %68, %preconfig_read.exit.thread ], [ zeroinitializer, %if.then48 ], [ zeroinitializer, %if.else ], [ <i32 0, i32 undef>, %if.end60 ], [ %30, %if.then30 ]
   %call70 = call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %call5) #17
   call void @PyMem_RawFree(ptr noundef nonnull %call5) #17
-  store <4 x i32> %13, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28), align 8
-  store <4 x i32> %14, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 4), align 8
-  store <2 x i32> %15, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 8), align 8
+  store <4 x i32> %13, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
+  store <4 x i32> %14, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  store <2 x i32> %15, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
   call void @_PyWideStringList_Clear(ptr noundef nonnull %cmdline) #17
   call void @_PyWideStringList_Clear(ptr noundef nonnull %xoptions.i.i) #17
   store i32 %status.sroa.0.0, ptr %agg.result, align 8
@@ -2766,7 +2766,7 @@ if.end:
   %2 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !23
   %coerce_c_locale_warn.i.i = getelementptr inbounds i8, ptr %src_config, i64 24
   %3 = load <4 x i32>, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !23
-  %4 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 4), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 308), align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
 
@@ -2845,10 +2845,10 @@ if.end20:                                         ; preds = %if.then14, %if.then
 
 if.end22:                                         ; preds = %if.end20, %preconfig_set_global_vars.exit
   %config.sroa.18.1 = phi i32 [ %2, %preconfig_set_global_vars.exit ], [ %config.sroa.18.0, %if.end20 ]
-  store <4 x i32> %0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28), align 8
-  store i32 %1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 4), align 8
-  store i32 %config.sroa.18.1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 5), align 4
-  store <4 x i32> %3, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 6), align 8
+  store <4 x i32> %0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  store i32 %config.sroa.18.1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
+  store <4 x i32> %3, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
 

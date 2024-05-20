@@ -51,8 +51,8 @@ define internal i32 @ohci_pci_init() #0 section ".init.text" align 16 {
 
 3:                                                ; preds = %0
   tail call void @ohci_init_driver(ptr noundef nonnull @ohci_pci_hc_driver, ptr noundef nonnull @pci_overrides) #7
-  store ptr @ohci_suspend, ptr getelementptr inbounds (%struct.hc_driver, ptr @ohci_pci_hc_driver, i64 0, i32 7), align 8
-  store ptr @ohci_pci_resume, ptr getelementptr inbounds (%struct.hc_driver, ptr @ohci_pci_hc_driver, i64 0, i32 8), align 8
+  store ptr @ohci_suspend, ptr getelementptr inbounds (i8, ptr @ohci_pci_hc_driver, i64 56), align 8
+  store ptr @ohci_pci_resume, ptr getelementptr inbounds (i8, ptr @ohci_pci_hc_driver, i64 64), align 8
   %4 = tail call i32 @__pci_register_driver(ptr noundef nonnull @ohci_pci_driver, ptr noundef null, ptr noundef nonnull @.str) #7
   br label %5
 

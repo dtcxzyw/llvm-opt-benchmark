@@ -57,7 +57,7 @@ $_ZTI13DumpConverter = comdat any
 ; Function Attrs: mustprogress norecurse uwtable
 define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.DumpConverter, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTV13DumpConverter, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13DumpConverter, i64 16), ptr %3, align 8
   %4 = call noundef i32 @_ZN3ozz9animation7offline11OzzImporterclEiPPKc(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %0, ptr noundef %1)
   ret i32 %4
 }

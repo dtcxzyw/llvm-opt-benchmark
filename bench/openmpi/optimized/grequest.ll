@@ -71,10 +71,10 @@ define internal void @ompi_grequest_destruct(ptr noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @ompi_grequest_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
-  %6 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_grequest_t_class, i64 0, i32 8), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_grequest_t_class, i64 56), align 8
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #9
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_grequest_t_class, i64 0, i32 4), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_grequest_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %8, %9
   br i1 %.not.i, label %11, label %10
 
@@ -90,7 +90,7 @@ define range(i32 -2, 1) i32 @ompi_grequest_start(ptr noundef %0, ptr noundef %1,
   store ptr @ompi_grequest_t_class, ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 8
   store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_grequest_t_class, i64 0, i32 6), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_grequest_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread18, label %.lr.ph.i.i

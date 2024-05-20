@@ -276,7 +276,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
 68:                                               ; preds = %67, %63
   %69 = load ptr, ptr %1, align 8
   %70 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %69, i32 noundef 47) #27
-  store ptr %70, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 1), align 8
+  store ptr %70, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
   %.not370 = icmp eq ptr %70, null
   br i1 %.not370, label %73, label %71
 
@@ -290,7 +290,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
 
 sub_0:                                            ; preds = %73, %71
   %storemerge = phi ptr [ %74, %73 ], [ %72, %71 ]
-  store ptr %storemerge, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 1), align 8
+  store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
   %75 = load i8, ptr %storemerge, align 1
   %76 = zext i8 %75 to i32
   %77 = add nsw i32 %76, -105
@@ -334,7 +334,7 @@ sub_2:                                            ; preds = %sub_1
           to label %97 unwind label %59
 
 97:                                               ; preds = %94
-  %98 = load ptr, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 1), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.69, ptr noundef %96, ptr noundef %98) #28
   call void @exit(i32 noundef 0) #26
   unreachable
@@ -2980,7 +2980,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEED2Ev.exit476
   %storemerge404 = phi ptr [ @.str.66, %1211 ], [ %1216, %1213 ]
   %.0261 = phi ptr [ %1212, %1211 ], [ %1214, %1213 ]
   store ptr %storemerge404, ptr @emess_dat, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   invoke fastcc void @_ZL7processP8_IO_FILE(ptr noundef %.0261)
           to label %1219 unwind label %.loopexit495
 
@@ -4509,9 +4509,9 @@ define internal fastcc void @_ZL7processP8_IO_FILE(ptr nocapture noundef %0) unn
   %4 = alloca [40 x i8], align 16
   %5 = alloca %union.PJ_COORD, align 8
   %6 = alloca %union.PJ_COORD, align 16
-  %7 = load i32, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %9 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1000, ptr noundef %0)
   store ptr %9, ptr %3, align 8
   %.not5458 = icmp eq ptr %9, null
@@ -4588,9 +4588,9 @@ define internal fastcc void @_ZL7processP8_IO_FILE(ptr nocapture noundef %0) unn
   br label %.backedge
 
 .backedge:                                        ; preds = %37, %162
-  %40 = load i32, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %41 = add nsw i32 %40, 1
-  store i32 %41, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %42 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1000, ptr noundef %0)
   store ptr %42, ptr %3, align 8
   %.not54 = icmp eq ptr %42, null

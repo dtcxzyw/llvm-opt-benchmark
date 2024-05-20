@@ -23,7 +23,7 @@ $_ZNSt5dequeIhSaIhEE17_M_reallocate_mapEmb = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net22QuicSentEntropyManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 16), ptr %this, align 8
   %packets_entropy_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIhSaIhEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_, i64 noundef 0)
@@ -45,7 +45,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22QuicSentEntropyManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 16), ptr %this, align 8
   %packets_entropy_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %packets_entropy_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -84,7 +84,7 @@ _ZNSt5dequeIhSaIhEED2Ev.exit:                     ; preds = %entry, %_ZNSt11_Deq
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22QuicSentEntropyManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 16), ptr %this, align 8
   %packets_entropy_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %packets_entropy_.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

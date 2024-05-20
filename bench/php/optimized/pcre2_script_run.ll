@@ -338,7 +338,7 @@ switch.lookup206:                                 ; preds = %switch.hole_check20
   br i1 %181, label %182, label %194
 
 182:                                              ; preds = %.loopexit164
-  %183 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @_pcre2_ucd_digit_sets_8, i64 0, i64 1), align 4
+  %183 = load i32, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_digit_sets_8, i64 4), align 4
   %.not159 = icmp ugt i32 %.1141176, %183
   br i1 %.not159, label %184, label %.loopexit
 

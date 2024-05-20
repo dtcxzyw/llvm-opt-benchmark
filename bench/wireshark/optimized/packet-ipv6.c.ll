@@ -2354,7 +2354,7 @@ add_ipv6_address_isatap.exit305:                  ; preds = %proto_item_set_hidd
   call fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %1, ptr noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef %181)
   %182 = load i32, ptr @hf_ipv6_dst_embed_ipv4, align 4
   call fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %1, ptr noundef %20, ptr noundef %0, i32 noundef 24, i32 noundef %182)
-  %183 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 7), align 4
+  %183 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 28), align 4
   %.not280 = icmp eq i32 %183, 0
   br i1 %.not280, label %185, label %184
 

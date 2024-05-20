@@ -1215,7 +1215,7 @@ entry:
   %altindstack124 = getelementptr inbounds i8, ptr %tok, i64 2344
   %tok_extra_tokens193 = getelementptr inbounds i8, ptr %tok, i64 17260
   %type_comments = getelementptr inbounds i8, ptr %tok, i64 2832
-  %0 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @_Py_ctype_table, i64 0, i64 255), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_Py_ctype_table, i64 1020), align 4
   %and5231680 = and i32 %0, 4
   %tobool524.not1681 = icmp eq i32 %and5231680, 0
   %cont_line1100 = getelementptr inbounds i8, ptr %tok, i64 2760
@@ -1853,7 +1853,7 @@ if.end236:                                        ; preds = %while.cond214, %if.
   %p.3 = phi ptr [ %incdec.ptr232, %if.then231 ], [ %p.2, %while.cond214 ]
   %incdec.ptr237 = getelementptr i8, ptr %prefix.02141, i64 1
   %73 = load i8, ptr %incdec.ptr237, align 1
-  %exitcond = icmp eq ptr %incdec.ptr237, getelementptr inbounds ([9 x i8], ptr @.str.28, i64 0, i64 8)
+  %exitcond = icmp eq ptr %incdec.ptr237, getelementptr inbounds (i8, ptr @.str.28, i64 8)
   br i1 %exitcond, label %if.then240, label %land.rhs204, !llvm.loop !13
 
 if.then240:                                       ; preds = %if.end236

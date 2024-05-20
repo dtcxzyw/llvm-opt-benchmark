@@ -1072,7 +1072,7 @@ lazy_scan_new_or_empty.exit.thread233.i:          ; preds = %lazy_scan_new_or_em
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   store i32 %485, ptr %11, align 4
   %486 = load ptr, ptr %55, align 8
-  %487 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 1), align 8
+  %487 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
   %.val.i117.i = load i16, ptr %346, align 4
   %488 = icmp ult i16 %.val.i117.i, 25
   %489 = zext i16 %.val.i117.i to i32
@@ -1247,7 +1247,7 @@ lazy_scan_new_or_empty.exit.thread233.i:          ; preds = %lazy_scan_new_or_em
 
 561:                                              ; preds = %559
   %562 = trunc nuw i8 %.1145.i.i to i1
-  %563 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 1), align 8
+  %563 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
   %.not160.i.i = icmp ne i64 %487, %563
   %or.cond167.not.i.i = select i1 %562, i1 %.not160.i.i, i1 false
   br i1 %or.cond167.not.i.i, label %.thread234.i, label %580

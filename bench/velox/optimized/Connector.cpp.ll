@@ -323,11 +323,11 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 48), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector16ConnectorFactoryEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11) #19
   br label %_ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit
@@ -554,11 +554,11 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 48), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector16ConnectorFactoryEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11) #19
   br label %_ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit
@@ -575,11 +575,11 @@ init.check.i2:                                    ; preds = %_ZN8facebook5velox9
   br i1 %tobool.not.i3, label %_ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit5, label %init.i4
 
 init.i4:                                          ; preds = %init.check.i2
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 48), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector16ConnectorFactoryEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11) #19
   br label %_ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit5
@@ -634,11 +634,11 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 48), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector9ConnectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11) #19
   br label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit
@@ -862,11 +862,11 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 48), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector9ConnectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11) #19
   br label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit
@@ -890,11 +890,11 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 48), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector9ConnectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11) #19
   br label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit
@@ -911,11 +911,11 @@ init.check.i2:                                    ; preds = %_ZN8facebook5velox9
   br i1 %tobool.not.i3, label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit5, label %init.i4
 
 init.i4:                                          ; preds = %init.check.i2
-  store ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 48), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector9ConnectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11) #19
   br label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit5
@@ -969,11 +969,11 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.15", ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 48), ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector9ConnectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11) #19
   br label %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit
@@ -1063,9 +1063,9 @@ entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  store ptr getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 1, i32 0, i32 0, i32 0), ptr %ref.tmp.i, align 8, !alias.scope !10
+  store ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 56), ptr %ref.tmp.i, align 8, !alias.scope !10
   %_M_owns.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 1, i32 0, i32 0, i32 0)), !noalias !10
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 56)), !noalias !10
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %id_.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 40
@@ -1080,7 +1080,7 @@ entry:
 
 if.then3.i.i.i.i:                                 ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 1, i32 0, i32 0, i32 0))
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 56))
           to label %"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8weak_ptrIN8facebook5velox5cache11ScanTrackerEESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS9_9connector9Connector17unregisterTrackerEPSB_E3$_0EEDaOT_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
@@ -1115,9 +1115,9 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  store ptr getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 1, i32 0, i32 0, i32 0), ptr %ref.tmp.i, align 8, !alias.scope !16, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 56), ptr %ref.tmp.i, align 8, !alias.scope !16, !noalias !13
   %_M_owns.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 1, i32 0, i32 0, i32 0)), !noalias !19
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 56)), !noalias !19
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !16, !noalias !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !13
@@ -1528,7 +1528,7 @@ call.i.noexc:                                     ; preds = %sw.bb
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.1, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 9))
           to label %return unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1552,7 +1552,7 @@ call.i.noexc6:                                    ; preds = %sw.bb1
           to label %.noexc8 unwind label %lpad3
 
 .noexc8:                                          ; preds = %call.i.noexc6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.2, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 11))
           to label %return unwind label %lpad.i5
 
 lpad.i5:                                          ; preds = %.noexc8
@@ -1636,7 +1636,7 @@ lpad.i:                                           ; preds = %entry
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 4))
+  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds (i8, ptr @.str.3, i64 4))
           to label %invoke.cont3 unwind label %lpad1
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1697,7 +1697,7 @@ lpad.i:                                           ; preds = %entry
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 4))
+  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds (i8, ptr @.str.3, i64 4))
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -1712,7 +1712,7 @@ invoke.cont10:                                    ; preds = %invoke.cont4
   %u_.i4 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr null, ptr %u_.i4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %u_.i4, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #19
-  %call15 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds ([12 x i8], ptr @.str.5, i64 0, i64 11))
+  %call15 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds (i8, ptr @.str.5, i64 11))
           to label %invoke.cont14 unwind label %lpad12
 
 invoke.cont14:                                    ; preds = %invoke.cont10
@@ -1757,7 +1757,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox9connector20ConnectorTableHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox9connector20ConnectorTableHandleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9connector20ConnectorTableHandleE, i64 16), ptr %this, align 8
   %connectorId_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectorId_) #19
   ret void
@@ -1766,7 +1766,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox9connector20ConnectorTableHandleD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox9connector20ConnectorTableHandleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9connector20ConnectorTableHandleE, i64 16), ptr %this, align 8
   %connectorId_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectorId_.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -2610,7 +2610,7 @@ entry:
   store i32 1, ptr %_M_use_count.i, align 8
   %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 1, ptr %_M_weak_count.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox5cache11ScanTrackerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox5cache11ScanTrackerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %this, align 8
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp5.i.i)
   %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__args) #19
@@ -4980,12 +4980,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_Connector.cpp() #15 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 0, i32 0, i32 5), ptr @_ZN8facebook5velox9connector9Connector9trackers_E, align 8
-  store i64 1, ptr getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"struct.folly::Synchronized", ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 0, i32 1, i32 0, i32 0, i32 0)) #19
+  store ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 48), ptr @_ZN8facebook5velox9connector9Connector9trackers_E, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 40), i8 0, i64 16, i1 false)
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN8facebook5velox9connector9Connector9trackers_E, i64 56)) #19
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly12SynchronizedISt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8weak_ptrIN8facebook5velox5cache11ScanTrackerEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev, ptr nonnull @_ZN8facebook5velox9connector9Connector9trackers_E, ptr nonnull @__dso_handle) #19
   ret void
 }

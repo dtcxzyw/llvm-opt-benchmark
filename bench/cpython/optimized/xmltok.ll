@@ -263,7 +263,7 @@ for.cond13.preheader:                             ; preds = %for.inc
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   switch i8 %0, label %land.lhs.true8 [
     i8 28, label %for.inc
@@ -326,7 +326,7 @@ if.else54:                                        ; preds = %if.else
 
 if.then57:                                        ; preds = %if.else54
   %idxprom58 = zext nneg i32 %3 to i64
-  %arrayidx59 = getelementptr %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %idxprom58
+  %arrayidx59 = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom58
   %5 = load i8, ptr %arrayidx59, align 1
   switch i8 %5, label %land.lhs.true69 [
     i8 28, label %if.end73
@@ -369,7 +369,7 @@ if.else95:                                        ; preds = %if.else54
 
 sw.bb1.i:                                         ; preds = %if.else95
   %idxprom.i = zext nneg i32 %3 to i64
-  %arrayidx.i = getelementptr %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %7, 0
   br i1 %cmp.i, label %if.then98, label %if.else114
@@ -624,7 +624,7 @@ lor.rhs:                                          ; preds = %entry
 
 sw.bb1.i:                                         ; preds = %lor.rhs
   %idxprom.i = zext nneg i32 %call to i64
-  %arrayidx.i = getelementptr %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %lor.end, label %sw.epilog.i
@@ -976,7 +976,7 @@ while.body.i:                                     ; preds = %sw.epilog.i, %while
   %ptr.addr.023.i = phi ptr [ %ptr, %while.body.lr.ph.i ], [ %ptr.addr.2.i, %sw.epilog.i ]
   %0 = load i8, ptr %ptr.addr.023.i, align 1
   %idxprom.i = zext i8 %0 to i64
-  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @utf8_encoding, i64 0, i32 1, i64 0), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @utf8_encoding, i64 136), i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   switch i8 %1, label %sw.default.i [
     i8 5, label %sw.bb.i
@@ -1028,7 +1028,7 @@ sw.bb13.i:                                        ; preds = %while.body.i
 land.lhs.true.i:                                  ; preds = %sw.bb13.i
   %7 = load i8, ptr %add.ptr16.i, align 1
   %idxprom23.i = zext i8 %7 to i64
-  %arrayidx24.i = getelementptr [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @utf8_encoding, i64 0, i32 1, i64 0), i64 0, i64 %idxprom23.i
+  %arrayidx24.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @utf8_encoding, i64 136), i64 0, i64 %idxprom23.i
   %8 = load i8, ptr %arrayidx24.i, align 1
   %cmp26.i = icmp eq i8 %8, 10
   %add.ptr28.i = getelementptr i8, ptr %ptr.addr.023.i, i64 2
@@ -4464,7 +4464,7 @@ if.end37:                                         ; preds = %for.cond, %for.inc3
 sw.bb1.i:                                         ; preds = %entry, %if.end37
   %result.338 = phi i32 [ %result.3, %if.end37 ], [ 0, %entry ]
   %idxprom.i = sext i32 %result.338 to i64
-  %arrayidx.i = getelementptr %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %3, 0
   br i1 %cmp.i, label %return, label %sw.epilog.i
@@ -10517,7 +10517,7 @@ if.end67:                                         ; preds = %land.rhs39, %land.r
 
 sw.bb1.i:                                         ; preds = %if.end67
   %idxprom.i = sext i32 %result.3 to i64
-  %arrayidx.i = getelementptr %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %6, 0
   br i1 %cmp.i, label %return, label %sw.epilog.i
@@ -16590,7 +16590,7 @@ if.end67:                                         ; preds = %land.rhs39, %land.r
 
 sw.bb1.i:                                         ; preds = %if.end67
   %idxprom.i = sext i32 %result.3 to i64
-  %arrayidx.i = getelementptr %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %6, 0
   br i1 %cmp.i, label %return, label %sw.epilog.i

@@ -46556,90 +46556,90 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 27))
+  %call1 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 432))
   br i1 %call1, label %if.then2, label %if.else39
 
 if.then2:                                         ; preds = %if.end
-  %call3 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 32))
+  %call3 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 512))
   br i1 %call3, label %if.then4, label %if.else21
 
 if.then4:                                         ; preds = %if.then2
-  %call5 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 36))
+  %call5 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 576))
   br i1 %call5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then4
-  %call7 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 37))
+  %call7 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 592))
   %add = select i1 %call7, i32 38, i32 37
-  %call8 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call8 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   %conv9 = zext i1 %call8 to i32
   %add10 = add nuw nsw i32 %add, %conv9
   br label %return
 
 if.else:                                          ; preds = %if.then4
-  %call12 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 33))
+  %call12 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 528))
   %add14 = select i1 %call12, i32 34, i32 33
-  %call15 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 34))
+  %call15 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 544))
   %conv16 = zext i1 %call15 to i32
   %add17 = add nuw nsw i32 %add14, %conv16
-  %call18 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 35))
+  %call18 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 560))
   %conv19 = zext i1 %call18 to i32
   %add20 = add nuw nsw i32 %add17, %conv19
   br label %return
 
 if.else21:                                        ; preds = %if.then2
-  %call22 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 30))
+  %call22 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 480))
   br i1 %call22, label %if.then23, label %if.else31
 
 if.then23:                                        ; preds = %if.else21
-  %call25 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 31))
+  %call25 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 496))
   %add27 = select i1 %call25, i32 32, i32 31
-  %call28 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 32))
+  %call28 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 512))
   %conv29 = zext i1 %call28 to i32
   %add30 = add nuw nsw i32 %add27, %conv29
   br label %return
 
 if.else31:                                        ; preds = %if.else21
-  %call33 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 28))
+  %call33 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 448))
   %add35 = select i1 %call33, i32 29, i32 28
-  %call36 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 29))
+  %call36 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 464))
   %conv37 = zext i1 %call36 to i32
   %add38 = add nuw nsw i32 %add35, %conv37
   br label %return
 
 if.else39:                                        ; preds = %if.end
-  %call40 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 22))
+  %call40 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 352))
   br i1 %call40, label %if.then41, label %if.else56
 
 if.then41:                                        ; preds = %if.else39
-  %call42 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 25))
+  %call42 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 400))
   br i1 %call42, label %if.then43, label %if.else48
 
 if.then43:                                        ; preds = %if.then41
-  %call45 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 26))
+  %call45 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 416))
   %add47 = select i1 %call45, i32 27, i32 26
   br label %return
 
 if.else48:                                        ; preds = %if.then41
-  %call50 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 23))
+  %call50 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 368))
   %add52 = select i1 %call50, i32 24, i32 23
-  %call53 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 24))
+  %call53 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 384))
   %conv54 = zext i1 %call53 to i32
   %add55 = add nuw nsw i32 %add52, %conv54
   br label %return
 
 if.else56:                                        ; preds = %if.else39
-  %call57 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 20))
+  %call57 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 320))
   br i1 %call57, label %if.then58, label %if.else63
 
 if.then58:                                        ; preds = %if.else56
-  %call60 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 21))
+  %call60 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 336))
   %add62 = select i1 %call60, i32 22, i32 21
   br label %return
 
 if.else63:                                        ; preds = %if.else56
-  %call65 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 18))
+  %call65 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 288))
   %add67 = select i1 %call65, i32 19, i32 18
-  %call68 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 19))
+  %call68 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 304))
   %conv69 = zext i1 %call68 to i32
   %add70 = add nuw nsw i32 %add67, %conv69
   br label %return
@@ -55942,7 +55942,7 @@ entry:
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %0 = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !858
   store i64 500, ptr %capacity_.i.i, align 8, !tbaa !860
@@ -56055,7 +56055,7 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i.i.i,
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24, !noalias !873
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %12 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %cmp.not.i.i = icmp eq ptr %12, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i8
@@ -56075,7 +56075,7 @@ lpad2:                                            ; preds = %if.then.i.i.i, %if.
 
 lpad2.body:                                       ; preds = %lpad2, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEED2Ev.exit21.i.i
   %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad2 ], [ %2, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEED2Ev.exit21.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %14 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %cmp.not.i.i11 = icmp eq ptr %14, %store_.i
   br i1 %cmp.not.i.i11, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit13, label %if.then.i.i12
@@ -56092,7 +56092,7 @@ _ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit13: ; preds = %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(532) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %this, align 8, !tbaa !856
   %ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %store_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -56153,7 +56153,7 @@ if.end9:                                          ; preds = %if.then8, %_ZSt18un
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(532) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %this, align 8, !tbaa !856
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_.i.i.i, align 8, !tbaa !858
   %store_.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -58596,7 +58596,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   %add.ptr.i.i.i.i = getelementptr i8, ptr %8, i64 %5
   %9 = load i8, ptr %cond.i11, align 1, !tbaa !7
   store i8 %9, ptr %add.ptr.i.i.i.i, align 1, !tbaa !7
-  %incdec.ptr.i.i.i.i = select i1 %value, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 1), ptr getelementptr inbounds ([6 x i8], ptr @.str.6, i64 0, i64 1)
+  %incdec.ptr.i.i.i.i = select i1 %value, ptr getelementptr inbounds (i8, ptr @.str.5, i64 1), ptr getelementptr inbounds (i8, ptr @.str.6, i64 1)
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i, label %return, label %for.body.i.i.i.i.1, !llvm.loop !958
 
@@ -58604,7 +58604,7 @@ for.body.i.i.i.i.1:                               ; preds = %_ZN10duckdb_fmt2v68
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 1
   %10 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !tbaa !7
   store i8 %10, ptr %incdec.ptr1.i.i.i.i, align 1, !tbaa !7
-  %incdec.ptr.i.i.i.i.1 = select i1 %value, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 2), ptr getelementptr inbounds ([6 x i8], ptr @.str.6, i64 0, i64 2)
+  %incdec.ptr.i.i.i.i.1 = select i1 %value, ptr getelementptr inbounds (i8, ptr @.str.5, i64 2), ptr getelementptr inbounds (i8, ptr @.str.6, i64 2)
   %cmp.not.i.i.i.i.1 = icmp eq ptr %incdec.ptr.i.i.i.i.1, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.1, label %return, label %for.body.i.i.i.i.2, !llvm.loop !958
 
@@ -58612,7 +58612,7 @@ for.body.i.i.i.i.2:                               ; preds = %for.body.i.i.i.i.1
   %incdec.ptr1.i.i.i.i.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 2
   %11 = load i8, ptr %incdec.ptr.i.i.i.i.1, align 1, !tbaa !7
   store i8 %11, ptr %incdec.ptr1.i.i.i.i.1, align 1, !tbaa !7
-  %incdec.ptr.i.i.i.i.2 = select i1 %value, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 3), ptr getelementptr inbounds ([6 x i8], ptr @.str.6, i64 0, i64 3)
+  %incdec.ptr.i.i.i.i.2 = select i1 %value, ptr getelementptr inbounds (i8, ptr @.str.5, i64 3), ptr getelementptr inbounds (i8, ptr @.str.6, i64 3)
   %cmp.not.i.i.i.i.2 = icmp eq ptr %incdec.ptr.i.i.i.i.2, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.2, label %return, label %for.body.i.i.i.i.3, !llvm.loop !958
 
@@ -58620,7 +58620,7 @@ for.body.i.i.i.i.3:                               ; preds = %for.body.i.i.i.i.2
   %incdec.ptr1.i.i.i.i.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 3
   %12 = load i8, ptr %incdec.ptr.i.i.i.i.2, align 1, !tbaa !7
   store i8 %12, ptr %incdec.ptr1.i.i.i.i.2, align 1, !tbaa !7
-  %incdec.ptr.i.i.i.i.3 = select i1 %value, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 4), ptr getelementptr inbounds ([6 x i8], ptr @.str.6, i64 0, i64 4)
+  %incdec.ptr.i.i.i.i.3 = select i1 %value, ptr getelementptr inbounds (i8, ptr @.str.5, i64 4), ptr getelementptr inbounds (i8, ptr @.str.6, i64 4)
   %cmp.not.i.i.i.i.3 = icmp eq ptr %incdec.ptr.i.i.i.i.3, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.3, label %return, label %for.body.i.i.i.i.4, !llvm.loop !958
 
@@ -95374,7 +95374,7 @@ if.end89:                                         ; preds = %if.end89.sink.split
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %12 = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !858
   store i64 500, ptr %capacity_.i.i, align 8, !tbaa !860
@@ -95523,7 +95523,7 @@ invoke.cont202:                                   ; preds = %invoke.cont201
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont202, %invoke.cont119
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i265
@@ -95552,7 +95552,7 @@ lpad200:                                          ; preds = %invoke.cont201, %if
 
 ehcleanup205:                                     ; preds = %lpad200, %lpad190, %lpad162, %lpad118, %lpad108
   %.pn236 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad162 ], [ %29, %lpad200 ], [ %28, %lpad190 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %cmp.not.i.i268 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i268, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit270, label %if.then.i.i269
@@ -97495,7 +97495,7 @@ if.end89:                                         ; preds = %if.end89.sink.split
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %12 = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !858
   store i64 500, ptr %capacity_.i.i, align 8, !tbaa !860
@@ -97642,7 +97642,7 @@ invoke.cont200:                                   ; preds = %invoke.cont199
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont200, %invoke.cont119
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i261
@@ -97671,7 +97671,7 @@ lpad198:                                          ; preds = %invoke.cont199, %if
 
 ehcleanup203:                                     ; preds = %lpad198, %lpad188, %lpad161, %lpad118, %lpad108
   %.pn234 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad161 ], [ %29, %lpad198 ], [ %28, %lpad188 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %cmp.not.i.i264 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i264, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266, label %if.then.i.i265
@@ -97811,7 +97811,7 @@ if.end89:                                         ; preds = %if.end89.sink.split
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %12 = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !858
   store i64 500, ptr %capacity_.i.i, align 8, !tbaa !860
@@ -97958,7 +97958,7 @@ invoke.cont200:                                   ; preds = %invoke.cont199
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont200, %invoke.cont119
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i261
@@ -97987,7 +97987,7 @@ lpad198:                                          ; preds = %invoke.cont199, %if
 
 ehcleanup203:                                     ; preds = %lpad198, %lpad188, %lpad161, %lpad118, %lpad108
   %.pn234 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad161 ], [ %29, %lpad198 ], [ %28, %lpad188 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8, !tbaa !856
   %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !858
   %cmp.not.i.i264 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i264, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266, label %if.then.i.i265
@@ -104612,7 +104612,7 @@ if.then3.critedge:                                ; preds = %if.end
   br label %return
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %decimal, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 39))
+  %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %decimal, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 624))
   %9 = load i16, ptr %decimal_total_digits, align 8, !tbaa !1845
   %sub = add i16 %9, -39
   store i16 %sub, ptr %decimal_total_digits, align 8, !tbaa !1845
@@ -104885,7 +104885,7 @@ if.then3.critedge:                                ; preds = %if.end
   br label %return
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %decimal, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 39))
+  %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %decimal, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 624))
   %9 = load i16, ptr %decimal_total_digits, align 8, !tbaa !1845
   %sub = add i16 %9, -39
   store i16 %sub, ptr %decimal_total_digits, align 8, !tbaa !1845
@@ -111333,7 +111333,7 @@ declare void @_ZN6duckdb21InvalidInputExceptionC1ERKNSt7__cxx1112basic_stringIcS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !856
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !856
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !176
   %1 = getelementptr inbounds i8, ptr %this, i64 64

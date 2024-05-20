@@ -18,8 +18,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @accelerator_register() #0 {
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_accelerator_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i64 0, i32 1)) #2
-  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_accelerator_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i64 0, i32 2)) #2
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_accelerator_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_accelerator_component, i64 280)) #2
+  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_accelerator_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_accelerator_component, i64 284)) #2
   ret i32 0
 }
 

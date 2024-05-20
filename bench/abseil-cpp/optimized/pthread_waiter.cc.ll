@@ -31,7 +31,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 68, ptr noundef nonnull @.str.1, i32 noundef %call)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 68, ptr noundef nonnull @.str.1, i32 noundef %call)
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -41,7 +41,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7.not, label %if.end14, label %do.body9
 
 do.body9:                                         ; preds = %if.end
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 73, ptr noundef nonnull @.str.2, i32 noundef %call6)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 73, ptr noundef nonnull @.str.2, i32 noundef %call6)
   unreachable
 
 if.end14:                                         ; preds = %if.end
@@ -113,7 +113,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 42, ptr noundef nonnull @.str.6, i32 noundef %call.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 42, ptr noundef nonnull @.str.6, i32 noundef %call.i)
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit: ; preds = %entry
@@ -230,7 +230,7 @@ do.body.invoke:                                   ; preds = %invoke.cont16, %inv
   %8 = phi i32 [ 123, %invoke.cont5.us ], [ 132, %invoke.cont16.us ], [ 132, %invoke.cont16 ]
   %9 = phi ptr [ @.str.3, %invoke.cont5.us ], [ @.str.4, %invoke.cont16.us ], [ @.str.4, %invoke.cont16 ]
   %10 = phi i32 [ %call6.us, %invoke.cont5.us ], [ %call7.i8.us, %invoke.cont16.us ], [ %call3.i6, %invoke.cont16 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef %8, ptr noundef nonnull %9, i32 noundef %10)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef %8, ptr noundef nonnull %9, i32 noundef %10)
           to label %do.body.cont unwind label %lpad.loopexit.split-lp
 
 do.body.cont:                                     ; preds = %do.body.invoke
@@ -274,7 +274,7 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
   br i1 %cmp.not.i10, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i11
 
 do.body.i11:                                      ; preds = %cleanup
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i9)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i9)
           to label %do.body2.i unwind label %terminate.lpad.i
 
 do.body2.i:                                       ; preds = %do.body.i11
@@ -305,7 +305,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call)
           to label %do.body2 unwind label %terminate.lpad
 
 do.body2:                                         ; preds = %do.body
@@ -330,7 +330,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 42, ptr noundef nonnull @.str.6, i32 noundef %call.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 42, ptr noundef nonnull @.str.6, i32 noundef %call.i)
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit: ; preds = %entry
@@ -350,7 +350,7 @@ if.then.i:                                        ; preds = %_ZN4absl24synchroni
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i4
 
 do.body.i4:                                       ; preds = %if.then.i
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %call.i3)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %call.i3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %do.body.i4
@@ -362,7 +362,7 @@ invoke.cont:                                      ; preds = %if.then.i, %_ZN4abs
   br i1 %cmp.not.i6, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i7
 
 do.body.i7:                                       ; preds = %invoke.cont
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i5)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i5)
           to label %do.body2.i unwind label %terminate.lpad.i
 
 do.body2.i:                                       ; preds = %do.body.i7
@@ -400,7 +400,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2.not, label %if.end6, label %do.body
 
 do.body:                                          ; preds = %if.then
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %call)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %call)
   unreachable
 
 if.end6:                                          ; preds = %if.then, %entry
@@ -415,7 +415,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 42, ptr noundef nonnull @.str.6, i32 noundef %call.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 42, ptr noundef nonnull @.str.6, i32 noundef %call.i)
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit: ; preds = %entry
@@ -431,7 +431,7 @@ if.then.i:                                        ; preds = %_ZN4absl24synchroni
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i4
 
 do.body.i4:                                       ; preds = %if.then.i
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %call.i3)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %call.i3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %do.body.i4
@@ -443,7 +443,7 @@ invoke.cont:                                      ; preds = %if.then.i, %_ZN4abs
   br i1 %cmp.not.i6, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i7
 
 do.body.i7:                                       ; preds = %invoke.cont
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([147 x i8], ptr @.str, i64 0, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i5)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i5)
           to label %do.body2.i unwind label %terminate.lpad.i
 
 do.body2.i:                                       ; preds = %do.body.i7

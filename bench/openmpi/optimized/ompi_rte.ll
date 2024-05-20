@@ -244,7 +244,7 @@ define internal fastcc ptr @get_print_name_buffer() unnamed_addr #0 {
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_tsd_tracked_key_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_tsd_tracked_key_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -254,8 +254,8 @@ define internal fastcc ptr @get_print_name_buffer() unnamed_addr #0 {
 
 5:                                                ; preds = %4, %1
   store ptr @opal_tsd_tracked_key_t_class, ptr @print_args_tsd_key, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_tsd_tracked_key_s, ptr @print_args_tsd_key, i64 0, i32 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_tsd_tracked_key_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @print_args_tsd_key, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_tsd_tracked_key_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %7, null
   br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -275,7 +275,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   br label %11
 
 11:                                               ; preds = %opal_obj_run_constructors.exit, %0
-  %12 = load i32, ptr getelementptr inbounds (%struct.opal_tsd_tracked_key_s, ptr @print_args_tsd_key, i64 0, i32 1), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @print_args_tsd_key, i64 16), align 8
   %13 = tail call ptr @pthread_getspecific(i32 noundef %12) #19
   %.not.i6 = icmp eq ptr %13, null
   br i1 %.not.i6, label %opal_tsd_tracked_key_get.exit.thread, label %opal_tsd_tracked_key_get.exit
@@ -511,7 +511,7 @@ define range(i32 -1, 2) i32 @ompi_rte_compare_name_fields(i8 noundef zeroext %0,
   br label %35
 
 26:                                               ; preds = %24
-  %27 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_wildcard, i64 0, i32 1), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_name_wildcard, i64 4), align 4
   %28 = getelementptr inbounds i8, ptr %1, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %27, %29
@@ -545,7 +545,7 @@ define range(i32 -1, 2) i32 @ompi_rte_compare_name_fields(i8 noundef zeroext %0,
 define range(i32 -5, 1) i32 @ompi_rte_convert_string_to_process_name(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pmix_name_invalid, align 4
   store i32 %3, ptr %0, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_invalid, i64 0, i32 1), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_name_invalid, i64 4), align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %4, ptr %5, align 4
   %6 = icmp eq ptr %1, null
@@ -617,7 +617,7 @@ sub_030:                                          ; preds = %20, %.tail25.thread
   br i1 %32, label %33, label %.tail33.thread
 
 33:                                               ; preds = %.tail29
-  %34 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_wildcard, i64 0, i32 1), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_name_wildcard, i64 4), align 4
   br label %42
 
 .tail33:                                          ; preds = %sub_030
@@ -627,7 +627,7 @@ sub_030:                                          ; preds = %20, %.tail25.thread
   br i1 %37, label %38, label %.tail33.thread
 
 38:                                               ; preds = %.tail33
-  %39 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_invalid, i64 0, i32 1), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_name_invalid, i64 4), align 4
   br label %42
 
 .tail33.thread:                                   ; preds = %sub_030, %.tail29, %.tail33
@@ -696,7 +696,7 @@ define range(i32 -5, 1) i32 @ompi_rte_convert_process_name_to_string(ptr noundef
   br label %22
 
 22:                                               ; preds = %17, %19, %12
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_wildcard, i64 0, i32 1), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_name_wildcard, i64 4), align 4
   %24 = getelementptr inbounds i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %23, %25
@@ -708,7 +708,7 @@ define range(i32 -5, 1) i32 @ompi_rte_convert_process_name_to_string(ptr noundef
   br label %39
 
 30:                                               ; preds = %22
-  %31 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_invalid, i64 0, i32 1), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_name_invalid, i64 4), align 4
   %32 = icmp eq i32 %31, %25
   %33 = load ptr, ptr %3, align 8
   br i1 %32, label %34, label %36
@@ -853,7 +853,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not229, label %98, label %.critedge
 
 98:                                               ; preds = %96
-  %99 = call i32 @PMIx_Init(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 1), ptr noundef null, i64 noundef 0) #19
+  %99 = call i32 @PMIx_Init(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 8), ptr noundef null, i64 noundef 0) #19
   switch i32 %99, label %120 [
     i32 0, label %.critedge
     i32 -25, label %.preheader
@@ -917,12 +917,12 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .critedge:                                        ; preds = %100, %107, %.thread298, %.thread302, %.thread, %98, %96
   %.0117 = phi i8 [ 0, %96 ], [ 0, %98 ], [ 1, %.thread ], [ 1, %.thread302 ], [ 1, %.thread298 ], [ 1, %107 ], [ 1, %100 ]
-  %124 = call i32 @opal_pmix_convert_nspace(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 1)) #19
+  %124 = call i32 @opal_pmix_convert_nspace(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 8)) #19
   %cond = icmp eq i32 %124, 0
   br i1 %cond, label %125, label %.thread569
 
 125:                                              ; preds = %.critedge
-  %126 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 1, i32 1), align 8
+  %126 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 264), align 8
   %127 = getelementptr inbounds i8, ptr %3, i64 4
   %cond726 = icmp eq i32 %126, -4
   %spec.select727 = select i1 %cond726, i32 -1, i32 %126
@@ -943,8 +943,8 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %138 = call ptr @opal_proc_local_get() #19
   %139 = getelementptr inbounds i8, ptr %138, i64 44
   %140 = load i32, ptr %139, align 4
-  store i32 %140, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
-  store i8 %.0117, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
+  store i32 %140, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
+  store i8 %.0117, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
   store ptr null, ptr %9, align 8
   store ptr null, ptr %13, align 8
   %141 = call ptr @opal_proc_local_get() #19
@@ -1012,7 +1012,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %or.cond, label %175, label %.thread311
 
 175:                                              ; preds = %171
-  %176 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %.not238 = icmp eq ptr %176, null
   br i1 %.not238, label %178, label %177
 
@@ -1023,7 +1023,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 178:                                              ; preds = %177, %175
   %179 = phi ptr [ %.pre, %177 ], [ %173, %175 ]
-  store ptr %179, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  store ptr %179, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   store ptr null, ptr %9, align 8
   br label %.thread311
 
@@ -1032,7 +1032,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   store ptr null, ptr %17, align 8
   %180 = load i32, ptr @opal_process_info, align 8
   %181 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %16, i32 noundef %180) #19
-  %182 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
+  %182 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %183 = getelementptr inbounds i8, ptr %16, i64 256
   %cond728 = icmp eq i32 %182, -1
   %spec.select729 = select i1 %cond728, i32 -4, i32 %182
@@ -1077,7 +1077,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .thread325:                                       ; preds = %.thread311, %195
   %.0119320328 = phi i32 [ %.0119320, %195 ], [ -46, %.thread311 ]
-  %196 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
+  %196 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
   %197 = trunc i8 %196 to i1
   br i1 %197, label %198, label %199
 
@@ -1091,11 +1091,11 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 201:                                              ; preds = %._crit_edge587, %198
   %202 = phi i16 [ %.pre588, %._crit_edge587 ], [ 0, %198 ]
-  store i16 %202, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
+  store i16 %202, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
   store ptr null, ptr %21, align 8
   %203 = load i32, ptr @opal_process_info, align 8
   %204 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %20, i32 noundef %203) #19
-  %205 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
+  %205 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %206 = getelementptr inbounds i8, ptr %20, i64 256
   %cond730 = icmp eq i32 %205, -1
   %spec.select731 = select i1 %cond730, i32 -4, i32 %205
@@ -1139,7 +1139,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %224
 
 .thread339:                                       ; preds = %201, %218
-  %219 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
+  %219 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
   %220 = trunc i8 %219 to i1
   br i1 %220, label %221, label %222
 
@@ -1148,13 +1148,13 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %224
 
 222:                                              ; preds = %.thread339
-  %223 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
+  %223 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
   store i16 %223, ptr %7, align 2
   br label %224
 
 224:                                              ; preds = %._crit_edge590, %221, %222
   %225 = phi i16 [ %.pre591, %._crit_edge590 ], [ 0, %221 ], [ %223, %222 ]
-  store i16 %225, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 9), align 2
+  store i16 %225, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 310), align 2
   %226 = load i32, ptr @opal_process_info, align 8
   store i32 %226, ptr %3, align 4
   store i32 -2, ptr %131, align 4
@@ -1205,7 +1205,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .thread352:                                       ; preds = %224, %241
   %.2121347355 = phi i32 [ %.2121347, %241 ], [ -46, %224 ]
-  %242 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
+  %242 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
   %243 = trunc i8 %242 to i1
   br i1 %243, label %244, label %245
 
@@ -1219,7 +1219,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 247:                                              ; preds = %._crit_edge593, %244
   %248 = phi i32 [ %.pre594, %._crit_edge593 ], [ 1, %244 ]
-  store i32 %248, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 14), align 4
+  store i32 %248, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
   store ptr null, ptr %29, align 8
   %249 = load i32, ptr %3, align 4
   %250 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %28, i32 noundef %249) #19
@@ -1267,7 +1267,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %270
 
 .thread366:                                       ; preds = %247, %264
-  %265 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
+  %265 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
   %266 = trunc i8 %265 to i1
   br i1 %266, label %267, label %268
 
@@ -1276,13 +1276,13 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %270
 
 268:                                              ; preds = %.thread366
-  %269 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 14), align 4
+  %269 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
   store i32 %269, ptr %5, align 4
   br label %270
 
 270:                                              ; preds = %._crit_edge596, %267, %268
   %271 = phi i32 [ %.pre597, %._crit_edge596 ], [ 1, %267 ], [ %269, %268 ]
-  store i32 %271, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 16), align 4
+  store i32 %271, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 348), align 4
   %272 = load i32, ptr @opal_process_info, align 8
   store i32 %272, ptr %3, align 4
   store i32 -2, ptr %131, align 4
@@ -1332,11 +1332,11 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .thread379:                                       ; preds = %287, %270
   %290 = phi i32 [ 1, %270 ], [ %spec.select578, %287 ]
-  store i32 %290, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 20), align 8
+  store i32 %290, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 376), align 8
   store ptr null, ptr %37, align 8
   %291 = load i32, ptr @opal_process_info, align 8
   %292 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %36, i32 noundef %291) #19
-  %293 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
+  %293 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %294 = getelementptr inbounds i8, ptr %36, i64 256
   %cond738 = icmp eq i32 %293, -1
   %spec.select739 = select i1 %cond738, i32 -4, i32 %293
@@ -1380,16 +1380,16 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .thread393:                                       ; preds = %306, %.thread379
   %309 = phi i32 [ 0, %.thread379 ], [ %spec.select579, %306 ]
-  store i32 %309, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 15), align 8
-  %310 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 20), align 8
+  store i32 %309, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 344), align 8
+  %310 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 376), align 8
   %311 = icmp eq i32 %310, 1
   br i1 %311, label %312, label %316
 
 312:                                              ; preds = %.thread393
   %313 = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.32) #19
-  store ptr %313, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 18), align 8
-  %314 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 14), align 4
-  %315 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 17), ptr noundef nonnull @.str.33, i32 noundef %314) #19
+  store ptr %313, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 360), align 8
+  %314 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
+  %315 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 352), ptr noundef nonnull @.str.33, i32 noundef %314) #19
   br label %361
 
 316:                                              ; preds = %.thread393
@@ -1440,12 +1440,12 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %or.cond3, label %.thread406, label %338
 
 .thread406:                                       ; preds = %316, %332
-  %336 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 14), align 4
-  %337 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 17), ptr noundef nonnull @.str.33, i32 noundef %336) #19
+  %336 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
+  %337 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 352), ptr noundef nonnull @.str.33, i32 noundef %336) #19
   br label %339
 
 338:                                              ; preds = %332
-  store ptr %334, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 17), align 8
+  store ptr %334, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 352), align 8
   br label %339
 
 339:                                              ; preds = %338, %.thread406
@@ -1497,11 +1497,11 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .thread419:                                       ; preds = %339, %355
   %359 = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.32) #19
-  store ptr %359, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 18), align 8
+  store ptr %359, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 360), align 8
   br label %361
 
 360:                                              ; preds = %355
-  store ptr %357, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 18), align 8
+  store ptr %357, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 360), align 8
   store ptr null, ptr %10, align 8
   br label %361
 
@@ -1553,7 +1553,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %or.cond7, label %381, label %.thread432
 
 381:                                              ; preds = %377
-  store ptr %379, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 19), align 8
+  store ptr %379, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 368), align 8
   store ptr null, ptr %9, align 8
   br label %386
 
@@ -1568,7 +1568,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 384:                                              ; preds = %382
   %385 = call noalias ptr @opal_argv_join(ptr noundef nonnull %383, i32 noundef 32) #19
-  store ptr %385, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 19), align 8
+  store ptr %385, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 368), align 8
   br label %386
 
 386:                                              ; preds = %381, %382, %384, %.thread432
@@ -1636,7 +1636,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 419:                                              ; preds = %417
   %420 = load i32, ptr %5, align 4
-  store i32 %420, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 22), align 8
+  store i32 %420, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 392), align 8
   br label %.thread445
 
 .thread445:                                       ; preds = %404, %417, %419
@@ -1685,7 +1685,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 438:                                              ; preds = %436
   %439 = load i32, ptr %5, align 4
   %440 = add i32 %439, -1
-  store i32 %440, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
+  store i32 %440, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
   br label %.thread457
 
 .thread457:                                       ; preds = %.thread445, %438, %436
@@ -1736,7 +1736,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %or.cond9, label %460, label %.thread469
 
 460:                                              ; preds = %456
-  store ptr %458, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 4), align 8
+  store ptr %458, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 280), align 8
   br label %461
 
 .thread469:                                       ; preds = %.thread457, %456
@@ -1791,7 +1791,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %or.cond11, label %481, label %.thread482
 
 481:                                              ; preds = %477
-  store ptr %479, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
+  store ptr %479, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
   br label %483
 
 .thread482:                                       ; preds = %461, %477
@@ -1867,7 +1867,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %or.cond13, label %518, label %.thread495
 
 518:                                              ; preds = %514
-  store ptr %516, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 6), align 8
+  store ptr %516, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 296), align 8
   br label %520
 
 .thread495:                                       ; preds = %501, %514
@@ -1923,12 +1923,12 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %or.cond15, label %540, label %.thread508
 
 540:                                              ; preds = %536
-  store ptr %538, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 21), align 8
+  store ptr %538, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 384), align 8
   br label %543
 
 .thread508:                                       ; preds = %520, %536
   %541 = call noalias dereferenceable_or_null(4098) ptr @calloc(i64 noundef 1, i64 noundef 4098) #22
-  store ptr %541, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 21), align 8
+  store ptr %541, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 384), align 8
   %542 = call i32 @opal_getcwd(ptr noundef %541, i64 noundef 4097) #19
   br label %543
 
@@ -1937,7 +1937,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   store ptr null, ptr %77, align 8
   %544 = load i32, ptr @opal_process_info, align 8
   %545 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %76, i32 noundef %544) #19
-  %546 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
+  %546 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %547 = getelementptr inbounds i8, ptr %76, i64 256
   %cond754 = icmp eq i32 %546, -1
   %spec.select755 = select i1 %cond754, i32 -4, i32 %546
@@ -1985,13 +1985,13 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 563:                                              ; preds = %559, %.thread521
   %.sink716 = phi ptr [ null, %.thread521 ], [ %561, %559 ]
   %.sink715 = phi i8 [ 0, %.thread521 ], [ 1, %559 ]
-  store ptr %.sink716, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 11), align 8
-  store i8 %.sink715, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 23), align 4
+  store ptr %.sink716, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 320), align 8
+  store i8 %.sink715, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 396), align 4
   store ptr null, ptr %10, align 8
   store ptr null, ptr %81, align 8
   %564 = load i32, ptr @opal_process_info, align 8
   %565 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %80, i32 noundef %564) #19
-  %566 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
+  %566 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %cond756 = icmp eq i32 %566, -1
   %spec.select757 = select i1 %cond756, i32 -4, i32 %566
   %567 = getelementptr inbounds i8, ptr %80, i64 256
@@ -2038,7 +2038,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 583:                                              ; preds = %579, %.thread534
   %.sink719 = phi ptr [ null, %.thread534 ], [ %581, %579 ]
-  store ptr %.sink719, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 12), align 8
+  store ptr %.sink719, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 328), align 8
   store ptr null, ptr %10, align 8
   store ptr null, ptr %85, align 8
   %584 = load i32, ptr %3, align 4
@@ -2093,7 +2093,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .thread547:                                       ; preds = %583, %599, %603
   %.0123 = phi ptr [ %604, %603 ], [ null, %599 ], [ null, %583 ]
-  %606 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
+  %606 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
   %607 = icmp eq i32 %606, 0
   br i1 %607, label %608, label %612
 
@@ -2104,19 +2104,19 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 609:                                              ; preds = %608
   %610 = call i32 @opal_argv_count(ptr noundef nonnull %.0123) #19
   %611 = add nsw i32 %610, -1
-  store i32 %611, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
+  store i32 %611, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
   br label %612
 
 612:                                              ; preds = %609, %.thread547
   %613 = phi i32 [ %611, %609 ], [ %606, %.thread547 ]
-  %614 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
+  %614 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
   %615 = zext i16 %614 to i32
   %616 = icmp ult i32 %613, %615
   br i1 %616, label %.thread571, label %619
 
 .thread550:                                       ; preds = %608
-  store i32 1, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
-  %617 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
+  %617 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
   %618 = icmp ugt i16 %617, 1
   br i1 %618, label %.thread571, label %.thread551
 
@@ -2150,7 +2150,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %632 = call i64 @strtoul(ptr nocapture noundef nonnull %631, ptr noundef null, i32 noundef 10) #19
   %633 = trunc i64 %632 to i32
   store i32 %633, ptr %131, align 4
-  %634 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
+  %634 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %635 = icmp eq i32 %634, %633
   br i1 %635, label %636, label %637
 
@@ -2205,7 +2205,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %or.cond23, label %656, label %.thread563
 
 656:                                              ; preds = %652
-  %657 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 12), align 8
+  %657 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 328), align 8
   %658 = call zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %657, ptr noundef nonnull %654) #19
   store i16 %658, ptr %7, align 2
   %659 = load ptr, ptr %10, align 8
@@ -2529,23 +2529,23 @@ define internal fastcc void @_setup_top_session_dir() unnamed_addr #11 {
 9:                                                ; preds = %3, %6, %0
   %.0 = phi ptr [ %spec.store.select, %6 ], [ %4, %3 ], [ %1, %0 ]
   %10 = tail call noalias ptr @strdup(ptr noundef nonnull %.0) #19
-  store ptr %10, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 4), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 280), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 1) i32 @_setup_job_session_dir() unnamed_addr #0 {
   %1 = tail call i32 @geteuid() #19
-  %2 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 4), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 280), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %4 = zext i32 %1 to i64
   %5 = load i32, ptr @opal_process_info, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), ptr noundef nonnull @.str.76, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #19
+  %6 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 288), ptr noundef nonnull @.str.76, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #19
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %0
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
   br label %10
 
 9:                                                ; preds = %0
@@ -2559,14 +2559,14 @@ define internal fastcc range(i32 -2, 1) i32 @_setup_job_session_dir() unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 1) i32 @_setup_proc_session_dir() unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
-  %3 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 6), ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef %2) #19
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
+  %3 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 296), ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef %2) #19
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %0
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 6), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 296), align 8
   br label %6
 
 6:                                                ; preds = %0, %5
@@ -2593,7 +2593,7 @@ declare i32 @opal_finalize() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_rte_finalize() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
 
@@ -2603,90 +2603,90 @@ define noundef i32 @ompi_rte_finalize() local_unnamed_addr #0 {
 
 3:                                                ; preds = %2
   %4 = tail call i32 @opal_os_dirpath_destroy(ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull @check_file) #19
-  %5 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
   tail call void @free(ptr noundef %5) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
   store i1 false, ptr @destroy_job_session_dir, align 1
   br label %6
 
 6:                                                ; preds = %3, %2, %0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 280), align 8
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %9, label %8
 
 8:                                                ; preds = %6
   tail call void @free(ptr noundef nonnull %7) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 280), align 8
   br label %9
 
 9:                                                ; preds = %8, %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 296), align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %11
 
 11:                                               ; preds = %9
   tail call void @free(ptr noundef nonnull %10) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 6), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 296), align 8
   br label %12
 
 12:                                               ; preds = %11, %9
-  %13 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 17), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 352), align 8
   %.not13 = icmp eq ptr %13, null
   br i1 %.not13, label %15, label %14
 
 14:                                               ; preds = %12
   tail call void @free(ptr noundef nonnull %13) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 17), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 352), align 8
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 18), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 360), align 8
   %.not14 = icmp eq ptr %16, null
   br i1 %.not14, label %18, label %17
 
 17:                                               ; preds = %15
   tail call void @free(ptr noundef nonnull %16) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 18), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 360), align 8
   br label %18
 
 18:                                               ; preds = %17, %15
-  %19 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 11), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 320), align 8
   %.not15 = icmp eq ptr %19, null
   br i1 %.not15, label %21, label %20
 
 20:                                               ; preds = %18
   tail call void @free(ptr noundef nonnull %19) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 11), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 320), align 8
   br label %21
 
 21:                                               ; preds = %20, %18
-  %22 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 19), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 368), align 8
   %.not16 = icmp eq ptr %22, null
   br i1 %.not16, label %24, label %23
 
 23:                                               ; preds = %21
   tail call void @free(ptr noundef nonnull %22) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 368), align 8
   br label %24
 
 24:                                               ; preds = %23, %21
-  %25 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 21), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 384), align 8
   %.not17 = icmp eq ptr %25, null
   br i1 %.not17, label %27, label %26
 
 26:                                               ; preds = %24
   tail call void @free(ptr noundef nonnull %25) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 21), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 384), align 8
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 24), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 400), align 8
   %.not18 = icmp eq ptr %28, null
   br i1 %.not18, label %30, label %29
 
 29:                                               ; preds = %27
   tail call void @free(ptr noundef nonnull %28) #19
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 24), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 400), align 8
   br label %30
 
 30:                                               ; preds = %29, %27
@@ -2848,7 +2848,7 @@ define void @ompi_rte_breakpoint(ptr noundef readonly %0) local_unnamed_addr #0 
   %26 = call i32 @PMIx_Info_load(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, ptr noundef null, i16 noundef zeroext 1) #19
   %27 = getelementptr inbounds i8, ptr %4, i64 552
   %28 = call i32 @PMIx_Info_load(ptr noundef nonnull %27, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i16 noundef zeroext 3) #19
-  %29 = call i32 @PMIx_Notify_event(i32 noundef -58, ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 1), i8 noundef zeroext 1, ptr noundef nonnull %4, i64 noundef 2, ptr noundef null, ptr noundef null) #19
+  %29 = call i32 @PMIx_Notify_event(i32 noundef -58, ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 8), i8 noundef zeroext 1, ptr noundef nonnull %4, i64 noundef 2, ptr noundef null, ptr noundef null) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %4) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %27) #19
   %30 = load volatile i8, ptr @debugger_event_active, align 1

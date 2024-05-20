@@ -514,7 +514,7 @@ define dso_local noundef range(i32 -12, 1) i32 @disk_alloc_events(ptr noundef %0
   br i1 %10, label %31, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 176) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
@@ -587,8 +587,8 @@ define dso_local void @disk_add_events(ptr nocapture noundef readonly %0) local_
 5:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @disk_events_mutex) #9
   %6 = load ptr, ptr %2, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @disk_events, i64 0, i32 1), align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.list_head, ptr @disk_events, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @disk_events, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @disk_events, i64 8), align 8
   store ptr @disk_events, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %7, ptr %8, align 8

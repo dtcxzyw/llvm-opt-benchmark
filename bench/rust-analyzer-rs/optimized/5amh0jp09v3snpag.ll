@@ -1074,7 +1074,7 @@ define void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %6
-  %33 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw10__CALLSITE17h664f8d22ef2d482eE, i64 0, i32 1, i64 8) monotonic, align 8
+  %33 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw10__CALLSITE17h664f8d22ef2d482eE, i64 16) monotonic, align 8
   switch i8 %33, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -1338,7 +1338,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %111, label %112, label %.critedge108
 
 112:                                              ; preds = %109
-  %113 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw10__CALLSITE17he0e32dc8a99206f3E, i64 0, i32 1, i64 8) monotonic, align 8
+  %113 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw10__CALLSITE17he0e32dc8a99206f3E, i64 16) monotonic, align 8
   switch i8 %113, label %114 [
     i8 0, label %.critedge108
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit119.thread

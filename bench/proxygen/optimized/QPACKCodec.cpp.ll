@@ -262,7 +262,7 @@ entry:
   store i64 131072, ptr %maxUncompressed_.i, align 8
   %stats_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %stats_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen10QPACKCodecE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen10QPACKCodecE, i64 16), ptr %this, align 8
   %encoder_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN8proxygen12QPACKEncoderC1Ebj(ptr noundef nonnull align 8 dereferenceable(624) %encoder_, i1 noundef zeroext true, i32 noundef 0)
   %decoder_ = getelementptr inbounds i8, ptr %this, i64 664
@@ -303,7 +303,7 @@ invoke.cont3:
   tail call void @_ZN8proxygen12QPACKContextC2Ejb(ptr noundef nonnull align 8 dereferenceable(116) %1, i32 noundef %tableSize, i1 noundef zeroext false)
   %rootGuard_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %rootGuard_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12QPACKDecoderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12QPACKDecoderE, i64 16), ptr %this, align 8
   %maxBlocking_ = getelementptr inbounds i8, ptr %this, i64 148
   store i32 100, ptr %maxBlocking_, align 4
   %baseIndex_ = getelementptr inbounds i8, ptr %this, i64 152
@@ -344,7 +344,7 @@ lpad2:                                            ; preds = %invoke.cont3
   %queue_ = getelementptr inbounds i8, ptr %this, i64 176
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %header.i) #24
   call void @_ZNSt8multimapIjN8proxygen12QPACKDecoder12PendingBlockESt4lessIjESaISt4pairIKjS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %queue_) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly15DestructorCheckE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15DestructorCheckE, i64 16), ptr %this, align 8
   %guard.03.i.i = load ptr, ptr %rootGuard_.i, align 8
   %tobool.not4.i.i = icmp eq ptr %guard.03.i.i, null
   br i1 %tobool.not4.i.i, label %_ZN5folly15DestructorCheckD2Ev.exit, label %for.body.i.i
@@ -446,7 +446,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK5folly10IOBufQu
 _ZN8proxygen17HPACKEncodeBufferD2Ev.exit:         ; preds = %_ZN8proxygen12QPACKEncoder16OutstandingBlockD2Ev.exit, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %controlBuffer_) #24
   %17 = getelementptr inbounds i8, ptr %this, i64 152
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen16QPACKHeaderTableE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16QPACKHeaderTableE, i64 16), ptr %17, align 8
   %refCount_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %18 = load ptr, ptr %refCount_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %18, null
@@ -2153,7 +2153,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen10QPACKCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen10QPACKCodecE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen10QPACKCodecE, i64 16), ptr %this, align 8
   %decodedHeaders_ = getelementptr inbounds i8, ptr %this, i64 1000
   %0 = load ptr, ptr %decodedHeaders_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 1008
@@ -2192,7 +2192,7 @@ _ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen10QPACKCodecD0Ev(ptr noundef nonnull align 8 dereferenceable(1024) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen10QPACKCodecE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen10QPACKCodecE, i64 16), ptr %this, align 8
   %decodedHeaders_.i = getelementptr inbounds i8, ptr %this, i64 1000
   %0 = load ptr, ptr %decodedHeaders_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 1008
@@ -2268,7 +2268,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN8proxygen12QPACKDecoder12PendingBlockEESt10_Select1st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen12QPACKContextD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen16QPACKHeaderTableE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16QPACKHeaderTableE, i64 16), ptr %this, align 8
   %refCount_.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %refCount_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2296,7 +2296,7 @@ _ZN8proxygen16QPACKHeaderTableD2Ev.exit:          ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen12QPACKDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12QPACKDecoderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12QPACKDecoderE, i64 16), ptr %this, align 8
   %ingress_ = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %ingress_) #24
   %header.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -2315,7 +2315,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt8multimapIjN8proxygen12QPACKDecoder12PendingBlockESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly15DestructorCheckE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15DestructorCheckE, i64 16), ptr %this, align 8
   %rootGuard_.i = getelementptr inbounds i8, ptr %this, i64 8
   %guard.03.i.i = load ptr, ptr %rootGuard_.i, align 8
   %tobool.not4.i.i = icmp eq ptr %guard.03.i.i, null
@@ -2331,7 +2331,7 @@ for.body.i.i:                                     ; preds = %_ZNSt8multimapIjN8p
 
 _ZN5folly15DestructorCheckD2Ev.exit:              ; preds = %for.body.i.i, %_ZNSt8multimapIjN8proxygen12QPACKDecoder12PendingBlockESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit
   %3 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen16QPACKHeaderTableE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16QPACKHeaderTableE, i64 16), ptr %3, align 8
   %refCount_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %refCount_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
@@ -2367,7 +2367,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly15DestructorCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly15DestructorCheckE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15DestructorCheckE, i64 16), ptr %this, align 8
   %rootGuard_ = getelementptr inbounds i8, ptr %this, i64 8
   %guard.03.i = load ptr, ptr %rootGuard_, align 8
   %tobool.not4.i = icmp eq ptr %guard.03.i, null
@@ -2388,7 +2388,7 @@ invoke.cont:                                      ; preds = %for.body.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly15DestructorCheckD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly15DestructorCheckE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15DestructorCheckE, i64 16), ptr %this, align 8
   %rootGuard_.i = getelementptr inbounds i8, ptr %this, i64 8
   %guard.03.i.i = load ptr, ptr %rootGuard_.i, align 8
   %tobool.not4.i.i = icmp eq ptr %guard.03.i.i, null
@@ -2517,7 +2517,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIjSt4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen11HeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11HeaderTableE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen11HeaderTableE, i64 16), ptr %this, align 8
   %names_ = getelementptr inbounds i8, ptr %this, i64 56
   %chunks_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %chunks_.i.i.i.i.i.i, align 8
@@ -2901,7 +2901,7 @@ declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12length_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -3564,7 +3564,7 @@ declare extern_weak zeroext i1 @MallocExtension_Internal_GetNumericProperty(ptr 
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #30
           to label %invoke.cont unwind label %lpad
 
@@ -3582,7 +3582,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #12 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
   unreachable
 }

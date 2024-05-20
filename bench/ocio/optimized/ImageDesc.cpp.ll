@@ -335,7 +335,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN19OpenColorIO_v2_4dev9ImageDescC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev9ImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev9ImageDescE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -604,7 +604,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC2EPvlll(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %width, i64 noundef %height, i64 noundef %numChannels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 8
@@ -1151,7 +1151,7 @@ eh.resume:                                        ; preds = %lpad67, %lpad60, %l
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC2EPvllNS_15ChannelOrderingE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %width, i64 noundef %height, i32 noundef %chanOrder) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 8
@@ -1227,7 +1227,7 @@ if.end27:                                         ; preds = %if.else, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC2EPvllNS_15ChannelOrderingENS_8BitDepthElll(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %width, i64 noundef %height, i32 noundef %chanOrder, i32 noundef %bitDepth, i64 noundef %chanStrideBytes, i64 noundef %xStrideBytes, i64 noundef %yStrideBytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 8
@@ -1335,7 +1335,7 @@ declare noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDept
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC2EPvlllNS_8BitDepthElll(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %width, i64 noundef %height, i64 noundef %numChannels, i32 noundef %bitDepth, i64 noundef %chanStrideBytes, i64 noundef %xStrideBytes, i64 noundef %yStrideBytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 8
@@ -1441,7 +1441,7 @@ cond.end48:                                       ; preds = %cond.end37, %cond.t
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %isnull = icmp eq ptr %0, null
@@ -1582,7 +1582,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescC2EPvS1_S1_S1_ll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %rData, ptr noundef %gData, ptr noundef %bData, ptr noundef %aData, i64 noundef %width, i64 noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call, i8 0, i64 80, i1 false)
@@ -1760,7 +1760,7 @@ eh.resume:                                        ; preds = %lpad20, %lpad14, %l
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescC2EPvS1_S1_S1_llNS_8BitDepthEll(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %rData, ptr noundef %gData, ptr noundef %bData, ptr noundef %aData, i64 noundef %width, i64 noundef %height, i32 noundef %bitDepth, i64 noundef %xStrideBytes, i64 noundef %yStrideBytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %m_width.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -1866,7 +1866,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad5
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %isnull = icmp eq ptr %0, null

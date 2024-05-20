@@ -109,7 +109,7 @@ declare dso_local void @drm_crtc_vblank_reset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_atomic_helper_crtc_reset(ptr noundef %0) #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(336) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 336) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 1480
   %5 = load ptr, ptr %4, align 8
@@ -243,7 +243,7 @@ define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr nocaptu
   br label %49
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(336) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 336) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %49, label %10
@@ -561,7 +561,7 @@ define dso_local void @drm_atomic_helper_plane_reset(ptr noundef %0) #1 align 16
 6:                                                ; preds = %5, %1
   %7 = phi ptr [ %.pre, %5 ], [ null, %1 ]
   tail call void @kfree(ptr noundef %7) #9
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 176) #10
   store ptr %9, ptr %2, align 8
   %10 = icmp eq ptr %9, null
@@ -688,7 +688,7 @@ define dso_local noundef ptr @drm_atomic_helper_plane_duplicate_state(ptr nocapt
   br label %24
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 176) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %24, label %10
@@ -754,7 +754,7 @@ define dso_local void @__drm_atomic_helper_connector_reset(ptr noundef %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_atomic_helper_connector_reset(ptr noundef %0) #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 160) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 1904
   %5 = load ptr, ptr %4, align 8
@@ -1319,7 +1319,7 @@ define dso_local noundef ptr @drm_atomic_helper_connector_duplicate_state(ptr no
   br label %26
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 160) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %26, label %10
@@ -1450,7 +1450,7 @@ define dso_local noundef ptr @drm_atomic_helper_bridge_duplicate_state(ptr nound
   br label %13
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 40) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
@@ -1486,7 +1486,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_atomic_helper_bridge_reset(ptr noundef %0) #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 40) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5

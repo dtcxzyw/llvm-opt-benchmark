@@ -1650,7 +1650,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   br label %209
 
 .loopexit:                                        ; preds = %.preheader22, %101
-  %123 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %124 = call noalias noundef align 8 dereferenceable_or_null(856) ptr @kmalloc_trace(ptr noundef %123, i32 noundef 3520, i64 noundef 856) #14
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %127
@@ -1806,8 +1806,8 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   %198 = getelementptr inbounds i8, ptr %124, i64 736
-  %199 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @wmi_block_list, i64 0, i32 1), align 8
-  store ptr %198, ptr getelementptr inbounds (%struct.list_head, ptr @wmi_block_list, i64 0, i32 1), align 8
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @wmi_block_list, i64 8), align 8
+  store ptr %198, ptr getelementptr inbounds (i8, ptr @wmi_block_list, i64 8), align 8
   store ptr @wmi_block_list, ptr %198, align 8
   %200 = getelementptr inbounds i8, ptr %124, i64 744
   store ptr %199, ptr %200, align 8

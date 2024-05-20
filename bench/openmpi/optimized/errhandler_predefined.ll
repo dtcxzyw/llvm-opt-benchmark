@@ -400,8 +400,8 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef %0, ptr noundef
   %20 = phi ptr [ %13, %9 ], [ %17, %15 ]
   %21 = load ptr, ptr %20, align 8
   tail call void @llvm.va_end.p0(ptr nonnull %4)
-  %22 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 13), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 336), align 8
   %24 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef %22, i32 noundef %23) #10
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %26, label %29
@@ -409,9 +409,9 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef %0, ptr noundef
 26:                                               ; preds = %19
   store ptr null, ptr %6, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #10
-  %27 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %27) #10
-  %28 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 13), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 336), align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.11, i32 noundef %28) #10
   br label %29
 
@@ -431,7 +431,7 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef %0, ptr noundef
 
 36:                                               ; preds = %34, %30
   %37 = icmp sgt i32 %31, -1
-  %38 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 4), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 88), align 8
   %.not.i.i = icmp sgt i32 %38, %31
   %or.cond.i = select i1 %37, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %39, label %ompi_mpi_errnum_get_string.exit
@@ -442,13 +442,13 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef %0, ptr noundef
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
-  %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1)) #10
+  %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 32)) #10
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %44
 
 44:                                               ; preds = %42, %39
   %45 = phi i8 [ %40, %39 ], [ %.pre.i.i, %42 ]
-  %46 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 112), align 8
   %47 = zext nneg i32 %31 to i64
   %48 = getelementptr inbounds ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
@@ -456,7 +456,7 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef %0, ptr noundef
   br i1 %50, label %51, label %ompi_mpi_errnum_get_string.exit
 
 51:                                               ; preds = %44
-  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1)) #10
+  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 32)) #10
   br label %ompi_mpi_errnum_get_string.exit
 
 ompi_mpi_errnum_get_string.exit:                  ; preds = %36, %44, %51
@@ -484,7 +484,7 @@ ompi_mpi_errnum_get_string.exit:                  ; preds = %36, %44, %51
   %64 = select i1 %63, ptr @.str.16, ptr @.str.17
   %65 = select i1 %63, ptr @.str.16, ptr %21
   %66 = load i32, ptr @opal_process_info, align 8
-  %67 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %68 = call i32 (ptr, ptr, i32, ...) %60(ptr noundef nonnull @.str.13, ptr noundef nonnull %62, i32 noundef 0, ptr noundef nonnull %57, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %57, i32 noundef %66, i32 noundef %67, ptr noundef nonnull %57, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %57, ptr noundef nonnull %59, ptr noundef nonnull %57, ptr noundef %1, ptr noundef nonnull %57) #10
   br label %76
 
@@ -493,7 +493,7 @@ ompi_mpi_errnum_get_string.exit:                  ; preds = %36, %44, %51
   %71 = select i1 %70, ptr @.str.16, ptr @.str.17
   %72 = select i1 %70, ptr @.str.16, ptr %21
   %73 = load i32, ptr @opal_process_info, align 8
-  %74 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
+  %74 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %75 = call i32 (ptr, ptr, i32, ...) %60(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.18, i32 noundef 0, ptr noundef nonnull %57, ptr noundef nonnull %71, ptr noundef nonnull %72, ptr noundef nonnull %57, i32 noundef %73, i32 noundef %74, ptr noundef nonnull %57, ptr noundef %1, ptr noundef nonnull %57, ptr noundef nonnull %59, ptr noundef nonnull %57, ptr noundef %1, ptr noundef nonnull %57) #10
   br label %76
 
@@ -800,7 +800,7 @@ out.exit69:                                       ; preds = %141, %139, %136, %1
 
 149:                                              ; preds = %147, %143
   %150 = icmp sgt i32 %144, -1
-  %151 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 4), align 8
+  %151 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 88), align 8
   %.not.i.i = icmp sgt i32 %151, %144
   %or.cond.i = select i1 %150, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %152, label %166
@@ -811,13 +811,13 @@ out.exit69:                                       ; preds = %141, %139, %136, %1
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %152
-  %156 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1)) #10
+  %156 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 32)) #10
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %157
 
 157:                                              ; preds = %155, %152
   %158 = phi i8 [ %153, %152 ], [ %.pre.i.i, %155 ]
-  %159 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 8), align 8
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 112), align 8
   %160 = zext nneg i32 %144 to i64
   %161 = getelementptr inbounds ptr, ptr %159, i64 %160
   %162 = load ptr, ptr %161, align 8
@@ -825,7 +825,7 @@ out.exit69:                                       ; preds = %141, %139, %136, %1
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %157
-  %165 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1)) #10
+  %165 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 32)) #10
   br label %166
 
 166:                                              ; preds = %164, %157, %149

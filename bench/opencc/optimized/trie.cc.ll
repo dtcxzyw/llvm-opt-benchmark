@@ -142,7 +142,7 @@ define void @_ZN6marisa4Trie5buildERNS_6KeysetEi(ptr nocapture noundef nonnull a
 8:                                                ; preds = %3
   store ptr null, ptr %4, align 8
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @.str, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
@@ -224,7 +224,7 @@ define void @_ZN6marisa4Trie4mmapEPKc(ptr nocapture noundef nonnull align 8 dere
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -248,7 +248,7 @@ define void @_ZN6marisa4Trie4mmapEPKc(ptr nocapture noundef nonnull align 8 dere
 16:                                               ; preds = %12
   store ptr null, ptr %3, align 8
   %17 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @.str, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 16
@@ -338,7 +338,7 @@ define void @_ZN6marisa4Trie3mapEPKvm(ptr nocapture noundef nonnull align 8 dere
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @.str, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
@@ -362,7 +362,7 @@ define void @_ZN6marisa4Trie3mapEPKvm(ptr nocapture noundef nonnull align 8 dere
 18:                                               ; preds = %14
   store ptr null, ptr %4, align 8
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr @.str, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 16
@@ -443,7 +443,7 @@ define void @_ZN6marisa4Trie4loadEPKc(ptr nocapture noundef nonnull align 8 dere
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -467,7 +467,7 @@ define void @_ZN6marisa4Trie4loadEPKc(ptr nocapture noundef nonnull align 8 dere
 16:                                               ; preds = %12
   store ptr null, ptr %3, align 8
   %17 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @.str, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 16
@@ -555,7 +555,7 @@ define void @_ZN6marisa4Trie4readEi(ptr nocapture noundef nonnull align 8 derefe
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -579,7 +579,7 @@ define void @_ZN6marisa4Trie4readEi(ptr nocapture noundef nonnull align 8 derefe
 16:                                               ; preds = %12
   store ptr null, ptr %3, align 8
   %17 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @.str, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 16
@@ -660,7 +660,7 @@ define void @_ZNK6marisa4Trie4saveEPKc(ptr nocapture noundef nonnull readonly al
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -678,7 +678,7 @@ define void @_ZNK6marisa4Trie4saveEPKc(ptr nocapture noundef nonnull readonly al
 
 14:                                               ; preds = %12
   %15 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr @.str, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
@@ -729,7 +729,7 @@ define void @_ZNK6marisa4Trie5writeEi(ptr nocapture noundef nonnull readonly ali
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -747,7 +747,7 @@ define void @_ZNK6marisa4Trie5writeEi(ptr nocapture noundef nonnull readonly ali
 
 14:                                               ; preds = %12
   %15 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr @.str, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
@@ -790,7 +790,7 @@ define noundef zeroext i1 @_ZNK6marisa4Trie6lookupERNS_5AgentE(ptr nocapture nou
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -831,7 +831,7 @@ define void @_ZNK6marisa4Trie14reverse_lookupERNS_5AgentE(ptr nocapture noundef 
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -870,7 +870,7 @@ define noundef zeroext i1 @_ZNK6marisa4Trie20common_prefix_searchERNS_5AgentE(pt
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -909,7 +909,7 @@ define noundef zeroext i1 @_ZNK6marisa4Trie17predictive_searchERNS_5AgentE(ptr n
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -948,7 +948,7 @@ define noundef i64 @_ZNK6marisa4Trie9num_triesEv(ptr nocapture noundef nonnull r
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -974,7 +974,7 @@ define noundef i64 @_ZNK6marisa4Trie8num_keysEv(ptr nocapture noundef nonnull re
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1000,7 +1000,7 @@ define noundef i64 @_ZNK6marisa4Trie9num_nodesEv(ptr nocapture noundef nonnull r
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1028,7 +1028,7 @@ define noundef i32 @_ZNK6marisa4Trie9tail_modeEv(ptr nocapture noundef nonnull r
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1054,7 +1054,7 @@ define noundef i32 @_ZNK6marisa4Trie10node_orderEv(ptr nocapture noundef nonnull
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1080,7 +1080,7 @@ define noundef zeroext i1 @_ZNK6marisa4Trie5emptyEv(ptr nocapture noundef nonnul
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1107,7 +1107,7 @@ define noundef i64 @_ZNK6marisa4Trie4sizeEv(ptr nocapture noundef nonnull readon
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1133,7 +1133,7 @@ define noundef i64 @_ZNK6marisa4Trie10total_sizeEv(ptr nocapture noundef nonnull
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1160,7 +1160,7 @@ define noundef i64 @_ZNK6marisa4Trie7io_sizeEv(ptr nocapture noundef nonnull rea
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1207,7 +1207,7 @@ define void @_ZN6marisa5freadEP8_IO_FILEPNS_4TrieE(ptr noundef %0, ptr noundef %
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1225,7 +1225,7 @@ define void @_ZN6marisa5freadEP8_IO_FILEPNS_4TrieE(ptr noundef %0, ptr noundef %
 
 12:                                               ; preds = %10
   %13 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -1251,7 +1251,7 @@ define linkonce_odr void @_ZN6marisa6TrieIO5freadEP8_IO_FILEPNS_4TrieE(ptr nound
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1275,7 +1275,7 @@ define linkonce_odr void @_ZN6marisa6TrieIO5freadEP8_IO_FILEPNS_4TrieE(ptr nound
 16:                                               ; preds = %12
   store ptr null, ptr %3, align 8
   %17 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @.str, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 16
@@ -1352,7 +1352,7 @@ define void @_ZN6marisa6fwriteEP8_IO_FILERKNS_4TrieE(ptr noundef %0, ptr noundef
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1377,7 +1377,7 @@ define linkonce_odr void @_ZN6marisa6TrieIO6fwriteEP8_IO_FILERKNS_4TrieE(ptr nou
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1396,7 +1396,7 @@ define linkonce_odr void @_ZN6marisa6TrieIO6fwriteEP8_IO_FILERKNS_4TrieE(ptr nou
 
 14:                                               ; preds = %11
   %15 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr @.str, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
@@ -1436,7 +1436,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6marisa4readERSiPNS_4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1462,7 +1462,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6marisa6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1486,7 +1486,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6marisa6
 16:                                               ; preds = %12
   store ptr null, ptr %3, align 8
   %17 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @.str, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 16
@@ -1571,7 +1571,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6marisa6T
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16

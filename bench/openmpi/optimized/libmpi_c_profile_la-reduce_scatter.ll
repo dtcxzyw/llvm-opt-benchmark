@@ -350,7 +350,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i119, %137
 
 .lr.ph.i123:                                      ; preds = %.preheader.i121, %150
   %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i128, %150 ], [ 0, %.preheader.i121 ]
-  %154 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
+  %154 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %155 = sext i32 %154 to i64
   %.not.i125 = icmp slt i64 %indvars.iv.i124, %155
   br i1 %.not.i125, label %156, label %opal_pointer_array_get_item.exit.i126
@@ -361,20 +361,20 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i119, %137
   br i1 %158, label %159, label %161
 
 159:                                              ; preds = %156
-  %160 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #4
+  %160 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   %.pre.i.i129 = load i8, ptr @opal_uses_threads, align 1
   br label %161
 
 161:                                              ; preds = %159, %156
   %162 = phi i8 [ %157, %156 ], [ %.pre.i.i129, %159 ]
-  %163 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %164 = getelementptr inbounds ptr, ptr %163, i64 %indvars.iv.i124
   %165 = load ptr, ptr %164, align 8
   %166 = trunc i8 %162 to i1
   br i1 %166, label %167, label %opal_pointer_array_get_item.exit.i126
 
 167:                                              ; preds = %161
-  %168 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #4
+  %168 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   br label %opal_pointer_array_get_item.exit.i126
 
 opal_pointer_array_get_item.exit.i126:            ; preds = %167, %161, %.lr.ph.i123

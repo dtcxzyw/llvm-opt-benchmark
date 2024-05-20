@@ -82,7 +82,7 @@ $_ZTIN3zmq7ypipe_tINS_9command_tELi16EEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq9mailbox_tC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq9mailbox_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq9mailbox_tE, i64 16), ptr %this, align 8
   %_cpipe = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3zmq7ypipe_tINS_9command_tELi16EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %_cpipe)
   %_signaler = getelementptr inbounds i8, ptr %this, i64 104
@@ -170,7 +170,7 @@ ehcleanup15:                                      ; preds = %ehcleanup, %lpad2
 define linkonce_odr void @_ZN3zmq7ypipe_tINS_9command_tELi16EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pv.i.i = alloca ptr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq7ypipe_tINS_9command_tELi16EEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq7ypipe_tINS_9command_tELi16EEE, i64 16), ptr %this, align 8
   %_queue = getelementptr inbounds i8, ptr %this, i64 8
   %_spare_chunk.i = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i64 0, ptr %_spare_chunk.i seq_cst, align 8

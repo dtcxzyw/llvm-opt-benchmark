@@ -159,12 +159,12 @@ define dso_local range(i32 -1, 1) i32 @setup_x11_forward(ptr noundef %0) local_u
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %1
-  %29 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 219), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1512), align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef %29) #6
   br label %30
 
 30:                                               ; preds = %28, %1
-  %31 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 219), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1512), align 8
   %32 = tail call ptr @xstrcasestr(ptr noundef %31, ptr noundef nonnull @.str.4) #6
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %46, label %33

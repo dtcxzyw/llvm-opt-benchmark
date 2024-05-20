@@ -649,7 +649,7 @@ define dso_local noundef range(i32 -529, 1) i32 @io_futex_wait(ptr noundef %0, i
   br label %26
 
 22:                                               ; preds = %14
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %24 = tail call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 10240, i64 noundef 136) #13
   %25 = icmp eq ptr %24, null
   br i1 %25, label %57, label %26

@@ -76,14 +76,14 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   %38 = getelementptr inbounds i8, ptr %6, i64 48
   store i8 6, ptr %38, align 16
   store ptr null, ptr %6, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
   %40 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr @g_waitingforsignal, align 8
   %.not64 = icmp eq ptr %41, null
   %g_waitingforsignal. = select i1 %.not64, ptr @g_waitingforsignal, ptr %39
   store ptr %6, ptr %g_waitingforsignal., align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
   br i1 %37, label %42, label %44
 
 42:                                               ; preds = %30
@@ -112,14 +112,14 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   %53 = getelementptr inbounds i8, ptr %6, i64 48
   store i8 6, ptr %53, align 16
   store ptr null, ptr %6, align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %54, ptr %55, align 8
   %56 = load ptr, ptr @g_waitingforsignal, align 8
   %.not62 = icmp eq ptr %56, null
   %g_waitingforsignal.72 = select i1 %.not62, ptr @g_waitingforsignal, ptr %54
   store ptr %6, ptr %g_waitingforsignal.72, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
   br i1 %52, label %57, label %59
 
 57:                                               ; preds = %49
@@ -216,7 +216,7 @@ define internal void @nxsig_timeout(i64 noundef %0) #0 {
   store ptr %16, ptr %g_waitingforsignal., align 8
   %.not24 = icmp eq ptr %16, null
   %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %.sink25 = select i1 %.not24, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), ptr %17
+  %.sink25 = select i1 %.not24, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), ptr %17
   store ptr %15, ptr %.sink25, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %18 = tail call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %2) #5

@@ -1456,17 +1456,17 @@ entry:
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.8, ptr noundef nonnull @app_p1) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @construct_api_params.params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_BN(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3, ptr noundef nonnull @.str.10, ptr noundef nonnull @bignumbin, i64 noundef 4096) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([10 x %struct.ossl_param_st], ptr @construct_api_params.params, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @construct_api_params.params, i64 40), ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.12, ptr noundef nonnull @app_p4, i64 noundef 256) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) getelementptr inbounds ([10 x %struct.ossl_param_st], ptr @construct_api_params.params, i64 0, i64 2), ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) getelementptr inbounds (i8, ptr @construct_api_params.params, i64 80), ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9, ptr noundef nonnull @.str.14, ptr noundef nonnull @app_p5, i64 noundef 256) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([10 x %struct.ossl_param_st], ptr @construct_api_params.params, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(40) %tmp9, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @construct_api_params.params, i64 120), ptr noundef nonnull align 8 dereferenceable(40) %tmp9, i64 40, i1 false)
   call void @OSSL_PARAM_construct_utf8_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12, ptr noundef nonnull @.str.17, ptr noundef nonnull @app_p6, i64 noundef 7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) getelementptr inbounds ([10 x %struct.ossl_param_st], ptr @construct_api_params.params, i64 0, i64 4), ptr noundef nonnull align 8 dereferenceable(40) %tmp12, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) getelementptr inbounds (i8, ptr @construct_api_params.params, i64 160), ptr noundef nonnull align 8 dereferenceable(40) %tmp12, i64 40, i1 false)
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp15, ptr noundef nonnull @.str.20, ptr noundef nonnull @foo, i64 noundef 1) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([10 x %struct.ossl_param_st], ptr @construct_api_params.params, i64 0, i64 5), ptr noundef nonnull align 8 dereferenceable(40) %tmp15, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @construct_api_params.params, i64 200), ptr noundef nonnull align 8 dereferenceable(40) %tmp15, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp18) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) getelementptr inbounds ([10 x %struct.ossl_param_st], ptr @construct_api_params.params, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(40) %tmp18, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) getelementptr inbounds (i8, ptr @construct_api_params.params, i64 240), ptr noundef nonnull align 8 dereferenceable(40) %tmp18, i64 40, i1 false)
   ret ptr @construct_api_params.params
 }
 

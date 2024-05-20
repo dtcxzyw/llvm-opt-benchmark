@@ -241,21 +241,21 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   store ptr %92, ptr @parseresult, align 8
   %93 = getelementptr i8, ptr %.2256, i64 -40
   %94 = load i32, ptr %93, align 8
-  store i32 %94, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 1), align 8
+  store i32 %94, ptr getelementptr inbounds (i8, ptr @parseresult, i64 8), align 8
   %95 = getelementptr i8, ptr %.2256, i64 -32
   %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 2), align 8
+  store ptr %96, ptr getelementptr inbounds (i8, ptr @parseresult, i64 16), align 8
   %97 = getelementptr i8, ptr %.2256, i64 -16
   %98 = load ptr, ptr %97, align 8
-  store ptr %98, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  store ptr %98, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   %99 = getelementptr i8, ptr %.2256, i64 -8
   %100 = load i32, ptr %99, align 8
-  store i32 %100, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  store i32 %100, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %101 = load ptr, ptr %.2256, align 8
-  store ptr %101, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 5), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
   %102 = getelementptr inbounds i8, ptr %.2256, i64 8
   %103 = load i32, ptr %102, align 8
-  store i32 %103, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 6), align 8
+  store i32 %103, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
   br label %288
 
 104:                                              ; preds = %83

@@ -183,7 +183,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   %16 = add i32 %15, 1
   store i32 %16, ptr @corruption_check_size, align 4
   store i64 0, ptr %3, align 8
-  call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3), ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
+  call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 56), ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
   %17 = load i64, ptr %3, align 8
   %18 = icmp eq i64 %17, -1
   br i1 %18, label %.loopexit, label %.preheader
@@ -232,7 +232,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   br i1 %50, label %.thread5, label %51
 
 51:                                               ; preds = %35, %.preheader
-  call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3), ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
+  call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 56), ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
   %52 = load i64, ptr %3, align 8
   %53 = icmp eq i64 %52, -1
   br i1 %53, label %.loopexit, label %.preheader, !llvm.loop !6

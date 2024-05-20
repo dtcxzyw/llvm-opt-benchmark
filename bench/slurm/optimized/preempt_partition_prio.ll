@@ -119,7 +119,7 @@ define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %
   ]
 
 4:                                                ; preds = %3
-  %5 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 116), align 4
+  %5 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
   %6 = icmp ne i16 %5, 0
   %7 = zext i1 %6 to i8
   store i8 %7, ptr %2, align 1
@@ -153,7 +153,7 @@ define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %
   br label %_job_preempt_mode.exit
 
 _job_preempt_mode.exit:                           ; preds = %8, %10, %13, %14, %17
-  %.0.in.in.i = phi ptr [ %11, %14 ], [ %11, %17 ], [ %11, %13 ], [ getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 116), %10 ], [ getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 116), %8 ]
+  %.0.in.in.i = phi ptr [ %11, %14 ], [ %11, %17 ], [ %11, %13 ], [ getelementptr inbounds (i8, ptr @slurm_conf, i64 796), %10 ], [ getelementptr inbounds (i8, ptr @slurm_conf, i64 796), %8 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
   %.0.i = and i16 %.0.in.i, 32767
   store i16 %.0.i, ptr %2, align 2

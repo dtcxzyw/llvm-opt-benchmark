@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr noundef %ctx_, i32 noundef %tid_) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3zmq8object_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8object_tE, i64 16), ptr %this, align 8
   %_ctx = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ctx_, ptr %_ctx, align 8
   %_tid = getelementptr inbounds i8, ptr %this, i64 16
@@ -67,7 +67,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3zmq8object_tC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %parent_) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3zmq8object_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8object_tE, i64 16), ptr %this, align 8
   %_ctx = getelementptr inbounds i8, ptr %this, i64 8
   %_ctx2 = getelementptr inbounds i8, ptr %parent_, i64 8
   %0 = load ptr, ptr %_ctx2, align 8

@@ -943,7 +943,7 @@ define dso_local i32 @PyUnstable_PerfTrampoline_CompileCode(ptr noundef %co) loc
 entry:
   %f = alloca ptr, align 8
   store ptr null, ptr %f, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
   %call.i = call i32 @PyUnstable_Code_GetExtra(ptr noundef %co, i64 noundef %0, ptr noundef nonnull %f) #9
   %cmp = icmp ne i32 %call.i, 0
   %1 = load ptr, ptr %f, align 8
@@ -952,7 +952,7 @@ entry:
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
@@ -970,7 +970,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br i1 %cmp2.i, label %return, label %if.then.if.end4_crit_edge.i
 
 if.then.if.end4_crit_edge.i:                      ; preds = %if.then.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   %code_size.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
   %.pre1.i = load i64, ptr %code_size.i.phi.trans.insert.i, align 8
   %size_left.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
@@ -992,14 +992,14 @@ compile_trampoline.exit:                          ; preds = %lor.lhs.false.i, %i
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %compile_trampoline.exit
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 1), align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2272), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   %code_size = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load i64, ptr %code_size, align 8
   %conv = trunc i64 %12 to i32
   call void %9(ptr noundef %10, ptr noundef nonnull %8, i32 noundef %conv, ptr noundef %co) #9
-  %13 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
   %call.i6 = call i32 @PyUnstable_Code_SetExtra(ptr noundef %co, i64 noundef %13, ptr noundef nonnull %8) #9
   br label %return
 
@@ -1026,7 +1026,7 @@ entry:
 define internal ptr @py_trampoline_evaluator(ptr noundef %ts, ptr noundef %frame, i32 noundef %throw) #0 {
 entry:
   %f = alloca ptr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %1 = add i32 %0, 1
   %or.cond = icmp ult i32 %1, 2
   br i1 %or.cond, label %default_eval, label %if.end
@@ -1034,7 +1034,7 @@ entry:
 if.end:                                           ; preds = %entry
   %frame.val = load ptr, ptr %frame, align 8
   store ptr null, ptr %f, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
   %call.i = call i32 @PyUnstable_Code_GetExtra(ptr noundef %frame.val, i64 noundef %2, ptr noundef nonnull %f) #9
   %cmp3 = icmp ne i32 %call.i, 0
   %3 = load ptr, ptr %f, align 8
@@ -1043,7 +1043,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond1, label %if.then6, label %if.end12
 
 if.then6:                                         ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
@@ -1061,7 +1061,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br i1 %cmp2.i, label %default_eval, label %if.then.if.end4_crit_edge.i
 
 if.then.if.end4_crit_edge.i:                      ; preds = %if.then.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   %code_size.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
   %.pre1.i = load i64, ptr %code_size.i.phi.trans.insert.i, align 8
   %size_left.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
@@ -1083,14 +1083,14 @@ compile_trampoline.exit:                          ; preds = %lor.lhs.false.i, %i
   br i1 %cmp8, label %default_eval, label %if.end10
 
 if.end10:                                         ; preds = %compile_trampoline.exit
-  %11 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 1), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2272), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   %code_size = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load i64, ptr %code_size, align 8
   %conv = trunc i64 %14 to i32
   call void %11(ptr noundef %12, ptr noundef nonnull %10, i32 noundef %conv, ptr noundef %frame.val) #9
-  %15 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
   %call.i12 = call i32 @PyUnstable_Code_SetExtra(ptr noundef %frame.val, i64 noundef %15, ptr noundef nonnull %10) #9
   store ptr %10, ptr %f, align 8
   br label %if.end12
@@ -1116,12 +1116,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2264), align 8
   store ptr %0, ptr %callbacks, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2272), align 8
   %write_state = getelementptr inbounds i8, ptr %callbacks, i64 8
   store ptr %1, ptr %write_state, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2280), align 8
   %free_state = getelementptr inbounds i8, ptr %callbacks, i64 16
   store ptr %2, ptr %free_state, align 8
   br label %return
@@ -1137,9 +1137,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   %tobool.not = icmp ne ptr %0, null
-  %1 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %cmp.not.i = icmp eq i32 %1, 1
   %or.cond = select i1 %tobool.not, i1 %cmp.not.i, i1 false
   br i1 %or.cond, label %if.end.i, label %if.end2
@@ -1156,35 +1156,35 @@ if.end.i:                                         ; preds = %if.end
 
 if.end5.i:                                        ; preds = %if.end.i
   store ptr null, ptr %eval_frame.i, align 8
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %6 = icmp eq i32 %.pre.i, 1
   br i1 %6, label %if.end5.i.if.then7.i_crit_edge, label %if.end9.i
 
 if.end5.i.if.then7.i_crit_edge:                   ; preds = %if.end5.i
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   br label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i.if.then7.i_crit_edge, %if.end.i
   %7 = phi ptr [ %.pre, %if.end5.i.if.then7.i_crit_edge ], [ %0, %if.end.i ]
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2280), align 8
   %call8.i = tail call i32 %8(ptr noundef %7) #9
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then7.i, %if.end5.i
-  store i64 -1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  store i64 -1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %if.end9.i, %if.end
   %9 = load ptr, ptr %callbacks, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2264), align 8
   %write_state = getelementptr inbounds i8, ptr %callbacks, i64 8
   %10 = load ptr, ptr %write_state, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 1), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2272), align 8
   %free_state = getelementptr inbounds i8, ptr %callbacks, i64 16
   %11 = load ptr, ptr %free_state, align 8
-  store ptr %11, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2280), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end2
@@ -1195,7 +1195,7 @@ return:                                           ; preds = %entry, %if.end2
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @_PyPerfTrampoline_Fini() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1211,19 +1211,19 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   store ptr null, ptr %eval_frame, align 8
-  %.pre = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %5 = icmp eq i32 %.pre, 1
   br i1 %5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end, %if.end5
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 2), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2280), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   %call8 = tail call i32 %6(ptr noundef %7) #9
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end5
-  store i64 -1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  store i64 -1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end9
@@ -1265,26 +1265,26 @@ if.else:                                          ; preds = %if.end
 
 if.end12:                                         ; preds = %if.else
   %call.i = tail call i64 @PyUnstable_Eval_RequestCodeExtraIndex(ptr noundef null) #9
-  store i64 %call.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
+  store i64 %call.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
   %cmp14 = icmp eq i64 %call.i, -1
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   %cmp17 = icmp eq ptr %5, null
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2264), align 8
   %cmp19 = icmp ne ptr %6, null
   %or.cond = select i1 %cmp17, i1 %cmp19, i1 false
   br i1 %or.cond, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.end16
   %call21 = tail call ptr %6() #9
-  store ptr %call21, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  store ptr %call21, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end16, %if.then20, %if.then4
   %storemerge = phi i32 [ 0, %if.then4 ], [ 1, %if.then20 ], [ 1, %if.end16 ]
-  store i32 %storemerge, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   br label %return
 
 return:                                           ; preds = %if.end12, %if.else, %if.end23, %if.then
@@ -1305,7 +1305,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call1 = tail call ptr @PyErr_SetFromErrno(ptr noundef %0) #9
   tail call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.5) #9
-  store i32 -1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1354,10 +1354,10 @@ if.end14:                                         ; preds = %if.end8
   store i64 65536, ptr %size_left, align 8
   %code_size15 = getelementptr inbounds i8, ptr %call9, i64 32
   store i64 sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64)), ptr %code_size15, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   %prev = getelementptr inbounds i8, ptr %call9, i64 40
   store ptr %2, ptr %prev, align 8
-  store ptr %call9, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  store ptr %call9, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then11, %if.then5, %if.then
@@ -1368,8 +1368,8 @@ return:                                           ; preds = %if.end14, %if.then1
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyPerfTrampoline_FreeArenas() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2256), align 8
   %tobool.not5.i = icmp eq ptr %0, null
   br i1 %tobool.not5.i, label %free_code_arenas.exit, label %while.body.i
 
@@ -1393,7 +1393,7 @@ free_code_arenas.exit:                            ; preds = %while.body.i, %entr
 define dso_local noundef i32 @PyUnstable_PerfTrampoline_SetPersistAfterFork(i32 noundef returned %enable) local_unnamed_addr #4 {
 entry:
   %conv = sext i32 %enable to i64
-  store i64 %conv, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 5), align 8
+  store i64 %conv, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2304), align 8
   ret i32 %enable
 }
 
@@ -1401,12 +1401,12 @@ entry:
 define hidden void @_PyPerfTrampoline_AfterFork_Child(ptr noalias sret(%struct.PyStatus) align 8 %agg.result) local_unnamed_addr #0 {
 entry:
   %filename = alloca [256 x i8], align 16
-  %0 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 5), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2304), align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %cmp.not.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i, label %if.end.i, label %_PyPerfTrampoline_Fini.exit
 
@@ -1422,19 +1422,19 @@ if.end.i:                                         ; preds = %if.then
 
 if.end5.i:                                        ; preds = %if.end.i
   store ptr null, ptr %eval_frame.i, align 8
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %6 = icmp eq i32 %.pre.i, 1
   br i1 %6, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i, %if.end.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 2), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2280), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   %call8.i = tail call i32 %7(ptr noundef %8) #9
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then7.i, %if.end5.i
-  store i64 -1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  store i64 -1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   br label %_PyPerfTrampoline_Fini.exit
 
 _PyPerfTrampoline_Fini.exit:                      ; preds = %if.then, %if.end9.i
@@ -1456,7 +1456,7 @@ if.else:                                          ; preds = %entry
   %eval_frame.i2 = getelementptr inbounds i8, ptr %11, i64 2072
   %12 = load ptr, ptr %eval_frame.i2, align 8
   %cmp.i.not = icmp eq ptr %12, @py_trampoline_evaluator
-  %13 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %cmp.not.i3 = icmp eq i32 %13, 1
   br i1 %cmp.not.i3, label %if.end.i4, label %_PyPerfTrampoline_Fini.exit13
 
@@ -1465,19 +1465,19 @@ if.end.i4:                                        ; preds = %if.else
 
 if.end5.i11:                                      ; preds = %if.end.i4
   store ptr null, ptr %eval_frame.i2, align 8
-  %.pre.i12 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  %.pre.i12 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   %14 = icmp eq i32 %.pre.i12, 1
   br i1 %14, label %if.then7.i8, label %if.end9.i10
 
 if.then7.i8:                                      ; preds = %if.end5.i11, %if.end.i4
-  %15 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 2), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2280), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   %call8.i9 = tail call i32 %15(ptr noundef %16) #9
   br label %if.end9.i10
 
 if.end9.i10:                                      ; preds = %if.then7.i8, %if.end5.i11
-  store i64 -1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  store i64 -1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   br label %_PyPerfTrampoline_Fini.exit13
 
 _PyPerfTrampoline_Fini.exit13:                    ; preds = %if.else, %if.end9.i10
@@ -1507,25 +1507,25 @@ if.end.i17:                                       ; preds = %if.then9
 
 if.end12.i:                                       ; preds = %if.end.i17
   %call.i.i = tail call i64 @PyUnstable_Eval_RequestCodeExtraIndex(ptr noundef null) #9
-  store i64 %call.i.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 1), align 8
+  store i64 %call.i.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2248), align 8
   %cmp14.i = icmp eq i64 %call.i.i, -1
   br i1 %cmp14.i, label %if.end12, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %21 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   %cmp17.i = icmp eq ptr %21, null
-  %22 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2264), align 8
   %cmp19.i = icmp ne ptr %22, null
   %or.cond.i = select i1 %cmp17.i, i1 %cmp19.i, i1 false
   br i1 %or.cond.i, label %if.then20.i, label %if.end23.i
 
 if.then20.i:                                      ; preds = %if.end16.i
   %call21.i = tail call ptr %22() #9
-  store ptr %call21.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
+  store ptr %call21.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2288), align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then20.i, %if.end16.i
-  store i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2240), align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end23.i, %if.end12.i, %if.end.i17, %if.then.i, %_PyPerfTrampoline_Fini.exit13, %_PyPerfTrampoline_Fini.exit

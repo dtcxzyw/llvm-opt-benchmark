@@ -186,7 +186,7 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %71, ptr %84, align 4
   %.sroa.012.0.copyload = load i64, ptr %7, align 8
   %.sroa.011.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
+  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   call void @EventTriggerCollectSimpleCommand(i64 %.sroa.012.0.copyload, i32 0, i64 %.sroa.011.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %0) #4
   %85 = getelementptr inbounds i8, ptr %0, i64 24
   %86 = load ptr, ptr %85, align 8

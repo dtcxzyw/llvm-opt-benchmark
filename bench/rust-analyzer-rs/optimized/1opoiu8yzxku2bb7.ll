@@ -14063,7 +14063,7 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h5dbf1ed3c6f81e63
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -55163,7 +55163,7 @@ _ZN11ide_assists8handlers31generate_documentation_template19make_example_for_fn1
 "_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17h7b63983a1ddec4a7E.exit137": ; preds = %853, %859
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %103)
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h80ddd00754c816b4E.llvm.12748775874117282400"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %103, ptr noundef nonnull readonly @anon.8e48b6470a27d08b5500ade55998fee0.275, ptr noundef nonnull readonly getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8e48b6470a27d08b5500ade55998fee0.275, i64 1, i32 0))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h80ddd00754c816b4E.llvm.12748775874117282400"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %103, ptr noundef nonnull readonly @anon.8e48b6470a27d08b5500ade55998fee0.275, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.8e48b6470a27d08b5500ade55998fee0.275, i64 64))
           to label %870 unwind label %867
 
 866:                                              ; preds = %869, %918, %867
@@ -57475,7 +57475,7 @@ _ZN11ide_assists8handlers31generate_documentation_template9can_panic17he9d419645
 
 73:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h80ddd00754c816b4E.llvm.12748775874117282400"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %9, ptr noundef nonnull readonly @anon.8e48b6470a27d08b5500ade55998fee0.323, ptr noundef nonnull readonly getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8e48b6470a27d08b5500ade55998fee0.323, i64 1, i32 0))
+  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h80ddd00754c816b4E.llvm.12748775874117282400"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %9, ptr noundef nonnull readonly @anon.8e48b6470a27d08b5500ade55998fee0.323, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.8e48b6470a27d08b5500ade55998fee0.323, i64 48))
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %74
@@ -57655,7 +57655,7 @@ _ZN11ide_assists8handlers31generate_documentation_template11return_type17hf68e69
 
 65:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h80ddd00754c816b4E.llvm.12748775874117282400"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %8, ptr noundef nonnull readonly @anon.8e48b6470a27d08b5500ade55998fee0.327, ptr noundef nonnull readonly getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8e48b6470a27d08b5500ade55998fee0.327, i64 1, i32 0))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h80ddd00754c816b4E.llvm.12748775874117282400"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %8, ptr noundef nonnull readonly @anon.8e48b6470a27d08b5500ade55998fee0.327, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.8e48b6470a27d08b5500ade55998fee0.327, i64 48))
           to label %_ZN11ide_assists8handlers31generate_documentation_template15string_vec_from17h670939bbc2b4ca50E.exit unwind label %61
 
 66:                                               ; preds = %_ZN11ide_assists8handlers31generate_documentation_template15string_vec_from17h670939bbc2b4ca50E.exit, %64
@@ -57739,7 +57739,7 @@ define hidden void @_ZN11ide_assists8handlers31generate_documentation_template14
 
 11:                                               ; preds = %5, %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h80ddd00754c816b4E.llvm.12748775874117282400"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %3, ptr noundef nonnull readonly @anon.8e48b6470a27d08b5500ade55998fee0.330, ptr noundef nonnull readonly getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8e48b6470a27d08b5500ade55998fee0.330, i64 1, i32 0))
+  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h80ddd00754c816b4E.llvm.12748775874117282400"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %3, ptr noundef nonnull readonly @anon.8e48b6470a27d08b5500ade55998fee0.330, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.8e48b6470a27d08b5500ade55998fee0.330, i64 48))
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %12
@@ -58082,7 +58082,7 @@ define internal fastcc void @_ZN11ide_assists8handlers31generate_documentation_t
   %87 = add i64 %86, %.sink.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !14569
   store ptr @anon.8e48b6470a27d08b5500ade55998fee0.336, ptr %4, align 8, !noalias !14569
-  store ptr getelementptr inbounds (<{ [8 x i8] }>, ptr @anon.8e48b6470a27d08b5500ade55998fee0.336, i64 1, i32 0, i64 0), ptr %45, align 8, !noalias !14569
+  store ptr getelementptr inbounds (i8, ptr @anon.8e48b6470a27d08b5500ade55998fee0.336, i64 8), ptr %45, align 8, !noalias !14569
   br label %88
 
 88:                                               ; preds = %90, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.15125219604780613101.exit.thread7.i.i.i"

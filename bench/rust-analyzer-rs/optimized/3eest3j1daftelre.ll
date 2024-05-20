@@ -17704,7 +17704,7 @@ define void @_ZN3hir9semantics13SemanticsImpl24descend_into_macros_impl17h8a3bdc
   br label %.body
 
 91:                                               ; preds = %4
-  %92 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir9semantics13SemanticsImpl24descend_into_macros_impl10__CALLSITE17he10b98584658bf85E, i64 0, i32 1, i64 8) monotonic, align 8
+  %92 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir9semantics13SemanticsImpl24descend_into_macros_impl10__CALLSITE17he10b98584658bf85E, i64 16) monotonic, align 8
   switch i8 %92, label %93 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -19236,7 +19236,7 @@ _ZN3hir9semantics13SemanticsImpl20is_from_include_file17hf8386b343661bae5E.exit.
   br i1 %594, label %595, label %.critedge
 
 595:                                              ; preds = %592
-  %596 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir9semantics13SemanticsImpl24descend_into_macros_impl10__CALLSITE17h02f843acc0ccfb4dE, i64 0, i32 1, i64 8) monotonic, align 8
+  %596 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir9semantics13SemanticsImpl24descend_into_macros_impl10__CALLSITE17h02f843acc0ccfb4dE, i64 16) monotonic, align 8
   switch i8 %596, label %597 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit114.thread
@@ -29749,7 +29749,7 @@ default.unreachable:                              ; preds = %60
   unreachable
 
 17:                                               ; preds = %6
-  %18 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3hir9semantics13SemanticsImpl12analyze_impl10__CALLSITE17hb2357e83393e226cE, i64 0, i32 1, i64 8) monotonic, align 8
+  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3hir9semantics13SemanticsImpl12analyze_impl10__CALLSITE17hb2357e83393e226cE, i64 16) monotonic, align 8
   switch i8 %18, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread56
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

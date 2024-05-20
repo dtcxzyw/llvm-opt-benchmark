@@ -2630,6 +2630,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.rlReadTexturePixels = private unnamed_addr constant [24 x i32] [i32 8, i32 16, i32 16, i32 24, i32 16, i32 16, i32 32, i32 32, i32 96, i32 128, i32 16, i32 48, i32 64, i32 4, i32 4, i32 8, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 2], align 4
 @switch.table.PollInputEvents = private unnamed_addr constant [15 x i32] [i32 7, i32 6, i32 8, i32 5, i32 9, i32 11, i32 13, i32 15, i32 14, i32 16, i32 17, i32 1, i32 2, i32 3, i32 4], align 4
 @switch.table.InitPlatform = private unnamed_addr constant [5 x ptr] [ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143], align 8
+@switch.table.KeyCallback = private unnamed_addr constant [3 x ptr] [ptr getelementptr inbounds (i8, ptr @CORE, i64 196), ptr getelementptr inbounds (i8, ptr @CORE, i64 196), ptr getelementptr inbounds (i8, ptr @CORE, i64 1220)], align 8
 
 ; Function Attrs: nounwind uwtable
 define i32 @gladLoadGLUserPtr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -17668,18 +17669,18 @@ define void @rlMatrixMode(i32 noundef %0) local_unnamed_addr #1 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %2
-  %.sink = phi ptr [ getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), %2 ], [ getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), %1 ]
-  store ptr %.sink, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @RLGL, i64 80), %2 ], [ getelementptr inbounds (i8, ptr @RLGL, i64 144), %1 ]
+  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   br label %3
 
 3:                                                ; preds = %.sink.split, %1
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @rlPushMatrix() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %2 = icmp sgt i32 %1, 31
   br i1 %2, label %3, label %4
 
@@ -17688,28 +17689,28 @@ define void @rlPushMatrix() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  %5 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
   %6 = icmp eq i32 %5, 5888
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   br label %8
 
 7:                                                ; preds = %4
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 15), align 8
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 272), align 8
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 208), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   br label %8
 
 8:                                                ; preds = %._crit_edge, %7
-  %9 = phi ptr [ %.pre, %._crit_edge ], [ getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14), %7 ]
-  %10 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %9 = phi ptr [ %.pre, %._crit_edge ], [ getelementptr inbounds (i8, ptr @RLGL, i64 208), %7 ]
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 16, i64 %11
+  %12 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   ret void
 }
 
@@ -17720,32 +17721,32 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlPopMatrix() local_unnamed_addr #4 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %3, label %10
 
 3:                                                ; preds = %0
   %4 = add nsw i32 %1, -1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 16, i64 %5
-  %7 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %6 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %5
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false)
-  %8 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   br label %10
 
 10:                                               ; preds = %3, %0
   %11 = phi i32 [ %9, %3 ], [ %1, %0 ]
   %12 = icmp eq i32 %11, 0
-  %13 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
   %14 = icmp eq i32 %13, 5888
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %15, label %16
 
 15:                                               ; preds = %10
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 15), align 8
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 272), align 8
   br label %16
 
 16:                                               ; preds = %15, %10
@@ -17754,7 +17755,7 @@ define void @rlPopMatrix() local_unnamed_addr #4 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define void @rlLoadIdentity() local_unnamed_addr #5 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %1, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -17773,7 +17774,7 @@ define void @rlLoadIdentity() local_unnamed_addr #5 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlTranslatef(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #4 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   %.sroa.043.0.copyload = load float, ptr %4, align 4
   %.sroa.244.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
   %.sroa.244.0.copyload = load float, ptr %.sroa.244.0..sroa_idx, align 4
@@ -17942,7 +17943,7 @@ define void @rlRotatef(float noundef %0, float noundef %1, float noundef %2, flo
   %41 = tail call float @llvm.fmuladd.f32(float %40, float %24, float %39)
   %42 = fmul float %.062, %.062
   %43 = tail call float @llvm.fmuladd.f32(float %42, float %24, float %23)
-  %44 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   %.sroa.0102.0.copyload = load float, ptr %44, align 4
   %.sroa.2103.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 4
   %.sroa.2103.0.copyload = load float, ptr %.sroa.2103.0..sroa_idx, align 4
@@ -18096,7 +18097,7 @@ declare float @cosf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlScalef(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #4 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   %.sroa.036.0.copyload = load float, ptr %4, align 4
   %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
   %.sroa.237.0.copyload = load float, ptr %.sroa.237.0..sroa_idx, align 4
@@ -18253,7 +18254,7 @@ define void @rlMultMatrixf(ptr nocapture noundef readonly %0) local_unnamed_addr
   %30 = load float, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %0, i64 60
   %32 = load float, ptr %31, align 4
-  %33 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   %.sroa.550.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 16
   %.sroa.954.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 32
   %.sroa.1358.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 48
@@ -18343,7 +18344,7 @@ define void @rlFrustum(double noundef %0, double noundef %1, double noundef %2, 
   %29 = fmul float %13, %25
   %30 = fmul float %29, -2.000000e+00
   %31 = fdiv float %30, %12
-  %32 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   %.sroa.556.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 16
   %.sroa.960.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 32
   %.sroa.1364.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 48
@@ -18409,7 +18410,7 @@ define void @rlOrtho(double noundef %0, double noundef %1, double noundef %2, do
   %28 = fadd float %27, %26
   %29 = fneg float %28
   %30 = fdiv float %29, %12
-  %31 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 16
   %.sroa.956.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 32
   %.sroa.1360.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 48
@@ -18506,7 +18507,7 @@ define void @rlBegin(i32 noundef %0) local_unnamed_addr #0 {
   %31 = getelementptr %struct.rlDrawCall, ptr %27, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i32, ptr %32, align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %35 = add nsw i32 %34, %33
   %36 = getelementptr inbounds i8, ptr %25, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -18549,7 +18550,7 @@ rlCheckRenderBatchLimit.exit.thread:              ; preds = %23
   br label %66
 
 rlCheckRenderBatchLimit.exit:                     ; preds = %23
-  store i32 %35, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %64 = load i32, ptr %28, align 8
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %28, align 8
@@ -18586,7 +18587,7 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %23
   %85 = getelementptr %struct.rlDrawCall, ptr %81, i64 %84
   %86 = getelementptr i8, ptr %85, i64 -12
   store i32 0, ptr %86, align 4
-  %87 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18), align 8
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
   %88 = load ptr, ptr @RLGL, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
@@ -18604,7 +18605,7 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %23
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @rlCheckRenderBatchLimit(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %3 = add nsw i32 %2, %0
   %4 = load ptr, ptr @RLGL, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -18658,12 +18659,12 @@ define noundef zeroext i1 @rlCheckRenderBatchLimit(i32 noundef %0) local_unnamed
 define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Matrix, align 4
   %3 = alloca [16 x float], align 16
-  %4 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %72
 
 6:                                                ; preds = %1
-  %7 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %18
 
@@ -18690,7 +18691,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %26 = load i32, ptr %25, align 4
   tail call void %19(i32 noundef 34962, i32 noundef %26) #55
   %27 = load ptr, ptr @glad_glBufferSubData, align 8
-  %28 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %29 = mul nsw i32 %28, 3
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 2
@@ -18708,7 +18709,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %42 = load i32, ptr %41, align 4
   tail call void %37(i32 noundef 34962, i32 noundef %42) #55
   %43 = load ptr, ptr @glad_glBufferSubData, align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %45 = shl nsw i32 %44, 1
   %46 = sext i32 %45 to i64
   %47 = shl nsw i64 %46, 2
@@ -18726,7 +18727,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %58 = load i32, ptr %57, align 4
   tail call void %53(i32 noundef 34962, i32 noundef %58) #55
   %59 = load ptr, ptr @glad_glBufferSubData, align 8
-  %60 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %60 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %61 = shl nsw i32 %60, 2
   %62 = sext i32 %61 to i64
   %63 = load ptr, ptr %20, align 8
@@ -18735,7 +18736,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %66 = getelementptr inbounds %struct.rlVertexBuffer, ptr %63, i64 %65, i32 3
   %67 = load ptr, ptr %66, align 8
   tail call void %59(i32 noundef 34962, i64 noundef 0, i64 noundef %62, ptr noundef %67) #55
-  %68 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %68 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %72
 
@@ -18745,12 +18746,12 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %72
 
 72:                                               ; preds = %18, %70, %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), i64 64, i1 false)
-  %73 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  %74 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 4), align 8
-  %75 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 8), align 8
-  %76 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 12), align 8
-  %77 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 26), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), i64 64, i1 false)
+  %73 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  %74 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
+  %75 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
+  %76 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
+  %77 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
   %78 = trunc i8 %77 to i1
   %79 = getelementptr inbounds i8, ptr %3, i64 16
   %80 = getelementptr inbounds i8, ptr %3, i64 32
@@ -18767,15 +18768,15 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %78, label %88, label %146
 
 88:                                               ; preds = %86
-  %89 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 40), align 8
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
   %90 = trunc nuw nsw i64 %indvars.iv229 to i32
   %91 = mul nuw nsw i32 %89, %90
   %92 = sdiv i32 %91, 2
   %93 = sdiv i32 %89, 2
-  %94 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 41), align 4
+  %94 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
   %95 = load ptr, ptr @glad_glViewport, align 8
   call void %95(i32 noundef %92, i32 noundef 0, i32 noundef %93, i32 noundef %94) #55
-  %96 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 28, i64 %indvars.iv229
+  %96 = getelementptr inbounds [2 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2516), i64 0, i64 %indvars.iv229
   %.sroa.0155.0.copyload = load float, ptr %96, align 4
   %.sroa.2156.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 4
   %.sroa.2156.0.copyload = load float, ptr %.sroa.2156.0..sroa_idx, align 8
@@ -18819,7 +18820,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %106 = insertelement <4 x float> poison, float %.sroa.4158.0.copyload, i64 0
   %107 = shufflevector <4 x float> %106, <4 x float> poison, <4 x i32> zeroinitializer
   %108 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %76, <4 x float> %107, <4 x float> %105)
-  store <4 x float> %108, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
+  store <4 x float> %108, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
   %109 = insertelement <4 x float> poison, float %.sroa.6160.0.copyload, i64 0
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> zeroinitializer
   %111 = fmul <4 x float> %74, %110
@@ -18832,7 +18833,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %118 = insertelement <4 x float> poison, float %.sroa.8162.0.copyload, i64 0
   %119 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> zeroinitializer
   %120 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %76, <4 x float> %119, <4 x float> %117)
-  store <4 x float> %120, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 4), align 8
+  store <4 x float> %120, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
   %121 = insertelement <4 x float> poison, float %.sroa.10164.0.copyload, i64 0
   %122 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> zeroinitializer
   %123 = fmul <4 x float> %74, %122
@@ -18845,7 +18846,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %130 = insertelement <4 x float> poison, float %.sroa.12166.0.copyload, i64 0
   %131 = shufflevector <4 x float> %130, <4 x float> poison, <4 x i32> zeroinitializer
   %132 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %76, <4 x float> %131, <4 x float> %129)
-  store <4 x float> %132, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 8), align 8
+  store <4 x float> %132, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
   %133 = insertelement <4 x float> poison, float %.sroa.14168.0.copyload, i64 0
   %134 = shufflevector <4 x float> %133, <4 x float> poison, <4 x i32> zeroinitializer
   %135 = fmul <4 x float> %74, %134
@@ -18858,53 +18859,53 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %142 = insertelement <4 x float> poison, float %.sroa.16170.0.copyload, i64 0
   %143 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> zeroinitializer
   %144 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %76, <4 x float> %143, <4 x float> %141)
-  store <4 x float> %144, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 12), align 8
-  %145 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 27, i64 %indvars.iv229
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr noundef nonnull align 4 dereferenceable(64) %145, i64 64, i1 false)
+  store <4 x float> %144, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
+  %145 = getelementptr inbounds [2 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2388), i64 0, i64 %indvars.iv229
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %145, i64 64, i1 false)
   br label %146
 
 146:                                              ; preds = %88, %86
-  %147 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %147 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %148 = icmp sgt i32 %147, 0
   br i1 %148, label %149, label %348
 
 149:                                              ; preds = %146
   %150 = load ptr, ptr @glad_glUseProgram, align 8
-  %151 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 24), align 8
+  %151 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
   call void %150(i32 noundef %151) #55
-  %152 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), align 8
-  %153 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 1), align 4
+  %152 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
+  %153 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 148), align 4
   %154 = shufflevector <4 x float> %153, <4 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %155 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 2), align 8
-  %156 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 3), align 4
-  %.sroa.7207.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 4), align 8
-  %.sroa.8208.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 5), align 4
-  %.sroa.9209.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 6), align 8
-  %.sroa.10210.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 7), align 4
-  %.sroa.11211.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 8), align 8
-  %.sroa.12212.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 9), align 4
-  %.sroa.13213.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 10), align 8
-  %.sroa.14214.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 11), align 4
-  %.sroa.15215.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 12), align 8
-  %.sroa.16216.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 13), align 4
-  %.sroa.17217.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 14), align 8
-  %.sroa.18218.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 15), align 4
-  %157 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  %158 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 1), align 4
-  %159 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 2), align 8
-  %160 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 3), align 4
-  %.sroa.7191.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 4), align 8
-  %.sroa.8192.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 5), align 4
-  %.sroa.9193.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 6), align 8
-  %.sroa.10194.0.copyload = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 7), align 4
-  %161 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 8), align 8
-  %162 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 9), align 4
-  %163 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
-  %164 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), align 4
-  %165 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 12), align 8
-  %166 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 13), align 4
-  %167 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 14), align 8
-  %168 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
+  %155 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 152), align 8
+  %156 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 156), align 4
+  %.sroa.7207.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 160), align 8
+  %.sroa.8208.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
+  %.sroa.9209.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 168), align 8
+  %.sroa.10210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 172), align 4
+  %.sroa.11211.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 176), align 8
+  %.sroa.12212.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 180), align 4
+  %.sroa.13213.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
+  %.sroa.14214.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 188), align 4
+  %.sroa.15215.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 192), align 8
+  %.sroa.16216.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 196), align 4
+  %.sroa.17217.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 200), align 8
+  %.sroa.18218.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
+  %157 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  %158 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 84), align 4
+  %159 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 88), align 8
+  %160 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 92), align 4
+  %.sroa.7191.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
+  %.sroa.8192.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
+  %.sroa.9193.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 104), align 8
+  %.sroa.10194.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 108), align 4
+  %161 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
+  %162 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 116), align 4
+  %163 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  %164 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 124), align 4
+  %165 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
+  %166 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 132), align 4
+  %167 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 136), align 8
+  %168 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
   %169 = insertelement <4 x float> %154, float %.sroa.8208.0.copyload, i64 1
   %170 = insertelement <4 x float> %169, float %.sroa.7191.0.copyload, i64 2
   %171 = insertelement <4 x float> %170, float %.sroa.16216.0.copyload, i64 3
@@ -18968,11 +18969,11 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %226 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %225, <4 x float> %189, <4 x float> %224)
   store <4 x float> %226, ptr %81, align 16
   %227 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
-  %228 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 24
   %230 = load i32, ptr %229, align 4
   call void %227(i32 noundef %230, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %3) #55
-  %231 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %231 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %232 = trunc i8 %231 to i1
   %233 = load ptr, ptr %82, align 8
   %234 = load i32, ptr %83, align 4
@@ -18992,11 +18993,11 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %243 = load i32, ptr %242, align 4
   call void %241(i32 noundef 34962, i32 noundef %243) #55
   %244 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %245 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %245 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %246 = load i32, ptr %245, align 4
   call void %244(i32 noundef %246, i32 noundef 3, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #55
   %247 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %248 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %248 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %249 = load i32, ptr %248, align 4
   call void %247(i32 noundef %249) #55
   %250 = load ptr, ptr @glad_glBindBuffer, align 8
@@ -19007,12 +19008,12 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %255 = load i32, ptr %254, align 4
   call void %250(i32 noundef 34962, i32 noundef %255) #55
   %256 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %257 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 4
   %259 = load i32, ptr %258, align 4
   call void %256(i32 noundef %259, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #55
   %260 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %261 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 4
   %263 = load i32, ptr %262, align 4
   call void %260(i32 noundef %263) #55
@@ -19024,12 +19025,12 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %269 = load i32, ptr %268, align 4
   call void %264(i32 noundef 34962, i32 noundef %269) #55
   %270 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %271 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %271 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %272 = getelementptr inbounds i8, ptr %271, i64 20
   %273 = load i32, ptr %272, align 4
   call void %270(i32 noundef %273, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 0, ptr noundef null) #55
   %274 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %275 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %275 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 20
   %277 = load i32, ptr %276, align 4
   call void %274(i32 noundef %277) #55
@@ -19044,12 +19045,12 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 284:                                              ; preds = %240, %236
   %285 = load ptr, ptr @glad_glUniform4f, align 8
-  %286 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 48
   %288 = load i32, ptr %287, align 4
   call void %285(i32 noundef %288, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00) #55
   %289 = load ptr, ptr @glad_glUniform1i, align 8
-  %290 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 60
   %292 = load i32, ptr %291, align 4
   call void %289(i32 noundef %292, i32 noundef 0) #55
@@ -19057,7 +19058,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 293:                                              ; preds = %284, %302
   %indvars.iv = phi i64 [ 0, %284 ], [ %indvars.iv.next, %302 ]
-  %294 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv
+  %294 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv
   %295 = load i32, ptr %294, align 4
   %.not81 = icmp eq i32 %295, 0
   br i1 %.not81, label %302, label %296
@@ -19141,7 +19142,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %340, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %329, %303
-  %341 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %341 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %342 = trunc i8 %341 to i1
   br i1 %342, label %346, label %343
 
@@ -19158,7 +19159,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %348
 
 348:                                              ; preds = %346, %146
-  %349 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %349 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %350 = trunc i8 %349 to i1
   br i1 %350, label %351, label %353
 
@@ -19177,21 +19178,21 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %78, label %357, label %361
 
 357:                                              ; preds = %356
-  %358 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 40), align 8
-  %359 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 41), align 4
+  %358 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
+  %359 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
   %360 = load ptr, ptr @glad_glViewport, align 8
   call void %360(i32 noundef 0, i32 noundef 0, i32 noundef %358, i32 noundef %359) #55
   br label %361
 
 361:                                              ; preds = %357, %356
-  store i32 0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %362 = getelementptr inbounds i8, ptr %0, i64 28
   store float -1.000000e+00, ptr %362, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
-  store <4 x float> %73, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  store <4 x float> %74, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 4), align 8
-  store <4 x float> %75, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 8), align 8
-  store <4 x float> %76, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 12), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
+  store <4 x float> %73, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  store <4 x float> %74, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
+  store <4 x float> %75, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
+  store <4 x float> %76, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
   br label %363
 
 363:                                              ; preds = %361, %363
@@ -19202,7 +19203,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %366 = load ptr, ptr %85, align 8
   %367 = getelementptr inbounds %struct.rlDrawCall, ptr %366, i64 %indvars.iv232, i32 1
   store i32 0, ptr %367, align 4
-  %368 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18), align 8
+  %368 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
   %369 = load ptr, ptr %85, align 8
   %370 = getelementptr inbounds %struct.rlDrawCall, ptr %369, i64 %indvars.iv232, i32 3
   store i32 %368, ptr %370, align 4
@@ -19211,7 +19212,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond235.not, label %.preheader.preheader, label %363
 
 .preheader.preheader:                             ; preds = %363
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 0), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 2332), i8 0, i64 16, i1 false)
   store i32 1, ptr %84, align 8
   %371 = load i32, ptr %83, align 4
   %372 = add nsw i32 %371, 1
@@ -19234,32 +19235,32 @@ define void @rlEnd() local_unnamed_addr #4 {
 
 ; Function Attrs: nounwind uwtable
 define void @rlVertex3f(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
-  %4 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 15), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 272), align 8
   %5 = trunc i8 %4 to i1
   %6 = insertelement <2 x float> poison, float %1, i64 0
   %7 = insertelement <2 x float> %6, float %2, i64 1
   br i1 %5, label %8, label %41
 
 8:                                                ; preds = %3
-  %9 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14), align 8
-  %10 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 1), align 4
+  %9 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 208), align 8
+  %10 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 212), align 4
   %11 = fmul float %10, %1
   %12 = tail call float @llvm.fmuladd.f32(float %9, float %0, float %11)
-  %13 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 2), align 8
+  %13 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 216), align 8
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %2, float %12)
-  %15 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 3), align 4
+  %15 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 220), align 4
   %16 = fadd float %15, %14
-  %17 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 4), align 8
+  %17 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 224), align 8
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %19 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 5), align 4
+  %19 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 228), align 4
   %20 = shufflevector <4 x float> %19, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %21 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 6), align 8
+  %21 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 232), align 8
   %22 = shufflevector <4 x float> %21, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %23 = load <4 x float>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 7), align 4
+  %23 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 236), align 4
   %24 = shufflevector <4 x float> %23, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %25 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 8), align 8
-  %26 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 9), align 4
-  %27 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 10), align 8
+  %25 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 240), align 8
+  %26 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 244), align 4
+  %27 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 248), align 8
   %28 = insertelement <2 x float> %20, float %26, i64 1
   %29 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
   %30 = fmul <2 x float> %28, %29
@@ -19270,7 +19271,7 @@ define void @rlVertex3f(float noundef %0, float noundef %1, float noundef %2) lo
   %35 = insertelement <2 x float> %22, float %27, i64 1
   %36 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %37 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %35, <2 x float> %36, <2 x float> %34)
-  %38 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 11), align 4
+  %38 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 252), align 4
   %39 = insertelement <2 x float> %24, float %38, i64 1
   %40 = fadd <2 x float> %39, %37
   br label %41
@@ -19278,7 +19279,7 @@ define void @rlVertex3f(float noundef %0, float noundef %1, float noundef %2) lo
 41:                                               ; preds = %8, %3
   %.016 = phi float [ %16, %8 ], [ %0, %3 ]
   %42 = phi <2 x float> [ %40, %8 ], [ %7, %3 ]
-  %43 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %44 = load ptr, ptr @RLGL, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -19361,7 +19362,7 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds %struct.rlVertexBuffer, ptr %99, i64 %102, i32 1
   %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %105 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %106 = mul nsw i32 %105, 3
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds float, ptr %104, i64 %107
@@ -19374,7 +19375,7 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds %struct.rlVertexBuffer, ptr %111, i64 %114, i32 1
   %116 = load ptr, ptr %115, align 8
-  %117 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %117 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %118 = mul nsw i32 %117, 3
   %119 = sext i32 %118 to i64
   %120 = getelementptr float, ptr %116, i64 %119
@@ -19389,14 +19390,14 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds %struct.rlVertexBuffer, ptr %125, i64 %128, i32 1
   %130 = load ptr, ptr %129, align 8
-  %131 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %131 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %132 = mul nsw i32 %131, 3
   %133 = sext i32 %132 to i64
   %134 = getelementptr float, ptr %130, i64 %133
   %135 = getelementptr i8, ptr %134, i64 8
   %136 = extractelement <2 x float> %42, i64 1
   store float %136, ptr %135, align 4
-  %137 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 1), align 4
+  %137 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 44), align 4
   %138 = load ptr, ptr @RLGL, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
@@ -19405,12 +19406,12 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds %struct.rlVertexBuffer, ptr %140, i64 %143, i32 2
   %145 = load ptr, ptr %144, align 8
-  %146 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %146 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %147 = shl nsw i32 %146, 1
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds float, ptr %145, i64 %148
   store float %137, ptr %149, align 4
-  %150 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 2), align 8
+  %150 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 48), align 8
   %151 = load ptr, ptr @RLGL, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
@@ -19419,13 +19420,13 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds %struct.rlVertexBuffer, ptr %153, i64 %156, i32 2
   %158 = load ptr, ptr %157, align 8
-  %159 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %159 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %160 = shl nsw i32 %159, 1
   %161 = or disjoint i32 %160, 1
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds float, ptr %158, i64 %162
   store float %150, ptr %163, align 4
-  %164 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 6), align 8
+  %164 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 64), align 8
   %165 = load ptr, ptr @RLGL, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
@@ -19434,12 +19435,12 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds %struct.rlVertexBuffer, ptr %167, i64 %170, i32 3
   %172 = load ptr, ptr %171, align 8
-  %173 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %173 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %174 = shl nsw i32 %173, 2
   %175 = sext i32 %174 to i64
   %176 = getelementptr inbounds i8, ptr %172, i64 %175
   store i8 %164, ptr %176, align 1
-  %177 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 7), align 1
+  %177 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 65), align 1
   %178 = load ptr, ptr @RLGL, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8
@@ -19448,13 +19449,13 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds %struct.rlVertexBuffer, ptr %180, i64 %183, i32 3
   %185 = load ptr, ptr %184, align 8
-  %186 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %186 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %187 = shl nsw i32 %186, 2
   %188 = or disjoint i32 %187, 1
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds i8, ptr %185, i64 %189
   store i8 %177, ptr %190, align 1
-  %191 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 8), align 2
+  %191 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 66), align 2
   %192 = load ptr, ptr @RLGL, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
@@ -19463,13 +19464,13 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds %struct.rlVertexBuffer, ptr %194, i64 %197, i32 3
   %199 = load ptr, ptr %198, align 8
-  %200 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %201 = shl nsw i32 %200, 2
   %202 = or disjoint i32 %201, 2
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %199, i64 %203
   store i8 %191, ptr %204, align 1
-  %205 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 9), align 1
+  %205 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 67), align 1
   %206 = load ptr, ptr @RLGL, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 8
   %208 = load ptr, ptr %207, align 8
@@ -19478,15 +19479,15 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds %struct.rlVertexBuffer, ptr %208, i64 %211, i32 3
   %213 = load ptr, ptr %212, align 8
-  %214 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %214 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %215 = shl nsw i32 %214, 2
   %216 = or disjoint i32 %215, 3
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds i8, ptr %213, i64 %217
   store i8 %205, ptr %218, align 1
-  %219 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %219 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %220 = add nsw i32 %219, 1
-  store i32 %220, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  store i32 %220, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %221 = load ptr, ptr @RLGL, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 16
   %223 = load ptr, ptr %222, align 8
@@ -19523,25 +19524,25 @@ define void @rlVertex2i(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlTexCoord2f(float noundef %0, float noundef %1) local_unnamed_addr #1 {
-  store float %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 1), align 4
-  store float %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 2), align 8
+  store float %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 44), align 4
+  store float %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 48), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlNormal3f(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #1 {
-  store float %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 3), align 4
-  store float %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 4), align 8
-  store float %2, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 5), align 4
+  store float %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 52), align 4
+  store float %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 56), align 8
+  store float %2, ptr getelementptr inbounds (i8, ptr @RLGL, i64 60), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlColor4ub(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
-  store i8 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 6), align 8
-  store i8 %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 7), align 1
-  store i8 %2, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 8), align 2
-  store i8 %3, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 9), align 1
+  store i8 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 64), align 8
+  store i8 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 65), align 1
+  store i8 %2, ptr getelementptr inbounds (i8, ptr @RLGL, i64 66), align 2
+  store i8 %3, ptr getelementptr inbounds (i8, ptr @RLGL, i64 67), align 1
   ret void
 }
 
@@ -19553,7 +19554,7 @@ define void @rlColor4f(float noundef %0, float noundef %1, float noundef %2, flo
   %8 = insertelement <4 x float> %7, float %3, i64 3
   %9 = fmul <4 x float> %8, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %10 = fptoui <4 x float> %9 to <4 x i8>
-  store <4 x i8> %10, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 6), align 8
+  store <4 x i8> %10, ptr getelementptr inbounds (i8, ptr @RLGL, i64 64), align 8
   ret void
 }
 
@@ -19565,10 +19566,10 @@ define void @rlColor3f(float noundef %0, float noundef %1, float noundef %2) loc
   %7 = fptoui float %6 to i8
   %8 = fmul float %2, 2.550000e+02
   %9 = fptoui float %8 to i8
-  store i8 %5, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 6), align 8
-  store i8 %7, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 7), align 1
-  store i8 %9, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 8), align 2
-  store i8 -1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 9), align 1
+  store i8 %5, ptr getelementptr inbounds (i8, ptr @RLGL, i64 64), align 8
+  store i8 %7, ptr getelementptr inbounds (i8, ptr @RLGL, i64 65), align 1
+  store i8 %9, ptr getelementptr inbounds (i8, ptr @RLGL, i64 66), align 2
+  store i8 -1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 67), align 1
   ret void
 }
 
@@ -19578,7 +19579,7 @@ define void @rlSetTexture(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %5 = load ptr, ptr @RLGL, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -19646,7 +19647,7 @@ define void @rlSetTexture(i32 noundef %0) local_unnamed_addr #0 {
   %47 = getelementptr %struct.rlDrawCall, ptr %43, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load i32, ptr %48, align 4
-  %50 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %51 = add nsw i32 %50, %49
   %52 = getelementptr inbounds i8, ptr %41, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -19689,7 +19690,7 @@ rlCheckRenderBatchLimit.exit.thread:              ; preds = %39
   br label %82
 
 rlCheckRenderBatchLimit.exit:                     ; preds = %39
-  store i32 %51, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  store i32 %51, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %80 = load i32, ptr %44, align 8
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %44, align 8
@@ -19788,7 +19789,7 @@ define void @rlTextureParameters(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %6
-  %9 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 12), align 4
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2708), align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
 
@@ -19813,7 +19814,7 @@ define void @rlTextureParameters(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 
 18:                                               ; preds = %3
   %19 = sitofp i32 %2 to float
-  %20 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 16), align 8
+  %20 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2712), align 8
   %21 = fcmp ult float %20, %19
   br i1 %21, label %24, label %22
 
@@ -19870,7 +19871,7 @@ define void @rlCubemapParameters(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %6
-  %9 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 12), align 4
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2708), align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
 
@@ -19895,7 +19896,7 @@ define void @rlCubemapParameters(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 
 18:                                               ; preds = %3
   %19 = sitofp i32 %2 to float
-  %20 = load float, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 16), align 8
+  %20 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2712), align 8
   %21 = fcmp ult float %20, %19
   br i1 %21, label %24, label %22
 
@@ -20176,19 +20177,19 @@ define void @rlDisableSmoothLines() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlEnableStereoRender() local_unnamed_addr #1 {
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 26), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlDisableStereoRender() local_unnamed_addr #1 {
-  store i8 0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 26), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @rlIsStereoRenderEnabled() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 26), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -20274,7 +20275,7 @@ define void @rlCheckErrors() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 29), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2644), align 4
   %.not = icmp eq i32 %2, %0
   br i1 %.not, label %3, label %8
 
@@ -20284,7 +20285,7 @@ define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %5, label %44
 
 5:                                                ; preds = %3
-  %6 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 39), align 4
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %44
 
@@ -20346,30 +20347,30 @@ define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %8
   %29 = load ptr, ptr @glad_glBlendFunc, align 8
-  %30 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 30), align 8
-  %31 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 31), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2648), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2652), align 4
   tail call void %29(i32 noundef %30, i32 noundef %31) #55
   %32 = load ptr, ptr @glad_glBlendEquation, align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 32), align 8
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2656), align 8
   tail call void %32(i32 noundef %33) #55
   br label %43
 
 34:                                               ; preds = %8
   %35 = load ptr, ptr @glad_glBlendFuncSeparate, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 33), align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 34), align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 35), align 4
-  %39 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 36), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2660), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2664), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2668), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2672), align 8
   tail call void %35(i32 noundef %36, i32 noundef %37, i32 noundef %38, i32 noundef %39) #55
   %40 = load ptr, ptr @glad_glBlendEquationSeparate, align 8
-  %41 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 37), align 4
-  %42 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 38), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2676), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2680), align 8
   tail call void %40(i32 noundef %41, i32 noundef %42) #55
   br label %43
 
 43:                                               ; preds = %8, %34, %28, %25, %22, %19, %16, %13, %10
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 29), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 39), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2644), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
   br label %44
 
 44:                                               ; preds = %3, %43, %5
@@ -20378,21 +20379,21 @@ define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @rlSetBlendFactors(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 30), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2648), align 8
   %.not = icmp eq i32 %4, %0
-  %5 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 31), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2652), align 4
   %.not6 = icmp eq i32 %5, %1
   %or.cond = select i1 %.not, i1 %.not6, i1 false
-  %6 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 32), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2656), align 8
   %.not7 = icmp eq i32 %6, %2
   %or.cond8 = select i1 %or.cond, i1 %.not7, i1 false
   br i1 %or.cond8, label %8, label %7
 
 7:                                                ; preds = %3
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 30), align 8
-  store i32 %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 31), align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 32), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 39), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2648), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2652), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2656), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
   br label %8
 
 8:                                                ; preds = %3, %7
@@ -20401,33 +20402,33 @@ define void @rlSetBlendFactors(i32 noundef %0, i32 noundef %1, i32 noundef %2) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @rlSetBlendFactorsSeparate(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #11 {
-  %7 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 33), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2660), align 4
   %.not = icmp eq i32 %7, %0
-  %8 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 34), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2664), align 8
   %.not12 = icmp eq i32 %8, %1
   %or.cond = select i1 %.not, i1 %.not12, i1 false
-  %9 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 35), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2668), align 4
   %.not13 = icmp eq i32 %9, %2
   %or.cond17 = select i1 %or.cond, i1 %.not13, i1 false
-  %10 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 36), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2672), align 8
   %.not14 = icmp eq i32 %10, %3
   %or.cond18 = select i1 %or.cond17, i1 %.not14, i1 false
-  %11 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 37), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2676), align 4
   %.not15 = icmp eq i32 %11, %4
   %or.cond19 = select i1 %or.cond18, i1 %.not15, i1 false
-  %12 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 38), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2680), align 8
   %.not16 = icmp eq i32 %12, %5
   %or.cond20 = select i1 %or.cond19, i1 %.not16, i1 false
   br i1 %or.cond20, label %14, label %13
 
 13:                                               ; preds = %6
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 33), align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 34), align 8
-  store i32 %2, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 35), align 4
-  store i32 %3, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 36), align 8
-  store i32 %4, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 37), align 4
-  store i32 %5, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 38), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 39), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2660), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2664), align 8
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2668), align 4
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2672), align 8
+  store i32 %4, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2676), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2680), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
   br label %14
 
 14:                                               ; preds = %6, %13
@@ -20440,7 +20441,7 @@ define void @rlglInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %4 = alloca %struct.rlRenderBatch, align 8
   store i32 -1, ptr %3, align 4
   %5 = call i32 @rlLoadTexture(ptr noundef nonnull %3, i32 noundef 1, i32 noundef 1, i32 noundef 7, i32 noundef 1)
-  store i32 %5, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18), align 8
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
@@ -20454,12 +20455,12 @@ define void @rlglInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %7, %6
   %9 = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 32, i64 noundef 4) #58
-  store ptr %9, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   br label %10
 
 10:                                               ; preds = %10, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %10 ]
-  %11 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   %12 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
   store i32 -1, ptr %12, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -20468,50 +20469,50 @@ define void @rlglInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 13:                                               ; preds = %10
   %14 = call i32 @rlCompileShader(ptr noundef nonnull @.str.1336, i32 noundef 35633)
-  store i32 %14, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   %15 = call i32 @rlCompileShader(ptr noundef nonnull @.str.1337, i32 noundef 35632)
-  store i32 %15, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 21), align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   %17 = call i32 @rlLoadShaderProgram(i32 noundef %16, i32 noundef %15)
-  store i32 %17, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %48, label %18
 
 18:                                               ; preds = %13
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1338, i32 noundef %17) #55
   %19 = load ptr, ptr @glad_glGetAttribLocation, align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   %21 = call i32 %19(i32 noundef %20, ptr noundef nonnull @.str.71) #55
-  %22 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   store i32 %21, ptr %22, align 4
   %23 = load ptr, ptr @glad_glGetAttribLocation, align 8
-  %24 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   %25 = call i32 %23(i32 noundef %24, ptr noundef nonnull @.str.72) #55
-  %26 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 4
   store i32 %25, ptr %27, align 4
   %28 = load ptr, ptr @glad_glGetAttribLocation, align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   %30 = call i32 %28(i32 noundef %29, ptr noundef nonnull @.str.74) #55
-  %31 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 20
   store i32 %30, ptr %32, align 4
   %33 = load ptr, ptr @glad_glGetUniformLocation, align 8
-  %34 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   %35 = call i32 %33(i32 noundef %34, ptr noundef nonnull @.str.165) #55
-  %36 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   store i32 %35, ptr %37, align 4
   %38 = load ptr, ptr @glad_glGetUniformLocation, align 8
-  %39 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   %40 = call i32 %38(i32 noundef %39, ptr noundef nonnull @.str.170) #55
-  %41 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 48
   store i32 %40, ptr %42, align 4
   %43 = load ptr, ptr @glad_glGetUniformLocation, align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   %45 = call i32 %43(i32 noundef %44, ptr noundef nonnull @.str.171) #55
-  %46 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 60
   store i32 %45, ptr %47, align 4
   br label %rlLoadShaderDefault.exit
@@ -20521,18 +20522,18 @@ define void @rlglInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %rlLoadShaderDefault.exit
 
 rlLoadShaderDefault.exit:                         ; preds = %18, %48
-  %49 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
-  store i32 %49, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 24), align 8
-  %50 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
-  store ptr %50, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  store i32 %49, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   call void @rlLoadRenderBatch(ptr dead_on_unwind nonnull writable sret(%struct.rlRenderBatch) align 8 %4, i32 noundef 1, i32 noundef 8192)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 1), ptr @RLGL, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @RLGL, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 8), ptr @RLGL, align 8
   br label %51
 
 51:                                               ; preds = %rlLoadShaderDefault.exit, %51
   %indvars.iv = phi i64 [ 0, %rlLoadShaderDefault.exit ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 16, i64 %indvars.iv
+  %52 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %indvars.iv
   store float 1.000000e+00, ptr %52, align 4
   %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.223.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -20551,26 +20552,26 @@ rlLoadShaderDefault.exit:                         ; preds = %18, %48
   br i1 %exitcond.not, label %53, label %51
 
 53:                                               ; preds = %51
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 5), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 10), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14, i32 15), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 5), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 10), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 11), i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 15), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 5), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 212), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 228), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 232), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 248), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 252), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 268), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   %54 = load ptr, ptr @glad_glDepthFunc, align 8
   call void %54(i32 noundef 515) #55
   %55 = load ptr, ptr @glad_glDisable, align 8
@@ -20587,8 +20588,8 @@ rlLoadShaderDefault.exit:                         ; preds = %18, %48
   call void %60(i32 noundef 2884) #55
   %61 = load ptr, ptr @glad_glEnable, align 8
   call void %61(i32 noundef 34895) #55
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 40), align 8
-  store i32 %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 41), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.17) #55
   %62 = load ptr, ptr @glad_glClearColor, align 8
   call void %62(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00) #55
@@ -20610,7 +20611,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   store i32 0, ptr %6, align 4
   %12 = load ptr, ptr @glad_glBindTexture, align 8
   tail call void %12(i32 noundef 3553, i32 noundef 0) #55
-  %13 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 7), align 1
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
   %14 = trunc i8 %13 to i1
   %15 = add i32 %3, -18
   %switch = icmp ult i32 %15, -4
@@ -20622,7 +20623,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %85
 
 17:                                               ; preds = %5
-  %18 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 8), align 8
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2704), align 8
   %19 = trunc i8 %18 to i1
   %20 = icmp ne i32 %3, 18
   %or.cond7.not = or i1 %20, %19
@@ -20633,7 +20634,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %85
 
 22:                                               ; preds = %17
-  %23 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 9), align 1
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
   %24 = trunc i8 %23 to i1
   %25 = add i32 %3, -21
   %or.cond9 = icmp ult i32 %25, -2
@@ -20645,7 +20646,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %85
 
 27:                                               ; preds = %22
-  %28 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 10), align 2
+  %28 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2706), align 2
   %29 = trunc i8 %28 to i1
   %30 = add i32 %3, -23
   %or.cond11 = icmp ult i32 %30, -2
@@ -20657,7 +20658,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %85
 
 32:                                               ; preds = %27
-  %33 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 11), align 1
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
   %34 = trunc i8 %33 to i1
   %35 = add i32 %3, -25
   %or.cond13 = icmp ult i32 %35, -2
@@ -20936,7 +20937,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph96
 
 ._crit_edge:                                      ; preds = %.lr.ph96, %.preheader88, %.preheader87, %.preheader
-  store i32 0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
   br i1 %exitcond127.not, label %._crit_edge100, label %24
@@ -20962,7 +20963,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
 
 73:                                               ; preds = %.lr.ph103, %81
   %indvars.iv128 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next129, %81 ]
-  %74 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %74 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %81
 
@@ -20987,11 +20988,11 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %88 = load ptr, ptr %87, align 8
   tail call void %86(i32 noundef 34962, i64 noundef %64, ptr noundef %88, i32 noundef 35048) #55
   %89 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %90 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %91 = load i32, ptr %90, align 4
   tail call void %89(i32 noundef %91) #55
   %92 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %93 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %94 = load i32, ptr %93, align 4
   tail call void %92(i32 noundef %94, i32 noundef 3, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #55
   %95 = load ptr, ptr @glad_glGenBuffers, align 8
@@ -21005,12 +21006,12 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %101 = load ptr, ptr %100, align 8
   tail call void %99(i32 noundef 34962, i64 noundef %67, ptr noundef %101, i32 noundef 35048) #55
   %102 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %103 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
   tail call void %102(i32 noundef %105) #55
   %106 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %107 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   tail call void %106(i32 noundef %109, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #55
@@ -21025,12 +21026,12 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %116 = load ptr, ptr %115, align 8
   tail call void %114(i32 noundef 34962, i64 noundef %69, ptr noundef %116, i32 noundef 35048) #55
   %117 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %118 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 20
   %120 = load i32, ptr %119, align 4
   tail call void %117(i32 noundef %120) #55
   %121 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %122 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 20
   %124 = load i32, ptr %123, align 4
   tail call void %121(i32 noundef %124, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 0, ptr noundef null) #55
@@ -21050,7 +21051,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
 
 ._crit_edge104:                                   ; preds = %81, %._crit_edge100.thread, %._crit_edge100
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.39) #55
-  %132 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %132 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %133 = trunc i8 %132 to i1
   br i1 %133, label %134, label %136
 
@@ -21063,7 +21064,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %137 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #57
   %138 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %137, ptr %138, align 8
-  %139 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18), align 8
+  %139 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
   br label %140
 
 140:                                              ; preds = %136, %140
@@ -21091,33 +21092,33 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
 
 ; Function Attrs: nounwind uwtable
 define void @rlglClose() local_unnamed_addr #0 {
-  tail call void @rlUnloadRenderBatch(ptr noundef nonnull byval(%struct.rlRenderBatch) align 8 getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 1))
+  tail call void @rlUnloadRenderBatch(ptr noundef nonnull byval(%struct.rlRenderBatch) align 8 getelementptr inbounds (i8, ptr @RLGL, i64 8))
   %1 = load ptr, ptr @glad_glUseProgram, align 8
   tail call void %1(i32 noundef 0) #55
   %2 = load ptr, ptr @glad_glDetachShader, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   tail call void %2(i32 noundef %3, i32 noundef %4) #55
   %5 = load ptr, ptr @glad_glDetachShader, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 21), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
   tail call void %5(i32 noundef %6, i32 noundef %7) #55
   %8 = load ptr, ptr @glad_glDeleteShader, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   tail call void %8(i32 noundef %9) #55
   %10 = load ptr, ptr @glad_glDeleteShader, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 21), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
   tail call void %10(i32 noundef %11) #55
   %12 = load ptr, ptr @glad_glDeleteProgram, align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   tail call void %12(i32 noundef %13) #55
-  %14 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   tail call void @free(ptr noundef %14) #55
-  %15 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1340, i32 noundef %15) #55
   %16 = load ptr, ptr @glad_glDeleteTextures, align 8
-  tail call void %16(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18)) #55
-  %17 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18), align 8
+  tail call void %16(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @RLGL, i64 2328)) #55
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.18, i32 noundef %17) #55
   ret void
 }
@@ -21140,7 +21141,7 @@ define void @rlUnloadRenderBatch(ptr nocapture noundef readonly byval(%struct.rl
 
 8:                                                ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %9 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %20
 
@@ -21174,7 +21175,7 @@ define void @rlUnloadRenderBatch(ptr nocapture noundef readonly byval(%struct.rl
   %27 = load ptr, ptr @glad_glDeleteBuffers, align 8
   %28 = getelementptr inbounds %struct.rlVertexBuffer, ptr %7, i64 %indvars.iv, i32 6, i64 3
   tail call void %27(i32 noundef 1, ptr noundef nonnull %28) #55
-  %29 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %29 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %34
 
@@ -21230,27 +21231,27 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   call void %8(i32 noundef 33309, ptr noundef nonnull %2) #55
   %9 = load i32, ptr %2, align 4
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %9) #55
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 5), align 1
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 6), align 2
-  store i32 16843009, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
-  store i32 32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 17), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 13), align 1
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 12), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2701), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2702), align 2
+  store i32 16843009, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  store i32 32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2716), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2709), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2708), align 4
   %10 = load i32, ptr @GLAD_GL_KHR_texture_compression_astc_hdr, align 4
   %11 = icmp ne i32 %10, 0
   %12 = load i32, ptr @GLAD_GL_KHR_texture_compression_astc_ldr, align 4
   %13 = icmp ne i32 %12, 0
   %14 = select i1 %11, i1 %13, i1 false
   %15 = zext i1 %14 to i8
-  store i8 %15, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 11), align 1
+  store i8 %15, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
   %16 = load i32, ptr @GLAD_GL_EXT_texture_compression_s3tc, align 4
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i8
-  store i8 %18, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 7), align 1
+  store i8 %18, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
   %19 = load i32, ptr @GLAD_GL_ARB_ES3_compatibility, align 4
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i8
-  store i8 %21, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 9), align 1
+  store i8 %21, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.22) #55
   %22 = load ptr, ptr @glad_glGetString, align 8
   %23 = call ptr %22(i32 noundef 7936) #55
@@ -21265,8 +21266,8 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   %29 = call ptr %28(i32 noundef 35724) #55
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.26, ptr noundef %29) #55
   %30 = load ptr, ptr @glad_glGetFloatv, align 8
-  call void %30(i32 noundef 34047, ptr noundef nonnull getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 16)) #55
-  %31 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  call void %30(i32 noundef 34047, ptr noundef nonnull getelementptr inbounds (i8, ptr @RLGL, i64 2712)) #55
+  %31 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %34
 
@@ -21279,7 +21280,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %35
 
 35:                                               ; preds = %34, %33
-  %36 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 2), align 2
+  %36 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2698), align 2
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %39
 
@@ -21292,7 +21293,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %40
 
 40:                                               ; preds = %39, %38
-  %41 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 7), align 1
+  %41 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %44
 
@@ -21301,7 +21302,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %44
 
 44:                                               ; preds = %43, %40
-  %45 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 8), align 8
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2704), align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %48
 
@@ -21310,7 +21311,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %47, %44
-  %49 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 9), align 1
+  %49 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %52
 
@@ -21319,7 +21320,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %52
 
 52:                                               ; preds = %51, %48
-  %53 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 10), align 2
+  %53 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2706), align 2
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %56
 
@@ -21328,7 +21329,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %56
 
 56:                                               ; preds = %55, %52
-  %57 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 11), align 1
+  %57 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %60
 
@@ -21337,7 +21338,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %59, %56
-  %61 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 14), align 2
+  %61 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2710), align 2
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %64
 
@@ -21346,7 +21347,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %64
 
 64:                                               ; preds = %63, %60
-  %65 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 15), align 1
+  %65 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2711), align 1
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %68
 
@@ -21365,43 +21366,43 @@ define noundef i32 @rlGetVersion() local_unnamed_addr #12 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlSetFramebufferWidth(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 40), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlSetFramebufferHeight(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 41), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @rlGetFramebufferWidth() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 40), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @rlGetFramebufferHeight() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 41), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @rlGetTextureIdDefault() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @rlGetShaderIdDefault() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @rlGetShaderLocsDefault() local_unnamed_addr #10 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   ret ptr %1
 }
 
@@ -21413,13 +21414,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlSetMatrixModelview(ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %0) local_unnamed_addr #4 {
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlSetMatrixProjection(ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %0) local_unnamed_addr #4 {
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   ret void
 }
 
@@ -21428,7 +21429,7 @@ define void @rlSetRenderBatchActive(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %2)
   %.not = icmp eq ptr %0, null
-  %. = select i1 %.not, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 1), ptr %0
+  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @RLGL, i64 8), ptr %0
   store ptr %., ptr @RLGL, align 8
   ret void
 }
@@ -21515,7 +21516,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 12:                                               ; preds = %4
-  %13 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 5), align 1
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2701), align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %16
 
@@ -21529,7 +21530,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 17:                                               ; preds = %4
-  %18 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 5), align 1
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2701), align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %21
 
@@ -21543,7 +21544,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 22:                                               ; preds = %4
-  %23 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 5), align 1
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2701), align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %26
 
@@ -21557,7 +21558,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 27:                                               ; preds = %4
-  %28 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 6), align 2
+  %28 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2702), align 2
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %31
 
@@ -21571,7 +21572,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 32:                                               ; preds = %4
-  %33 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 6), align 2
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2702), align 2
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %36
 
@@ -21585,7 +21586,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 37:                                               ; preds = %4
-  %38 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 6), align 2
+  %38 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2702), align 2
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %41
 
@@ -21599,7 +21600,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 42:                                               ; preds = %4
-  %43 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 7), align 1
+  %43 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %87
 
@@ -21608,7 +21609,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 46:                                               ; preds = %4
-  %47 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 7), align 1
+  %47 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %87
 
@@ -21617,7 +21618,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 50:                                               ; preds = %4
-  %51 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 7), align 1
+  %51 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %87
 
@@ -21626,7 +21627,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 54:                                               ; preds = %4
-  %55 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 7), align 1
+  %55 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %87
 
@@ -21635,7 +21636,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 58:                                               ; preds = %4
-  %59 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 8), align 8
+  %59 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2704), align 8
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %87
 
@@ -21644,7 +21645,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 62:                                               ; preds = %4
-  %63 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 9), align 1
+  %63 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %87
 
@@ -21653,7 +21654,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 66:                                               ; preds = %4
-  %67 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 9), align 1
+  %67 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
   %68 = trunc i8 %67 to i1
   br i1 %68, label %69, label %87
 
@@ -21662,7 +21663,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 70:                                               ; preds = %4
-  %71 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 10), align 2
+  %71 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2706), align 2
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %87
 
@@ -21671,7 +21672,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 74:                                               ; preds = %4
-  %75 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 10), align 2
+  %75 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2706), align 2
   %76 = trunc i8 %75 to i1
   br i1 %76, label %77, label %87
 
@@ -21680,7 +21681,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 78:                                               ; preds = %4
-  %79 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 11), align 1
+  %79 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %87
 
@@ -21689,7 +21690,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 82:                                               ; preds = %4
-  %83 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 11), align 1
+  %83 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %87
 
@@ -21726,7 +21727,7 @@ switch.lookup:                                    ; preds = %1
 define i32 @rlLoadTextureDepth(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
-  %5 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 3), align 1
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2699), align 1
   %6 = trunc i8 %5 to i1
   %7 = xor i1 %6, true
   %brmerge = or i1 %7, %2
@@ -21764,7 +21765,7 @@ define i32 @rlLoadTextureDepth(i32 noundef %0, i32 noundef %1, i1 noundef zeroex
   %23 = load ptr, ptr @glad_glBindRenderbuffer, align 8
   call void %23(i32 noundef 36161, i32 noundef 0) #55
   %24 = load i32, ptr %4, align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 17), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2716), align 4
   %26 = icmp sgt i32 %25, 23
   %27 = select i1 %26, i32 %25, i32 16
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.49, i32 noundef %24, i32 noundef %27) #55
@@ -22021,7 +22022,7 @@ define void @rlGenTextureMipmaps(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %16, label %19, label %.critedge
 
 .critedge:                                        ; preds = %8, %5, %13
-  %17 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3, i32 2), align 2
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2698), align 2
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %28
 
@@ -22438,7 +22439,7 @@ define void @rlUpdateVertexBufferElements(i32 noundef %0, ptr noundef %1, i32 no
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @rlEnableVertexArray(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6
 
@@ -22453,7 +22454,7 @@ define noundef zeroext i1 @rlEnableVertexArray(i32 noundef %0) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define void @rlDisableVertexArray() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %5
 
@@ -22518,7 +22519,7 @@ define void @rlDrawVertexArrayElementsInstanced(i32 noundef %0, i32 noundef %1, 
 define i32 @rlLoadVertexArray() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   store i32 0, ptr %1, align 4
-  %2 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6
 
@@ -22552,7 +22553,7 @@ define void @rlSetVertexAttributeDivisor(i32 noundef %0, i32 noundef %1) local_u
 define void @rlUnloadVertexArray(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load i8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 3), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %9
 
@@ -22584,13 +22585,13 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   br label %8
 
 4:                                                ; preds = %2
   %5 = tail call i32 @rlCompileShader(ptr noundef nonnull %0, i32 noundef 35633)
   %6 = icmp eq i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   %spec.select = select i1 %6, i32 %7, i32 %5
   br label %8
 
@@ -22601,15 +22602,15 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not28, label %.thread36, label %12
 
 .thread36:                                        ; preds = %8
-  %11 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 21), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
   br label %16
 
 12:                                               ; preds = %8
   %13 = tail call i32 @rlCompileShader(ptr noundef nonnull %1, i32 noundef 35632)
   %14 = icmp eq i32 %13, 0
-  %15 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 21), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
   %spec.select38 = select i1 %14, i32 %15, i32 %13
-  %.pre = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   br label %16
 
 16:                                               ; preds = %12, %.thread36
@@ -22622,12 +22623,12 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %or.cond, label %22, label %24
 
 22:                                               ; preds = %16
-  %23 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   br label %43
 
 24:                                               ; preds = %16
   %25 = tail call i32 @rlLoadShaderProgram(i32 noundef %10, i32 noundef %19)
-  %26 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   %.not29 = icmp eq i32 %10, %26
   br i1 %.not29, label %32, label %27
 
@@ -22646,7 +22647,7 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %32
 
 32:                                               ; preds = %30, %24
-  %33 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 21), align 8
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
   %.not31 = icmp eq i32 %19, %33
   br i1 %.not31, label %39, label %34
 
@@ -22670,7 +22671,7 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 41:                                               ; preds = %39
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.65) #55
-  %42 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   br label %43
 
 43:                                               ; preds = %39, %41, %22
@@ -23031,7 +23032,7 @@ define void @rlSetUniformSampler(i32 noundef %0, i32 noundef %1) local_unnamed_a
 
 3:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv
+  %4 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, %1
   br i1 %6, label %7, label %11
@@ -23050,13 +23051,13 @@ define void @rlSetUniformSampler(i32 noundef %0, i32 noundef %1) local_unnamed_a
 
 .preheader:                                       ; preds = %11, %20
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %20 ], [ 0, %11 ]
-  %12 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv23
+  %12 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv23
+  %16 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23
   %17 = trunc nuw nsw i64 %indvars.iv23 to i32
   %18 = load ptr, ptr @glad_glUniform1i, align 8
   %19 = add nuw nsw i32 %17, 1
@@ -23075,15 +23076,15 @@ define void @rlSetUniformSampler(i32 noundef %0, i32 noundef %1) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @rlSetShader(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 24), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
   %.not = icmp eq i32 %3, %0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %5)
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 24), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   br label %6
 
 6:                                                ; preds = %4, %2
@@ -23142,26 +23143,26 @@ define void @rlBindImageTexture(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixModelview(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 %0) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 80), i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixProjection(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 %0) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixTransform(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 %0) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14), i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 208), i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixProjectionStereo(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 27, i64 %3
+  %4 = getelementptr inbounds [2 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2388), i64 0, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   ret void
 }
@@ -23169,22 +23170,22 @@ define void @rlGetMatrixProjectionStereo(ptr dead_on_unwind noalias nocapture wr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixViewOffsetStereo(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 28, i64 %3
+  %4 = getelementptr inbounds [2 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2516), i64 0, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlSetMatrixProjectionStereo(ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #4 {
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 27), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 27, i64 1), ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2388), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2452), ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlSetMatrixViewOffsetStereo(ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #4 {
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 28), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 28, i64 1), ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2516), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2580), ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
 
@@ -27365,13 +27366,13 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetGesturesEnabled(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 1), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 4), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsGestureDetected(i32 noundef %0) local_unnamed_addr #10 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 1), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 4), align 4
   %3 = load i32, ptr @GESTURES, align 8
   %4 = and i32 %3, %2
   %5 = icmp eq i32 %4, %0
@@ -27382,7 +27383,7 @@ define zeroext i1 @IsGestureDetected(i32 noundef %0) local_unnamed_addr #10 {
 define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%struct.GestureEvent) align 8 %0) local_unnamed_addr #25 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
-  store i32 %3, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 1), align 4
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
   switch i32 %3, label %188 [
     i32 1, label %4
     i32 2, label %103
@@ -27397,9 +27398,9 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 11), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 11), align 8
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
   %9 = load i32, ptr @GESTURES, align 8
   %10 = icmp eq i32 %9, 0
   %11 = icmp sgt i32 %7, 0
@@ -27408,14 +27409,14 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 
 12:                                               ; preds = %6
   %13 = tail call double @glfwGetTime() #55
-  %14 = load double, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 2), align 8
+  %14 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 16), align 8
   %15 = fsub double %13, %14
   %16 = fcmp olt double %15, 0x3FD3333340000000
   br i1 %16, label %17, label %30
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 4), align 8
+  %19 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
   %20 = load <2 x float>, ptr %18, align 8
   %21 = fsub <2 x float> %20, %19
   %22 = extractelement <2 x float> %21, i64 0
@@ -27430,11 +27431,11 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 28:                                               ; preds = %17
   %29 = bitcast <2 x float> %20 to i64
   store i32 2, ptr @GESTURES, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 11), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
   br label %31
 
 30:                                               ; preds = %17, %12, %6
-  store i32 1, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 11), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
   store i32 1, ptr @GESTURES, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
   %.pre61 = load i64, ptr %.phi.trans.insert, align 8
@@ -27442,14 +27443,14 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 
 31:                                               ; preds = %30, %28
   %32 = phi i64 [ %.pre61, %30 ], [ %29, %28 ]
-  store i64 %32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 4), align 8
-  store i64 %32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 6), align 8
-  store i64 %32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 3), align 8
+  store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
+  store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 48), align 8
+  store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
   %33 = tail call double @glfwGetTime() #55
-  store double %33, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 2), align 8
+  store double %33, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 16), align 8
   %34 = tail call double @glfwGetTime() #55
-  store double %34, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 5), align 8
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4), align 8
+  store double %34, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 136), align 8
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 112), align 8
   br label %188
 
 35:                                               ; preds = %4
@@ -27460,19 +27461,19 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   ]
 
 ._crit_edge:                                      ; preds = %35
-  %.pre60 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 3), align 8
+  %.pre60 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
   br label %41
 
 37:                                               ; preds = %35, %35
   %38 = getelementptr inbounds i8, ptr %0, i64 40
   %39 = load i64, ptr %38, align 8
-  store i64 %39, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 3), align 8
+  store i64 %39, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
   %40 = bitcast i64 %39 to <2 x float>
   br label %41
 
 41:                                               ; preds = %._crit_edge, %37
   %42 = phi <2 x float> [ %.pre60, %._crit_edge ], [ %40, %37 ]
-  %43 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 4), align 8
+  %43 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
   %44 = fsub <2 x float> %42, %43
   %45 = extractelement <2 x float> %44, i64 0
   %46 = fsub <2 x float> %42, %43
@@ -27480,13 +27481,13 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %48 = extractelement <2 x float> %47, i64 1
   %49 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %48)
   %sqrt.i25 = tail call float @llvm.sqrt.f32(float %49)
-  store float %sqrt.i25, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4, i32 2), align 4
+  store float %sqrt.i25, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 124), align 4
   %50 = tail call double @glfwGetTime() #55
-  %51 = load double, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 5), align 8
+  %51 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 136), align 8
   %52 = fsub double %50, %51
   %53 = fptrunc double %52 to float
   %54 = fdiv float %sqrt.i25, %53
-  store float %54, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4, i32 3), align 8
+  store float %54, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 128), align 8
   %55 = fcmp ogt float %54, 0x3FC99999A0000000
   %56 = load i32, ptr @GESTURES, align 8
   %57 = icmp ne i32 %56, 8
@@ -27494,8 +27495,8 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   br i1 %or.cond5, label %58, label %81
 
 58:                                               ; preds = %41
-  %59 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 4), align 8
-  %60 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 3), align 8
+  %59 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
+  %60 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
   %61 = fsub <2 x float> %60, %59
   %62 = extractelement <2 x float> %61, i64 1
   %63 = fsub <2 x float> %60, %59
@@ -27506,7 +27507,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %68 = fadd float %66, 3.600000e+02
   %.0.i = select i1 %67, float %68, float %66
   %69 = fsub float 3.600000e+02, %.0.i
-  store float %69, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4, i32 1), align 8
+  store float %69, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 120), align 8
   %70 = fcmp olt float %69, 3.000000e+01
   %71 = fcmp ogt float %69, 3.300000e+02
   %or.cond7 = or i1 %70, %71
@@ -27532,53 +27533,53 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   br label %82
 
 81:                                               ; preds = %41
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4, i32 3), align 8
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4, i32 1), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 128), align 8
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 120), align 8
   br label %82
 
 82:                                               ; preds = %78, %75, %72, %58, %81
   %.sink = phi i32 [ 0, %81 ], [ 16, %58 ], [ 64, %72 ], [ 32, %75 ], [ %., %78 ]
   store i32 %.sink, ptr @GESTURES, align 8
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 1), align 4
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
   br label %188
 
 83:                                               ; preds = %4
   %84 = getelementptr inbounds i8, ptr %0, i64 40
   %85 = load i64, ptr %84, align 8
-  store i64 %85, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 7), align 8
+  store i64 %85, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
   %86 = load i32, ptr @GESTURES, align 8
   %87 = icmp eq i32 %86, 4
   br i1 %87, label %88, label %99
 
 88:                                               ; preds = %83
-  %89 = load i8, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 3), align 8
+  %89 = load i8, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 96), align 8
   %90 = trunc i8 %89 to i1
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %88
-  store i64 %85, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 4), align 8
+  store i64 %85, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
   br label %92
 
 92:                                               ; preds = %91, %88
-  store i8 0, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 3), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 96), align 8
   %93 = tail call double @glfwGetTime() #55
-  %94 = load double, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 2), align 8
+  %94 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 16), align 8
   %95 = fsub double %93, %94
   %96 = fcmp ogt double %95, 0x3FD3333340000000
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %92
   %98 = tail call double @glfwGetTime() #55
-  store double %98, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 2), align 8
+  store double %98, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 16), align 8
   store i32 8, ptr @GESTURES, align 8
   br label %99
 
 99:                                               ; preds = %92, %97, %83
-  %100 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 7), align 8
-  %101 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 6), align 8
+  %100 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
+  %101 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 48), align 8
   %102 = fsub <2 x float> %100, %101
-  store <2 x float> %102, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4), align 8
+  store <2 x float> %102, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 112), align 8
   br label %188
 
 103:                                              ; preds = %1
@@ -27592,18 +27593,18 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %0, i64 40
   %107 = load i64, ptr %106, align 8
-  store i64 %107, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 4), align 8
+  store i64 %107, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 48
   %109 = load i64, ptr %108, align 8
-  store i64 %109, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 5), align 8
-  store i64 %107, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 9), align 8
-  store i64 %109, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 10), align 8
+  store i64 %109, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 40), align 8
+  store i64 %107, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 72), align 8
+  store i64 %109, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 80), align 8
   %110 = trunc i64 %109 to i32
   %111 = bitcast i32 %110 to float
   %112 = trunc i64 %107 to i32
   %113 = bitcast i32 %112 to float
   %114 = fsub float %111, %113
-  store float %114, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6), align 8
+  store float %114, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 144), align 8
   %115 = lshr i64 %109, 32
   %116 = trunc nuw i64 %115 to i32
   %117 = bitcast i32 %116 to float
@@ -27611,15 +27612,15 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %119 = trunc nuw i64 %118 to i32
   %120 = bitcast i32 %119 to float
   %121 = fsub float %117, %120
-  store float %121, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6, i32 0, i32 1), align 4
+  store float %121, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 148), align 4
   store i32 4, ptr @GESTURES, align 8
   %122 = tail call double @glfwGetTime() #55
-  store double %122, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 3, i32 1), align 8
+  store double %122, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
   br label %188
 
 123:                                              ; preds = %103
-  %124 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 7), align 8
-  %125 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 8), align 8
+  %124 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
+  %125 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
   %126 = fsub <2 x float> %125, %124
   %127 = extractelement <2 x float> %126, i64 0
   %128 = fsub <2 x float> %125, %124
@@ -27627,19 +27628,19 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %130 = extractelement <2 x float> %129, i64 1
   %131 = tail call float @llvm.fmuladd.f32(float %127, float %127, float %130)
   %sqrt.i32 = tail call float @llvm.sqrt.f32(float %131)
-  store float %sqrt.i32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6, i32 2), align 4
+  store float %sqrt.i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 156), align 4
   %132 = getelementptr inbounds i8, ptr %0, i64 40
   %133 = load i64, ptr %132, align 8
-  store i64 %133, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 7), align 8
+  store i64 %133, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
   %134 = getelementptr inbounds i8, ptr %0, i64 48
   %135 = load i64, ptr %134, align 8
-  store i64 %135, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 8), align 8
+  store i64 %135, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
   %136 = trunc i64 %135 to i32
   %137 = bitcast i32 %136 to float
   %138 = trunc i64 %133 to i32
   %139 = bitcast i32 %138 to float
   %140 = fsub float %137, %139
-  store float %140, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6), align 8
+  store float %140, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 144), align 8
   %141 = lshr i64 %135, 32
   %142 = trunc nuw i64 %141 to i32
   %143 = bitcast i32 %142 to float
@@ -27647,8 +27648,8 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %145 = trunc nuw i64 %144 to i32
   %146 = bitcast i32 %145 to float
   %147 = fsub float %143, %146
-  store float %147, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6, i32 0, i32 1), align 4
-  %148 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 9), align 8
+  store float %147, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 148), align 4
+  %148 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 72), align 8
   %149 = trunc i64 %133 to i32
   %.sroa.0.0.vec.extract.i33 = bitcast i32 %149 to float
   %.sroa.05.0.vec.extract.i34 = extractelement <2 x float> %148, i64 0
@@ -27662,7 +27663,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %154 = tail call float @llvm.fmuladd.f32(float %150, float %150, float %153)
   %sqrt.i37 = tail call float @llvm.sqrt.f32(float %154)
   %155 = fcmp ult float %sqrt.i37, 0x3F747AE140000000
-  %.pre = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 10), align 8
+  %.pre = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 80), align 8
   %extelt.offset74 = lshr i64 %135, 32
   %156 = trunc nuw i64 %extelt.offset74 to i32
   %.sroa.0.4.vec.extract.i40 = bitcast i32 %156 to float
@@ -27716,9 +27717,9 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 177:                                              ; preds = %158
   store i32 4, ptr @GESTURES, align 8
   %178 = tail call double @glfwGetTime() #55
-  store double %178, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 3, i32 1), align 8
-  %.pre58 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 7), align 8
-  %.pre59 = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 8), align 8
+  store double %178, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
+  %.pre58 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
+  %.pre59 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
   %179 = fsub <2 x float> %.pre59, %.pre58
   %.pre64 = extractelement <2 x float> %179, i64 1
   %180 = fsub <2 x float> %.pre59, %.pre58
@@ -27734,13 +27735,13 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %185 = fadd float %183, 3.600000e+02
   %.0.i57 = select i1 %184, float %185, float %183
   %186 = fsub float 3.600000e+02, %.0.i57
-  store float %186, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6, i32 1), align 8
+  store float %186, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 152), align 8
   br label %188
 
 187:                                              ; preds = %103
-  store i32 0, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
   store i32 0, ptr @GESTURES, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @GESTURES, i64 144), i8 0, i64 16, i1 false)
   br label %188
 
 188:                                              ; preds = %1, %103, %4, %181, %187, %105, %31, %99, %82
@@ -27752,7 +27753,7 @@ define hidden void @UpdateGestures() local_unnamed_addr #0 {
   %1 = load i32, ptr @GESTURES, align 8
   %2 = add i32 %1, -1
   %or.cond = icmp ult i32 %2, 2
-  %3 = load i32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
   %4 = icmp slt i32 %3, 2
   %or.cond3 = select i1 %or.cond, i1 %4, i1 false
   br i1 %or.cond3, label %5, label %7
@@ -27760,7 +27761,7 @@ define hidden void @UpdateGestures() local_unnamed_addr #0 {
 5:                                                ; preds = %0
   store i32 4, ptr @GESTURES, align 8
   %6 = tail call double @glfwGetTime() #55
-  store double %6, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 3, i32 1), align 8
+  store double %6, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
   %.pre = load i32, ptr @GESTURES, align 8
   br label %7
 
@@ -27785,7 +27786,7 @@ define hidden void @UpdateGestures() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetGestureDetected() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 4), align 4
   %2 = load i32, ptr @GESTURES, align 8
   %3 = and i32 %2, %1
   ret i32 %3
@@ -27799,7 +27800,7 @@ define float @GetGestureHoldDuration() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = tail call double @glfwGetTime() #55
-  %5 = load double, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 3, i32 1), align 8
+  %5 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
   %6 = fsub double %4, %5
   %7 = fptrunc double %6 to float
   br label %8
@@ -27811,25 +27812,25 @@ define float @GetGestureHoldDuration() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetGestureDragVector() local_unnamed_addr #26 {
-  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4), align 8
+  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 112), align 8
   ret <2 x float> %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define float @GetGestureDragAngle() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 4, i32 1), align 8
+  %1 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 120), align 8
   ret float %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetGesturePinchVector() local_unnamed_addr #26 {
-  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6), align 8
+  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 144), align 8
   ret <2 x float> %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define float @GetGesturePinchAngle() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6, i32 1), align 8
+  %1 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 152), align 8
   ret float %1
 }
 
@@ -28936,11 +28937,11 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias nocapture writ
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @UpdateCamera(ptr noundef %0, i32 noundef %1) local_unnamed_addr #30 {
-  %3 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  %4 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
+  %3 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  %4 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
   %5 = fsub float %3, %4
-  %6 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2, i32 1), align 8
-  %7 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3, i32 1), align 8
+  %6 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
+  %7 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1896), align 8
   %8 = fsub float %6, %7
   %9 = icmp eq i32 %1, 4
   %10 = add i32 %1, -3
@@ -28993,7 +28994,7 @@ GetCameraUp.exit:                                 ; preds = %18, %26
   %.pre-phi = phi float [ %21, %18 ], [ %.pre873, %26 ]
   %.sroa.617.0.i.i = phi float [ %.sroa.24.0.copyload.i, %18 ], [ %31, %26 ]
   %34 = phi <2 x float> [ %.sroa.03.0.copyload.i, %18 ], [ %30, %26 ]
-  %35 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 4), align 8
+  %35 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
   %36 = fptrunc double %35 to float
   %37 = fmul float %36, 5.000000e-01
   %38 = fcmp une float %.pre-phi877, 1.000000e+00
@@ -29082,7 +29083,7 @@ MatrixRotate.exit:                                ; preds = %GetCameraUp.exit, %
   br label %.thread
 
 103:                                              ; preds = %16
-  %104 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 264), align 4
+  %104 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 460), align 4
   %105 = icmp eq i8 %104, 1
   br i1 %105, label %106, label %107
 
@@ -29091,7 +29092,7 @@ MatrixRotate.exit:                                ; preds = %GetCameraUp.exit, %
   br label %107
 
 107:                                              ; preds = %106, %103
-  %108 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 265), align 1
+  %108 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 461), align 1
   %109 = icmp eq i8 %108, 1
   br i1 %109, label %110, label %111
 
@@ -29100,7 +29101,7 @@ MatrixRotate.exit:                                ; preds = %GetCameraUp.exit, %
   br label %111
 
 111:                                              ; preds = %110, %107
-  %112 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 262), align 2
+  %112 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 458), align 2
   %113 = icmp eq i8 %112, 1
   br i1 %113, label %114, label %CameraYaw.exit
 
@@ -29205,7 +29206,7 @@ GetCameraUp.exit.i:                               ; preds = %123, %114
   br label %CameraYaw.exit
 
 CameraYaw.exit:                                   ; preds = %178, %175, %111
-  %181 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 263), align 1
+  %181 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 459), align 1
   %182 = icmp eq i8 %181, 1
   br i1 %182, label %183, label %CameraYaw.exit169
 
@@ -29310,7 +29311,7 @@ GetCameraUp.exit.i138:                            ; preds = %192, %183
   br label %CameraYaw.exit169
 
 CameraYaw.exit169:                                ; preds = %247, %244, %CameraYaw.exit
-  %250 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 81), align 1
+  %250 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 277), align 1
   %251 = icmp eq i8 %250, 1
   br i1 %251, label %CameraRoll.exit, label %314
 
@@ -29396,7 +29397,7 @@ CameraRoll.exit:                                  ; preds = %CameraYaw.exit169
   br label %314
 
 314:                                              ; preds = %CameraRoll.exit, %CameraYaw.exit169
-  %315 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 69), align 1
+  %315 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 265), align 1
   %316 = icmp eq i8 %315, 1
   br i1 %316, label %CameraRoll.exit204, label %379
 
@@ -29485,19 +29486,19 @@ CameraRoll.exit204:                               ; preds = %314
   br i1 %14, label %380, label %539
 
 380:                                              ; preds = %379
-  %381 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 2), align 4
+  %381 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1908), align 4
   %382 = icmp eq i8 %381, 1
-  %383 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 2), align 2
+  %383 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2042), align 2
   %384 = icmp eq i8 %383, 1
   %narrow.i = select i1 %384, i1 true, i1 %382
   br i1 %narrow.i, label %385, label %539
 
 385:                                              ; preds = %380
-  %386 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  %387 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
+  %386 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  %387 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
   %388 = fsub float %386, %387
-  %389 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2, i32 1), align 8
-  %390 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3, i32 1), align 8
+  %389 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
+  %390 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1896), align 8
   %391 = fsub float %389, %390
   %392 = fcmp ogt float %388, 0.000000e+00
   br i1 %392, label %GetCameraForward.exit.i.i, label %440
@@ -29885,7 +29886,7 @@ CameraYaw.exit345:                                ; preds = %609, %612
   br label %616
 
 616:                                              ; preds = %514, %516, %CameraYaw.exit345
-  %617 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 87), align 1
+  %617 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 283), align 1
   %618 = icmp eq i8 %617, 1
   br i1 %618, label %GetCameraForward.exit.i, label %648
 
@@ -29949,7 +29950,7 @@ CameraMoveForward.exit:                           ; preds = %GetCameraForward.ex
   br label %648
 
 648:                                              ; preds = %CameraMoveForward.exit, %616
-  %649 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 65), align 1
+  %649 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 261), align 1
   %650 = icmp eq i8 %649, 1
   br i1 %650, label %GetCameraForward.exit.i.i391, label %707
 
@@ -30063,7 +30064,7 @@ CameraMoveRight.exit428:                          ; preds = %GetCameraRight.exit
   br label %707
 
 707:                                              ; preds = %CameraMoveRight.exit428, %648
-  %708 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 83), align 1
+  %708 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 279), align 1
   %709 = icmp eq i8 %708, 1
   br i1 %709, label %GetCameraForward.exit.i443, label %739
 
@@ -30127,7 +30128,7 @@ CameraMoveForward.exit461:                        ; preds = %GetCameraForward.ex
   br label %739
 
 739:                                              ; preds = %CameraMoveForward.exit461, %707
-  %740 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 68), align 8
+  %740 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 264), align 8
   %741 = icmp eq i8 %740, 1
   br i1 %741, label %GetCameraForward.exit.i.i476, label %798
 
@@ -30241,12 +30242,12 @@ CameraMoveRight.exit513:                          ; preds = %GetCameraRight.exit
   br label %798
 
 798:                                              ; preds = %CameraMoveRight.exit513, %739
-  %799 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
+  %799 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   %800 = trunc i8 %799 to i1
   br i1 %800, label %GetGamepadAxisMovement.exit, label %GetGamepadAxisMovement.exit684.thread
 
 GetGamepadAxisMovement.exit:                      ; preds = %798
-  %801 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 0, i64 2), align 8
+  %801 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2600), align 8
   %802 = tail call float @llvm.fabs.f32(float %801)
   %803 = fcmp ogt float %802, 0x3FB99999A0000000
   %804 = fmul float %801, -2.000000e+00
@@ -30364,12 +30365,12 @@ GetCameraUp.exit.i523:                            ; preds = %815, %GetGamepadAxi
   br label %CameraYaw.exit554
 
 CameraYaw.exit554:                                ; preds = %875, %878
-  %881 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
+  %881 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   %882 = trunc i8 %881 to i1
   br i1 %882, label %883, label %GetGamepadAxisMovement.exit557
 
 883:                                              ; preds = %CameraYaw.exit554
-  %884 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 0, i64 3), align 4
+  %884 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2604), align 4
   %885 = tail call float @llvm.fabs.f32(float %884)
   %886 = fcmp ogt float %885, 0x3FB99999A0000000
   br i1 %886, label %887, label %GetGamepadAxisMovement.exit557
@@ -30382,12 +30383,12 @@ GetGamepadAxisMovement.exit557:                   ; preds = %CameraYaw.exit554, 
   %888 = fmul float %.0.i556, -2.000000e+00
   %889 = fmul float %888, 0x3F689374C0000000
   tail call void @CameraPitch(ptr noundef nonnull %0, float noundef %889, i1 noundef zeroext %17, i1 noundef zeroext %13, i1 noundef zeroext false)
-  %890 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
+  %890 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   %891 = trunc i8 %890 to i1
   br i1 %891, label %892, label %GetGamepadAxisMovement.exit560.thread
 
 892:                                              ; preds = %GetGamepadAxisMovement.exit557
-  %893 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 0, i64 1), align 4
+  %893 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2596), align 4
   %894 = tail call float @llvm.fabs.f32(float %893)
   %895 = fcmp ule float %894, 0x3FB99999A0000000
   %896 = fcmp ugt float %893, -2.500000e-01
@@ -30448,7 +30449,7 @@ CameraMoveForward.exit592:                        ; preds = %GetCameraForward.ex
   %924 = fadd float %.sroa.212.0.copyload.i.i563, %919
   store <2 x float> %923, ptr %824, align 4
   store float %924, ptr %.sroa.234.0..sroa_idx.i529, align 4
-  %.pre = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
+  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit560.thread
 
 GetGamepadAxisMovement.exit560.thread:            ; preds = %GetGamepadAxisMovement.exit557, %892, %CameraMoveForward.exit592
@@ -30457,7 +30458,7 @@ GetGamepadAxisMovement.exit560.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %926, label %927, label %GetGamepadAxisMovement.exit595.thread
 
 927:                                              ; preds = %GetGamepadAxisMovement.exit560.thread
-  %928 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 0, i64 0), align 8
+  %928 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), align 8
   %929 = tail call float @llvm.fabs.f32(float %928)
   %930 = fcmp ule float %929, 0x3FB99999A0000000
   %931 = fcmp ugt float %928, -2.500000e-01
@@ -30566,7 +30567,7 @@ CameraMoveRight.exit646:                          ; preds = %GetCameraRight.exit
   %985 = fadd float %.sroa.212.0.copyload.i.i.i598, %980
   store <2 x float> %984, ptr %824, align 4
   store float %985, ptr %.sroa.234.0..sroa_idx.i529, align 4
-  %.pre864 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
+  %.pre864 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit595.thread
 
 GetGamepadAxisMovement.exit595.thread:            ; preds = %GetGamepadAxisMovement.exit560.thread, %927, %CameraMoveRight.exit646
@@ -30575,7 +30576,7 @@ GetGamepadAxisMovement.exit595.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %987, label %988, label %GetGamepadAxisMovement.exit649.thread
 
 988:                                              ; preds = %GetGamepadAxisMovement.exit595.thread
-  %989 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 0, i64 1), align 4
+  %989 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2596), align 4
   %990 = tail call float @llvm.fabs.f32(float %989)
   %991 = fcmp ule float %990, 0x3FB99999A0000000
   %992 = fcmp ult float %989, 2.500000e-01
@@ -30636,7 +30637,7 @@ CameraMoveForward.exit681:                        ; preds = %GetCameraForward.ex
   %1020 = fadd float %.sroa.212.0.copyload.i.i652, %1015
   store <2 x float> %1019, ptr %824, align 4
   store float %1020, ptr %.sroa.234.0..sroa_idx.i529, align 4
-  %.pre865 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
+  %.pre865 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit649.thread
 
 GetGamepadAxisMovement.exit649.thread:            ; preds = %GetGamepadAxisMovement.exit595.thread, %988, %CameraMoveForward.exit681
@@ -30645,7 +30646,7 @@ GetGamepadAxisMovement.exit649.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %1022, label %1023, label %GetGamepadAxisMovement.exit684.thread
 
 1023:                                             ; preds = %GetGamepadAxisMovement.exit649.thread
-  %1024 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 0, i64 0), align 8
+  %1024 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), align 8
   %1025 = tail call float @llvm.fabs.f32(float %1024)
   %1026 = fcmp ule float %1025, 0x3FB99999A0000000
   %1027 = fcmp ult float %1024, 2.500000e-01
@@ -30760,7 +30761,7 @@ GetGamepadAxisMovement.exit684.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %14, label %1082, label %1134
 
 1082:                                             ; preds = %GetGamepadAxisMovement.exit684.thread
-  %1083 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 32), align 4
+  %1083 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 228), align 4
   %1084 = icmp eq i8 %1083, 1
   %.sroa.023.0.copyload.i.pre866.pre = load <2 x float>, ptr %0, align 4
   br i1 %1084, label %1085, label %1108
@@ -30806,7 +30807,7 @@ GetGamepadAxisMovement.exit684.thread:            ; preds = %GetGamepadAxisMovem
 
 1108:                                             ; preds = %1085, %1082
   %.sroa.023.0.copyload.i.pre866 = phi <2 x float> [ %1103, %1085 ], [ %.sroa.023.0.copyload.i.pre866.pre, %1082 ]
-  %1109 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 341), align 1
+  %1109 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 537), align 1
   %1110 = icmp eq i8 %1109, 1
   br i1 %1110, label %1111, label %.thread
 
@@ -30858,7 +30859,7 @@ GetGamepadAxisMovement.exit684.thread:            ; preds = %GetGamepadAxisMovem
 
 .thread:                                          ; preds = %..thread_crit_edge, %MatrixRotate.exit, %1108, %1111
   %.sroa.023.0.copyload.i = phi <2 x float> [ %.sroa.023.0.copyload.i.pre, %..thread_crit_edge ], [ %101, %MatrixRotate.exit ], [ %.sroa.023.0.copyload.i.pre866, %1108 ], [ %1129, %1111 ]
-  %1135 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
+  %1135 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
   %1136 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %1135)
   %1137 = extractelement <2 x float> %1136, i64 0
   %1138 = extractelement <2 x float> %1136, i64 1
@@ -30900,9 +30901,9 @@ GetGamepadAxisMovement.exit684.thread:            ; preds = %GetGamepadAxisMovem
   %1164 = fadd float %.sroa.222.0.copyload.i, %1159
   store <2 x float> %1163, ptr %0, align 4
   store float %1164, ptr %.sroa.224.0..sroa_idx.i, align 4
-  %1165 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 333), align 1
+  %1165 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1041), align 1
   %1166 = icmp eq i8 %1165, 0
-  %1167 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 333), align 1
+  %1167 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 529), align 1
   %1168 = icmp eq i8 %1167, 1
   %or.cond861 = select i1 %1166, i1 %1168, i1 false
   br i1 %or.cond861, label %CameraMoveToTarget.exit824, label %IsKeyPressed.exit.thread
@@ -30941,9 +30942,9 @@ CameraMoveToTarget.exit824:                       ; preds = %.thread
 IsKeyPressed.exit.thread:                         ; preds = %.thread, %CameraMoveToTarget.exit824
   %.sroa.224.0.copyload.i829 = phi float [ %1164, %.thread ], [ %1190, %CameraMoveToTarget.exit824 ]
   %.sroa.023.0.copyload.i827 = phi <2 x float> [ %1163, %.thread ], [ %1189, %CameraMoveToTarget.exit824 ]
-  %1191 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 334), align 2
+  %1191 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1042), align 2
   %1192 = icmp eq i8 %1191, 0
-  %1193 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 334), align 2
+  %1193 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 530), align 2
   %1194 = icmp eq i8 %1193, 1
   %or.cond863 = select i1 %1192, i1 %1194, i1 false
   br i1 %or.cond863, label %CameraMoveToTarget.exit850, label %IsKeyPressed.exit826.thread
@@ -30985,15 +30986,15 @@ IsKeyPressed.exit826.thread:                      ; preds = %1134, %IsKeyPressed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetMouseDelta() local_unnamed_addr #26 {
-  %1 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  %2 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
+  %1 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  %2 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
   %3 = fsub <2 x float> %1, %2
   ret <2 x float> %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define float @GetFrameTime() local_unnamed_addr #10 {
-  %1 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 4), align 8
+  %1 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
   %2 = fptrunc double %1 to float
   ret float %2
 }
@@ -31006,7 +31007,7 @@ define zeroext i1 @IsKeyDown(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %4
+  %5 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 1
   br label %8
@@ -31019,10 +31020,10 @@ define zeroext i1 @IsKeyDown(i32 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsMouseButtonDown(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 1
-  %6 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %2
+  %6 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 1
   %narrow = select i1 %8, i1 true, i1 %5
@@ -31036,7 +31037,7 @@ define zeroext i1 @IsGamepadAvailable(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   br label %8
@@ -31053,7 +31054,7 @@ define float @GetGamepadAxisMovement(i32 noundef %0, i32 noundef %1) local_unnam
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 8
@@ -31062,7 +31063,7 @@ define float @GetGamepadAxisMovement(i32 noundef %0, i32 noundef %1) local_unnam
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %5, i64 %11
   %13 = load float, ptr %12, align 4
   %14 = tail call float @llvm.fabs.f32(float %13)
   %15 = fcmp ogt float %14, 0x3FB99999A0000000
@@ -31078,7 +31079,7 @@ define float @GetGamepadAxisMovement(i32 noundef %0, i32 noundef %1) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define float @GetMouseWheelMove() local_unnamed_addr #10 {
-  %1 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
+  %1 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
   %2 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %1)
   %3 = extractelement <2 x float> %2, i64 0
   %4 = extractelement <2 x float> %2, i64 1
@@ -31097,13 +31098,13 @@ define zeroext i1 @IsKeyPressed(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 %4
+  %5 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %4
+  %9 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %4
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 1
   br label %12
@@ -31558,7 +31559,7 @@ msf_free_gif_state.exit:                          ; preds = %.lr.ph.i, %25
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
   store i16 %.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(22) getelementptr inbounds ([33 x i8], ptr @__const.msf_gif_begin.headerBytes, i64 0, i64 10), i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(22) getelementptr inbounds (i8, ptr @__const.msf_gif_begin.headerBytes, i64 10), i64 22, i1 false)
   br label %32
 
 32:                                               ; preds = %27, %msf_free_gif_state.exit
@@ -32118,7 +32119,7 @@ msf_put_code.exit.i:                              ; preds = %341, %337, %334
   %.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %224, i64 20
   store i16 %.0.extract.trunc.i, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 1
   %.sroa.0.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %224, i64 22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(7) getelementptr inbounds ([19 x i8], ptr @__const.msf_compress_frame.headerBytes, i64 0, i64 6), i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(7) getelementptr inbounds (i8, ptr @__const.msf_compress_frame.headerBytes, i64 6), i64 7, i1 false)
   %.sroa.0.sroa.3.sroa.2.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %224, i64 29
   store i16 %.0.extract.trunc112.i, ptr %.sroa.0.sroa.3.sroa.2.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i, align 1
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %224, i64 31
@@ -35816,9 +35817,9 @@ define hidden void @rprand_unload_sequence(ptr nocapture noundef %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @WindowShouldClose() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 2), align 4
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
   %2 = trunc i8 %1 to i1
-  %3 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 4), align 2
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
   %4 = trunc i8 %3 to i1
   %not. = xor i1 %2, true
   %.0 = select i1 %not., i1 true, i1 %4
@@ -35828,13 +35829,13 @@ define zeroext i1 @WindowShouldClose() local_unnamed_addr #10 {
 ; Function Attrs: nounwind uwtable
 define void @ToggleFullscreen() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwGetWindowPos(ptr noundef %5, ptr noundef nonnull getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8), ptr noundef nonnull getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8, i32 1)) #55
+  tail call void @glfwGetWindowPos(ptr noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @CORE, i64 20), ptr noundef nonnull getelementptr inbounds (i8, ptr @CORE, i64 24)) #55
   store i32 0, ptr %1, align 4
   %6 = tail call i32 @GetCurrentMonitor()
   %7 = call ptr @glfwGetMonitors(ptr noundef nonnull %1) #55
@@ -35851,42 +35852,42 @@ define void @ToggleFullscreen() local_unnamed_addr #0 {
 
 .thread:                                          ; preds = %4, %10
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.110) #55
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
-  %15 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %16 = and i32 %15, -3
-  store i32 %16, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %16, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %17 = load ptr, ptr @platform.0, align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   call void @glfwSetWindowMonitor(ptr noundef %17, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %18, i32 noundef %19, i32 noundef -1) #55
   br label %34
 
 20:                                               ; preds = %10
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
-  %21 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %22 = or i32 %21, 2
-  store i32 %22, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %22, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %23 = load ptr, ptr @platform.0, align 8
-  %24 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   call void @glfwSetWindowMonitor(ptr noundef %23, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, i32 noundef %24, i32 noundef %25, i32 noundef -1) #55
   br label %34
 
 26:                                               ; preds = %0
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
-  %27 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %28 = and i32 %27, -3
-  store i32 %28, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %29 = load ptr, ptr @platform.0, align 8
-  %30 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8), align 4
-  %31 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8, i32 1), align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 24), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   tail call void @glfwSetWindowMonitor(ptr noundef %29, ptr noundef null, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef -1) #55
   br label %34
 
 34:                                               ; preds = %.thread, %20, %26
-  %35 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %36 = and i32 %35, 64
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %38, label %37
@@ -35915,7 +35916,7 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %0
-  %10 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %21
 
@@ -35947,12 +35948,12 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   %22 = load ptr, ptr @platform.0, align 8
   call void @glfwGetWindowPos(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %3) #55
-  %23 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %24 = sdiv i32 %23, 2
   %25 = load i32, ptr %2, align 4
   %26 = add nsw i32 %25, %24
   store i32 %26, ptr %2, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %28 = sdiv i32 %27, 2
   %29 = load i32, ptr %3, align 4
   %30 = add nsw i32 %29, %28
@@ -36054,13 +36055,13 @@ define void @ToggleBorderlessWindowed() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %0
-  %7 = load i64, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8), align 4
-  store i64 %7, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 9), align 4
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 28), align 4
   tail call void @ToggleFullscreen()
   br label %8
 
@@ -36082,7 +36083,7 @@ define void @ToggleBorderlessWindowed() local_unnamed_addr #0 {
   br i1 %.not, label %60, label %19
 
 19:                                               ; preds = %14
-  %20 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %21 = and i32 %20, 32768
   %.not14 = icmp eq i32 %21, 0
   br i1 %.not14, label %22, label %44
@@ -36092,22 +36093,22 @@ define void @ToggleBorderlessWindowed() local_unnamed_addr #0 {
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr @platform.0, align 8
-  call void @glfwGetWindowPos(ptr noundef %24, ptr noundef nonnull getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 9, i32 1)) #55
+  call void @glfwGetWindowPos(ptr noundef %24, ptr noundef nonnull getelementptr inbounds (i8, ptr @CORE, i64 28), ptr noundef nonnull getelementptr inbounds (i8, ptr @CORE, i64 32)) #55
   br label %25
 
 25:                                               ; preds = %23, %22
-  %26 = load i64, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  store i64 %26, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 12), align 4
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  store i64 %26, ptr getelementptr inbounds (i8, ptr @CORE, i64 52), align 4
   %27 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowAttrib(ptr noundef %27, i32 noundef 131077, i32 noundef 0) #55
-  %28 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %29 = or i32 %28, 8
-  store i32 %29, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %30 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowAttrib(ptr noundef %30, i32 noundef 131079, i32 noundef 1) #55
-  %31 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %32 = or i32 %31, 4096
-  store i32 %32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %33 = load ptr, ptr %16, align 8
@@ -36123,35 +36124,35 @@ define void @ToggleBorderlessWindowed() local_unnamed_addr #0 {
   call void @glfwSetWindowSize(ptr noundef %40, i32 noundef %34, i32 noundef %36) #55
   %41 = load ptr, ptr @platform.0, align 8
   call void @glfwFocusWindow(ptr noundef %41) #55
-  %42 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %43 = or i32 %42, 32768
-  store i32 %43, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %43, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %62
 
 44:                                               ; preds = %19
   %45 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowAttrib(ptr noundef %45, i32 noundef 131079, i32 noundef 0) #55
-  %46 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %47 = and i32 %46, -4097
-  store i32 %47, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %47, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %48 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowAttrib(ptr noundef %48, i32 noundef 131077, i32 noundef 1) #55
-  %49 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %50 = and i32 %49, -9
-  store i32 %50, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %51 = load ptr, ptr @platform.0, align 8
-  %52 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 12), align 4
-  %53 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 12, i32 1), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 52), align 4
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 56), align 8
   call void @glfwSetWindowSize(ptr noundef %51, i32 noundef %52, i32 noundef %53) #55
   %54 = load ptr, ptr @platform.0, align 8
-  %55 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 9), align 4
-  %56 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 9, i32 1), align 8
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 28), align 4
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 32), align 8
   call void @glfwSetWindowPos(ptr noundef %54, i32 noundef %55, i32 noundef %56) #55
   %57 = load ptr, ptr @platform.0, align 8
   call void @glfwFocusWindow(ptr noundef %57) #55
-  %58 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %59 = and i32 %58, -32769
-  store i32 %59, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %59, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %62
 
 60:                                               ; preds = %14
@@ -36170,7 +36171,7 @@ declare ptr @glfwGetVideoMode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowState(i32 noundef %0) local_unnamed_addr #10 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %3 = and i32 %2, %0
   %4 = icmp ne i32 %3, 0
   ret i1 %4
@@ -36196,9 +36197,9 @@ define void @MaximizeWindow() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr @platform.0, align 8
   tail call void @glfwMaximizeWindow(ptr noundef %5) #55
-  %6 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %7 = or i32 %6, 1024
-  store i32 %7, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %4, %0
@@ -36228,9 +36229,9 @@ define void @RestoreWindow() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr @platform.0, align 8
   tail call void @glfwRestoreWindow(ptr noundef %5) #55
-  %6 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %7 = and i32 %6, -1537
-  store i32 %7, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %4, %0
@@ -36241,7 +36242,7 @@ declare void @glfwRestoreWindow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %3 = and i32 %2, 64
   %4 = and i32 %0, 64
   %.not = icmp eq i32 %3, %4
@@ -36251,9 +36252,9 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   tail call void @glfwSwapInterval(i32 noundef 1) #55
-  %6 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %7 = or i32 %6, 64
-  store i32 %7, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -36267,7 +36268,7 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   tail call void @ToggleBorderlessWindowed()
-  %.pre = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %13
 
 13:                                               ; preds = %12, %8
@@ -36279,7 +36280,7 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %13
   tail call void @ToggleFullscreen()
-  %.pre89 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre89 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %18
 
 18:                                               ; preds = %17, %13
@@ -36294,9 +36295,9 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %18
   %23 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %23, i32 noundef 131075, i32 noundef 1) #55
-  %24 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %25 = or i32 %24, 4
-  store i32 %25, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %26
 
 26:                                               ; preds = %22, %18
@@ -36311,9 +36312,9 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %26
   %31 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %31, i32 noundef 131077, i32 noundef 0) #55
-  %32 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %33 = or i32 %32, 8
-  store i32 %33, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %30, %26
@@ -36328,9 +36329,9 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 38:                                               ; preds = %34
   %39 = load ptr, ptr @platform.0, align 8
   tail call void @glfwHideWindow(ptr noundef %39) #55
-  %40 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %41 = or i32 %40, 128
-  store i32 %41, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %42
 
 42:                                               ; preds = %38, %34
@@ -36345,7 +36346,7 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 46:                                               ; preds = %42
   %47 = load ptr, ptr @platform.0, align 8
   tail call void @glfwIconifyWindow(ptr noundef %47) #55
-  %.pre90 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre90 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %48
 
 48:                                               ; preds = %46, %42
@@ -36364,15 +36365,15 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %55, label %56, label %.MaximizeWindow.exit_crit_edge
 
 .MaximizeWindow.exit_crit_edge:                   ; preds = %52
-  %.pre91 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre91 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %MaximizeWindow.exit
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr @platform.0, align 8
   tail call void @glfwMaximizeWindow(ptr noundef %57) #55
-  %58 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %59 = or i32 %58, 1024
-  store i32 %59, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %59, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %MaximizeWindow.exit
 
 MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exit_crit_edge, %56, %48
@@ -36387,9 +36388,9 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 63:                                               ; preds = %MaximizeWindow.exit
   %64 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %64, i32 noundef 131084, i32 noundef 0) #55
-  %65 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %66 = or i32 %65, 2048
-  store i32 %66, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %66, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %67
 
 67:                                               ; preds = %63, %MaximizeWindow.exit
@@ -36404,9 +36405,9 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 71:                                               ; preds = %67
   %72 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %72, i32 noundef 131079, i32 noundef 1) #55
-  %73 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %74 = or i32 %73, 4096
-  store i32 %74, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %74, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %75
 
 75:                                               ; preds = %71, %67
@@ -36420,7 +36421,7 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 
 79:                                               ; preds = %75
   %80 = or i32 %76, 256
-  store i32 %80, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %80, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %81
 
 81:                                               ; preds = %79, %75
@@ -36434,7 +36435,7 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 
 85:                                               ; preds = %81
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.113) #55
-  %.pre92 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre92 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %86
 
 86:                                               ; preds = %85, %81
@@ -36448,7 +36449,7 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 
 90:                                               ; preds = %86
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.114) #55
-  %.pre93 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre93 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %91
 
 91:                                               ; preds = %90, %86
@@ -36463,9 +36464,9 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 95:                                               ; preds = %91
   %96 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %96, i32 noundef 131085, i32 noundef 1) #55
-  %97 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %97 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %98 = or i32 %97, 16384
-  store i32 %98, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %98, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %99
 
 99:                                               ; preds = %95, %91
@@ -36479,7 +36480,7 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 
 103:                                              ; preds = %99
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.115) #55
-  %.pre94 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre94 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %104
 
 104:                                              ; preds = %103, %99
@@ -36503,7 +36504,7 @@ declare void @glfwHideWindow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %3 = and i32 %0, 64
   %4 = and i32 %3, %2
   %or.cond.not.not = icmp eq i32 %4, 0
@@ -36511,9 +36512,9 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   tail call void @glfwSwapInterval(i32 noundef 0) #55
-  %6 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %7 = and i32 %6, -65
-  store i32 %7, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -36525,7 +36526,7 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   tail call void @ToggleBorderlessWindowed()
-  %.pre = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %13
 
 13:                                               ; preds = %12, %8
@@ -36537,7 +36538,7 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %13
   tail call void @ToggleFullscreen()
-  %.pre63 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre63 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %18
 
 18:                                               ; preds = %17, %13
@@ -36550,9 +36551,9 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %18
   %23 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %23, i32 noundef 131075, i32 noundef 0) #55
-  %24 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %25 = and i32 %24, -5
-  store i32 %25, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %26
 
 26:                                               ; preds = %22, %18
@@ -36565,9 +36566,9 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %26
   %31 = load ptr, ptr @platform.0, align 8
   tail call void @glfwShowWindow(ptr noundef %31) #55
-  %32 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %33 = and i32 %32, -129
-  store i32 %33, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %30, %26
@@ -36584,15 +36585,15 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %41, label %42, label %.RestoreWindow.exit_crit_edge
 
 .RestoreWindow.exit_crit_edge:                    ; preds = %38
-  %.pre64 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre64 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %RestoreWindow.exit
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr @platform.0, align 8
   tail call void @glfwRestoreWindow(ptr noundef %43) #55
-  %44 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %45 = and i32 %44, -1537
-  store i32 %45, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %45, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %RestoreWindow.exit
 
 RestoreWindow.exit:                               ; preds = %.RestoreWindow.exit_crit_edge, %42, %34
@@ -36609,15 +36610,15 @@ RestoreWindow.exit:                               ; preds = %.RestoreWindow.exit
   br i1 %52, label %53, label %.RestoreWindow.exit62_crit_edge
 
 .RestoreWindow.exit62_crit_edge:                  ; preds = %49
-  %.pre65 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre65 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %RestoreWindow.exit62
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr @platform.0, align 8
   tail call void @glfwRestoreWindow(ptr noundef %54) #55
-  %55 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %56 = and i32 %55, -1537
-  store i32 %56, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %56, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %RestoreWindow.exit62
 
 RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit62_crit_edge, %53, %RestoreWindow.exit
@@ -36630,9 +36631,9 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 60:                                               ; preds = %RestoreWindow.exit62
   %61 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %61, i32 noundef 131077, i32 noundef 1) #55
-  %62 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %63 = and i32 %62, -9
-  store i32 %63, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %63, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %64
 
 64:                                               ; preds = %60, %RestoreWindow.exit62
@@ -36645,9 +36646,9 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 68:                                               ; preds = %64
   %69 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %69, i32 noundef 131084, i32 noundef 1) #55
-  %70 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %71 = and i32 %70, -2049
-  store i32 %71, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %71, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %72
 
 72:                                               ; preds = %68, %64
@@ -36660,9 +36661,9 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 76:                                               ; preds = %72
   %77 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %77, i32 noundef 131079, i32 noundef 0) #55
-  %78 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %78 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %79 = and i32 %78, -4097
-  store i32 %79, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %79, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %80
 
 80:                                               ; preds = %76, %72
@@ -36674,7 +36675,7 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 
 84:                                               ; preds = %80
   %85 = and i32 %81, -257
-  store i32 %85, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %85, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %86
 
 86:                                               ; preds = %84, %80
@@ -36686,7 +36687,7 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 
 90:                                               ; preds = %86
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.113) #55
-  %.pre66 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre66 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %91
 
 91:                                               ; preds = %90, %86
@@ -36698,7 +36699,7 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 
 95:                                               ; preds = %91
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.114) #55
-  %.pre67 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre67 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %96
 
 96:                                               ; preds = %95, %91
@@ -36711,9 +36712,9 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 100:                                              ; preds = %96
   %101 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %101, i32 noundef 131085, i32 noundef 0) #55
-  %102 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %102 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %103 = and i32 %102, -16385
-  store i32 %103, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %103, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %104
 
 104:                                              ; preds = %100, %96
@@ -36725,7 +36726,7 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 
 108:                                              ; preds = %104
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.115) #55
-  %.pre68 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre68 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %109
 
 109:                                              ; preds = %108, %104
@@ -36874,7 +36875,7 @@ define void @SetWindowMonitor(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %11, label %49
 
 11:                                               ; preds = %1
-  %12 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
   %13 = trunc i8 %12 to i1
   %14 = zext nneg i32 %0 to i64
   %15 = getelementptr inbounds ptr, ptr %7, i64 %14
@@ -36898,8 +36899,8 @@ define void @SetWindowMonitor(i32 noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %11
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.119, i32 noundef %0, ptr noundef %17) #55
-  %29 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %30 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
@@ -36951,16 +36952,16 @@ declare void @glfwGetMonitorWorkarea(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define void @SetWindowMinSize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 16), align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 16, i32 1), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 84), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 88), align 8
   %3 = icmp eq i32 %0, 0
   %4 = select i1 %3, i32 -1, i32 %0
   %5 = icmp eq i32 %1, 0
   %6 = select i1 %5, i32 -1, i32 %1
-  %7 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 17), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 92), align 4
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %8, i32 -1, i32 %7
-  %10 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 17, i32 1), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 96), align 8
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i32 -1, i32 %10
   %13 = load ptr, ptr @platform.0, align 8
@@ -36972,12 +36973,12 @@ declare void @glfwSetWindowSizeLimits(ptr noundef, i32 noundef, i32 noundef, i32
 
 ; Function Attrs: nounwind uwtable
 define void @SetWindowMaxSize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 17), align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 17, i32 1), align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 16), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 92), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 96), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 84), align 4
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, i32 -1, i32 %3
-  %6 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 16, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 88), align 8
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %7, i32 -1, i32 %6
   %9 = icmp eq i32 %0, 0
@@ -37041,7 +37042,7 @@ define i32 @GetMonitorCount() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowFullscreen() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -37324,7 +37325,7 @@ declare ptr @glfwGetClipboardString(ptr noundef) local_unnamed_addr #2
 define void @ShowCursor() local_unnamed_addr #0 {
   %1 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212993) #55
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 5), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
   ret void
 }
 
@@ -37334,7 +37335,7 @@ declare void @glfwSetInputMode(ptr noundef, i32 noundef, i32 noundef) local_unna
 define void @HideCursor() local_unnamed_addr #0 {
   %1 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212994) #55
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 5), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
   ret void
 }
 
@@ -37342,18 +37343,18 @@ define void @HideCursor() local_unnamed_addr #0 {
 define void @EnableCursor() local_unnamed_addr #0 {
   %1 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212993) #55
-  %2 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %2 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %3 = lshr <2 x i32> %2, <i32 1, i32 1>
   %4 = uitofp nneg <2 x i32> %3 to <2 x float>
-  store <2 x float> %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  store <2 x float> %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
+  store <2 x float> %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  store <2 x float> %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
   %5 = load ptr, ptr @platform.0, align 8
   %6 = extractelement <2 x float> %4, i64 0
   %7 = fpext float %6 to double
   %8 = extractelement <2 x float> %4, i64 1
   %9 = fpext float %8 to double
   tail call void @glfwSetCursorPos(ptr noundef %5, double noundef %7, double noundef %9) #55
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 5), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
   ret void
 }
 
@@ -37361,10 +37362,10 @@ define void @EnableCursor() local_unnamed_addr #0 {
 define void @SetMousePosition(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sitofp i32 %0 to float
   %4 = sitofp i32 %1 to float
-  store float %3, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  store float %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2, i32 1), align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  store i64 %5, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
+  store float %3, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  store float %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
   %6 = load ptr, ptr @platform.0, align 8
   %7 = fpext float %3 to double
   %8 = fpext float %4 to double
@@ -37376,18 +37377,18 @@ define void @SetMousePosition(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 define void @DisableCursor() local_unnamed_addr #0 {
   %1 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212995) #55
-  %2 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %2 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %3 = lshr <2 x i32> %2, <i32 1, i32 1>
   %4 = uitofp nneg <2 x i32> %3 to <2 x float>
-  store <2 x float> %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  store <2 x float> %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
+  store <2 x float> %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  store <2 x float> %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
   %5 = load ptr, ptr @platform.0, align 8
   %6 = extractelement <2 x float> %4, i64 0
   %7 = fpext float %6 to double
   %8 = extractelement <2 x float> %4, i64 1
   %9 = fpext float %8 to double
   tail call void @glfwSetCursorPos(ptr noundef %5, double noundef %7, double noundef %9) #55
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 5), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
   ret void
 }
 
@@ -37469,7 +37470,7 @@ declare void @glfwSetCursorPos(ptr noundef, double noundef, double noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define void @SetMouseCursor(i32 noundef %0) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 4), align 4
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1900), align 4
   %2 = icmp eq i32 %0, 0
   %3 = load ptr, ptr @platform.0, align 8
   br i1 %2, label %7, label %4
@@ -37495,7 +37496,7 @@ define void @PollInputEvents() local_unnamed_addr #0 {
   %2 = load i32, ptr @GESTURES, align 8
   %3 = add i32 %2, -1
   %or.cond.i = icmp ult i32 %3, 2
-  %4 = load i32, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 1), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
   %5 = icmp slt i32 %4, 2
   %or.cond3.i = select i1 %or.cond.i, i1 %5, i1 false
   br i1 %or.cond3.i, label %6, label %8
@@ -37503,7 +37504,7 @@ define void @PollInputEvents() local_unnamed_addr #0 {
 6:                                                ; preds = %0
   store i32 4, ptr @GESTURES, align 8
   %7 = tail call double @glfwGetTime() #55
-  store double %7, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 3, i32 1), align 8
+  store double %7, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
   %.pre.i = load i32, ptr @GESTURES, align 8
   br label %8
 
@@ -37523,18 +37524,18 @@ define void @PollInputEvents() local_unnamed_addr #0 {
   br label %UpdateGestures.exit
 
 UpdateGestures.exit:                              ; preds = %8, %12
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 7), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 2056), align 8
   br label %13
 
 13:                                               ; preds = %UpdateGestures.exit, %13
   %indvars.iv = phi i64 [ 0, %UpdateGestures.exit ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %indvars.iv
+  %14 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 %indvars.iv
+  %16 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %indvars.iv
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 3, i64 %indvars.iv
+  %17 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1220), i64 0, i64 %indvars.iv
   store i8 0, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -37542,34 +37543,34 @@ UpdateGestures.exit:                              ; preds = %8, %12
 
 .preheader78:                                     ; preds = %13, %.preheader78
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.preheader78 ], [ 0, %13 ]
-  %18 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %indvars.iv89
+  %18 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv89
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 8, i64 %indvars.iv89
+  %20 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %indvars.iv89
   store i8 %19, ptr %20, align 1
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 8
   br i1 %exitcond92.not, label %21, label %.preheader78
 
 21:                                               ; preds = %.preheader78
-  %22 = load i64, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
-  store i64 %22, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 10), align 4
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
-  %23 = load i64, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  store i64 %23, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
+  store i64 %22, ptr getelementptr inbounds (i8, ptr @CORE, i64 1932), align 4
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  store i64 %23, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
   br label %24
 
 24:                                               ; preds = %21, %24
   %indvars.iv93 = phi i64 [ 0, %21 ], [ %indvars.iv.next94, %24 ]
-  %25 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %indvars.iv93
+  %25 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv93
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 4, i64 %indvars.iv93
+  %27 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2048), i64 0, i64 %indvars.iv93
   store i8 %26, ptr %27, align 1
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 8
   br i1 %exitcond96.not, label %28, label %24
 
 28:                                               ; preds = %24
-  store i64 %23, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 2), align 8
+  store i64 %23, ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), align 8
   br label %30
 
 .preheader77:                                     ; preds = %30
@@ -37582,7 +37583,7 @@ UpdateGestures.exit:                              ; preds = %8, %12
   %32 = tail call i32 @glfwJoystickPresent(i32 noundef %31) #55
   %.not72 = icmp ne i32 %32, 0
   %spec.select = zext i1 %.not72 to i8
-  %33 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %indvars.iv97
+  %33 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %indvars.iv97
   store i8 %spec.select, ptr %33, align 1
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 4
@@ -37591,17 +37592,17 @@ UpdateGestures.exit:                              ; preds = %8, %12
 34:                                               ; preds = %.preheader77, %68
   %indvar = phi i64 [ 0, %.preheader77 ], [ %indvar.next, %68 ]
   %35 = shl nuw nsw i64 %indvar, 5
-  %gep = getelementptr i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 0, i64 0), i64 %35
-  %36 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %indvar
+  %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %indvar
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %.preheader, label %68
 
 .preheader:                                       ; preds = %34, %.preheader
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.preheader ], [ 0, %34 ]
-  %39 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %indvar, i64 %indvars.iv102
+  %39 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar, i64 %indvars.iv102
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 5, i64 %indvar, i64 %indvars.iv102
+  %41 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2464), i64 0, i64 %indvar, i64 %indvars.iv102
   store i8 %40, ptr %41, align 1
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 32
@@ -37625,12 +37626,12 @@ switch.lookup:                                    ; preds = %45
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 1
   %50 = zext nneg i32 %switch.load to i64
-  %51 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %indvar, i64 %50
+  %51 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar, i64 %50
   br i1 %49, label %52, label %53
 
 52:                                               ; preds = %switch.lookup
   store i8 1, ptr %51, align 1
-  store i32 %switch.load, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3), align 8
+  store i32 %switch.load, ptr getelementptr inbounds (i8, ptr @CORE, i64 2056), align 8
   br label %54
 
 53:                                               ; preds = %switch.lookup
@@ -37644,12 +37645,12 @@ switch.lookup:                                    ; preds = %45
 
 .critedge.preheader:                              ; preds = %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gep, ptr noundef nonnull align 4 dereferenceable(24) %29, i64 24, i1 false)
-  %55 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 %indvar
+  %55 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %indvar
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load float, ptr %56, align 8
   %58 = fcmp ogt float %57, 0x3FB99999A0000000
   %59 = zext i1 %58 to i8
-  %60 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %indvar
+  %60 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar
   %61 = getelementptr inbounds i8, ptr %60, i64 10
   store i8 %59, ptr %61, align 2
   %62 = getelementptr inbounds i8, ptr %55, i64 20
@@ -37658,7 +37659,7 @@ switch.lookup:                                    ; preds = %45
   %65 = zext i1 %64 to i8
   %66 = getelementptr inbounds i8, ptr %60, i64 12
   store i8 %65, ptr %66, align 4
-  %67 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 1, i64 %indvar
+  %67 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 2060), i64 0, i64 %indvar
   store i32 6, ptr %67, align 4
   br label %68
 
@@ -37668,8 +37669,8 @@ switch.lookup:                                    ; preds = %45
   br i1 %exitcond114.not, label %69, label %34
 
 69:                                               ; preds = %68
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 5), align 1
-  %70 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 6), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 15), align 1
+  %70 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
   %71 = trunc i8 %70 to i1
   br i1 %71, label %72, label %73
 
@@ -37682,14 +37683,14 @@ switch.lookup:                                    ; preds = %45
   br label %74
 
 74:                                               ; preds = %73, %72
-  %75 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %76 = and i32 %75, 768
   %or.cond.not87 = icmp eq i32 %76, 512
   br i1 %or.cond.not87, label %.lr.ph, label %.critedge7
 
 .lr.ph:                                           ; preds = %74, %.lr.ph
   call void @glfwWaitEvents() #55
-  %77 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %78 = and i32 %77, 768
   %or.cond.not = icmp eq i32 %78, 512
   br i1 %or.cond.not, label %.lr.ph, label %.critedge7
@@ -37699,7 +37700,7 @@ switch.lookup:                                    ; preds = %45
   %80 = call i32 @glfwWindowShouldClose(ptr noundef %79) #55
   %81 = icmp ne i32 %80, 0
   %82 = zext i1 %81 to i8
-  store i8 %82, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 4), align 2
+  store i8 %82, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
   %83 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowShouldClose(ptr noundef %83, i32 noundef 0) #55
   ret void
@@ -37736,13 +37737,13 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 11:                                               ; preds = %0
   tail call void @glfwDefaultWindowHints() #55
-  %12 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %13 = and i32 %12, 2
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %11
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
   br label %15
 
 15:                                               ; preds = %14, %11
@@ -37750,23 +37751,23 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %.lobit = and i32 %16, 1
   %. = xor i32 %.lobit, 1
   tail call void @glfwWindowHint(i32 noundef 131076, i32 noundef %.) #55
-  %17 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %18 = lshr i32 %17, 3
   %.lobit98 = and i32 %18, 1
   %.sink89 = xor i32 %.lobit98, 1
   tail call void @glfwWindowHint(i32 noundef 131077, i32 noundef %.sink89) #55
-  %19 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %20 = lshr i32 %19, 2
   %.lobit99 = and i32 %20, 1
   tail call void @glfwWindowHint(i32 noundef 131075, i32 noundef %.lobit99) #55
-  %21 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %22 = and i32 %21, 1536
   %.not100 = icmp eq i32 %22, 0
   br i1 %.not100, label %25, label %23
 
 23:                                               ; preds = %15
   %24 = and i32 %21, -1537
-  store i32 %24, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %24, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %25
 
 25:                                               ; preds = %15, %23
@@ -37774,23 +37775,23 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %.lobit101 = and i32 %26, 1
   %.97 = xor i32 %.lobit101, 1
   tail call void @glfwWindowHint(i32 noundef 131073, i32 noundef %.97) #55
-  %27 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %28 = lshr i32 %27, 12
   %.lobit102 = and i32 %28, 1
   tail call void @glfwWindowHint(i32 noundef 131079, i32 noundef %.lobit102) #55
-  %29 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %30 = lshr i32 %29, 4
   %.lobit103 = and i32 %30, 1
   tail call void @glfwWindowHint(i32 noundef 131082, i32 noundef %.lobit103) #55
-  %31 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %32 = lshr i32 %31, 13
   %.lobit104 = and i32 %32, 1
   tail call void @glfwWindowHint(i32 noundef 139276, i32 noundef %.lobit104) #55
-  %33 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %34 = lshr i32 %33, 14
   %.lobit105 = and i32 %34, 1
   tail call void @glfwWindowHint(i32 noundef 131085, i32 noundef %.lobit105) #55
-  %35 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %36 = and i32 %35, 32
   %.not41 = icmp eq i32 %36, 0
   br i1 %.not41, label %38, label %37
@@ -37817,31 +37818,31 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 42:                                               ; preds = %38
   %43 = tail call ptr @glfwGetVideoMode(ptr noundef nonnull %40) #55
   %44 = load i32, ptr %43, align 4
-  store i32 %44, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10), align 4
+  store i32 %44, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
   %45 = getelementptr inbounds i8, ptr %43, i64 4
   %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10, i32 1), align 8
-  %47 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  store i32 %46, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %42
-  store i32 %44, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  store i32 %44, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   br label %50
 
 50:                                               ; preds = %49, %42
   %51 = phi i32 [ %44, %49 ], [ %47, %42 ]
-  %52 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %50
-  store i32 %46, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  store i32 %46, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   br label %55
 
 55:                                               ; preds = %54, %50
   %56 = phi i32 [ %46, %54 ], [ %52, %50 ]
-  %57 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
+  %57 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
   %58 = trunc i8 %57 to i1
   %59 = icmp eq i32 %56, %46
   %60 = icmp eq i32 %51, %44
@@ -37853,7 +37854,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 .thread62:                                        ; preds = %61
   %62 = lshr i32 %44, 2
-  store i32 %62, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8), align 4
+  store i32 %62, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
   %63 = lshr i32 %46, 2
   br label %.sink.split
 
@@ -37861,16 +37862,16 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %65 = lshr i32 %44, 1
   %66 = lshr i32 %51, 1
   %67 = sub nsw i32 %65, %66
-  store i32 %67, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8), align 4
+  store i32 %67, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
   %68 = lshr i32 %46, 1
   %69 = lshr i32 %56, 1
   %70 = sub nsw i32 %68, %69
-  store i32 %70, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8, i32 1), align 8
+  store i32 %70, ptr getelementptr inbounds (i8, ptr @CORE, i64 24), align 8
   %71 = icmp slt i32 %67, 0
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %64
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
   br label %73
 
 73:                                               ; preds = %72, %64
@@ -37879,7 +37880,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %73, %.thread62
   %.sink96 = phi i32 [ %63, %.thread62 ], [ 0, %73 ]
-  store i32 %.sink96, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 8, i32 1), align 8
+  store i32 %.sink96, ptr getelementptr inbounds (i8, ptr @CORE, i64 24), align 8
   br label %75
 
 75:                                               ; preds = %.sink.split, %73
@@ -37891,8 +37892,8 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %79, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %75
-  %80 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %81 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %wide.trip.count = zext nneg i32 %78 to i64
   br label %82
 
@@ -37911,9 +37912,9 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds i8, ptr %83, i64 4
-  store i32 %84, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10), align 4
+  store i32 %84, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
   %90 = load i32, ptr %89, align 4
-  store i32 %90, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10, i32 1), align 8
+  store i32 %90, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
   br label %.loopexit
 
 91:                                               ; preds = %82, %85
@@ -37922,23 +37923,23 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.loopexit, label %82
 
 .loopexit:                                        ; preds = %91, %75, %88
-  %92 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10), align 4
-  %93 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10, i32 1), align 8
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.128, i32 noundef %92, i32 noundef %93) #55
-  %94 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %95 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10), align 4
+  %94 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %95 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
   %96 = icmp ugt i32 %94, %95
-  %.pre23.i = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
-  %.pre24.i = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10, i32 1), align 8
+  %.pre23.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %.pre24.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
   %97 = icmp ugt i32 %.pre23.i, %.pre24.i
   %or.cond28.i = select i1 %96, i1 true, i1 %97
   br i1 %or.cond28.i, label %98, label %124
 
 98:                                               ; preds = %.loopexit
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.1367, i32 noundef %94, i32 noundef %.pre23.i, i32 noundef %95, i32 noundef %.pre24.i) #55
-  %99 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10), align 4
+  %99 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
   %100 = uitofp <2 x i32> %99 to <2 x float>
-  %101 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %101 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %102 = uitofp <2 x i32> %101 to <2 x float>
   %103 = fdiv <2 x float> %100, %102
   %104 = extractelement <2 x float> %103, i64 0
@@ -37971,22 +37972,22 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %.pre-phi27.i = phi float [ %.pre26.i, %114 ], [ %104, %107 ]
   %.sink.i = phi i32 [ %120, %114 ], [ 0, %107 ]
   %storemerge.i = phi i32 [ 0, %114 ], [ %113, %107 ]
-  store i32 %.sink.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15), align 4
-  store i32 %storemerge.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15, i32 1), align 8
-  store float %.pre-phi27.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), i8 0, i64 16, i1 false)
-  store float %.pre-phi27.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  store i32 %.sink.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
+  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
+  store float %.pre-phi27.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
+  store float %.pre-phi27.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
   %122 = extractelement <2 x i32> %99, i64 0
-  store i32 %122, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  store i32 %122, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %123 = extractelement <2 x i32> %99, i64 1
-  store i32 %123, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
+  store i32 %123, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.1368, i32 noundef %122, i32 noundef %123) #55
-  %.pre82 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10), align 4
-  %.pre83 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10, i32 1), align 8
+  %.pre82 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
+  %.pre83 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
   br label %163
 
 124:                                              ; preds = %.loopexit
@@ -37997,18 +37998,18 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 127:                                              ; preds = %124
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1369, i32 noundef %94, i32 noundef %.pre23.i, i32 noundef %95, i32 noundef %.pre24.i) #55
-  %128 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %128 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %129 = icmp eq i32 %128, 0
-  %130 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %131 = icmp eq i32 %130, 0
   %or.cond.i = select i1 %129, i1 true, i1 %131
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10), align 4
-  %.pre22.i = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10, i32 1), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
+  %.pre22.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
   br i1 %or.cond.i, label %132, label %133
 
 132:                                              ; preds = %127
-  store i32 %.pre.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  store i32 %.pre22.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  store i32 %.pre.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  store i32 %.pre22.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   br label %133
 
 133:                                              ; preds = %132, %127
@@ -38024,32 +38025,32 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %142, label %148, label %143
 
 143:                                              ; preds = %133
-  store i32 %135, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  store i32 %135, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %144 = fdiv float %139, %138
   %145 = call float @llvm.round.f32(float %144)
   %146 = fptosi float %145 to i32
-  store i32 %146, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15), align 4
+  store i32 %146, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
   %147 = sub i32 %146, %134
-  store i32 %147, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15, i32 1), align 8
+  store i32 %147, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
   br label %163
 
 148:                                              ; preds = %133
   %149 = fmul float %138, %140
   %150 = call float @llvm.round.f32(float %149)
   %151 = fptosi float %150 to i32
-  store i32 %151, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  store i32 %134, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
+  store i32 %151, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store i32 %134, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   %152 = sub i32 %151, %135
-  store i32 %152, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15, i32 1), align 8
+  store i32 %152, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
   br label %163
 
 153:                                              ; preds = %124
-  store i32 %94, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  store i32 %.pre23.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15, i32 1), align 8
+  store i32 %94, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store i32 %.pre23.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
   br label %163
 
 154:                                              ; preds = %55
@@ -38057,8 +38058,8 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 155:                                              ; preds = %154
   tail call void @glfwWindowHint(i32 noundef 131078, i32 noundef 0) #55
-  %.pre = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %.pre81 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %.pre81 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   br label %156
 
 156:                                              ; preds = %155, %154
@@ -38073,8 +38074,8 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %.not44, label %.thread64, label %.thread
 
 .thread:                                          ; preds = %156
-  %162 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  store <2 x i32> %162, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  %162 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  store <2 x i32> %162, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   br label %170
 
 163:                                              ; preds = %153, %148, %143, %121
@@ -38103,9 +38104,9 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %or.cond.not, label %212, label %174
 
 174:                                              ; preds = %170
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 2), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
   call void @glfwSwapInterval(i32 noundef 0) #55
-  %175 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %175 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %176 = and i32 %175, 64
   %.not49 = icmp eq i32 %176, 0
   br i1 %.not49, label %178, label %177
@@ -38113,14 +38114,14 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 177:                                              ; preds = %174
   call void @glfwSwapInterval(i32 noundef 1) #55
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.131) #55
-  %.pre84 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %.pre84 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %178
 
 178:                                              ; preds = %177, %174
   %179 = phi i32 [ %.pre84, %177 ], [ %175, %174 ]
-  %180 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %180 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   store i32 %180, ptr %5, align 4
-  %181 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %181 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   store i32 %181, ptr %6, align 4
   %182 = and i32 %179, 8192
   %.not50 = icmp eq i32 %182, 0
@@ -38131,15 +38132,15 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   call void @glfwGetFramebufferSize(ptr noundef %184, ptr noundef nonnull %5, ptr noundef nonnull %6) #55
   %185 = load i32, ptr %5, align 4
   %186 = load i32, ptr %6, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
   %187 = insertelement <2 x i32> poison, i32 %185, i64 0
   %188 = insertelement <2 x i32> %187, i32 %186, i64 1
   %189 = sitofp <2 x i32> %188 to <2 x float>
-  %190 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %190 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %191 = uitofp <2 x i32> %190 to <2 x float>
   %192 = extractelement <2 x float> %191, i64 0
   %193 = extractelement <2 x float> %189, i64 0
@@ -38147,33 +38148,33 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %195 = extractelement <2 x float> %191, i64 1
   %196 = extractelement <2 x float> %189, i64 1
   %197 = fdiv float %196, %195
-  store float %194, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  store float %197, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
+  store float %194, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  store float %197, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
   %198 = fdiv <2 x float> %191, %189
-  store <2 x float> %198, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1), align 4
+  store <2 x float> %198, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
   br label %199
 
 199:                                              ; preds = %183, %178
   %200 = phi i32 [ %186, %183 ], [ %181, %178 ]
   %201 = phi i32 [ %185, %183 ], [ %180, %178 ]
-  store i32 %201, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  store i32 %200, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
-  store i32 %201, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
-  store i32 %200, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
+  store i32 %201, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store i32 %200, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  store i32 %201, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
+  store i32 %200, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.132) #55
-  %202 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10), align 4
-  %203 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 10, i32 1), align 8
+  %202 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
+  %203 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.133, i32 noundef %202, i32 noundef %203) #55
-  %204 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %205 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %204 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %205 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.134, i32 noundef %204, i32 noundef %205) #55
-  %206 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  %207 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
+  %206 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  %207 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.135, i32 noundef %206, i32 noundef %207) #55
-  %208 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15), align 4
-  %209 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15, i32 1), align 8
+  %208 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
+  %209 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.136, i32 noundef %208, i32 noundef %209) #55
-  %210 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %210 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %211 = and i32 %210, 512
   %.not51 = icmp eq i32 %211, 0
   br i1 %.not51, label %215, label %213
@@ -38188,7 +38189,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br label %215
 
 215:                                              ; preds = %213, %199
-  %216 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 2), align 4
+  %216 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
   %217 = trunc i8 %216 to i1
   br i1 %217, label %219, label %218
 
@@ -38231,7 +38232,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 GetMonitorWidth.exit:                             ; preds = %230, %233, %234
   %.0.i = phi i32 [ %232, %230 ], [ 0, %233 ], [ 0, %234 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %235 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %235 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %236 = lshr i32 %235, 1
   %237 = sub i32 %.0.i, %236
   %238 = call i32 @GetCurrentMonitor()
@@ -38269,7 +38270,7 @@ GetMonitorWidth.exit:                             ; preds = %230, %233, %234
 GetMonitorHeight.exit:                            ; preds = %248, %252, %253
   %.0.i56 = phi i32 [ %251, %248 ], [ 0, %252 ], [ 0, %253 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %254 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %254 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %255 = lshr i32 %254, 1
   %256 = sub i32 %.0.i56, %255
   %257 = load ptr, ptr @platform.0, align 8
@@ -38285,7 +38286,7 @@ GetMonitorHeight.exit:                            ; preds = %248, %252, %253
   %265 = call ptr @glfwSetWindowFocusCallback(ptr noundef %264, ptr noundef nonnull @WindowFocusCallback) #55
   %266 = load ptr, ptr @platform.0, align 8
   %267 = call ptr @glfwSetDropCallback(ptr noundef %266, ptr noundef nonnull @WindowDropCallback) #55
-  %268 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %268 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %269 = and i32 %268, 8192
   %.not52 = icmp eq i32 %269, 0
   br i1 %.not52, label %273, label %270
@@ -38321,7 +38322,7 @@ GetMonitorHeight.exit:                            ; preds = %248, %252, %253
   br i1 %.not53, label %295, label %291
 
 291:                                              ; preds = %288
-  %292 = getelementptr %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 3, i64 %indvars.iv77
+  %292 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2080), i64 0, i64 %indvars.iv77
   %293 = call ptr @glfwGetJoystickName(i32 noundef %289) #55
   %294 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %292, ptr noundef nonnull dereferenceable(1) %293) #55
   br label %295
@@ -38344,7 +38345,7 @@ GetMonitorHeight.exit:                            ; preds = %248, %252, %253
   %302 = getelementptr inbounds i8, ptr %1, i64 8
   %303 = load i64, ptr %302, align 8
   %304 = add i64 %301, %303
-  store i64 %304, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 6), align 8
+  store i64 %304, ptr getelementptr inbounds (i8, ptr @CORE, i64 2768), align 8
   br label %InitTimer.exit
 
 305:                                              ; preds = %296
@@ -38353,11 +38354,11 @@ GetMonitorHeight.exit:                            ; preds = %248, %252, %253
 
 InitTimer.exit:                                   ; preds = %299, %305
   %306 = call double @glfwGetTime() #55
-  store double %306, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 1), align 8
+  store double %306, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @GetWorkingDirectory.currentDir, i8 0, i64 4096, i1 false)
   %307 = call ptr @getcwd(ptr noundef nonnull @GetWorkingDirectory.currentDir, i64 noundef 4095) #55
-  store ptr %307, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 1), align 8
+  store ptr %307, ptr getelementptr inbounds (i8, ptr @CORE, i64 184), align 8
   %308 = call i32 @glfwGetPlatform() #55
   %switch.tableidx = add i32 %308, -393217
   %309 = icmp ult i32 %switch.tableidx, 5
@@ -38412,8 +38413,8 @@ declare void @glfwGetFramebufferSize(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetMouseScale(float noundef %0, float noundef %1) local_unnamed_addr #1 {
-  store float %0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1), align 4
-  store float %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1, i32 1), align 8
+  store float %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
+  store float %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 1880), align 8
   ret void
 }
 
@@ -38424,46 +38425,46 @@ declare ptr @glfwSetWindowSizeCallback(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal void @WindowSizeCallback(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2) #25 {
   %4 = alloca %struct.Vector2, align 8
-  store i32 %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
   %6 = sdiv i32 %5, 2
-  %7 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15, i32 1), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
   %8 = sdiv i32 %7, 2
   %9 = load ptr, ptr @glad_glViewport, align 8
   tail call void %9(i32 noundef %6, i32 noundef %8, i32 noundef %1, i32 noundef %2) #55
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5889, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 15), align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %11 = uitofp i32 %10 to double
-  %12 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   %13 = uitofp i32 %12 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5888, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 5), align 1
-  %14 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 3), align 1
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 15), align 1
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %30, label %16
 
 16:                                               ; preds = %3
-  %17 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %18 = and i32 %17, 8192
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %29, label %19
@@ -38480,7 +38481,7 @@ define internal void @WindowSizeCallback(ptr nocapture readnone %0, i32 noundef 
   %.sroa.0.0.vec.extract = extractelement <2 x float> %22, i64 0
   %24 = fdiv float %23, %.sroa.0.0.vec.extract
   %25 = fptoui float %24 to i32
-  store i32 %25, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %26 = sitofp i32 %2 to float
   %.sroa.0.4.vec.extract = extractelement <2 x float> %22, i64 1
   %27 = fdiv float %26, %.sroa.0.4.vec.extract
@@ -38488,12 +38489,12 @@ define internal void @WindowSizeCallback(ptr nocapture readnone %0, i32 noundef 
   br label %.sink.split
 
 29:                                               ; preds = %16
-  store i32 %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %29
   %.sink = phi i32 [ %2, %29 ], [ %28, %19 ]
-  store i32 %.sink, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   br label %30
 
 30:                                               ; preds = %.sink.split, %3
@@ -38505,11 +38506,11 @@ declare ptr @glfwSetWindowMaximizeCallback(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @WindowMaximizeCallback(ptr nocapture readnone %0, i32 noundef %1) #11 {
   %.not = icmp eq i32 %1, 0
-  %3 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %4 = and i32 %3, -1025
   %masksel = select i1 %.not, i32 0, i32 1024
   %storemerge = or disjoint i32 %4, %masksel
-  store i32 %storemerge, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   ret void
 }
 
@@ -38518,11 +38519,11 @@ declare ptr @glfwSetWindowIconifyCallback(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @WindowIconifyCallback(ptr nocapture readnone %0, i32 noundef %1) #11 {
   %.not = icmp eq i32 %1, 0
-  %3 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %4 = and i32 %3, -513
   %masksel = select i1 %.not, i32 0, i32 512
   %storemerge = or disjoint i32 %4, %masksel
-  store i32 %storemerge, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   ret void
 }
 
@@ -38531,11 +38532,11 @@ declare ptr @glfwSetWindowFocusCallback(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @WindowFocusCallback(ptr nocapture readnone %0, i32 noundef %1) #11 {
   %.not = icmp eq i32 %1, 0
-  %3 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %4 = and i32 %3, -2049
   %masksel = select i1 %.not, i32 2048, i32 0
   %storemerge = or disjoint i32 %4, %masksel
-  store i32 %storemerge, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   ret void
 }
 
@@ -38547,48 +38548,48 @@ define internal void @WindowDropCallback(ptr nocapture readnone %0, i32 noundef 
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 20), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.lr.ph15.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
-  %7 = load ptr, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 19), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
   %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 20), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
   %11 = zext i32 %10 to i64
   %12 = icmp ult i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = load ptr, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 19), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
   tail call void @free(ptr noundef %13) #55
   br label %.lr.ph15.preheader
 
 .lr.ph15.preheader:                               ; preds = %5, %._crit_edge
-  store i32 %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 20), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
   %14 = zext nneg i32 %1 to i64
   %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #58
-  store ptr %15, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 19), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
   br label %.lr.ph15
 
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %.lr.ph15
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15.preheader ], [ %indvars.iv.next19, %.lr.ph15 ]
   %16 = tail call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 4096, i64 noundef 1) #58
-  %17 = load ptr, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 19), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv18
   store ptr %16, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 19), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv18
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv18
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %23) #55
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %25 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 20), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
   %26 = zext i32 %25 to i64
   %27 = icmp ult i64 %indvars.iv.next19, %26
   br i1 %27, label %.lr.ph15, label %.loopexit
@@ -38601,13 +38602,13 @@ declare ptr @glfwSetWindowContentScaleCallback(ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @WindowContentScaleCallback(ptr nocapture readnone %0, float noundef %1, float noundef %2) #1 {
-  store float %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), i8 0, i64 16, i1 false)
-  store float %2, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  store float %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
+  store float %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
   ret void
 }
 
@@ -38616,81 +38617,73 @@ declare ptr @glfwSetKeyCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @KeyCallback(ptr nocapture readnone %0, i32 noundef %1, i32 %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = icmp slt i32 %1, 0
-  br i1 %6, label %40, label %7
+  br i1 %6, label %35, label %7
 
 7:                                                ; preds = %5
-  switch i32 %3, label %17 [
-    i32 0, label %8
-    i32 1, label %11
-    i32 2, label %14
-  ]
+  %8 = icmp ult i32 %3, 3
+  br i1 %8, label %switch.lookup, label %12
 
-8:                                                ; preds = %7
-  %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %9
-  store i8 0, ptr %10, align 1
-  br label %17
+switch.lookup:                                    ; preds = %7
+  %9 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.KeyCallback, i64 0, i64 %9
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %switch.cast = trunc nuw i32 %3 to i24
+  %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
+  %switch.downshift = lshr i24 65792, %switch.shiftamt
+  %switch.masked = trunc i24 %switch.downshift to i8
+  %10 = zext nneg i32 %1 to i64
+  %11 = getelementptr inbounds [512 x i8], ptr %switch.load, i64 0, i64 %10
+  store i8 %switch.masked, ptr %11, align 1
+  br label %12
 
-11:                                               ; preds = %7
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %12
-  store i8 1, ptr %13, align 1
-  br label %17
+12:                                               ; preds = %7, %switch.lookup
+  %13 = icmp ne i32 %1, 280
+  %14 = and i32 %4, 16
+  %.not = icmp eq i32 %14, 0
+  %or.cond22 = or i1 %13, %.not
+  br i1 %or.cond22, label %15, label %18
 
-14:                                               ; preds = %7
-  %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 3, i64 %15
-  store i8 1, ptr %16, align 1
-  br label %17
+15:                                               ; preds = %12
+  %16 = icmp ne i32 %1, 282
+  %17 = and i32 %4, 32
+  %.not21 = icmp eq i32 %17, 0
+  %or.cond23 = or i1 %16, %.not21
+  br i1 %or.cond23, label %21, label %18
 
-17:                                               ; preds = %7, %11, %14, %8
-  %18 = icmp ne i32 %1, 280
-  %19 = and i32 %4, 16
-  %.not = icmp eq i32 %19, 0
-  %or.cond22 = or i1 %18, %.not
-  br i1 %or.cond22, label %20, label %23
+18:                                               ; preds = %15, %12
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %19
+  store i8 1, ptr %20, align 1
+  br label %21
 
-20:                                               ; preds = %17
-  %21 = icmp ne i32 %1, 282
-  %22 = and i32 %4, 32
-  %.not21 = icmp eq i32 %22, 0
-  %or.cond23 = or i1 %21, %.not21
-  br i1 %or.cond23, label %26, label %23
+21:                                               ; preds = %18, %15
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %23 = icmp slt i32 %22, 16
+  %24 = icmp eq i32 %3, 1
+  %or.cond = and i1 %24, %23
+  br i1 %or.cond, label %25, label %30
 
-23:                                               ; preds = %20, %17
-  %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %24
-  store i8 1, ptr %25, align 1
-  br label %26
+25:                                               ; preds = %21
+  %26 = sext i32 %22 to i64
+  %27 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %26
+  store i32 %1, ptr %27, align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  br label %30
 
-26:                                               ; preds = %23, %20
-  %27 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
-  %28 = icmp slt i32 %27, 16
-  %29 = icmp eq i32 %3, 1
-  %or.cond = and i1 %29, %28
-  br i1 %or.cond, label %30, label %35
+30:                                               ; preds = %25, %21
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 192), align 8
+  %32 = icmp eq i32 %31, %1
+  %or.cond3 = and i1 %24, %32
+  br i1 %or.cond3, label %33, label %35
 
-30:                                               ; preds = %26
-  %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 4, i64 %31
-  store i32 %1, ptr %32, align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @platform.0, align 8
+  tail call void @glfwSetWindowShouldClose(ptr noundef %34, i32 noundef 1) #55
   br label %35
 
-35:                                               ; preds = %30, %26
-  %36 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2), align 8
-  %37 = icmp eq i32 %36, %1
-  %or.cond3 = and i1 %29, %37
-  br i1 %or.cond3, label %38, label %40
-
-38:                                               ; preds = %35
-  %39 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwSetWindowShouldClose(ptr noundef %39, i32 noundef 1) #55
-  br label %40
-
-40:                                               ; preds = %5, %38, %35
+35:                                               ; preds = %5, %33, %30
   ret void
 }
 
@@ -38698,17 +38691,17 @@ declare ptr @glfwSetCharCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @CharCallback(ptr nocapture readnone %0, i32 noundef %1) #11 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 7), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
   %4 = icmp slt i32 %3, 16
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 6, i64 %6
+  %7 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), i64 0, i64 %6
   store i32 %1, ptr %7, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 7), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 7), align 8
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
   br label %10
 
 10:                                               ; preds = %5, %2
@@ -38722,9 +38715,9 @@ define internal void @MouseButtonCallback(ptr nocapture readnone %0, i32 noundef
   %5 = alloca %struct.GestureEvent, align 8
   %6 = trunc i32 %2 to i8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %7
   store i8 %6, ptr %8, align 1
-  %9 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %7
+  %9 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %7
   store i8 %6, ptr %9, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   %sext.mask = and i32 %2, 255
@@ -38732,7 +38725,7 @@ define internal void @MouseButtonCallback(ptr nocapture readnone %0, i32 noundef
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 8, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %7
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %16
@@ -38747,12 +38740,12 @@ define internal void @MouseButtonCallback(ptr nocapture readnone %0, i32 noundef
   %18 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 1, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %5, i64 40
-  %20 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  %21 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1), align 4
+  %20 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  %21 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1868), align 4
   %22 = fadd <2 x float> %20, %21
-  %23 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1), align 4
+  %23 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
   %24 = fmul <2 x float> %22, %23
-  %25 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %25 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %26 = sitofp <2 x i32> %25 to <2 x float>
   %27 = fdiv <2 x float> %24, %26
   store <2 x float> %27, ptr %19, align 8
@@ -38768,9 +38761,9 @@ define internal void @MouseCursorPosCallback(ptr nocapture readnone %0, double n
   %5 = insertelement <2 x double> poison, double %1, i64 0
   %6 = insertelement <2 x double> %5, double %2, i64 1
   %7 = fptrunc <2 x double> %6 to <2 x float>
-  store <2 x float> %7, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
+  store <2 x float> %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
   %.cast = bitcast <2 x float> %7 to i64
-  store <2 x float> %7, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 2), align 8
+  store <2 x float> %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 96, i1 false)
   store i32 2, ptr %4, align 8
@@ -38778,7 +38771,7 @@ define internal void @MouseCursorPosCallback(ptr nocapture readnone %0, double n
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %4, i64 40
   %11 = lshr i64 %.cast, 32
-  %12 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %12 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %13 = sitofp <2 x i32> %12 to <2 x float>
   %14 = insertelement <2 x i64> poison, i64 %.cast, i64 0
   %15 = insertelement <2 x i64> %14, i64 %11, i64 1
@@ -38797,7 +38790,7 @@ define internal void @MouseScrollCallback(ptr nocapture readnone %0, double noun
   %4 = insertelement <2 x double> poison, double %1, i64 0
   %5 = insertelement <2 x double> %4, double %2, i64 1
   %6 = fptrunc <2 x double> %5 to <2 x float>
-  store <2 x float> %6, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
+  store <2 x float> %6, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
   ret void
 }
 
@@ -38807,7 +38800,7 @@ declare ptr @glfwSetCursorEnterCallback(ptr noundef, ptr noundef) local_unnamed_
 define internal void @CursorEnterCallback(ptr nocapture readnone %0, i32 noundef %1) #1 {
   %.not = icmp ne i32 %1, 0
   %. = zext i1 %.not to i8
-  store i8 %., ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 6), align 1
+  store i8 %., ptr getelementptr inbounds (i8, ptr @CORE, i64 1905), align 1
   ret void
 }
 
@@ -38820,14 +38813,14 @@ define internal void @JoystickCallback(i32 noundef %0, i32 noundef %1) #0 {
 
 3:                                                ; preds = %2
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 3, i64 %4
+  %5 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2080), i64 0, i64 %4
   %6 = tail call ptr @glfwGetJoystickName(i32 noundef %0) #55
   %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #55
   br label %11
 
 8:                                                ; preds = %2
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 3, i64 %9
+  %10 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2080), i64 0, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   br label %11
 
@@ -38878,16 +38871,16 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.153) #55
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.154) #55
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.155) #55
-  store i32 %0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 6), align 8
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %11
 
@@ -38901,54 +38894,54 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %14
 
 14:                                               ; preds = %13, %11, %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2528) getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2), i8 0, i64 2528, i1 false)
-  store i32 256, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2), align 8
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 4), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2528) getelementptr inbounds (i8, ptr @CORE, i64 192), i8 0, i64 2528, i1 false)
+  store i32 256, ptr getelementptr inbounds (i8, ptr @CORE, i64 192), align 8
+  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 1900), align 4
   %15 = tail call i32 @InitPlatform()
-  %16 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
   tail call void @rlglInit(i32 noundef %16, i32 noundef %17)
-  %18 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
-  store i32 %18, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  store i32 %19, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
+  store i32 %18, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
   %21 = sdiv i32 %20, 2
-  %22 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15, i32 1), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
   %23 = sdiv i32 %22, 2
   %24 = load ptr, ptr @glad_glViewport, align 8
   tail call void %24(i32 noundef %21, i32 noundef %23, i32 noundef %18, i32 noundef %19) #55
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5889, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 15), align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %26 = uitofp i32 %25 to double
-  %27 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   %28 = uitofp i32 %27 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %26, double noundef %28, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5888, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
   tail call void @LoadFontDefault() #55
   call void @GetFontDefault(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %4) #55
   %29 = getelementptr inbounds i8, ptr %4, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 1520
   %32 = load <2 x float>, ptr %31, align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %34 = and i32 %33, 32
   %.not16 = icmp eq i32 %34, 0
   br i1 %.not16, label %38, label %35
@@ -38973,7 +38966,7 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %43
 
 43:                                               ; preds = %38, %35
-  %44 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %45 = and i32 %44, 8192
   %.not17 = icmp eq i32 %45, 0
   br i1 %.not17, label %59, label %46
@@ -39004,8 +38997,8 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %59
 
 59:                                               ; preds = %46, %43
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 4), align 2
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
   %60 = call i64 @time(ptr noundef null) #55
   %61 = and i64 %60, 4294967295
   %62 = add nuw nsw i64 %61, -7046029254386353131
@@ -39141,38 +39134,38 @@ msf_gif_free.exit:                                ; preds = %4, %5
 
 6:                                                ; preds = %msf_gif_free.exit, %0
   tail call void @UnloadFontDefault() #55
-  tail call void @rlUnloadRenderBatch(ptr noundef nonnull byval(%struct.rlRenderBatch) align 8 getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 1))
+  tail call void @rlUnloadRenderBatch(ptr noundef nonnull byval(%struct.rlRenderBatch) align 8 getelementptr inbounds (i8, ptr @RLGL, i64 8))
   %7 = load ptr, ptr @glad_glUseProgram, align 8
   tail call void %7(i32 noundef 0) #55
   %8 = load ptr, ptr @glad_glDetachShader, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   tail call void %8(i32 noundef %9, i32 noundef %10) #55
   %11 = load ptr, ptr @glad_glDetachShader, align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 21), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
   tail call void %11(i32 noundef %12, i32 noundef %13) #55
   %14 = load ptr, ptr @glad_glDeleteShader, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 20), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
   tail call void %14(i32 noundef %15) #55
   %16 = load ptr, ptr @glad_glDeleteShader, align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 21), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
   tail call void %16(i32 noundef %17) #55
   %18 = load ptr, ptr @glad_glDeleteProgram, align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   tail call void %18(i32 noundef %19) #55
-  %20 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   tail call void @free(ptr noundef %20) #55
-  %21 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1340, i32 noundef %21) #55
   %22 = load ptr, ptr @glad_glDeleteTextures, align 8
-  tail call void %22(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18)) #55
-  %23 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 18), align 8
+  tail call void %22(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @RLGL, i64 2328)) #55
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.18, i32 noundef %23) #55
   %24 = load ptr, ptr @platform.0, align 8
   tail call void @glfwDestroyWindow(ptr noundef %24) #55
   tail call void @glfwTerminate() #55
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 2), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.156) #55
   ret void
 }
@@ -39181,14 +39174,14 @@ declare void @UnloadFontDefault() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowReady() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 2), align 4
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowHidden() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %2 = and i32 %1, 128
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -39196,7 +39189,7 @@ define zeroext i1 @IsWindowHidden() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowMinimized() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %2 = and i32 %1, 512
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -39204,7 +39197,7 @@ define zeroext i1 @IsWindowMinimized() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowMaximized() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %2 = and i32 %1, 1024
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -39212,7 +39205,7 @@ define zeroext i1 @IsWindowMaximized() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowFocused() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %2 = and i32 %1, 2048
   %3 = icmp eq i32 %2, 0
   ret i1 %3
@@ -39220,57 +39213,57 @@ define zeroext i1 @IsWindowFocused() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowResized() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 5), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 15), align 1
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetScreenWidth() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetScreenHeight() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetRenderWidth() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetRenderHeight() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @EnableEventWaiting() local_unnamed_addr #1 {
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 6), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @DisableEventWaiting() local_unnamed_addr #1 {
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 6), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsCursorHidden() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 5), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsCursorOnScreen() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 6), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1905), align 1
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -39303,12 +39296,12 @@ define void @ClearBackground(i32 %0) local_unnamed_addr #0 {
 define void @BeginDrawing() local_unnamed_addr #0 {
   %1 = alloca %struct.float16, align 4
   %2 = tail call double @glfwGetTime() #55
-  store double %2, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3), align 8
-  %3 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 1), align 8
+  store double %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 2720), align 8
+  %3 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
   %4 = fsub double %2, %3
-  store double %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 2), align 8
-  store double %2, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  store double %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 2736), align 8
+  store double %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %5, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
@@ -39322,22 +39315,22 @@ define void @BeginDrawing() local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %.sroa.52.0..sroa_idx.i, align 4
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 104), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 108), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 112), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 116), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 124), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 128), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 132), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 136), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 144), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 148), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 152), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 156), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
   store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !19
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   store float %.sroa.53.0.copyload, ptr %6, align 4, !alias.scope !19
@@ -39401,7 +39394,7 @@ define void @EndDrawing() local_unnamed_addr #25 {
   call void @glfwGetWindowContentScale(ptr noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %15) #55
   %16 = load <2 x float>, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %17 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  %17 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %18 = uitofp <2 x i32> %17 to <2 x float>
   %19 = fmul <2 x float> %16, %18
   %20 = fptosi <2 x float> %19 to <2 x i32>
@@ -39459,7 +39452,7 @@ define void @EndDrawing() local_unnamed_addr #25 {
 
 rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %13
   call void @free(ptr noundef %26) #55
-  %43 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %44 = uitofp i32 %43 to float
   %45 = extractelement <2 x float> %16, i64 0
   %46 = fmul float %45, %44
@@ -39478,10 +39471,10 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %.not, label %59, label %54
 
 54:                                               ; preds = %50
-  %55 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %56 = add i32 %55, -20
   call void @DrawCircle(i32 noundef 30, i32 noundef %56, float noundef 1.000000e+01, i32 -13164098) #55
-  %57 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %58 = add i32 %57, -25
   call void @DrawText(ptr noundef nonnull @.str.157, i32 noundef 50, i32 noundef %58, i32 noundef 10, i32 -13162010) #55
   br label %59
@@ -39513,19 +39506,19 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %70 = phi ptr [ %165, %68 ], [ %63, %62 ]
   %71 = phi i32 [ %164, %68 ], [ %65, %62 ]
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %68 ], [ 0, %62 ]
-  %72 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 %indvars.iv.i13
+  %72 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %indvars.iv.i13
   %73 = load i8, ptr %72, align 1
   %.not65.i = icmp eq i8 %73, 0
   br i1 %.not65.i, label %116, label %74
 
 74:                                               ; preds = %.preheader74.i
-  %75 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %indvars.iv.i13
+  %75 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv.i13
   %76 = load i8, ptr %75, align 1
   %.not66.i = icmp eq i8 %76, 0
   br i1 %.not66.i, label %77, label %116
 
 77:                                               ; preds = %74
-  %78 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %78 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %79 = getelementptr inbounds i8, ptr %70, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %70, i64 4
@@ -39582,13 +39575,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %121, label %RecordAutomationEvent.exit, label %122
 
 122:                                              ; preds = %116
-  %123 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %indvars.iv.i13
+  %123 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv.i13
   %124 = load i8, ptr %123, align 1
   %.not67.i = icmp eq i8 %124, 0
   br i1 %.not67.i, label %._crit_edge.i, label %125
 
 125:                                              ; preds = %122
-  %126 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %126 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %127 = getelementptr inbounds i8, ptr %118, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = zext i32 %120 to i64
@@ -39652,19 +39645,19 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %169 = phi ptr [ %264, %167 ], [ %165, %68 ]
   %170 = phi i32 [ %263, %167 ], [ %164, %68 ]
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %167 ], [ 0, %68 ]
-  %171 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 8, i64 %indvars.iv87.i
+  %171 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %indvars.iv87.i
   %172 = load i8, ptr %171, align 1
   %.not62.i = icmp eq i8 %172, 0
   br i1 %.not62.i, label %215, label %173
 
 173:                                              ; preds = %.preheader72.i
-  %174 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %indvars.iv87.i
+  %174 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv87.i
   %175 = load i8, ptr %174, align 1
   %.not63.i = icmp eq i8 %175, 0
   br i1 %.not63.i, label %176, label %215
 
 176:                                              ; preds = %173
-  %177 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %177 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %178 = getelementptr inbounds i8, ptr %169, i64 8
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i8, ptr %169, i64 4
@@ -39721,13 +39714,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %220, label %RecordAutomationEvent.exit, label %221
 
 221:                                              ; preds = %215
-  %222 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %indvars.iv87.i
+  %222 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv87.i
   %223 = load i8, ptr %222, align 1
   %.not64.i = icmp eq i8 %223, 0
   br i1 %.not64.i, label %._crit_edge110.i, label %224
 
 224:                                              ; preds = %221
-  %225 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %225 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %226 = getelementptr inbounds i8, ptr %217, i64 8
   %227 = load ptr, ptr %226, align 8
   %228 = zext i32 %219 to i64
@@ -39783,23 +39776,23 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 266:                                              ; preds = %167
   %267 = getelementptr inbounds i8, ptr %264, i64 4
-  %268 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
+  %268 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
   %269 = fptosi float %268 to i32
-  %270 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
+  %270 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
   %271 = fptosi float %270 to i32
   %.not.i = icmp eq i32 %269, %271
   br i1 %.not.i, label %272, label %277
 
 272:                                              ; preds = %266
-  %273 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2, i32 1), align 8
+  %273 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
   %274 = fptosi float %273 to i32
-  %275 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3, i32 1), align 8
+  %275 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1896), align 8
   %276 = fptosi float %275 to i32
   %.not52.i = icmp eq i32 %274, %276
   br i1 %.not52.i, label %320, label %277
 
 277:                                              ; preds = %272, %266
-  %278 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %278 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %279 = getelementptr inbounds i8, ptr %264, i64 8
   %280 = load ptr, ptr %279, align 8
   %281 = zext i32 %263 to i64
@@ -39810,14 +39803,14 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %285 = zext i32 %284 to i64
   %286 = getelementptr inbounds %struct.AutomationEvent, ptr %283, i64 %285, i32 1
   store i32 7, ptr %286, align 4
-  %287 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
+  %287 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
   %288 = fptosi float %287 to i32
   %289 = load ptr, ptr %279, align 8
   %290 = load i32, ptr %267, align 4
   %291 = zext i32 %290 to i64
   %292 = getelementptr inbounds %struct.AutomationEvent, ptr %289, i64 %291, i32 2
   store i32 %288, ptr %292, align 4
-  %293 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2, i32 1), align 8
+  %293 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
   %294 = fptosi float %293 to i32
   %295 = load ptr, ptr %279, align 8
   %296 = load i32, ptr %267, align 4
@@ -39854,23 +39847,23 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %321 = phi i32 [ %318, %277 ], [ %262, %272 ]
   %322 = phi i32 [ %317, %277 ], [ %263, %272 ]
   %323 = phi ptr [ %314, %277 ], [ %264, %272 ]
-  %324 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
+  %324 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
   %325 = fptosi float %324 to i32
-  %326 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 10), align 4
+  %326 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1932), align 4
   %327 = fptosi float %326 to i32
   %.not53.i = icmp eq i32 %325, %327
   br i1 %.not53.i, label %328, label %333
 
 328:                                              ; preds = %320
-  %329 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9, i32 1), align 8
+  %329 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1928), align 8
   %330 = fptosi float %329 to i32
-  %331 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 10, i32 1), align 8
+  %331 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1936), align 8
   %332 = fptosi float %331 to i32
   %.not54.i = icmp eq i32 %330, %332
   br i1 %.not54.i, label %.preheader, label %333
 
 333:                                              ; preds = %328, %320
-  %334 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %334 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %335 = getelementptr inbounds i8, ptr %323, i64 8
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds i8, ptr %323, i64 4
@@ -39882,14 +39875,14 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %342 = zext i32 %341 to i64
   %343 = getelementptr inbounds %struct.AutomationEvent, ptr %340, i64 %342, i32 1
   store i32 8, ptr %343, align 4
-  %344 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
+  %344 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
   %345 = fptosi float %344 to i32
   %346 = load ptr, ptr %335, align 8
   %347 = load i32, ptr %337, align 4
   %348 = zext i32 %347 to i64
   %349 = getelementptr inbounds %struct.AutomationEvent, ptr %346, i64 %348, i32 2
   store i32 %345, ptr %349, align 4
-  %350 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9, i32 1), align 8
+  %350 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1928), align 8
   %351 = fptosi float %350 to i32
   %352 = load ptr, ptr %335, align 8
   %353 = load i32, ptr %337, align 4
@@ -39936,19 +39929,19 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %379 = phi i32 [ %473, %377 ], [ %.ph, %.preheader ]
   %380 = phi ptr [ %475, %377 ], [ %.ph115, %.preheader ]
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %377 ], [ 0, %.preheader ]
-  %381 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 4, i64 %indvars.iv91.i
+  %381 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2048), i64 0, i64 %indvars.iv91.i
   %382 = load i8, ptr %381, align 1
   %.not59.i = icmp eq i8 %382, 0
   br i1 %.not59.i, label %426, label %383
 
 383:                                              ; preds = %378
-  %384 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %indvars.iv91.i
+  %384 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv91.i
   %385 = load i8, ptr %384, align 1
   %.not60.i = icmp eq i8 %385, 0
   br i1 %.not60.i, label %386, label %426
 
 386:                                              ; preds = %383
-  %387 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %387 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %388 = getelementptr inbounds i8, ptr %380, i64 8
   %389 = load ptr, ptr %388, align 8
   %390 = getelementptr inbounds i8, ptr %380, i64 4
@@ -40006,13 +39999,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %431, label %RecordAutomationEvent.exit, label %432
 
 432:                                              ; preds = %426
-  %433 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %indvars.iv91.i
+  %433 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv91.i
   %434 = load i8, ptr %433, align 1
   %.not61.i = icmp eq i8 %434, 0
   br i1 %.not61.i, label %._crit_edge115.i, label %435
 
 435:                                              ; preds = %432
-  %436 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %436 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %437 = getelementptr inbounds i8, ptr %428, i64 8
   %438 = load ptr, ptr %437, align 8
   %439 = zext i32 %430 to i64
@@ -40084,19 +40077,19 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %484 = phi i32 [ %477, %.preheader68.i ], [ %582, %480 ]
   %485 = phi ptr [ %478, %.preheader68.i ], [ %584, %480 ]
   %indvars.iv95.i = phi i64 [ 0, %.preheader68.i ], [ %indvars.iv.next96.i, %480 ]
-  %486 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 5, i64 %indvars.iv103.i, i64 %indvars.iv95.i
+  %486 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2464), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
   %487 = load i8, ptr %486, align 1
   %.not56.i = icmp eq i8 %487, 0
   br i1 %.not56.i, label %531, label %488
 
 488:                                              ; preds = %481
-  %489 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %indvars.iv103.i, i64 %indvars.iv95.i
+  %489 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
   %490 = load i8, ptr %489, align 1
   %.not57.i = icmp eq i8 %490, 0
   br i1 %.not57.i, label %491, label %531
 
 491:                                              ; preds = %488
-  %492 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %492 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %493 = getelementptr inbounds i8, ptr %485, i64 8
   %494 = load ptr, ptr %493, align 8
   %495 = getelementptr inbounds i8, ptr %485, i64 4
@@ -40156,13 +40149,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %538, label %RecordAutomationEvent.exit, label %539
 
 539:                                              ; preds = %531
-  %540 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %indvars.iv103.i, i64 %indvars.iv95.i
+  %540 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
   %541 = load i8, ptr %540, align 1
   %.not58.i = icmp eq i8 %541, 0
   br i1 %.not58.i, label %._crit_edge120.i, label %542
 
 542:                                              ; preds = %539
-  %543 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %543 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %544 = getelementptr inbounds i8, ptr %535, i64 8
   %545 = load ptr, ptr %544, align 8
   %546 = zext i32 %537 to i64
@@ -40229,7 +40222,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %589 = phi i32 [ %638, %586 ], [ %583, %480 ]
   %590 = phi ptr [ %639, %586 ], [ %584, %480 ]
   %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %586 ], [ 0, %480 ]
-  %591 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 %indvars.iv103.i, i64 %indvars.iv99.i
+  %591 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv99.i
   %592 = load float, ptr %591, align 4
   %593 = fcmp ogt float %592, 0x3FB99999A0000000
   br i1 %593, label %594, label %._crit_edge124.i
@@ -40240,7 +40233,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br label %636
 
 594:                                              ; preds = %.preheader.i
-  %595 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %595 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %596 = getelementptr inbounds i8, ptr %590, i64 8
   %597 = load ptr, ptr %596, align 8
   %598 = getelementptr inbounds i8, ptr %590, i64 4
@@ -40310,7 +40303,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 644:                                              ; preds = %642
   %645 = getelementptr inbounds i8, ptr %639, i64 4
-  %646 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %646 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %647 = getelementptr inbounds i8, ptr %639, i64 8
   %648 = load ptr, ptr %647, align 8
   %649 = zext i32 %638 to i64
@@ -40359,15 +40352,15 @@ RecordAutomationEvent.exit:                       ; preds = %._crit_edge.i, %116
   %682 = load ptr, ptr @platform.0, align 8
   call void @glfwSwapBuffers(ptr noundef %682) #55
   %683 = call double @glfwGetTime() #55
-  store double %683, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3), align 8
-  %684 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 1), align 8
+  store double %683, ptr getelementptr inbounds (i8, ptr @CORE, i64 2720), align 8
+  %684 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
   %685 = fsub double %683, %684
-  store double %685, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 3), align 8
-  store double %683, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 1), align 8
-  %686 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 2), align 8
+  store double %685, ptr getelementptr inbounds (i8, ptr @CORE, i64 2744), align 8
+  store double %683, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
+  %686 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2736), align 8
   %687 = fadd double %685, %686
-  store double %687, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 4), align 8
-  %688 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 5), align 8
+  store double %687, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
+  %688 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2760), align 8
   %689 = fcmp olt double %687, %688
   br i1 %689, label %690, label %714
 
@@ -40408,26 +40401,26 @@ RecordAutomationEvent.exit:                       ; preds = %._crit_edge.i, %116
 WaitTime.exit:                                    ; preds = %.preheader.i16, %690
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %709 = call double @glfwGetTime() #55
-  store double %709, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3), align 8
-  %710 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 1), align 8
+  store double %709, ptr getelementptr inbounds (i8, ptr @CORE, i64 2720), align 8
+  %710 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
   %711 = fsub double %709, %710
-  store double %709, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 1), align 8
-  %712 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 4), align 8
+  store double %709, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
+  %712 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
   %713 = fadd double %711, %712
-  store double %713, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 4), align 8
+  store double %713, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
   br label %714
 
 714:                                              ; preds = %WaitTime.exit, %RecordAutomationEvent.exit
   call void @PollInputEvents()
-  %715 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 301), align 1
+  %715 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1009), align 1
   %716 = icmp eq i8 %715, 0
-  %717 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 301), align 1
+  %717 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 497), align 1
   %718 = icmp eq i8 %717, 1
   %or.cond = select i1 %716, i1 %718, i1 false
   br i1 %or.cond, label %719, label %IsKeyPressed.exit.thread
 
 719:                                              ; preds = %714
-  %720 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 341), align 1
+  %720 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 537), align 1
   %721 = icmp eq i8 %720, 1
   br i1 %721, label %722, label %751
 
@@ -40439,7 +40432,7 @@ WaitTime.exit:                                    ; preds = %.preheader.i16, %69
 725:                                              ; preds = %722
   store i8 0, ptr @gifRecording, align 1
   call void @msf_gif_end(ptr dead_on_unwind nonnull writable sret(%struct.MsfGifResult) align 8 %4, ptr noundef nonnull @gifState)
-  %726 = load ptr, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 1), align 8
+  %726 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 184), align 8
   %727 = load i32, ptr @screenshotCounter, align 4
   %728 = call ptr (ptr, ...) @TextFormat(ptr noundef nonnull @.str.158, ptr noundef %726, i32 noundef %727) #55
   %729 = load ptr, ptr %4, align 8
@@ -40468,12 +40461,12 @@ msf_gif_free.exit:                                ; preds = %725, %734
   call void @glfwGetWindowContentScale(ptr noundef %736, ptr noundef nonnull %1, ptr noundef nonnull %737) #55
   %738 = load <2 x float>, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %739 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  %739 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %740 = uitofp i32 %739 to float
   %.sroa.0.0.vec.extract = extractelement <2 x float> %738, i64 0
   %741 = fmul float %.sroa.0.0.vec.extract, %740
   %742 = fptosi float %741 to i32
-  %743 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
+  %743 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   %744 = uitofp i32 %743 to float
   %.sroa.0.4.vec.extract = extractelement <2 x float> %738, i64 1
   %745 = fmul float %.sroa.0.4.vec.extract, %744
@@ -40496,9 +40489,9 @@ msf_gif_free.exit:                                ; preds = %725, %734
   br label %IsKeyPressed.exit.thread
 
 IsKeyPressed.exit.thread:                         ; preds = %714, %751, %735, %msf_gif_free.exit
-  %756 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %756 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %757 = add i32 %756, 1
-  store i32 %757, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  store i32 %757, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   ret void
 }
 
@@ -40569,7 +40562,7 @@ define void @TakeScreenshot(ptr noundef %0) local_unnamed_addr #25 {
   call void @glfwGetWindowContentScale(ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %9) #55
   %10 = load <2 x float>, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %11 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  %11 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %12 = uitofp <2 x i32> %11 to <2 x float>
   %13 = fmul <2 x float> %10, %12
   %14 = fptosi <2 x float> %13 to <2 x i32>
@@ -40629,7 +40622,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   call void @free(ptr noundef %20) #55
   store ptr %22, ptr %3, align 8
   %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %38 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  %38 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %39 = uitofp <2 x i32> %38 to <2 x float>
   %40 = fmul <2 x float> %10, %39
   %41 = fptosi <2 x float> %40 to <2 x i32>
@@ -40639,7 +40632,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %43 = getelementptr inbounds i8, ptr %3, i64 20
   store i32 7, ptr %43, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
-  %44 = load ptr, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 1), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 184), align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %GetFileName.exit, label %.preheader.i
 
@@ -40682,7 +40675,7 @@ define void @BeginMode2D(ptr nocapture noundef readonly byval(%struct.Camera2D) 
   %3 = alloca %struct.float16, align 4
   %4 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %5, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
@@ -40951,7 +40944,7 @@ define void @EndMode2D() local_unnamed_addr #0 {
   %2 = alloca %struct.float16, align 4
   %3 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %3)
-  %4 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %4, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
@@ -40975,22 +40968,22 @@ define void @EndMode2D() local_unnamed_addr #0 {
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %0
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 104), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 108), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 112), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 116), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 124), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 128), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 132), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 136), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 144), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 148), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 152), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 156), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
   store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !28
   %9 = getelementptr inbounds i8, ptr %2, i64 4
   store float %.sroa.53.0.copyload, ptr %9, align 4, !alias.scope !28
@@ -41034,37 +41027,37 @@ define void @BeginMode3D(ptr nocapture noundef readonly byval(%struct.Camera3D) 
   %2 = alloca %struct.float16, align 4
   %3 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %3)
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5889, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %5 = icmp sgt i32 %4, 31
   br i1 %5, label %6, label %rlPushMatrix.exit
 
 6:                                                ; preds = %1
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 5, ptr noundef nonnull @.str.1) #55
-  %.pr = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
   %7 = icmp eq i32 %.pr, 5888
   br i1 %7, label %8, label %.._crit_edge.i_crit_edge
 
 .._crit_edge.i_crit_edge:                         ; preds = %6
-  %.pre.i.pre = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  %.pre.i.pre = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   br label %rlPushMatrix.exit
 
 8:                                                ; preds = %6
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 15), align 8
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 272), align 8
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 208), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   br label %rlPushMatrix.exit
 
 rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_crit_edge, %8
-  %9 = phi ptr [ getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 14), %8 ], [ %.pre.i.pre, %.._crit_edge.i_crit_edge ], [ getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), %1 ]
-  %10 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %9 = phi ptr [ getelementptr inbounds (i8, ptr @RLGL, i64 208), %8 ], [ %.pre.i.pre, %.._crit_edge.i_crit_edge ], [ getelementptr inbounds (i8, ptr @RLGL, i64 144), %1 ]
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 16, i64 %11
+  %12 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
-  %15 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %15, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
@@ -41078,9 +41071,9 @@ rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 60
   store float 1.000000e+00, ptr %.sroa.52.0..sroa_idx.i, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
   %17 = uitofp i32 %16 to float
-  %18 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
   %19 = uitofp i32 %18 to float
   %20 = fdiv float %17, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 40
@@ -41118,15 +41111,15 @@ rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_
   br label %44
 
 44:                                               ; preds = %rlPushMatrix.exit, %35, %23
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5888, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
   %45 = getelementptr inbounds i8, ptr %0, i64 12
   %46 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.03.0.copyload = load <2 x float>, ptr %0, align 8
@@ -41243,28 +41236,28 @@ define void @EndMode3D() local_unnamed_addr #0 {
   %2 = alloca %struct.float16, align 4
   %3 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %3)
-  %4 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %rlPopMatrix.exit
 
 6:                                                ; preds = %0
   %7 = add nsw i32 %4, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 16, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
-  store i32 %7, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 17), align 4
+  %9 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
   br label %rlPopMatrix.exit
 
 rlPopMatrix.exit:                                 ; preds = %0, %6
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5888, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 0, ptr %1, align 4
   %10 = load ptr, ptr @glad_glGetIntegerv, align 8
@@ -41275,22 +41268,22 @@ rlPopMatrix.exit:                                 ; preds = %0, %6
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %rlPopMatrix.exit
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 104), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 108), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 112), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 116), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 124), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 128), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 132), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 136), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 144), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 148), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 152), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 156), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
   store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !34
   %14 = getelementptr inbounds i8, ptr %2, i64 4
   store float %.sroa.53.0.copyload, ptr %14, align 4, !alias.scope !34
@@ -41344,32 +41337,32 @@ define void @BeginTextureMode(ptr nocapture noundef readonly byval(%struct.Rende
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr @glad_glViewport, align 8
   tail call void %9(i32 noundef 0, i32 noundef 0, i32 noundef %6, i32 noundef %8) #55
-  store i32 %6, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 40), align 8
-  store i32 %8, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 41), align 4
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5889, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 15), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
   %10 = sitofp i32 %6 to double
   %11 = sitofp i32 %8 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %10, double noundef %11, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5888, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
-  store i32 %6, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
-  store i32 %8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 7), align 1
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 17), align 1
   ret void
 }
 
@@ -41380,53 +41373,53 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   tail call void @rlDrawRenderBatch(ptr noundef %2)
   %3 = load ptr, ptr @glad_glBindFramebuffer, align 8
   tail call void %3(i32 noundef 36160, i32 noundef 0) #55
-  %4 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
   %7 = sdiv i32 %6, 2
-  %8 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 15, i32 1), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
   %9 = sdiv i32 %8, 2
   %10 = load ptr, ptr @glad_glViewport, align 8
   tail call void %10(i32 noundef %7, i32 noundef %9, i32 noundef %4, i32 noundef %5) #55
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5889, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 13, i32 15), align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
   %12 = uitofp i32 %11 to double
-  %13 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14, i32 1), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   %14 = uitofp i32 %13 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %12, double noundef %14, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  store ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 11), align 8
-  store i32 5888, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 6), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 104), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 108), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 112), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 116), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 124), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 128), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 132), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 136), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 144), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 148), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 152), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 156), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
   store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !37
   %15 = getelementptr inbounds i8, ptr %1, i64 4
   store float %.sroa.53.0.copyload, ptr %15, align 4, !alias.scope !37
@@ -41459,23 +41452,23 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   %29 = getelementptr inbounds i8, ptr %1, i64 60
   store float %.sroa.1614.0.copyload, ptr %29, align 4, !alias.scope !37
   call void @rlMultMatrixf(ptr noundef nonnull %1)
-  %30 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  store <2 x i32> %30, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 7), align 1
+  %30 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store <2 x i32> %30, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 17), align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @BeginShaderMode(i32 %0, ptr %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 24), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
   %.not.i = icmp eq i32 %3, %0
   br i1 %.not.i, label %rlSetShader.exit, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %5)
-  store i32 %0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 24), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   br label %rlSetShader.exit
 
 rlSetShader.exit:                                 ; preds = %2, %4
@@ -41484,17 +41477,17 @@ rlSetShader.exit:                                 ; preds = %2, %4
 
 ; Function Attrs: nounwind uwtable
 define void @EndShaderMode() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 24), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
   %.not.i = icmp eq i32 %2, %1
   br i1 %.not.i, label %rlSetShader.exit, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 23), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
   %5 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %5)
-  store i32 %1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 24), align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 25), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
   br label %rlSetShader.exit
 
 rlSetShader.exit:                                 ; preds = %0, %3
@@ -41509,7 +41502,7 @@ define void @BeginBlendMode(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @EndBlendMode() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 29), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2644), align 4
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %rlSetBlendMode.exit, label %2
 
@@ -41520,8 +41513,8 @@ define void @EndBlendMode() local_unnamed_addr #0 {
   tail call void %4(i32 noundef 770, i32 noundef 771) #55
   %5 = load ptr, ptr @glad_glBlendEquation, align 8
   tail call void %5(i32 noundef 32774) #55
-  store i32 0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 29), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 39), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2644), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
   br label %rlSetBlendMode.exit
 
 rlSetBlendMode.exit:                              ; preds = %0, %2
@@ -41535,12 +41528,12 @@ define void @BeginScissorMode(i32 noundef %0, i32 noundef %1, i32 noundef %2, i3
   tail call void @rlDrawRenderBatch(ptr noundef %6)
   %7 = load ptr, ptr @glad_glEnable, align 8
   tail call void %7(i32 noundef 3089) #55
-  %8 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 7), align 1
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 17), align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %34, label %10
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %12 = and i32 %11, 8192
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %34, label %13
@@ -41557,7 +41550,7 @@ define void @BeginScissorMode(i32 noundef %0, i32 noundef %1, i32 noundef %2, i3
   %.sroa.0.0.vec.extract = extractelement <2 x float> %16, i64 0
   %18 = fmul float %.sroa.0.0.vec.extract, %17
   %19 = fptosi float %18 to i32
-  %20 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
   %21 = uitofp i32 %20 to float
   %22 = add nsw i32 %3, %1
   %23 = sitofp i32 %22 to float
@@ -41576,7 +41569,7 @@ define void @BeginScissorMode(i32 noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %39
 
 34:                                               ; preds = %10, %4
-  %35 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
   %36 = add i32 %3, %1
   %37 = sub i32 %35, %36
   %38 = load ptr, ptr @glad_glScissor, align 8
@@ -41598,20 +41591,20 @@ define void @EndScissorMode() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @BeginVrStereoMode(ptr nocapture noundef readonly byval(%struct.VrStereoConfig) align 8 %0) local_unnamed_addr #4 {
-  store i8 1, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 26), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 27), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 27, i64 1), ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2388), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2452), ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = getelementptr inbounds i8, ptr %0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 28), ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 28, i64 1), ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2516), ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2580), ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @EndVrStereoMode() local_unnamed_addr #1 {
-  store i8 0, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 26), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
   ret void
 }
 
@@ -41924,7 +41917,7 @@ define zeroext i1 @IsShaderReady(i32 %0, ptr readnone %1) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define void @UnloadShader(i32 %0, ptr nocapture %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 22), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
   %.not = icmp eq i32 %3, %0
   br i1 %.not, label %6, label %4
 
@@ -42077,7 +42070,7 @@ define void @SetShaderValueTexture(i32 %0, ptr nocapture readnone %1, i32 nounde
 
 9:                                                ; preds = %17, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %17 ]
-  %10 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv.i
+  %10 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %8
   br i1 %12, label %13, label %17
@@ -42096,13 +42089,13 @@ define void @SetShaderValueTexture(i32 %0, ptr nocapture readnone %1, i32 nounde
 
 .preheader.i:                                     ; preds = %17, %26
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %26 ], [ 0, %17 ]
-  %18 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv23.i
+  %18 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23.i
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %.preheader.i
-  %22 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv23.i
+  %22 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23.i
   %23 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %24 = load ptr, ptr @glad_glUniform1i, align 8
   %25 = add nuw nsw i32 %23, 1
@@ -42121,9 +42114,9 @@ rlSetUniformSampler.exit:                         ; preds = %26, %21, %13, %4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @GetMouseRay(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Ray) align 4 %0, <2 x float> %1, ptr nocapture noundef readonly byval(%struct.Camera3D) align 8 %2) local_unnamed_addr #30 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %5 = sitofp i32 %4 to float
-  %6 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %7 = sitofp i32 %6 to float
   tail call void @GetViewRay(ptr dead_on_unwind writable sret(%struct.Ray) align 4 %0, <2 x float> %1, ptr noundef nonnull byval(%struct.Camera3D) align 8 %2, float noundef %5, float noundef %7)
   ret void
@@ -42493,8 +42486,8 @@ define void @GetCameraMatrix(ptr dead_on_unwind noalias nocapture writable write
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define <2 x float> @GetWorldToScreen(<2 x float> %0, float %1, ptr nocapture noundef readonly byval(%struct.Camera3D) align 8 %2) local_unnamed_addr #30 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11, i32 1), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %6 = tail call <2 x float> @GetWorldToScreenEx(<2 x float> %0, float %1, ptr noundef nonnull byval(%struct.Camera3D) align 8 %2, i32 noundef %4, i32 noundef %5)
   ret <2 x float> %6
 }
@@ -42770,7 +42763,7 @@ define void @SetTargetFPS(i32 noundef %0) local_unnamed_addr #0 {
   %3 = uitofp nneg i32 %0 to double
   %4 = fdiv double 1.000000e+00, %3
   %storemerge = select i1 %2, double 0.000000e+00, double %4
-  store double %storemerge, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 5), align 8
+  store double %storemerge, ptr getelementptr inbounds (i8, ptr @CORE, i64 2760), align 8
   %5 = fptrunc double %storemerge to float
   %6 = fmul float %5, 1.000000e+03
   %7 = fpext float %6 to double
@@ -42780,9 +42773,9 @@ define void @SetTargetFPS(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @GetFPS() local_unnamed_addr #0 {
-  %1 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 4), align 8
+  %1 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
   %2 = fptrunc double %1 to float
-  %3 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit.loopexit, label %.loopexit
 
@@ -43002,9 +42995,9 @@ define noundef zeroext i1 @FileExists(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @SetConfigFlags(i32 noundef %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %3 = or i32 %2, %0
-  store i32 %3, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   ret void
 }
 
@@ -43199,7 +43192,7 @@ define noundef nonnull ptr @GetDirectoryPath(ptr noundef readonly %0) local_unna
 
 6:                                                ; preds = %4
   store i8 46, ptr @GetDirectoryPath.dirPath, align 16
-  store i8 47, ptr getelementptr inbounds ([4096 x i8], ptr @GetDirectoryPath.dirPath, i64 0, i64 1), align 1
+  store i8 47, ptr getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 1), align 1
   br label %.preheader
 
 .preheader:                                       ; preds = %4, %4, %6, %1
@@ -43236,7 +43229,7 @@ strprbrk.exit:                                    ; preds = %7
   %switch.selectcmp.case1 = icmp eq i8 %17, 92
   %switch.selectcmp.case2 = icmp eq i8 %17, 47
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %18 = select i1 %switch.selectcmp, ptr @GetDirectoryPath.dirPath, ptr getelementptr inbounds ([4096 x i8], ptr @GetDirectoryPath.dirPath, i64 0, i64 2)
+  %18 = select i1 %switch.selectcmp, ptr @GetDirectoryPath.dirPath, ptr getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 2)
   br label %19
 
 19:                                               ; preds = %16, %14
@@ -43270,7 +43263,7 @@ strprbrk.exit:                                    ; preds = %7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %12
-  %.sink = phi ptr [ getelementptr inbounds ([4096 x i8], ptr @GetDirectoryPath.dirPath, i64 0, i64 1), %12 ], [ %34, %31 ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 1), %12 ], [ %34, %31 ]
   store i8 0, ptr %.sink, align 1
   br label %35
 
@@ -43372,7 +43365,7 @@ define noundef nonnull ptr @GetApplicationDirectory() local_unnamed_addr #42 {
 
 17:                                               ; preds = %0
   store i8 46, ptr @GetApplicationDirectory.appDir, align 16
-  store i8 47, ptr getelementptr inbounds ([4096 x i8], ptr @GetApplicationDirectory.appDir, i64 0, i64 1), align 1
+  store i8 47, ptr getelementptr inbounds (i8, ptr @GetApplicationDirectory.appDir, i64 1), align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %3, %10, %17
@@ -43911,15 +43904,15 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsFileDropped() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 20), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
   %.not = icmp ne i32 %1, 0
   ret i1 %.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define { i64, ptr } @LoadDroppedFiles() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 20), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 19), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
   %.sroa.0.sroa.2.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.sroa.2.0.insert.shift = shl nuw i64 %.sroa.0.sroa.2.0.insert.ext, 32
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.sroa.2.0.insert.shift, 0
@@ -43944,8 +43937,8 @@ define void @UnloadDroppedFiles(i64 %0, ptr nocapture %1) local_unnamed_addr #0 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %1) #55
-  store i32 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 20), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 19), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
   br label %5
 
 5:                                                ; preds = %._crit_edge, %2
@@ -44479,7 +44472,7 @@ define void @SetAutomationEventList(ptr noundef %0) local_unnamed_addr #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetAutomationEventBaseFrame(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 7), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
   ret void
 }
 
@@ -44531,7 +44524,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %8
+  %9 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %8
   store i8 0, ptr %9, align 1
   br label %MaximizeWindow.exit
 
@@ -44539,30 +44532,30 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %13
+  %14 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %13
   store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 %13
+  %15 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %13
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  %18 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
   %19 = icmp slt i32 %18, 16
   %or.cond = select i1 %17, i1 %19, i1 false
   br i1 %or.cond, label %20, label %MaximizeWindow.exit
 
 20:                                               ; preds = %10
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 4, i64 %21
+  %22 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %21
   store i32 %12, ptr %22, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
+  store i32 %24, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
   br label %MaximizeWindow.exit
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %28
   store i8 0, ptr %29, align 1
   br label %MaximizeWindow.exit
 
@@ -44570,7 +44563,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %33
   store i8 1, ptr %34, align 1
   br label %MaximizeWindow.exit
 
@@ -44578,21 +44571,21 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = load <2 x i32>, ptr %36, align 8
   %38 = sitofp <2 x i32> %37 to <2 x float>
-  store <2 x float> %38, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
+  store <2 x float> %38, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
   br label %MaximizeWindow.exit
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = sitofp i32 %41 to float
-  store float %42, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
+  store float %42, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
   br label %MaximizeWindow.exit
 
 43:                                               ; preds = %2
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %46
   store i8 0, ptr %47, align 1
   br label %MaximizeWindow.exit
 
@@ -44600,7 +44593,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %51
   store i8 1, ptr %52, align 1
   br label %MaximizeWindow.exit
 
@@ -44609,7 +44602,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %55 = getelementptr inbounds i8, ptr %0, i64 12
   %56 = load i32, ptr %54, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 2, i64 %57
+  %58 = getelementptr inbounds [8 x %struct.Vector2], ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), i64 0, i64 %57
   %59 = load <2 x i32>, ptr %55, align 4
   %60 = sitofp <2 x i32> %59 to <2 x float>
   store <2 x float> %60, ptr %58, align 8
@@ -44619,7 +44612,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %62 = getelementptr inbounds i8, ptr %0, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %64
   store i8 1, ptr %65, align 1
   br label %MaximizeWindow.exit
 
@@ -44627,7 +44620,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %67 = getelementptr inbounds i8, ptr %0, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %69
   store i8 0, ptr %70, align 1
   br label %MaximizeWindow.exit
 
@@ -44638,7 +44631,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %75 = getelementptr inbounds i8, ptr %0, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %74, i64 %77
+  %78 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %74, i64 %77
   store i8 0, ptr %78, align 1
   br label %MaximizeWindow.exit
 
@@ -44649,7 +44642,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %83 = getelementptr inbounds i8, ptr %0, i64 12
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %82, i64 %85
+  %86 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %82, i64 %85
   store i8 1, ptr %86, align 1
   br label %MaximizeWindow.exit
 
@@ -44664,7 +44657,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %95 = getelementptr inbounds i8, ptr %0, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 6, i64 %94, i64 %97
+  %98 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %94, i64 %97
   store float %92, ptr %98, align 4
   br label %MaximizeWindow.exit
 
@@ -44675,7 +44668,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   br label %MaximizeWindow.exit
 
 102:                                              ; preds = %2
-  store i8 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 4), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
   br label %MaximizeWindow.exit
 
 103:                                              ; preds = %2
@@ -44687,9 +44680,9 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
 107:                                              ; preds = %103
   %108 = load ptr, ptr @platform.0, align 8
   tail call void @glfwMaximizeWindow(ptr noundef %108) #55
-  %109 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %110 = or i32 %109, 1024
-  store i32 %110, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 1), align 8
+  store i32 %110, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %MaximizeWindow.exit
 
 111:                                              ; preds = %2
@@ -44722,7 +44715,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %128 = uitofp nneg i32 %126 to double
   %129 = fdiv double 1.000000e+00, %128
   %storemerge.i = select i1 %127, double 0.000000e+00, double %129
-  store double %storemerge.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 5), align 8
+  store double %storemerge.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 2760), align 8
   %130 = fptrunc double %storemerge.i to float
   %131 = fmul float %130, 1.000000e+03
   %132 = fpext float %131 to double
@@ -44741,7 +44734,7 @@ define zeroext i1 @IsKeyPressedRepeat(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 3, i64 %4
+  %5 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1220), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 1
   br label %8
@@ -44759,13 +44752,13 @@ define zeroext i1 @IsKeyReleased(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 %4
+  %5 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %4
+  %9 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %4
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br label %12
@@ -44783,7 +44776,7 @@ define zeroext i1 @IsKeyUp(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 %4
+  %5 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br label %8
@@ -44795,23 +44788,23 @@ define zeroext i1 @IsKeyUp(i32 noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetKeyPressed() local_unnamed_addr #47 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 4), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), align 4
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 4, i64 %indvars.iv.next
+  %5 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 4, i64 %indvars.iv
+  %7 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
   %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
@@ -44819,11 +44812,11 @@ define i32 @GetKeyPressed() local_unnamed_addr #47 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.pre-phi = phi i64 [ 0, %3 ], [ %10, %.lr.ph ]
-  %12 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 4, i64 %.pre-phi
+  %12 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %.pre-phi
   store i32 0, ptr %12, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
   %14 = add nsw i32 %13, -1
-  store i32 %14, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 5), align 4
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
   br label %15
 
 15:                                               ; preds = %._crit_edge, %0
@@ -44833,23 +44826,23 @@ define i32 @GetKeyPressed() local_unnamed_addr #47 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetCharPressed() local_unnamed_addr #47 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 7), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 6), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), align 8
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 6, i64 %indvars.iv.next
+  %5 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), i64 0, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 6, i64 %indvars.iv
+  %7 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), i64 0, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 7), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
   %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
@@ -44857,11 +44850,11 @@ define i32 @GetCharPressed() local_unnamed_addr #47 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.pre-phi = phi i64 [ 0, %3 ], [ %10, %.lr.ph ]
-  %12 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 6, i64 %.pre-phi
+  %12 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), i64 0, i64 %.pre-phi
   store i32 0, ptr %12, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 7), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
   %14 = add nsw i32 %13, -1
-  store i32 %14, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 7), align 8
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
   br label %15
 
 15:                                               ; preds = %._crit_edge, %0
@@ -44871,14 +44864,14 @@ define i32 @GetCharPressed() local_unnamed_addr #47 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetExitKey(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 192), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @GetGamepadName(i32 noundef %0) local_unnamed_addr #12 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 3, i64 %2
+  %3 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2080), i64 0, i64 %2
   ret ptr %3
 }
 
@@ -44889,7 +44882,7 @@ define zeroext i1 @IsGamepadButtonPressed(i32 noundef %0, i32 noundef %1) local_
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 32
@@ -44898,13 +44891,13 @@ define zeroext i1 @IsGamepadButtonPressed(i32 noundef %0, i32 noundef %1) local_
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 5, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2464), i64 0, i64 %5, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %5, i64 %11
+  %16 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 1
   br label %19
@@ -44921,7 +44914,7 @@ define zeroext i1 @IsGamepadButtonDown(i32 noundef %0, i32 noundef %1) local_unn
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 32
@@ -44930,7 +44923,7 @@ define zeroext i1 @IsGamepadButtonDown(i32 noundef %0, i32 noundef %1) local_unn
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 1
   br label %15
@@ -44947,7 +44940,7 @@ define zeroext i1 @IsGamepadButtonReleased(i32 noundef %0, i32 noundef %1) local
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 32
@@ -44956,13 +44949,13 @@ define zeroext i1 @IsGamepadButtonReleased(i32 noundef %0, i32 noundef %1) local
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 5, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2464), i64 0, i64 %5, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 1
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %5, i64 %11
+  %16 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br label %19
@@ -44979,7 +44972,7 @@ define zeroext i1 @IsGamepadButtonUp(i32 noundef %0, i32 noundef %1) local_unnam
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 32
@@ -44988,7 +44981,7 @@ define zeroext i1 @IsGamepadButtonUp(i32 noundef %0, i32 noundef %1) local_unnam
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 4, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br label %15
@@ -45000,14 +44993,14 @@ define zeroext i1 @IsGamepadButtonUp(i32 noundef %0, i32 noundef %1) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetGamepadButtonPressed() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2056), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetGamepadAxisCount(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 1, i64 %2
+  %3 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 2060), i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -45015,26 +45008,26 @@ define i32 @GetGamepadAxisCount(i32 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsMouseButtonPressed(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 8, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %2
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br label %10
 
 10:                                               ; preds = %6, %1
   %.0 = phi i1 [ false, %1 ], [ %9, %6 ]
-  %11 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 1
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 4, i64 %2
+  %15 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2048), i64 0, i64 %2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   %spec.select5 = select i1 %17, i1 true, i1 %.0
@@ -45048,26 +45041,26 @@ define zeroext i1 @IsMouseButtonPressed(i32 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsMouseButtonReleased(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 8, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %2
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 1
   br label %10
 
 10:                                               ; preds = %6, %1
   %.0 = phi i1 [ false, %1 ], [ %9, %6 ]
-  %11 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 4, i64 %2
+  %15 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2048), i64 0, i64 %2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 1
   %spec.select5 = select i1 %17, i1 true, i1 %.0
@@ -45081,10 +45074,10 @@ define zeroext i1 @IsMouseButtonReleased(i32 noundef %0) local_unnamed_addr #10 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsMouseButtonUp(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 7, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
-  %6 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 3, i64 %2
+  %6 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   %narrow = select i1 %8, i1 true, i1 %5
@@ -45093,10 +45086,10 @@ define zeroext i1 @IsMouseButtonUp(i32 noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetMouseX() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  %2 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1), align 4
+  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  %2 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1868), align 4
   %3 = fadd float %1, %2
-  %4 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1), align 4
+  %4 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
   %5 = fmul float %3, %4
   %6 = fptosi float %5 to i32
   ret i32 %6
@@ -45104,10 +45097,10 @@ define i32 @GetMouseX() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetMouseY() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2, i32 1), align 8
-  %2 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 0, i32 1), align 8
+  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
+  %2 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1872), align 8
   %3 = fadd float %1, %2
-  %4 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1, i32 1), align 8
+  %4 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1880), align 8
   %5 = fmul float %3, %4
   %6 = fptosi float %5 to i32
   ret i32 %6
@@ -45115,10 +45108,10 @@ define i32 @GetMouseY() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetMousePosition() local_unnamed_addr #26 {
-  %1 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
-  %2 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1), align 4
+  %1 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  %2 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1868), align 4
   %3 = fadd <2 x float> %1, %2
-  %4 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1), align 4
+  %4 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
   %5 = fmul <2 x float> %3, %4
   ret <2 x float> %5
 }
@@ -45128,26 +45121,26 @@ define void @SetMouseOffset(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   %3 = insertelement <2 x i32> poison, i32 %0, i64 0
   %4 = insertelement <2 x i32> %3, i32 %1, i64 1
   %5 = sitofp <2 x i32> %4 to <2 x float>
-  store <2 x float> %5, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1), align 4
+  store <2 x float> %5, ptr getelementptr inbounds (i8, ptr @CORE, i64 1868), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetMouseWheelMoveV() local_unnamed_addr #26 {
-  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
+  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
   ret <2 x float> %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetTouchX() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 2), align 8
+  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), align 8
   %2 = fptosi float %1 to i32
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetTouchY() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 2, i64 0, i32 1), align 4
+  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1980), align 4
   %2 = fptosi float %1 to i32
   ret i32 %2
 }
@@ -45159,7 +45152,7 @@ define <2 x float> @GetTouchPosition(i32 noundef %0) local_unnamed_addr #25 {
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 2, i64 %4
+  %5 = getelementptr inbounds [8 x %struct.Vector2], ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), i64 0, i64 %4
   %.sroa.0.0.copyload2 = load <2 x float>, ptr %5, align 8
   br label %7
 
@@ -45179,7 +45172,7 @@ define i32 @GetTouchPointId(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2, i32 1, i64 %4
+  %5 = getelementptr inbounds [8 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1944), i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   br label %7
 
@@ -45190,7 +45183,7 @@ define i32 @GetTouchPointId(i32 noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetTouchPointCount() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 2), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1940), align 4
   ret i32 %1
 }
 

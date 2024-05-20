@@ -41,7 +41,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr getelementptr inbounds (%struct.rb_root_cached, ptr @memtype_rbroot, i64 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
   %17 = getelementptr i8, ptr %16, i64 -32
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, %8
@@ -445,7 +445,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
 
 233:                                              ; preds = %.thread34, %225
   %234 = phi ptr [ %209, %.thread34 ], [ %231, %225 ]
-  store ptr %234, ptr getelementptr inbounds (%struct.rb_root_cached, ptr @memtype_rbroot, i64 0, i32 1), align 8
+  store ptr %234, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
   br label %235
 
 235:                                              ; preds = %233, %225
@@ -474,13 +474,13 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %0
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load ptr, ptr getelementptr inbounds (%struct.rb_root_cached, ptr @memtype_rbroot, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %8
   %16 = tail call ptr @rb_next(ptr noundef %12) #11
-  store ptr %16, ptr getelementptr inbounds (%struct.rb_root_cached, ptr @memtype_rbroot, i64 0, i32 1), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
   br label %17
 
 17:                                               ; preds = %15, %8
@@ -802,7 +802,7 @@ interval_remove.exit:                             ; preds = %.thread17.i, %180
   br i1 %207, label %210, label %209
 
 209:                                              ; preds = %.thread, %203
-  store ptr %12, ptr getelementptr inbounds (%struct.rb_root_cached, ptr @memtype_rbroot, i64 0, i32 1), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
   br label %210
 
 210:                                              ; preds = %209, %203
@@ -828,7 +828,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (%struct.rb_root_cached, ptr @memtype_rbroot, i64 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
   %13 = getelementptr i8, ptr %12, i64 -32
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %4
@@ -1027,7 +1027,7 @@ define dso_local noundef ptr @memtype_lookup(i64 noundef %0) local_unnamed_addr 
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds (%struct.rb_root_cached, ptr @memtype_rbroot, i64 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
   %11 = getelementptr i8, ptr %10, i64 -32
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %12, %2

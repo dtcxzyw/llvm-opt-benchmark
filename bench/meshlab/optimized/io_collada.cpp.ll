@@ -2333,7 +2333,7 @@ _ZN7QStringD2Ev.exit58:                           ; preds = %_ZN7QStringD2Ev.exi
   br i1 %41, label %50, label %189
 
 50:                                               ; preds = %_ZN7QStringD2Ev.exit58
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io7InfoDAEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io7InfoDAEE, i64 16), ptr %14, align 8
   %51 = getelementptr inbounds i8, ptr %14, i64 32
   store ptr @_ZN12QMapDataBase11shared_nullE, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %14, i64 24
@@ -8364,7 +8364,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -8437,7 +8437,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -9335,7 +9335,7 @@ _ZN7QStringD2Ev.exit174:                          ; preds = %269, %_ZN9QtPrivate
           to label %276 unwind label %284
 
 276:                                              ; preds = %275
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshE, i64 16), ptr %37, align 8
   invoke void @_ZNK8QDomNode9toElementEv(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %30)
           to label %277 unwind label %291
 
@@ -9747,7 +9747,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit: ; preds = %_ZN3vc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri2io7InfoDAED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io7InfoDAEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io7InfoDAEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -9887,7 +9887,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %_ZN4QMapI7QStringiE
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i, label %_ZN4QMapI7QStringiED2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN4QMapI7QStringiEaSEOS1_.exit
-  %14 = load ptr, ptr getelementptr inbounds (%struct.QMapDataBase, ptr @_ZN12QMapDataBase11shared_nullE, i64 0, i32 2, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12QMapDataBase11shared_nullE, i64 16), align 8
   %.not.i.i1 = icmp eq ptr %14, null
   br i1 %.not.i.i1, label %.noexc1.i, label %15
 
@@ -9896,7 +9896,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i unwind label %17
 
 .noexc.i:                                         ; preds = %15
-  %16 = load ptr, ptr getelementptr inbounds (%struct.QMapDataBase, ptr @_ZN12QMapDataBase11shared_nullE, i64 0, i32 2, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12QMapDataBase11shared_nullE, i64 16), align 8
   invoke void @_ZN12QMapDataBase8freeTreeEP12QMapNodeBasei(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12QMapDataBase11shared_nullE, ptr noundef %16, i32 noundef 8)
           to label %.noexc1.i unwind label %17
 
@@ -10935,7 +10935,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -11841,7 +11841,7 @@ _ZNK12QDomNodeList4sizeEv.exit215:                ; preds = %_ZN7QStringD2Ev.exi
           to label %317 unwind label %312
 
 317:                                              ; preds = %316
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshE, i64 0, i32 0, i64 2), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshE, i64 16), ptr %39, align 8
   invoke void @_ZNK8QDomNode9toElementEv(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %40, ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %318 unwind label %386
 
@@ -12717,7 +12717,7 @@ _ZNK12QDomNodeList4sizeEv.exit339:                ; preds = %_ZN7QStringD2Ev.exi
           to label %567 unwind label %562
 
 567:                                              ; preds = %566
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshE, i64 0, i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshE, i64 16), ptr %71, align 8
   invoke void @_ZNK8QDomNode9toElementEv(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %72, ptr noundef nonnull align 8 dereferenceable(8) %61)
           to label %568 unwind label %619
 
@@ -13577,7 +13577,7 @@ declare noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitiv
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -13966,7 +13966,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EE, i64 16), ptr %0, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(628) %0)
           to label %2 unwind label %62
 
@@ -16840,7 +16840,7 @@ _ZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.ex
   br label %_ZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit294
 
 _ZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit294: ; preds = %639, %637, %634
-  store float %633, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 0, i32 0, i64 0, i32 0, i64 1), align 4
+  store float %633, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 4), align 4
   br label %640
 
 640:                                              ; preds = %_ZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit294, %589
@@ -33872,7 +33872,7 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendINS0_2io11ImporterDAEI6CMeshOE11Col
   br label %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit
 
 _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit: ; preds = %55, %58, %60
-  %.sroa.22.0.copyload.i = load i16, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 0, i32 1, i64 0), align 4
+  %.sroa.22.0.copyload.i = load i16, ptr getelementptr inbounds (i8, ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 8), align 4
   %61 = sext i16 %.sroa.22.0.copyload.i to i64
   %62 = getelementptr inbounds i8, ptr %0, i64 48
   %63 = load ptr, ptr %62, align 8
@@ -33901,7 +33901,7 @@ _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.e
   br label %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit27
 
 _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit27: ; preds = %74, %75, %77
-  %.sroa.22.0.copyload.i23 = load i16, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 0, i32 1, i64 0), align 4
+  %.sroa.22.0.copyload.i23 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 8), align 4
   %78 = sext i16 %.sroa.22.0.copyload.i23 to i64
   %79 = load ptr, ptr %63, align 8
   %80 = getelementptr inbounds i32, ptr %79, i64 %78
@@ -33929,7 +33929,7 @@ _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.e
   br label %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit34
 
 _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit34: ; preds = %87, %88, %90
-  %.sroa.22.0.copyload.i30 = load i16, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 0, i32 1, i64 0), align 4
+  %.sroa.22.0.copyload.i30 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 8), align 4
   %91 = load atomic i8, ptr @_ZGVZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord acquire, align 8
   %92 = icmp eq i8 %91, 0
   br i1 %92, label %93, label %.sink.split, !prof !153
@@ -33946,7 +33946,7 @@ _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.e
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %93, %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit34, %85, %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit27
   %.sroa.22.0.copyload.i30.sink = phi i16 [ %82, %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit27 ], [ %82, %85 ], [ %.sroa.22.0.copyload.i30, %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit34 ], [ %.sroa.22.0.copyload.i30, %93 ], [ %.sroa.22.0.copyload.i30.sink.ph, %.sink.split.sink.split ]
-  store i16 %.sroa.22.0.copyload.i30.sink, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 0, i32 1, i64 0), align 4
+  store i16 %.sroa.22.0.copyload.i30.sink, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 8), align 4
   br label %95
 
 95:                                               ; preds = %.sink.split, %10, %6
@@ -40150,7 +40150,7 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendI6CMeshONS0_2io11ImporterDAEIS2_E11
   br label %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit
 
 _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit: ; preds = %56, %59, %61
-  %.sroa.22.0.copyload.i = load i16, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 0, i32 1, i64 0), align 4
+  %.sroa.22.0.copyload.i = load i16, ptr getelementptr inbounds (i8, ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 8), align 4
   %62 = sext i16 %.sroa.22.0.copyload.i to i64
   %63 = getelementptr inbounds i8, ptr %0, i64 48
   %64 = load ptr, ptr %63, align 8
@@ -40179,7 +40179,7 @@ _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.e
   br label %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit27
 
 _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit27: ; preds = %75, %76, %78
-  %.sroa.22.0.copyload.i23 = load i16, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 0, i32 1, i64 0), align 4
+  %.sroa.22.0.copyload.i23 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 8), align 4
   %79 = sext i16 %.sroa.22.0.copyload.i23 to i64
   %80 = load ptr, ptr %64, align 8
   %81 = getelementptr inbounds i32, ptr %80, i64 %79
@@ -40200,7 +40200,7 @@ _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.e
   br label %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit33
 
 _ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit33: ; preds = %84, %85, %87
-  %.sroa.22.0.copyload.i29 = load i16, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 0, i32 1, i64 0), align 4
+  %.sroa.22.0.copyload.i29 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEvE14dummy_texcoord, i64 8), align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit27, %_ZNK3vcg6vertex9EmptyCoreINS_3tri2io11ImporterDAEI6CMeshOE12ColladaTypesEE1TEv.exit33
@@ -41036,7 +41036,7 @@ _ZN7Collada15DocumentManager22destroyColladaDocumentEP11XMLDocument.exit: ; pred
 
 25:                                               ; preds = %4, %_ZN7Collada15DocumentManager22destroyColladaDocumentEP11XMLDocument.exit
   %.0 = phi i32 [ 0, %_ZN7Collada15DocumentManager22destroyColladaDocumentEP11XMLDocument.exit ], [ 10, %4 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17XMLDocumentWriter, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17XMLDocumentWriter, i64 16), ptr %5, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZN11QFileDevice5closeEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
           to label %_ZN17XMLDocumentWriterD2Ev.exit unwind label %27
@@ -42888,7 +42888,7 @@ _ZN3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9V
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17XMLDocumentWriterC2EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17XMLDocumentWriter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17XMLDocumentWriter, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN16QXmlStreamWriterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -52522,7 +52522,7 @@ _ZN7QStringD2Ev.exit2119:                         ; preds = %_ZN7QStringD2Ev.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17XMLDocumentWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17XMLDocumentWriter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17XMLDocumentWriter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN11QFileDevice5closeEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %5
@@ -52578,7 +52578,7 @@ define linkonce_odr void @_ZN17XMLDocumentWriterclER15XMLInteriorNode(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17XMLDocumentWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17XMLDocumentWriter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17XMLDocumentWriter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN11QFileDevice5closeEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN17XMLDocumentWriterD2Ev.exit unwind label %3
@@ -53729,7 +53729,7 @@ define linkonce_odr void @_ZN7Collada4Tags10ColladaTagC2Ev(ptr noundef nonnull a
   %6 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.166, i32 noundef 7)
   store ptr %6, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -53778,7 +53778,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10ColladaTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags10ColladaTagE, i64 16), ptr %0, align 8
   %18 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.167, i32 noundef 5)
           to label %.noexc unwind label %100
 
@@ -54030,7 +54030,7 @@ define linkonce_odr void @_ZN7Collada4Tags8AssetTagC2Ev(ptr noundef nonnull alig
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.171, i32 noundef 5)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -54079,7 +54079,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8AssetTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags8AssetTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -54090,7 +54090,7 @@ define linkonce_odr void @_ZN7Collada4Tags14ContributorTagC2Ev(ptr noundef nonnu
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.172, i32 noundef 11)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -54139,7 +54139,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags14ContributorTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags14ContributorTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -54154,7 +54154,7 @@ define linkonce_odr void @_ZN7Collada4Tags9AuthorTagC2Ev(ptr noundef nonnull ali
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -54180,7 +54180,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %10, %1
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %17 unwind label %15
@@ -54276,7 +54276,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i6:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i7, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i6
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9AuthorTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags9AuthorTagE, i64 16), ptr %0, align 8
   %38 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.174, i32 noundef 6)
           to label %39 unwind label %67
 
@@ -54385,7 +54385,7 @@ define linkonce_odr void @_ZN7Collada4Tags16AuthoringToolTagC2Ev(ptr noundef non
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -54411,7 +54411,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %10, %1
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %17 unwind label %15
@@ -54507,7 +54507,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i6:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i7, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i6
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16AuthoringToolTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags16AuthoringToolTagE, i64 16), ptr %0, align 8
   %38 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.176, i32 noundef 16)
           to label %39 unwind label %67
 
@@ -54616,7 +54616,7 @@ define linkonce_odr void @_ZN7Collada4Tags10CreatedTagC2Ev(ptr noundef nonnull a
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -54642,7 +54642,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %1
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %19 unwind label %17
@@ -54738,7 +54738,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i8:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i9, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10CreatedTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags10CreatedTagE, i64 16), ptr %0, align 8
   invoke void @_ZN9QDateTime15currentDateTimeEv(ptr dead_on_unwind nonnull writable sret(%class.QDateTime) align 8 %6)
           to label %40 unwind label %46
 
@@ -54837,7 +54837,7 @@ define linkonce_odr void @_ZN7Collada4Tags11ModifiedTagC2Ev(ptr noundef nonnull 
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -54863,7 +54863,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %1
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %19 unwind label %17
@@ -54959,7 +54959,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i8:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i9, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11ModifiedTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags11ModifiedTagE, i64 16), ptr %0, align 8
   invoke void @_ZN9QDateTime15currentDateTimeEv(ptr dead_on_unwind nonnull writable sret(%class.QDateTime) align 8 %6)
           to label %40 unwind label %46
 
@@ -55055,7 +55055,7 @@ define linkonce_odr void @_ZN7Collada4Tags9UpAxisTagC2ERK7QString(ptr noundef no
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -55081,7 +55081,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %10, %2
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %17 unwind label %15
@@ -55177,7 +55177,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i6, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9UpAxisTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags9UpAxisTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QVectorI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN7QVectorI7QStringE9push_backERKS0_.exit unwind label %38
 
@@ -55208,7 +55208,7 @@ define linkonce_odr void @_ZN7Collada4Tags16LibraryImagesTagC2Ev(ptr noundef non
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.33, i32 noundef 14)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -55257,7 +55257,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16LibraryImagesTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags16LibraryImagesTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -55272,7 +55272,7 @@ define linkonce_odr void @_ZN7Collada4Tags8ImageTagC2ERK7QStringS4_(ptr noundef 
   %8 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.96, i32 noundef 5)
   store ptr %8, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -55321,7 +55321,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8ImageTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags8ImageTagE, i64 16), ptr %0, align 8
   %20 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %102
 
@@ -55573,7 +55573,7 @@ define linkonce_odr void @_ZN7Collada4Tags11InitFromTagC2ERK7QString(ptr noundef
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -55599,7 +55599,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %10, %2
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %17 unwind label %15
@@ -55695,7 +55695,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i6, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11InitFromTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags11InitFromTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QVectorI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN7QVectorI7QStringE9push_backERKS0_.exit unwind label %38
 
@@ -55726,7 +55726,7 @@ define linkonce_odr void @_ZN7Collada4Tags19LibraryMaterialsTagC2Ev(ptr noundef 
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.90, i32 noundef 17)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -55775,7 +55775,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19LibraryMaterialsTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags19LibraryMaterialsTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -55788,7 +55788,7 @@ define linkonce_odr void @_ZN7Collada4Tags11MaterialTagC2ERK7QStringS4_(ptr noun
   %8 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.79, i32 noundef 8)
   store ptr %8, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -55837,7 +55837,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11MaterialTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags11MaterialTagE, i64 16), ptr %0, align 8
   %20 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %102
 
@@ -56165,7 +56165,7 @@ define linkonce_odr void @_ZN7Collada4Tags17InstanceEffectTagC2ERK7QString(ptr n
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -56191,7 +56191,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %2
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %19 unwind label %17
@@ -56287,7 +56287,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i9:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i10, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i9
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags17InstanceEffectTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags17InstanceEffectTagE, i64 16), ptr %0, align 8
   invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %40 unwind label %86
 
@@ -56466,7 +56466,7 @@ define linkonce_odr void @_ZN7Collada4Tags17LibraryEffectsTagC2Ev(ptr noundef no
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.93, i32 noundef 15)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -56515,7 +56515,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags17LibraryEffectsTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags17LibraryEffectsTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -56527,7 +56527,7 @@ define linkonce_odr void @_ZN7Collada4Tags9EffectTagC2ERK7QString(ptr noundef no
   %6 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.94, i32 noundef 6)
   store ptr %6, ptr %3, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -56576,7 +56576,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9EffectTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags9EffectTagE, i64 16), ptr %0, align 8
   %18 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %59
 
@@ -56713,7 +56713,7 @@ define linkonce_odr void @_ZN7Collada4Tags16ProfileCommonTagC2Ev(ptr noundef non
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.181, i32 noundef 14)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -56762,7 +56762,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16ProfileCommonTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags16ProfileCommonTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -56774,7 +56774,7 @@ define linkonce_odr void @_ZN7Collada4Tags11NewParamTagC2ERK7QString(ptr noundef
   %6 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.182, i32 noundef 8)
   store ptr %6, ptr %3, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -56823,7 +56823,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11NewParamTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags11NewParamTagE, i64 16), ptr %0, align 8
   %18 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.183, i32 noundef 3)
           to label %.noexc unwind label %59
 
@@ -56961,7 +56961,7 @@ define linkonce_odr void @_ZN7Collada4Tags10SurfaceTagC2ERK7QString(ptr noundef 
   %6 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.184, i32 noundef 7)
   store ptr %6, ptr %3, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -57010,7 +57010,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10SurfaceTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags10SurfaceTagE, i64 16), ptr %0, align 8
   %18 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.185, i32 noundef 4)
           to label %.noexc unwind label %59
 
@@ -57154,7 +57154,7 @@ define linkonce_odr void @_ZN7Collada4Tags9FormatTagC2ERK7QString(ptr noundef no
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -57180,7 +57180,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %10, %2
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %17 unwind label %15
@@ -57276,7 +57276,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i6, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9FormatTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags9FormatTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QVectorI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN7QVectorI7QStringE9push_backERKS0_.exit unwind label %38
 
@@ -57307,7 +57307,7 @@ define linkonce_odr void @_ZN7Collada4Tags12Sampler2DTagC2Ev(ptr noundef nonnull
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.187, i32 noundef 9)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -57356,7 +57356,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12Sampler2DTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags12Sampler2DTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -57370,7 +57370,7 @@ define linkonce_odr void @_ZN7Collada4Tags9SourceTagC2ERK7QString(ptr noundef no
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -57396,7 +57396,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %10, %2
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %17 unwind label %15
@@ -57492,7 +57492,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i6, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9SourceTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags9SourceTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QVectorI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN7QVectorI7QStringE9push_backERKS0_.exit unwind label %38
 
@@ -57526,7 +57526,7 @@ define linkonce_odr void @_ZN7Collada4Tags12MinFilterTagC2ERK7QString(ptr nounde
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -57552,7 +57552,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %10, %2
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %17 unwind label %15
@@ -57648,7 +57648,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i6, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12MinFilterTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags12MinFilterTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QVectorI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN7QVectorI7QStringE9push_backERKS0_.exit unwind label %38
 
@@ -57682,7 +57682,7 @@ define linkonce_odr void @_ZN7Collada4Tags12MagFilterTagC2ERK7QString(ptr nounde
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -57708,7 +57708,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %10, %2
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %17 unwind label %15
@@ -57804,7 +57804,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i6, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12MagFilterTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags12MagFilterTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QVectorI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN7QVectorI7QStringE9push_backERKS0_.exit unwind label %38
 
@@ -57836,7 +57836,7 @@ define linkonce_odr void @_ZN7Collada4Tags12TechniqueTagC2ERK7QString(ptr nounde
   %6 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.190, i32 noundef 9)
   store ptr %6, ptr %3, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -57885,7 +57885,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TechniqueTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags12TechniqueTagE, i64 16), ptr %0, align 8
   %18 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.183, i32 noundef 3)
           to label %.noexc unwind label %59
 
@@ -58022,7 +58022,7 @@ define linkonce_odr void @_ZN7Collada4Tags8BlinnTagC2Ev(ptr noundef nonnull alig
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.191, i32 noundef 5)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -58071,7 +58071,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8BlinnTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags8BlinnTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -58082,7 +58082,7 @@ define linkonce_odr void @_ZN7Collada4Tags10DiffuseTagC2Ev(ptr noundef nonnull a
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.192, i32 noundef 7)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -58131,7 +58131,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10DiffuseTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags10DiffuseTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -58147,7 +58147,7 @@ define linkonce_odr void @_ZN7Collada4Tags10TextureTagC2ERK7QStringS4_(ptr nound
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = load atomic i32, ptr %9 monotonic, align 4
@@ -58173,7 +58173,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %3
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %20 unwind label %18
@@ -58269,7 +58269,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i8:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i9, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10TextureTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags10TextureTagE, i64 16), ptr %0, align 8
   %41 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.127, i32 noundef 7)
           to label %.noexc unwind label %123
 
@@ -58685,7 +58685,7 @@ define linkonce_odr void @_ZN7Collada4Tags20LibraryGeometriesTagC2Ev(ptr noundef
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.18, i32 noundef 18)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -58734,7 +58734,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags20LibraryGeometriesTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags20LibraryGeometriesTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -58747,7 +58747,7 @@ define linkonce_odr void @_ZN7Collada4Tags11GeometryTagC2ERK7QStringS4_(ptr noun
   %8 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.19, i32 noundef 8)
   store ptr %8, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -58796,7 +58796,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11GeometryTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags11GeometryTagE, i64 16), ptr %0, align 8
   %20 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %102
 
@@ -59045,7 +59045,7 @@ define linkonce_odr void @_ZN7Collada4Tags7MeshTagC2Ev(ptr noundef nonnull align
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.69, i32 noundef 4)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -59094,7 +59094,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags7MeshTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags7MeshTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -59110,7 +59110,7 @@ define linkonce_odr void @_ZN7Collada4Tags9SourceTagC2ERK7QStringS4_(ptr noundef
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = load atomic i32, ptr %9 monotonic, align 4
@@ -59136,7 +59136,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %3
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %20 unwind label %18
@@ -59232,7 +59232,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i8:   ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i9, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9SourceTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags9SourceTagE, i64 16), ptr %0, align 8
   %41 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %123
 
@@ -59501,7 +59501,7 @@ define linkonce_odr void @_ZN7Collada4Tags13FloatArrayTagC2I6CMeshOEERK7QStringi
   store ptr @_ZN10QArrayData11shared_nullE, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
   %23 = load atomic i32, ptr %21 monotonic, align 4
@@ -59527,7 +59527,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %25, %6
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %32 unwind label %30
@@ -59623,7 +59623,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i42:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i43, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i42
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags13FloatArrayTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags13FloatArrayTagE, i64 16), ptr %0, align 8
   %53 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -60574,7 +60574,7 @@ define linkonce_odr void @_ZN7Collada4Tags18TechniqueCommonTagC2Ev(ptr noundef n
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.194, i32 noundef 16)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -60623,7 +60623,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags18TechniqueCommonTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags18TechniqueCommonTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -60640,7 +60640,7 @@ define linkonce_odr void @_ZN7Collada4Tags11AccessorTagC2EiRK7QStringi(ptr nound
   %13 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.72, i32 noundef 8)
   store ptr %13, ptr %5, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %13, ptr %14, align 8
   %15 = load atomic i32, ptr %13 monotonic, align 4
@@ -60689,7 +60689,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11AccessorTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags11AccessorTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, i32 noundef %1, i32 noundef 10)
           to label %25 unwind label %153
 
@@ -61138,7 +61138,7 @@ define linkonce_odr void @_ZN7Collada4Tags8ParamTagC2ERK7QStringS4_(ptr noundef 
   %8 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.195, i32 noundef 5)
   store ptr %8, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -61187,7 +61187,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8ParamTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags8ParamTagE, i64 16), ptr %0, align 8
   %20 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.180, i32 noundef 4)
           to label %.noexc unwind label %102
 
@@ -61437,7 +61437,7 @@ define linkonce_odr void @_ZN7Collada4Tags11VerticesTagC2ERK7QString(ptr noundef
   %6 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.20, i32 noundef 8)
   store ptr %6, ptr %3, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load atomic i32, ptr %6 monotonic, align 4
@@ -61486,7 +61486,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11VerticesTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags11VerticesTagE, i64 16), ptr %0, align 8
   %18 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %59
 
@@ -61626,7 +61626,7 @@ define linkonce_odr void @_ZN7Collada4Tags8InputTagC2ERK7QStringS4_(ptr noundef 
   %9 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.21, i32 noundef 5)
   store ptr %9, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = load atomic i32, ptr %9 monotonic, align 4
@@ -61675,7 +61675,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8InputTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags8InputTagE, i64 16), ptr %0, align 8
   %21 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.22, i32 noundef 8)
           to label %.noexc unwind label %108
 
@@ -62075,7 +62075,7 @@ define linkonce_odr void @_ZN7Collada4Tags12TrianglesTagC2Ei(ptr noundef nonnull
   %7 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.30, i32 noundef 9)
   store ptr %7, ptr %3, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
   %9 = load atomic i32, ptr %7 monotonic, align 4
@@ -62124,7 +62124,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TrianglesTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags12TrianglesTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, i32 noundef %1, i32 noundef 10)
           to label %19 unwind label %60
 
@@ -62291,7 +62291,7 @@ define linkonce_odr void @_ZN7Collada4Tags12TrianglesTagC2EiRK7QString(ptr nound
   %9 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.30, i32 noundef 9)
   store ptr %9, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = load atomic i32, ptr %9 monotonic, align 4
@@ -62340,7 +62340,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TrianglesTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags12TrianglesTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, i32 noundef %1, i32 noundef 10)
           to label %21 unwind label %103
 
@@ -62619,7 +62619,7 @@ define linkonce_odr void @_ZN7Collada4Tags8InputTagC2EiRK7QStringS4_(ptr noundef
   %12 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.21, i32 noundef 5)
   store ptr %12, ptr %5, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
   %14 = load atomic i32, ptr %12 monotonic, align 4
@@ -62668,7 +62668,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8InputTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags8InputTagE, i64 16), ptr %0, align 8
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, i32 noundef %1, i32 noundef 10)
           to label %24 unwind label %152
 
@@ -63097,7 +63097,7 @@ define linkonce_odr void @_ZN7Collada4Tags4PTagC2I6CMeshOEERKT_jbbb(ptr noundef 
   store ptr @_ZN10QArrayData11shared_nullE, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
   %16 = load atomic i32, ptr %14 monotonic, align 4
@@ -63123,7 +63123,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %18, %6
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %25 unwind label %23
@@ -63219,7 +63219,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i26:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i27, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i26
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags4PTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags4PTagE, i64 16), ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %1, i64 304
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %1, i64 312
@@ -63601,7 +63601,7 @@ define linkonce_odr void @_ZN7Collada4Tags4PTagC2I6CMeshOEERKT_jR7QVectorIiEbbb(
   store ptr @_ZN10QArrayData11shared_nullE, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
   %17 = load atomic i32, ptr %15 monotonic, align 4
@@ -63627,7 +63627,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %19, %7
 
 _ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %26 unwind label %24
@@ -63723,7 +63723,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i32:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i33, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags4PTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags4PTagE, i64 16), ptr %0, align 8
   %47 = load ptr, ptr %3, align 8
   %48 = load atomic i32, ptr %47 monotonic, align 4
   %49 = icmp ult i32 %48, 2
@@ -64212,7 +64212,7 @@ define linkonce_odr void @_ZN7Collada4Tags22LibraryVisualScenesTagC2Ev(ptr nound
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.196, i32 noundef 21)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -64261,7 +64261,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags22LibraryVisualScenesTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags22LibraryVisualScenesTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -64274,7 +64274,7 @@ define linkonce_odr void @_ZN7Collada4Tags14VisualSceneTagC2ERK7QStringS4_(ptr n
   %8 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.15, i32 noundef 12)
   store ptr %8, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -64323,7 +64323,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags14VisualSceneTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags14VisualSceneTagE, i64 16), ptr %0, align 8
   %20 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %102
 
@@ -64574,7 +64574,7 @@ define linkonce_odr void @_ZN7Collada4Tags7NodeTagC2ERK7QStringS4_(ptr noundef n
   %8 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.41, i32 noundef 4)
   store ptr %8, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load atomic i32, ptr %8 monotonic, align 4
@@ -64623,7 +64623,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags7NodeTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags7NodeTagE, i64 16), ptr %0, align 8
   %20 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 2)
           to label %.noexc unwind label %102
 
@@ -64874,7 +64874,7 @@ define linkonce_odr void @_ZN7Collada4Tags19InstanceGeometryTagC2ERK7QString(ptr
   %7 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.17, i32 noundef 17)
   store ptr %7, ptr %3, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
   %9 = load atomic i32, ptr %7 monotonic, align 4
@@ -64923,7 +64923,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19InstanceGeometryTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags19InstanceGeometryTagE, i64 16), ptr %0, align 8
   invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %19 unwind label %65
 
@@ -65096,7 +65096,7 @@ define linkonce_odr void @_ZN7Collada4Tags15BindMaterialTagC2Ev(ptr noundef nonn
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.45, i32 noundef 13)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -65145,7 +65145,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags15BindMaterialTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags15BindMaterialTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -65159,7 +65159,7 @@ define linkonce_odr void @_ZN7Collada4Tags19InstanceMaterialTagC2ERK7QStringS4_(
   %9 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.64, i32 noundef 17)
   store ptr %9, ptr %4, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = load atomic i32, ptr %9 monotonic, align 4
@@ -65208,7 +65208,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19InstanceMaterialTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags19InstanceMaterialTagE, i64 16), ptr %0, align 8
   %21 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 6)
           to label %.noexc unwind label %108
 
@@ -65495,7 +65495,7 @@ define linkonce_odr void @_ZN7Collada4Tags18BindVertexInputTagC2ERK7QStringS4_S4
   %9 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.197, i32 noundef 17)
   store ptr %9, ptr %5, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = load atomic i32, ptr %9 monotonic, align 4
@@ -65544,7 +65544,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags18BindVertexInputTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags18BindVertexInputTagE, i64 16), ptr %0, align 8
   %21 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.22, i32 noundef 8)
           to label %.noexc unwind label %103
 
@@ -65952,7 +65952,7 @@ define linkonce_odr void @_ZN7Collada4Tags8SceneTagC2Ev(ptr noundef nonnull alig
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.12, i32 noundef 5)
   store ptr %4, ptr %2, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i32, ptr %4 monotonic, align 4
@@ -66001,7 +66001,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8SceneTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags8SceneTagE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -66014,7 +66014,7 @@ define linkonce_odr void @_ZN7Collada4Tags22InstanceVisualSceneTagC2ERK7QString(
   %7 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.13, i32 noundef 21)
   store ptr %7, ptr %3, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
   %9 = load atomic i32, ptr %7 monotonic, align 4
@@ -66063,7 +66063,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags22InstanceVisualSceneTagE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags22InstanceVisualSceneTagE, i64 16), ptr %0, align 8
   invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %19 unwind label %65
 
@@ -66386,7 +66386,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN7QVectorISt4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags10ColladaTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -66417,7 +66417,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags10ColladaTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -66589,7 +66589,7 @@ _ZN7QVectorISt4pairI7QStringS1_EE13copyConstructEPKS2_S5_PS2_.exit: ; preds = %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6XMLTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -66620,7 +66620,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6XMLTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -66652,7 +66652,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8AssetTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -66683,7 +66683,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8AssetTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -66715,7 +66715,7 @@ _ZN7Collada4Tags8AssetTagD2Ev.exit:               ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags14ContributorTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -66746,7 +66746,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags14ContributorTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -66983,7 +66983,7 @@ _ZN7QVectorI7QStringE13copyConstructEPKS0_S3_PS0_.exit: ; preds = %_ZN7QVectorI7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10XMLLeafTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10XMLLeafTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -67046,7 +67046,7 @@ _ZN7QVectorI7QStringE8freeDataEP15QTypedArrayDataIS0_E.exit.i: ; preds = %_ZN7QS
   br label %_ZN7QVectorI7QStringED2Ev.exit
 
 _ZN7QVectorI7QStringED2Ev.exit:                   ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN7QVectorI7QStringE8freeDataEP15QTypedArrayDataIS0_E.exit.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #24
   %20 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67259,7 +67259,7 @@ define linkonce_odr void @_ZN7Collada4Tags9UpAxisTagD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags16LibraryImagesTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67290,7 +67290,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags16LibraryImagesTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67322,7 +67322,7 @@ _ZN7Collada4Tags16LibraryImagesTagD2Ev.exit:      ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8ImageTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67353,7 +67353,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8ImageTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67398,7 +67398,7 @@ define linkonce_odr void @_ZN7Collada4Tags11InitFromTagD0Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags19LibraryMaterialsTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67429,7 +67429,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags19LibraryMaterialsTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67461,7 +67461,7 @@ _ZN7Collada4Tags19LibraryMaterialsTagD2Ev.exit:   ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11MaterialTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67492,7 +67492,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11MaterialTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67619,7 +67619,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSE5QChar(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags17LibraryEffectsTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67650,7 +67650,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags17LibraryEffectsTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67682,7 +67682,7 @@ _ZN7Collada4Tags17LibraryEffectsTagD2Ev.exit:     ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags9EffectTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67713,7 +67713,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags9EffectTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67745,7 +67745,7 @@ _ZN7Collada4Tags9EffectTagD2Ev.exit:              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags16ProfileCommonTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67776,7 +67776,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags16ProfileCommonTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67808,7 +67808,7 @@ _ZN7Collada4Tags16ProfileCommonTagD2Ev.exit:      ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11NewParamTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67839,7 +67839,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11NewParamTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67871,7 +67871,7 @@ _ZN7Collada4Tags11NewParamTagD2Ev.exit:           ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags10SurfaceTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67902,7 +67902,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags10SurfaceTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67947,7 +67947,7 @@ define linkonce_odr void @_ZN7Collada4Tags9FormatTagD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags12Sampler2DTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -67978,7 +67978,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags12Sampler2DTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68049,7 +68049,7 @@ define linkonce_odr void @_ZN7Collada4Tags12MagFilterTagD0Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags12TechniqueTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68080,7 +68080,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags12TechniqueTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68112,7 +68112,7 @@ _ZN7Collada4Tags12TechniqueTagD2Ev.exit:          ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8BlinnTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68143,7 +68143,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8BlinnTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68175,7 +68175,7 @@ _ZN7Collada4Tags8BlinnTagD2Ev.exit:               ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags10DiffuseTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68206,7 +68206,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags10DiffuseTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68251,7 +68251,7 @@ define linkonce_odr void @_ZN7Collada4Tags10TextureTagD0Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags20LibraryGeometriesTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68282,7 +68282,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags20LibraryGeometriesTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68314,7 +68314,7 @@ _ZN7Collada4Tags20LibraryGeometriesTagD2Ev.exit:  ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11GeometryTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68345,7 +68345,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11GeometryTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68377,7 +68377,7 @@ _ZN7Collada4Tags11GeometryTagD2Ev.exit:           ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags7MeshTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68408,7 +68408,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags7MeshTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68455,7 +68455,7 @@ define linkonce_odr void @_ZN7Collada4Tags13FloatArrayTagD0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags18TechniqueCommonTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68486,7 +68486,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags18TechniqueCommonTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68518,7 +68518,7 @@ _ZN7Collada4Tags18TechniqueCommonTagD2Ev.exit:    ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11AccessorTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68549,7 +68549,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11AccessorTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68581,7 +68581,7 @@ _ZN7Collada4Tags11AccessorTagD2Ev.exit:           ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8ParamTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68612,7 +68612,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8ParamTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68644,7 +68644,7 @@ _ZN7Collada4Tags8ParamTagD2Ev.exit:               ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11VerticesTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68675,7 +68675,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags11VerticesTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68707,7 +68707,7 @@ _ZN7Collada4Tags11VerticesTagD2Ev.exit:           ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8InputTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -68738,7 +68738,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8InputTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69390,7 +69390,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN9QtPrivate8RefCo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags12TrianglesTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69421,7 +69421,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags12TrianglesTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69466,7 +69466,7 @@ define linkonce_odr void @_ZN7Collada4Tags4PTagD0Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags22LibraryVisualScenesTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69497,7 +69497,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags22LibraryVisualScenesTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69529,7 +69529,7 @@ _ZN7Collada4Tags22LibraryVisualScenesTagD2Ev.exit: ; preds = %1, %_ZN9QtPrivate8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags14VisualSceneTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69560,7 +69560,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags14VisualSceneTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69592,7 +69592,7 @@ _ZN7Collada4Tags14VisualSceneTagD2Ev.exit:        ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags7NodeTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69623,7 +69623,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags7NodeTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69655,7 +69655,7 @@ _ZN7Collada4Tags7NodeTagD2Ev.exit:                ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags19InstanceGeometryTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69686,7 +69686,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags19InstanceGeometryTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69718,7 +69718,7 @@ _ZN7Collada4Tags19InstanceGeometryTagD2Ev.exit:   ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags15BindMaterialTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69749,7 +69749,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags15BindMaterialTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69781,7 +69781,7 @@ _ZN7Collada4Tags15BindMaterialTagD2Ev.exit:       ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags19InstanceMaterialTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69812,7 +69812,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags19InstanceMaterialTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69844,7 +69844,7 @@ _ZN7Collada4Tags19InstanceMaterialTagD2Ev.exit:   ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags18BindVertexInputTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69875,7 +69875,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags18BindVertexInputTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69907,7 +69907,7 @@ _ZN7Collada4Tags18BindVertexInputTagD2Ev.exit:    ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8SceneTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69938,7 +69938,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags8SceneTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -69970,7 +69970,7 @@ _ZN7Collada4Tags8SceneTagD2Ev.exit:               ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags22InstanceVisualSceneTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -70001,7 +70001,7 @@ _ZN6XMLTagD2Ev.exit:                              ; preds = %1, %_ZN9QtPrivate8R
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Collada4Tags22InstanceVisualSceneTagD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6XMLTag, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -70054,7 +70054,7 @@ define linkonce_odr noundef ptr @_ZN3vcg3tri2io11ExporterPLYI6CMeshOE8ErrorMsgEi
 
 8:                                                ; preds = %6, %4, %1
   %9 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterPLYI6CMeshOE8ErrorMsgEiE13ply_error_msgB5cxx11, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector.112", ptr @_ZZN3vcg3tri2io11ExporterPLYI6CMeshOE8ErrorMsgEiE13ply_error_msgB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ExporterPLYI6CMeshOE8ErrorMsgEiE13ply_error_msgB5cxx11, i64 8), align 8
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %73
 
@@ -70159,7 +70159,7 @@ define linkonce_odr noundef ptr @_ZN3vcg3tri2io11ExporterSTLI6CMeshOE8ErrorMsgEi
 
 8:                                                ; preds = %6, %4, %1
   %9 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterSTLI6CMeshOE8ErrorMsgEiE13stl_error_msgB5cxx11, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector.112", ptr @_ZZN3vcg3tri2io11ExporterSTLI6CMeshOE8ErrorMsgEiE13stl_error_msgB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ExporterSTLI6CMeshOE8ErrorMsgEiE13stl_error_msgB5cxx11, i64 8), align 8
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %19
 
@@ -70210,7 +70210,7 @@ define linkonce_odr noundef ptr @_ZN3vcg3tri2io11ExporterOFFI6CMeshOE8ErrorMsgEi
 
 8:                                                ; preds = %6, %4, %1
   %9 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterOFFI6CMeshOE8ErrorMsgEiE13off_error_msgB5cxx11, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector.112", ptr @_ZZN3vcg3tri2io11ExporterOFFI6CMeshOE8ErrorMsgEiE13off_error_msgB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ExporterOFFI6CMeshOE8ErrorMsgEiE13off_error_msgB5cxx11, i64 8), align 8
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %19
 
@@ -70261,7 +70261,7 @@ define linkonce_odr noundef ptr @_ZN3vcg3tri2io11ExporterDXFI6CMeshOE8ErrorMsgEi
 
 8:                                                ; preds = %6, %4, %1
   %9 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterDXFI6CMeshOE8ErrorMsgEiE13dxf_error_msgB5cxx11, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector.112", ptr @_ZZN3vcg3tri2io11ExporterDXFI6CMeshOE8ErrorMsgEiE13dxf_error_msgB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ExporterDXFI6CMeshOE8ErrorMsgEiE13dxf_error_msgB5cxx11, i64 8), align 8
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %19
 
@@ -70964,9 +70964,9 @@ define internal void @_GLOBAL__sub_I_io_collada.cpp() #12 section ".text.startup
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #24
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

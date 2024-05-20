@@ -33,7 +33,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([548 x %"struct.llvh::sys::UnicodeCharRange"], ptr @_ZZN4llvh3sys7unicode11isPrintableEiE18NonPrintableRanges, i64 1, i64 0)
+  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvh3sys7unicode11isPrintableEiE18NonPrintableRanges, i64 4384)
   br i1 %cmp.not.i.i, label %land.end, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i
@@ -106,7 +106,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end12, %while.bo
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
-  %cmp.not.i.i.i.i = icmp eq ptr %__first.addr.1.i.i.i.i.i, getelementptr inbounds ([548 x %"struct.llvh::sys::UnicodeCharRange"], ptr @_ZZN4llvh3sys7unicode11isPrintableEiE18NonPrintableRanges, i64 1, i64 0)
+  %cmp.not.i.i.i.i = icmp eq ptr %__first.addr.1.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvh3sys7unicode11isPrintableEiE18NonPrintableRanges, i64 4384)
   br i1 %cmp.not.i.i.i.i, label %while.body.i.i.i.i.preheader, label %_ZN4llvh3sys7unicode11isPrintableEi.exit.i
 
 _ZN4llvh3sys7unicode11isPrintableEi.exit.i:       ; preds = %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i
@@ -136,7 +136,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
-  %cmp.not.i.i.i = icmp eq ptr %__first.addr.1.i.i.i.i, getelementptr inbounds ([218 x %"struct.llvh::sys::UnicodeCharRange"], ptr @_ZZN4llvh3sys7unicodeL9charWidthEiE24CombiningCharacterRanges, i64 1, i64 0)
+  %cmp.not.i.i.i = icmp eq ptr %__first.addr.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvh3sys7unicodeL9charWidthEiE24CombiningCharacterRanges, i64 1744)
   br i1 %cmp.not.i.i.i, label %while.body.i.i.i3.i.preheader, label %_ZNK4llvh3sys14UnicodeCharSet8containsEj.exit.i
 
 _ZNK4llvh3sys14UnicodeCharSet8containsEj.exit.i:  ; preds = %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
@@ -166,7 +166,7 @@ while.body.i.i.i3.i:                              ; preds = %while.body.i.i.i3.i
   br i1 %cmp.i.i.i20.i, label %while.body.i.i.i3.i, label %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i21.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i21.i: ; preds = %while.body.i.i.i3.i
-  %cmp.not.i.i22.i = icmp eq ptr %__first.addr.1.i.i.i19.i, getelementptr inbounds ([15 x %"struct.llvh::sys::UnicodeCharRange"], ptr @_ZZN4llvh3sys7unicodeL9charWidthEiE26DoubleWidthCharacterRanges, i64 1, i64 0)
+  %cmp.not.i.i22.i = icmp eq ptr %__first.addr.1.i.i.i19.i, getelementptr inbounds (i8, ptr @_ZZN4llvh3sys7unicodeL9charWidthEiE26DoubleWidthCharacterRanges, i64 120)
   br i1 %cmp.not.i.i22.i, label %if.end17, label %_ZNK4llvh3sys14UnicodeCharSet8containsEj.exit27.i
 
 _ZNK4llvh3sys14UnicodeCharSet8containsEj.exit27.i: ; preds = %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i21.i

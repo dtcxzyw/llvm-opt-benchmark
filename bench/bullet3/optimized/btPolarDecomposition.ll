@@ -586,7 +586,7 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store float 0x3F1A36E2E0000000, ptr @_ZZ14polarDecomposeRK11btMatrix3x3RS_S2_E5polar, align 4
-  store i32 16, ptr getelementptr inbounds (%class.btPolarDecomposition, ptr @_ZZ14polarDecomposeRK11btMatrix3x3RS_S2_E5polar, i64 0, i32 1), align 4
+  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZZ14polarDecomposeRK11btMatrix3x3RS_S2_E5polar, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ14polarDecomposeRK11btMatrix3x3RS_S2_E5polar) #9
   br label %init.end
 

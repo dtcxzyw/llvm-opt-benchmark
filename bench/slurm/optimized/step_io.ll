@@ -1886,7 +1886,7 @@ _wid.exit:                                        ; preds = %.lr.ph.i, %7, %14
   %19 = tail call ptr @slurm_cred_get_signature(ptr noundef %3) #10
   %20 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %19, ptr %20, align 8
-  %21 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 41), align 8
+  %21 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 312), align 8
   %22 = tail call ptr @eio_handle_create(i16 noundef zeroext %21) #10
   %23 = getelementptr inbounds i8, ptr %9, i64 152
   store ptr %22, ptr %23, align 8

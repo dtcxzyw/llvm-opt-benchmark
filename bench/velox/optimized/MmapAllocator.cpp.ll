@@ -185,7 +185,7 @@ define void @_ZN8facebook5velox6memory13MmapAllocatorC2ERKNS2_7OptionsE(ptr noun
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN8facebook5velox6memory15MemoryAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory15MemoryAllocatorE, i64 16), ptr %this, align 8
   %sizeClassSizes_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sizeClassSizes_.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #28
@@ -240,7 +240,7 @@ lpad.body.i:                                      ; preds = %entry
   br label %common.resume
 
 _ZN8facebook5velox6memory15MemoryAllocatorC2Ev.exit: ; preds = %for.body.i.i
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN8facebook5velox6memory13MmapAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory13MmapAllocatorE, i64 16), ptr %this, align 8
   %kind_ = getelementptr inbounds i8, ptr %this, i64 880
   store i32 1, ptr %kind_, align 8
   %useMmapArena_ = getelementptr inbounds i8, ptr %this, i64 884
@@ -605,7 +605,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeCl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox6memory15MemoryAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(880) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN8facebook5velox6memory15MemoryAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory15MemoryAllocatorE, i64 16), ptr %this, align 8
   %sizeClassSizes_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %sizeClassSizes_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -656,7 +656,7 @@ _ZNSt23enable_shared_from_thisIN8facebook5velox6memory15MemoryAllocatorEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook5velox6memory13MmapAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN8facebook5velox6memory13MmapAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory13MmapAllocatorE, i64 16), ptr %this, align 8
   %numAllocated_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %numAllocated_ seq_cst, align 8
   %cmp = icmp eq i64 %0, 0
@@ -796,7 +796,7 @@ if.then.i.i.i1:                                   ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EED2Ev.exit
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i1
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN8facebook5velox6memory15MemoryAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory15MemoryAllocatorE, i64 16), ptr %this, align 8
   %sizeClassSizes_.i = getelementptr inbounds i8, ptr %this, i64 24
   %18 = load ptr, ptr %sizeClassSizes_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %18, null
@@ -6132,7 +6132,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %.noexc unwind label %lpad10
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.46, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.46, i64 9))
           to label %cond.end unwind label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %.noexc

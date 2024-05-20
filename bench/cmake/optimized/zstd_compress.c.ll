@@ -12059,7 +12059,7 @@ ZSTD_cwksp_reserve_aligned.exit204:               ; preds = %269, %ZSTD_cwksp_in
   store i32 2, ptr %305, align 8
   %306 = getelementptr inbounds i8, ptr %0, i64 1036
   store i32 2, ptr %306, align 4
-  store ptr getelementptr inbounds ([2 x i8], ptr @.str, i64 1, i64 0), ptr %260, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str, i64 2), ptr %260, align 8
   %307 = getelementptr inbounds i8, ptr %0, i64 1056
   store i32 0, ptr %307, align 8
   br label %308
@@ -12769,7 +12769,7 @@ ZSTD_allocateChainTable.exit.thread:              ; preds = %14, %ZSTD_allocateC
   store i32 2, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 2, ptr %44, align 4
-  store ptr getelementptr inbounds ([2 x i8], ptr @.str, i64 1, i64 0), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str, i64 2), ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %1, i64 32

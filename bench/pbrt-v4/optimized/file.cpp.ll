@@ -492,17 +492,17 @@ lpad:                                             ; preds = %if.end, %_ZN10files
 if.end:                                           ; preds = %if.then.i.i.i.i, %invoke.cont.i.i, %invoke.cont
   %13 = load i32, ptr %path, align 8
   store i32 %13, ptr @_ZN4pbrtL15searchDirectoryE, align 8
-  %call.i510 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.filesystem::path", ptr @_ZN4pbrtL15searchDirectoryE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(24) %m_path.i)
+  %call.i510 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN4pbrtL15searchDirectoryE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %m_path.i)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.end
   %m_absolute.i6 = getelementptr inbounds i8, ptr %path, i64 32
   %14 = load i8, ptr %m_absolute.i6, align 8
   %frombool.i7 = and i8 %14, 1
-  store i8 %frombool.i7, ptr getelementptr inbounds (%"class.filesystem::path", ptr @_ZN4pbrtL15searchDirectoryE, i64 0, i32 3), align 8
+  store i8 %frombool.i7, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL15searchDirectoryE, i64 32), align 8
   %15 = load i8, ptr %m_smb.i, align 1
   %frombool7.i9 = and i8 %15, 1
-  store i8 %frombool7.i9, ptr getelementptr inbounds (%"class.filesystem::path", ptr @_ZN4pbrtL15searchDirectoryE, i64 0, i32 4), align 1
+  store i8 %frombool7.i9, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL15searchDirectoryE, i64 33), align 1
   %16 = load ptr, ptr %m_path.i, align 8
   %_M_finish.i.i12 = getelementptr inbounds i8, ptr %path, i64 16
   %17 = load ptr, ptr %_M_finish.i.i12, align 8
@@ -574,7 +574,7 @@ call.i.noexc:                                     ; preds = %if.then8
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.30, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.30, i64 2))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1017,8 +1017,8 @@ entry:
   %filepath = alloca %"class.filesystem::path", align 8
   %ref.tmp = alloca %"class.filesystem::path", align 8
   %ref.tmp12 = alloca %"class.filesystem::path", align 8
-  %0 = load ptr, ptr getelementptr inbounds (%"class.filesystem::path", ptr @_ZN4pbrtL15searchDirectoryE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%"class.filesystem::path", ptr @_ZN4pbrtL15searchDirectoryE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL15searchDirectoryE, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL15searchDirectoryE, i64 16), align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %if.then, label %lor.lhs.false
 
@@ -4073,7 +4073,7 @@ call.i20.noexc:                                   ; preds = %if.end146
           to label %.noexc unwind label %lpad149
 
 .noexc:                                           ; preds = %call.i20.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.25, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.25, i64 2))
           to label %invoke.cont150 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4170,7 +4170,7 @@ call.i25.noexc:                                   ; preds = %if.else177
           to label %.noexc30 unwind label %lpad181
 
 .noexc30:                                         ; preds = %call.i25.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.26, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.26, i64 1))
           to label %invoke.cont182 unwind label %lpad.i28
 
 lpad.i28:                                         ; preds = %.noexc30
@@ -12520,7 +12520,7 @@ lpad:                                             ; preds = %invoke.cont6, %invo
 define internal void @_GLOBAL__sub_I_file.cpp() #18 section ".text.startup" {
 entry:
   store i32 1, ptr @_ZN4pbrtL15searchDirectoryE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) getelementptr inbounds (%"class.filesystem::path", ptr @_ZN4pbrtL15searchDirectoryE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) getelementptr inbounds (i8, ptr @_ZN4pbrtL15searchDirectoryE, i64 8), i8 0, i64 26, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN10filesystem4pathD2Ev, ptr nonnull @_ZN4pbrtL15searchDirectoryE, ptr nonnull @__dso_handle) #21
   ret void
 }

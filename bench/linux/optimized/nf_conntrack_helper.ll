@@ -1364,7 +1364,7 @@ define dso_local noundef range(i32 -12, 1) i32 @nf_conntrack_helper_init() local
 
 3:                                                ; preds = %0
   store volatile ptr @nf_ct_nat_helpers, ptr @nf_ct_nat_helpers, align 8
-  store volatile ptr @nf_ct_nat_helpers, ptr getelementptr inbounds (%struct.list_head, ptr @nf_ct_nat_helpers, i64 0, i32 1), align 8
+  store volatile ptr @nf_ct_nat_helpers, ptr getelementptr inbounds (i8, ptr @nf_ct_nat_helpers, i64 8), align 8
   br label %4
 
 4:                                                ; preds = %3, %0

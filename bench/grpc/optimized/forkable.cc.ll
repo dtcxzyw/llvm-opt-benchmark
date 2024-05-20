@@ -161,7 +161,7 @@ if.then4:                                         ; preds = %do.body
   unreachable
 
 do.body5:                                         ; preds = %do.body
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN17grpc_event_engine12experimental15grpc_trace_forkE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental15grpc_trace_forkE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then7, label %do.end9
 
@@ -582,7 +582,7 @@ if.then2:                                         ; preds = %do.body
   unreachable
 
 do.body3:                                         ; preds = %do.body
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN17grpc_event_engine12experimental15grpc_trace_forkE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental15grpc_trace_forkE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then5, label %do.end7
 
@@ -923,7 +923,7 @@ if.then2:                                         ; preds = %do.body
   unreachable
 
 do.body3:                                         ; preds = %do.body
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN17grpc_event_engine12experimental15grpc_trace_forkE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental15grpc_trace_forkE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then5, label %do.end7
 

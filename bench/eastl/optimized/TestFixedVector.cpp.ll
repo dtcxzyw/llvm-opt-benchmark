@@ -10560,9 +10560,9 @@ delete.notnull.i.i.i.i.i604:                      ; preds = %invoke.cont.i.i
 
 _ZN5eastl12fixed_vectorI10TestObjectLm1ELb1ENS_9allocatorEED2Ev.exit: ; preds = %invoke.cont.i.i, %delete.notnull.i.i.i.i.i604
   %185 = load ptr, ptr @_ZN12_GLOBAL__N_14vA64E, align 64
-  call void @_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm3ELm64ELm0ELb1E15CustomAllocatorEEE20DoInsertFromIteratorIPS1_EEvPKS1_T_SA_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_14vA64E, ptr noundef %185, ptr noundef nonnull @_ZN12_GLOBAL__N_13a64E, ptr noundef nonnull getelementptr inbounds (%struct.Align64, ptr @_ZN12_GLOBAL__N_13a64E, i64 1))
+  call void @_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm3ELm64ELm0ELb1E15CustomAllocatorEEE20DoInsertFromIteratorIPS1_EEvPKS1_T_SA_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_14vA64E, ptr noundef %185, ptr noundef nonnull @_ZN12_GLOBAL__N_13a64E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_13a64E, i64 64))
   %186 = load ptr, ptr @_ZN12_GLOBAL__N_14vA64E, align 64
-  %187 = load ptr, ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 0, i32 0, i32 1), align 8
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 8), align 8
   %call325 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIP7Align64iEbT_S2_T0_PKcz(ptr noundef %186, ptr noundef %187, i32 noundef 0, ptr noundef nonnull @.str, i32 noundef 5, i32 noundef -1)
   %call326 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call325, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.2, i32 noundef 220, ptr noundef nonnull @.str.46)
   %call328 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.2, i32 noundef 221, ptr noundef nonnull @.str.47)
@@ -10573,10 +10573,10 @@ _ZN5eastl12fixed_vectorI10TestObjectLm1ELb1ENS_9allocatorEED2Ev.exit: ; preds = 
   %call332 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp331, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.2, i32 noundef 222, ptr noundef nonnull @.str.48)
   %call336 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.2, i32 noundef 223, ptr noundef nonnull @.str.49)
   %call339 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.2, i32 noundef 224, ptr noundef nonnull @.str.50)
-  %190 = load ptr, ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 0, i32 0, i32 1), align 8
+  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 8), align 8
   %191 = load ptr, ptr @_ZN12_GLOBAL__N_14vA64E, align 64
   %cmp.i610 = icmp uge ptr %190, %191
-  %192 = load ptr, ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0), align 16
+  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 16), align 16
   %cmp3.i611 = icmp uge ptr %192, %190
   %retval.0.i612 = select i1 %cmp.i610, i1 %cmp3.i611, i1 false
   %call341 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i612, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.2, i32 noundef 225, ptr noundef nonnull @.str.51)
@@ -21480,10 +21480,10 @@ lpad:                                             ; preds = %_ZN5eastl6vectorINS
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_TestFixedVector.cpp() #9 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 2, i32 0, i64 0), ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 0, i32 0, i32 2, i32 0, i32 1, i32 1), align 32
-  store ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 2, i32 0, i64 0), ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 2, i32 0, i64 0), ptr @_ZN12_GLOBAL__N_14vA64E, align 64
-  store ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 1, i32 0, i32 0, i32 0), ptr getelementptr inbounds (%"class.eastl::fixed_vector.40", ptr @_ZN12_GLOBAL__N_14vA64E, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 64), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 32), align 32
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 64), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 8), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 64), ptr @_ZN12_GLOBAL__N_14vA64E, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 256), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 16), align 16
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5eastl12fixed_vectorI7Align64Lm3ELb1E15CustomAllocatorED2Ev, ptr nonnull @_ZN12_GLOBAL__N_14vA64E, ptr nonnull @__dso_handle) #15
   store i32 5, ptr @_ZN12_GLOBAL__N_13a64E, align 64
   ret void

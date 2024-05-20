@@ -595,7 +595,7 @@ if.then.i:                                        ; preds = %entry
 
 do.body.i:                                        ; preds = %entry
   %conv.i = sext i32 %rate to i64
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds ([145 x i8], ptr @.str, i64 0, i64 123), i32 noundef 262, ptr noundef nonnull @.str.1, i64 noundef %conv.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 262, ptr noundef nonnull @.str.1, i64 noundef %conv.i)
   br label %_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit
 
 _ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit: ; preds = %if.then.i, %do.body.i
@@ -624,7 +624,7 @@ if.then:                                          ; preds = %entry
 
 do.body:                                          ; preds = %entry
   %conv = sext i32 %rate to i64
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds ([145 x i8], ptr @.str, i64 0, i64 123), i32 noundef 262, ptr noundef nonnull @.str.1, i64 noundef %conv)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 262, ptr noundef nonnull @.str.1, i64 noundef %conv)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
@@ -750,7 +750,7 @@ _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %if.then
   br label %if.end
 
 do.body:                                          ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds ([145 x i8], ptr @.str, i64 0, i64 123), i32 noundef 279, ptr noundef nonnull @.str.2)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 279, ptr noundef nonnull @.str.2)
   br label %if.end
 
 if.end:                                           ; preds = %do.body, %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit

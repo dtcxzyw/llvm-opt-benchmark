@@ -995,7 +995,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 64) #17
   %8 = icmp ne ptr %7, null
   br i1 %8, label %11, label %9
@@ -1142,14 +1142,14 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
 78:                                               ; preds = %.thread20, %74, %72
   %79 = phi i1 [ true, %.thread20 ], [ false, %74 ], [ true, %72 ]
   %80 = phi ptr [ null, %.thread20 ], [ %66, %74 ], [ null, %72 ]
-  %81 = load i32, ptr getelementptr inbounds (%struct.screen_info, ptr @screen_info, i64 0, i32 16), align 1
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @screen_info, i64 24), align 1
   %82 = zext i32 %81 to i64
-  %83 = load i32, ptr getelementptr inbounds (%struct.screen_info, ptr @screen_info, i64 0, i32 17), align 1
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @screen_info, i64 28), align 1
   %84 = zext i32 %83 to i64
-  %85 = load i32, ptr getelementptr inbounds (%struct.screen_info, ptr @screen_info, i64 0, i32 33), align 1
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @screen_info, i64 54), align 1
   %86 = and i32 %85, 2
   %87 = icmp eq i32 %86, 0
-  %88 = load i32, ptr getelementptr inbounds (%struct.screen_info, ptr @screen_info, i64 0, i32 34), align 1
+  %88 = load i32, ptr getelementptr inbounds (i8, ptr @screen_info, i64 58), align 1
   %89 = zext i32 %88 to i64
   %90 = shl nuw i64 %89, 32
   %91 = select i1 %87, i64 0, i64 %90
@@ -1381,8 +1381,8 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   br label %224
 
 224:                                              ; preds = %172, %221, %223
-  %225 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @vga_list, i64 0, i32 1), align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.list_head, ptr @vga_list, i64 0, i32 1), align 8
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @vga_list, i64 8), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @vga_list, i64 8), align 8
   store ptr @vga_list, ptr %7, align 8
   %226 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %225, ptr %226, align 8
@@ -1447,7 +1447,7 @@ declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 define internal i64 @vga_arb_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 1024) #17
   %9 = icmp eq ptr %8, null
   br i1 %9, label %77, label %10
@@ -2015,7 +2015,7 @@ define internal noundef i32 @vga_arb_fpoll(ptr noundef %0, ptr noundef %1) #1 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @vga_arb_open(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 288) #17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %18, label %6

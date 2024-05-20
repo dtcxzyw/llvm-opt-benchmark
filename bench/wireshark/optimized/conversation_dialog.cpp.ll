@@ -97,9 +97,9 @@ define void @_ZN18ConversationDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnu
   %21 = alloca %"class.QMetaObject::Connection", align 8
   %22 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18TrafficTableDialogC2ER7QWidgetR11CaptureFileRK7QString(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) @_ZL11table_name_)
-  store ptr getelementptr inbounds ({ [66 x ptr], [10 x ptr] }, ptr @_ZTV18ConversationDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ConversationDialog, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [66 x ptr], [10 x ptr] }, ptr @_ZTV18ConversationDialog, i64 0, i32 1, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ConversationDialog, i64 544), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 168
   store i8 0, ptr %24, align 8
   %25 = invoke noundef ptr @_ZNK18TrafficTableDialog11trafficListEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
@@ -109,10 +109,10 @@ define void @_ZN18ConversationDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnu
   %27 = load ptr, ptr @_ZL11table_name_, align 8
   store ptr %27, ptr %10, align 8
   %28 = getelementptr inbounds i8, ptr %10, i64 8
-  %29 = load ptr, ptr getelementptr inbounds (%class.QString, ptr @_ZL11table_name_, i64 0, i32 0, i32 1), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11table_name_, i64 8), align 8
   store ptr %29, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %10, i64 16
-  %31 = load i64, ptr getelementptr inbounds (%class.QString, ptr @_ZL11table_name_, i64 0, i32 0, i32 2), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL11table_name_, i64 16), align 8
   store i64 %31, ptr %30, align 8
   %.not.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i, label %_ZN7QStringC2ERKS_.exit, label %32
@@ -122,7 +122,7 @@ define void @_ZN18ConversationDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnu
   br label %_ZN7QStringC2ERKS_.exit
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %26, %32
-  invoke void @_ZN16TrafficTypesList15setProtocolInfoE7QStringPP6_GList(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull %10, ptr noundef nonnull getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42))
+  invoke void @_ZN16TrafficTypesList15setProtocolInfoE7QStringPP6_GList(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @recent, i64 184))
           to label %34 unwind label %136
 
 34:                                               ; preds = %_ZN7QStringC2ERKS_.exit
@@ -148,10 +148,10 @@ _ZN7QStringD2Ev.exit:                             ; preds = %34, %_ZN17QArrayDat
   %41 = load ptr, ptr @_ZL11table_name_, align 8
   store ptr %41, ptr %11, align 8
   %42 = getelementptr inbounds i8, ptr %11, i64 8
-  %43 = load ptr, ptr getelementptr inbounds (%class.QString, ptr @_ZL11table_name_, i64 0, i32 0, i32 1), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11table_name_, i64 8), align 8
   store ptr %43, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %11, i64 16
-  %45 = load i64, ptr getelementptr inbounds (%class.QString, ptr @_ZL11table_name_, i64 0, i32 0, i32 2), align 8
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL11table_name_, i64 16), align 8
   store i64 %45, ptr %44, align 8
   %.not.i.i.i22 = icmp eq ptr %41, null
   br i1 %.not.i.i.i22, label %_ZN7QStringC2ERKS_.exit23, label %46
@@ -165,7 +165,7 @@ _ZN7QStringC2ERKS_.exit23:                        ; preds = %40, %46
           to label %49 unwind label %142
 
 49:                                               ; preds = %_ZN7QStringC2ERKS_.exit23
-  invoke void @_ZN10TrafficTab15setProtocolInfoE7QStringP16TrafficTypesListPP6_GListPFP13ATapDataModeliS0_E(ptr noundef nonnull align 8 dereferenceable(122) %39, ptr noundef nonnull %11, ptr noundef %48, ptr noundef nonnull getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), ptr noundef nonnull @_ZL11createModeli7QString)
+  invoke void @_ZN10TrafficTab15setProtocolInfoE7QStringP16TrafficTypesListPP6_GListPFP13ATapDataModeliS0_E(ptr noundef nonnull align 8 dereferenceable(122) %39, ptr noundef nonnull %11, ptr noundef %48, ptr noundef nonnull getelementptr inbounds (i8, ptr @recent, i64 192), ptr noundef nonnull @_ZL11createModeli7QString)
           to label %50 unwind label %142
 
 50:                                               ; preds = %49

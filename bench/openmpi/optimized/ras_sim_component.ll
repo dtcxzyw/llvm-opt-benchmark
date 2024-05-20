@@ -26,14 +26,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @ras_sim_component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 224), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   store ptr @prte_ras_sim_module, ptr %0, align 8
   store i32 1000, ptr %1, align 4
-  store i8 1, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i64 0, i32 5), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_ras_base, i64 25), align 1
   br label %6
 
 5:                                                ; preds = %2
@@ -48,16 +48,16 @@ define internal range(i32 -1, 1) i32 @ras_sim_component_query(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ras_sim_register() #1 {
-  store ptr @.str, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 2), align 8
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 2)) #3
-  store ptr @.str.3, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 3), align 8
-  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 3)) #3
-  store ptr null, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 1), align 8
-  %3 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 1)) #3
-  store i8 1, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 6), align 8
-  %4 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 6)) #3
-  store i8 1, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 7), align 1
-  %5 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 7)) #3
+  store ptr @.str, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 232), align 8
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 232)) #3
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 240), align 8
+  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 240)) #3
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 224), align 8
+  %3 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 224)) #3
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 264), align 8
+  %4 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 264)) #3
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 265), align 1
+  %5 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_simulator_component, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 265)) #3
   ret i32 0
 }
 

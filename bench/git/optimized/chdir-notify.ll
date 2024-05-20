@@ -26,13 +26,13 @@ entry:
   %data3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %data, ptr %data3, align 8
   %list = getelementptr inbounds i8, ptr %call, i64 24
-  %0 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @chdir_notify_entries, i64 8), align 8
   store ptr %list, ptr %0, align 8
   store ptr @chdir_notify_entries, ptr %list, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @chdir_notify_entries, i64 8), align 8
   %prev3.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %1, ptr %prev3.i, align 8
-  store ptr %list, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
+  store ptr %list, ptr getelementptr inbounds (i8, ptr @chdir_notify_entries, i64 8), align 8
   ret void
 }
 
@@ -48,13 +48,13 @@ entry:
   %data3.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %path, ptr %data3.i, align 8
   %list.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  %0 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @chdir_notify_entries, i64 8), align 8
   store ptr %list.i, ptr %0, align 8
   store ptr @chdir_notify_entries, ptr %list.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @chdir_notify_entries, i64 8), align 8
   %prev3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %1, ptr %prev3.i.i, align 8
-  store ptr %list.i, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
+  store ptr %list.i, ptr getelementptr inbounds (i8, ptr @chdir_notify_entries, i64 8), align 8
   ret void
 }
 
@@ -89,9 +89,9 @@ reparent_relative_path.exit:                      ; preds = %if.then.i, %if.end.
   br i1 %tobool1.not, label %if.end7, label %do.body
 
 do.body:                                          ; preds = %reparent_relative_path.exit
-  %1 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 8), align 8
   %tobool.not.i = icmp eq i32 %1, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 2), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool4.not6 = icmp ne i8 %bf.clear.i, 0
   %tobool4.not = select i1 %tobool.not.i, i1 %tobool4.not6, i1 false
@@ -128,9 +128,9 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 do.body:                                          ; preds = %if.end
-  %1 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 8), align 8
   %tobool.not.i = icmp eq i32 %1, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 2), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not7 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not7, i1 false

@@ -272,7 +272,7 @@ sub_0264:                                         ; preds = %2
   unreachable
 
 62:                                               ; preds = %2
-  %63 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name3, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
+  %63 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds (i8, ptr @prelude_name3, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %.thread180.thread
 
@@ -310,7 +310,7 @@ sub_1269:                                         ; preds = %sub_0268
   br label %prelude_ast.exit
 
 .thread180.thread:                                ; preds = %62, %65
-  %81 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name5, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
+  %81 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds (i8, ptr @prelude_name5, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %.thread211
 
@@ -323,7 +323,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not134, label %.thread211, label %prelude_ast.exit
 
 87:                                               ; preds = %2
-  %88 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name6, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
+  %88 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds (i8, ptr @prelude_name6, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %.thread190
 
@@ -336,7 +336,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not135, label %.thread190, label %prelude_ast.exit
 
 94:                                               ; preds = %2
-  %95 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name7, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
+  %95 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds (i8, ptr @prelude_name7, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %127
 
@@ -349,7 +349,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not136, label %127, label %prelude_ast.exit
 
 .thread190:                                       ; preds = %90, %87
-  %101 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name8, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
+  %101 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds (i8, ptr @prelude_name8, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %.thread242.thread.thread
 
@@ -362,7 +362,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not137, label %.thread242.thread.thread, label %prelude_ast.exit
 
 107:                                              ; preds = %2
-  %108 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name9, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
+  %108 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds (i8, ptr @prelude_name9, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %.thread233.thread305
 
@@ -375,7 +375,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not138, label %.thread233.thread305, label %prelude_ast.exit
 
 .thread211:                                       ; preds = %83, %.thread180.thread
-  %114 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name10, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
+  %114 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds (i8, ptr @prelude_name10, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %.thread236.thread
 
@@ -388,7 +388,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not139, label %.thread236.thread, label %prelude_ast.exit
 
 120:                                              ; preds = %2
-  %121 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) getelementptr inbounds ([17 x i8], ptr @prelude_name11, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 5) #7
+  %121 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) getelementptr inbounds (i8, ptr @prelude_name11, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 5) #7
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %.thread217.thread.thread
 
@@ -401,7 +401,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not140, label %.thread217.thread.thread, label %prelude_ast.exit
 
 127:                                              ; preds = %94, %97
-  %128 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name12, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
+  %128 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds (i8, ptr @prelude_name12, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %.thread223
 
@@ -414,7 +414,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not141, label %.thread223, label %prelude_ast.exit
 
 .thread223:                                       ; preds = %130, %127
-  %134 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name13, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
+  %134 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds (i8, ptr @prelude_name13, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %.thread228
 
@@ -427,7 +427,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not142, label %.thread228, label %prelude_ast.exit
 
 .thread228:                                       ; preds = %136, %.thread223
-  %140 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name14, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
+  %140 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds (i8, ptr @prelude_name14, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %.thread230
 
@@ -443,7 +443,7 @@ sub_1269:                                         ; preds = %sub_0268
   br label %prelude_ast.exit
 
 .thread217.thread.thread:                         ; preds = %120, %123
-  %146 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) getelementptr inbounds ([17 x i8], ptr @prelude_name15, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 5) #7
+  %146 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) getelementptr inbounds (i8, ptr @prelude_name15, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 5) #7
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %.thread236
 
@@ -456,7 +456,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not144, label %.thread236, label %prelude_ast.exit
 
 .thread233.thread305:                             ; preds = %110, %107
-  %152 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name16, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
+  %152 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds (i8, ptr @prelude_name16, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %.thread236
 
@@ -474,7 +474,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %159, label %160, label %.thread242
 
 160:                                              ; preds = %.thread236
-  %161 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(10) getelementptr inbounds ([20 x i8], ptr @prelude_name17, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 8) #7
+  %161 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(10) getelementptr inbounds (i8, ptr @prelude_name17, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 8) #7
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %163, label %.thread242
 
@@ -487,7 +487,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %.not146, label %.thread242, label %prelude_ast.exit
 
 .thread236.thread:                                ; preds = %.thread211, %116
-  %167 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name18, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
+  %167 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds (i8, ptr @prelude_name18, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %.thread245
 
@@ -503,7 +503,7 @@ sub_1269:                                         ; preds = %sub_0268
   br i1 %158, label %173, label %.thread245
 
 173:                                              ; preds = %.thread242
-  %174 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name19, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
+  %174 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds (i8, ptr @prelude_name19, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %.thread245
 
@@ -518,7 +518,7 @@ sub_1269:                                         ; preds = %sub_0268
   br label %prelude_ast.exit
 
 .thread242.thread.thread:                         ; preds = %103, %.thread190
-  %180 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name20, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
+  %180 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds (i8, ptr @prelude_name20, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %prelude_ast.exit
 

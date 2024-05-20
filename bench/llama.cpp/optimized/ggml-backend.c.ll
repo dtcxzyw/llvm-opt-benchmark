@@ -1172,7 +1172,7 @@ do.end:                                           ; preds = %entry
   %cpu_backend_buffer_i.sroa.4.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @ggml_backend_cpu_buffer_get_base, ptr %cpu_backend_buffer_i.sroa.4.0.call.i.sroa_idx, align 8
   %cpu_backend_buffer_i.sroa.5.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cpu_backend_buffer_i.sroa.5.0.call.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.ggml_backend_buffer_i, ptr @cpu_backend_buffer_i, i64 0, i32 2), i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cpu_backend_buffer_i.sroa.5.0.call.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @cpu_backend_buffer_i, i64 16), i64 40, i1 false)
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %buft, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 64
@@ -1255,7 +1255,7 @@ entry:
   %cpu_backend_buffer_i_from_ptr.sroa.4.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @ggml_backend_cpu_buffer_get_base, ptr %cpu_backend_buffer_i_from_ptr.sroa.4.0.call.i.sroa_idx, align 8
   %cpu_backend_buffer_i_from_ptr.sroa.5.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cpu_backend_buffer_i_from_ptr.sroa.5.0.call.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.ggml_backend_buffer_i, ptr @cpu_backend_buffer_i_from_ptr, i64 0, i32 2), i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cpu_backend_buffer_i_from_ptr.sroa.5.0.call.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @cpu_backend_buffer_i_from_ptr, i64 16), i64 40, i1 false)
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 64

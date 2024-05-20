@@ -66,7 +66,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define internal void @_GLOBAL__sub_I_wide_columns.cc() #6 section ".text.startup" {
 entry:
   store ptr @.str, ptr @_ZN7rocksdb22kDefaultWideColumnNameE, align 8
-  store i64 0, ptr getelementptr inbounds (%"class.rocksdb::Slice", ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7rocksdb14kNoWideColumnsE, i8 0, i64 24, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdb14kNoWideColumnsE, ptr nonnull @__dso_handle) #9
   ret void

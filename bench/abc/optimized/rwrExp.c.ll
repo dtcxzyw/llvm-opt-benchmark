@@ -257,7 +257,7 @@ define void @Rwt_Man5ExploreStart() local_unnamed_addr #0 {
   %1 = tail call ptr @stmm_init_table(ptr noundef nonnull @st__numcmp, ptr noundef nonnull @st__numhash) #17
   store ptr %1, ptr @s_pManRwrExp5.body, align 8
   %2 = tail call ptr @stmm_init_table(ptr noundef nonnull @st__numcmp, ptr noundef nonnull @st__numhash) #17
-  store ptr %2, ptr getelementptr inbounds ([16 x i8], ptr @s_pManRwrExp5.body, i64 0, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
   ret void
 }
 
@@ -555,7 +555,7 @@ Abc_Clock.exit97:                                 ; preds = %.critedge6, %103
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %4, align 4
   %109 = call i32 @Extra_TruthCanonNPN(i32 noundef %108, i32 noundef 5) #17
-  %110 = load ptr, ptr getelementptr inbounds ([16 x i8], ptr @s_pManRwrExp5.body, i64 0, i64 8), align 8
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
   %111 = zext i32 %109 to i64
   %112 = inttoptr i64 %111 to ptr
   %113 = call i32 @stmm_find_or_add(ptr noundef %110, ptr noundef %112, ptr noundef nonnull %5) #17
@@ -583,7 +583,7 @@ Abc_Clock.exit97:                                 ; preds = %.critedge6, %103
   br i1 %exitcond145.not, label %.critedge8, label %.lr.ph129, !llvm.loop !14
 
 .critedge8:                                       ; preds = %116, %Abc_Clock.exit97
-  %126 = load ptr, ptr getelementptr inbounds ([16 x i8], ptr @s_pManRwrExp5.body, i64 0, i64 8), align 8
+  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 20
   %128 = load i32, ptr %127, align 4
   %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %128)
@@ -609,7 +609,7 @@ Abc_Clock.exit99:                                 ; preds = %.critedge8, %132
   %140 = sitofp i64 %139 to double
   %141 = fdiv double %140, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef %141)
-  %142 = load ptr, ptr getelementptr inbounds ([16 x i8], ptr @s_pManRwrExp5.body, i64 0, i64 8), align 8
+  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 20
   %144 = load i32, ptr %143, align 4
   %145 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
@@ -723,7 +723,7 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
   %188 = getelementptr inbounds i32, ptr %.val89, i64 %indvars.iv146
   %189 = load i32, ptr %188, align 4
   store i32 %189, ptr %4, align 4
-  %190 = load ptr, ptr getelementptr inbounds ([16 x i8], ptr @s_pManRwrExp5.body, i64 0, i64 8), align 8
+  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
   %191 = zext i32 %189 to i64
   %192 = inttoptr i64 %191 to ptr
   %193 = call i32 @stmm_lookup(ptr noundef %190, ptr noundef %192, ptr noundef nonnull %3) #17

@@ -70,7 +70,7 @@ define internal i32 @sm_add_procs(ptr nocapture noundef %0, i64 noundef %1, ptr 
   br i1 %15, label %sm_btl_first_time_init.exit.thread, label %16
 
 16:                                               ; preds = %5
-  %17 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %sm_btl_first_time_init.exit.thread, label %19
 
@@ -84,7 +84,7 @@ define internal i32 @sm_add_procs(ptr nocapture noundef %0, i64 noundef %1, ptr 
   %24 = add i32 %17, 2
   %25 = sext i32 %24 to i64
   %26 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 360) #13
-  store ptr %26, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 19), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5960), align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %sm_btl_first_time_init.exit.thread, label %28
 
@@ -94,7 +94,7 @@ define internal i32 @sm_add_procs(ptr nocapture noundef %0, i64 noundef %1, ptr 
   %31 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %26, i64 %30, i32 3
   store i16 -1, ptr %31, align 8
   %32 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 8) #13
-  store ptr %32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 20), align 16
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5968), align 16
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
@@ -103,54 +103,54 @@ define internal i32 @sm_add_procs(ptr nocapture noundef %0, i64 noundef %1, ptr 
   br label %sm_btl_first_time_init.exit.thread
 
 35:                                               ; preds = %28
-  %36 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 6), align 16
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4496), align 16
   %37 = getelementptr inbounds i8, ptr %36, i64 128
-  %38 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 7), align 8
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4504), align 8
   %39 = add i64 %38, -128
   %40 = tail call ptr @mca_mpool_basic_create(ptr noundef nonnull %37, i64 noundef %39, i32 noundef 64) #12
-  store ptr %40, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 26), align 16
+  store ptr %40, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6128), align 16
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 19), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5960), align 8
   tail call void @free(ptr noundef %43) #12
   br label %sm_btl_first_time_init.exit.thread
 
 44:                                               ; preds = %35
-  %45 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 15), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5944), align 8
   %46 = zext i32 %45 to i64
   %47 = load i32, ptr @opal_cache_line_size, align 4
   %48 = sext i32 %47 to i64
-  %49 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 14), align 4
-  %50 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12), i64 noundef 56, i64 noundef 8, ptr noundef nonnull @opal_free_list_item_t_class, i64 noundef %46, i64 noundef %48, i32 noundef 0, i32 noundef %49, i32 noundef 4, ptr noundef nonnull %40, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #12
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5940), align 4
+  %50 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5584), i64 noundef 56, i64 noundef 8, ptr noundef nonnull @opal_free_list_item_t_class, i64 noundef %46, i64 noundef %48, i32 noundef 0, i32 noundef %49, i32 noundef 4, ptr noundef nonnull %40, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #12
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %51, label %sm_btl_first_time_init.exit.thread
 
 51:                                               ; preds = %44
   %52 = load i32, ptr @opal_cache_line_size, align 4
   %53 = sext i32 %52 to i64
-  %54 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 18), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5956), align 4
   %55 = zext i32 %54 to i64
   %56 = add nuw nsw i64 %55, 216
-  %57 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 1), align 8
-  %58 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 2), align 4
-  %59 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 3), align 16
-  %60 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 26), align 16
-  %61 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 11), i64 noundef 216, i64 noundef %53, ptr noundef nonnull @mca_btl_sm_frag_t_class, i64 noundef %56, i64 noundef %53, i32 noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef 0, ptr noundef null, ptr noundef nonnull @mca_btl_sm_frag_init, ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 11)) #12
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 280), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 284), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 288), align 16
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6128), align 16
+  %61 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5232), i64 noundef 216, i64 noundef %53, ptr noundef nonnull @mca_btl_sm_frag_t_class, i64 noundef %56, i64 noundef %53, i32 noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef 0, ptr noundef null, ptr noundef nonnull @mca_btl_sm_frag_init, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5232)) #12
   %.not48.i = icmp eq i32 %61, 0
   br i1 %.not48.i, label %62, label %sm_btl_first_time_init.exit.thread
 
 62:                                               ; preds = %51
   %63 = load i32, ptr @opal_cache_line_size, align 4
   %64 = sext i32 %63 to i64
-  %65 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 1), align 8
+  %65 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 8), align 8
   %66 = add i64 %65, 216
-  %67 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 1), align 8
-  %68 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 2), align 4
-  %69 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 3), align 16
-  %70 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 26), align 16
-  %71 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 9), i64 noundef 216, i64 noundef %64, ptr noundef nonnull @mca_btl_sm_frag_t_class, i64 noundef %66, i64 noundef %64, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef 0, ptr noundef null, ptr noundef nonnull @mca_btl_sm_frag_init, ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 9)) #12
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 280), align 8
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 284), align 4
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 288), align 16
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6128), align 16
+  %71 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4528), i64 noundef 216, i64 noundef %64, ptr noundef nonnull @mca_btl_sm_frag_t_class, i64 noundef %66, i64 noundef %64, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef 0, ptr noundef null, ptr noundef nonnull @mca_btl_sm_frag_init, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4528)) #12
   %.not49.i = icmp eq i32 %71, 0
   br i1 %.not49.i, label %72, label %sm_btl_first_time_init.exit.thread
 
@@ -168,13 +168,13 @@ mca_smsc_base_has_feature.exit.i:                 ; preds = %72
 mca_smsc_base_has_feature.exit.thread.i:          ; preds = %mca_smsc_base_has_feature.exit.i, %72
   %76 = load i32, ptr @opal_cache_line_size, align 4
   %77 = sext i32 %76 to i64
-  %78 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 3), align 8
+  %78 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 24), align 8
   %79 = add i64 %78, 216
-  %80 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 1), align 8
-  %81 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 2), align 4
-  %82 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 3), align 16
-  %83 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 26), align 16
-  %84 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 10), i64 noundef 216, i64 noundef %77, ptr noundef nonnull @mca_btl_sm_frag_t_class, i64 noundef %79, i64 noundef %77, i32 noundef %80, i32 noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef 0, ptr noundef null, ptr noundef nonnull @mca_btl_sm_frag_init, ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 10)) #12
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 280), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 284), align 4
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 288), align 16
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6128), align 16
+  %84 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4880), i64 noundef 216, i64 noundef %77, ptr noundef nonnull @mca_btl_sm_frag_t_class, i64 noundef %79, i64 noundef %77, i32 noundef %80, i32 noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef 0, ptr noundef null, ptr noundef nonnull @mca_btl_sm_frag_init, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4880)) #12
   %.not50.i = icmp eq i32 %84, 0
   br i1 %.not50.i, label %sm_btl_first_time_init.exit, label %sm_btl_first_time_init.exit.thread
 
@@ -288,13 +288,13 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
   br i1 %.not63.i, label %128, label %init_sm_endpoint.exit.thread
 
 128:                                              ; preds = %127
-  %129 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 19), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5960), align 8
   %130 = load i16, ptr %6, align 2
   %131 = zext i16 %130 to i64
   %132 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %129, i64 %131
   store ptr %132, ptr %112, align 8
   %133 = load i32, ptr @opal_class_init_epoch, align 4
-  %134 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_btl_sm_endpoint_t_class, i64 0, i32 4), align 8
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_endpoint_t_class, i64 32), align 8
   %.not64.i = icmp eq i32 %133, %134
   br i1 %.not64.i, label %136, label %135
 
@@ -306,7 +306,7 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
   store ptr @mca_btl_sm_endpoint_t_class, ptr %132, align 8
   %137 = getelementptr inbounds i8, ptr %132, i64 8
   store volatile i32 1, ptr %137, align 8
-  %138 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_btl_sm_endpoint_t_class, i64 0, i32 6), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_endpoint_t_class, i64 40), align 8
   %139 = load ptr, ptr %138, align 8
   %.not6.i.i = icmp eq ptr %139, null
   br i1 %.not6.i.i, label %opal_obj_run_constructors.exit.i, label %.lr.ph.i.i
@@ -324,7 +324,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
   %143 = load i16, ptr %6, align 2
   %144 = getelementptr inbounds i8, ptr %132, i64 104
   store i16 %143, ptr %144, align 8
-  %145 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
+  %145 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
   %146 = icmp eq i16 %145, %143
   br i1 %146, label %201, label %147
 
@@ -390,10 +390,10 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
   br i1 %172, label %.thread99.i, label %175
 
 .thread99.i:                                      ; preds = %168, %165
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 28), i8 0, i64 16, i1 false)
-  %173 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 10), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @mca_btl_sm, i64 208), i8 0, i64 16, i1 false)
+  %173 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 68), align 4
   %174 = and i32 %173, -7
-  store i32 %174, ptr getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 10), align 4
+  store i32 %174, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 68), align 4
   br label %175
 
 175:                                              ; preds = %.thread99.i, %168
@@ -419,7 +419,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
 
 189:                                              ; preds = %182
   %190 = load i32, ptr @opal_class_init_epoch, align 4
-  %191 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %191 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not68.i = icmp eq i32 %190, %191
   br i1 %.not68.i, label %193, label %192
 
@@ -432,7 +432,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
   store ptr @opal_mutex_t_class, ptr %194, align 8
   %195 = getelementptr inbounds i8, ptr %132, i64 144
   store volatile i32 1, ptr %195, align 8
-  %196 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %197 = load ptr, ptr %196, align 8
   %.not6.i69.i = icmp eq ptr %197, null
   br i1 %.not6.i69.i, label %opal_obj_run_constructors.exit73.i, label %.lr.ph.i70.i
@@ -452,7 +452,7 @@ opal_obj_run_constructors.exit73.i:               ; preds = %.lr.ph.i70.i, %193
   br label %init_sm_endpoint.exit
 
 201:                                              ; preds = %opal_obj_run_constructors.exit.i
-  %202 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 6), align 16
+  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4496), align 16
   %203 = getelementptr inbounds i8, ptr %132, i64 120
   store ptr %202, ptr %203, align 8
   br label %init_sm_endpoint.exit
@@ -549,14 +549,14 @@ define internal noundef i32 @sm_finalize(ptr nocapture noundef %0) #0 {
   br i1 %4, label %.preheader, label %28
 
 .preheader:                                       ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
   %6 = icmp ult i32 %5, 2147483647
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %fini_sm_endpoint.exit
   %7 = phi i32 [ %20, %fini_sm_endpoint.exit ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %fini_sm_endpoint.exit ], [ 0, %.preheader ]
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 19), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5960), align 8
   %9 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
@@ -581,7 +581,7 @@ define internal noundef i32 @sm_finalize(ptr nocapture noundef %0) #0 {
   br i1 %.not.i.i, label %fini_sm_endpoint.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !7
 
 fini_sm_endpoint.exit.loopexit:                   ; preds = %.lr.ph.i.i
-  %.pre = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
   br label %fini_sm_endpoint.exit
 
 fini_sm_endpoint.exit:                            ; preds = %fini_sm_endpoint.exit.loopexit, %.lr.ph, %12
@@ -593,15 +593,15 @@ fini_sm_endpoint.exit:                            ; preds = %fini_sm_endpoint.ex
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %fini_sm_endpoint.exit, %.preheader
-  %24 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 19), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5960), align 8
   tail call void @free(ptr noundef %24) #12
-  store ptr null, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5960), align 8
   store i8 0, ptr %2, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 20), align 16
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5968), align 16
   tail call void @free(ptr noundef %25) #12
-  store ptr null, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 20), align 16
-  %26 = tail call i32 @opal_shmem_unlink(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 4)) #12
-  %27 = tail call i32 @opal_shmem_segment_detach(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 4)) #12
+  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5968), align 16
+  %26 = tail call i32 @opal_shmem_unlink(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 296)) #12
+  %27 = tail call i32 @opal_shmem_segment_detach(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 296)) #12
   br label %28
 
 28:                                               ; preds = %1, %._crit_edge
@@ -610,13 +610,13 @@ fini_sm_endpoint.exit:                            ; preds = %fini_sm_endpoint.ex
 
 ; Function Attrs: nounwind uwtable
 define ptr @mca_btl_sm_alloc(ptr nocapture readnone %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i32 noundef %4) #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 18), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5956), align 4
   %7 = zext i32 %6 to i64
   %.not = icmp ult i64 %7, %3
   br i1 %.not, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 1), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 8), align 8
   %.not14 = icmp ult i64 %9, %3
   br i1 %.not14, label %10, label %18
 
@@ -633,13 +633,13 @@ define ptr @mca_btl_sm_alloc(ptr nocapture readnone %0, ptr noundef %1, i8 nound
 
 mca_smsc_base_has_feature.exit:                   ; preds = %10, %12
   %16 = phi i1 [ false, %10 ], [ %15, %12 ]
-  %17 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 3), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 24), align 8
   %.not15 = icmp ult i64 %17, %3
   %or.cond = select i1 %16, i1 true, i1 %.not15
   br i1 %or.cond, label %.thread, label %18
 
 18:                                               ; preds = %mca_smsc_base_has_feature.exit, %8, %5
-  %.sink = phi ptr [ getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 11), %5 ], [ getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 9), %8 ], [ getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 10), %mca_smsc_base_has_feature.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5232), %5 ], [ getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4528), %8 ], [ getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4880), %mca_smsc_base_has_feature.exit ]
   %19 = tail call fastcc ptr @mca_btl_sm_frag_alloc(ptr noundef nonnull %.sink, ptr noundef %1)
   %.not16 = icmp eq ptr %19, null
   br i1 %.not16, label %.thread, label %20
@@ -807,7 +807,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %26
 33:                                               ; preds = %opal_convertor_need_buffers.exit, %opal_convertor_need_buffers.exit.thread
   %.pre-phi = phi i32 [ %32, %opal_convertor_need_buffers.exit ], [ %.old, %opal_convertor_need_buffers.exit.thread ]
   %34 = icmp eq i32 %.pre-phi, 272629760
-  %35 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 18), align 4
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5956), align 4
   %36 = zext i32 %35 to i64
   %37 = icmp ugt i64 %11, %36
   %38 = select i1 %34, i1 %37, i1 false
@@ -827,10 +827,10 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %26
 
 mca_smsc_base_has_feature.exit:                   ; preds = %.critedge, %40
   %.not50 = phi i1 [ true, %.critedge ], [ %43, %40 ]
-  %44 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 1), align 8
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 8), align 8
   %45 = icmp ugt i64 %11, %44
   %or.cond = select i1 %.not50, i1 %45, i1 false
-  %. = select i1 %or.cond, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 10), ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 9)
+  %. = select i1 %or.cond, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4880), ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4528)
   %46 = tail call fastcc ptr @mca_btl_sm_frag_alloc(ptr noundef nonnull %., ptr noundef %1)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %mca_btl_sm_frag_return.exit, label %48
@@ -964,13 +964,13 @@ mca_smsc_base_has_feature.exit60:                 ; preds = %111
   br i1 %.not72, label %mca_smsc_base_has_feature.exit60.thread, label %116
 
 mca_smsc_base_has_feature.exit60.thread:          ; preds = %111, %mca_smsc_base_has_feature.exit60
-  %115 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_t, ptr @mca_btl_sm, i64 0, i32 0, i32 1), align 8
+  %115 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 8), align 8
   %.not49 = icmp ugt i64 %11, %115
-  %.77 = select i1 %.not49, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 10), ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 9)
+  %.77 = select i1 %.not49, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4880), ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4528)
   br label %116
 
 116:                                              ; preds = %mca_smsc_base_has_feature.exit60, %mca_smsc_base_has_feature.exit60.thread
-  %.sink76 = phi ptr [ %.77, %mca_smsc_base_has_feature.exit60.thread ], [ getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 11), %mca_smsc_base_has_feature.exit60 ]
+  %.sink76 = phi ptr [ %.77, %mca_smsc_base_has_feature.exit60.thread ], [ getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5232), %mca_smsc_base_has_feature.exit60 ]
   %117 = tail call fastcc ptr @mca_btl_sm_frag_alloc(ptr noundef nonnull %.sink76, ptr noundef %1)
   %118 = icmp eq ptr %117, null
   br i1 %118, label %mca_btl_sm_frag_return.exit, label %119
@@ -984,7 +984,7 @@ mca_smsc_base_has_feature.exit62:                 ; preds = %119
   %121 = load i64, ptr %120, align 8
   %122 = and i64 %121, 2
   %123 = icmp ne i64 %122, 0
-  %124 = load i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 18), align 4
+  %124 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5956), align 4
   %125 = zext i32 %124 to i64
   %126 = icmp ugt i64 %11, %125
   %or.cond54 = select i1 %123, i1 %126, i1 false
@@ -1197,7 +1197,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
 ; Function Attrs: nounwind uwtable
 define internal void @mca_btl_sm_endpoint_constructor(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -1210,7 +1210,7 @@ define internal void @mca_btl_sm_endpoint_constructor(ptr noundef %0) #0 {
   store ptr @opal_list_t_class, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 296
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -1226,7 +1226,7 @@ define internal void @mca_btl_sm_endpoint_constructor(ptr noundef %0) #0 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not8 = icmp eq i32 %13, %14
   br i1 %.not8, label %16, label %15
 
@@ -1239,7 +1239,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   store ptr @opal_mutex_t_class, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 232
   store volatile i32 1, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %20 = load ptr, ptr %19, align 8
   %.not6.i9 = icmp eq ptr %20, null
   br i1 %.not6.i9, label %opal_obj_run_constructors.exit13, label %.lr.ph.i10
@@ -1324,7 +1324,7 @@ opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i22, %opal_o
 29:                                               ; preds = %26
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
-  %32 = load volatile i64, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12), i64 24), align 8
+  %32 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5608), align 8
   br i1 %31, label %33, label %46
 
 33:                                               ; preds = %29
@@ -1333,7 +1333,7 @@ opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i22, %opal_o
   store volatile ptr %.08.i.i.i, ptr %34, align 8
   fence release
   %35 = ptrtoint ptr %28 to i64
-  %36 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12), i64 24), i64 %32, i64 %35 acquire monotonic, align 8
+  %36 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5608), i64 %32, i64 %35 acquire monotonic, align 8
   %37 = extractvalue { i64, i1 } %36, 1
   br i1 %37, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
@@ -1343,20 +1343,20 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %33, %opal_atomic_
   %.0.i.i.i = inttoptr i64 %39 to ptr
   store volatile ptr %.0.i.i.i, ptr %34, align 8
   fence release
-  %40 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12), i64 24), i64 %39, i64 %35 acquire monotonic, align 8
+  %40 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5608), i64 %39, i64 %35 acquire monotonic, align 8
   %41 = extractvalue { i64, i1 } %40, 1
   br i1 %41, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
 opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %33
   %.0.lcssa.i.i.i = phi ptr [ %.08.i.i.i, %33 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %42 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 0, i32 2, i32 0, i32 0)
-  %43 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 4), align 8
+  %42 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5616)
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5688), align 8
   %.not.i.i = icmp eq i64 %43, 0
   %or.cond = select i1 %42, i1 true, i1 %.not.i.i
   br i1 %or.cond, label %opal_free_list_return.exit, label %44
 
 44:                                               ; preds = %opal_lifo_push_atomic.exit.i.i
-  %45 = load volatile i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 13, i32 1), align 8
+  %45 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5832), align 8
   %.not.i.i.i = icmp eq i32 %45, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
@@ -1367,23 +1367,23 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %49 = getelementptr inbounds i8, ptr %28, i64 32
   store i32 0, ptr %49, align 8
   %50 = ptrtoint ptr %28 to i64
-  store volatile i64 %50, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12), i64 24), align 8
+  store volatile i64 %50, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5608), align 8
   %51 = load volatile ptr, ptr %48, align 8
-  %52 = icmp ne ptr %51, getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 0, i32 2, i32 0, i32 0)
-  %53 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 4), align 8
+  %52 = icmp ne ptr %51, getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5616)
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5688), align 8
   %.not.i4.i = icmp eq i64 %53, 0
   %or.cond26 = select i1 %52, i1 true, i1 %.not.i4.i
   br i1 %or.cond26, label %opal_free_list_return.exit, label %54
 
 54:                                               ; preds = %46
-  %55 = load volatile i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 13, i32 1), align 8
+  %55 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5832), align 8
   %.not.i.i5.i = icmp eq i32 %55, 0
   br i1 %.not.i.i5.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 opal_free_list_return_mt.exit.sink.split.i:       ; preds = %54, %44
-  %56 = load volatile i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 13, i32 2), align 4
+  %56 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5836), align 4
   %57 = add nsw i32 %56, 1
-  store volatile i32 %57, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 13, i32 2), align 4
+  store volatile i32 %57, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5836), align 4
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %opal_free_list_return_mt.exit.sink.split.i, %54, %46, %44, %opal_lifo_push_atomic.exit.i.i, %26

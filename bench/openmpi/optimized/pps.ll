@@ -128,7 +128,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 34:                                               ; preds = %29
   %35 = load i32, ptr @pmix_class_init_epoch, align 4
-  %36 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_result_t_class, i64 0, i32 4), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not41 = icmp eq i32 %35, %36
   br i1 %.not41, label %38, label %37
 
@@ -143,7 +143,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   store i32 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %5, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %41, i8 0, i64 64, i1 false)
-  %42 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_result_t_class, i64 0, i32 6), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 40), align 8
   %43 = load ptr, ptr %42, align 8
   %.not6.i = icmp eq ptr %43, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -194,7 +194,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
 62:                                               ; preds = %55
   call void @PMIx_Info_free(ptr noundef %56, i64 noundef 1) #6
   %63 = load i32, ptr @pmix_class_init_epoch, align 4
-  %64 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 4), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not44 = icmp eq i32 %63, %64
   br i1 %.not44, label %66, label %65
 
@@ -210,7 +210,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   store i32 1, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %4, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %70, i8 0, i64 64, i1 false)
-  %71 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %72 = load ptr, ptr %71, align 8
   %.not6.i48 = icmp eq ptr %72, null
   br i1 %.not6.i48, label %pmix_obj_run_constructors.exit52, label %.lr.ph.i49
@@ -266,7 +266,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i54, %._crit
   %96 = call ptr @PMIx_Query_create(i64 noundef 1) #6
   %97 = call i32 @PMIx_Argv_append_nosize(ptr noundef %96, ptr noundef nonnull @.str.11) #6
   %98 = load i32, ptr @pmix_class_init_epoch, align 4
-  %99 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 4), align 8
+  %99 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not45 = icmp eq i32 %98, %99
   br i1 %.not45, label %101, label %100
 
@@ -282,7 +282,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i54, %._crit
   store i32 1, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %3, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %105, i8 0, i64 64, i1 false)
-  %106 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %107 = load ptr, ptr %106, align 8
   %.not6.i57 = icmp eq ptr %107, null
   br i1 %.not6.i57, label %pmix_obj_run_constructors.exit61, label %.lr.ph.i58
@@ -438,7 +438,7 @@ define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr n
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_proc, ptr @myproc, i64 0, i32 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @myproc, i64 256), align 4
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.28, ptr noundef nonnull @myproc, i32 noundef %6, i32 noundef %0, i64 noundef %1) #7
   br label %8
 

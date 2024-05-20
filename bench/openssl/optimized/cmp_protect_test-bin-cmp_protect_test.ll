@@ -758,7 +758,7 @@ lor.lhs.false7:                                   ; preds = %lor.lhs.false
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false7
   %3 = load ptr, ptr %cmp_ctx, align 8
-  %call16 = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef %3, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @rand_data, i64 0, i64 8), i32 noundef 8) #5
+  %call16 = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @rand_data, i64 8), i32 noundef 8) #5
   %cmp17 = icmp ne i32 %call16, 0
   %conv18 = zext i1 %cmp17 to i32
   %call19 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 229, ptr noundef nonnull @.str.78, i32 noundef %conv18) #5

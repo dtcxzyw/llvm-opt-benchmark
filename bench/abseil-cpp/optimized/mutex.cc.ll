@@ -143,7 +143,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl21RegisterMutexProfilerEPFvlE(ptr noundef %fn) local_unnamed_addr #1 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook", ptr @_ZN4absl12_GLOBAL__N_119submit_profile_dataE, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_119submit_profile_dataE, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %fn to i64
   %3 = cmpxchg ptr @_ZN4absl12_GLOBAL__N_119submit_profile_dataE, i64 %1, i64 %2 acq_rel acquire, align 8
@@ -153,7 +153,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl19RegisterMutexTracerEPFvPKcPKvlE(ptr noundef %fn) local_unnamed_addr #1 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook.0", ptr @_ZN4absl12_GLOBAL__N_112mutex_tracerE, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_112mutex_tracerE, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %fn to i64
   %3 = cmpxchg ptr @_ZN4absl12_GLOBAL__N_112mutex_tracerE, i64 %1, i64 %2 acq_rel acquire, align 8
@@ -163,7 +163,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl21RegisterCondVarTracerEPFvPKcPKvE(ptr noundef %fn) local_unnamed_addr #1 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook.3", ptr @_ZN4absl12_GLOBAL__N_115cond_var_tracerE, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_115cond_var_tracerE, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %fn to i64
   %3 = cmpxchg ptr @_ZN4absl12_GLOBAL__N_115cond_var_tracerE, i64 %1, i64 %2 acq_rel acquire, align 8
@@ -176,11 +176,11 @@ entry:
   %enable_rescheduling = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %idxprom = sext i32 %mode to i64
-  %arrayidx = getelementptr inbounds { { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i32], ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %sleep_time.sroa.0.0.copyload = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp = icmp sgt i32 %0, %c
   br i1 %cmp, label %if.then, label %if.else
 
@@ -245,15 +245,15 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  store i32 5000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 250, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
-  store i64 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 40000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 250, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 40000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   br label %release.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %call.i.i.i.i.i40.i.i = tail call { i64, i32 } @_ZN4absl3NowEv()
   %call.fca.0.extract.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i, 0
   %call.fca.1.extract.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i, 1
@@ -279,8 +279,8 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i)
-  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   store i64 0, ptr %ref.tmp8.i.i.i.i.i.i, align 8
   %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp8.i.i.i.i.i.i, i64 8
   store i32 4000000, ptr %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i, align 8
@@ -288,19 +288,19 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   %cmp8.i.i.i.i.i.i.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
   %cmp25.i.i.i.i.i.i.i.i = icmp ugt i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i, 4000000
   %cond27.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i.i, i1 %cmp25.i.i.i.i.i.i.i.i, i1 %cmp8.i.i.i.i.i.i.i.i
-  %__b.__a.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i, i64 12, i1 false)
   store i64 0, ptr %ref.tmp12.i.i.i.i.i.i, align 8
   %tmp.coerce14.sroa.2.0.ref.tmp12.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp12.i.i.i.i.i.i, i64 8
   store i32 40000, ptr %tmp.coerce14.sroa.2.0.ref.tmp12.sroa_idx.i.i.i.i.i.i, align 8
-  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.not.i.i5.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i, 0
   %cmp8.i.i7.i.i.i.i.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i, 0
   %cmp25.i.i13.i.i.i.i.i.i = icmp ult i32 %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i, 40000
   %cond27.i.i8.i.i.i.i.i.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i, i1 %cmp25.i.i13.i.i.i.i.i.i, i1 %cmp8.i.i7.i.i.i.i.i.i
-  %__b.__a.i9.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i9.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i, i64 12, i1 false)
   br label %release.i.i.i
 
 release.i.i.i:                                    ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -331,7 +331,7 @@ entry:
   br i1 %cmp.not, label %do.end7, label %do.body2
 
 do.body2:                                         ; preds = %entry
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.45, i64 0, i64 118), i32 noundef 127, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 118), i32 noundef 127, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47)
           to label %do.body3 unwind label %terminate.lpad
 
 do.body3:                                         ; preds = %do.body2
@@ -462,7 +462,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_inte
 
 if.then:                                          ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit
   store i64 0, ptr @_ZZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcllE17synch_event_count, align 8
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 358, ptr noundef nonnull @.str.48, i64 noundef 102400)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 358, ptr noundef nonnull @.str.48, i64 noundef 102400)
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.end
@@ -1057,15 +1057,15 @@ if.then.i.i.i20:                                  ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i22, label %if.then.i.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i57:                          ; preds = %if.then.i.i.i20
-  store i32 5000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 250, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
-  store i64 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 40000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 250, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 40000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   br label %release.i.i.i.i54
 
 if.else.i.i.i.i.i.i.i23:                          ; preds = %if.then.i.i.i20
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %call.i.i.i.i.i40.i.i.i24 = call { i64, i32 } @_ZN4absl3NowEv()
   %call.fca.0.extract.i.i.i.i.i.i.i.i25 = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i24, 0
   %call.fca.1.extract.i.i.i.i.i.i.i.i26 = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i24, 1
@@ -1089,26 +1089,26 @@ if.else.i.i.i.i.i.i.i23:                          ; preds = %if.then.i.i.i20
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i36, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i39 = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i38, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i11)
-  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i37, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i39, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i37, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i39, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   store i64 0, ptr %ref.tmp8.i.i.i.i.i.i.i13, align 8
   store i32 4000000, ptr %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i.i40, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i41 = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i37, 0
   %cmp8.i.i.i.i.i.i.i.i.i42 = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i37, 0
   %cmp25.i.i.i.i.i.i.i.i.i43 = icmp ugt i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i39, 4000000
   %cond27.i.i.i.i.i.i.i.i.i44 = select i1 %cmp.not.i.i.i.i.i.i.i.i.i41, i1 %cmp25.i.i.i.i.i.i.i.i.i43, i1 %cmp8.i.i.i.i.i.i.i.i.i42
-  %__b.__a.i.i.i.i.i.i.i.i45 = select i1 %cond27.i.i.i.i.i.i.i.i.i44, ptr %ref.tmp8.i.i.i.i.i.i.i13, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i45, i64 12, i1 false)
+  %__b.__a.i.i.i.i.i.i.i.i45 = select i1 %cond27.i.i.i.i.i.i.i.i.i44, ptr %ref.tmp8.i.i.i.i.i.i.i13, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i45, i64 12, i1 false)
   store i64 0, ptr %ref.tmp12.i.i.i.i.i.i.i14, align 8
   store i32 40000, ptr %tmp.coerce14.sroa.2.0.ref.tmp12.sroa_idx.i.i.i.i.i.i.i46, align 8
-  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i47 = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i48 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i47 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.not.i.i5.i.i.i.i.i.i.i49 = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i47, 0
   %cmp8.i.i7.i.i.i.i.i.i.i50 = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i47, 0
   %cmp25.i.i13.i.i.i.i.i.i.i51 = icmp ult i32 %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i48, 40000
   %cond27.i.i8.i.i.i.i.i.i.i52 = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i49, i1 %cmp25.i.i13.i.i.i.i.i.i.i51, i1 %cmp8.i.i7.i.i.i.i.i.i.i50
-  %__b.__a.i9.i.i.i.i.i.i.i53 = select i1 %cond27.i.i8.i.i.i.i.i.i.i52, ptr %ref.tmp12.i.i.i.i.i.i.i14, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i53, i64 12, i1 false)
+  %__b.__a.i9.i.i.i.i.i.i.i53 = select i1 %cond27.i.i8.i.i.i.i.i.i.i52, ptr %ref.tmp12.i.i.i.i.i.i.i14, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i53, i64 12, i1 false)
   br label %release.i.i.i.i54
 
 release.i.i.i.i54:                                ; preds = %if.else.i.i.i.i.i.i.i23, %if.then.i.i.i.i.i.i.i57
@@ -1123,7 +1123,7 @@ if.then5.i.i.i56:                                 ; preds = %release.i.i.i.i54
   br label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit58
 
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit58: ; preds = %while.body5, %lor.lhs.false.i.i.i17, %release.i.i.i.i54, %if.then5.i.i.i56
-  %7 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %8 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
   %cmp.not.i.i = icmp eq i32 %8, 221
   br i1 %cmp.not.i.i, label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit, label %if.then.i.i
@@ -1146,15 +1146,15 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
-  store i32 5000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 250, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
-  store i64 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 40000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 250, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 40000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   br label %release.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %call.i.i.i.i.i40.i.i.i = call { i64, i32 } @_ZN4absl3NowEv()
   %call.fca.0.extract.i.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i, 0
   %call.fca.1.extract.i.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i, 1
@@ -1178,26 +1178,26 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i)
-  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   store i64 0, ptr %ref.tmp8.i.i.i.i.i.i.i, align 8
   store i32 4000000, ptr %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i.i.i.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 0
   %cmp25.i.i.i.i.i.i.i.i.i = icmp ugt i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, 4000000
   %cond27.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i.i.i, i1 %cmp25.i.i.i.i.i.i.i.i.i, i1 %cmp8.i.i.i.i.i.i.i.i.i
-  %__b.__a.i.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i, i64 12, i1 false)
   store i64 0, ptr %ref.tmp12.i.i.i.i.i.i.i, align 8
   store i32 40000, ptr %tmp.coerce14.sroa.2.0.ref.tmp12.sroa_idx.i.i.i.i.i.i.i, align 8
-  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.not.i.i5.i.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i, 0
   %cmp8.i.i7.i.i.i.i.i.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i, 0
   %cmp25.i.i13.i.i.i.i.i.i.i = icmp ult i32 %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i, 40000
   %cond27.i.i8.i.i.i.i.i.i.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i, i1 %cmp25.i.i13.i.i.i.i.i.i.i, i1 %cmp8.i.i7.i.i.i.i.i.i.i
-  %__b.__a.i9.i.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i9.i.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i, i64 12, i1 false)
   br label %release.i.i.i.i
 
 release.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -1212,8 +1212,8 @@ if.then5.i.i.i:                                   ; preds = %release.i.i.i.i
   br label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit
 
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit:   ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit58, %lor.lhs.false.i.i.i, %release.i.i.i.i, %if.then5.i.i.i
-  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp sgt i32 %7, %c.060
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -1279,7 +1279,7 @@ lor.rhs:                                          ; preds = %do.body
   br i1 %tobool, label %do.end20, label %do.body16
 
 do.body16:                                        ; preds = %lor.rhs
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1184, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1184, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
 do.end20:                                         ; preds = %do.body, %lor.rhs
@@ -1327,7 +1327,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %2, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %3 = load atomic i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 1, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 4) monotonic, align 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %if.then
@@ -1364,7 +1364,7 @@ if.end9:                                          ; preds = %land.lhs.true.i, %i
 ; Function Attrs: cold mustprogress uwtable
 define dso_local void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %how, ptr noundef %cond, i32 noundef %flags) local_unnamed_addr #9 align 2 {
 entry:
-  %0 = load atomic i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 1, i32 0) monotonic, align 4
+  %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 4) monotonic, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %do.body
 
@@ -1372,7 +1372,7 @@ if.then:                                          ; preds = %entry
   %call2 = tail call noundef i32 @_ZN4absl13base_internal7NumCPUsEv()
   %cmp3 = icmp sgt i32 %call2, 1
   %. = select i1 %cmp3, i32 1500, i32 -1
-  store atomic i32 %., ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 1, i32 0) monotonic, align 4
+  store atomic i32 %., ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 4) monotonic, align 4
   br label %do.body
 
 do.body:                                          ; preds = %if.then, %entry
@@ -1380,7 +1380,7 @@ do.body:                                          ; preds = %if.then, %entry
   br i1 %call8, label %do.end14, label %do.body10
 
 do.body10:                                        ; preds = %do.body
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1814, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1814, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   unreachable
 
 do.end14:                                         ; preds = %do.body
@@ -1613,7 +1613,7 @@ lor.rhs10:                                        ; preds = %lor.end
   br i1 %cmp.i.not, label %do.body14, label %return
 
 do.body14:                                        ; preds = %lor.rhs10
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1588, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1588, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   unreachable
 
 return:                                           ; preds = %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit, %lor.rhs10, %lor.end, %entry
@@ -1646,7 +1646,7 @@ if.then.i:                                        ; preds = %entry
   %cmp3.i = icmp eq ptr %call2.i248, null
   %name.i = getelementptr inbounds i8, ptr %call2.i248, i64 41
   %cond-lvalue.i = select i1 %cmp3.i, ptr @.str.35, ptr %name.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2473, ptr noundef nonnull @.str.36, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2473, ptr noundef nonnull @.str.36, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue.i)
   unreachable
 
 invoke.cont:                                      ; preds = %entry
@@ -1664,7 +1664,7 @@ do.body.i:                                        ; preds = %invoke.cont
 
 do.body5.i:                                       ; preds = %do.body.i
   %2 = inttoptr i64 %0 to ptr
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1953, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.14, ptr noundef %2)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1953, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.14, ptr noundef %2)
   unreachable
 
 do.body10.i:                                      ; preds = %do.body.i
@@ -1674,7 +1674,7 @@ do.body10.i:                                      ; preds = %do.body.i
 
 do.body15.i:                                      ; preds = %do.body10.i
   %3 = inttoptr i64 %0 to ptr
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1956, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.14, ptr noundef %3)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1956, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.14, ptr noundef %3)
   unreachable
 
 invoke.cont2:                                     ; preds = %do.body10.i, %invoke.cont
@@ -1712,7 +1712,7 @@ for.cond.outer.preheader:                         ; preds = %lor.lhs.false, %if.
   br label %for.cond.outer
 
 do.body11:                                        ; preds = %lor.rhs
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2109, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2109, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9)
   unreachable
 
 for.cond.outer.loopexit:                          ; preds = %if.end294, %if.then271
@@ -1786,7 +1786,7 @@ do.body70.preheader:                              ; preds = %if.then54
   br label %do.body70
 
 do.body59:                                        ; preds = %if.then54
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2138, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2138, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
   unreachable
 
 do.body70:                                        ; preds = %do.body70.preheader, %if.end81
@@ -1847,7 +1847,7 @@ if.then119:                                       ; preds = %if.then114
   br i1 %cmp124.not, label %do.body127, label %do.end137
 
 do.body127:                                       ; preds = %if.then119
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2182, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.18)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2182, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.18)
   unreachable
 
 do.end137:                                        ; preds = %if.then119
@@ -1867,7 +1867,7 @@ lor.rhs146:                                       ; preds = %do.body144
   br i1 %tobool147, label %land.lhs.true163, label %do.body151
 
 do.body151:                                       ; preds = %lor.rhs146
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2194, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2194, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
   unreachable
 
 land.lhs.true163:                                 ; preds = %lor.rhs146
@@ -1884,7 +1884,7 @@ if.then165:                                       ; preds = %land.lhs.true163
   br i1 %cmp168.not, label %do.end181, label %do.body171
 
 do.body171:                                       ; preds = %if.then165
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2200, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2200, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
   unreachable
 
 do.end181:                                        ; preds = %if.then165
@@ -2020,7 +2020,7 @@ if.end233:                                        ; preds = %if.else213
   br i1 %cmp243.not, label %while.body.preheader, label %do.body246
 
 do.body246:                                       ; preds = %if.end233
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2264, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.22)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2264, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.22)
   unreachable
 
 while.body.preheader:                             ; preds = %if.end233
@@ -2126,7 +2126,7 @@ do.body301:                                       ; preds = %if.then209, %if.the
   br i1 %cmp303.not, label %do.body.i259, label %do.body306
 
 do.body306:                                       ; preds = %do.body301
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2321, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2321, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
   unreachable
 
 do.body.i259:                                     ; preds = %do.body301, %land.rhs.i260
@@ -2147,7 +2147,7 @@ do.body1.i:                                       ; preds = %do.body.i259
   br i1 %cmp.not.i262, label %do.end6.i, label %do.body3.i
 
 do.body3.i:                                       ; preds = %do.body1.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1074, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1074, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77)
   unreachable
 
 do.end6.i:                                        ; preds = %do.body1.i
@@ -2299,7 +2299,7 @@ do.body327:                                       ; preds = %if.then323, %invoke
   br i1 %cmp328.not, label %do.body331, label %do.end341
 
 do.body331:                                       ; preds = %do.body327
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2344, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2344, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27)
   unreachable
 
 do.end341:                                        ; preds = %do.body327
@@ -2320,10 +2320,10 @@ if.then343:                                       ; preds = %do.end341
 if.end353:                                        ; preds = %if.then37, %land.lhs.true48, %if.else45, %if.then27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %87 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 0), align 8
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i268 = icmp sgt i32 %87, %c.0
   br i1 %cmp.i268, label %if.then.i270, label %if.else.i269
 
@@ -2485,7 +2485,7 @@ lor.rhs:                                          ; preds = %do.body
   br i1 %tobool, label %for.cond.preheader, label %do.body7
 
 do.body7:                                         ; preds = %lor.rhs
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1970, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1970, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   unreachable
 
 for.cond:                                         ; preds = %for.cond.preheader, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
@@ -2506,7 +2506,7 @@ do.body.i:                                        ; preds = %for.cond
 
 do.body5.i:                                       ; preds = %do.body.i
   %6 = inttoptr i64 %5 to ptr
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1953, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.10, ptr noundef %6)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1953, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.10, ptr noundef %6)
   unreachable
 
 do.body10.i:                                      ; preds = %do.body.i
@@ -2516,7 +2516,7 @@ do.body10.i:                                      ; preds = %do.body.i
 
 do.body15.i:                                      ; preds = %do.body10.i
   %7 = inttoptr i64 %5 to ptr
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1956, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.10, ptr noundef %7)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1956, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.10, ptr noundef %7)
   unreachable
 
 invoke.cont17:                                    ; preds = %do.body10.i, %for.cond
@@ -2571,7 +2571,7 @@ if.then47:                                        ; preds = %if.else
   br i1 %cmp57.not, label %do.body60, label %do.end70
 
 do.body60:                                        ; preds = %if.then47
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 1999, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 1999, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   unreachable
 
 do.end70:                                         ; preds = %if.then47
@@ -2673,7 +2673,7 @@ if.then144:                                       ; preds = %land.lhs.true135
   br i1 %cmp152.not, label %do.body155, label %do.end165
 
 do.body155:                                       ; preds = %if.then144
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2046, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2046, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13)
   unreachable
 
 do.end165:                                        ; preds = %if.then144
@@ -2718,7 +2718,7 @@ lor.rhs199:                                       ; preds = %do.body195
   br i1 %tobool202, label %do.end216, label %do.body206
 
 do.body206:                                       ; preds = %lor.rhs199
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2067, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2067, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   unreachable
 
 do.end216:                                        ; preds = %do.body195, %lor.rhs199
@@ -2745,15 +2745,15 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
-  store i32 5000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 250, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
-  store i64 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 40000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 250, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 40000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   br label %release.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %call.i.i.i.i.i40.i.i.i258 = call { i64, i32 } @_ZN4absl3NowEv()
   %call.fca.0.extract.i.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i258, 0
   %call.fca.1.extract.i.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i258, 1
@@ -2777,26 +2777,26 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i)
-  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   store i64 0, ptr %ref.tmp8.i.i.i.i.i.i.i, align 8
   store i32 4000000, ptr %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i.i.i.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 0
   %cmp25.i.i.i.i.i.i.i.i.i = icmp ugt i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, 4000000
   %cond27.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i.i.i, i1 %cmp25.i.i.i.i.i.i.i.i.i, i1 %cmp8.i.i.i.i.i.i.i.i.i
-  %__b.__a.i.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i, i64 12, i1 false)
   store i64 0, ptr %ref.tmp12.i.i.i.i.i.i.i, align 8
   store i32 40000, ptr %tmp.coerce14.sroa.2.0.ref.tmp12.sroa_idx.i.i.i.i.i.i.i, align 8
-  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.not.i.i5.i.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i, 0
   %cmp8.i.i7.i.i.i.i.i.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i, 0
   %cmp25.i.i13.i.i.i.i.i.i.i = icmp ult i32 %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i, 40000
   %cond27.i.i8.i.i.i.i.i.i.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i, i1 %cmp25.i.i13.i.i.i.i.i.i.i, i1 %cmp8.i.i7.i.i.i.i.i.i.i
-  %__b.__a.i9.i.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i9.i.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i, i64 12, i1 false)
   br label %release.i.i.i.i
 
 release.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -2811,10 +2811,10 @@ if.then5.i.i.i:                                   ; preds = %release.i.i.i.i
   br label %call.i.noexc
 
 call.i.noexc:                                     ; preds = %if.then5.i.i.i, %release.i.i.i.i, %lor.lhs.false.i.i.i, %do.end216
-  %50 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i253 = icmp sgt i32 %50, %c.2
   br i1 %cmp.i253, label %if.then.i, label %if.else.i
 
@@ -2865,7 +2865,7 @@ lor.rhs223:                                       ; preds = %do.body219
   br i1 %tobool226, label %do.end240, label %do.body230
 
 do.body230:                                       ; preds = %lor.rhs223
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2073, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2073, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   unreachable
 
 do.end240:                                        ; preds = %do.body219, %lor.rhs223
@@ -3062,7 +3062,7 @@ if.end20:                                         ; preds = %if.end, %for.body, 
   %13 = load ptr, ptr %msg, align 8
   %name = getelementptr inbounds i8, ptr %e.08.i, i64 41
   %cond-lvalue = select i1 %cmp, ptr @.str.35, ptr %name
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %13, ptr noundef %obj, ptr noundef nonnull %cond-lvalue, ptr noundef nonnull %buffer)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %13, ptr noundef %obj, ptr noundef nonnull %cond-lvalue, ptr noundef nonnull %buffer)
   %arrayidx22 = getelementptr inbounds [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %idxprom15
   %14 = load i32, ptr %arrayidx22, align 16
   %and = and i32 %14, 2
@@ -3364,15 +3364,15 @@ if.then.i.i.i63.i:                                ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i65.i, label %if.then.i.i.i.i.i.i.i100.i, label %if.else.i.i.i.i.i.i.i66.i
 
 if.then.i.i.i.i.i.i.i100.i:                       ; preds = %if.then.i.i.i63.i
-  store i32 5000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 250, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
-  store i64 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 40000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 250, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 40000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   br label %release.i.i.i.i97.i
 
 if.else.i.i.i.i.i.i.i66.i:                        ; preds = %if.then.i.i.i63.i
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %call.i.i.i.i.i40.i.i.i67.i = call { i64, i32 } @_ZN4absl3NowEv()
   %call.fca.0.extract.i.i.i.i.i.i.i.i68.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i67.i, 0
   %call.fca.1.extract.i.i.i.i.i.i.i.i69.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i67.i, 1
@@ -3396,26 +3396,26 @@ if.else.i.i.i.i.i.i.i66.i:                        ; preds = %if.then.i.i.i63.i
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i81.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i79.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i82.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i81.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i54.i)
-  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i80.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i82.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i80.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i82.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   store i64 0, ptr %ref.tmp8.i.i.i.i.i.i.i56.i, align 8
   store i32 4000000, ptr %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i.i83.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i84.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i80.i, 0
   %cmp8.i.i.i.i.i.i.i.i.i85.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i80.i, 0
   %cmp25.i.i.i.i.i.i.i.i.i86.i = icmp ugt i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i82.i, 4000000
   %cond27.i.i.i.i.i.i.i.i.i87.i = select i1 %cmp.not.i.i.i.i.i.i.i.i.i84.i, i1 %cmp25.i.i.i.i.i.i.i.i.i86.i, i1 %cmp8.i.i.i.i.i.i.i.i.i85.i
-  %__b.__a.i.i.i.i.i.i.i.i88.i = select i1 %cond27.i.i.i.i.i.i.i.i.i87.i, ptr %ref.tmp8.i.i.i.i.i.i.i56.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i88.i, i64 12, i1 false)
+  %__b.__a.i.i.i.i.i.i.i.i88.i = select i1 %cond27.i.i.i.i.i.i.i.i.i87.i, ptr %ref.tmp8.i.i.i.i.i.i.i56.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i88.i, i64 12, i1 false)
   store i64 0, ptr %ref.tmp12.i.i.i.i.i.i.i57.i, align 8
   store i32 40000, ptr %tmp.coerce14.sroa.2.0.ref.tmp12.sroa_idx.i.i.i.i.i.i.i89.i, align 8
-  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i90.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i91.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i90.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i91.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.not.i.i5.i.i.i.i.i.i.i92.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i90.i, 0
   %cmp8.i.i7.i.i.i.i.i.i.i93.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i90.i, 0
   %cmp25.i.i13.i.i.i.i.i.i.i94.i = icmp ult i32 %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i91.i, 40000
   %cond27.i.i8.i.i.i.i.i.i.i95.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i92.i, i1 %cmp25.i.i13.i.i.i.i.i.i.i94.i, i1 %cmp8.i.i7.i.i.i.i.i.i.i93.i
-  %__b.__a.i9.i.i.i.i.i.i.i96.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i95.i, ptr %ref.tmp12.i.i.i.i.i.i.i57.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i96.i, i64 12, i1 false)
+  %__b.__a.i9.i.i.i.i.i.i.i96.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i95.i, ptr %ref.tmp12.i.i.i.i.i.i.i57.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i96.i, i64 12, i1 false)
   br label %release.i.i.i.i97.i
 
 release.i.i.i.i97.i:                              ; preds = %if.else.i.i.i.i.i.i.i66.i, %if.then.i.i.i.i.i.i.i100.i
@@ -3430,7 +3430,7 @@ if.then5.i.i.i99.i:                               ; preds = %release.i.i.i.i97.i
   br label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit101.i
 
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit101.i: ; preds = %if.then5.i.i.i99.i, %release.i.i.i.i97.i, %lor.lhs.false.i.i.i60.i, %while.body.i
-  %8 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %9 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
   %cmp.not.i.i.i = icmp eq i32 %9, 221
   br i1 %cmp.not.i.i.i, label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i, label %if.then.i.i.i
@@ -3453,15 +3453,15 @@ if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  store i32 5000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 250, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
-  store i64 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 40000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 250, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 40000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   br label %release.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %call.i.i.i.i.i40.i.i.i.i = call { i64, i32 } @_ZN4absl3NowEv()
   %call.fca.0.extract.i.i.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i.i, 0
   %call.fca.1.extract.i.i.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i.i, 1
@@ -3485,26 +3485,26 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i.i)
-  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   store i64 0, ptr %ref.tmp8.i.i.i.i.i.i.i.i, align 8
   store i32 4000000, ptr %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   %cmp25.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, 4000000
   %cond27.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, i1 %cmp25.i.i.i.i.i.i.i.i.i.i, i1 %cmp8.i.i.i.i.i.i.i.i.i.i
-  %__b.__a.i.i.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i.i.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
   store i64 0, ptr %ref.tmp12.i.i.i.i.i.i.i.i, align 8
   store i32 40000, ptr %tmp.coerce14.sroa.2.0.ref.tmp12.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.not.i.i5.i.i.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i.i, 0
   %cmp8.i.i7.i.i.i.i.i.i.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i.i, 0
   %cmp25.i.i13.i.i.i.i.i.i.i.i = icmp ult i32 %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i.i, 40000
   %cond27.i.i8.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i.i, i1 %cmp25.i.i13.i.i.i.i.i.i.i.i, i1 %cmp8.i.i7.i.i.i.i.i.i.i.i
-  %__b.__a.i9.i.i.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i9.i.i.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i.i, i64 12, i1 false)
   br label %release.i.i.i.i.i
 
 release.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -3519,8 +3519,8 @@ if.then5.i.i.i.i:                                 ; preds = %release.i.i.i.i.i
   br label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
 
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i: ; preds = %if.then5.i.i.i.i, %release.i.i.i.i.i, %lor.lhs.false.i.i.i.i, %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit101.i
-  %sleep_time.sroa.0.0.copyload.i.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i.i = icmp sgt i32 %8, %c.0.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -3566,7 +3566,7 @@ do.body.i:                                        ; preds = %lor.rhs.i
   br i1 %cmp7.not.i, label %do.end12.i, label %do.body9.i
 
 do.body9.i:                                       ; preds = %do.body.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2566, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2566, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75)
   unreachable
 
 do.end12.i:                                       ; preds = %do.body.i
@@ -3617,7 +3617,7 @@ lor.rhs:                                          ; preds = %if.end
   br i1 %tobool, label %do.end10, label %do.body6
 
 do.body6:                                         ; preds = %lor.rhs
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 920, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.9)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 920, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.9)
   unreachable
 
 do.end10:                                         ; preds = %if.end, %lor.rhs
@@ -3670,7 +3670,7 @@ if.then17:                                        ; preds = %_ZN4absl13base_inte
   br i1 %cmp20.not, label %if.else, label %do.body22
 
 do.body22:                                        ; preds = %if.then17
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 938, ptr noundef nonnull @.str.71, i32 noundef %call19)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 938, ptr noundef nonnull @.str.71, i32 noundef %call19)
   br label %if.end29
 
 if.else:                                          ; preds = %if.then17
@@ -3823,7 +3823,7 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit: ; pr
   br i1 %tobool.not.i.i, label %do.end77, label %do.body68
 
 do.body68:                                        ; preds = %if.then.i.i87, %if.end.i.i, %land.lhs.true.i.i, %lor.rhs62, %land.lhs.true.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 993, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 993, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73)
   unreachable
 
 do.end77:                                         ; preds = %if.then.i.i87, %if.then55, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit
@@ -4083,7 +4083,7 @@ if.then:                                          ; preds = %entry
   %cmp3 = icmp eq ptr %call2, null
   %name = getelementptr inbounds i8, ptr %call2, i64 41
   %cond-lvalue = select i1 %cmp3, ptr @.str.35, ptr %name
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2473, ptr noundef nonnull @.str.36, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2473, ptr noundef nonnull @.str.36, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue)
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4109,7 +4109,7 @@ entry:
   br i1 %cmp.not, label %do.body8, label %do.body2
 
 do.body2:                                         ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2408, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2408, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30)
   unreachable
 
 do.body8:                                         ; preds = %entry
@@ -4119,7 +4119,7 @@ do.body8:                                         ; preds = %entry
   br i1 %cmp10.not, label %do.end23, label %do.body13
 
 do.body13:                                        ; preds = %do.body8
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32)
   unreachable
 
 do.end23:                                         ; preds = %do.body8
@@ -4156,7 +4156,7 @@ if.then34:                                        ; preds = %if.else
   br i1 %cmp39.not, label %do.body42, label %do.end52
 
 do.body42:                                        ; preds = %if.then34
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2434, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.33)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2434, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.33)
   unreachable
 
 do.end52:                                         ; preds = %if.then34
@@ -4192,7 +4192,7 @@ do.body89.preheader:                              ; preds = %if.then67
   br label %do.body89
 
 do.body78:                                        ; preds = %if.then67
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2445, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.33)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2445, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.33)
   unreachable
 
 do.body89:                                        ; preds = %do.body89.preheader, %do.body89
@@ -4207,10 +4207,10 @@ do.body89:                                        ; preds = %do.body89.preheader
 if.end103:                                        ; preds = %do.end52, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit, %if.else60
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %19 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp sgt i32 %19, %c.0123
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -4271,7 +4271,7 @@ if.then:                                          ; preds = %entry
   %cmp3 = icmp eq ptr %call2, null
   %name = getelementptr inbounds i8, ptr %call2, i64 41
   %cond-lvalue = select i1 %cmp3, ptr @.str.35, ptr %name
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2464, ptr noundef nonnull @.str.34, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2464, ptr noundef nonnull @.str.34, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue)
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4481,15 +4481,15 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
-  store i32 5000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 250, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
-  store i64 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 40000, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 250, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 40000, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   br label %release.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   %call.i.i.i.i.i40.i.i.i60 = call { i64, i32 } @_ZN4absl3NowEv()
   %call.fca.0.extract.i.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i60, 0
   %call.fca.1.extract.i.i.i.i.i.i.i.i = extractvalue { i64, i32 } %call.i.i.i.i.i40.i.i.i60, 1
@@ -4513,26 +4513,26 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i)
-  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   store i64 0, ptr %ref.tmp8.i.i.i.i.i.i.i, align 8
   store i32 4000000, ptr %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i.i.i.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 0
   %cmp25.i.i.i.i.i.i.i.i.i = icmp ugt i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, 4000000
   %cond27.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i.i.i, i1 %cmp25.i.i.i.i.i.i.i.i.i, i1 %cmp8.i.i.i.i.i.i.i.i.i
-  %__b.__a.i.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i.i.i.i.i.i.i.i = select i1 %cond27.i.i.i.i.i.i.i.i.i, ptr %ref.tmp8.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i.i.i.i.i.i.i.i, i64 12, i1 false)
   store i64 0, ptr %ref.tmp12.i.i.i.i.i.i.i, align 8
   store i32 40000, ptr %tmp.coerce14.sroa.2.0.ref.tmp12.sroa_idx.i.i.i.i.i.i.i, align 8
-  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.not.i.i5.i.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i, 0
   %cmp8.i.i7.i.i.i.i.i.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i1.i.i.i.i.i.i.i, 0
   %cmp25.i.i13.i.i.i.i.i.i.i = icmp ult i32 %agg.tmp.sroa.2.0.copyload.i2.i.i.i.i.i.i.i, 40000
   %cond27.i.i8.i.i.i.i.i.i.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i, i1 %cmp25.i.i13.i.i.i.i.i.i.i, i1 %cmp8.i.i7.i.i.i.i.i.i.i
-  %__b.__a.i9.i.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i.i, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i, i64 12, i1 false)
+  %__b.__a.i9.i.i.i.i.i.i.i = select i1 %cond27.i.i8.i.i.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %__b.__a.i9.i.i.i.i.i.i.i, i64 12, i1 false)
   br label %release.i.i.i.i
 
 release.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -4547,10 +4547,10 @@ if.then5.i.i.i:                                   ; preds = %release.i.i.i.i
   br label %call.i55.noexc
 
 call.i55.noexc:                                   ; preds = %if.then5.i.i.i, %release.i.i.i.i, %lor.lhs.false.i.i.i, %if.else
-  %12 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp sgt i32 %12, %c.0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -4690,7 +4690,7 @@ do.body:                                          ; preds = %if.end19, %_ZN4absl
   br i1 %cmp22.not, label %do.body24, label %do.end28
 
 do.body24:                                        ; preds = %do.body
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2629, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2629, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39)
   unreachable
 
 do.end28:                                         ; preds = %do.body
@@ -4777,10 +4777,10 @@ if.then22:                                        ; preds = %if.end19.thread, %i
 if.else25:                                        ; preds = %land.lhs.true, %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %10 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp sgt i32 %10, %c.071
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -4883,10 +4883,10 @@ if.then13:                                        ; preds = %if.end
 if.else:                                          ; preds = %land.lhs.true, %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %10 = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 2, i64 1), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
-  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
+  %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
+  %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp sgt i32 %10, %c.047
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -4936,7 +4936,7 @@ entry:
   br i1 %cmp.not, label %do.body2, label %do.end5
 
 do.body2:                                         ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2728, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2728, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44)
   unreachable
 
 do.end5:                                          ; preds = %entry

@@ -142,7 +142,7 @@ define dso_local ptr @nfs4_lookup_slot(ptr noundef %0, i32 noundef %1) local_unn
 
 13:                                               ; preds = %8
   %14 = load i32, ptr %7, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %16 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 10496, i64 noundef 48) #9
   %17 = icmp eq ptr %16, null
   br i1 %17, label %30, label %18
@@ -252,7 +252,7 @@ define internal fastcc noundef zeroext i1 @nfs4_slot_seqid_in_use(ptr noundef %0
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %9, align 8
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 10496, i64 noundef 48) #9
   %19 = icmp eq ptr %18, null
   br i1 %19, label %32, label %20
@@ -356,7 +356,7 @@ define dso_local ptr @nfs4_alloc_slot(ptr noundef %0) local_unnamed_addr #0 alig
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %12, align 8
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 10496, i64 noundef 48) #9
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread, label %23
@@ -484,7 +484,7 @@ define dso_local range(i32 -12, 1) i32 @nfs4_setup_slot_table(ptr noundef %0, i3
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader18
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %22 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3392, i64 noundef 48) #9
   %23 = icmp eq ptr %22, null
   br i1 %23, label %37, label %24

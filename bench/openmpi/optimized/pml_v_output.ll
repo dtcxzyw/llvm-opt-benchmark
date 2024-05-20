@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @ompi_pml_v_output_open(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.opal_output_stream_t, align 8
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @opal_output_stream_t_class, i64 32), align 8
   %.not = icmp eq i32 %4, %5
   br i1 %.not, label %7, label %6
 
@@ -40,7 +40,7 @@ define i32 @ompi_pml_v_output_open(ptr noundef %0, i32 noundef %1) local_unnamed
   store ptr @opal_output_stream_t_class, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_output_stream_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i = icmp eq ptr %10, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -92,13 +92,13 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
 26:                                               ; preds = %21, %23, %17
   %27 = getelementptr inbounds i8, ptr %3, i64 48
   store i8 1, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %opal_gethostname.exit
 
 30:                                               ; preds = %26
   %31 = call i32 @opal_init_gethostname() #5
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %26, %30

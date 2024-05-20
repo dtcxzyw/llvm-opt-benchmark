@@ -4480,7 +4480,7 @@ default.unreachable:                              ; preds = %_ZN5alloc5alloc15ex
 258:                                              ; preds = %79
   %259 = icmp ult i64 %80, 5
   tail call void @llvm.assume(i1 %259)
-  %260 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN10hir_expand20builtin_derive_macro8AdtShape14as_pattern_map10__CALLSITE17haea16af26b7a1e5dE, i64 0, i32 2) monotonic, align 8
+  %260 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand20builtin_derive_macro8AdtShape14as_pattern_map10__CALLSITE17haea16af26b7a1e5dE, i64 16) monotonic, align 8
   switch i8 %260, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge51
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -5540,7 +5540,7 @@ default.unreachable:                              ; preds = %_ZN5alloc5alloc15ex
 258:                                              ; preds = %79
   %259 = icmp ult i64 %80, 5
   tail call void @llvm.assume(i1 %259)
-  %260 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN10hir_expand20builtin_derive_macro8AdtShape14as_pattern_map10__CALLSITE17haea16af26b7a1e5dE, i64 0, i32 2) monotonic, align 8
+  %260 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand20builtin_derive_macro8AdtShape14as_pattern_map10__CALLSITE17haea16af26b7a1e5dE, i64 16) monotonic, align 8
   switch i8 %260, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge51
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -6600,7 +6600,7 @@ default.unreachable:                              ; preds = %_ZN5alloc5alloc15ex
 258:                                              ; preds = %79
   %259 = icmp ult i64 %80, 5
   tail call void @llvm.assume(i1 %259)
-  %260 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN10hir_expand20builtin_derive_macro8AdtShape14as_pattern_map10__CALLSITE17haea16af26b7a1e5dE, i64 0, i32 2) monotonic, align 8
+  %260 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand20builtin_derive_macro8AdtShape14as_pattern_map10__CALLSITE17haea16af26b7a1e5dE, i64 16) monotonic, align 8
   switch i8 %260, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge51
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

@@ -85,7 +85,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
 36:                                               ; preds = %33
   %37 = add i32 %35, -1
   store i32 %37, ptr %1, align 4
-  %38 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %38 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %39 = and i8 %38, 4
   %.not8.i = icmp eq i8 %39, 0
   br i1 %.not8.i, label %40, label %create_indirect_return_x86.exit
@@ -159,7 +159,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
 75:                                               ; preds = %72
   %76 = add i32 %74, -1
   store i32 %76, ptr %1, align 4
-  %77 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %77 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %78 = and i8 %77, 4
   %.not8.i61 = icmp eq i8 %78, 0
   br i1 %.not8.i61, label %79, label %create_indirect_return_x86.exit
@@ -189,7 +189,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   %91 = getelementptr inbounds i8, ptr %4, i64 56
   %92 = load i32, ptr %91, align 8
   %93 = and i32 %92, 255
-  %94 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 33), align 8
+  %94 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   %95 = icmp ult i32 %93, %94
   br i1 %95, label %96, label %.critedge
 
@@ -225,7 +225,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
 110:                                              ; preds = %107
   %111 = add i32 %109, -1
   store i32 %111, ptr %1, align 4
-  %112 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %112 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %113 = and i8 %112, 4
   %.not8.i64 = icmp eq i8 %113, 0
   br i1 %.not8.i64, label %114, label %create_indirect_return_x86.exit
@@ -396,7 +396,7 @@ define internal fastcc zeroext i1 @x86_should_return_type_in_reg(ptr noundef %0)
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %4 = phi i32 [ %15, %tailrecurse ], [ %2, %1 ]
   %.tr35 = phi ptr [ %14, %tailrecurse ], [ %0, %1 ]
-  %5 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %6 = and i8 %5, 4
   %.not = icmp ne i8 %6, 0
   %7 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %4)
@@ -523,12 +523,12 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   br i1 %cond, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 15), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %7 = lshr i16 %6, 5
   %8 = and i16 %7, 255
   %9 = zext nneg i16 %8 to i32
   store i32 %9, ptr %2, align 8
-  %10 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %11 = and i8 %10, 4
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %15, label %13
@@ -704,7 +704,7 @@ define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef %0, ptr 
 12:                                               ; preds = %9
   %13 = add i32 %11, -1
   store i32 %13, ptr %0, align 4
-  %14 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %15 = and i8 %14, 4
   %.not17.i.i = icmp eq i8 %15, 0
   br i1 %.not17.i.i, label %16, label %x86_classify_primitives.exit
@@ -717,7 +717,7 @@ define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef %0, ptr 
   br label %x86_classify_primitives.exit
 
 20:                                               ; preds = %6
-  %21 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %22 = and i8 %21, 2
   %.not.i.i.i = icmp eq i8 %22, 0
   br i1 %.not.i.i.i, label %23, label %33
@@ -748,7 +748,7 @@ define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef %0, ptr 
   %36 = zext i32 %34 to i64
   %37 = add nuw nsw i64 %36, 3
   %38 = lshr i64 %37, 2
-  %39 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %40 = and i8 %39, 4
   %.not26.i.i.i = icmp eq i8 %40, 0
   %41 = load i32, ptr %0, align 4
@@ -772,7 +772,7 @@ x86_try_use_free_regs.exit.i.i:                   ; preds = %46
   %.pn.i.i = trunc nuw nsw i64 %38 to i32
   %.sink.i.ph.i.i = sub i32 %41, %.pn.i.i
   store i32 %.sink.i.ph.i.i, ptr %0, align 4
-  %48 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %48 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %49 = and i8 %48, 4
   %.not.i.i = icmp eq i8 %49, 0
   br label %x86_try_put_primitive_in_reg.exit.i
@@ -799,7 +799,7 @@ x86_try_put_primitive_in_reg.exit.i:              ; preds = %47, %x86_try_use_fr
   %60 = getelementptr inbounds i8, ptr %3, i64 56
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 255
-  %63 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 33), align 8
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   %64 = icmp ult i32 %62, %63
   br i1 %64, label %65, label %.critedge.i
 
@@ -907,7 +907,7 @@ x86_stack_alignment.exit.thread19.i.i:            ; preds = %x86_stack_alignment
 
 116:                                              ; preds = %93, %90
   %117 = tail call i32 @type_size(ptr noundef nonnull %3) #4
-  %118 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %118 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %119 = and i8 %118, 2
   %.not.i.i13 = icmp eq i8 %119, 0
   br i1 %.not.i.i13, label %120, label %130
@@ -938,7 +938,7 @@ x86_stack_alignment.exit.thread19.i.i:            ; preds = %x86_stack_alignment
   %133 = zext i32 %131 to i64
   %134 = add nuw nsw i64 %133, 3
   %135 = lshr i64 %134, 2
-  %136 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %136 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %137 = and i8 %136, 4
   %.not26.i.i = icmp eq i8 %137, 0
   %138 = load i32, ptr %0, align 4
@@ -979,7 +979,7 @@ x86_try_use_free_regs.exit.i:                     ; preds = %143
 
 154:                                              ; preds = %151, %147
   %.0.i14 = phi ptr [ %150, %147 ], [ %153, %151 ]
-  %155 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %155 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %156 = and i8 %155, 4
   %.not28.i = icmp eq i8 %156, 0
   br i1 %.not28.i, label %157, label %x86_classify_primitives.exit
@@ -996,7 +996,7 @@ x86_try_use_free_regs.exit.thread.i:              ; preds = %x86_try_use_free_re
   br i1 %161, label %162, label %x86_can_expand_indirect_aggregate_arg.exit.thread.i
 
 162:                                              ; preds = %x86_try_use_free_regs.exit.thread.i
-  %163 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
+  %163 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %164 = and i8 %163, 4
   %.not26.i = icmp eq i8 %164, 0
   br i1 %.not26.i, label %167, label %165

@@ -90,8 +90,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @prte_schizo_base_detect_proxy(ptr noundef %0) local_unnamed_addr #0 {
-  %.015 = load ptr, ptr getelementptr inbounds (%struct.prte_schizo_base_t, ptr @prte_schizo_base, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not16 = icmp eq ptr %.015, getelementptr inbounds (%struct.prte_schizo_base_t, ptr @prte_schizo_base, i64 0, i32 0, i32 1)
+  %.015 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_schizo_base, i64 240), align 8
+  %.not16 = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @prte_schizo_base, i64 120)
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %11
@@ -119,7 +119,7 @@ define ptr @prte_schizo_base_detect_proxy(ptr noundef %0) local_unnamed_addr #0 
   %.1 = phi i32 [ %7, %9 ], [ %.0918, %6 ], [ %.0918, %.lr.ph ]
   %12 = getelementptr inbounds i8, ptr %.019, i64 120
   %.0 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_schizo_base_t, ptr @prte_schizo_base, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_schizo_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11, %1
@@ -272,10 +272,10 @@ check_multi.exit:                                 ; preds = %.preheader
   br label %93
 
 .loopexit:                                        ; preds = %13, %5
-  %64 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_item_t_class, i64 0, i32 8), align 8
+  %64 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 56), align 8
   %65 = tail call noalias noundef ptr @malloc(i64 noundef %64) #22
   %66 = load i32, ptr @pmix_class_init_epoch, align 4
-  %67 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_item_t_class, i64 0, i32 4), align 8
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 32), align 8
   %.not.i48 = icmp eq i32 %66, %67
   br i1 %.not.i48, label %69, label %68
 
@@ -297,7 +297,7 @@ check_multi.exit:                                 ; preds = %.preheader
   %75 = getelementptr inbounds i8, ptr %65, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
-  %76 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_item_t_class, i64 0, i32 6), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 40), align 8
   %77 = load ptr, ptr %76, align 8
   %.not6.i.i = icmp eq ptr %77, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -431,10 +431,10 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   br label %70
 
 .loopexit:                                        ; preds = %13, %5
-  %38 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_item_t_class, i64 0, i32 8), align 8
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 56), align 8
   %39 = tail call noalias noundef ptr @malloc(i64 noundef %38) #22
   %40 = load i32, ptr @pmix_class_init_epoch, align 4
-  %41 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_item_t_class, i64 0, i32 4), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 32), align 8
   %.not.i27 = icmp eq i32 %40, %41
   br i1 %.not.i27, label %43, label %42
 
@@ -456,7 +456,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   %49 = getelementptr inbounds i8, ptr %39, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
-  %50 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_item_t_class, i64 0, i32 6), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 40), align 8
   %51 = load ptr, ptr %50, align 8
   %.not6.i.i = icmp eq ptr %51, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -705,7 +705,7 @@ prte_schizo_base_strip_quotes.exit86:             ; preds = %prte_schizo_base_st
 
 57:                                               ; preds = %prte_schizo_base_strip_quotes.exit86
   %58 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef nonnull %41) #17
-  %59 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %59, 64
   br i1 %or.cond, label %60, label %68
 
@@ -880,7 +880,7 @@ prte_schizo_base_strip_quotes.exit92:             ; preds = %prte_schizo_base_st
 
 153:                                              ; preds = %152
   %154 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef %.0) #17
-  %155 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %155 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %155, 64
   br i1 %or.cond3, label %156, label %163
 
@@ -904,7 +904,7 @@ prte_schizo_base_strip_quotes.exit92:             ; preds = %prte_schizo_base_st
   br label %prte_schizo_base_check_prte_param.exit
 
 167:                                              ; preds = %152
-  %168 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %168 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %168, 64
   br i1 %or.cond5, label %169, label %176
 
@@ -1132,7 +1132,7 @@ prte_schizo_base_strip_quotes.exit102:            ; preds = %prte_schizo_base_st
 
 62:                                               ; preds = %prte_schizo_base_strip_quotes.exit102
   %63 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.41, ptr noundef nonnull %46) #17
-  %64 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %64, 64
   br i1 %or.cond, label %65, label %73
 
@@ -1308,7 +1308,7 @@ prte_schizo_base_strip_quotes.exit108:            ; preds = %prte_schizo_base_st
 
 163:                                              ; preds = %162
   %164 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.41, ptr noundef %.0) #17
-  %165 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %165 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %165, 64
   br i1 %or.cond3, label %166, label %174
 

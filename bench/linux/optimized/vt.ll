@@ -2001,7 +2001,7 @@ define dso_local noundef range(i32 -22, 1) i32 @vc_allocate(i32 noundef %0) loca
   br i1 %19, label %20, label %68
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %22 = tail call noalias align 8 dereferenceable_or_null(824) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 824) #27
   store ptr %22, ptr %2, align 8
   %23 = icmp eq ptr %22, null
@@ -3464,13 +3464,13 @@ define internal noundef i32 @con_init() #11 section ".init.text" align 16 {
   br label %39
 
 39:                                               ; preds = %33, %30
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %41 = tail call noalias align 8 dereferenceable_or_null(824) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 10496, i64 noundef 824) #27
   store ptr %41, ptr @vc_cons, align 16
-  store i64 68719476704, ptr getelementptr inbounds ([63 x %struct.vc], ptr @vc_cons, i64 0, i64 0, i32 1), align 8
-  store volatile ptr getelementptr inbounds ([63 x %struct.vc], ptr @vc_cons, i64 0, i64 0, i32 1, i32 1), ptr getelementptr inbounds ([63 x %struct.vc], ptr @vc_cons, i64 0, i64 0, i32 1, i32 1), align 16
-  store volatile ptr getelementptr inbounds ([63 x %struct.vc], ptr @vc_cons, i64 0, i64 0, i32 1, i32 1), ptr getelementptr inbounds ([63 x %struct.vc], ptr @vc_cons, i64 0, i64 0, i32 1, i32 1, i32 1), align 8
-  store ptr @vc_SAK, ptr getelementptr inbounds ([63 x %struct.vc], ptr @vc_cons, i64 0, i64 0, i32 1, i32 2), align 16
+  store i64 68719476704, ptr getelementptr inbounds (i8, ptr @vc_cons, i64 8), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @vc_cons, i64 16), ptr getelementptr inbounds (i8, ptr @vc_cons, i64 16), align 16
+  store volatile ptr getelementptr inbounds (i8, ptr @vc_cons, i64 16), ptr getelementptr inbounds (i8, ptr @vc_cons, i64 24), align 8
+  store ptr @vc_SAK, ptr getelementptr inbounds (i8, ptr @vc_cons, i64 32), align 16
   tail call void @tty_port_init(ptr noundef %41) #25
   tail call fastcc void @visual_init(ptr noundef %41, i32 noundef 0, i32 noundef 1)
   %42 = getelementptr inbounds i8, ptr %41, i64 488
@@ -3967,7 +3967,7 @@ define dso_local noundef i32 @do_take_over_console(ptr noundef %0, i32 noundef %
   br i1 %84, label %.thread20, label %.thread16.sink.split
 
 .thread20:                                        ; preds = %73, %83
-  %.in = phi ptr [ %85, %83 ], [ getelementptr inbounds ([16 x %struct.con_driver], ptr @registered_con_driver, i64 0, i64 0, i32 1), %73 ]
+  %.in = phi ptr [ %85, %83 ], [ getelementptr inbounds (i8, ptr @registered_con_driver, i64 8), %73 ]
   %86 = phi ptr [ %80, %83 ], [ @registered_con_driver, %73 ]
   %87 = load ptr, ptr %.in, align 8
   %88 = getelementptr inbounds i8, ptr %86, i64 36
@@ -7311,7 +7311,7 @@ define internal i32 @con_put_char(ptr nocapture noundef readonly %0, i8 noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @con_flush_chars(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #32, !srcloc !129
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #32, !srcloc !129
   %3 = and i32 %2, 16776960
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %42
@@ -7504,7 +7504,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %12 = alloca %struct.vt_notifier_param, align 8
   %13 = alloca %struct.vt_notifier_param, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #25
-  %14 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #32, !srcloc !129
+  %14 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #32, !srcloc !129
   %15 = and i32 %14, 16776960
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %990

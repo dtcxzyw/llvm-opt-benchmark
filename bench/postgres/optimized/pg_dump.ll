@@ -1925,23 +1925,23 @@ sub_2393:                                         ; preds = %sub_1392
   br label %118, !llvm.loop !5
 
 120:                                              ; preds = %118
-  store i8 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 3), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 53), align 1
   br label %.backedge
 
 121:                                              ; preds = %118
-  store i8 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 27), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 152), align 8
   br label %.backedge
 
 122:                                              ; preds = %118
-  store i8 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 28), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 153), align 1
   br label %.backedge
 
 123:                                              ; preds = %118
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 25), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 144), align 8
   br label %.backedge
 
 124:                                              ; preds = %118
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 26), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 148), align 4
   br label %.backedge
 
 125:                                              ; preds = %118
@@ -1953,7 +1953,7 @@ sub_2393:                                         ; preds = %sub_1392
 128:                                              ; preds = %118
   %129 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull @extension_include_patterns, ptr noundef %129) #14
-  store i8 0, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   br label %.backedge
 
 130:                                              ; preds = %118
@@ -1974,7 +1974,7 @@ sub_2393:                                         ; preds = %sub_1392
 139:                                              ; preds = %118
   %140 = load ptr, ptr @optarg, align 8
   %141 = call ptr @pg_strdup(ptr noundef %140) #14
-  store ptr %141, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 2), align 8
+  store ptr %141, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 16), align 8
   br label %.backedge
 
 142:                                              ; preds = %118
@@ -1989,7 +1989,7 @@ sub_2393:                                         ; preds = %sub_1392
 146:                                              ; preds = %118
   %147 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull @schema_include_patterns, ptr noundef %147) #14
-  store i8 0, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   br label %.backedge
 
 148:                                              ; preds = %118
@@ -1998,29 +1998,29 @@ sub_2393:                                         ; preds = %sub_1392
   br label %.backedge
 
 150:                                              ; preds = %118
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 29), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 156), align 4
   br label %.backedge
 
 151:                                              ; preds = %118
   %152 = load ptr, ptr @optarg, align 8
   %153 = call ptr @pg_strdup(ptr noundef %152) #14
-  store ptr %153, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 1), align 8
+  store ptr %153, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 8), align 8
   br label %.backedge
 
 154:                                              ; preds = %118
-  store i8 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 2), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
   br label %.backedge
 
 155:                                              ; preds = %118
   %156 = load ptr, ptr @optarg, align 8
   %157 = call ptr @pg_strdup(ptr noundef %156) #14
-  store ptr %157, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 30), align 8
+  store ptr %157, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 160), align 8
   br label %.backedge
 
 158:                                              ; preds = %118
   %159 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull @table_include_patterns, ptr noundef %159) #14
-  store i8 0, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   br label %.backedge
 
 160:                                              ; preds = %118
@@ -2031,7 +2031,7 @@ sub_2393:                                         ; preds = %sub_1392
 162:                                              ; preds = %118
   %163 = load ptr, ptr @optarg, align 8
   %164 = call ptr @pg_strdup(ptr noundef %163) #14
-  store ptr %164, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 3), align 8
+  store ptr %164, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 24), align 8
   br label %.backedge
 
 165:                                              ; preds = %118
@@ -2039,15 +2039,15 @@ sub_2393:                                         ; preds = %sub_1392
   br label %.backedge
 
 166:                                              ; preds = %118
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 4), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 32), align 8
   br label %.backedge
 
 167:                                              ; preds = %118
-  store i32 2, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 4), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 32), align 8
   br label %.backedge
 
 168:                                              ; preds = %118
-  store i8 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 5), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 60), align 4
   br label %.backedge
 
 169:                                              ; preds = %118
@@ -2058,7 +2058,7 @@ sub_2393:                                         ; preds = %sub_1392
 171:                                              ; preds = %118
   %172 = load ptr, ptr @optarg, align 8
   %173 = call ptr @pg_strdup(ptr noundef %172) #14
-  store ptr %173, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 6), align 8
+  store ptr %173, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 64), align 8
   br label %.backedge
 
 174:                                              ; preds = %118
@@ -2073,7 +2073,7 @@ sub_2393:                                         ; preds = %sub_1392
 
 179:                                              ; preds = %118
   %180 = load ptr, ptr @optarg, align 8
-  call void @set_dump_section(ptr noundef %180, ptr noundef nonnull getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 4)) #14
+  call void @set_dump_section(ptr noundef %180, ptr noundef nonnull getelementptr inbounds (i8, ptr @main.dopt, i64 56)) #14
   br label %.backedge
 
 181:                                              ; preds = %118
@@ -2096,17 +2096,17 @@ sub_2393:                                         ; preds = %sub_1392
   unreachable
 
 189:                                              ; preds = %118
-  %190 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 7), align 8
+  %190 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %.backedge
 
 192:                                              ; preds = %189
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 7), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
   br label %.backedge
 
 193:                                              ; preds = %118
   %194 = load ptr, ptr @optarg, align 8
-  %195 = call zeroext i1 @option_parse_int(ptr noundef %194, ptr noundef nonnull @.str.79, i32 noundef 1, i32 noundef 2147483647, ptr noundef nonnull getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 7)) #14
+  %195 = call zeroext i1 @option_parse_int(ptr noundef %194, ptr noundef nonnull @.str.79, i32 noundef 1, i32 noundef 2147483647, ptr noundef nonnull getelementptr inbounds (i8, ptr @main.dopt, i64 72)) #14
   br i1 %195, label %.backedge, label %196
 
 196:                                              ; preds = %193
@@ -2121,7 +2121,7 @@ sub_2393:                                         ; preds = %sub_1392
 199:                                              ; preds = %118
   %200 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull @table_include_patterns_and_children, ptr noundef %200) #14
-  store i8 0, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   br label %.backedge
 
 201:                                              ; preds = %118
@@ -2195,19 +2195,19 @@ sub_2393:                                         ; preds = %sub_1392
 221:                                              ; preds = %213
   %222 = load ptr, ptr %67, align 8
   call void @simple_string_list_append(ptr noundef nonnull @schema_include_patterns, ptr noundef %222) #14
-  store i8 0, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   br label %241
 
 223:                                              ; preds = %213
   %224 = load ptr, ptr %67, align 8
   call void @simple_string_list_append(ptr noundef nonnull @table_include_patterns, ptr noundef %224) #14
-  store i8 0, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   br label %241
 
 225:                                              ; preds = %213
   %226 = load ptr, ptr %67, align 8
   call void @simple_string_list_append(ptr noundef nonnull @table_include_patterns_and_children, ptr noundef %226) #14
-  store i8 0, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   br label %241
 
 227:                                              ; preds = %.lr.ph.i
@@ -2317,31 +2317,31 @@ read_dump_filters.exit:                           ; preds = %244, %209
   unreachable
 
 266:                                              ; preds = %258
-  %267 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 9), align 8
+  %267 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 80), align 8
   %268 = icmp ne i32 %267, 0
-  %269 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 7), align 8
+  %269 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
   %270 = icmp eq i32 %269, 0
   %or.cond3 = select i1 %268, i1 %270, i1 false
   br i1 %or.cond3, label %271, label %272
 
 271:                                              ; preds = %266
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 7), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
   br label %272
 
 272:                                              ; preds = %271, %266
   %273 = phi i32 [ 1, %271 ], [ %269, %266 ]
-  %274 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 1), align 8
+  %274 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 48), align 8
   %.not161 = icmp eq i32 %274, 0
   br i1 %.not161, label %276, label %275
 
 275:                                              ; preds = %272
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 31), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 168), align 8
   br label %276
 
 276:                                              ; preds = %275, %272
-  %277 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 3), align 1
+  %277 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 53), align 1
   %278 = trunc i8 %277 to i1
-  %.pre = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 2), align 4
+  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
   %279 = trunc i8 %.pre to i1
   br i1 %278, label %280, label %284
 
@@ -2382,7 +2382,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   unreachable
 
 293:                                              ; preds = %288
-  %294 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 25), align 8
+  %294 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 144), align 8
   %295 = icmp ne i32 %294, 0
   %or.cond9 = select i1 %278, i1 %295, i1 false
   br i1 %or.cond9, label %296, label %297
@@ -2393,7 +2393,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   unreachable
 
 297:                                              ; preds = %293
-  %298 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 10), align 4
+  %298 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 84), align 4
   %299 = icmp eq i32 %298, 0
   %or.cond11 = select i1 %299, i1 true, i1 %295
   br i1 %or.cond11, label %301, label %300
@@ -2404,7 +2404,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   unreachable
 
 301:                                              ; preds = %297
-  %302 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 32), align 4
+  %302 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 172), align 4
   %303 = icmp ne i32 %302, 0
   %304 = icmp eq i32 %273, 0
   %or.cond13 = select i1 %303, i1 %304, i1 false
@@ -2480,7 +2480,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   br i1 %.not166, label %330, label %329
 
 329:                                              ; preds = %328
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 26), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 148), align 4
   br label %330
 
 330:                                              ; preds = %329, %328
@@ -2521,7 +2521,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   br i1 %347, label %348, label %349
 
 348:                                              ; preds = %335
-  store i32 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 16), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 108), align 4
   br label %349
 
 349:                                              ; preds = %348, %335
@@ -2591,28 +2591,28 @@ read_dump_filters.exit:                           ; preds = %244, %209
   unreachable
 
 377:                                              ; preds = %371, %369
-  %378 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  %378 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   %379 = trunc i8 %378 to i1
   br i1 %379, label %380, label %387
 
 380:                                              ; preds = %377
-  %381 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 2), align 4
+  %381 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
   %382 = trunc i8 %381 to i1
   br i1 %382, label %387, label %383
 
 383:                                              ; preds = %380
-  %384 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 28), align 1
+  %384 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 153), align 1
   %385 = trunc i8 %384 to i1
   br i1 %385, label %387, label %386
 
 386:                                              ; preds = %383
-  store i8 1, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 27), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 152), align 8
   br label %387
 
 387:                                              ; preds = %386, %383, %380, %377
   call fastcc void @collectRoleNames(ptr noundef nonnull %338)
   %388 = call ptr @getSchemaData(ptr noundef nonnull %338, ptr noundef nonnull %70) #14
-  %389 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 2), align 4
+  %389 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
   %390 = trunc i8 %389 to i1
   br i1 %390, label %396, label %391
 
@@ -2620,7 +2620,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   %392 = load i32, ptr %70, align 4
   call fastcc void @getTableData(ptr noundef %388, i32 noundef %392, i8 noundef signext 0)
   call fastcc void @buildMatViewRefreshDependencies(ptr noundef nonnull %338)
-  %393 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 3), align 1
+  %393 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 53), align 1
   %394 = trunc i8 %393 to i1
   br i1 %394, label %395, label %396
 
@@ -2629,9 +2629,9 @@ read_dump_filters.exit:                           ; preds = %244, %209
   br label %396
 
 396:                                              ; preds = %391, %395, %387
-  %397 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 2), align 4
+  %397 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
   %398 = trunc i8 %397 to i1
-  %399 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 31), align 8
+  %399 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 168), align 8
   %400 = icmp ne i32 %399, 0
   %or.cond23 = select i1 %398, i1 %400, i1 false
   br i1 %or.cond23, label %401, label %403
@@ -2642,9 +2642,9 @@ read_dump_filters.exit:                           ; preds = %244, %209
   br label %403
 
 403:                                              ; preds = %401, %396
-  %404 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 27), align 8
+  %404 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 152), align 8
   %405 = trunc i8 %404 to i1
-  %406 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 1), align 8
+  %406 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 48), align 8
   %407 = icmp ne i32 %406, 0
   %or.cond25 = select i1 %405, i1 true, i1 %407
   br i1 %or.cond25, label %408, label %409
@@ -2655,7 +2655,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
 
 409:                                              ; preds = %403, %408
   call fastcc void @getDependencies(ptr noundef nonnull %338)
-  %410 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 5), align 4
+  %410 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 60), align 4
   %411 = trunc i8 %410 to i1
   br i1 %411, label %413, label %412
 
@@ -2664,7 +2664,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   br label %413
 
 413:                                              ; preds = %412, %409
-  %414 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 11), align 8
+  %414 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 88), align 8
   %.not169 = icmp eq i32 %414, 0
   br i1 %.not169, label %415, label %416
 
@@ -2673,7 +2673,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   br label %416
 
 416:                                              ; preds = %415, %413
-  %417 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 12), align 4
+  %417 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 92), align 4
   %.not170 = icmp eq i32 %417, 0
   br i1 %.not170, label %418, label %419
 
@@ -2700,7 +2700,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   call fastcc void @dumpEncoding(ptr noundef nonnull %338)
   call fastcc void @dumpStdStrings(ptr noundef nonnull %338)
   call fastcc void @dumpSearchPath(ptr noundef nonnull %338)
-  %431 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 26), align 4
+  %431 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 148), align 4
   %.not171 = icmp eq i32 %431, 0
   br i1 %.not171, label %433, label %432
 
@@ -11010,7 +11010,7 @@ dumpDumpableObject.exit:                          ; preds = %796, %806, %dumpNam
   %4742 = phi ptr [ %4740, %4739 ], [ null, %._crit_edge ]
   %4743 = getelementptr inbounds i8, ptr %4736, i64 280
   store ptr %4742, ptr %4743, align 8
-  %4744 = load ptr, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 1), align 8
+  %4744 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 8), align 8
   %.not173 = icmp eq ptr %4744, null
   br i1 %.not173, label %4747, label %4745
 
@@ -11022,7 +11022,7 @@ dumpDumpableObject.exit:                          ; preds = %796, %806, %dumpNam
   %4748 = phi ptr [ %4746, %4745 ], [ null, %4741 ]
   %4749 = getelementptr inbounds i8, ptr %4736, i64 288
   store ptr %4748, ptr %4749, align 8
-  %4750 = load ptr, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 2), align 8
+  %4750 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 16), align 8
   %.not174 = icmp eq ptr %4750, null
   br i1 %.not174, label %4753, label %4751
 
@@ -11034,7 +11034,7 @@ dumpDumpableObject.exit:                          ; preds = %796, %806, %dumpNam
   %4754 = phi ptr [ %4752, %4751 ], [ null, %4747 ]
   %4755 = getelementptr inbounds i8, ptr %4736, i64 296
   store ptr %4754, ptr %4755, align 8
-  %4756 = load ptr, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 3), align 8
+  %4756 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 24), align 8
   %.not175 = icmp eq ptr %4756, null
   br i1 %.not175, label %4759, label %4757
 
@@ -11046,85 +11046,85 @@ dumpDumpableObject.exit:                          ; preds = %796, %806, %dumpNam
   %4760 = phi ptr [ %4758, %4757 ], [ null, %4753 ]
   %4761 = getelementptr inbounds i8, ptr %4736, i64 304
   store ptr %4760, ptr %4761, align 8
-  %4762 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 0, i32 4), align 8
+  %4762 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 32), align 8
   %4763 = getelementptr inbounds i8, ptr %4736, i64 312
   store i32 %4762, ptr %4763, align 8
-  %4764 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 25), align 8
+  %4764 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 144), align 8
   %4765 = getelementptr inbounds i8, ptr %4736, i64 40
   store i32 %4764, ptr %4765, align 8
   %4766 = getelementptr inbounds i8, ptr %4736, i64 88
-  %4767 = load <2 x i8>, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 2), align 4
+  %4767 = load <2 x i8>, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
   %.mask = and <2 x i8> %4767, <i8 1, i8 1>
   %4768 = zext nneg <2 x i8> %.mask to <2 x i32>
   %4769 = shufflevector <2 x i32> %4768, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %4769, ptr %4766, align 8
-  %4770 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 10), align 4
+  %4770 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 84), align 4
   %4771 = getelementptr inbounds i8, ptr %4736, i64 56
   store i32 %4770, ptr %4771, align 8
-  %4772 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 9), align 8
+  %4772 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 80), align 8
   %4773 = getelementptr inbounds i8, ptr %4736, i64 52
   store i32 %4772, ptr %4773, align 4
-  %4774 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 4), align 8
+  %4774 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 56), align 8
   %4775 = getelementptr inbounds i8, ptr %4736, i64 96
   store i32 %4774, ptr %4775, align 8
-  %4776 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 5), align 4
+  %4776 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 60), align 4
   %4777 = and i8 %4776, 1
   %4778 = zext nneg i8 %4777 to i32
   %4779 = getelementptr inbounds i8, ptr %4736, i64 104
   store i32 %4778, ptr %4779, align 8
-  %4780 = load ptr, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 30), align 8
+  %4780 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 160), align 8
   %4781 = getelementptr inbounds i8, ptr %4736, i64 24
   store ptr %4780, ptr %4781, align 8
-  %4782 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 26), align 4
+  %4782 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 148), align 4
   store i32 %4782, ptr %4736, align 8
-  %4783 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 29), align 4
+  %4783 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 156), align 4
   %4784 = getelementptr inbounds i8, ptr %4736, i64 4
   store i32 %4783, ptr %4784, align 4
-  %4785 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 19), align 8
+  %4785 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 120), align 8
   %4786 = getelementptr inbounds i8, ptr %4736, i64 8
   store i32 %4785, ptr %4786, align 8
-  %4787 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 20), align 4
+  %4787 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 124), align 4
   %4788 = getelementptr inbounds i8, ptr %4736, i64 12
   store i32 %4787, ptr %4788, align 4
-  %4789 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 18), align 4
+  %4789 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 116), align 4
   %4790 = getelementptr inbounds i8, ptr %4736, i64 16
   store i32 %4789, ptr %4790, align 8
-  %4791 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 21), align 8
+  %4791 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 128), align 8
   %4792 = getelementptr inbounds i8, ptr %4736, i64 20
   store i32 %4791, ptr %4792, align 4
-  %4793 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 8), align 4
+  %4793 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 76), align 4
   %4794 = getelementptr inbounds i8, ptr %4736, i64 44
   store i32 %4793, ptr %4794, align 4
-  %4795 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 7), align 8
+  %4795 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
   %4796 = getelementptr inbounds i8, ptr %4736, i64 48
   store i32 %4795, ptr %4796, align 8
-  %4797 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 11), align 8
+  %4797 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 88), align 8
   %4798 = getelementptr inbounds i8, ptr %4736, i64 60
   store i32 %4797, ptr %4798, align 4
-  %4799 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 13), align 8
+  %4799 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 96), align 8
   %4800 = getelementptr inbounds i8, ptr %4736, i64 64
   store i32 %4799, ptr %4800, align 8
-  %4801 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 12), align 4
+  %4801 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 92), align 4
   %4802 = getelementptr inbounds i8, ptr %4736, i64 68
   store i32 %4801, ptr %4802, align 4
-  %4803 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 14), align 4
+  %4803 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 100), align 4
   %4804 = getelementptr inbounds i8, ptr %4736, i64 72
   store i32 %4803, ptr %4804, align 8
-  %4805 = load ptr, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 6), align 8
+  %4805 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 64), align 8
   %4806 = getelementptr inbounds i8, ptr %4736, i64 112
   store ptr %4805, ptr %4806, align 8
-  %4807 = load i8, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 24), align 4
+  %4807 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
   %4808 = and i8 %4807, 1
   %4809 = zext nneg i8 %4808 to i32
   %4810 = getelementptr inbounds i8, ptr %4736, i64 120
   store i32 %4809, ptr %4810, align 8
-  %4811 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 22), align 4
+  %4811 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 132), align 4
   %4812 = getelementptr inbounds i8, ptr %4736, i64 384
   store i32 %4811, ptr %4812, align 8
-  %4813 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 31), align 8
+  %4813 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 168), align 8
   %4814 = getelementptr inbounds i8, ptr %4736, i64 388
   store i32 %4813, ptr %4814, align 4
-  %4815 = load i32, ptr getelementptr inbounds (%struct._dumpOptions, ptr @main.dopt, i64 0, i32 1), align 8
+  %4815 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 48), align 8
   %4816 = getelementptr inbounds i8, ptr %4736, i64 392
   store i32 %4815, ptr %4816, align 8
   %4817 = getelementptr inbounds i8, ptr %4736, i64 336

@@ -147,7 +147,7 @@ define void @_ZNK5ZXing4OneD12Code39Writer6encodeERKNSt7__cxx1112basic_stringIwS
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %57
   %61 = icmp eq i32 %37, 0
-  %spec.select.i.i = select i1 %61, ptr getelementptr inbounds ([45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 44), ptr getelementptr inbounds ([45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 1, i64 0)
+  %spec.select.i.i = select i1 %61, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 44), ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 45)
   br label %.loopexit84
 
 .loopexit84.loopexit.split.loop.exit:             ; preds = %52
@@ -164,7 +164,7 @@ define void @_ZNK5ZXing4OneD12Code39Writer6encodeERKNSt7__cxx1112basic_stringIwS
 
 .loopexit84:                                      ; preds = %38, %.loopexit84.loopexit.split.loop.exit, %.loopexit84.loopexit.split.loop.exit111, %.loopexit84.loopexit.split.loop.exit113, %._crit_edge._crit_edge52.i.i.i.i.i
   %.028.i.i.i.i.i = phi ptr [ %spec.select.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %62, %.loopexit84.loopexit.split.loop.exit ], [ %63, %.loopexit84.loopexit.split.loop.exit111 ], [ %64, %.loopexit84.loopexit.split.loop.exit113 ], [ %.02946.i.i.i.i.i, %38 ]
-  %65 = icmp eq ptr %.028.i.i.i.i.i, getelementptr inbounds ([45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 1, i64 0)
+  %65 = icmp eq ptr %.028.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 45)
   %66 = ptrtoint ptr %.028.i.i.i.i.i to i64
   %67 = trunc i64 %66 to i32
   %68 = sub i32 %67, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)

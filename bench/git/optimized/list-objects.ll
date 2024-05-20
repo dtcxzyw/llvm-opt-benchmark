@@ -792,9 +792,9 @@ if.end68:                                         ; preds = %strbuf_addch.exit, 
   br i1 %tobool70.not, label %if.else, label %do.body
 
 do.body:                                          ; preds = %if.end68
-  %27 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i53 = icmp eq i32 %27, 0
-  %bf.load.i54 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i54 = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i54, 1
   %tobool73.not74 = icmp ne i8 %bf.clear.i, 0
   %tobool73.not = select i1 %tobool.not.i53, i1 %tobool73.not74, i1 false

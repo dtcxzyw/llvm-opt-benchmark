@@ -2381,7 +2381,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc23 unwind label %lpad99
 
 .noexc23:                                         ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %head, ptr noundef nonnull @.str.225, ptr noundef nonnull getelementptr inbounds ([230 x i8], ptr @.str.225, i64 0, i64 229))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %head, ptr noundef nonnull @.str.225, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.225, i64 229))
           to label %invoke.cont100 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc23
@@ -2401,7 +2401,7 @@ call.i.noexc29:                                   ; preds = %invoke.cont100
           to label %.noexc31 unwind label %lpad102
 
 .noexc31:                                         ; preds = %call.i.noexc29
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %foot, ptr noundef nonnull @.str.226, ptr noundef nonnull getelementptr inbounds ([45 x i8], ptr @.str.226, i64 0, i64 44))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %foot, ptr noundef nonnull @.str.226, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.226, i64 44))
           to label %invoke.cont103 unwind label %lpad.i28
 
 lpad.i28:                                         ; preds = %.noexc31
@@ -11641,7 +11641,7 @@ _ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEcvNSt7__cxx1112b
 
 invoke.cont:                                      ; preds = %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEcvNSt7__cxx1112basic_stringIcS2_SaIcEEEEv.exit
   %1 = load ptr, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !noalias !207
-  %2 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !207
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !207
   %tobool.not2.i.i.i.i = icmp eq i64 %2, 0
   br i1 %tobool.not2.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE11lower_boundERKS9_.exit.i.i, label %while.body.i.i.i.i
 
@@ -11672,7 +11672,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE11lower_boundERKS9_.exit.loopexit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %.pre.i.i = load ptr, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !noalias !207
-  %.pre1.i.i = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !207
+  %.pre1.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !207
   br label %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE11lower_boundERKS9_.exit.i.i
 
 _ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE11lower_boundERKS9_.exit.i.i: ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE11lower_boundERKS9_.exit.loopexit.i.i, %invoke.cont
@@ -11698,7 +11698,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %spec.select.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i4.i.i, ptr %first.val.i.i.i.i
   %.pre = load ptr, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !noalias !219
-  %.pre1 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !219
+  %.pre1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !219
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE11lower_boundERKS9_.exit.i.i
@@ -12464,7 +12464,7 @@ invoke.cont:                                      ; preds = %if.end.i
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp6.i.i)
   %3 = load ptr, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !noalias !207
-  %4 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !207
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !207
   %tobool.not2.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not2.i.i.i.i.i, label %_ZN5boost9container8flat_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagESt4lessIS7_EvE11lower_boundERKS7_.exit.i.i, label %while.body.i.i.i.i.i
 
@@ -12495,7 +12495,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZN5boost9container8flat_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagESt4lessIS7_EvE11lower_boundERKS7_.exit.loopexit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i
   %.pre.i.i = load ptr, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !noalias !258
-  %.pre1.i.i = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !258
+  %.pre1.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !258
   br label %_ZN5boost9container8flat_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagESt4lessIS7_EvE11lower_boundERKS7_.exit.i.i
 
 _ZN5boost9container8flat_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagESt4lessIS7_EvE11lower_boundERKS7_.exit.i.i: ; preds = %_ZN5boost9container8flat_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagESt4lessIS7_EvE11lower_boundERKS7_.exit.loopexit.i.i, %invoke.cont4
@@ -12528,7 +12528,7 @@ if.then.i.i:                                      ; preds = %_ZNKSt4lessINSt7__c
 .noexc6:                                          ; preds = %if.then.i.i
   store ptr null, ptr %second.i.i.i, align 8
   %11 = load ptr, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !noalias !265
-  %12 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !270
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !270
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %11, i64 %12
   %cmp.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i, %first.val6.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %lor.rhs.i.i.i.i.i
@@ -12697,8 +12697,8 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_
 
 cond.true.i.i.i.i:                                ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE26priv_insert_unique_prepareENS0_12vec_iteratorIPSF_Lb1EEERKS9_RNSM_18insert_commit_dataE.exit.i.i.i.i, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE16priv_lower_boundINS0_12vec_iteratorIPSF_Lb1EEES9_EET_SR_SR_RKT0_.exit.i53.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE16priv_lower_boundINS0_12vec_iteratorIPSF_Lb1EEES9_EET_SR_SR_RKT0_.exit.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit24.i.i.i.i.i, %if.then.i.i.i.i.i
   %data.sroa.0.03.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i50.i.i.i.i.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE26priv_insert_unique_prepareENS0_12vec_iteratorIPSF_Lb1EEERKS9_RNSM_18insert_commit_dataE.exit.i.i.i.i ], [ %first.val.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i ], [ %agg.tmp.sroa.0.1.i50.i.i.i.i.i, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE16priv_lower_boundINS0_12vec_iteratorIPSF_Lb1EEES9_EET_SR_SR_RKT0_.exit.i53.i.i.i.i.i ], [ %first.val.i.i.i.i.i.i.i, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS1_9select1stIS9_EESt4lessIS9_ENS0_13new_allocatorISF_EEE16priv_lower_boundINS0_12vec_iteratorIPSF_Lb1EEES9_EET_SR_SR_RKT0_.exit.i.i.i.i.i.i ], [ %first.val6.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit24.i.i.i.i.i ], [ %first.val6.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %28 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8, !noalias !288
-  %29 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !288
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 16), align 8, !noalias !288
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !288
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq i64 %28, %29
   %30 = load ptr, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !noalias !288
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
@@ -12772,7 +12772,7 @@ invoke.cont16.i.i.i.i.i.i.i.i.i.i:                ; preds = %invoke.cont2.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container6vectorINS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS0_13new_allocatorISF_EEvE37priv_forward_range_insert_no_capacityINS2_17insert_move_proxyISH_PSF_EEEENS0_12vec_iteratorISL_Lb0EEERKSL_mT_NS_11move_detail17integral_constantIjLj1EEE.exit.i.i.i.i.i.i.i.i, label %if.then23.i.i.i.i.i.i.i.i.i.i
 
 if.then23.i.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont16.i.i.i.i.i.i.i.i.i.i
-  %35 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !297
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !297
   %add.ptr27.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T.val14.i.i.i.i.i.i.i.i.i.i, i64 %35
   %cmp.not4.i26.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr27.i.i.i.i.i.i.i.i.i.i, %data.sroa.0.03.i.i.i.i
   br i1 %cmp.not4.i26.i.i.i.i.i.i.i.i.i.i, label %invoke.cont28.i.i.i.i.i.i.i.i.i.i, label %invoke.cont2.i27.i.i.i.i.i.i.i.i.i.i
@@ -12791,7 +12791,7 @@ invoke.cont2.i27.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then23.i.i.i.i.i
   br i1 %cmp.not.i34.i.i.i.i.i.i.i.i.i.i, label %invoke.cont28thread-pre-split.i.i.i.i.i.i.i.i.i.i, label %invoke.cont2.i27.i.i.i.i.i.i.i.i.i.i, !llvm.loop !300
 
 invoke.cont28thread-pre-split.i.i.i.i.i.i.i.i.i.i: ; preds = %invoke.cont2.i27.i.i.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !297
+  %.pr.i.i.i.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !297
   br label %invoke.cont28.i.i.i.i.i.i.i.i.i.i
 
 invoke.cont28.i.i.i.i.i.i.i.i.i.i:                ; preds = %invoke.cont28thread-pre-split.i.i.i.i.i.i.i.i.i.i, %if.then23.i.i.i.i.i.i.i.i.i.i
@@ -12824,8 +12824,8 @@ _ZN5boost9container6vectorINS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_tra
   %sub.ptr.rhs.cast43.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i.i.i.i.i13.i.i to i64
   %sub.ptr.sub44.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast42.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast43.i.i.i.i.i.i.i.i.i.i
   %sub.ptr.div45.i.i.i.i.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub44.i.i.i.i.i.i.i.i.i.i, 40
-  store i64 %sub.ptr.div45.i.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !297
-  store i64 %32, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8, !noalias !297
+  store i64 %sub.ptr.div45.i.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !297
+  store i64 %32, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 16), align 8, !noalias !297
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i13.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   br label %invoke.cont.i.i
 
@@ -12842,9 +12842,9 @@ if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i5.i.i.i.i.i.i.i.i, i64 32
   %38 = load ptr, ptr %second.i.i.i, align 8, !noalias !288
   store ptr %38, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !288
-  %39 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !288
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !288
   %add.i.i.i.i.i.i.i.i.i = add i64 %39, 1
-  store i64 %add.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !288
+  store i64 %add.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !288
   br label %_ZN5boost9container6vectorINS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEENS0_13new_allocatorISF_EEvE40priv_forward_range_insert_expand_forwardINS2_17insert_move_proxyISH_PSF_EEEEvSL_mT_.exit.i.i.i.i.i.i.i.i
 
 if.then6.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i.i.i
@@ -12854,9 +12854,9 @@ if.then6.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
   %second3.i.i.i.i32.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i5.i.i.i.i.i.i.i.i, i64 -8
   %40 = load ptr, ptr %second3.i.i.i.i32.i.i.i.i.i.i.i.i.i, align 8, !noalias !288
   store ptr %40, ptr %second.i.i.i.i31.i.i.i.i.i.i.i.i.i, align 8, !noalias !288
-  %41 = load i64, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !288
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !288
   %add12.i.i.i.i.i.i.i.i.i = add i64 %41, 1
-  store i64 %add12.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtagMap", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !288
+  store i64 %add12.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !noalias !288
   %cmp.not5.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i6.i.i.i.i.i.i.i.i, %data.sroa.0.03.i.i.i.i
   br i1 %cmp.not5.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container13move_backwardIPNS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagEEESG_EENS2_38disable_if_memtransfer_copy_assignableIT_T0_SJ_E4typeESI_SI_SJ_.exit.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i
 
@@ -13225,7 +13225,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -13530,7 +13530,7 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE.exit
 if.then36:                                        ; preds = %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE.exit228
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.246)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
@@ -13648,7 +13648,7 @@ sw.bb2.i:                                         ; preds = %if.then56
 
 do.body.i233:                                     ; preds = %sw.bb2.i
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i, align 8
   %call4.i234 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i) #23
   br label %_ZN3fmt2v86detail24printf_precision_handlerclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEiS5_.exit
@@ -13667,7 +13667,7 @@ sw.bb5.i:                                         ; preds = %if.then56
 
 do.body.i238:                                     ; preds = %sw.bb5.i
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i237, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i237, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i237, align 8
   %call4.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i237) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i237) #23
   br label %_ZN3fmt2v86detail24printf_precision_handlerclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEiS5_.exit
@@ -13686,7 +13686,7 @@ sw.bb8.i:                                         ; preds = %if.then56
 
 do.body.i243:                                     ; preds = %sw.bb8.i
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i241, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i241, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i241, align 8
   %call4.i244 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i241) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i241) #23
   br label %_ZN3fmt2v86detail24printf_precision_handlerclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEiS5_.exit
@@ -13700,7 +13700,7 @@ _ZN3fmt2v86detail24printf_precision_handlerclIyTnNSt9enable_ifIXsr3std11is_integ
 sw.bb11.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i248)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i248, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i248, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i248, align 8
   %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i248) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i248) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i248)
@@ -13709,7 +13709,7 @@ sw.bb11.i:                                        ; preds = %if.then56
 sw.bb17.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i251)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i251, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i251, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i251, align 8
   %call.i252 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i251) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i251) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i251)
@@ -13730,7 +13730,7 @@ sw.bb27.i:                                        ; preds = %if.then56
 sw.bb30.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i257)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i257, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i257, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i257, align 8
   %call.i258 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i257) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i257) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i257)
@@ -13739,7 +13739,7 @@ sw.bb30.i:                                        ; preds = %if.then56
 sw.bb33.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i259)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i259, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i259, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i259, align 8
   %call.i260 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i259) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i259) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i259)
@@ -13748,7 +13748,7 @@ sw.bb33.i:                                        ; preds = %if.then56
 sw.bb36.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i261)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i261, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i261, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i261, align 8
   %call.i262 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i261) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i261) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i261)
@@ -13757,7 +13757,7 @@ sw.bb36.i:                                        ; preds = %if.then56
 sw.bb39.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i263)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i263, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i263, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i263, align 8
   %call.i264 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i263) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i263) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i263)
@@ -13766,7 +13766,7 @@ sw.bb39.i:                                        ; preds = %if.then56
 sw.bb42.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i266)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i266, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i266, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i266, align 8
   %call.i267 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i266) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i266) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i266)
@@ -13775,7 +13775,7 @@ sw.bb42.i:                                        ; preds = %if.then56
 sw.bb47.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i268)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i268, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i268, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i268, align 8
   %call.i270 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i268) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i268) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i268)
@@ -13784,7 +13784,7 @@ sw.bb47.i:                                        ; preds = %if.then56
 sw.bb50.i:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i271)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i271, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i271, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i271, align 8
   %call.i272 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i271) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i271) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i271)
@@ -13793,7 +13793,7 @@ sw.bb50.i:                                        ; preds = %if.then56
 sw.epilog.i:                                      ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i273)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i273, ptr noundef nonnull @.str.252)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3.i273, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3.i273, align 8
   %call.i274 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i273) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i273) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i273)
@@ -14623,7 +14623,7 @@ sw.epilog:                                        ; preds = %_ZN3fmt2v816visit_f
 
 do.body:                                          ; preds = %sw.epilog
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp184, ptr noundef nonnull @.str.247)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp184, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp184, align 8
   %call185 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp184) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp184) #23
   %.pre649 = load ptr, ptr %it, align 8
@@ -14708,7 +14708,7 @@ if.end195:                                        ; preds = %sw.bb192, %if.then1
 if.then200:                                       ; preds = %if.end195
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i440)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i440, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i440, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i440, align 8
   %call.i.i.i441 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i440) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i440) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i440)
@@ -14958,7 +14958,7 @@ sw.bb65.i:                                        ; preds = %if.end201
 if.then.i.i.i563:                                 ; preds = %sw.bb65.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i, align 8
   %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
@@ -15236,7 +15236,7 @@ if.end.if.end24_crit_edge:                        ; preds = %if.end
 
 do.body:                                          ; preds = %if.end
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp19, align 8
   %call20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19) #23
   br label %if.end21
@@ -15380,7 +15380,7 @@ _ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit96: ; preds = %do.end
 
 do.body38:                                        ; preds = %_ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit96.thread, %_ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit96
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp41, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp41, align 8
   %call42 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp41) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp41) #23
   br label %return
@@ -15545,7 +15545,7 @@ if.else:                                          ; preds = %entry
 if.then.i7:                                       ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i3, ptr noundef nonnull @.str.254)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i3, align 8
   %call.i.i.i.i8 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i3) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i3)
@@ -15572,7 +15572,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 if.end.thread:                                    ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.253)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
@@ -15636,7 +15636,7 @@ _ZNK3fmt2v820basic_printf_contextINS0_8appenderEcE3argEi.exit.i: ; preds = %if.t
 if.then.i10:                                      ; preds = %_ZNK3fmt2v820basic_printf_contextINS0_8appenderEcE3argEi.exit.i, %if.end7.i.i.i, %if.end4.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i9), !noalias !319
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i9, ptr noundef nonnull @.str.246), !noalias !319
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i.i9, align 8, !noalias !319
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i9, align 8, !noalias !319
   %call.i.i.i.i11 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i9) #23, !noalias !319
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i9) #23, !noalias !319
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i9), !noalias !319
@@ -15999,7 +15999,7 @@ if.end:                                           ; preds = %entry
 
 do.body:                                          ; preds = %if.end
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp5, align 8
   %call6 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   br label %if.end7
@@ -16018,7 +16018,7 @@ if.end:
 
 do.body:                                          ; preds = %if.end
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp5, align 8
   %call6 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   br label %if.end7
@@ -16051,7 +16051,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 do.body:                                          ; preds = %if.end
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp5, align 8
   %call6 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   br label %if.end7
@@ -16070,7 +16070,7 @@ if.end:
 
 do.body:                                          ; preds = %if.end
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp5, align 8
   %call6 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   br label %if.end7
@@ -16085,7 +16085,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16096,7 +16096,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16127,7 +16127,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 do.body:                                          ; preds = %if.end
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp5, align 8
   %call6 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #23
   br label %if.end7
@@ -16141,7 +16141,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16152,7 +16152,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16163,7 +16163,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16174,7 +16174,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16185,7 +16185,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16196,7 +16196,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16207,7 +16207,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16218,7 +16218,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerI
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.251)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp3, align 8
   %call = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #23
   ret i32 0
@@ -16311,7 +16311,7 @@ if.end22:                                         ; preds = %if.end, %if.then17
 if.then.i.i18:                                    ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
@@ -16325,7 +16325,7 @@ if.end.i:                                         ; preds = %if.end22, %if.end22
 if.then14.i:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.262)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
   %call.i.i.i17 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
@@ -16395,7 +16395,7 @@ cond.true:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %cond.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
@@ -17388,7 +17388,7 @@ sw.bb81.i:                                        ; preds = %entry
 sw.default.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
   %call.i350 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -17948,7 +17948,7 @@ invoke.cont5:
   %ptr_.i.i = getelementptr inbounds i8, ptr %separators, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %separators, i64 24
   %0 = getelementptr inbounds i8, ptr %separators, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i64 0, i32 0, i64 2), ptr %separators, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i64 16), ptr %separators, align 8
   %store_.i = getelementptr inbounds i8, ptr %separators, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
@@ -21148,7 +21148,7 @@ sw.bb80.i:                                        ; preds = %entry
 sw.default.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
   %call.i362 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -23869,7 +23869,7 @@ sw.bb84.i:                                        ; preds = %entry
 sw.default.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
   %call.i369 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -26488,7 +26488,7 @@ if.end76:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i10 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i10, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #23
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -26589,7 +26589,7 @@ if.then128:                                       ; preds = %if.then125
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %lpad94
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %if.then128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
   %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -26725,7 +26725,7 @@ sw.bb76:                                          ; preds = %sw.bb71, %entry
 sw.default:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
   %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
@@ -27206,7 +27206,7 @@ if.then.i:                                        ; preds = %_ZN3fmt2v86detail9n
 
 if.then21.i:                                      ; preds = %if.then.i
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i, ptr noundef nonnull @.str.250)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp24.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp24.i, align 8
   %call25.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i) #23
   br label %if.end.i
@@ -29690,7 +29690,7 @@ invoke.cont4:
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %numerator, i64 24
   %0 = getelementptr inbounds i8, ptr %numerator, i64 16
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %numerator, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %numerator, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %numerator, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -29700,7 +29700,7 @@ invoke.cont4:
   %capacity_.i.i.i69 = getelementptr inbounds i8, ptr %denominator, i64 24
   %1 = getelementptr inbounds i8, ptr %denominator, i64 16
   store i64 0, ptr %1, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %denominator, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %denominator, align 8
   %store_.i.i70 = getelementptr inbounds i8, ptr %denominator, i64 32
   store ptr %store_.i.i70, ptr %ptr_.i.i.i68, align 8
   store i64 32, ptr %capacity_.i.i.i69, align 8
@@ -29710,7 +29710,7 @@ invoke.cont4:
   %capacity_.i.i.i73 = getelementptr inbounds i8, ptr %lower, i64 24
   %2 = getelementptr inbounds i8, ptr %lower, i64 16
   store i64 0, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %lower, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %lower, align 8
   %store_.i.i74 = getelementptr inbounds i8, ptr %lower, i64 32
   store ptr %store_.i.i74, ptr %ptr_.i.i.i72, align 8
   store i64 32, ptr %capacity_.i.i.i73, align 8
@@ -29720,7 +29720,7 @@ invoke.cont4:
   %capacity_.i.i.i77 = getelementptr inbounds i8, ptr %upper_store, i64 24
   %3 = getelementptr inbounds i8, ptr %upper_store, i64 16
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %upper_store, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %upper_store, align 8
   %store_.i.i78 = getelementptr inbounds i8, ptr %upper_store, i64 32
   store ptr %store_.i.i78, ptr %ptr_.i.i.i76, align 8
   store i64 32, ptr %capacity_.i.i.i77, align 8
@@ -32032,7 +32032,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds i8, ptr %n, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %n, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %n, align 8
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_.i.i.i, align 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -33922,7 +33922,7 @@ invoke.cont17:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #23
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -34424,7 +34424,7 @@ invoke.cont9:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -35106,7 +35106,7 @@ if.end76:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i10 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i10, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #23
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -35206,7 +35206,7 @@ if.then127:                                       ; preds = %if.then124
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %lpad95
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %if.then127
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
   %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -35394,7 +35394,7 @@ if.end76:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i10 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i10, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #23
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -35494,7 +35494,7 @@ if.then127:                                       ; preds = %if.then124
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %lpad95
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %if.then127
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
   %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -36046,7 +36046,7 @@ entry:
 if.then3.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
@@ -36067,7 +36067,7 @@ cond.true:                                        ; preds = %_ZN3fmt2v86detail23
 if.then.i.i:                                      ; preds = %cond.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.248)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i64 0, i32 0, i64 2), ptr %ref.tmp2.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #23
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
@@ -37188,708 +37188,708 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   store i32 0, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 3), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 32), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN18OpenImageIO_v2_6_04pugi14xpath_node_setD2Ev, ptr nonnull @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, ptr nonnull @__dso_handle) #23
   store ptr @.str, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, align 16
-  store ptr @.str.3, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 0, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 0, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 0, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 0, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 1), align 16
-  store ptr @.str.5, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 1, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 1, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 1, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 1, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.6, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 2), align 16
-  store ptr @.str.7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 2, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 2, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 2, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 2, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.8, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 3), align 16
-  store ptr @.str.9, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 3, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 3, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 3, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 3, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.10, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 4), align 16
-  store ptr @.str.11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 4, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 4, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 4, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 4, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.12, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 5), align 16
-  store ptr @.str.13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 5, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 5, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 5, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 5, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.14, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 6), align 16
-  store ptr @.str.15, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 6, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 6, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 6, i32 2, i32 4), align 4
-  store i32 6, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 6, i32 3), align 8
-  store ptr @.str.16, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 7), align 16
-  store ptr @.str.17, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 7, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 7, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 7, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 7, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.18, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 8), align 16
-  store ptr @.str.19, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 8, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 8, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 8, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 8, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.20, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 9), align 16
-  store ptr @.str.21, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 9, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 9, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 9, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 9, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.22, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 10), align 16
-  store ptr @.str.23, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 10, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 10, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 10, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 10, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.24, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 11), align 16
-  store ptr @.str.25, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 11, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 11, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 11, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 11, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.26, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 12), align 16
-  store ptr @.str.27, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 12, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 12, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 12, i32 2, i32 4), align 4
-  store i32 48, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 12, i32 3), align 8
-  store ptr @.str.28, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 13), align 16
-  store ptr @.str.29, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 13, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 13, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 13, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 13, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.30, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 14), align 16
-  store ptr @.str.30, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 14, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 14, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 14, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 14, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.31, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 15), align 16
-  store ptr @.str.31, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 15, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 15, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 15, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 15, i32 3), align 8
-  store ptr @.str.32, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 16), align 16
-  store ptr @.str.32, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 16, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 16, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 16, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 16, i32 3), align 8
-  store ptr @.str.33, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 17), align 16
-  store ptr @.str.33, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 17, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 17, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 17, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 17, i32 3), align 8
-  store ptr @.str.34, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 18), align 16
-  store ptr @.str.34, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 18, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 18, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 18, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 18, i32 3), align 8
-  store ptr @.str.35, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 19), align 16
-  store ptr @.str.36, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 19, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 19, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 19, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 19, i32 3), align 8
-  store ptr @.str.37, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 20), align 16
-  store ptr @.str.38, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 20, i32 1), align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 20, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 20, i32 2, i32 4), align 4
-  store i32 5, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 20, i32 3), align 8
-  store ptr @.str.39, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 21), align 16
-  store ptr @.str.40, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 21, i32 1), align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 21, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 21, i32 2, i32 4), align 4
-  store i32 5, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 21, i32 3), align 8
-  store ptr @.str.41, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 22), align 16
-  store ptr @.str.42, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 22, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 22, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 22, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 22, i32 3), align 8
-  store ptr @.str.43, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 23), align 16
-  store ptr @.str.44, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 23, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 23, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 23, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 23, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.45, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 24), align 16
-  store ptr @.str.46, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 24, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 24, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 24, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 24, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.47, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 25), align 16
-  store ptr @.str.15, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 25, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 25, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 25, i32 2, i32 4), align 4
-  store i32 2, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 25, i32 3), align 8
-  store ptr @.str.48, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 26), align 16
-  store ptr @.str.49, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 26, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 26, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 26, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 26, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.50, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 27), align 16
-  store ptr @.str.51, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 27, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 27, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 27, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 27, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.52, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 28), align 16
-  store ptr @.str.53, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 28, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 28, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 28, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 28, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.54, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 29), align 16
-  store ptr @.str.55, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 29, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 29, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 29, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 29, i32 3), align 8
-  store ptr @.str.56, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 30), align 16
-  store ptr @.str.57, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 30, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 30, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 30, i32 2, i32 4), align 4
-  store i32 8, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 30, i32 3), align 8
-  store ptr @.str.58, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 31), align 16
-  store ptr @.str.59, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 31, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 31, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 31, i32 2, i32 4), align 4
-  store i32 12, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 31, i32 3), align 8
-  store ptr @.str.60, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 32), align 16
-  store ptr @.str.59, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 32, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 32, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 32, i32 2, i32 4), align 4
-  store i32 12, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 32, i32 3), align 8
-  store ptr @.str.61, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 33), align 16
-  store ptr @.str.62, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 33, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 33, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 33, i32 2, i32 4), align 4
-  store i32 8, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 33, i32 3), align 8
-  store ptr @.str.63, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 34), align 16
-  store ptr @.str.15, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 34, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 34, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 34, i32 2, i32 4), align 4
-  store i32 6, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 34, i32 3), align 8
-  store ptr @.str.64, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 35), align 16
-  store ptr @.str.55, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 35, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 35, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 35, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 35, i32 3), align 8
-  store ptr @.str.65, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 36), align 16
-  store ptr @.str.66, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 36, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 36, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 36, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 36, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.67, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 37), align 16
-  store ptr @.str.68, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 37, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 37, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 37, i32 2, i32 4), align 4
-  store i32 2, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 37, i32 3), align 8
-  store ptr @.str.69, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 38), align 16
-  store ptr @.str.70, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 38, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 38, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 38, i32 2, i32 4), align 4
-  store i32 2, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 38, i32 3), align 8
-  store ptr @.str.71, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 39), align 16
-  store ptr @.str.72, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 39, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 39, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 39, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 39, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.73, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 40), align 16
-  store ptr @.str.74, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 40, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 40, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 40, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 40, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.75, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 41), align 16
-  store ptr @.str.19, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 41, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 41, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 41, i32 2, i32 4), align 4
-  store i32 80, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 41, i32 3), align 8
-  store ptr @.str.76, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 42), align 16
-  store ptr @.str.77, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 42, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 42, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 42, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 42, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.78, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 43), align 16
-  store ptr @.str.79, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 43, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 43, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 43, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 43, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.80, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 44), align 16
-  store ptr @.str.81, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 44, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 44, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 44, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 44, i32 3), align 8
-  store ptr @.str.82, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 45), align 16
-  store ptr @.str.83, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 45, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 45, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 45, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 45, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.84, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 46), align 16
-  store ptr @.str.85, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 46, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 46, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 46, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 46, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.86, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 47), align 16
-  store ptr @.str.59, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 47, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 47, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 47, i32 2, i32 4), align 4
-  store i32 20, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 47, i32 3), align 8
-  store ptr @.str.87, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 48), align 16
-  store ptr @.str.49, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 48, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 48, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 48, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 48, i32 3), align 8
-  store ptr @.str.88, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 49), align 16
-  store ptr @.str.44, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 49, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 49, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 49, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 49, i32 3), align 8
-  store ptr @.str.89, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 50), align 16
-  store ptr @.str.46, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 50, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 50, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 50, i32 2, i32 4), align 4
-  store i32 4, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 50, i32 3), align 8
-  store ptr @.str.90, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 51), align 16
-  store ptr @.str.91, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 51, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 51, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 51, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 51, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.92, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 52), align 16
-  store ptr @.str.93, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 52, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 52, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 52, i32 2, i32 4), align 4
-  store i32 32, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 52, i32 3), align 8
-  store ptr @.str.94, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 53), align 16
-  store ptr @.str.93, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 53, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 53, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 53, i32 2, i32 4), align 4
-  store i32 32, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 53, i32 3), align 8
-  store ptr @.str.95, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 54), align 16
-  store ptr @.str.96, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 54, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 54, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 54, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 54, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.97, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 55), align 16
-  store ptr @.str.98, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 55, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 55, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 55, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 55, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.99, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 56), align 16
-  store ptr @.str.100, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 56, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 56, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 56, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 56, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.101, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 57), align 16
-  store ptr @.str.102, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 57, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 57, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 57, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 57, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.103, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 58), align 16
-  store ptr @.str.104, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 58, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 58, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 58, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 58, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.105, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 59), align 16
-  store ptr @.str.106, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 59, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 59, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 59, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 59, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.107, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 60), align 16
-  store ptr @.str.108, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 60, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 60, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 60, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 60, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.109, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 61), align 16
-  store ptr @.str.110, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 61, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 61, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 61, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 61, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.111, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 62), align 16
-  store ptr @.str.112, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 62, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 62, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 62, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 62, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.113, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 63), align 16
-  store ptr @.str.114, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 63, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 63, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 63, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 63, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.115, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 64), align 16
-  store ptr @.str.116, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 64, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 64, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 64, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 64, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.117, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 65), align 16
-  store ptr @.str.118, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 65, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 65, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 65, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 65, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.119, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 66), align 16
-  store ptr @.str.120, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 66, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 66, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 66, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 66, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.121, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 67), align 16
-  store ptr @.str.122, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 67, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 67, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 67, i32 2, i32 4), align 4
-  store i32 32, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 67, i32 3), align 8
-  store ptr @.str.123, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 68), align 16
-  store ptr @.str.124, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 68, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 68, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 68, i32 2, i32 4), align 4
-  store i32 32, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 68, i32 3), align 8
-  store ptr @.str.125, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 69), align 16
-  store ptr @.str.126, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 69, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 69, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 69, i32 2, i32 4), align 4
-  store i32 32, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 69, i32 3), align 8
-  store ptr @.str.127, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 70), align 16
-  store ptr @.str.127, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 70, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 70, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 70, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 70, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 71), align 16
-  store ptr @.str.128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 71, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 71, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 71, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 71, i32 3), align 8
-  store ptr @.str.129, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 72), align 16
-  store ptr @.str.129, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 72, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 72, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 72, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 72, i32 3), align 8
-  store ptr @.str.130, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 73), align 16
-  store ptr @.str.130, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 73, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 73, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 73, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 73, i32 3), align 8
-  store ptr @.str.131, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 74), align 16
-  store ptr @.str.131, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 74, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 74, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 74, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 74, i32 3), align 8
-  store ptr @.str.132, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 75), align 16
-  store ptr @.str.132, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 75, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 75, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 75, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 75, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.133, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 76), align 16
-  store ptr @.str.133, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 76, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 76, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 76, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 76, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.134, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 77), align 16
-  store ptr @.str.134, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 77, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 77, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 77, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 77, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.135, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 78), align 16
-  store ptr @.str.135, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 78, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 78, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 78, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 78, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.136, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 79), align 16
-  store ptr @.str.136, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 79, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 79, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 79, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 79, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.137, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 80), align 16
-  store ptr @.str.137, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 80, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 80, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 80, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 80, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.138, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 81), align 16
-  store ptr @.str.138, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 81, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 81, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 81, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 81, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.139, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 82), align 16
-  store ptr @.str.139, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 82, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 82, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 82, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 82, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.140, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 83), align 16
-  store ptr @.str.140, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 83, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 83, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 83, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 83, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.141, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 84), align 16
-  store ptr @.str.141, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 84, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 84, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 84, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 84, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.142, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 85), align 16
-  store ptr @.str.142, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 85, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 85, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 85, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 85, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.143, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 86), align 16
-  store ptr @.str.143, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 86, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 86, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 86, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 86, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.144, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 87), align 16
-  store ptr @.str.144, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 87, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 87, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 87, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 87, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.145, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 88), align 16
-  store ptr @.str.145, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 88, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 88, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 88, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 88, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.146, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 89), align 16
-  store ptr @.str.146, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 89, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 89, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 89, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 89, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.147, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 90), align 16
-  store ptr @.str.147, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 90, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 90, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 90, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 90, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.148, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 91), align 16
-  store ptr @.str.148, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 91, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 91, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 91, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 91, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.149, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 92), align 16
-  store ptr @.str.149, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 92, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 92, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 92, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 92, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.150, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 93), align 16
-  store ptr @.str.150, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 93, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 93, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 93, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 93, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.151, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 94), align 16
-  store ptr @.str.151, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 94, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 94, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 94, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 94, i32 3), align 8
-  store ptr @.str.152, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 95), align 16
-  store ptr @.str.152, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 95, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 95, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 95, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 95, i32 3), align 8
-  store ptr @.str.153, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 96), align 16
-  store ptr @.str.153, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 96, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 96, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 96, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 96, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.154, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 97), align 16
-  store ptr @.str.154, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 97, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 97, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 97, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 97, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.155, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 98), align 16
-  store ptr @.str.155, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 98, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 98, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 98, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 98, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.156, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 99), align 16
-  store ptr @.str.156, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 99, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 99, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 99, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 99, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.157, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 100), align 16
-  store ptr @.str.157, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 100, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 100, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 100, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 100, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.158, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 101), align 16
-  store ptr @.str.158, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 101, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 101, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 101, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 101, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.159, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 102), align 16
-  store ptr @.str.159, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 102, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 102, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 102, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 102, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.160, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 103), align 16
-  store ptr @.str.160, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 103, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 103, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 103, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 103, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.161, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 104), align 16
-  store ptr @.str.161, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 104, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 104, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 104, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 104, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.162, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 105), align 16
-  store ptr @.str.162, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 105, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 105, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 105, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 105, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.163, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 106), align 16
-  store ptr @.str.163, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 106, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 106, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 106, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 106, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.164, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 107), align 16
-  store ptr @.str.164, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 107, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 107, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 107, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 107, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.165, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 108), align 16
-  store ptr @.str.165, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 108, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 108, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 108, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 108, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.166, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 109), align 16
-  store ptr @.str.166, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 109, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 109, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 109, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 109, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.167, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 110), align 16
-  store ptr @.str.167, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 110, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 110, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 110, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 110, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.168, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 111), align 16
-  store ptr @.str.168, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 111, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 111, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 111, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 111, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.169, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 112), align 16
-  store ptr @.str.169, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 112, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 112, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 112, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 112, i32 3), align 8
-  store ptr @.str.170, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 113), align 16
-  store ptr @.str.170, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 113, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 113, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 113, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 113, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.171, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 114), align 16
-  store ptr @.str.171, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 114, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 114, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 114, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 114, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.172, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 115), align 16
-  store ptr @.str.172, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 115, i32 1), align 8
-  store i8 13, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 115, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 115, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 115, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.173, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 116), align 16
-  store ptr @.str.173, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 116, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 116, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 116, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 116, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.174, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 117), align 16
-  store ptr @.str.174, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 117, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 117, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 117, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 117, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.175, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 118), align 16
-  store ptr @.str.175, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 118, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 118, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 118, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 118, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.176, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 119), align 16
-  store ptr @.str.176, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 119, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 119, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 119, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 119, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.177, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 120), align 16
-  store ptr @.str.177, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 120, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 120, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 120, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 120, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.178, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 121), align 16
-  store ptr @.str.178, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 121, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 121, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 121, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 121, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.179, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 122), align 16
-  store ptr @.str.179, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 122, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 122, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 122, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 122, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.180, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 123), align 16
-  store ptr @.str.180, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 123, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 123, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 123, i32 2, i32 4), align 4
-  store i32 2, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 123, i32 3), align 8
-  store ptr @.str.181, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 124), align 16
-  store ptr @.str.181, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 124, i32 1), align 8
-  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 124, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 124, i32 2, i32 4), align 4
-  store i32 2, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 124, i32 3), align 8
-  store ptr @.str.182, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 125), align 16
-  store ptr @.str.182, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 125, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 125, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 125, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 125, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.183, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 126), align 16
-  store ptr @.str.183, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 126, i32 1), align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 126, i32 2, i32 0), align 16
-  store i32 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 126, i32 2, i32 4), align 4
-  store i32 128, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 126, i32 3), align 8
-  store ptr @.str.184, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 127), align 16
-  store ptr @.str.184, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 127, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 127, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 127, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 127, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.185, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 128), align 16
-  store ptr @.str.185, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 128, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 128, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 128, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 128, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.186, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 129), align 16
-  store ptr @.str.186, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 129, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 129, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 129, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 129, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.187, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 130), align 16
-  store ptr @.str.187, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 130, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 130, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 130, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 130, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.188, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 131), align 16
-  store ptr @.str.188, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 131, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 131, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 131, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 131, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.189, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 132), align 16
-  store ptr @.str.189, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 132, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 132, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 132, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 132, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.190, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 133), align 16
-  store ptr @.str.190, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 133, i32 1), align 8
-  store i8 11, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 133, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 133, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 133, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.191, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 134), align 16
-  store ptr @.str.191, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 134, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 134, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 134, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 134, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.192, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 135), align 16
-  store ptr @.str.192, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 135, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 135, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 135, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 135, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.193, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 136), align 16
-  store ptr @.str.193, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 136, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 136, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 136, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 136, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.194, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 137), align 16
-  store ptr @.str.194, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 137, i32 1), align 8
-  store i8 7, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 137, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 137, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 137, i32 2, i32 2), i8 0, i64 10, i1 false)
-  store ptr @.str.195, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 138), align 16
-  store ptr @.str.59, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 138, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 138, i32 2, i32 0), align 16
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 138, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 138, i32 2, i32 2), i8 0, i64 10, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 139), i8 0, i64 17, i1 false)
-  store i8 1, ptr getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 139, i32 2, i32 1), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([140 x %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 0, i64 139, i32 2, i32 2), i8 0, i64 10, i1 false)
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 8), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 16), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 17), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 18), i8 0, i64 10, i1 false)
+  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 32), align 16
+  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 40), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 48), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 49), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 50), i8 0, i64 10, i1 false)
+  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 64), align 16
+  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 72), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 80), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 81), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 82), i8 0, i64 10, i1 false)
+  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 96), align 16
+  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 104), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 112), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 113), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 114), i8 0, i64 10, i1 false)
+  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 128), align 16
+  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 136), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 144), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 145), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 146), i8 0, i64 10, i1 false)
+  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 160), align 16
+  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 168), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 176), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 177), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 178), i8 0, i64 10, i1 false)
+  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 192), align 16
+  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 200), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 208), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 212), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 216), align 8
+  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 224), align 16
+  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 232), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 240), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 241), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 242), i8 0, i64 10, i1 false)
+  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 256), align 16
+  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 264), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 272), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 273), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 274), i8 0, i64 10, i1 false)
+  store ptr @.str.20, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 288), align 16
+  store ptr @.str.21, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 296), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 304), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 305), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 306), i8 0, i64 10, i1 false)
+  store ptr @.str.22, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 320), align 16
+  store ptr @.str.23, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 328), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 336), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 337), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 338), i8 0, i64 10, i1 false)
+  store ptr @.str.24, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 352), align 16
+  store ptr @.str.25, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 360), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 368), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 369), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 370), i8 0, i64 10, i1 false)
+  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 384), align 16
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 392), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 400), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 404), align 4
+  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 408), align 8
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 416), align 16
+  store ptr @.str.29, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 424), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 432), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 433), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 434), i8 0, i64 10, i1 false)
+  store ptr @.str.30, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 448), align 16
+  store ptr @.str.30, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 456), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 464), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 465), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 466), i8 0, i64 10, i1 false)
+  store ptr @.str.31, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 480), align 16
+  store ptr @.str.31, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 488), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 496), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 500), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 504), align 8
+  store ptr @.str.32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 512), align 16
+  store ptr @.str.32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 520), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 528), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 532), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 536), align 8
+  store ptr @.str.33, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 544), align 16
+  store ptr @.str.33, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 552), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 560), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 564), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 568), align 8
+  store ptr @.str.34, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 576), align 16
+  store ptr @.str.34, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 584), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 592), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 596), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 600), align 8
+  store ptr @.str.35, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 608), align 16
+  store ptr @.str.36, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 616), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 624), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 628), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 632), align 8
+  store ptr @.str.37, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 640), align 16
+  store ptr @.str.38, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 648), align 8
+  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 656), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 660), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 664), align 8
+  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 672), align 16
+  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 680), align 8
+  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 688), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 692), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 696), align 8
+  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 704), align 16
+  store ptr @.str.42, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 712), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 720), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 724), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 728), align 8
+  store ptr @.str.43, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 736), align 16
+  store ptr @.str.44, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 744), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 752), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 753), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 754), i8 0, i64 10, i1 false)
+  store ptr @.str.45, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 768), align 16
+  store ptr @.str.46, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 776), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 784), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 785), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 786), i8 0, i64 10, i1 false)
+  store ptr @.str.47, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 800), align 16
+  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 808), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 816), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 820), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 824), align 8
+  store ptr @.str.48, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 832), align 16
+  store ptr @.str.49, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 840), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 848), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 849), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 850), i8 0, i64 10, i1 false)
+  store ptr @.str.50, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 864), align 16
+  store ptr @.str.51, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 872), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 880), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 881), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 882), i8 0, i64 10, i1 false)
+  store ptr @.str.52, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 896), align 16
+  store ptr @.str.53, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 904), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 912), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 913), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 914), i8 0, i64 10, i1 false)
+  store ptr @.str.54, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 928), align 16
+  store ptr @.str.55, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 936), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 944), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 948), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 952), align 8
+  store ptr @.str.56, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 960), align 16
+  store ptr @.str.57, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 968), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 976), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 980), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 984), align 8
+  store ptr @.str.58, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 992), align 16
+  store ptr @.str.59, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1000), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1008), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1012), align 4
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1016), align 8
+  store ptr @.str.60, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1024), align 16
+  store ptr @.str.59, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1032), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1040), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1044), align 4
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1048), align 8
+  store ptr @.str.61, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1056), align 16
+  store ptr @.str.62, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1064), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1072), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1076), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1080), align 8
+  store ptr @.str.63, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1088), align 16
+  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1096), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1104), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1108), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1112), align 8
+  store ptr @.str.64, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1120), align 16
+  store ptr @.str.55, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1128), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1136), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1140), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1144), align 8
+  store ptr @.str.65, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1152), align 16
+  store ptr @.str.66, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1160), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1168), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1169), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1170), i8 0, i64 10, i1 false)
+  store ptr @.str.67, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1184), align 16
+  store ptr @.str.68, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1192), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1200), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1204), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1208), align 8
+  store ptr @.str.69, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1216), align 16
+  store ptr @.str.70, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1224), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1232), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1236), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1240), align 8
+  store ptr @.str.71, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1248), align 16
+  store ptr @.str.72, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1256), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1264), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1265), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1266), i8 0, i64 10, i1 false)
+  store ptr @.str.73, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1280), align 16
+  store ptr @.str.74, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1288), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1296), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1297), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1298), i8 0, i64 10, i1 false)
+  store ptr @.str.75, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1312), align 16
+  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1320), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1328), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1332), align 4
+  store i32 80, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1336), align 8
+  store ptr @.str.76, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1344), align 16
+  store ptr @.str.77, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1352), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1360), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1361), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1362), i8 0, i64 10, i1 false)
+  store ptr @.str.78, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1376), align 16
+  store ptr @.str.79, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1384), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1392), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1393), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1394), i8 0, i64 10, i1 false)
+  store ptr @.str.80, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1408), align 16
+  store ptr @.str.81, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1416), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1424), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1428), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1432), align 8
+  store ptr @.str.82, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1440), align 16
+  store ptr @.str.83, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1448), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1456), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1457), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1458), i8 0, i64 10, i1 false)
+  store ptr @.str.84, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1472), align 16
+  store ptr @.str.85, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1480), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1488), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1489), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1490), i8 0, i64 10, i1 false)
+  store ptr @.str.86, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1504), align 16
+  store ptr @.str.59, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1512), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1520), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1524), align 4
+  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1528), align 8
+  store ptr @.str.87, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1536), align 16
+  store ptr @.str.49, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1544), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1552), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1556), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1560), align 8
+  store ptr @.str.88, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1568), align 16
+  store ptr @.str.44, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1576), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1584), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1588), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1592), align 8
+  store ptr @.str.89, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1600), align 16
+  store ptr @.str.46, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1608), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1616), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1620), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1624), align 8
+  store ptr @.str.90, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1632), align 16
+  store ptr @.str.91, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1640), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1648), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1649), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1650), i8 0, i64 10, i1 false)
+  store ptr @.str.92, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1664), align 16
+  store ptr @.str.93, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1672), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1680), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1684), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1688), align 8
+  store ptr @.str.94, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1696), align 16
+  store ptr @.str.93, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1704), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1712), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1716), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1720), align 8
+  store ptr @.str.95, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1728), align 16
+  store ptr @.str.96, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1736), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1744), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1745), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1746), i8 0, i64 10, i1 false)
+  store ptr @.str.97, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1760), align 16
+  store ptr @.str.98, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1768), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1776), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1777), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1778), i8 0, i64 10, i1 false)
+  store ptr @.str.99, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1792), align 16
+  store ptr @.str.100, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1800), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1808), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1809), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1810), i8 0, i64 10, i1 false)
+  store ptr @.str.101, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1824), align 16
+  store ptr @.str.102, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1832), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1840), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1841), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1842), i8 0, i64 10, i1 false)
+  store ptr @.str.103, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1856), align 16
+  store ptr @.str.104, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1864), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1872), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1873), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1874), i8 0, i64 10, i1 false)
+  store ptr @.str.105, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1888), align 16
+  store ptr @.str.106, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1896), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1904), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1905), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1906), i8 0, i64 10, i1 false)
+  store ptr @.str.107, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1920), align 16
+  store ptr @.str.108, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1928), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1936), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1937), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1938), i8 0, i64 10, i1 false)
+  store ptr @.str.109, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1952), align 16
+  store ptr @.str.110, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1960), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1968), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1969), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1970), i8 0, i64 10, i1 false)
+  store ptr @.str.111, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1984), align 16
+  store ptr @.str.112, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1992), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2000), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2001), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2002), i8 0, i64 10, i1 false)
+  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2016), align 16
+  store ptr @.str.114, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2024), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2032), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2033), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2034), i8 0, i64 10, i1 false)
+  store ptr @.str.115, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2048), align 16
+  store ptr @.str.116, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2056), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2064), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2065), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2066), i8 0, i64 10, i1 false)
+  store ptr @.str.117, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2080), align 16
+  store ptr @.str.118, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2088), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2096), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2097), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2098), i8 0, i64 10, i1 false)
+  store ptr @.str.119, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2112), align 16
+  store ptr @.str.120, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2120), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2128), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2129), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2130), i8 0, i64 10, i1 false)
+  store ptr @.str.121, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2144), align 16
+  store ptr @.str.122, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2152), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2160), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2164), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2168), align 8
+  store ptr @.str.123, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2176), align 16
+  store ptr @.str.124, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2184), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2192), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2196), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2200), align 8
+  store ptr @.str.125, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2208), align 16
+  store ptr @.str.126, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2216), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2224), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2228), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2232), align 8
+  store ptr @.str.127, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2240), align 16
+  store ptr @.str.127, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2248), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2256), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2257), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2258), i8 0, i64 10, i1 false)
+  store ptr @.str.128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2272), align 16
+  store ptr @.str.128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2280), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2288), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2292), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2296), align 8
+  store ptr @.str.129, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2304), align 16
+  store ptr @.str.129, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2312), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2320), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2324), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2328), align 8
+  store ptr @.str.130, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2336), align 16
+  store ptr @.str.130, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2344), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2352), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2356), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2360), align 8
+  store ptr @.str.131, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2368), align 16
+  store ptr @.str.131, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2376), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2384), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2388), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2392), align 8
+  store ptr @.str.132, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2400), align 16
+  store ptr @.str.132, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2408), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2416), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2417), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2418), i8 0, i64 10, i1 false)
+  store ptr @.str.133, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2432), align 16
+  store ptr @.str.133, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2440), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2448), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2449), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2450), i8 0, i64 10, i1 false)
+  store ptr @.str.134, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2464), align 16
+  store ptr @.str.134, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2472), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2480), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2481), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2482), i8 0, i64 10, i1 false)
+  store ptr @.str.135, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2496), align 16
+  store ptr @.str.135, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2504), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2512), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2513), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2514), i8 0, i64 10, i1 false)
+  store ptr @.str.136, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2528), align 16
+  store ptr @.str.136, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2536), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2544), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2545), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2546), i8 0, i64 10, i1 false)
+  store ptr @.str.137, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2560), align 16
+  store ptr @.str.137, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2568), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2576), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2577), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2578), i8 0, i64 10, i1 false)
+  store ptr @.str.138, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2592), align 16
+  store ptr @.str.138, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2600), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2608), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2609), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2610), i8 0, i64 10, i1 false)
+  store ptr @.str.139, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2624), align 16
+  store ptr @.str.139, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2632), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2640), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2641), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2642), i8 0, i64 10, i1 false)
+  store ptr @.str.140, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2656), align 16
+  store ptr @.str.140, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2664), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2672), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2673), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2674), i8 0, i64 10, i1 false)
+  store ptr @.str.141, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2688), align 16
+  store ptr @.str.141, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2696), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2704), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2705), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2706), i8 0, i64 10, i1 false)
+  store ptr @.str.142, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2720), align 16
+  store ptr @.str.142, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2728), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2736), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2737), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2738), i8 0, i64 10, i1 false)
+  store ptr @.str.143, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2752), align 16
+  store ptr @.str.143, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2760), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2768), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2769), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2770), i8 0, i64 10, i1 false)
+  store ptr @.str.144, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2784), align 16
+  store ptr @.str.144, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2792), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2800), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2801), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2802), i8 0, i64 10, i1 false)
+  store ptr @.str.145, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2816), align 16
+  store ptr @.str.145, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2824), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2832), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2833), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2834), i8 0, i64 10, i1 false)
+  store ptr @.str.146, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2848), align 16
+  store ptr @.str.146, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2856), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2864), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2865), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2866), i8 0, i64 10, i1 false)
+  store ptr @.str.147, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2880), align 16
+  store ptr @.str.147, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2888), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2896), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2897), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2898), i8 0, i64 10, i1 false)
+  store ptr @.str.148, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2912), align 16
+  store ptr @.str.148, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2920), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2928), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2929), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2930), i8 0, i64 10, i1 false)
+  store ptr @.str.149, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2944), align 16
+  store ptr @.str.149, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2952), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2960), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2961), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2962), i8 0, i64 10, i1 false)
+  store ptr @.str.150, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2976), align 16
+  store ptr @.str.150, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2984), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2992), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2993), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2994), i8 0, i64 10, i1 false)
+  store ptr @.str.151, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3008), align 16
+  store ptr @.str.151, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3016), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3024), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3028), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3032), align 8
+  store ptr @.str.152, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3040), align 16
+  store ptr @.str.152, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3048), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3056), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3060), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3064), align 8
+  store ptr @.str.153, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3072), align 16
+  store ptr @.str.153, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3080), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3088), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3089), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3090), i8 0, i64 10, i1 false)
+  store ptr @.str.154, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3104), align 16
+  store ptr @.str.154, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3112), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3120), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3121), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3122), i8 0, i64 10, i1 false)
+  store ptr @.str.155, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3136), align 16
+  store ptr @.str.155, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3144), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3152), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3153), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3154), i8 0, i64 10, i1 false)
+  store ptr @.str.156, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3168), align 16
+  store ptr @.str.156, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3176), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3184), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3185), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3186), i8 0, i64 10, i1 false)
+  store ptr @.str.157, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3200), align 16
+  store ptr @.str.157, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3208), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3216), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3217), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3218), i8 0, i64 10, i1 false)
+  store ptr @.str.158, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3232), align 16
+  store ptr @.str.158, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3240), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3248), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3249), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3250), i8 0, i64 10, i1 false)
+  store ptr @.str.159, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3264), align 16
+  store ptr @.str.159, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3272), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3280), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3281), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3282), i8 0, i64 10, i1 false)
+  store ptr @.str.160, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3296), align 16
+  store ptr @.str.160, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3304), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3312), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3313), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3314), i8 0, i64 10, i1 false)
+  store ptr @.str.161, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3328), align 16
+  store ptr @.str.161, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3336), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3344), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3345), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3346), i8 0, i64 10, i1 false)
+  store ptr @.str.162, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3360), align 16
+  store ptr @.str.162, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3368), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3376), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3377), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3378), i8 0, i64 10, i1 false)
+  store ptr @.str.163, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3392), align 16
+  store ptr @.str.163, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3400), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3408), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3409), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3410), i8 0, i64 10, i1 false)
+  store ptr @.str.164, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3424), align 16
+  store ptr @.str.164, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3432), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3440), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3441), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3442), i8 0, i64 10, i1 false)
+  store ptr @.str.165, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3456), align 16
+  store ptr @.str.165, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3464), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3472), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3473), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3474), i8 0, i64 10, i1 false)
+  store ptr @.str.166, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3488), align 16
+  store ptr @.str.166, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3496), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3504), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3505), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3506), i8 0, i64 10, i1 false)
+  store ptr @.str.167, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3520), align 16
+  store ptr @.str.167, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3528), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3536), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3537), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3538), i8 0, i64 10, i1 false)
+  store ptr @.str.168, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3552), align 16
+  store ptr @.str.168, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3560), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3568), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3569), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3570), i8 0, i64 10, i1 false)
+  store ptr @.str.169, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3584), align 16
+  store ptr @.str.169, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3592), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3600), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3604), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3608), align 8
+  store ptr @.str.170, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3616), align 16
+  store ptr @.str.170, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3624), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3632), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3633), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3634), i8 0, i64 10, i1 false)
+  store ptr @.str.171, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3648), align 16
+  store ptr @.str.171, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3656), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3664), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3665), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3666), i8 0, i64 10, i1 false)
+  store ptr @.str.172, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3680), align 16
+  store ptr @.str.172, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3688), align 8
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3696), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3697), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3698), i8 0, i64 10, i1 false)
+  store ptr @.str.173, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3712), align 16
+  store ptr @.str.173, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3720), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3728), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3729), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3730), i8 0, i64 10, i1 false)
+  store ptr @.str.174, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3744), align 16
+  store ptr @.str.174, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3752), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3760), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3761), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3762), i8 0, i64 10, i1 false)
+  store ptr @.str.175, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3776), align 16
+  store ptr @.str.175, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3784), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3792), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3793), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3794), i8 0, i64 10, i1 false)
+  store ptr @.str.176, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3808), align 16
+  store ptr @.str.176, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3816), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3824), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3825), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3826), i8 0, i64 10, i1 false)
+  store ptr @.str.177, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3840), align 16
+  store ptr @.str.177, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3848), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3856), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3857), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3858), i8 0, i64 10, i1 false)
+  store ptr @.str.178, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3872), align 16
+  store ptr @.str.178, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3880), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3888), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3889), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3890), i8 0, i64 10, i1 false)
+  store ptr @.str.179, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3904), align 16
+  store ptr @.str.179, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3912), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3920), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3921), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3922), i8 0, i64 10, i1 false)
+  store ptr @.str.180, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3936), align 16
+  store ptr @.str.180, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3944), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3952), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3956), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3960), align 8
+  store ptr @.str.181, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3968), align 16
+  store ptr @.str.181, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3976), align 8
+  store <4 x i8> <i8 13, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3984), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3988), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3992), align 8
+  store ptr @.str.182, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4000), align 16
+  store ptr @.str.182, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4008), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4016), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4017), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4018), i8 0, i64 10, i1 false)
+  store ptr @.str.183, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4032), align 16
+  store ptr @.str.183, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4040), align 8
+  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4048), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4052), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4056), align 8
+  store ptr @.str.184, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4064), align 16
+  store ptr @.str.184, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4072), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4080), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4081), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4082), i8 0, i64 10, i1 false)
+  store ptr @.str.185, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4096), align 16
+  store ptr @.str.185, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4104), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4112), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4113), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4114), i8 0, i64 10, i1 false)
+  store ptr @.str.186, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4128), align 16
+  store ptr @.str.186, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4136), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4144), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4145), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4146), i8 0, i64 10, i1 false)
+  store ptr @.str.187, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4160), align 16
+  store ptr @.str.187, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4168), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4176), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4177), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4178), i8 0, i64 10, i1 false)
+  store ptr @.str.188, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4192), align 16
+  store ptr @.str.188, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4200), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4208), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4209), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4210), i8 0, i64 10, i1 false)
+  store ptr @.str.189, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4224), align 16
+  store ptr @.str.189, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4232), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4240), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4241), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4242), i8 0, i64 10, i1 false)
+  store ptr @.str.190, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4256), align 16
+  store ptr @.str.190, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4264), align 8
+  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4272), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4273), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4274), i8 0, i64 10, i1 false)
+  store ptr @.str.191, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4288), align 16
+  store ptr @.str.191, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4296), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4304), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4305), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4306), i8 0, i64 10, i1 false)
+  store ptr @.str.192, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4320), align 16
+  store ptr @.str.192, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4328), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4336), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4337), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4338), i8 0, i64 10, i1 false)
+  store ptr @.str.193, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4352), align 16
+  store ptr @.str.193, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4360), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4368), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4369), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4370), i8 0, i64 10, i1 false)
+  store ptr @.str.194, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4384), align 16
+  store ptr @.str.194, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4392), align 8
+  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4400), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4401), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4402), i8 0, i64 10, i1 false)
+  store ptr @.str.195, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4416), align 16
+  store ptr @.str.59, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4424), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4432), align 16
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4433), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4434), i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4448), i8 0, i64 17, i1 false)
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4465), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4466), i8 0, i64 10, i1 false)
   ret void
 }
 

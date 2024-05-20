@@ -119,10 +119,10 @@ define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %
   br i1 %39, label %.thread, label %33
 
 ._crit_edge:                                      ; preds = %33, %27
-  %40 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_btl_tcp_endpoint_t_class, i64 0, i32 8), align 8
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_endpoint_t_class, i64 56), align 8
   %41 = tail call noalias ptr @malloc(i64 noundef %40) #11
   %42 = load i32, ptr @opal_class_init_epoch, align 4
-  %43 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_btl_tcp_endpoint_t_class, i64 0, i32 4), align 8
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_endpoint_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %42, %43
   br i1 %.not.i, label %45, label %44
 
@@ -138,7 +138,7 @@ define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %
   store ptr @mca_btl_tcp_endpoint_t_class, ptr %41, align 8
   %47 = getelementptr inbounds i8, ptr %41, i64 8
   store volatile i32 1, ptr %47, align 8
-  %48 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_btl_tcp_endpoint_t_class, i64 0, i32 6), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_endpoint_t_class, i64 40), align 8
   %49 = load ptr, ptr %48, align 8
   %.not6.i.i = icmp eq ptr %49, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread54, label %.lr.ph.i.i
@@ -496,7 +496,7 @@ define ptr @mca_btl_tcp_alloc(ptr noundef %0, ptr nocapture readnone %1, i8 zero
   br i1 %.not20, label %.thread, label %11
 
 11:                                               ; preds = %8, %5
-  %.sink = phi ptr [ getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 23), %5 ], [ getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 24), %8 ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 784), %5 ], [ getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1136), %8 ]
   %12 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull %.sink)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
@@ -621,7 +621,7 @@ define ptr @mca_btl_tcp_prepare_src(ptr nocapture noundef readonly %0, ptr nocap
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not = icmp ugt i64 %12, %14
-  %. = select i1 %.not, ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 24), ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 23)
+  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1136), ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 784)
   %15 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull %.)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %mca_btl_tcp_free.exit, label %17
@@ -958,7 +958,7 @@ define i32 @mca_btl_tcp_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_btl_tcp_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 noundef %6, i32 %7, i32 %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
-  %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 25))
+  %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1488))
   %14 = icmp eq ptr %13, null
   br i1 %14, label %67, label %.lr.ph
 
@@ -1245,7 +1245,7 @@ define internal void @fake_rdma_complete(ptr noundef %0, ptr noundef %1, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_btl_tcp_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
-  %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 25))
+  %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1488))
   %14 = icmp eq ptr %13, null
   br i1 %14, label %51, label %15
 

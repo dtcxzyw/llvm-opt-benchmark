@@ -63,7 +63,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @init() #0 {
   %1 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull @.str.1, i32 noundef 44) #6
-  store ptr %1, ptr getelementptr inbounds (%struct.pmix_plog_module_t, ptr @pmix_plog_syslog_module, i64 0, i32 1), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @pmix_plog_syslog_module, i64 8), align 8
   tail call void @openlog(ptr noundef nonnull @.str.2, i32 noundef 3, i32 noundef 8) #6
   ret i32 0
 }
@@ -71,7 +71,7 @@ define internal noundef i32 @init() #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @finalize() #0 {
   tail call void @closelog() #6
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pmix_plog_module_t, ptr @pmix_plog_syslog_module, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_plog_syslog_module, i64 8), align 8
   tail call void @PMIx_Argv_free(ptr noundef %1) #6
   ret void
 }
@@ -84,7 +84,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br i1 %or.cond, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   %.not = icmp ne ptr %3, null
   %12 = icmp ne i64 %4, 0
   %or.cond81 = and i1 %.not, %12
@@ -155,7 +155,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 136
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1073741824
@@ -200,7 +200,7 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   store i64 %1, ptr %7, align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_plog_base_framework, i64 0, i32 11), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_plog_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %12, 64
   br i1 %or.cond, label %13, label %thread-pre-split
 
@@ -250,7 +250,7 @@ thread-pre-split:                                 ; preds = %18, %13, %6
 
 .lr.ph:                                           ; preds = %32, %48
   %.028 = phi i64 [ %51, %48 ], [ 0, %32 ]
-  %33 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 488
@@ -281,7 +281,7 @@ thread-pre-split:                                 ; preds = %18, %13, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %48, %32
-  %52 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1, i32 1), align 4
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
   %53 = icmp ult i32 %2, 8
   br i1 %53, label %switch.lookup, label %sev2str.exit
 
@@ -296,7 +296,7 @@ sev2str.exit:                                     ; preds = %._crit_edge, %switc
   %55 = getelementptr inbounds i8, ptr %0, i64 256
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %8, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i32 noundef %52, ptr noundef nonnull %.0.i, ptr noundef %0, i32 noundef %56, ptr noundef %57) #6
+  call void (i32, ptr, ...) @syslog(i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %52, ptr noundef nonnull %.0.i, ptr noundef %0, i32 noundef %56, ptr noundef %57) #6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %sev2str.exit

@@ -8657,7 +8657,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 138:                                              ; preds = %.noexc, %131
-  %.0.i.i2.i = phi ptr [ %135, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %131 ]
+  %.0.i.i2.i = phi ptr [ %135, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %131 ]
   %139 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !2428
   %140 = extractelement <2 x i64> %139, i64 0
   %141 = add i64 %140, 1
@@ -15986,7 +15986,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 197:                                              ; preds = %.noexc128, %192
-  %.0.i.i2.i = phi ptr [ %194, %.noexc128 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %192 ]
+  %.0.i.i2.i = phi ptr [ %194, %.noexc128 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %192 ]
   %.sroa.056.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 32
   %.sroa.056.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 8
   %.sroa.056.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
@@ -16039,7 +16039,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i132:
   unreachable
 
 208:                                              ; preds = %.noexc136, %197
-  %.0.i.i2.i134 = phi ptr [ %202, %.noexc136 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %197 ]
+  %.0.i.i2.i134 = phi ptr [ %202, %.noexc136 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %197 ]
   %.sroa.060.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 32
   %.sroa.060.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
   %.sroa.060.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 16

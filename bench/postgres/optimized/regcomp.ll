@@ -27307,7 +27307,7 @@ define internal fastcc range(i32 0, 2) i32 @lexescape(ptr noundef %0) unnamed_ad
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 112, ptr %18, align 4
-  %19 = tail call fastcc i32 @chrnamed(ptr noundef nonnull %0, ptr noundef nonnull @lexescape.alert, ptr noundef nonnull getelementptr inbounds ([5 x i32], ptr @lexescape.alert, i64 1, i64 0), i32 noundef 7)
+  %19 = tail call fastcc i32 @chrnamed(ptr noundef nonnull %0, ptr noundef nonnull @lexescape.alert, ptr noundef nonnull getelementptr inbounds (i8, ptr @lexescape.alert, i64 20), i32 noundef 7)
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %19, ptr %20, align 8
   br label %216
@@ -27397,7 +27397,7 @@ define internal fastcc range(i32 0, 2) i32 @lexescape(ptr noundef %0) unnamed_ad
   store i64 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 112, ptr %66, align 4
-  %67 = tail call fastcc i32 @chrnamed(ptr noundef nonnull %0, ptr noundef nonnull @lexescape.esc, ptr noundef nonnull getelementptr inbounds ([3 x i32], ptr @lexescape.esc, i64 1, i64 0), i32 noundef 27)
+  %67 = tail call fastcc i32 @chrnamed(ptr noundef nonnull %0, ptr noundef nonnull @lexescape.esc, ptr noundef nonnull getelementptr inbounds (i8, ptr @lexescape.esc, i64 12), i32 noundef 27)
   %68 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %67, ptr %68, align 8
   br label %216

@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
-  store ptr @.str, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
+  store ptr @.str, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
   %call = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 11, ptr noundef nonnull @options) #4
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.end.thread, label %if.end
@@ -46,9 +46,9 @@ if.end.thread:                                    ; preds = %entry
   br label %if.then6
 
 if.end:                                           ; preds = %entry
-  %2 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 0, i32 6), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 34), align 2
   %tobool = icmp ne i8 %2, 0
-  %3 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6), align 2
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
   %tobool5 = icmp ne i8 %3, 0
   %or.cond1 = select i1 %tobool, i1 true, i1 %tobool5
   br i1 %or.cond1, label %if.then6, label %if.else
@@ -65,24 +65,24 @@ if.then6:                                         ; preds = %if.end.thread, %if.
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %10 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 10, i32 6), align 2
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 434), align 2
   %tobool11.not = icmp eq i8 %10, 0
   br i1 %tobool11.not, label %if.else18, label %if.then12
 
 if.then12:                                        ; preds = %if.else
-  %11 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 10, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 408), align 8
   %call13 = tail call signext i8 @checkAssemblyHeaderName(ptr noundef %11) #4
   %tobool14.not = icmp eq i8 %call13, 0
   br i1 %tobool14.not, label %if.then15, label %if.end23
 
 if.then15:                                        ; preds = %if.then12
   %12 = load ptr, ptr @stderr, align 8
-  %13 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 10, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 408), align 8
   %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef %13) #5
   br label %return
 
 if.else18:                                        ; preds = %if.else
-  %14 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 6), align 2
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 274), align 2
   %.fr = freeze i8 %14
   %tobool19.not = icmp eq i8 %.fr, 0
   %. = select i1 %tobool19.not, i32 99, i32 111
@@ -92,7 +92,7 @@ if.else18:                                        ; preds = %if.else
 if.end23:                                         ; preds = %if.else18, %if.then12
   %writeCode.0 = phi i32 [ 97, %if.then12 ], [ %., %if.else18 ]
   %message.0 = phi ptr [ @.str.5, %if.then12 ], [ %.str.8..str.7, %if.else18 ]
-  %15 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 3, i32 6), align 2
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 154), align 2
   %.fr55 = freeze i8 %15
   %tobool24.not.not = icmp eq i8 %.fr55, 0
   %dec17 = add nsw i32 %call, -1
@@ -120,18 +120,18 @@ if.then32.us:                                     ; preds = %while.body.us
   br label %if.end34.us
 
 if.end34.us:                                      ; preds = %if.then32.us, %while.body.us
-  %19 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %20 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 234), align 2
   %tobool37.not.us = icmp eq i8 %20, 0
-  %21 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
   %cond.us = select i1 %tobool37.not.us, ptr null, ptr %21
-  %22 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 4, i32 6), align 2
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 194), align 2
   %tobool39.not.us = icmp eq i8 %22, 0
-  %23 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 4, i32 1), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 168), align 8
   %cond43.us = select i1 %tobool39.not.us, ptr null, ptr %23
-  %24 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 394), align 2
   %tobool45.not.us = icmp eq i8 %24, 0
-  %25 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 368), align 16
   %cond49.us = select i1 %tobool45.not.us, ptr null, ptr %25
   tail call void @writeCCode(ptr noundef %call30.us, ptr noundef %19, ptr noundef %cond.us, ptr noundef %cond43.us, ptr noundef %cond49.us, ptr noundef null, i64 noundef 0) #4
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, -1
@@ -148,14 +148,14 @@ while.body.us21.us:                               ; preds = %while.body.lr.ph.sp
   %call30.us25.us = tail call ptr @getLongPathname(ptr noundef %26) #4
   %27 = load ptr, ptr @stdout, align 8
   %call33.us27.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull %message.0, ptr noundef %call30.us25.us)
-  %28 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %29 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
+  %29 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 234), align 2
   %tobool52.not.us.us = icmp eq i8 %29, 0
-  %30 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
   %cond56.us.us = select i1 %tobool52.not.us.us, ptr null, ptr %30
-  %31 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
+  %31 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 394), align 2
   %tobool58.not.us.us = icmp eq i8 %31, 0
-  %32 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 368), align 16
   %cond62.us.us = select i1 %tobool58.not.us.us, ptr null, ptr %32
   tail call void @writeAssemblyCode(ptr noundef %call30.us25.us, ptr noundef %28, ptr noundef %cond56.us.us, ptr noundef %cond62.us.us, ptr noundef null, i64 noundef 0) #4
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, -1
@@ -167,14 +167,14 @@ while.body.us21:                                  ; preds = %while.body.lr.ph.sp
   %arrayidx29.us24 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv62
   %33 = load ptr, ptr %arrayidx29.us24, align 8
   %call30.us25 = tail call ptr @getLongPathname(ptr noundef %33) #4
-  %34 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %35 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
+  %35 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 234), align 2
   %tobool52.not.us = icmp eq i8 %35, 0
-  %36 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
   %cond56.us = select i1 %tobool52.not.us, ptr null, ptr %36
-  %37 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
+  %37 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 394), align 2
   %tobool58.not.us = icmp eq i8 %37, 0
-  %38 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 368), align 16
   %cond62.us = select i1 %tobool58.not.us, ptr null, ptr %38
   tail call void @writeAssemblyCode(ptr noundef %call30.us25, ptr noundef %34, ptr noundef %cond56.us, ptr noundef %cond62.us, ptr noundef null, i64 noundef 0) #4
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
@@ -194,20 +194,20 @@ if.then32.us38:                                   ; preds = %while.body.us33
   br label %if.end34.us40
 
 if.end34.us40:                                    ; preds = %if.then32.us38, %while.body.us33
-  %41 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %42 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
+  %42 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 234), align 2
   %tobool65.not.us = icmp eq i8 %42, 0
-  %43 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
   %cond69.us = select i1 %tobool65.not.us, ptr null, ptr %43
-  %44 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 6), align 2
+  %44 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 314), align 2
   %tobool71.not.us = icmp eq i8 %44, 0
-  %45 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 1), align 16
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 288), align 16
   %cond75.us = select i1 %tobool71.not.us, ptr null, ptr %45
-  %46 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
+  %46 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 394), align 2
   %tobool77.not.us = icmp eq i8 %46, 0
-  %47 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 368), align 16
   %cond81.us = select i1 %tobool77.not.us, ptr null, ptr %47
-  %48 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 8, i32 6), align 2
+  %48 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 354), align 2
   %tobool82.not.us = icmp eq i8 %48, 0
   %conv83.us = zext i1 %tobool82.not.us to i8
   tail call void @writeObjectCode(ptr noundef %call30.us37, ptr noundef %41, ptr noundef %cond69.us, ptr noundef %cond75.us, ptr noundef %cond81.us, ptr noundef null, i64 noundef 0, i8 noundef signext %conv83.us) #4

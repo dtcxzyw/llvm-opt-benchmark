@@ -5066,7 +5066,7 @@ BSD__sprint.exit755:                              ; preds = %166
 
 296:                                              ; preds = %295, %295
   %297 = icmp eq i32 %.0492, 97
-  %298 = select i1 %297, ptr @ruby_hexdigits, ptr getelementptr ([0 x i8], ptr @ruby_hexdigits, i64 0, i64 16)
+  %298 = select i1 %297, ptr @ruby_hexdigits, ptr getelementptr (i8, ptr @ruby_hexdigits, i64 16)
   %299 = call ptr @ruby_hdtoa(double noundef %.044.i, ptr noundef %298, i32 noundef %286, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %7) #18
   br label %302
 
@@ -5738,7 +5738,7 @@ exponent.exit775:                                 ; preds = %389, %.lr.ph.prehea
   br label %.loopexit1008
 
 .loopexit1008:                                    ; preds = %76, %.loopexit1008.loopexit
-  %.1501 = phi ptr [ getelementptr ([0 x i8], ptr @ruby_hexdigits, i64 0, i64 16), %.loopexit1008.loopexit ], [ @ruby_hexdigits, %76 ]
+  %.1501 = phi ptr [ getelementptr (i8, ptr @ruby_hexdigits, i64 16), %.loopexit1008.loopexit ], [ @ruby_hexdigits, %76 ]
   %619 = and i32 %.0539, 16
   %.not633 = icmp eq i32 %619, 0
   br i1 %.not633, label %634, label %620

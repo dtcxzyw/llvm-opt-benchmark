@@ -1009,11 +1009,11 @@ land.rhs.i.i.i.preheader:                         ; preds = %if.then.i.i.i
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i: ; preds = %land.rhs.i.i.i.preheader
   %95 = zext nneg i32 %narrow318 to i64
-  %gep371 = getelementptr inbounds i8, ptr getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 1), i64 %95
+  %gep371 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 1), i64 %95
   br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i: ; preds = %land.rhs.i.i.i.preheader, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i, %if.then.i.i.i, %if.then.i
-  %pBufferCurrent3.0.lcssa.sink.i.i.i = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i ], [ getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 6), %if.then.i ], [ %gep371, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i ], [ getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 6), %land.rhs.i.i.i.preheader ]
+  %pBufferCurrent3.0.lcssa.sink.i.i.i = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %if.then.i ], [ %gep371, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i.preheader ]
   %sub.ptr.lhs.cast9.i.i.i = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i to i64
   %96 = trunc i64 %sub.ptr.lhs.cast9.i.i.i to i32
   %retval.0.i.i.i = sub i32 %96, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E to i32)
@@ -1103,11 +1103,11 @@ land.rhs.i.i.i142.preheader:                      ; preds = %if.then.i.i.i134
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i148: ; preds = %land.rhs.i.i.i142.preheader
   %105 = zext nneg i32 %narrow316 to i64
-  %gep370 = getelementptr inbounds i8, ptr getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 1), i64 %105
+  %gep370 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 1), i64 %105
   br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i137
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i137: ; preds = %land.rhs.i.i.i142.preheader, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i148, %if.then.i.i.i134, %if.then.i131
-  %pBufferCurrent3.0.lcssa.sink.i.i.i138 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i134 ], [ getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 6), %if.then.i131 ], [ %gep370, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i148 ], [ getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 6), %land.rhs.i.i.i142.preheader ]
+  %pBufferCurrent3.0.lcssa.sink.i.i.i138 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i134 ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %if.then.i131 ], [ %gep370, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i148 ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i142.preheader ]
   %sub.ptr.lhs.cast9.i.i.i139 = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i138 to i64
   %106 = trunc i64 %sub.ptr.lhs.cast9.i.i.i139 to i32
   %retval.0.i.i.i140 = sub i32 %106, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E to i32)
@@ -1166,11 +1166,11 @@ land.rhs.i.i.i166.preheader:                      ; preds = %if.then.i.i.i158
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i172: ; preds = %land.rhs.i.i.i166.preheader
   %113 = zext nneg i32 %narrow to i64
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 1), i64 %113
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 1), i64 %113
   br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i161
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i161: ; preds = %land.rhs.i.i.i166.preheader, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i172, %if.then.i.i.i158, %if.then.i155
-  %pBufferCurrent3.0.lcssa.sink.i.i.i162 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i158 ], [ getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 6), %if.then.i155 ], [ %gep, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i172 ], [ getelementptr inbounds ([7 x i8], ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 0, i64 6), %land.rhs.i.i.i166.preheader ]
+  %pBufferCurrent3.0.lcssa.sink.i.i.i162 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i158 ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %if.then.i155 ], [ %gep, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i172 ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i166.preheader ]
   %sub.ptr.lhs.cast9.i.i.i163 = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i162 to i64
   %114 = trunc i64 %sub.ptr.lhs.cast9.i.i.i163 to i32
   %retval.0.i.i.i164 = sub i32 %114, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E to i32)
@@ -2176,7 +2176,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp2.i.i.i, label %land.rhs.i.i.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i, !llvm.loop !34
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i: ; preds = %while.body.i.i.i, %land.rhs.i.i.i, %if.then.i.i.i, %if.then.i
-  %pBufferCurrent3.0.lcssa.sink.i.i.i = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i ], [ getelementptr inbounds ([7 x i16], ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 0, i64 6), %if.then.i ], [ %pBufferCurrent.012.i.i.i, %land.rhs.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %pBufferCurrent3.0.lcssa.sink.i.i.i = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 12), %if.then.i ], [ %pBufferCurrent.012.i.i.i, %land.rhs.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %sub.ptr.lhs.cast9.i.i.i = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i to i64
   %sub.ptr.sub11.i.i.i = sub i64 %sub.ptr.lhs.cast9.i.i.i, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64)
   %retval.0.in.i.i.i = lshr exact i64 %sub.ptr.sub11.i.i.i, 1
@@ -2275,7 +2275,7 @@ _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteF
 
 _ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %land.rhs.i.i.i140, %while.body.i.i.i143, %if.then.i133, %if.then.i.i.i134, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i
   %sub.ptr.rhs.cast10.i.i.sink.i = phi i64 [ %sub.ptr.rhs.cast10.i.i.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i ], [ ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64), %if.then.i.i.i134 ], [ ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64), %if.then.i133 ], [ ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64), %while.body.i.i.i143 ], [ ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64), %land.rhs.i.i.i140 ]
-  %sub.ptr.lhs.cast9.i.i13.sink.in.i = phi ptr [ %pBufferCurrent3.0.lcssa.sink.i.i12.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i134 ], [ getelementptr inbounds ([7 x i16], ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 0, i64 6), %if.then.i133 ], [ %pBufferCurrent.012.i.i.i141, %land.rhs.i.i.i140 ], [ %incdec.ptr.i.i.i144, %while.body.i.i.i143 ]
+  %sub.ptr.lhs.cast9.i.i13.sink.in.i = phi ptr [ %pBufferCurrent3.0.lcssa.sink.i.i12.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i134 ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 12), %if.then.i133 ], [ %pBufferCurrent.012.i.i.i141, %land.rhs.i.i.i140 ], [ %incdec.ptr.i.i.i144, %while.body.i.i.i143 ]
   %pInBufferData.sink.i = phi ptr [ %98, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i134 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i133 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %while.body.i.i.i143 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %land.rhs.i.i.i140 ]
   %sub.ptr.lhs.cast9.i.i13.sink.i = ptrtoint ptr %sub.ptr.lhs.cast9.i.i13.sink.in.i to i64
   %sub.ptr.sub11.i.i14.i = sub i64 %sub.ptr.lhs.cast9.i.i13.sink.i, %sub.ptr.rhs.cast10.i.i.sink.i
@@ -2334,7 +2334,7 @@ while.body.i.i.i168:                              ; preds = %land.rhs.i.i.i165
   br i1 %cmp2.i.i.i170, label %land.rhs.i.i.i165, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i158, !llvm.loop !34
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i158: ; preds = %while.body.i.i.i168, %land.rhs.i.i.i165, %if.then.i.i.i154, %if.then.i151
-  %pBufferCurrent3.0.lcssa.sink.i.i.i159 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i154 ], [ getelementptr inbounds ([7 x i16], ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 0, i64 6), %if.then.i151 ], [ %pBufferCurrent.012.i.i.i166, %land.rhs.i.i.i165 ], [ %incdec.ptr.i.i.i169, %while.body.i.i.i168 ]
+  %pBufferCurrent3.0.lcssa.sink.i.i.i159 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i154 ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 12), %if.then.i151 ], [ %pBufferCurrent.012.i.i.i166, %land.rhs.i.i.i165 ], [ %incdec.ptr.i.i.i169, %while.body.i.i.i168 ]
   %sub.ptr.lhs.cast9.i.i.i160 = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i159 to i64
   %sub.ptr.sub11.i.i.i161 = sub i64 %sub.ptr.lhs.cast9.i.i.i160, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64)
   %retval.0.in.i.i.i162 = lshr exact i64 %sub.ptr.sub11.i.i.i161, 1
@@ -3344,7 +3344,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp2.i.i.i, label %land.rhs.i.i.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i, !llvm.loop !57
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i: ; preds = %while.body.i.i.i, %land.rhs.i.i.i, %if.then.i.i.i, %if.then.i
-  %pBufferCurrent3.0.lcssa.sink.i.i.i = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i ], [ getelementptr inbounds ([7 x i32], ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 0, i64 6), %if.then.i ], [ %pBufferCurrent.012.i.i.i, %land.rhs.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %pBufferCurrent3.0.lcssa.sink.i.i.i = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 24), %if.then.i ], [ %pBufferCurrent.012.i.i.i, %land.rhs.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %sub.ptr.lhs.cast9.i.i.i = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i to i64
   %sub.ptr.sub11.i.i.i = sub i64 %sub.ptr.lhs.cast9.i.i.i, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64)
   %retval.0.in.i.i.i = lshr exact i64 %sub.ptr.sub11.i.i.i, 2
@@ -3411,7 +3411,7 @@ while.body.i.i.i151:                              ; preds = %land.rhs.i.i.i148
   br i1 %cmp2.i.i.i153, label %land.rhs.i.i.i148, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i141, !llvm.loop !57
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i141: ; preds = %while.body.i.i.i151, %land.rhs.i.i.i148, %if.then.i.i.i137, %if.then.i134
-  %pBufferCurrent3.0.lcssa.sink.i.i.i142 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i137 ], [ getelementptr inbounds ([7 x i32], ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 0, i64 6), %if.then.i134 ], [ %pBufferCurrent.012.i.i.i149, %land.rhs.i.i.i148 ], [ %incdec.ptr.i.i.i152, %while.body.i.i.i151 ]
+  %pBufferCurrent3.0.lcssa.sink.i.i.i142 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i137 ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 24), %if.then.i134 ], [ %pBufferCurrent.012.i.i.i149, %land.rhs.i.i.i148 ], [ %incdec.ptr.i.i.i152, %while.body.i.i.i151 ]
   %sub.ptr.lhs.cast9.i.i.i143 = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i142 to i64
   %sub.ptr.sub11.i.i.i144 = sub i64 %sub.ptr.lhs.cast9.i.i.i143, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64)
   %retval.0.in.i.i.i145 = lshr exact i64 %sub.ptr.sub11.i.i.i144, 2
@@ -3510,7 +3510,7 @@ _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteF
 
 _ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %land.rhs.i.i.i165, %while.body.i.i.i168, %if.then.i158, %if.then.i.i.i159, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i
   %sub.ptr.rhs.cast10.i.i.sink.i = phi i64 [ %sub.ptr.rhs.cast10.i.i.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i ], [ ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64), %if.then.i.i.i159 ], [ ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64), %if.then.i158 ], [ ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64), %while.body.i.i.i168 ], [ ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64), %land.rhs.i.i.i165 ]
-  %sub.ptr.lhs.cast9.i.i13.sink.in.i = phi ptr [ %pBufferCurrent3.0.lcssa.sink.i.i12.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i159 ], [ getelementptr inbounds ([7 x i32], ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 0, i64 6), %if.then.i158 ], [ %pBufferCurrent.012.i.i.i166, %land.rhs.i.i.i165 ], [ %incdec.ptr.i.i.i169, %while.body.i.i.i168 ]
+  %sub.ptr.lhs.cast9.i.i13.sink.in.i = phi ptr [ %pBufferCurrent3.0.lcssa.sink.i.i12.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i159 ], [ getelementptr inbounds (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 24), %if.then.i158 ], [ %pBufferCurrent.012.i.i.i166, %land.rhs.i.i.i165 ], [ %incdec.ptr.i.i.i169, %while.body.i.i.i168 ]
   %pInBufferData.sink.i = phi ptr [ %104, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i159 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i158 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %while.body.i.i.i168 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %land.rhs.i.i.i165 ]
   %sub.ptr.lhs.cast9.i.i13.sink.i = ptrtoint ptr %sub.ptr.lhs.cast9.i.i13.sink.in.i to i64
   %sub.ptr.sub11.i.i14.i = sub i64 %sub.ptr.lhs.cast9.i.i13.sink.i, %sub.ptr.rhs.cast10.i.i.sink.i

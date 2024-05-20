@@ -1469,7 +1469,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %243, label %251, label %244
 
 244:                                              ; preds = %.loopexit31
-  %245 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @ftrace_trace_arrays, i64 0, i32 1), align 8
+  %245 = load ptr, ptr getelementptr inbounds (i8, ptr @ftrace_trace_arrays, i64 8), align 8
   %246 = getelementptr inbounds i8, ptr %245, i64 156
   %247 = load i32, ptr %246, align 4
   %248 = and i32 %247, 1
@@ -1608,8 +1608,8 @@ sub_2:                                            ; preds = %sub_1
   %317 = load i32, ptr %316, align 8
   %318 = or i32 %317, 32
   store i32 %318, ptr %316, align 8
-  %319 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_list, i64 0, i32 1), align 8
-  store ptr %315, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_list, i64 0, i32 1), align 8
+  %319 = load ptr, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
+  store ptr %315, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
   store ptr @dyn_event_list, ptr %315, align 8
   %320 = getelementptr inbounds i8, ptr %189, i64 40
   store ptr %319, ptr %320, align 8
@@ -1845,9 +1845,9 @@ define internal i32 @eprobe_register(ptr noundef %0, i32 noundef %1, ptr noundef
 43:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   store ptr null, ptr %4, align 8
-  %44 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %45 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3520, i64 noundef 16) #17
-  %46 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %47 = call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3520, i64 noundef 112) #17
   %48 = icmp ne ptr %47, null
   %49 = icmp ne ptr %45, null

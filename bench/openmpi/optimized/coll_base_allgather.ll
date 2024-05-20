@@ -451,14 +451,14 @@ define i32 @ompi_coll_base_allgather_intra_sparbit(ptr noundef %0, i32 noundef %
   %.neg90 = mul i32 %.08298, %.neg
   %64 = add i32 %41, %.neg90
   %65 = urem i32 %64, %.val.val
-  %66 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %67 = sext i32 %63 to i64
   %68 = mul i64 %43, %67
   %69 = getelementptr inbounds i8, ptr %3, i64 %68
   %70 = sub nsw i32 -1073741823, %63
   %71 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
   %72 = tail call i32 %66(ptr noundef %69, i64 noundef %42, ptr noundef %5, i32 noundef %48, i32 noundef %70, i32 noundef 4, ptr noundef %6, ptr noundef %71) #8
-  %73 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %74 = sext i32 %65 to i64
   %75 = mul i64 %45, %74
   %76 = getelementptr inbounds i8, ptr %3, i64 %75
@@ -471,7 +471,7 @@ define i32 @ompi_coll_base_allgather_intra_sparbit(ptr noundef %0, i32 noundef %
 
 ._crit_edge:                                      ; preds = %59, %46
   %.085.lcssa = phi i32 [ 0, %46 ], [ %54, %59 ]
-  %80 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %81 = shl nuw nsw i32 %.085.lcssa, 1
   %82 = zext nneg i32 %81 to i64
   %83 = tail call i32 %80(i64 noundef %82, ptr noundef %27, ptr noundef null) #8

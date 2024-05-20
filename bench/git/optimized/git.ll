@@ -713,9 +713,9 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %exitcond262.not, label %do.body.i3, label %for.body.i, !llvm.loop !10
 
 do.body.i3:                                       ; preds = %for.body.i, %commit_pager_choice.exit
-  %41 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i20.i = icmp eq i32 %41, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool7.not42.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool7.not.i = select i1 %tobool.not.i20.i, i1 %tobool7.not42.i, i1 false
@@ -809,9 +809,9 @@ commit_pager_choice.exit.i.i:                     ; preds = %sw.bb1.i.i.i, %sw.b
   store i16 %bf.set11.i.i, ptr %clean_on_exit.i.i, align 8
   store ptr @.str.236, ptr %trace2_child_class.i.i, align 8
   call void @trace2_cmd_name_fl(ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @.str.237) #15
-  %51 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i.i = icmp eq i32 %51, 0
-  %bf.load.i.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, 1
   %tobool13.not5.i.i = icmp ne i8 %bf.clear.i.i.i, 0
   %tobool13.not.i.i = select i1 %tobool.not.i.i.i, i1 %tobool13.not5.i.i, i1 false
@@ -1049,9 +1049,9 @@ if.then58.i.i:                                    ; preds = %if.end54.i.i
   unreachable
 
 do.body.i.i:                                      ; preds = %if.end54.i.i
-  %83 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i26.i.i = icmp eq i32 %83, 0
-  %bf.load.i.i31.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i31.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i32.i = and i8 %bf.load.i.i31.i, 1
   %tobool62.not34.i.i = icmp ne i8 %bf.clear.i.i32.i, 0
   %tobool62.not.i.i = select i1 %tobool.not.i26.i.i, i1 %tobool62.not34.i.i, i1 false
@@ -2520,9 +2520,9 @@ if.then43:                                        ; preds = %land.lhs.true39
   br label %do.body
 
 do.body:                                          ; preds = %commit_pager_choice.exit, %land.lhs.true39, %if.then43
-  %14 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i = icmp eq i32 %14, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool46.not22 = icmp ne i8 %bf.clear.i, 0
   %tobool46.not = select i1 %tobool.not.i, i1 %tobool46.not22, i1 false

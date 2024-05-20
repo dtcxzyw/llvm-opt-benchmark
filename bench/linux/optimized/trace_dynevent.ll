@@ -190,8 +190,8 @@ define dso_local noundef range(i32 -22, 1) i32 @dyn_event_register(ptr noundef %
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr %0, ptr %24, align 8
   tail call void @mutex_lock(ptr noundef nonnull @dyn_event_ops_mutex) #9
-  %25 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_ops_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_ops_list, i64 0, i32 1), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @dyn_event_ops_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @dyn_event_ops_list, i64 8), align 8
   store ptr @dyn_event_ops_list, ptr %0, align 8
   store ptr %25, ptr %24, align 8
   store volatile ptr %0, ptr %25, align 8

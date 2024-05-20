@@ -53,7 +53,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
   %0 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #6, !srcloc !4
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523TitlecaseTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523TitlecaseTransliteratorE, i64 16), ptr %this, align 8
   invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef 2)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -124,7 +124,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 define void @_ZN6icu_7523TitlecaseTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %o) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7521CaseMapTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %o)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523TitlecaseTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523TitlecaseTransliteratorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -224,7 +224,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %8 = load i32, ptr %contextLimit, align 4
   %limit16 = getelementptr inbounds i8, ptr %csc, i64 16
   store i32 %8, ptr %limit16, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tmp, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp2055 = icmp slt i32 %5, %4

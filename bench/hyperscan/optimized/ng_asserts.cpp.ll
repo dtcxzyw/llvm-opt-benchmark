@@ -874,9 +874,9 @@ if.end.i77:                                       ; preds = %for.body.i73
   %cmp.i216.i = icmp eq ptr %42, %agg.tmp49.sroa.0.0.copyload.i
   %cmp.i.i189.i = icmp ne ptr %42, %agg.tmp49.sroa.0.0.copyload.i
   %45 = load <2 x i64>, ptr @_ZN3ue2L14CHARREACH_WORDE, align 16
-  %46 = load <2 x i64>, ptr getelementptr inbounds (%"class.ue2::CharReach", ptr @_ZN3ue2L14CHARREACH_WORDE, i64 0, i32 0, i32 0, i32 0, i64 2), align 16
+  %46 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZN3ue2L14CHARREACH_WORDE, i64 16), align 16
   %47 = load <2 x i64>, ptr @_ZN3ue2L17CHARREACH_NONWORDE, align 16
-  %48 = load <2 x i64>, ptr getelementptr inbounds (%"class.ue2::CharReach", ptr @_ZN3ue2L17CHARREACH_NONWORDE, i64 0, i32 0, i32 0, i32 0, i64 2), align 16
+  %48 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZN3ue2L17CHARREACH_NONWORDE, i64 16), align 16
   %agg.tmp55.sroa.0.0.copyload.i = load ptr, ptr %accept.i, align 8
   %cmp.i217.i = icmp eq ptr %44, %agg.tmp55.sroa.0.0.copyload.i
   %agg.tmp92.sroa.0.0.copyload.i = load ptr, ptr %acceptEod.i, align 8
@@ -1508,7 +1508,7 @@ do.end229.i:                                      ; preds = %if.else221.i
   %137 = load <2 x i64>, ptr %ref.tmp231.i, align 16, !alias.scope !129
   %138 = and <2 x i64> %137, %136
   store <2 x i64> %138, ptr %ref.tmp231.i, align 16, !alias.scope !129
-  %139 = load <2 x i64>, ptr getelementptr inbounds (%"class.ue2::CharReach", ptr @_ZN3ue2L22CHARREACH_WORD_UCP_PREE, i64 0, i32 0, i32 0, i32 0, i64 2), align 16, !noalias !129
+  %139 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZN3ue2L22CHARREACH_WORD_UCP_PREE, i64 16), align 16, !noalias !129
   %140 = load <2 x i64>, ptr %arrayidx.i.i22.i.i404.i, align 16, !alias.scope !129
   %141 = and <2 x i64> %140, %139
   store <2 x i64> %141, ptr %arrayidx.i.i22.i.i404.i, align 16, !alias.scope !129
@@ -1531,7 +1531,7 @@ _ZNK3ue29CharReach3anyEv.exit416.i:               ; preds = %for.body.i.i.i408.i
   %144 = load <2 x i64>, ptr %ref.tmp239.i, align 16, !alias.scope !132
   %145 = and <2 x i64> %144, %143
   store <2 x i64> %145, ptr %ref.tmp239.i, align 16, !alias.scope !132
-  %146 = load <2 x i64>, ptr getelementptr inbounds (%"class.ue2::CharReach", ptr @_ZN3ue2L25CHARREACH_NONWORD_UCP_PREE, i64 0, i32 0, i32 0, i32 0, i64 2), align 16, !noalias !132
+  %146 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZN3ue2L25CHARREACH_NONWORD_UCP_PREE, i64 16), align 16, !noalias !132
   %147 = load <2 x i64>, ptr %arrayidx.i.i22.i.i422.i, align 16, !alias.scope !132
   %148 = and <2 x i64> %147, %146
   store <2 x i64> %148, ptr %arrayidx.i.i22.i.i422.i, align 16, !alias.scope !132
@@ -4921,9 +4921,9 @@ _ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forwa
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_ng_asserts.cpp() #15 section ".text.startup" {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (%"class.ue2::CharReach", ptr @_ZN3ue2L14CHARREACH_WORDE, i64 0, i32 0, i32 0, i32 0, i64 2), i8 0, i64 16, i1 false)
   store i64 287948901175001088, ptr @_ZN3ue2L14CHARREACH_WORDE, align 16, !alias.scope !392
-  store i64 576460745995190270, ptr getelementptr inbounds (%"class.ue2::CharReach", ptr @_ZN3ue2L14CHARREACH_WORDE, i64 0, i32 0, i32 0, i32 0, i64 1), align 8, !alias.scope !392
+  store i64 576460745995190270, ptr getelementptr inbounds (i8, ptr @_ZN3ue2L14CHARREACH_WORDE, i64 8), align 8, !alias.scope !392
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ue2L14CHARREACH_WORDE, i64 16), i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_ZN3ue2L17CHARREACH_NONWORDE, ptr noundef nonnull align 16 dereferenceable(32) @_ZN3ue2L14CHARREACH_WORDE, i64 32, i1 false)
   br label %for.body.i.i.i.i
 
@@ -4939,7 +4939,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 __cxx_global_var_init.5.exit:                     ; preds = %for.body.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_ZN3ue2L22CHARREACH_WORD_UCP_PREE, ptr noundef nonnull align 16 dereferenceable(32) @_ZN3ue2L14CHARREACH_WORDE, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (%"class.ue2::CharReach", ptr @_ZN3ue2L22CHARREACH_WORD_UCP_PREE, i64 0, i32 0, i32 0, i32 0, i64 2), i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ue2L22CHARREACH_WORD_UCP_PREE, i64 16), i8 -1, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_ZN3ue2L25CHARREACH_NONWORD_UCP_PREE, ptr noundef nonnull align 16 dereferenceable(32) @_ZN3ue2L17CHARREACH_NONWORDE, i64 32, i1 false)
   ret void
 }

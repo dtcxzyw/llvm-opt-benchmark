@@ -59,7 +59,7 @@ define internal void @rtspstat_init(ptr noundef %0, ptr nocapture readnone %1) #
   %13 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @rtsp_status_code_vals, i64 0, i64 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @rtsp_status_code_vals, i64 8), align 8
   %.not13.i = icmp eq ptr %15, null
   br i1 %.not13.i, label %rtsp_init_hash.exit, label %.lr.ph.i
 

@@ -40499,7 +40499,7 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @_ZN7hir_def4attr7builtin21find_builtin_attr_idx17h2cd1ab2f3862302bE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca i64, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (<{ [32 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 0, i32 1, i64 0) acquire, align 8
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 32) acquire, align 8
   %.not.i = icmp eq i32 %4, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h8489899dc16f741eE.llvm.14212318151792154407.exit", label %5
 
@@ -40509,7 +40509,7 @@ define { i64, i64 } @_ZN7hir_def4attr7builtin21find_builtin_attr_idx17h2cd1ab2f3
 
 "_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h8489899dc16f741eE.llvm.14212318151792154407.exit": ; preds = %2, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9879)
-  %6 = load i64, ptr getelementptr inbounds (<{ [32 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 0, i32 0, i64 24), align 8, !alias.scope !9879, !noalias !9882, !noundef !15
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 24), align 8, !alias.scope !9879, !noalias !9882, !noundef !15
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hceb64abc9e9e14ecE.llvm.14212318151792154407.exit.thread", label %8
 
@@ -40527,7 +40527,7 @@ define { i64, i64 } @_ZN7hir_def4attr7builtin21find_builtin_attr_idx17h2cd1ab2f3
   call void @llvm.experimental.noalias.scope.decl(metadata !9907)
   %13 = lshr i64 %12, 57
   %14 = trunc nuw nsw i64 %13 to i8
-  %15 = load i64, ptr getelementptr inbounds (<{ [32 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 0, i32 0, i64 8), align 8, !alias.scope !9910, !noalias !9911, !noundef !15
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 8), align 8, !alias.scope !9910, !noalias !9911, !noundef !15
   %16 = and i64 %15, %12
   %17 = load ptr, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, align 8, !alias.scope !9915, !noalias !9916, !nonnull !15, !noundef !15
   %.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %14, i64 0

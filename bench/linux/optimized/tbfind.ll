@@ -38,7 +38,7 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr nocapture noundef r
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   %20 = call ptr @strncpy(ptr noundef %19, ptr noundef %2, i64 noundef 8) #7
   %21 = call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #7
-  %22 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit, label %.preheader.preheader
 
@@ -117,7 +117,7 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr nocapture noundef r
   %65 = phi ptr [ %45, %58 ], [ %45, %51 ], [ %45, %43 ], [ %39, %38 ], [ %24, %.preheader ]
   %66 = phi ptr [ %45, %58 ], [ %45, %51 ], [ %45, %43 ], [ %39, %38 ], [ %25, %.preheader ]
   %67 = add nuw nsw i64 %26, 1
-  %68 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %69 = zext i32 %68 to i64
   %70 = icmp ult i64 %67, %69
   br i1 %70, label %.preheader, label %.loopexit, !llvm.loop !5

@@ -124,9 +124,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_ias_ace() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_ias_ace, ptr @proto_register_zbee_zcl_ias_ace.ett, align 16
-  store ptr @ett_zbee_zcl_ias_ace_zone_id, ptr getelementptr inbounds ([4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_ias_ace_zone_id_map_sec, ptr getelementptr inbounds ([4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 2), align 16
-  store ptr @ett_zbee_zcl_ias_ace_zone_id_map_sec_elem, ptr getelementptr inbounds ([4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 3), align 8
+  store ptr @ett_zbee_zcl_ias_ace_zone_id, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_ias_ace.ett, i64 8), align 8
+  store ptr @ett_zbee_zcl_ias_ace_zone_id_map_sec, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_ias_ace.ett, i64 16), align 16
+  store ptr @ett_zbee_zcl_ias_ace_zone_id_map_sec_elem, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_ias_ace.ett, i64 24), align 8
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #2
   store i32 %1, ptr @proto_zbee_zcl_ias_ace, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_ias_ace.hf, i32 noundef 10) #2

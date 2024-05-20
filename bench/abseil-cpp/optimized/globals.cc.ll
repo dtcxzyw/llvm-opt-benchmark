@@ -78,7 +78,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl12log_internal25SetLoggingGlobalsListenerEPFvvE(ptr noundef %l) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook", ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %l to i64
   %3 = cmpxchg ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE, i64 %1, i64 %2 acq_rel acquire, align 8

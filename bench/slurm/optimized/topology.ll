@@ -54,7 +54,7 @@ define i32 @topology_g_build_config() #0 {
   %4 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %5 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #9
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %7 = tail call i32 %6() #9
   %8 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 20, ptr noundef nonnull @__func__.topology_g_build_config, i64 noundef 20000, ptr noundef nonnull %4) #9
@@ -88,14 +88,14 @@ define range(i32 -1, 1) i32 @topology_g_init() local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %7, %5
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 212), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1464), align 8
   %11 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %10, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 88) #9
   store ptr %11, ptr @g_context, align 8
   %.not9 = icmp ne ptr %11, null
   br i1 %.not9, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 212), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1464), align 8
   %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, ptr noundef %13) #9
   br label %.sink.split
 
@@ -183,21 +183,21 @@ declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define i32 @topology_g_eval_nodes(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %3 = tail call i32 %2(ptr noundef %0) #9
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @topology_g_generate_node_ranking() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %2 = tail call zeroext i1 %1() #9
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @topology_g_get_node_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
   %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   ret i32 %5
 }
@@ -205,7 +205,7 @@ define i32 @topology_g_get_node_addr(ptr noundef %0, ptr noundef %1, ptr noundef
 ; Function Attrs: nounwind uwtable
 define i32 @topology_g_split_hostlist(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %7 = and i64 %6, 536870912
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %16, label %8
@@ -230,9 +230,9 @@ define i32 @topology_g_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 16:                                               ; preds = %15, %4
   %.020 = phi i32 [ %9, %15 ], [ 0, %4 ]
   %.not26 = icmp eq i16 %3, 0
-  %17 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 213), align 8
+  %17 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1472), align 8
   %spec.select = select i1 %.not26, i16 %17, i16 %3
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 5), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
   %19 = call i32 %18(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %spec.select) #9
   %.not27 = icmp eq i32 %19, 0
   br i1 %.not27, label %20, label %22
@@ -245,7 +245,7 @@ define i32 @topology_g_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 
 22:                                               ; preds = %20, %16
   %.022 = phi i32 [ %19, %16 ], [ %spec.select31, %20 ]
-  %23 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %24 = and i64 %23, 536870912
   %.not29 = icmp eq i64 %24, 0
   br i1 %.not29, label %39, label %.preheader
@@ -297,7 +297,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @topology_g_get(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 7), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #9
   ret i32 %4
 }
@@ -314,7 +314,7 @@ define i32 @topology_g_topology_pack(ptr nocapture noundef readonly %0, ptr noun
   %8 = load ptr, ptr @ops, align 8
   %9 = load i32, ptr %8, align 4
   tail call void @pack32(i32 noundef %9, ptr noundef %1) #9
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 64), align 8
   %11 = load ptr, ptr %0, align 8
   %12 = tail call i32 %10(ptr noundef %11, ptr noundef %1, i16 noundef zeroext %2) #9
   br label %13
@@ -335,7 +335,7 @@ define i32 @topology_g_topology_print(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 9), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 72), align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i32 %8(ptr noundef %9, ptr noundef %1, ptr noundef %2) #9
   br label %11
@@ -372,7 +372,7 @@ define range(i32 -1, 1) i32 @topology_g_topology_unpack(ptr nocapture noundef wr
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %11, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 10), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 80), align 8
   %18 = call i32 %17(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2) #9
   %.not15 = icmp eq i32 %18, 0
   br i1 %.not15, label %30, label %.thread
@@ -399,7 +399,7 @@ define range(i32 -1, 1) i32 @topology_g_topology_unpack(ptr nocapture noundef wr
   br i1 %.not3.i, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 6), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
   %27 = call i32 %26(ptr noundef nonnull %24) #9
   br label %28
 
@@ -435,7 +435,7 @@ define i32 @topology_g_topology_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i64 0, i32 6), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
   %7 = tail call i32 %6(ptr noundef nonnull %4) #9
   br label %8
 

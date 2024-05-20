@@ -967,7 +967,7 @@ if.end25.i:                                       ; preds = %if.then18.i, %if.en
   %cmp70 = phi i1 [ icmp eq (ptr @.str.14, ptr @.str.9), %if.end12.i ], [ true, %if.then18.i ]
   %storemerge.i = phi ptr [ @.str.14, %if.end12.i ], [ @.str.9, %if.then18.i ]
   %encoded.0.i = phi ptr [ %call13.i, %if.end12.i ], [ %call19.i, %if.then18.i ]
-  %call26.i = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %encoded.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 582), ptr noundef nonnull @.str.16, i32 noundef 45, i32 noundef 95) #2
+  %call26.i = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %encoded.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56816), ptr noundef nonnull @.str.16, i32 noundef 45, i32 noundef 95) #2
   %cmp27.i = icmp eq ptr %call26.i, null
   br i1 %cmp27.i, label %error.i, label %if.end29.i
 

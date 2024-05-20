@@ -159,7 +159,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %16 = getelementptr inbounds i8, ptr %0, i64 2304
   %17 = select i1 %15, i32 1572864, i32 393216
   store i32 %17, ptr %16, align 8
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %19 = call noalias noundef align 8 dereferenceable_or_null(656) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 656) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %347, label %21

@@ -583,7 +583,7 @@ define dso_local void @tcp_time_wait(ptr noundef %0, i32 noundef %1, i32 noundef
   %132 = icmp eq i32 %1, 6
   %133 = select i1 %132, i32 60000, i32 %131
   %134 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !12
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   tail call void @__inet_twsk_schedule(ptr noundef nonnull %7, i32 noundef %133, i1 noundef zeroext false) #8
   %135 = getelementptr inbounds i8, ptr %5, i64 832
@@ -650,8 +650,8 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal void @tcp_md5_twsk_free_rcu(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -120
   tail call void @kfree(ptr noundef %2) #8
-  %3 = load i64, ptr getelementptr inbounds (%struct.static_key_false_deferred, ptr @tcp_md5_needed, i64 0, i32 1), align 8
-  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @tcp_md5_needed, ptr noundef nonnull getelementptr inbounds (%struct.static_key_false_deferred, ptr @tcp_md5_needed, i64 0, i32 2), i64 noundef %3) #8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @tcp_md5_needed, i64 16), align 8
+  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @tcp_md5_needed, ptr noundef nonnull getelementptr inbounds (i8, ptr @tcp_md5_needed, i64 24), i64 noundef %3) #8
   tail call void @tcp_md5_release_sigpool() #8
   ret void
 }

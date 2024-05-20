@@ -97,23 +97,23 @@ define void @prte_setup_hostname() local_unnamed_addr #0 {
   %.sink48 = phi i64 [ %29, %28 ], [ %16, %19 ], [ %16, %.critedge2 ]
   %30 = getelementptr inbounds [65 x i8], ptr %1, i64 0, i64 %.sink48
   %31 = call noalias ptr @strdup(ptr noundef nonnull %30) #7
-  store ptr %31, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
-  %32 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), ptr noundef %31) #7
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %32 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_process_info, i64 808), ptr noundef %31) #7
   br label %34
 
 .critedge32:                                      ; preds = %12, %8
   %33 = call noalias ptr @strdup(ptr noundef nonnull %1) #7
-  store ptr %33, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   br label %34
 
 34:                                               ; preds = %.critedge, %.critedge32
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #7
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   br label %37
 
 35:                                               ; preds = %6, %0
   %36 = call noalias ptr @strdup(ptr noundef nonnull %1) #7
-  store ptr %36, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  store ptr %36, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   br label %37
 
 37:                                               ; preds = %35, %34
@@ -122,7 +122,7 @@ define void @prte_setup_hostname() local_unnamed_addr #0 {
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %41, i32 noundef 46) #8
   %.not30 = icmp eq ptr %42, null
   br i1 %.not30, label %49, label %43
@@ -134,13 +134,13 @@ define void @prte_setup_hostname() local_unnamed_addr #0 {
 
 46:                                               ; preds = %43
   store i8 0, ptr %42, align 1
-  %47 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %43, %46
   %.sink49 = phi ptr [ %47, %46 ], [ %41, %43 ]
   %.sink = phi i8 [ 46, %46 ], [ 0, %43 ]
-  %48 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), ptr noundef %.sink49) #7
+  %48 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_process_info, i64 808), ptr noundef %.sink49) #7
   store i8 %.sink, ptr %42, align 1
   br label %49
 
@@ -175,7 +175,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @prte_check_host_is_local(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2) #8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
@@ -191,7 +191,7 @@ define noundef zeroext i1 @prte_check_host_is_local(ptr noundef %0) local_unname
   br i1 %10, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 808), align 8
   %12 = load ptr, ptr %11, align 8
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -220,7 +220,7 @@ define noundef zeroext i1 @prte_check_host_is_local(ptr noundef %0) local_unname
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), ptr noundef %0) #7
+  %24 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_process_info, i64 808), ptr noundef %0) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %21, %1, %5, %8, %23
@@ -242,9 +242,9 @@ define noundef i32 @prte_proc_info() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   store i1 true, ptr @init, align 1
-  store ptr null, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 2), align 8
-  %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 2)) #7
-  %3 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 520), align 8
+  %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_process_info, i64 520)) #7
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 520), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
@@ -265,9 +265,9 @@ define noundef i32 @prte_proc_info() local_unnamed_addr #0 {
 
 13:                                               ; preds = %4, %7, %1
   %14 = tail call i32 @getpid() #7
-  store i32 %14, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 9), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 6), align 4
-  %15 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 6)) #7
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 816), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 796), align 4
+  %15 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_process_info, i64 796)) #7
   br label %16
 
 16:                                               ; preds = %0, %13
@@ -286,48 +286,48 @@ define noundef i32 @prte_proc_info_finalize() local_unnamed_addr #0 {
   br i1 %.b4, label %1, label %15
 
 1:                                                ; preds = %0
-  %2 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 12), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 824), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %2) #7
-  store ptr null, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 12), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 824), align 8
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 13), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 832), align 8
   %.not5 = icmp eq ptr %5, null
   br i1 %.not5, label %7, label %6
 
 6:                                                ; preds = %4
   tail call void @free(ptr noundef nonnull %5) #7
-  store ptr null, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 13), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 832), align 8
   br label %7
 
 7:                                                ; preds = %6, %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %.not6 = icmp eq ptr %8, null
   br i1 %.not6, label %10, label %9
 
 9:                                                ; preds = %7
   tail call void @free(ptr noundef nonnull %8) #7
-  store ptr null, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   br label %10
 
 10:                                               ; preds = %9, %7
-  %11 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 15), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 848), align 8
   %.not7 = icmp eq ptr %11, null
   br i1 %.not7, label %13, label %12
 
 12:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %11) #7
-  store ptr null, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 15), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 848), align 8
   br label %13
 
 13:                                               ; preds = %12, %10
-  store i8 0, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 808), align 8
   tail call void @PMIx_Argv_free(ptr noundef %14) #7
   store i1 false, ptr @init, align 1
   br label %15

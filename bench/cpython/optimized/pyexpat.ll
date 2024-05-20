@@ -675,7 +675,7 @@ if.then1.i28.i.i:                                 ; preds = %if.end.i25.i.i
   br label %newxmlparseobject.exit.i
 
 if.end7.i.i:                                      ; preds = %_Py_XNewRef.exit.i.i
-  %25 = load i64, ptr getelementptr inbounds (%union._Py_HashSecret_t, ptr @_Py_HashSecret, i64 0, i32 0, i32 1), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @_Py_HashSecret, i64 16), align 8
   %call9.i.i = call i32 @PyExpat_XML_SetHashSalt(ptr noundef nonnull %call3.i.i, i64 noundef %25) #8
   %26 = load ptr, ptr %itself.i.i, align 8
   call void @PyExpat_XML_SetUserData(ptr noundef %26, ptr noundef nonnull %call.i11.i) #8

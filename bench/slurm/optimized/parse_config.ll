@@ -879,7 +879,7 @@ _parse_for_format.exit:                           ; preds = %180, %165, %.loopex
   br i1 %.not38.i53, label %209, label %206
 
 206:                                              ; preds = %204
-  %207 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %207 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %208 = and i64 %207, 8388608
   %.not39.i = icmp eq i64 %208, 0
   br i1 %.not39.i, label %209, label %212

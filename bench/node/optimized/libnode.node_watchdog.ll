@@ -329,7 +329,7 @@ declare void @uv_stop(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node14SigintWatchdogC2EPN2v87IsolateEPb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %isolate, ptr noundef %received_signal) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %received_signal_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -492,7 +492,7 @@ cleanup:                                          ; preds = %do.end39, %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node14SigintWatchdogD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node20SigintWatchdogHelper22instance_action_mutex_E) #15
   tail call void @_ZN4node20SigintWatchdogHelper10UnregisterEPNS_18SigintWatchdogBaseE(ptr noundef nonnull align 8 dereferenceable(162) @_ZN4node20SigintWatchdogHelper8instanceE, ptr noundef nonnull %this)
   %call4 = tail call noundef zeroext i1 @_ZN4node20SigintWatchdogHelper4StopEv(ptr noundef nonnull align 8 dereferenceable(162) @_ZN4node20SigintWatchdogHelper8instanceE)
@@ -714,7 +714,7 @@ cleanup23:                                        ; preds = %cleanup, %do.end16,
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node14SigintWatchdogD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node20SigintWatchdogHelper22instance_action_mutex_E) #15
   tail call void @_ZN4node20SigintWatchdogHelper10UnregisterEPNS_18SigintWatchdogBaseE(ptr noundef nonnull align 8 dereferenceable(162) @_ZN4node20SigintWatchdogHelper8instanceE, ptr noundef nonnull %this)
   %call4.i = tail call noundef zeroext i1 @_ZN4node20SigintWatchdogHelper4StopEv(ptr noundef nonnull align 8 dereferenceable(162) @_ZN4node20SigintWatchdogHelper8instanceE)
@@ -833,13 +833,13 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %values_.i = getelementptr inbounds i8, ptr %args, i64 8
   %19 = load ptr, ptr %values_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 0, i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 16), ptr %call6, align 8
   %add.ptr.i6 = getelementptr inbounds i8, ptr %call6, i64 88
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 0, i32 1, i64 2), ptr %add.ptr.i6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 200), ptr %add.ptr.i6, align 8
   %handle_.i = getelementptr inbounds i8, ptr %call6, i64 104
   tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %call6, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %handle_.i, i32 noundef 44) #15
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 0, i32 0, i64 2), ptr %call6, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 0, i32 1, i64 2), ptr %add.ptr.i6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 16), ptr %call6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 200), ptr %add.ptr.i6, align 8
   %interrupting.i = getelementptr inbounds i8, ptr %call6, i64 96
   store i8 0, ptr %interrupting.i, align 8
   %signal_flag_.i = getelementptr inbounds i8, ptr %call6, i64 232
@@ -984,13 +984,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node19TraceSigintWatchdogC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef %env, ptr %object.coerce) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 200), ptr %add.ptr, align 8
   %handle_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %env, ptr %object.coerce, ptr noundef nonnull %handle_, i32 noundef 44) #15
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 200), ptr %add.ptr, align 8
   %interrupting = getelementptr inbounds i8, ptr %this, i64 96
   store i8 0, ptr %interrupting, align 8
   %signal_flag_ = getelementptr inbounds i8, ptr %this, i64 232
@@ -1139,18 +1139,18 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv.exit, %entry
-  tail call void @uv_sem_wait(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 8)) #15
-  tail call void @uv_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 3)) #15
-  %0 = load i8, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 10), align 1
+  tail call void @uv_sem_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 128)) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 48)) #15
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 161), align 1
   %tobool.i = trunc i8 %0 to i1
-  %1 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 88), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 96), align 8
   %cmp.i.i.i = icmp ne ptr %1, %2
   %brmerge.i = select i1 %cmp.i.i.i, i1 true, i1 %tobool.i
   br i1 %brmerge.i, label %for.cond.i.preheader, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body
-  store i8 1, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 5), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 112), align 8
   br label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %if.then.i, %do.body
@@ -1158,7 +1158,7 @@ for.cond.i.preheader:                             ; preds = %if.then.i, %do.body
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i
   %it.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i ], [ %2, %for.cond.i.preheader ]
-  %3 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8, !noalias !7
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 88), align 8, !noalias !7
   %cmp.i.i.i.not.i = icmp eq ptr %it.sroa.0.0.i, %3
   br i1 %cmp.i.i.i.not.i, label %_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv.exit, label %for.body.i
 
@@ -1173,7 +1173,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp.i, label %_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv.exit, label %for.cond.i, !llvm.loop !10
 
 _ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv.exit: ; preds = %for.cond.i, %for.body.i
-  tail call void @uv_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 3)) #15
+  tail call void @uv_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 48)) #15
   br i1 %tobool.i, label %do.end, label %do.body, !llvm.loop !11
 
 do.end:                                           ; preds = %_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv.exit
@@ -1185,17 +1185,17 @@ declare void @uv_sem_wait(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv() local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @uv_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 3)) #15
-  %0 = load i8, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 10), align 1
+  tail call void @uv_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 48)) #15
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 161), align 1
   %tobool = trunc i8 %0 to i1
-  %1 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 88), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 96), align 8
   %cmp.i.i = icmp ne ptr %1, %2
   %brmerge = select i1 %cmp.i.i, i1 true, i1 %tobool
   br i1 %brmerge, label %for.cond.preheader, label %if.then
 
 if.then:                                          ; preds = %entry
-  store i8 1, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 5), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 112), align 8
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry, %if.then
@@ -1203,7 +1203,7 @@ for.cond.preheader:                               ; preds = %entry, %if.then
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
   %it.sroa.0.0 = phi ptr [ %incdec.ptr.i.i, %for.body ], [ %2, %for.cond.preheader ]
-  %3 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8, !noalias !12
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 88), align 8, !noalias !12
   %cmp.i.i.i.not = icmp eq ptr %it.sroa.0.0, %3
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
@@ -1218,14 +1218,14 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp, label %for.end, label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %for.cond
-  tail call void @uv_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 3)) #15
+  tail call void @uv_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 48)) #15
   ret i1 %tobool
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node20SigintWatchdogHelper12HandleSignalEiP9siginfo_tPv(i32 %signum, ptr nocapture readnone %info, ptr nocapture readnone %ucontext) #3 align 2 {
 entry:
-  tail call void @uv_sem_post(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 8)) #15
+  tail call void @uv_sem_post(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 128)) #15
   ret void
 }
 
@@ -1363,7 +1363,7 @@ declare void @node_module_register(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node19TraceSigintWatchdogD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %next_.i.i.i, align 8
@@ -1381,7 +1381,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node19TraceSigintWatchdogD0Ev(ptr noundef nonnull align 8 dereferenceable(236) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -1499,7 +1499,7 @@ entry:
 define linkonce_odr dso_local void @_ZThn88_N4node19TraceSigintWatchdogD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %0, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
   %1 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -1518,7 +1518,7 @@ entry:
 define linkonce_odr dso_local void @_ZThn88_N4node19TraceSigintWatchdogD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %0, align 8
   %handle_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
   %1 = load ptr, ptr %next_.i.i.i.i.i, align 8
@@ -1652,7 +1652,7 @@ if.then:                                          ; preds = %entry
   %retval.0.i = select i1 %cmp.not.i, ptr %.str.51.edge_name.i, ptr %node_name
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40

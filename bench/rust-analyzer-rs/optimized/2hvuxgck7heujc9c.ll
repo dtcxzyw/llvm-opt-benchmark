@@ -4313,7 +4313,7 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h2906badfe1326c7dE.
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.thread
@@ -17042,7 +17042,7 @@ define internal fastcc void @_ZN14ide_completion11completions9flyimport22import_
   br label %.thread92
 
 24:                                               ; preds = %5
-  %25 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion11completions9flyimport22import_assets_for_path10__CALLSITE17ha64f491be6c0840dE, i64 0, i32 1, i64 8) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion11completions9flyimport22import_assets_for_path10__CALLSITE17ha64f491be6c0840dE, i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.thread113
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.thread
@@ -24016,7 +24016,7 @@ define internal fastcc void @_ZN14ide_completion11completions17complete_patterns
   br label %.body.i.i
 
 79:                                               ; preds = %73
-  %80 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion11completions9flyimport22import_on_the_fly_pat_10__CALLSITE17h2e85211dd4f582c3E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !6033
+  %80 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion11completions9flyimport22import_on_the_fly_pat_10__CALLSITE17h2e85211dd4f582c3E, i64 16) monotonic, align 8, !noalias !6033
   switch i8 %80, label %81 [
     i8 0, label %.thread.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.thread.i.i
@@ -26495,7 +26495,7 @@ define hidden noundef zeroext i1 @_ZN14ide_completion7context17CompletionContext
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !6612
   store ptr @anon.360a79e4fec2c1b021005981551725ec.285.llvm.6578722319504587490, ptr %3, align 8, !noalias !6612
   %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.360a79e4fec2c1b021005981551725ec.285.llvm.6578722319504587490, i64 1, i32 0), ptr %20, align 8, !noalias !6612
+  store ptr getelementptr inbounds (i8, ptr @anon.360a79e4fec2c1b021005981551725ec.285.llvm.6578722319504587490, i64 480), ptr %20, align 8, !noalias !6612
   %21 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f8ba5404646a71cE.llvm.8330083114956406873"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc3 unwind label %.loopexit.split-lp
 
@@ -27322,7 +27322,7 @@ define hidden void @_ZN14ide_completion7context17CompletionContext17process_all_
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %10
-  %14 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion7context17CompletionContext17process_all_names10__CALLSITE17hfc7bd72a2e5ffe04E, i64 0, i32 1, i64 8) monotonic, align 8
+  %14 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion7context17CompletionContext17process_all_names10__CALLSITE17hfc7bd72a2e5ffe04E, i64 16) monotonic, align 8
   switch i8 %14, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.thread
@@ -27633,7 +27633,7 @@ define hidden void @_ZN14ide_completion7context17CompletionContext21process_all_
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %9
-  %13 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion7context17CompletionContext21process_all_names_raw10__CALLSITE17hfd2f7d0aba856cfaE.llvm.6578722319504587490, i64 0, i32 1, i64 8) monotonic, align 8
+  %13 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion7context17CompletionContext21process_all_names_raw10__CALLSITE17hfd2f7d0aba856cfaE.llvm.6578722319504587490, i64 16) monotonic, align 8
   switch i8 %13, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.thread
@@ -28679,7 +28679,7 @@ define void @_ZN14ide_completion11completions17h065513fd8174fe40E(ptr noalias no
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.llvm.6578722319504587490.exit.i
 
 127:                                              ; preds = %6
-  %128 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion7context17CompletionContext3new10__CALLSITE17h12a27b3a456409cdE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !7096
+  %128 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion7context17CompletionContext3new10__CALLSITE17h12a27b3a456409cdE, i64 16) monotonic, align 8, !noalias !7096
   switch i8 %128, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.i [
     i8 0, label %.thread270.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.thread.i
@@ -30395,7 +30395,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit42.i.i: ; preds = %611
   br label %.body.i.i.i
 
 681:                                              ; preds = %676
-  %682 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion11completions9flyimport17import_on_the_fly10__CALLSITE17hc6961c2aef10e4faE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !7513
+  %682 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion11completions9flyimport17import_on_the_fly10__CALLSITE17hc6961c2aef10e4faE, i64 16) monotonic, align 8, !noalias !7513
   switch i8 %682, label %683 [
     i8 0, label %.thread.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.thread.i.i.i
@@ -31366,7 +31366,7 @@ _ZN14ide_completion11completions9flyimport22import_on_the_fly_path17h95edcaa28da
   br label %.body.i.i6.i
 
 1002:                                             ; preds = %996
-  %1003 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion11completions9flyimport24import_on_the_fly_method10__CALLSITE17ha09d369193ad5f02E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !7779
+  %1003 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion11completions9flyimport24import_on_the_fly_method10__CALLSITE17ha09d369193ad5f02E, i64 16) monotonic, align 8, !noalias !7779
   switch i8 %1003, label %1004 [
     i8 0, label %.thread.i.i4.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490.exit.thread.i.i20.i

@@ -74,7 +74,7 @@ if.end.i.i.i.i:                                   ; preds = %call.i.noexc.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i, %call.i.noexc.i
   %.sink.i.i.i.i = phi i64 [ 0, %call.i.noexc.i ], [ %spec.select.i.i.i.i, %if.end.i.i.i.i ]
-  store ptr getelementptr inbounds inrange(-72, 56) ({ [16 x ptr] }, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 0, i32 0, i64 9), ptr %call.i2.i, align 8, !tbaa !12, !noalias !28
+  store ptr getelementptr inbounds inrange(-72, 56) (i8, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 72), ptr %call.i2.i, align 8, !tbaa !12, !noalias !28
   %keepAliveCounter_.i.i.i = getelementptr inbounds i8, ptr %call.i2.i, i64 8
   store i64 1, ptr %keepAliveCounter_.i.i.i, align 8, !tbaa !29, !noalias !28
   %executor_.i.i.i = getelementptr inbounds i8, ptr %call.i2.i, i64 16
@@ -181,7 +181,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0ED1Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-72, 56) ({ [16 x ptr] }, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 0, i32 0, i64 9), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-72, 56) (i8, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 72), ptr %this, align 8, !tbaa !12
   %executor_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %executor_.i, align 8, !tbaa !32
   %and.i.i.i.i = and i64 %0, -4
@@ -209,7 +209,7 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-72, 56) ({ [16 x ptr] }, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 0, i32 0, i64 9), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-72, 56) (i8, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 72), ptr %this, align 8, !tbaa !12
   %executor_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %executor_.i.i, align 8, !tbaa !32
   %and.i.i.i.i.i = and i64 %0, -4
@@ -344,7 +344,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #11
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !12
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
           to label %invoke.cont unwind label %lpad
 
@@ -363,7 +363,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #8 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !12
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #15
   unreachable
 }

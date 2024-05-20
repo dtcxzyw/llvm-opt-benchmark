@@ -144,7 +144,7 @@ define internal void @virtio_console_fini() #0 section ".exit.text" align 16 {
 
 5:                                                ; preds = %0
   %6 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @dma_bufs_lock) #17
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pending_free_dma_bufs, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pending_free_dma_bufs, i64 8), align 8
   %8 = load volatile ptr, ptr @pending_free_dma_bufs, align 8
   %9 = icmp eq ptr %8, @pending_free_dma_bufs
   br i1 %9, label %18, label %10
@@ -220,10 +220,10 @@ define internal i32 @virtio_console_init() #0 section ".init.text" align 16 {
 3:                                                ; preds = %0
   %4 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.45, ptr noundef null) #17
   store ptr %4, ptr @pdrvdata, align 8
-  store volatile ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2), ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2), align 8
-  store volatile ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2), ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2, i32 1), align 8
-  store volatile ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1), ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1), align 8
-  store volatile ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1), ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1, i32 1), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 24), ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 24), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 24), ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 32), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 8), ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 8), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 8), ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 16), align 8
   %5 = tail call i32 @register_virtio_driver(ptr noundef nonnull @virtio_console) #17
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
@@ -400,7 +400,7 @@ define internal i32 @virtcons_probe(ptr noundef %0) #4 align 16 {
   br label %94
 
 18:                                               ; preds = %12, %1
-  %19 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %20 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3264, i64 noundef 168) #19
   %21 = icmp eq ptr %20, null
   br i1 %21, label %94, label %22
@@ -538,9 +538,9 @@ define internal i32 @virtcons_probe(ptr noundef %0) #4 align 16 {
 
 90:                                               ; preds = %89, %80
   call void @_raw_spin_lock_irq(ptr noundef nonnull @pdrvdata_lock) #17
-  %91 = load ptr, ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1, i32 1), align 8
-  store ptr %20, ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1), ptr %20, align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 16), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 8), ptr %20, align 8
   store ptr %91, ptr %57, align 8
   store volatile ptr %20, ptr %91, align 8
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @pdrvdata_lock) #17
@@ -1469,7 +1469,7 @@ define internal fastcc i32 @fill_queue(ptr noundef %0, ptr noundef %1) unnamed_a
 
 11:                                               ; preds = %7
   %12 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @dma_bufs_lock) #17
-  %13 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pending_free_dma_bufs, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @pending_free_dma_bufs, i64 8), align 8
   %14 = load volatile ptr, ptr @pending_free_dma_bufs, align 8
   %15 = icmp eq ptr %14, @pending_free_dma_bufs
   br i1 %15, label %24, label %16
@@ -1605,7 +1605,7 @@ free_buf.exit:                                    ; preds = %.loopexit.i, %80
 
 reclaim_dma_bufs.exit:                            ; preds = %free_buf.exit, %7, %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %83 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %84 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %83, i32 noundef 3264, i64 noundef 72) #19
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.thread, label %86
@@ -1615,7 +1615,7 @@ reclaim_dma_bufs.exit:                            ; preds = %free_buf.exit, %7, 
   store i32 0, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %84, i64 40
   store ptr null, ptr %88, align 8
-  %89 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %90 = call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %89, i32 noundef 3264, i64 noundef 4096) #19
   store ptr %90, ptr %84, align 8
   %91 = icmp eq ptr %90, null
@@ -1736,7 +1736,7 @@ define internal fastcc void @__send_control_msg(ptr noundef %0, i32 noundef %1, 
 define internal fastcc void @add_port(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 200) #19
   %6 = icmp eq ptr %5, null
   br i1 %6, label %117, label %7
@@ -2477,9 +2477,9 @@ define internal fastcc i32 @init_port_console(ptr noundef %0) unnamed_addr #4 al
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @pdrvdata_lock) #17
-  %17 = load ptr, ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2, i32 1), align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2), ptr %16, align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 32), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 32), align 8
+  store ptr getelementptr inbounds (i8, ptr @pdrvdata, i64 24), ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %17, ptr %18, align 8
   store volatile ptr %16, ptr %17, align 8
@@ -2586,9 +2586,9 @@ define internal i64 @get_chars(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
   br label %5
 
 5:                                                ; preds = %9, %3
-  %6 = phi ptr [ getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2), %3 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @pdrvdata, i64 24), %3 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2)
+  %8 = icmp eq ptr %7, getelementptr inbounds (i8, ptr @pdrvdata, i64 24)
   br i1 %8, label %.thread, label %9
 
 .thread:                                          ; preds = %5
@@ -2636,9 +2636,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @put_chars(i32 noundef %0
   br label %6
 
 6:                                                ; preds = %10, %3
-  %7 = phi ptr [ getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2), %3 ], [ %8, %10 ]
+  %7 = phi ptr [ getelementptr inbounds (i8, ptr @pdrvdata, i64 24), %3 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2)
+  %9 = icmp eq ptr %8, getelementptr inbounds (i8, ptr @pdrvdata, i64 24)
   br i1 %9, label %.thread, label %10
 
 .thread:                                          ; preds = %6
@@ -2685,9 +2685,9 @@ define internal noundef range(i32 -22, 1) i32 @notifier_add_vio(ptr nocapture no
   br label %6
 
 6:                                                ; preds = %10, %2
-  %7 = phi ptr [ getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2), %2 ], [ %8, %10 ]
+  %7 = phi ptr [ getelementptr inbounds (i8, ptr @pdrvdata, i64 24), %2 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 2)
+  %9 = icmp eq ptr %8, getelementptr inbounds (i8, ptr @pdrvdata, i64 24)
   br i1 %9, label %.thread, label %10
 
 .thread:                                          ; preds = %6
@@ -3304,7 +3304,7 @@ define internal i64 @port_fops_write(ptr nocapture noundef readonly %0, ptr noun
 
 24:                                               ; preds = %19
   %25 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @dma_bufs_lock) #17
-  %26 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pending_free_dma_bufs, i64 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pending_free_dma_bufs, i64 8), align 8
   %27 = load volatile ptr, ptr @pending_free_dma_bufs, align 8
   %28 = icmp eq ptr %27, @pending_free_dma_bufs
   br i1 %28, label %37, label %29
@@ -3354,7 +3354,7 @@ define internal i64 @port_fops_write(ptr nocapture noundef readonly %0, ptr noun
 
 reclaim_dma_bufs.exit:                            ; preds = %.preheader.i, %19, %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  %47 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %48 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3264, i64 noundef 72) #19
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread, label %50
@@ -3505,9 +3505,9 @@ define internal noundef range(i32 -16, 1) i32 @port_fops_open(ptr noundef %0, pt
   br label %9
 
 9:                                                ; preds = %.loopexit9, %2
-  %10 = phi ptr [ getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1), %2 ], [ %11, %.loopexit9 ]
+  %10 = phi ptr [ getelementptr inbounds (i8, ptr @pdrvdata, i64 8), %2 ], [ %11, %.loopexit9 ]
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, getelementptr inbounds (%struct.ports_driver_data, ptr @pdrvdata, i64 0, i32 1)
+  %12 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @pdrvdata, i64 8)
   br i1 %12, label %.thread, label %13
 
 .thread:                                          ; preds = %9
@@ -3716,7 +3716,7 @@ define internal noundef i32 @port_fops_release(ptr nocapture readnone %0, ptr no
 
 34:                                               ; preds = %.loopexit
   %35 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @dma_bufs_lock) #17
-  %36 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pending_free_dma_bufs, i64 0, i32 1), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @pending_free_dma_bufs, i64 8), align 8
   %37 = load volatile ptr, ptr @pending_free_dma_bufs, align 8
   %38 = icmp eq ptr %37, @pending_free_dma_bufs
   br i1 %38, label %47, label %39
@@ -3855,7 +3855,7 @@ define internal i64 @port_fops_splice_write(ptr noundef %0, ptr nocapture nounde
 
 39:                                               ; preds = %32
   %40 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @dma_bufs_lock) #17
-  %41 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pending_free_dma_bufs, i64 0, i32 1), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @pending_free_dma_bufs, i64 8), align 8
   %42 = load volatile ptr, ptr @pending_free_dma_bufs, align 8
   %43 = icmp eq ptr %42, @pending_free_dma_bufs
   br i1 %43, label %52, label %44
@@ -4245,7 +4245,7 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %83 = sub nuw nsw i32 4096, %78
   %84 = select i1 %82, i32 %83, i32 %80
   %85 = load ptr, ptr %1, align 8
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #17, !srcloc !51
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !51
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !52
   %86 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #22, !srcloc !53
   %87 = inttoptr i64 %86 to ptr
@@ -4279,7 +4279,7 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %111 = add i32 %110, -1
   store i32 %111, ptr %88, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !56
-  %112 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #17, !srcloc !57
+  %112 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !57
   %113 = icmp ult i8 %112, 2
   tail call void @llvm.assume(i1 %113)
   %114 = icmp eq i8 %112, 0

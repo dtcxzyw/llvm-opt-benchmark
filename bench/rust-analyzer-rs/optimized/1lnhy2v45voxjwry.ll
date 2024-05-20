@@ -33775,7 +33775,7 @@ common.resume:                                    ; preds = %127, %98, %89
   br label %145
 
 104:                                              ; preds = %78
-  %105 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN111_$LT$chalk_solve..infer..unify..OccursCheck$LT$I$GT$$u20$as$u20$chalk_ir..fold..FallibleTypeFolder$LT$I$GT$$GT$21try_fold_inference_ty10__CALLSITE17he1280f95dbad8827E", i64 0, i32 2, i32 0) monotonic, align 8
+  %105 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN111_$LT$chalk_solve..infer..unify..OccursCheck$LT$I$GT$$u20$as$u20$chalk_ir..fold..FallibleTypeFolder$LT$I$GT$$GT$21try_fold_inference_ty10__CALLSITE17he1280f95dbad8827E", i64 16) monotonic, align 8
   switch i8 %105, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -34667,7 +34667,7 @@ define internal noundef ptr @"_ZN111_$LT$chalk_solve..infer..unify..OccursCheck$
   ret ptr %.0
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN111_$LT$chalk_solve..infer..unify..OccursCheck$LT$I$GT$$u20$as$u20$chalk_ir..fold..FallibleTypeFolder$LT$I$GT$$GT$28try_fold_free_placeholder_ty10__CALLSITE17heac200b634823883E", i64 0, i32 2, i32 0) monotonic, align 8
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN111_$LT$chalk_solve..infer..unify..OccursCheck$LT$I$GT$$u20$as$u20$chalk_ir..fold..FallibleTypeFolder$LT$I$GT$$GT$28try_fold_free_placeholder_ty10__CALLSITE17heac200b634823883E", i64 16) monotonic, align 8
   switch i8 %31, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -34884,7 +34884,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %58, %55, %4
   br i1 %35, label %36, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread111
 
 36:                                               ; preds = %33
-  %37 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN111_$LT$chalk_solve..infer..unify..OccursCheck$LT$I$GT$$u20$as$u20$chalk_ir..fold..FallibleTypeFolder$LT$I$GT$$GT$34try_fold_free_placeholder_lifetime10__CALLSITE17h093bd369d5047b05E", i64 0, i32 2, i32 0) monotonic, align 8
+  %37 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN111_$LT$chalk_solve..infer..unify..OccursCheck$LT$I$GT$$u20$as$u20$chalk_ir..fold..FallibleTypeFolder$LT$I$GT$$GT$34try_fold_free_placeholder_lifetime10__CALLSITE17h093bd369d5047b05E", i64 16) monotonic, align 8
   switch i8 %37, label %38 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread111
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -36700,7 +36700,7 @@ define internal fastcc noundef zeroext i1 @"_ZN11chalk_solve5infer5unify16Unifie
   br i1 %97, label %98, label %.thread
 
 98:                                               ; preds = %92
-  %99 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$12relate_ty_ty10__CALLSITE17h4e22adb94b6365d4E", i64 0, i32 2, i32 0) monotonic, align 8
+  %99 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$12relate_ty_ty10__CALLSITE17h4e22adb94b6365d4E", i64 16) monotonic, align 8
   switch i8 %99, label %100 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -37180,7 +37180,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit.i: ; preds = %270, %267,
   br i1 %247, label %248, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread228.i
 
 248:                                              ; preds = %245
-  %249 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$14relate_binders10__CALLSITE17h8be3474e4de80f9dE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !5291
+  %249 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$14relate_binders10__CALLSITE17h8be3474e4de80f9dE", i64 16) monotonic, align 8, !noalias !5291
   switch i8 %249, label %250 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread228.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -38332,7 +38332,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %584, label %585, label %.critedge
 
 585:                                              ; preds = %582
-  %586 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$12relate_ty_ty10__CALLSITE17h41ba5edbeffdcc45E", i64 0, i32 2, i32 0) monotonic, align 8
+  %586 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$12relate_ty_ty10__CALLSITE17h41ba5edbeffdcc45E", i64 16) monotonic, align 8
   switch i8 %586, label %587 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit302.thread
@@ -39906,7 +39906,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %213, label %214, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread768
 
 214:                                              ; preds = %211
-  %215 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13generalize_ty10__CALLSITE17hd6419606558a7a6eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %215 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13generalize_ty10__CALLSITE17hd6419606558a7a6eE", i64 16) monotonic, align 8
   switch i8 %215, label %216 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread768
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -40130,7 +40130,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %266, label %267, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i
 
 267:                                              ; preds = %264
-  %268 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !5890
+  %268 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8, !noalias !5890
   switch i8 %268, label %269 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -40473,7 +40473,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %366, label %367, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i188
 
 367:                                              ; preds = %364
-  %368 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !5955
+  %368 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8, !noalias !5955
   switch i8 %368, label %369 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i188
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i193
@@ -40825,7 +40825,7 @@ switch.lookup:                                    ; preds = %244
   br i1 %478, label %479, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i245
 
 479:                                              ; preds = %476
-  %480 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !6016
+  %480 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8, !noalias !6016
   switch i8 %480, label %481 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i245
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i250
@@ -41192,7 +41192,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %583, label %584, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i316
 
 584:                                              ; preds = %581
-  %585 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !6083
+  %585 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8, !noalias !6083
   switch i8 %585, label %586 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i316
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i321
@@ -41501,7 +41501,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %669, label %670, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i373
 
 670:                                              ; preds = %667
-  %671 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !6144
+  %671 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8, !noalias !6144
   switch i8 %671, label %672 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i373
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i378
@@ -41810,7 +41810,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %755, label %756, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i430
 
 756:                                              ; preds = %753
-  %757 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !6205
+  %757 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8, !noalias !6205
   switch i8 %757, label %758 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i430
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i435
@@ -42222,7 +42222,7 @@ switch.lookup823:                                 ; preds = %244
   br i1 %888, label %889, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i501
 
 889:                                              ; preds = %886
-  %890 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !6272
+  %890 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8, !noalias !6272
   switch i8 %890, label %891 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i501
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i506
@@ -42931,7 +42931,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %1106, label %1107, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i613
 
 1107:                                             ; preds = %1104
-  %1108 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !6364
+  %1108 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8, !noalias !6364
   switch i8 %1108, label %1109 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89.i613
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i618
@@ -43628,7 +43628,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %1300, label %1301, label %.critedge
 
 1301:                                             ; preds = %1298
-  %1302 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13generalize_ty10__CALLSITE17h71a85c8dbf7b9d0eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1302 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13generalize_ty10__CALLSITE17h71a85c8dbf7b9d0eE", i64 16) monotonic, align 8
   switch i8 %1302, label %1303 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit700.thread
@@ -44341,7 +44341,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %80, label %81, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread477
 
 81:                                               ; preds = %78
-  %82 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17hcd2fcaecab4e50edE", i64 0, i32 2, i32 0) monotonic, align 8
+  %82 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17hcd2fcaecab4e50edE", i64 16) monotonic, align 8
   switch i8 %82, label %83 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread477
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -44548,7 +44548,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %129, label %130, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit288.thread489
 
 130:                                              ; preds = %127
-  %131 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17h16710b60e04f6815E", i64 0, i32 2, i32 0) monotonic, align 8
+  %131 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17h16710b60e04f6815E", i64 16) monotonic, align 8
   switch i8 %131, label %132 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit288.thread489
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit288.thread
@@ -44638,7 +44638,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit288
   br i1 %155, label %156, label %.critedge235
 
 156:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit288.thread489
-  %157 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17h949c21cf35bf346cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %157 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17h949c21cf35bf346cE", i64 16) monotonic, align 8
   switch i8 %157, label %158 [
     i8 0, label %.critedge235
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit298.thread
@@ -44760,7 +44760,7 @@ _ZN8chalk_ir4fold18FallibleTypeFolder11try_fold_ty17h0bdeae5e03a57d27E.exit: ; p
   br i1 %193, label %194, label %218
 
 194:                                              ; preds = %191
-  %195 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h436afd6653706186E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !6593
+  %195 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h436afd6653706186E", i64 16) monotonic, align 8, !noalias !6593
   switch i8 %195, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.i [
     i8 0, label %218
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i
@@ -44892,7 +44892,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %225, label %226, label %.critedge241
 
 226:                                              ; preds = %223
-  %227 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17h5a3d4c3601036b48E", i64 0, i32 2, i32 0) monotonic, align 8
+  %227 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17h5a3d4c3601036b48E", i64 16) monotonic, align 8
   switch i8 %227, label %228 [
     i8 0, label %.critedge241
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit314.thread
@@ -45040,7 +45040,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit314
   br i1 %271, label %272, label %.critedge246
 
 272:                                              ; preds = %269
-  %273 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17he46890c6d7926c09E", i64 0, i32 2, i32 0) monotonic, align 8
+  %273 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17he46890c6d7926c09E", i64 16) monotonic, align 8
   switch i8 %273, label %274 [
     i8 0, label %.critedge246
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit326.thread
@@ -45190,7 +45190,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit326
   br i1 %318, label %319, label %.critedge252
 
 319:                                              ; preds = %316
-  %320 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17h1d5160326846da60E", i64 0, i32 2, i32 0) monotonic, align 8
+  %320 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13relate_var_ty10__CALLSITE17h1d5160326846da60E", i64 16) monotonic, align 8
   switch i8 %320, label %321 [
     i8 0, label %.critedge252
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit340.thread
@@ -45643,7 +45643,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %52, %49, %3
   br i1 %29, label %30, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread75
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13unify_var_var10__CALLSITE17h7be055b85dcb711aE", i64 0, i32 2, i32 0) monotonic, align 8
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$13unify_var_var10__CALLSITE17h7be055b85dcb711aE", i64 16) monotonic, align 8
   switch i8 %31, label %32 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread75
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -45946,7 +45946,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %60, %57, %4
   br i1 %37, label %38, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread123
 
 38:                                               ; preds = %35
-  %39 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$14relate_binders10__CALLSITE17h8be3474e4de80f9dE", i64 0, i32 2, i32 0) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$14relate_binders10__CALLSITE17h8be3474e4de80f9dE", i64 16) monotonic, align 8
   switch i8 %39, label %40 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread123
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -46463,7 +46463,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %59, %56, %4
   br i1 %36, label %37, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread231
 
 37:                                               ; preds = %34
-  %38 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$14relate_binders10__CALLSITE17h8be3474e4de80f9dE", i64 0, i32 2, i32 0) monotonic, align 8
+  %38 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$14relate_binders10__CALLSITE17h8be3474e4de80f9dE", i64 16) monotonic, align 8
   switch i8 %38, label %39 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread231
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -47509,7 +47509,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %62, %59, %4
   br i1 %39, label %40, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread159
 
 40:                                               ; preds = %37
-  %41 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$15relate_alias_ty10__CALLSITE17h861e4222f0942dcaE", i64 0, i32 2, i32 0) monotonic, align 8
+  %41 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$15relate_alias_ty10__CALLSITE17h861e4222f0942dcaE", i64 16) monotonic, align 8
   switch i8 %41, label %42 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread159
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -48285,7 +48285,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %61, %58, %3
   br i1 %38, label %39, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread150
 
 39:                                               ; preds = %36
-  %40 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$15unify_var_const10__CALLSITE17h7e61c122150cb564E", i64 0, i32 2, i32 0) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$15unify_var_const10__CALLSITE17h7e61c122150cb564E", i64 16) monotonic, align 8
   switch i8 %40, label %41 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread150
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -48464,7 +48464,7 @@ _ZN8chalk_ir4fold18FallibleTypeFolder14try_fold_const17h405687043b52ece1E.exit: 
   br i1 %83, label %84, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109.thread164
 
 84:                                               ; preds = %81
-  %85 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$15unify_var_const10__CALLSITE17h307ba321cd4afc9eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %85 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$15unify_var_const10__CALLSITE17h307ba321cd4afc9eE", i64 16) monotonic, align 8
   switch i8 %85, label %86 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109.thread164
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109.thread
@@ -48794,7 +48794,7 @@ define hidden noundef nonnull ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$G
   br i1 %23, label %24, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$16generalize_const10__CALLSITE17h5fd1966f24351111E", i64 0, i32 2, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$16generalize_const10__CALLSITE17h5fd1966f24351111E", i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -49285,7 +49285,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT
   br i1 %64, label %65, label %.thread
 
 65:                                               ; preds = %59
-  %66 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18relate_const_const10__CALLSITE17hefb2ce07d5f6c696E", i64 0, i32 2, i32 0) monotonic, align 8
+  %66 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18relate_const_const10__CALLSITE17hefb2ce07d5f6c696E", i64 16) monotonic, align 8
   switch i8 %66, label %67 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -49549,7 +49549,7 @@ default.unreachable:                              ; preds = %113
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %139
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18relate_const_const10__CALLSITE17h46adffc224eaf4fbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18relate_const_const10__CALLSITE17h46adffc224eaf4fbE", i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit212.thread
@@ -49741,7 +49741,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit212
   br i1 %193, label %194, label %.critedge175
 
 194:                                              ; preds = %191
-  %195 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18relate_const_const10__CALLSITE17hde1e2c14064baf54E", i64 0, i32 2, i32 0) monotonic, align 8
+  %195 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18relate_const_const10__CALLSITE17hde1e2c14064baf54E", i64 16) monotonic, align 8
   switch i8 %195, label %196 [
     i8 0, label %.critedge175
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit236.thread
@@ -49923,7 +49923,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit236
   br i1 %246, label %247, label %.critedge180
 
 247:                                              ; preds = %244
-  %248 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18relate_const_const10__CALLSITE17he5b533c83aa1fa8cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %248 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18relate_const_const10__CALLSITE17he5b533c83aa1fa8cE", i64 16) monotonic, align 8
   switch i8 %248, label %249 [
     i8 0, label %.critedge180
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit261.thread
@@ -50515,7 +50515,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %53, label %54, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread252
 
 54:                                               ; preds = %51
-  %55 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18unify_lifetime_var10__CALLSITE17h5ca7c680603f5fbfE", i64 0, i32 2, i32 0) monotonic, align 8
+  %55 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18unify_lifetime_var10__CALLSITE17h5ca7c680603f5fbfE", i64 16) monotonic, align 8
   switch i8 %55, label %56 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread252
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -50695,7 +50695,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %91, label %93, label %.critedge
 
 93:                                               ; preds = %92
-  %94 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18unify_lifetime_var10__CALLSITE17hf83a685080114769E", i64 0, i32 2, i32 0) monotonic, align 8
+  %94 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18unify_lifetime_var10__CALLSITE17hf83a685080114769E", i64 16) monotonic, align 8
   switch i8 %94, label %95 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit164.thread
@@ -50857,7 +50857,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit164
   br i1 %91, label %143, label %.critedge135
 
 143:                                              ; preds = %142
-  %144 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18unify_lifetime_var10__CALLSITE17h17a8c1904da75860E", i64 0, i32 2, i32 0) monotonic, align 8
+  %144 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$18unify_lifetime_var10__CALLSITE17h17a8c1904da75860E", i64 16) monotonic, align 8
   switch i8 %144, label %145 [
     i8 0, label %.critedge135
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit175.thread
@@ -51133,7 +51133,7 @@ define hidden noundef nonnull ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$G
   br i1 %27, label %28, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread107
 
 28:                                               ; preds = %25
-  %29 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$19generalize_lifetime10__CALLSITE17h454692a2085949f1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$19generalize_lifetime10__CALLSITE17h454692a2085949f1E", i64 16) monotonic, align 8
   switch i8 %29, label %30 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread107
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -51495,7 +51495,7 @@ define hidden noundef nonnull ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$G
   br i1 %29, label %30, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8
   switch i8 %31, label %32 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -51816,7 +51816,7 @@ define hidden noundef nonnull ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$G
   br i1 %29, label %30, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 0, i32 2, i32 0) monotonic, align 8
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$23generalize_substitution10__CALLSITE17h195fe477e0500580E", i64 16) monotonic, align 8
   switch i8 %31, label %32 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -52648,7 +52648,7 @@ default.unreachable220:                           ; preds = %158, %150
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %40
-  %47 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$24relate_lifetime_lifetime10__CALLSITE17ha87bb1fdfd5d28d5E", i64 0, i32 2, i32 0) monotonic, align 8
+  %47 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$24relate_lifetime_lifetime10__CALLSITE17ha87bb1fdfd5d28d5E", i64 16) monotonic, align 8
   switch i8 %47, label %48 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -52897,7 +52897,7 @@ thread-pre-split:                                 ; preds = %82
   br i1 %109, label %110, label %.critedge
 
 110:                                              ; preds = %103
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$24relate_lifetime_lifetime10__CALLSITE17h2a19da71e8a3e61cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$24relate_lifetime_lifetime10__CALLSITE17h2a19da71e8a3e61cE", i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit119.thread
@@ -53385,7 +53385,7 @@ define internal fastcc void @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$28pu
   br label %.thread
 
 23:                                               ; preds = %4
-  %24 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$28push_lifetime_outlives_goals10__CALLSITE17h0667d57bdd244deaE", i64 0, i32 2, i32 0) monotonic, align 8
+  %24 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$28push_lifetime_outlives_goals10__CALLSITE17h0667d57bdd244deaE", i64 16) monotonic, align 8
   switch i8 %24, label %25 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -53943,7 +53943,7 @@ define internal fastcc void @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$29un
   br i1 %29, label %30, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread93
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$29unify_general_var_specific_ty10__CALLSITE17h0b40d7c81ee768a7E", i64 0, i32 2, i32 0) monotonic, align 8
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$29unify_general_var_specific_ty10__CALLSITE17h0b40d7c81ee768a7E", i64 16) monotonic, align 8
   switch i8 %31, label %32 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread93
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -54358,7 +54358,7 @@ define hidden noundef nonnull ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$G
   br i1 %29, label %30, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$33generalize_substitution_skip_self10__CALLSITE17h70bc0ff5ac4a6444E", i64 0, i32 2, i32 0) monotonic, align 8
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$33generalize_substitution_skip_self10__CALLSITE17h70bc0ff5ac4a6444E", i64 16) monotonic, align 8
   switch i8 %31, label %32 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread89
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -54783,7 +54783,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %63, %60, %5
   br i1 %40, label %41, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
 
 41:                                               ; preds = %38
-  %42 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 0, i32 2, i32 0) monotonic, align 8
+  %42 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 16) monotonic, align 8
   switch i8 %42, label %43 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -55238,7 +55238,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %65, %62, %5
   br i1 %42, label %43, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
 
 43:                                               ; preds = %40
-  %44 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 0, i32 2, i32 0) monotonic, align 8
+  %44 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 16) monotonic, align 8
   switch i8 %44, label %45 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -55693,7 +55693,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %65, %62, %5
   br i1 %42, label %43, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
 
 43:                                               ; preds = %40
-  %44 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 0, i32 2, i32 0) monotonic, align 8
+  %44 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 16) monotonic, align 8
   switch i8 %44, label %45 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -56144,7 +56144,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %63, %60, %5
   br i1 %40, label %41, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread126
 
 41:                                               ; preds = %38
-  %42 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 0, i32 2, i32 0) monotonic, align 8
+  %42 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 16) monotonic, align 8
   switch i8 %42, label %43 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread126
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -56595,7 +56595,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %63, %60, %5
   br i1 %40, label %41, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
 
 41:                                               ; preds = %38
-  %42 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 0, i32 2, i32 0) monotonic, align 8
+  %42 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 16) monotonic, align 8
   switch i8 %42, label %43 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -57085,7 +57085,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %85, %82, %5
   br i1 %62, label %63, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
 
 63:                                               ; preds = %60
-  %64 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 0, i32 2, i32 0) monotonic, align 8
+  %64 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$6relate10__CALLSITE17h62fb108a33c25610E", i64 16) monotonic, align 8
   switch i8 %64, label %65 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread127
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -58170,7 +58170,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %51, label %52, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread260
 
 52:                                               ; preds = %49
-  %53 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve5split5Split55impl_parameters_and_projection_from_associated_ty_value10__CALLSITE17he06ca81694b0ce15E, i64 0, i32 2, i32 0) monotonic, align 8
+  %53 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve5split5Split55impl_parameters_and_projection_from_associated_ty_value10__CALLSITE17he06ca81694b0ce15E, i64 16) monotonic, align 8
   switch i8 %53, label %54 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread260
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -58427,7 +58427,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %139, label %140, label %.critedge
 
 140:                                              ; preds = %135
-  %141 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve5split5Split55impl_parameters_and_projection_from_associated_ty_value10__CALLSITE17he75e0d004b6e338bE, i64 0, i32 2, i32 0) monotonic, align 8
+  %141 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve5split5Split55impl_parameters_and_projection_from_associated_ty_value10__CALLSITE17he75e0d004b6e338bE, i64 16) monotonic, align 8
   switch i8 %141, label %142 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit160.thread
@@ -58595,7 +58595,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit160
   br i1 %188, label %189, label %.critedge141
 
 189:                                              ; preds = %183
-  %190 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve5split5Split55impl_parameters_and_projection_from_associated_ty_value10__CALLSITE17h6b09c20869afddcaE, i64 0, i32 2, i32 0) monotonic, align 8
+  %190 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve5split5Split55impl_parameters_and_projection_from_associated_ty_value10__CALLSITE17h6b09c20869afddcaE, i64 16) monotonic, align 8
   switch i8 %190, label %191 [
     i8 0, label %.critedge141
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit174.thread
@@ -61607,7 +61607,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %104, label %105, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread261
 
 105:                                              ; preds = %102
-  %106 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses21push_auto_trait_impls10__CALLSITE17h920463bd0efa0b40E, i64 0, i32 2, i32 0) monotonic, align 8
+  %106 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses21push_auto_trait_impls10__CALLSITE17h920463bd0efa0b40E, i64 16) monotonic, align 8
   switch i8 %106, label %107 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread261
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -61985,7 +61985,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit.i: ; preds = %245, %242,
   br i1 %222, label %223, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread92.i
 
 223:                                              ; preds = %220
-  %224 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses28push_auto_trait_impls_opaque10__CALLSITE17h73183efa1d1e19a4E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !9312
+  %224 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses28push_auto_trait_impls_opaque10__CALLSITE17h73183efa1d1e19a4E, i64 16) monotonic, align 8, !noalias !9312
   switch i8 %224, label %225 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread92.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -62650,7 +62650,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit.i136: ; preds = %463, %4
   br i1 %440, label %441, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread88.i
 
 441:                                              ; preds = %438
-  %442 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses39push_auto_trait_impls_coroutine_witness10__CALLSITE17hd834a849c0d58448E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !9444
+  %442 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses39push_auto_trait_impls_coroutine_witness10__CALLSITE17hd834a849c0d58448E, i64 16) monotonic, align 8, !noalias !9444
   switch i8 %442, label %443 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread88.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i162
@@ -63536,7 +63536,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr43drop
   br i1 %714, label %715, label %.critedge
 
 715:                                              ; preds = %712
-  %716 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses21push_auto_trait_impls10__CALLSITE17h8d0ce1d3b8b1788dE, i64 0, i32 2, i32 0) monotonic, align 8
+  %716 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses21push_auto_trait_impls10__CALLSITE17h8d0ce1d3b8b1788dE, i64 16) monotonic, align 8
   switch i8 %716, label %717 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit209.thread
@@ -63791,7 +63791,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %58, %55, %3
   br i1 %37, label %38, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread120
 
 38:                                               ; preds = %35
-  %39 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses23program_clauses_for_env10__CALLSITE17h32be439174f5272eE, i64 0, i32 2, i32 0) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses23program_clauses_for_env10__CALLSITE17h32be439174f5272eE, i64 16) monotonic, align 8
   switch i8 %39, label %40 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread120
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -64975,7 +64975,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %100, label %101, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread288
 
 101:                                              ; preds = %98
-  %102 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses32program_clauses_that_could_match10__CALLSITE17hd8139bdca65ec14fE, i64 0, i32 2, i32 0) monotonic, align 8
+  %102 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses32program_clauses_that_could_match10__CALLSITE17hd8139bdca65ec14fE, i64 16) monotonic, align 8
   switch i8 %102, label %103 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread288
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -66584,7 +66584,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %651, label %652, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread272.i
 
 652:                                              ; preds = %649
-  %653 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses59push_program_clauses_for_associated_type_values_in_impls_of10__CALLSITE17h8354055a173bc657E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !10286
+  %653 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses59push_program_clauses_for_associated_type_values_in_impls_of10__CALLSITE17h8354055a173bc657E, i64 16) monotonic, align 8, !noalias !10286
   switch i8 %653, label %654 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread272.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -66985,7 +66985,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %741, label %742, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit165.thread286.i
 
 742:                                              ; preds = %739
-  %743 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses59push_program_clauses_for_associated_type_values_in_impls_of10__CALLSITE17hf2153b28259d9328E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !10286
+  %743 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses59push_program_clauses_for_associated_type_values_in_impls_of10__CALLSITE17hf2153b28259d9328E, i64 16) monotonic, align 8, !noalias !10286
   switch i8 %743, label %744 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit165.thread286.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit165.thread.i
@@ -67133,7 +67133,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit165
   br i1 %787, label %788, label %.critedge127.i
 
 788:                                              ; preds = %785
-  %789 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN11chalk_solve7clauses59push_program_clauses_for_associated_type_values_in_impls_of10__CALLSITE17h5e606f9e1b9e7148E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !10286
+  %789 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11chalk_solve7clauses59push_program_clauses_for_associated_type_values_in_impls_of10__CALLSITE17h5e606f9e1b9e7148E, i64 16) monotonic, align 8, !noalias !10286
   switch i8 %789, label %790 [
     i8 0, label %.critedge127.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit179.thread.i
@@ -100197,7 +100197,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$chalk_solve..infer..unify..Unifier$
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %4
-  %16 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN94_$LT$chalk_solve..infer..unify..Unifier$LT$I$GT$$u20$as$u20$chalk_ir..zip..Zipper$LT$I$GT$$GT$7zip_tys10__CALLSITE17hebe2fec01959a980E", i64 0, i32 2, i32 0) monotonic, align 8
+  %16 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$chalk_solve..infer..unify..Unifier$LT$I$GT$$u20$as$u20$chalk_ir..zip..Zipper$LT$I$GT$$GT$7zip_tys10__CALLSITE17hebe2fec01959a980E", i64 16) monotonic, align 8
   switch i8 %16, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -104291,7 +104291,7 @@ define { ptr, i64 } @_ZN6hir_ty5utils12ClosureSubst12parent_subst17ha5f4f29d392b
 20:                                               ; preds = %13
   %21 = icmp ult i64 %14, 5
   tail call void @llvm.assume(i1 %21)
-  %22 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6hir_ty5utils12ClosureSubst12parent_subst10__CALLSITE17h3c65eb8506e4030cE, i64 0, i32 1, i64 8) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6hir_ty5utils12ClosureSubst12parent_subst10__CALLSITE17h3c65eb8506e4030cE, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge25
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -113784,7 +113784,7 @@ _ZN6hir_ty7display12HirFormatter9write_str17ha2715686c4fc1cb1E.exit686: ; preds 
   br i1 %1260, label %1261, label %.critedge
 
 1261:                                             ; preds = %1258
-  %1262 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6hir_ty7display19render_const_scalar10__CALLSITE17hce7623f80d3df04dE, i64 0, i32 1, i64 8) monotonic, align 8
+  %1262 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6hir_ty7display19render_const_scalar10__CALLSITE17hce7623f80d3df04dE, i64 16) monotonic, align 8
   switch i8 %1262, label %1263 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

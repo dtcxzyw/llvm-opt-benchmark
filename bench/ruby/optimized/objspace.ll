@@ -473,31 +473,31 @@ define internal i64 @count_imemo_objects(i32 noundef %0, ptr noundef %1, i64 %2)
   %9 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.81, i64 noundef 9) #7
   store i64 %9, ptr @imemo_type_ids, align 16
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.82, i64 noundef 10) #7
-  store i64 %10, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 1), align 8
+  store i64 %10, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 8), align 8
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.83, i64 noundef 10) #7
-  store i64 %11, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 2), align 16
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 16), align 16
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.84, i64 noundef 16) #7
-  store i64 %12, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 3), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 24), align 8
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.85, i64 noundef 11) #7
-  store i64 %13, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 4), align 16
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 32), align 16
   %14 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.86, i64 noundef 10) #7
-  store i64 %14, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 5), align 8
+  store i64 %14, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 40), align 8
   %15 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.87, i64 noundef 10) #7
-  store i64 %15, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 6), align 16
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 48), align 16
   %16 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.88, i64 noundef 10) #7
-  store i64 %16, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 7), align 8
+  store i64 %16, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 56), align 8
   %17 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.89, i64 noundef 12) #7
-  store i64 %17, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 8), align 16
+  store i64 %17, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 64), align 16
   %18 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.90, i64 noundef 9) #7
-  store i64 %18, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 9), align 8
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 72), align 8
   %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.91, i64 noundef 20) #7
-  store i64 %19, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 10), align 16
+  store i64 %19, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 80), align 16
   %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.92, i64 noundef 14) #7
-  store i64 %20, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 11), align 8
+  store i64 %20, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 88), align 8
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.93, i64 noundef 15) #7
-  store i64 %21, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 12), align 16
+  store i64 %21, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 96), align 16
   %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.94, i64 noundef 16) #7
-  store i64 %22, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 13), align 8
+  store i64 %22, ptr getelementptr inbounds (i8, ptr @imemo_type_ids, i64 104), align 8
   br label %23
 
 23:                                               ; preds = %8, %3

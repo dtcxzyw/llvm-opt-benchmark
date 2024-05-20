@@ -57,9 +57,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @replay_next_event_is(i32 noundef %event) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   %cmp.not = icmp eq i32 %0, 0
-  %1 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   br i1 %cmp.not, label %while.body.preheader, label %if.then
 
 while.body.preheader:                             ; preds = %entry
@@ -85,7 +85,7 @@ sw.bb:                                            ; preds = %while.body.preheade
   %spec.select7 = phi i1 [ %spec.select, %sw.bb ], [ %cmp54, %while.body.preheader ]
   tail call void @replay_finish_event() #11
   tail call void @qemu_system_shutdown_request(i32 noundef %.off8) #11
-  %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5 = icmp eq i32 %2, %event
   %spec.select = select i1 %cmp5, i1 true, i1 %spec.select7
   %.off = add i32 %2, -10
@@ -124,9 +124,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   %cmp.not.i = icmp eq i32 %0, 0
-  %1 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp54.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %while.body.preheader.i, label %if.then.i
 
@@ -147,7 +147,7 @@ sw.bb.i:                                          ; preds = %while.body.preheade
   %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
   tail call void @replay_finish_event() #11
   tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
-  %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5.i = icmp eq i32 %2, 0
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %2, -10
@@ -159,7 +159,7 @@ replay_next_event_is.exit:                        ; preds = %sw.bb.i, %while.bod
   br i1 %retval.0.i, label %replay_next_event_is.exit.if.then2_crit_edge, label %if.end15
 
 replay_next_event_is.exit.if.then2_crit_edge:     ; preds = %replay_next_event_is.exit
-  %.pre = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   br label %if.then2
 
 if.then2:                                         ; preds = %replay_next_event_is.exit.if.then2_crit_edge, %if.then.i
@@ -215,7 +215,7 @@ if.else:                                          ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %1 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   %cmp2 = icmp sgt i32 %1, 0
   br i1 %cmp2, label %if.then3, label %if.end6
 
@@ -306,7 +306,7 @@ if.else.i:                                        ; preds = %do.body.i
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
-  %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   %cmp2.i = icmp sgt i32 %2, 0
   br i1 %cmp2.i, label %if.then3.i, label %replay_account_executed_instructions.exit
 
@@ -316,13 +316,13 @@ if.then3.i:                                       ; preds = %do.end.i
   br label %replay_account_executed_instructions.exitthread-pre-split
 
 replay_account_executed_instructions.exitthread-pre-split: ; preds = %if.then3.i, %do.end
-  %.pr = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   br label %replay_account_executed_instructions.exit
 
 replay_account_executed_instructions.exit:        ; preds = %replay_account_executed_instructions.exitthread-pre-split, %do.end.i
   %3 = phi i32 [ %.pr, %replay_account_executed_instructions.exitthread-pre-split ], [ %2, %do.end.i ]
   %cmp.not.i = icmp eq i32 %3, 0
-  %4 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   br i1 %cmp.not.i, label %while.body.preheader.i, label %if.then.i
 
 while.body.preheader.i:                           ; preds = %replay_account_executed_instructions.exit
@@ -344,7 +344,7 @@ sw.bb.i:                                          ; preds = %while.body.preheade
   %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
   tail call void @replay_finish_event() #11
   tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
-  %5 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5.i = icmp eq i32 %5, 2
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %5, -10
@@ -428,7 +428,7 @@ if.else.i:                                        ; preds = %do.body.i
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
-  %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   %cmp2.i = icmp sgt i32 %2, 0
   br i1 %cmp2.i, label %if.then3.i, label %replay_account_executed_instructions.exit
 
@@ -438,13 +438,13 @@ if.then3.i:                                       ; preds = %do.end.i
   br label %replay_account_executed_instructions.exitthread-pre-split
 
 replay_account_executed_instructions.exitthread-pre-split: ; preds = %if.then3.i, %do.end
-  %.pr = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   br label %replay_account_executed_instructions.exit
 
 replay_account_executed_instructions.exit:        ; preds = %replay_account_executed_instructions.exitthread-pre-split, %do.end.i
   %3 = phi i32 [ %.pr, %replay_account_executed_instructions.exitthread-pre-split ], [ %2, %do.end.i ]
   %cmp.not.i = icmp eq i32 %3, 0
-  %4 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   br i1 %cmp.not.i, label %while.body.preheader.i, label %if.then.i
 
 while.body.preheader.i:                           ; preds = %replay_account_executed_instructions.exit
@@ -466,7 +466,7 @@ sw.bb.i:                                          ; preds = %while.body.preheade
   %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
   tail call void @replay_finish_event() #11
   tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
-  %5 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5.i = icmp eq i32 %5, 1
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %5, -10
@@ -531,9 +531,9 @@ if.else4:                                         ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %1 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   %cmp.not.i = icmp eq i32 %1, 0
-  %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   br i1 %cmp.not.i, label %while.body.preheader.i, label %if.then.i
 
 while.body.preheader.i:                           ; preds = %do.end
@@ -559,7 +559,7 @@ sw.bb.i:                                          ; preds = %while.body.preheade
   %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
   tail call void @replay_finish_event() #11
   tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
-  %3 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5.i = icmp eq i32 %3, %add
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %3, -10
@@ -673,7 +673,7 @@ if.else.i:                                        ; preds = %do.body.i
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
-  %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   %cmp2.i = icmp sgt i32 %2, 0
   br i1 %cmp2.i, label %if.then3.i, label %replay_account_executed_instructions.exit
 
@@ -683,7 +683,7 @@ if.then3.i:                                       ; preds = %do.end.i
   br label %replay_account_executed_instructions.exit
 
 replay_account_executed_instructions.exit:        ; preds = %do.end, %do.end.i, %if.then3.i
-  %3 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %4 = add i32 %3, -30
   %5 = icmp ult i32 %4, 9
   %6 = add i32 %3, -3
@@ -771,10 +771,10 @@ if.end8.i:                                        ; preds = %if.end.i
   store ptr %call9.i, ptr @replay_filename, align 8
   store i32 %mode.0, ptr @replay_mode, align 4
   call void @replay_mutex_init() #11
-  store i32 -1, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 4), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @replay_state, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @replay_state, i64 32), align 8
   %3 = load i32, ptr @replay_mode, align 4
   switch i32 %3, label %replay_enable.exit [
     i32 1, label %if.then11.i

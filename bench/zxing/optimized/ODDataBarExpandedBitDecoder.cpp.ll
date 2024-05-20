@@ -1847,7 +1847,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
 
 113:                                              ; preds = %111
   %114 = zext nneg i32 %101 to i64
-  %115 = getelementptr i8, ptr getelementptr ([6 x i8], ptr @.str.17, i64 -10, i64 2), i64 %114
+  %115 = getelementptr i8, ptr getelementptr (i8, ptr @.str.17, i64 -58), i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !26
   br label %117
 
@@ -2122,7 +2122,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
 
 257:                                              ; preds = %233
   %258 = zext nneg i32 %232 to i64
-  %259 = getelementptr i8, ptr getelementptr ([22 x i8], ptr @.str.19, i64 -11, i64 10), i64 %258
+  %259 = getelementptr i8, ptr getelementptr (i8, ptr @.str.19, i64 -232), i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %260) #13
           to label %261 unwind label %247
@@ -2552,7 +2552,7 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %0)
   %5 = tail call ptr @__cxa_allocate_exception(i64 48) #12
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %6, ptr %2, align 8, !tbaa !14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([20 x i8], ptr @.str.12, i64 0, i64 19)) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 19)) #13
           to label %7 unwind label %35
 
 7:                                                ; preds = %4

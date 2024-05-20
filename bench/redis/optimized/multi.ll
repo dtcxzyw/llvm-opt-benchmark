@@ -494,7 +494,7 @@ discardTransaction.exit:                          ; preds = %for.end.i.i, %entry
   %spec.select.idx = zext i1 %cmp to i64
   %spec.select = getelementptr inbounds i8, ptr %error, i64 %spec.select.idx
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.select) #10
-  %13 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 60), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1472), align 8
   %db = getelementptr inbounds i8, ptr %c, i64 32
   %14 = load ptr, ptr %db, align 8
   %id = getelementptr inbounds i8, ptr %14, i64 48
@@ -589,7 +589,7 @@ if.then8:                                         ; preds = %if.end4
   br i1 %tobool11.not, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %if.then8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 26), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 304), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %8) #10
   br label %if.end13
 
@@ -597,7 +597,7 @@ if.else:                                          ; preds = %if.then8
   %resp = getelementptr inbounds i8, ptr %c, i64 24
   %9 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %9 to i64
-  %arrayidx = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 9, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 96), i64 0, i64 %idxprom
   %10 = load ptr, ptr %arrayidx, align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %10) #10
   br label %if.end13
@@ -657,7 +657,7 @@ if.end14:                                         ; preds = %if.end4
   %or17 = or i64 %7, 2199023255552
   store i64 %or17, ptr %flags, align 8
   call void @unwatchAllKeys(ptr noundef nonnull %c)
-  store i32 1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 30), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @server, i64 220), align 4
   %argv = getelementptr inbounds i8, ptr %c, i64 96
   %23 = load ptr, ptr %argv, align 8
   %argv_len = getelementptr inbounds i8, ptr %c, i64 104
@@ -824,7 +824,7 @@ discardTransaction.exit82:                        ; preds = %for.end.i.i74, %if.
   %and.i68 = and i64 %59, -4137
   store i64 %and.i68, ptr %flags, align 8
   call void @unwatchAllKeys(ptr noundef nonnull %c)
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 30), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 220), align 4
   br label %return
 
 return:                                           ; preds = %discardTransaction.exit82, %discardTransaction.exit, %if.then

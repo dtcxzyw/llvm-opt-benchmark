@@ -406,7 +406,7 @@ if.else.i.i.i.i:                                  ; preds = %invoke.cont56.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i)
   store i8 0, ptr %a62.i, align 8, !noalias !8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1, !noalias !8
-  %call19.i.i3.i.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %a62.i, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds ([13 x i8], ptr @.str.67, i64 0, i64 12))
+  %call19.i.i3.i.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %a62.i, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.67, i64 12))
           to label %invoke.cont66.i unwind label %lpad.i.i, !noalias !8
 
 lpad.i.i:                                         ; preds = %if.else.i.i.i.i
@@ -470,7 +470,7 @@ if.else.i.i.i73.i:                                ; preds = %_ZN5eastleqIcNS_9al
   store ptr null, ptr %a62.i, align 8, !noalias !11
   store i8 0, ptr %a62.i, align 8, !noalias !11
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1, !noalias !11
-  %call19.i.i3.i77.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %a62.i, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.71, i64 0, i64 28))
+  %call19.i.i3.i77.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %a62.i, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 28))
           to label %invoke.cont79.i unwind label %lpad.i78.i, !noalias !11
 
 lpad.i78.i:                                       ; preds = %if.else.i.i.i73.i

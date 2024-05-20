@@ -13,8 +13,8 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @tr2_cmd_name_append_hierarchy(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str) #6
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -36,7 +36,7 @@ if.then:                                          ; preds = %land.lhs.true
   tail call void @strbuf_add(ptr noundef nonnull @tr2cmdname_hierarchy, ptr noundef nonnull %call, i64 noundef %call.i) #6
   %2 = load i64, ptr @tr2cmdname_hierarchy, align 8
   %tobool.not.i.i = icmp eq i64 %2, 0
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 1), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 8), align 8
   %.neg.i = add i64 %3, 1
   %tobool.not1.i = icmp eq i64 %2, %.neg.i
   %tobool.not.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool.not1.i
@@ -44,19 +44,19 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %if.then
   tail call void @strbuf_grow(ptr noundef nonnull @tr2cmdname_hierarchy, i64 noundef 1) #6
-  %.pre.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 1), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 8), align 8
   %.pre2.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
 strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre2.i, %if.then.i ], [ %.neg.i, %if.then ]
   %4 = phi i64 [ %.pre.i, %if.then.i ], [ %3, %if.then ]
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8
+  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 8), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 47, ptr %arrayidx.i, align 1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 2), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 8), align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %6, i64 %7
   store i8 0, ptr %arrayidx3.i, align 1
   br label %if.end
@@ -64,7 +64,7 @@ strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
 if.end:                                           ; preds = %strbuf_addch.exit, %land.lhs.true, %strbuf_setlen.exit
   %call.i3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #7
   tail call void @strbuf_add(ptr noundef nonnull @tr2cmdname_hierarchy, ptr noundef %name, i64 noundef %call.i3) #6
-  %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8
   %call2 = tail call i32 @setenv(ptr noundef nonnull @.str, ptr noundef %8, i32 noundef 1) #6
   ret void
 }
@@ -78,7 +78,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @tr2_cmd_name_get_hierarchy() local_unnamed_addr #3 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8
   ret ptr %0
 }
 

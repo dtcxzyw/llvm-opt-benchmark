@@ -130469,7 +130469,7 @@ string_skip_spaces.exit.i:                        ; preds = %string_skip_spaces.
   %447 = getelementptr i8, ptr %.0814.i.i, i64 1
   %448 = add i32 %.015.i.i, 1
   %449 = load i8, ptr %447, align 1
-  %exitcond.i = icmp eq ptr %447, getelementptr inbounds ([3 x i8], ptr @.str.401, i64 0, i64 2)
+  %exitcond.i = icmp eq ptr %447, getelementptr inbounds (i8, ptr @.str.401, i64 2)
   br i1 %exitcond.i, label %450, label %.lr.ph.i183.i, !llvm.loop !374
 
 450:                                              ; preds = %446
@@ -130505,7 +130505,7 @@ string_skip_spaces.exit.i:                        ; preds = %string_skip_spaces.
   %466 = getelementptr i8, ptr %.0814.i187.i, i64 1
   %467 = add i32 %.015.i186.i, 1
   %468 = load i8, ptr %466, align 1
-  %exitcond300.i = icmp eq ptr %466, getelementptr inbounds ([3 x i8], ptr @.str.402, i64 0, i64 2)
+  %exitcond300.i = icmp eq ptr %466, getelementptr inbounds (i8, ptr @.str.402, i64 2)
   br i1 %exitcond300.i, label %469, label %.lr.ph.i185.i, !llvm.loop !374
 
 469:                                              ; preds = %465
@@ -130542,7 +130542,7 @@ string_skip_spaces.exit.i:                        ; preds = %string_skip_spaces.
   %484 = getelementptr i8, ptr %.0814.i197.i, i64 1
   %485 = add i32 %.015.i196.i, 1
   %486 = load i8, ptr %484, align 1
-  %exitcond301.i = icmp eq ptr %484, getelementptr inbounds ([4 x i8], ptr @.str.403, i64 0, i64 3)
+  %exitcond301.i = icmp eq ptr %484, getelementptr inbounds (i8, ptr @.str.403, i64 3)
   br i1 %exitcond301.i, label %string_match.exit204.i, label %.lr.ph.i195.i, !llvm.loop !374
 
 string_match.exit204.i:                           ; preds = %483
@@ -130571,7 +130571,7 @@ string_match.exit204.i:                           ; preds = %483
   %498 = getelementptr i8, ptr %.0814.i207.i, i64 1
   %499 = add i32 %.015.i206.i, 1
   %500 = load i8, ptr %498, align 1
-  %exitcond302.i = icmp eq ptr %498, getelementptr inbounds ([4 x i8], ptr @.str.404, i64 0, i64 3)
+  %exitcond302.i = icmp eq ptr %498, getelementptr inbounds (i8, ptr @.str.404, i64 3)
   br i1 %exitcond302.i, label %string_match.exit214.i, label %.lr.ph.i205.i, !llvm.loop !374
 
 string_match.exit214.i:                           ; preds = %497
@@ -130604,7 +130604,7 @@ string_match.exit214.i:                           ; preds = %497
   %514 = getelementptr i8, ptr %.0814.i217.i, i64 1
   %515 = add i32 %.015.i216.i, 1
   %516 = load i8, ptr %514, align 1
-  %exitcond303.i = icmp eq ptr %514, getelementptr inbounds ([3 x i8], ptr @.str.405, i64 0, i64 2)
+  %exitcond303.i = icmp eq ptr %514, getelementptr inbounds (i8, ptr @.str.405, i64 2)
   br i1 %exitcond303.i, label %string_match.exit224.i, label %.lr.ph.i215.i, !llvm.loop !374
 
 string_match.exit224.i:                           ; preds = %513
@@ -170870,7 +170870,7 @@ define internal range(i32 0, 2) i32 @code_match(ptr nocapture noundef %0, i32 no
 
 60:                                               ; preds = %59, %47
   %61 = add nsw i32 %.1136, 1
-  %gep = getelementptr [267 x %struct.JSOpCode], ptr getelementptr inbounds ([267 x %struct.JSOpCode], ptr @opcode_info, i64 0, i64 0, i32 3), i64 0, i64 %37
+  %gep = getelementptr [267 x %struct.JSOpCode], ptr getelementptr inbounds (i8, ptr @opcode_info, i64 3), i64 0, i64 %37
   %62 = load i8, ptr %gep, align 1
   switch i8 %62, label %.backedge [
     i8 7, label %63
@@ -208426,7 +208426,7 @@ JS_ToInt32Clamp.exit.thread:                      ; preds = %15, %30
   store ptr %6, ptr %6, align 8
   %45 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %6, ptr %45, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @js_atomics_waiter_list, i64 0, i32 1), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @js_atomics_waiter_list, i64 8), align 8
   %.not4653 = icmp eq ptr %46, @js_atomics_waiter_list
   br i1 %.not4653, label %._crit_edge64, label %.lr.ph
 

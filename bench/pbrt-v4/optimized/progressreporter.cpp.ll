@@ -197,7 +197,7 @@ if.then:                                          ; preds = %land.end
           to label %call.i3.noexc unwind label %lpad12
 
 call.i3.noexc:                                    ; preds = %if.then
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4pbrt16ProgressReporterC1ElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEEEE", i64 0, i32 0, i64 2), ptr %call.i34, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4pbrt16ProgressReporterC1ElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEEEE", i64 16), ptr %call.i34, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %_M_func.i.i, align 8

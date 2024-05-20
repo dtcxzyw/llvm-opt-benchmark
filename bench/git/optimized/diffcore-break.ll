@@ -29,7 +29,7 @@ entry:
   %tobool2.not = icmp ult i32 %break_score, 65536
   %spec.store.select1 = select i1 %tobool2.not, i32 36000, i32 %shr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
-  %0 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp44 = icmp sgt i32 %0, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end
 
@@ -284,7 +284,7 @@ if.end63:                                         ; preds = %land.lhs.true19, %l
 
 for.inc:                                          ; preds = %if.end63, %if.then37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %36 = sext i32 %35 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %36
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
@@ -320,7 +320,7 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
 entry:
   %outq = alloca %struct.diff_queue_struct, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
-  %0 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp27 = icmp sgt i32 %0, 0
   br i1 %cmp27, label %for.body, label %for.end42
 
@@ -478,7 +478,7 @@ if.else37:                                        ; preds = %land.lhs.true, %if.
 
 for.inc40:                                        ; preds = %merge_broken.exit, %for.end, %if.else37, %for.body
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %30 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %31 = sext i32 %30 to i64
   %cmp = icmp slt i64 %indvars.iv.next36, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

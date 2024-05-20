@@ -61071,7 +61071,7 @@ define hidden ptr @global_enterprises_lookup(i32 noundef %0) local_unnamed_addr 
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr %struct.global_enterprises_table_t, ptr @table, i64 0, i32 1, i64 %4
+  %5 = getelementptr [61578 x ptr], ptr getelementptr inbounds (i8, ptr @table, i64 8), i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -61086,7 +61086,7 @@ define void @global_enterprises_dump(ptr nocapture noundef %0) local_unnamed_add
 
 2:                                                ; preds = %1, %7
   %.06 = phi i64 [ 0, %1 ], [ %8, %7 ]
-  %3 = getelementptr %struct.global_enterprises_table_t, ptr @table, i64 0, i32 1, i64 %.06
+  %3 = getelementptr [61578 x ptr], ptr getelementptr inbounds (i8, ptr @table, i64 8), i64 0, i64 %.06
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5

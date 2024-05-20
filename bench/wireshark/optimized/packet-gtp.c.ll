@@ -7382,44 +7382,44 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_gtp() local_unnamed_addr #1 {
   store ptr @ett_gtp, ptr @proto_register_gtp.ett_gtp_array, align 16
-  store ptr @ett_gtp_flags, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 1), align 8
-  store ptr @ett_gtp_ext, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 2), align 16
-  store ptr @ett_gtp_cdr_dr, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 3), align 8
-  store ptr @ett_gtp_qos, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 4), align 16
-  store ptr @ett_gtp_qos_arp, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 5), align 8
-  store ptr @ett_gtp_flow_ii, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 6), align 16
-  store ptr @ett_gtp_ext_hdr, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 7), align 8
-  store ptr @ett_gtp_rp, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 8), align 16
-  store ptr @ett_gtp_pkt_flow_id, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 9), align 8
-  store ptr @ett_gtp_data_resp, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 10), align 16
-  store ptr @ett_gtp_cdr_ver, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 11), align 8
-  store ptr @ett_gtp_tmgi, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 12), align 16
-  store ptr @ett_gtp_trip, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 13), align 8
-  store ptr @ett_gtp_quint, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 14), align 16
-  store ptr @ett_gtp_drx, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 15), align 8
-  store ptr @ett_gtp_net_cap, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 16), align 16
-  store ptr @ett_gtp_can_pack, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 17), align 8
-  store ptr @ett_gtp_proto, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 18), align 16
-  store ptr @ett_gtp_gsn_addr, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 19), align 8
-  store ptr @ett_gtp_tft, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 20), align 16
-  store ptr @ett_gtp_rab_setup, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 21), align 8
-  store ptr @ett_gtp_hdr_list, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 22), align 16
-  store ptr @ett_gtp_rel_pack, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 23), align 8
-  store ptr @ett_gtp_node_addr, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 24), align 16
-  store ptr @ett_gtp_mm_cntxt, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 25), align 8
-  store ptr @ett_gtp_utran_cont, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 26), align 16
-  store ptr @ett_gtp_nr_ran_cont, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 27), align 8
-  store ptr @ett_gtp_pdcp_no_conf, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 28), align 16
-  store ptr @ett_pdu_session_cont, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 29), align 8
-  store ptr @ett_gtp_trace_triggers_ggsn, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 30), align 16
-  store ptr @ett_gtp_trace_loi_ggsn, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 31), align 8
-  store ptr @ett_gtp_trace_triggers_bm_sc, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 32), align 16
-  store ptr @ett_gtp_trace_loi_bm_sc, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 33), align 8
-  store ptr @ett_gtp_bss_cont, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 34), align 16
-  store ptr @ett_gtp_lst_set_up_pfc, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 35), align 8
-  store ptr @ett_gtp_rrc_cont, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 36), align 16
-  store ptr @ett_gtp_rim_routing_adr, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 37), align 8
-  store ptr @ett_nrup, ptr getelementptr inbounds ([294 x ptr], ptr @proto_register_gtp.ett_gtp_array, i64 0, i64 38), align 16
+  store ptr @ett_gtp_flags, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 8), align 8
+  store ptr @ett_gtp_ext, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 16), align 16
+  store ptr @ett_gtp_cdr_dr, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 24), align 8
+  store ptr @ett_gtp_qos, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 32), align 16
+  store ptr @ett_gtp_qos_arp, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 40), align 8
+  store ptr @ett_gtp_flow_ii, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 48), align 16
+  store ptr @ett_gtp_ext_hdr, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 56), align 8
+  store ptr @ett_gtp_rp, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 64), align 16
+  store ptr @ett_gtp_pkt_flow_id, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 72), align 8
+  store ptr @ett_gtp_data_resp, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 80), align 16
+  store ptr @ett_gtp_cdr_ver, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 88), align 8
+  store ptr @ett_gtp_tmgi, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 96), align 16
+  store ptr @ett_gtp_trip, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 104), align 8
+  store ptr @ett_gtp_quint, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 112), align 16
+  store ptr @ett_gtp_drx, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 120), align 8
+  store ptr @ett_gtp_net_cap, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 128), align 16
+  store ptr @ett_gtp_can_pack, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 136), align 8
+  store ptr @ett_gtp_proto, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 144), align 16
+  store ptr @ett_gtp_gsn_addr, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 152), align 8
+  store ptr @ett_gtp_tft, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 160), align 16
+  store ptr @ett_gtp_rab_setup, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 168), align 8
+  store ptr @ett_gtp_hdr_list, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 176), align 16
+  store ptr @ett_gtp_rel_pack, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 184), align 8
+  store ptr @ett_gtp_node_addr, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 192), align 16
+  store ptr @ett_gtp_mm_cntxt, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 200), align 8
+  store ptr @ett_gtp_utran_cont, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 208), align 16
+  store ptr @ett_gtp_nr_ran_cont, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 216), align 8
+  store ptr @ett_gtp_pdcp_no_conf, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 224), align 16
+  store ptr @ett_pdu_session_cont, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 232), align 8
+  store ptr @ett_gtp_trace_triggers_ggsn, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 240), align 16
+  store ptr @ett_gtp_trace_loi_ggsn, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 248), align 8
+  store ptr @ett_gtp_trace_triggers_bm_sc, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 256), align 16
+  store ptr @ett_gtp_trace_loi_bm_sc, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 264), align 8
+  store ptr @ett_gtp_bss_cont, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 272), align 16
+  store ptr @ett_gtp_lst_set_up_pfc, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 280), align 8
+  store ptr @ett_gtp_rrc_cont, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 288), align 16
+  store ptr @ett_gtp_rim_routing_adr, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 296), align 8
+  store ptr @ett_nrup, ptr getelementptr inbounds (i8, ptr @proto_register_gtp.ett_gtp_array, i64 304), align 16
   br label %1
 
 1:                                                ; preds = %0, %1
@@ -10137,7 +10137,7 @@ define internal fastcc i32 @dissect_gtp_common(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond.not.i, label %id_to_str.exit, label %128, !llvm.loop !39
 
 id_to_str.exit:                                   ; preds = %128
-  store i8 0, ptr getelementptr inbounds ([17 x i8], ptr @id_to_str.str, i64 0, i64 16), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @id_to_str.str, i64 16), align 16
   %141 = load i32, ptr @hf_gtp_tid, align 4
   %142 = tail call ptr @proto_tree_add_string(ptr noundef %.0447, i32 noundef %141, ptr noundef %0, i32 noundef 12, i32 noundef 8, ptr noundef nonnull @id_to_str.str) #13
   %143 = add nuw nsw i32 %100, 20
@@ -12148,7 +12148,7 @@ define internal noundef i32 @decode_gtp_imsi(ptr noundef %0, i32 noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @decode_gtp_rai(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
-  %6 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 3), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 12), align 4
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 3, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
   %9 = add i32 %1, 1
@@ -12218,7 +12218,7 @@ define internal noundef i32 @decode_gtp_reorder(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @decode_gtp_auth_tri(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
-  %6 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 9), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 36), align 4
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 9, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 29, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
   %9 = load i32, ptr @hf_gtp_rand, align 4
@@ -12279,7 +12279,7 @@ define internal noundef i32 @decode_gtp_sel_mode(ptr noundef %0, i32 noundef %1,
   %7 = add i32 %1, 1
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #13
   %9 = and i8 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 15), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 60), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 15, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %11) #13
   %13 = load ptr, ptr %6, align 8
@@ -12430,7 +12430,7 @@ define internal range(i32 4, 7) i32 @decode_gtp_18(ptr noundef %0, i32 noundef %
   br i1 %.b, label %18, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 18), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 72), align 8
   %10 = tail call ptr @val_to_str_ext_const(i32 noundef 18, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %11 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef %10) #13
   %12 = load i32, ptr @hf_gtp_nsapi, align 4
@@ -12484,7 +12484,7 @@ define internal noundef i32 @decode_gtp_19(ptr noundef %0, i32 noundef %1, ptr n
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @decode_gtp_nsapi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
   %6 = alloca ptr, align 8
-  %7 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 20), align 16
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 80), align 16
   %8 = tail call ptr @val_to_str_ext_const(i32 noundef 20, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %7, ptr noundef nonnull %6, ptr noundef %8) #13
   %10 = add i32 %1, 1
@@ -12545,7 +12545,7 @@ define internal noundef i32 @decode_gtp_ranap_cause(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @decode_gtp_rab_cntxt(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
-  %6 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 22), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 88), align 8
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 22, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 10, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
   %9 = load i32, ptr @hf_gtp_nsapi, align 4
@@ -12627,7 +12627,7 @@ define internal noundef i32 @decode_gtp_chrg_char(ptr noundef %0, i32 noundef %1
   %8 = load i32, ptr @hf_gtp_chrg_char, align 4
   %9 = zext i16 %7 to i32
   %10 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef %9) #13
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 26), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 104), align 8
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #13
   %13 = load i32, ptr @hf_gtp_chrg_char_s, align 4
   %14 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef %9) #13
@@ -12706,7 +12706,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_user_addr(ptr noundef %0, i3
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #13
   %15 = zext i16 %9 to i32
   %16 = add nuw nsw i32 %15, 3
-  %17 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 128), align 16
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 512), align 16
   %18 = tail call ptr @val_to_str_ext_const(i32 noundef 128, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %19 = zext nneg i8 %12 to i32
   %20 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @pdp_org_type, ptr noundef nonnull @.str.1711) #13
@@ -12841,7 +12841,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_user_addr(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 3, 65539) i32 @decode_gtp_mm_cntxt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
-  %6 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 129), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 516), align 4
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 129, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
   %9 = add i32 %1, 1
@@ -13066,7 +13066,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cntxt(ptr noundef %0, i3
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 3
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 130), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 520), align 8
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef 130, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef null, ptr noundef %12) #13
   %14 = add i32 %1, 3
@@ -13301,7 +13301,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_apn(ptr noundef %0, i32 noun
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %8) #13
   %10 = zext i16 %9 to i32
   %11 = add nuw nsw i32 %10, 3
-  %12 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 131), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 524), align 4
   %13 = tail call ptr @val_to_str_ext_const(i32 noundef 131, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1731) #13
   %14 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %11, i32 noundef %12, ptr noundef nonnull %7, ptr noundef %13) #13
   %15 = load i32, ptr @hf_gtp_apn_length, align 4
@@ -13454,7 +13454,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_target_id(ptr noundef %0, i3
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 138), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 552), align 8
   %11 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1734) #13
   %12 = load i32, ptr @hf_gtp_ext_length, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #13
@@ -13504,7 +13504,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_utran_cont(ptr noundef %0, i
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 139), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 556), align 4
   %11 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1736) #13
   %12 = load i32, ptr @hf_gtp_ext_length, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #13
@@ -13643,7 +13643,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ran_tr_cont(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 144), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 576), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 144, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1683, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13668,7 +13668,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cont_prio(ptr noundef %0
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 145), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 580), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 145, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1683, ptr noundef %11) #13
   %13 = icmp eq i16 %7, 0
@@ -13692,7 +13692,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_rab_setup_inf(ptr nounde
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 146), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 584), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 146, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1683, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13726,7 +13726,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_no(ptr noundef %0, i32 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 147), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 588), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 147, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1684, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -13745,7 +13745,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_common_flgs(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 148), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 592), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 148, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1683, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13776,7 +13776,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_apn_res(ptr noundef %0, i32 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 149), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 596), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 149, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1683, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13804,7 +13804,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ra_prio_lcs(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 150), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 600), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 150, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1683, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13822,7 +13822,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rat_type(ptr noundef %0, i32
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 3
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 151), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 604), align 4
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef 151, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %6, ptr noundef %12) #13
   %14 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13855,7 +13855,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_usr_loc_inf(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 152), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 608), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 152, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13872,7 +13872,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ms_time_zone(ptr noundef %0,
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 3
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 153), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 612), align 4
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef 153, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %13 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.1744, ptr noundef %12) #13
   %14 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13908,7 +13908,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_imeisv(ptr noundef %0, i32 n
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %8) #13
   %10 = zext i16 %9 to i32
   %11 = add nuw nsw i32 %10, 3
-  %12 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 154), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 616), align 8
   %13 = tail call ptr @val_to_str_ext_const(i32 noundef 154, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %14 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %11, i32 noundef %12, ptr noundef nonnull %6, ptr noundef %13) #13
   %15 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13931,7 +13931,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_camel_chg_inf_con(ptr nounde
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 155), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 620), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 155, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13953,7 +13953,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ue_ctx(ptr noundef %0, 
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %11) #13
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %13, 3
-  %15 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 156), align 16
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 624), align 16
   %16 = tail call ptr @val_to_str_ext_const(i32 noundef 156, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %14, i32 noundef %15, ptr noundef null, ptr noundef %16) #13
   %18 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14067,7 +14067,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_tmgi(ptr noundef %0, i32 nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 157), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 628), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 157, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14088,7 +14088,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rim_ra(ptr noundef %0, i32 n
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 158), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 632), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 158, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14154,7 +14154,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_prot_conf_opt(ptr nound
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 159), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 636), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 159, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14171,7 +14171,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_sa(ptr noundef %0, i32 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 160), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 640), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 160, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14207,7 +14207,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_src_rnc_pdp_ctx_inf(ptr noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 161), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 644), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 161, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14225,7 +14225,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_trs_inf(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 162), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 648), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 162, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14259,7 +14259,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_hop_count(ptr noundef %0, i3
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 163), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 652), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 163, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14276,7 +14276,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sel_plmn_id(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 165), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 660), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 164, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14292,7 +14292,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_id(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 165), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 660), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 165, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14308,7 +14308,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_2g_3g_ind(ptr noundef %
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 166), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 664), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 166, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14325,7 +14325,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_enh_nsapi(ptr noundef %0, i3
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 167), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 668), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 167, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14356,7 +14356,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_dur(ptr noundef %0,
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 168), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 672), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 168, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14375,7 +14375,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_mbms_trs_inf(ptr noundef
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 169), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 676), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 169, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14416,7 +14416,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_id_rep_no(ptr nound
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 170), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 680), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 170, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14432,7 +14432,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_time_to_data_tr(ptr nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 171), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 684), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 171, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14452,7 +14452,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ps_ho_req_ctx(ptr noundef %0
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 172), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 688), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 172, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14468,7 +14468,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_bss_cont(ptr noundef %0, i32
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 173), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 692), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 173, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14504,7 +14504,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_cell_id(ptr noundef %0, i32 
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 3
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 174), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 696), align 8
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef 174, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef null, ptr noundef %12) #13
   %14 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14570,7 +14570,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdu_no(ptr noundef %0, i32 n
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 175), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 700), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 175, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14599,7 +14599,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_bssgp_cause(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 176), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 704), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 176, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14616,7 +14616,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_bearer_cap(ptr noundef 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 177), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 708), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 177, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14648,7 +14648,7 @@ gtp_get_private_data.exit:                        ; preds = %5, %10
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %15) #13
   %17 = zext i16 %16 to i32
   %18 = add nuw nsw i32 %17, 3
-  %19 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 178), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 712), align 8
   %20 = tail call ptr @val_to_str_ext_const(i32 noundef 178, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %21 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %18, i32 noundef %19, ptr noundef null, ptr noundef %20) #13
   %22 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14668,7 +14668,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_lst_set_up_pfc(ptr noundef %
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 179), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 716), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 179, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14686,7 +14686,7 @@ define internal range(i32 4, 65540) i32 @decode_gtp_ps_handover_xid(ptr noundef 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 180), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 720), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 180, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14727,7 +14727,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ms_inf_chg_rep_act(ptr nound
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 181), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 724), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 181, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14744,7 +14744,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_direct_tnl_flg(ptr noundef %
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 182), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 728), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 182, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14774,7 +14774,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_corrl_id(ptr noundef %0, i32
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 183), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 732), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 183, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -14791,7 +14791,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_bearer_cntrl_mod(ptr noundef
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 184), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 736), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 184, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14810,7 +14810,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_flow_id(ptr noundef %0,
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 185), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 740), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 185, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14829,7 +14829,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ip_mcast_dist(ptr nound
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 186), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 744), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 186, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14847,7 +14847,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_dist_ack(ptr noundef %0
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 187), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 748), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 187, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14866,7 +14866,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_reliable_irat_ho_inf(ptr nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 188), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 752), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 188, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14884,7 +14884,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rfsp_index(ptr noundef %0, i
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 189), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 756), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 189, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14903,7 +14903,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_fqdn(ptr noundef %0, i32 nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 190), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 760), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 190, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1731) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14932,7 +14932,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_evolved_allc_rtn_p1(ptr noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 191), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 764), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 191, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14955,7 +14955,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_evolved_allc_rtn_p2(ptr noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 192), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 768), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 192, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -14981,7 +14981,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_extended_common_flgs(ptr nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 193), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 772), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 193, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15024,7 +15024,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_uci(ptr noundef %0, i32 noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 194), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 776), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 194, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15050,7 +15050,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_csg_inf_rep_act(ptr noundef 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 195), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 780), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 195, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15068,7 +15068,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_csg_id(ptr noundef %0, i32 n
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 196), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 784), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 196, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15086,7 +15086,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_cmi(ptr noundef %0, i32 noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 197), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 788), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 197, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15105,7 +15105,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_apn_ambr(ptr noundef %0, i32
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 188), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 752), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 198, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15127,7 +15127,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ue_network_cap(ptr noundef %
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 199), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 796), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 199, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -15143,7 +15143,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ue_ambr(ptr noundef %0, i32 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 200), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 800), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 200, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15185,7 +15185,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_apn_ambr_with_nsapi(ptr noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 201), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 804), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 201, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15209,7 +15209,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_back_off_time(ptr nound
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 202), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 808), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 202, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15230,7 +15230,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sig_pri_ind(ptr noundef %0, 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 203), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 812), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 203, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15249,7 +15249,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sig_pri_ind_w_nsapi(ptr noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 204), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 816), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 204, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15271,7 +15271,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_higher_br_16mb_flg(ptr nound
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 205), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 820), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 205, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15290,7 +15290,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_max_mbr_apn_ambr(ptr noundef
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 206), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 824), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 206, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15323,7 +15323,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_mm_ctx_srvcc(ptr noundef
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 3
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 207), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 828), align 4
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef 207, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef null, ptr noundef %12) #13
   %14 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15382,7 +15382,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_flgs_srvcc(ptr noundef %
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 208), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 832), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 208, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15401,7 +15401,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_stn_sr(ptr noundef %0, i32 n
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 209), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 836), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 209, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15419,7 +15419,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_c_msisdn(ptr noundef %0, i32
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 210), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 840), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 210, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15437,7 +15437,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_ranap_cause(ptr noundef 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 211), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 844), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 211, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15457,7 +15457,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_enodeb_id(ptr noundef %0
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 3
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 212), align 16
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 848), align 16
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef 212, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef null, ptr noundef %12) #13
   %14 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15507,7 +15507,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_sel_mode_w_nsapi(ptr nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 213), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 852), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 213, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15529,7 +15529,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_uli_timestamp(ptr nounde
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 214), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 856), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 214, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15548,7 +15548,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_lhn_id_w_sapi(ptr nounde
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 215), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 860), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 215, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15570,7 +15570,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_cn_op_sel_entity(ptr nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 216), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 864), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 216, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15599,7 +15599,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ue_usage_type(ptr noundef %0
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 217), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 868), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 217, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15628,7 +15628,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_extended_common_flgs_II(ptr 
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 218), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 872), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 218, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15664,7 +15664,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_node_id(ptr noundef %0, 
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 3
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 219), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 876), align 4
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef 219, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef null, ptr noundef %12) #13
   %14 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15687,7 +15687,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ciot_opt_sup_ind(ptr noundef
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 220), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 880), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 220, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15723,7 +15723,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_scef_pdn_conn(ptr noundef %0
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %9) #13
   %11 = zext i16 %10 to i32
   %12 = add nuw nsw i32 %11, 3
-  %13 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 221), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 884), align 4
   %14 = tail call ptr @val_to_str_ext_const(i32 noundef 221, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef %14) #13
   %16 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15777,7 +15777,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_iov_updates_counter(ptr noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 222), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 888), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 222, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15806,7 +15806,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mapped_ue_usage_type(ptr nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 223), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 892), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 223, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15835,7 +15835,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_up_fun_sel_ind_flags(ptr nou
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 3
-  %10 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 224), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 896), align 16
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 224, ptr noundef nonnull @gtpv1_val_ext, ptr noundef nonnull @.str.1617) #13
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef null, ptr noundef %11) #13
   %13 = load i32, ptr @hf_gtp_ie_id, align 4
@@ -15929,7 +15929,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_chrg_addr(ptr noundef %0, i3
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 3
-  %11 = load i32, ptr getelementptr inbounds ([255 x i32], ptr @ett_gtp_ies, i64 0, i64 251), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gtp_ies, i64 1004), align 4
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef 251, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1617) #13
   %13 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.1683, ptr noundef %12) #13
   %14 = load i32, ptr @hf_gtp_ext_length, align 4

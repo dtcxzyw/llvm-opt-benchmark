@@ -123,7 +123,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16btITaskSchedulerC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16btITaskScheduler, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16btITaskScheduler, i64 16), ptr %this, align 8
   %m_name = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %name, ptr %m_name, align 8
   %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
@@ -286,10 +286,10 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr @.str, ptr getelementptr inbounds (%class.btTaskSchedulerSequential, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 0, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%class.btTaskSchedulerSequential, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 0, i32 0, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%class.btTaskSchedulerSequential, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 0, i32 0, i32 3), align 4
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV25btTaskSchedulerSequential, i64 0, i32 0, i64 2), ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, align 8
+  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 20), align 4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25btTaskSchedulerSequential, i64 16), ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ28btGetSequentialTaskSchedulervE14sTaskScheduler) #15
   br label %init.end
 

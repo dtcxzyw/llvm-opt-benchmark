@@ -494,7 +494,7 @@ define dso_local void @decl_set_external_name(ptr nocapture noundef %0) local_un
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %.not29 = icmp eq ptr %12, null
-  %. = select i1 %.not29, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %12
+  %. = select i1 %.not29, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %12
   %13 = load ptr, ptr %., align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load i16, ptr %14, align 8
@@ -506,7 +506,7 @@ define dso_local void @decl_set_external_name(ptr nocapture noundef %0) local_un
   tail call void @scratch_buffer_clear() #9
   %18 = load ptr, ptr %11, align 8
   %.not31 = icmp eq ptr %18, null
-  %.37 = select i1 %.not31, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %18
+  %.37 = select i1 %.not31, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %18
   %19 = load ptr, ptr %.37, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8

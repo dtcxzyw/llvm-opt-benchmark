@@ -227,7 +227,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   %40 = select i1 %31, i1 %39, i1 false
   %41 = call i32 @llvm.umin.i32(i32 %38, i32 32766)
   %42 = select i1 %40, i32 %41, i32 1
-  %43 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %44 = call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3264, i64 noundef 288) #15
   %45 = getelementptr inbounds i8, ptr %0, i64 792
   store ptr %44, ptr %45, align 8

@@ -317,7 +317,7 @@ define internal i32 @proc_tcp_available_ulp(ptr nocapture readnone %0, i32 nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 2048, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 1051840, i64 noundef 2048) #12
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
@@ -407,7 +407,7 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef 
   br i1 %27, label %35, label %28
 
 28:                                               ; preds = %.loopexit
-  %29 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %30 = tail call noalias noundef align 8 dereferenceable_or_null(8192) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 3520, i64 noundef 8192) #12
   %31 = getelementptr inbounds i8, ptr %0, i64 1336
   store ptr %30, ptr %31, align 8
@@ -708,7 +708,7 @@ define internal i32 @proc_tcp_available_congestion_control(ptr nocapture readnon
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 2048, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 1051840, i64 noundef 2048) #12
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
@@ -735,7 +735,7 @@ define internal i32 @proc_allowed_congestion_control(ptr nocapture readnone %0, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 2048, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 1051840, i64 noundef 2048) #12
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
@@ -786,7 +786,7 @@ define internal i32 @proc_tcp_fastopen_key(ptr nocapture noundef readonly %0, i3
   store i32 74, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(74) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 74) #12
   %17 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %16, ptr %17, align 8

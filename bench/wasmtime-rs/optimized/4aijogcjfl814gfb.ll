@@ -9678,7 +9678,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc88, %1
   br i1 %55, label %56, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread203
 
 56:                                               ; preds = %53
-  %57 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$8args_get8CALLSITE17h75ec98ad433f662dE", i64 0, i32 1, i64 8) monotonic, align 8
+  %57 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$8args_get8CALLSITE17h75ec98ad433f662dE", i64 16) monotonic, align 8
   switch i8 %57, label %58 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread203
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -10518,7 +10518,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc92, %6
   br i1 %33, label %34, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread129
 
 34:                                               ; preds = %31
-  %35 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$14args_sizes_get8CALLSITE17h0391744c5c7f9ef7E", i64 0, i32 1, i64 8) monotonic, align 8
+  %35 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$14args_sizes_get8CALLSITE17h0391744c5c7f9ef7E", i64 16) monotonic, align 8
   switch i8 %35, label %36 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread129
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -11001,7 +11001,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc88, %1
   br i1 %62, label %63, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread203
 
 63:                                               ; preds = %60
-  %64 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11environ_get8CALLSITE17h0441be1c0d1df6caE", i64 0, i32 1, i64 8) monotonic, align 8
+  %64 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11environ_get8CALLSITE17h0441be1c0d1df6caE", i64 16) monotonic, align 8
   switch i8 %64, label %65 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread203
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -11947,7 +11947,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc65, %6
   br i1 %33, label %34, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread97
 
 34:                                               ; preds = %31
-  %35 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$17environ_sizes_get8CALLSITE17h3ff83cb0b13e353dE", i64 0, i32 1, i64 8) monotonic, align 8
+  %35 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$17environ_sizes_get8CALLSITE17h3ff83cb0b13e353dE", i64 16) monotonic, align 8
   switch i8 %35, label %36 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread97
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -12404,7 +12404,7 @@ default.unreachable186:                           ; preds = %_ZN7tracing4span4Sp
   br i1 %32, label %33, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread169
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$13clock_res_get8CALLSITE17hde08d4a595fcfa34E", i64 0, i32 1, i64 8) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$13clock_res_get8CALLSITE17hde08d4a595fcfa34E", i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread169
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -12888,7 +12888,7 @@ default.unreachable235:                           ; preds = %_ZN7tracing4span4Sp
   br i1 %38, label %39, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread212
 
 39:                                               ; preds = %36
-  %40 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$14clock_time_get8CALLSITE17h53a540ee527c0aecE", i64 0, i32 1, i64 8) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$14clock_time_get8CALLSITE17h53a540ee527c0aecE", i64 16) monotonic, align 8
   switch i8 %40, label %41 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread212
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -13472,7 +13472,7 @@ default.unreachable264:                           ; preds = %201, %2
   br i1 %36, label %37, label %.thread242
 
 37:                                               ; preds = %32
-  %38 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9fd_advise28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h01f94d93a72cd511E", i64 0, i32 1, i64 8) monotonic, align 8
+  %38 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9fd_advise28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h01f94d93a72cd511E", i64 16) monotonic, align 8
   switch i8 %38, label %39 [
     i8 0, label %.thread242
     i8 1, label %.thread
@@ -14421,7 +14421,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc86, %9
   br i1 %44, label %45, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread200
 
 45:                                               ; preds = %42
-  %46 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11fd_allocate8CALLSITE17h203c1ac16a430da2E", i64 0, i32 1, i64 8) monotonic, align 8
+  %46 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11fd_allocate8CALLSITE17h203c1ac16a430da2E", i64 16) monotonic, align 8
   switch i8 %46, label %47 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread200
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -15007,7 +15007,7 @@ default.unreachable122:                           ; preds = %131, %2
   br i1 %38, label %39, label %.thread116
 
 39:                                               ; preds = %34
-  %40 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$8fd_close28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hbfecee597beb89a3E", i64 0, i32 1, i64 8) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$8fd_close28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hbfecee597beb89a3E", i64 16) monotonic, align 8
   switch i8 %40, label %41 [
     i8 0, label %.thread116
     i8 1, label %.thread
@@ -15951,7 +15951,7 @@ default.unreachable97:                            ; preds = %135, %2
   br i1 %25, label %26, label %.thread91
 
 26:                                               ; preds = %21
-  %27 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11fd_datasync28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h8eaa2e4830612a03E", i64 0, i32 1, i64 8) monotonic, align 8
+  %27 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11fd_datasync28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h8eaa2e4830612a03E", i64 16) monotonic, align 8
   switch i8 %27, label %28 [
     i8 0, label %.thread91
     i8 1, label %.thread
@@ -16662,7 +16662,7 @@ default.unreachable106:                           ; preds = %140, %3
   br i1 %37, label %38, label %.thread89
 
 38:                                               ; preds = %33
-  %39 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$13fd_fdstat_get28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hf578d57269ac1955E", i64 0, i32 1, i64 8) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$13fd_fdstat_get28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hf578d57269ac1955E", i64 16) monotonic, align 8
   switch i8 %39, label %40 [
     i8 0, label %.thread89
     i8 1, label %.thread
@@ -17825,7 +17825,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc106, %
   br i1 %43, label %44, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread199
 
 44:                                               ; preds = %41
-  %45 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$19fd_fdstat_set_flags8CALLSITE17ha6bd4272b25a0d2bE", i64 0, i32 1, i64 8) monotonic, align 8
+  %45 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$19fd_fdstat_set_flags8CALLSITE17ha6bd4272b25a0d2bE", i64 16) monotonic, align 8
   switch i8 %45, label %46 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread199
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -18488,7 +18488,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc86, %9
   br i1 %44, label %45, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread199
 
 45:                                               ; preds = %42
-  %46 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$20fd_fdstat_set_rights8CALLSITE17hf1643cac6ecea68fE", i64 0, i32 1, i64 8) monotonic, align 8
+  %46 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$20fd_fdstat_set_rights8CALLSITE17hf1643cac6ecea68fE", i64 16) monotonic, align 8
   switch i8 %46, label %47 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread199
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -19078,7 +19078,7 @@ default.unreachable120:                           ; preds = %330, %143, %3
   br i1 %38, label %39, label %.thread103
 
 39:                                               ; preds = %34
-  %40 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$15fd_filestat_get28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h8fa76310167f516bE", i64 0, i32 1, i64 8) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$15fd_filestat_get28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h8fa76310167f516bE", i64 16) monotonic, align 8
   switch i8 %40, label %41 [
     i8 0, label %.thread103
     i8 1, label %.thread
@@ -20422,7 +20422,7 @@ default.unreachable155:                           ; preds = %159, %2
   br i1 %28, label %29, label %.thread143
 
 29:                                               ; preds = %24
-  %30 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$20fd_filestat_set_size28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h9507dcc02a18f48fE", i64 0, i32 1, i64 8) monotonic, align 8
+  %30 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$20fd_filestat_set_size28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h9507dcc02a18f48fE", i64 16) monotonic, align 8
   switch i8 %30, label %31 [
     i8 0, label %.thread143
     i8 1, label %.thread
@@ -21236,7 +21236,7 @@ default.unreachable264:                           ; preds = %201, %2
   br i1 %37, label %38, label %.thread242
 
 38:                                               ; preds = %33
-  %39 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$21fd_filestat_set_times28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17he77a48a251d7671fE", i64 0, i32 1, i64 8) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$21fd_filestat_set_times28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17he77a48a251d7671fE", i64 16) monotonic, align 8
   switch i8 %39, label %40 [
     i8 0, label %.thread242
     i8 1, label %.thread
@@ -22348,7 +22348,7 @@ default.unreachable155:                           ; preds = %430, %190, %3
   br i1 %70, label %71, label %.thread137
 
 71:                                               ; preds = %66
-  %72 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$7fd_read28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hebc0cc2a08799878E", i64 0, i32 1, i64 8) monotonic, align 8
+  %72 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$7fd_read28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hebc0cc2a08799878E", i64 16) monotonic, align 8
   switch i8 %72, label %73 [
     i8 0, label %.thread137
     i8 1, label %.thread
@@ -24678,7 +24678,7 @@ default.unreachable206:                           ; preds = %192, %3
   br i1 %53, label %54, label %.thread185
 
 54:                                               ; preds = %49
-  %55 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$8fd_pread28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h10e9b6c9ad8a1646E", i64 0, i32 1, i64 8) monotonic, align 8
+  %55 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$8fd_pread28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h10e9b6c9ad8a1646E", i64 16) monotonic, align 8
   switch i8 %55, label %56 [
     i8 0, label %.thread185
     i8 1, label %.thread
@@ -26136,7 +26136,7 @@ default.unreachable156:                           ; preds = %381, %175, %3
   br i1 %55, label %56, label %.thread137
 
 56:                                               ; preds = %51
-  %57 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$8fd_write28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h1407dc5763c7343dE", i64 0, i32 1, i64 8) monotonic, align 8
+  %57 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$8fd_write28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h1407dc5763c7343dE", i64 16) monotonic, align 8
   switch i8 %57, label %58 [
     i8 0, label %.thread137
     i8 1, label %.thread
@@ -28081,7 +28081,7 @@ default.unreachable220:                           ; preds = %174, %3
   br i1 %43, label %44, label %.thread195
 
 44:                                               ; preds = %39
-  %45 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9fd_pwrite28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h5ab8aabffa58ffefE", i64 0, i32 1, i64 8) monotonic, align 8
+  %45 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9fd_pwrite28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h5ab8aabffa58ffefE", i64 16) monotonic, align 8
   switch i8 %45, label %46 [
     i8 0, label %.thread195
     i8 1, label %.thread
@@ -29294,7 +29294,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc90, %8
   br i1 %38, label %39, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread148
 
 39:                                               ; preds = %36
-  %40 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$14fd_prestat_get8CALLSITE17hd5e5e0ca6d560567E", i64 0, i32 1, i64 8) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$14fd_prestat_get8CALLSITE17hd5e5e0ca6d560567E", i64 16) monotonic, align 8
   switch i8 %40, label %41 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread148
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -29935,7 +29935,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc122, %
   br i1 %52, label %53, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread248
 
 53:                                               ; preds = %50
-  %54 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$19fd_prestat_dir_name8CALLSITE17h644d58b6563701faE", i64 0, i32 1, i64 8) monotonic, align 8
+  %54 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$19fd_prestat_dir_name8CALLSITE17h644d58b6563701faE", i64 16) monotonic, align 8
   switch i8 %54, label %55 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread248
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -30680,7 +30680,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc112, %
   br i1 %50, label %51, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread214
 
 51:                                               ; preds = %48
-  %52 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11fd_renumber8CALLSITE17heeaf0352b5f5409fE", i64 0, i32 1, i64 8) monotonic, align 8
+  %52 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11fd_renumber8CALLSITE17heeaf0352b5f5409fE", i64 16) monotonic, align 8
   switch i8 %52, label %53 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread214
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -31469,7 +31469,7 @@ default.unreachable202:                           ; preds = %_ZN4core3mem4drop17
   br i1 %41, label %42, label %.thread182
 
 42:                                               ; preds = %37
-  %43 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$7fd_seek28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hf8a573cc70a70042E", i64 0, i32 1, i64 8) monotonic, align 8
+  %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$7fd_seek28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hf8a573cc70a70042E", i64 16) monotonic, align 8
   switch i8 %43, label %44 [
     i8 0, label %.thread182
     i8 1, label %.thread
@@ -32694,7 +32694,7 @@ default.unreachable97:                            ; preds = %135, %2
   br i1 %25, label %26, label %.thread91
 
 26:                                               ; preds = %21
-  %27 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$7fd_sync28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h19ced2a68b9ca9acE", i64 0, i32 1, i64 8) monotonic, align 8
+  %27 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$7fd_sync28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h19ced2a68b9ca9acE", i64 16) monotonic, align 8
   switch i8 %27, label %28 [
     i8 0, label %.thread91
     i8 1, label %.thread
@@ -33364,7 +33364,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc76, %8
   br i1 %38, label %39, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread136
 
 39:                                               ; preds = %36
-  %40 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$7fd_tell8CALLSITE17hdec784fcc8751d08E", i64 0, i32 1, i64 8) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$7fd_tell8CALLSITE17hdec784fcc8751d08E", i64 16) monotonic, align 8
   switch i8 %40, label %41 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread136
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -34047,7 +34047,7 @@ default.unreachable327:                           ; preds = %456, %220, %3
   br i1 %67, label %68, label %.thread237
 
 68:                                               ; preds = %63
-  %69 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$10fd_readdir28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hacc4ba5b27f76aaaE", i64 0, i32 1, i64 8) monotonic, align 8
+  %69 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$10fd_readdir28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hacc4ba5b27f76aaaE", i64 16) monotonic, align 8
   switch i8 %69, label %70 [
     i8 0, label %.thread237
     i8 1, label %.thread
@@ -36554,7 +36554,7 @@ default.unreachable166:                           ; preds = %161, %2
   br i1 %32, label %33, label %.thread150
 
 33:                                               ; preds = %28
-  %34 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$21path_create_directory28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h3f1a613ba7349d2dE", i64 0, i32 1, i64 8) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$21path_create_directory28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h3f1a613ba7349d2dE", i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread150
     i8 1, label %.thread
@@ -37491,7 +37491,7 @@ default.unreachable251:                           ; preds = %384, %185, %3
   br i1 %45, label %46, label %.thread212
 
 46:                                               ; preds = %41
-  %47 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$17path_filestat_get28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h336c24e6e1958420E", i64 0, i32 1, i64 8) monotonic, align 8
+  %47 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$17path_filestat_get28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h336c24e6e1958420E", i64 16) monotonic, align 8
   switch i8 %47, label %48 [
     i8 0, label %.thread212
     i8 1, label %.thread
@@ -38983,7 +38983,7 @@ default.unreachable386:                           ; preds = %243, %2
   br i1 %48, label %49, label %.thread350
 
 49:                                               ; preds = %44
-  %50 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$23path_filestat_set_times28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hd1f58d8f23ecb1b4E", i64 0, i32 1, i64 8) monotonic, align 8
+  %50 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$23path_filestat_set_times28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hd1f58d8f23ecb1b4E", i64 16) monotonic, align 8
   switch i8 %50, label %51 [
     i8 0, label %.thread350
     i8 1, label %.thread
@@ -40368,7 +40368,7 @@ default.unreachable348:                           ; preds = %230, %2
   br i1 %50, label %51, label %.thread314
 
 51:                                               ; preds = %46
-  %52 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9path_link28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h556f78b78f788d47E", i64 0, i32 1, i64 8) monotonic, align 8
+  %52 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9path_link28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h556f78b78f788d47E", i64 16) monotonic, align 8
   switch i8 %52, label %53 [
     i8 0, label %.thread314
     i8 1, label %.thread
@@ -41808,7 +41808,7 @@ default.unreachable449:                           ; preds = %270, %3
   br i1 %68, label %69, label %.thread399
 
 69:                                               ; preds = %64
-  %70 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9path_open28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h2458f34d5605b24bE", i64 0, i32 1, i64 8) monotonic, align 8
+  %70 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9path_open28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h2458f34d5605b24bE", i64 16) monotonic, align 8
   switch i8 %70, label %71 [
     i8 0, label %.thread399
     i8 1, label %.thread
@@ -43738,7 +43738,7 @@ default.unreachable283:                           ; preds = %200, %3
   br i1 %48, label %49, label %.thread247
 
 49:                                               ; preds = %44
-  %50 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$13path_readlink28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17he63828997a681a34E", i64 0, i32 1, i64 8) monotonic, align 8
+  %50 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$13path_readlink28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17he63828997a681a34E", i64 16) monotonic, align 8
   switch i8 %50, label %51 [
     i8 0, label %.thread247
     i8 1, label %.thread
@@ -44958,7 +44958,7 @@ default.unreachable166:                           ; preds = %161, %2
   br i1 %32, label %33, label %.thread150
 
 33:                                               ; preds = %28
-  %34 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$21path_remove_directory28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h4887fff9aa414cdcE", i64 0, i32 1, i64 8) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$21path_remove_directory28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h4887fff9aa414cdcE", i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread150
     i8 1, label %.thread
@@ -45891,7 +45891,7 @@ default.unreachable295:                           ; preds = %207, %2
   br i1 %46, label %47, label %.thread265
 
 47:                                               ; preds = %42
-  %48 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11path_rename28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17he87eada34a392a14E", i64 0, i32 1, i64 8) monotonic, align 8
+  %48 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11path_rename28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17he87eada34a392a14E", i64 16) monotonic, align 8
   switch i8 %48, label %49 [
     i8 0, label %.thread265
     i8 1, label %.thread
@@ -47201,7 +47201,7 @@ default.unreachable239:                           ; preds = %188, %2
   br i1 %41, label %42, label %.thread215
 
 42:                                               ; preds = %37
-  %43 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$12path_symlink28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hc41a48e566060020E", i64 0, i32 1, i64 8) monotonic, align 8
+  %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$12path_symlink28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17hc41a48e566060020E", i64 16) monotonic, align 8
   switch i8 %43, label %44 [
     i8 0, label %.thread215
     i8 1, label %.thread
@@ -48390,7 +48390,7 @@ default.unreachable153:                           ; preds = %163, %2
   br i1 %34, label %35, label %.thread141
 
 35:                                               ; preds = %30
-  %36 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$16path_unlink_file28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h99260efc9949106aE", i64 0, i32 1, i64 8) monotonic, align 8
+  %36 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$16path_unlink_file28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h99260efc9949106aE", i64 16) monotonic, align 8
   switch i8 %36, label %37 [
     i8 0, label %.thread141
     i8 1, label %.thread
@@ -49463,7 +49463,7 @@ default.unreachable479:                           ; preds = %252, %3
   br i1 %114, label %115, label %.thread185
 
 115:                                              ; preds = %110
-  %116 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11poll_oneoff28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h7126f7d11b87e261E", i64 0, i32 1, i64 8) monotonic, align 8
+  %116 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11poll_oneoff28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h7126f7d11b87e261E", i64 16) monotonic, align 8
   switch i8 %116, label %117 [
     i8 0, label %.thread185
     i8 1, label %.thread
@@ -51619,7 +51619,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
   unreachable
 
 717:                                              ; preds = %.noexc.i.i.i, %707
-  %.0.i.i2.i.i.i.i.i = phi ptr [ %714, %.noexc.i.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %707 ]
+  %.0.i.i2.i.i.i.i.i = phi ptr [ %714, %.noexc.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %707 ]
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 32
   %718 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i.i, align 8, !noalias !6837
   %719 = extractelement <2 x i64> %718, i64 0
@@ -53089,7 +53089,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc60, %7
   br i1 %32, label %33, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread106
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9proc_exit8CALLSITE17h669074707166dd2cE", i64 0, i32 1, i64 8) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9proc_exit8CALLSITE17h669074707166dd2cE", i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread106
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -53515,7 +53515,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc55, %7
   br i1 %28, label %29, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread96
 
 29:                                               ; preds = %26
-  %30 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$10proc_raise8CALLSITE17h8f73efb0db6418d1E", i64 0, i32 1, i64 8) monotonic, align 8
+  %30 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$10proc_raise8CALLSITE17h8f73efb0db6418d1E", i64 16) monotonic, align 8
   switch i8 %30, label %31 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread96
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -53848,7 +53848,7 @@ define noalias noundef ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$a
   br i1 %18, label %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread53
 
 19:                                               ; preds = %16
-  %20 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11sched_yield8CALLSITE17h13511b89e44780dfE", i64 0, i32 1, i64 8) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11sched_yield8CALLSITE17h13511b89e44780dfE", i64 16) monotonic, align 8
   switch i8 %20, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread53
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -54125,7 +54125,7 @@ _ZN7tracing4span4Span8do_enter17hd9aeda4e7c260c23E.exit: ; preds = %.noexc95, %9
   br i1 %48, label %49, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread187
 
 49:                                               ; preds = %46
-  %50 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$10random_get8CALLSITE17h01cc8833424810adE", i64 0, i32 1, i64 8) monotonic, align 8
+  %50 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$10random_get8CALLSITE17h01cc8833424810adE", i64 16) monotonic, align 8
   switch i8 %50, label %51 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread187
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -54709,7 +54709,7 @@ define void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_
   br i1 %35, label %36, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread136
 
 36:                                               ; preds = %33
-  %37 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11sock_accept8CALLSITE17h53965dc7bba6cfb0E", i64 0, i32 1, i64 8) monotonic, align 8
+  %37 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11sock_accept8CALLSITE17h53965dc7bba6cfb0E", i64 16) monotonic, align 8
   switch i8 %37, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread136
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -55106,7 +55106,7 @@ define void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_
   br i1 %41, label %42, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread180
 
 42:                                               ; preds = %39
-  %43 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9sock_recv8CALLSITE17h5ca060e364d29256E", i64 0, i32 1, i64 8) monotonic, align 8
+  %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9sock_recv8CALLSITE17h5ca060e364d29256E", i64 16) monotonic, align 8
   switch i8 %43, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread180
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -55555,7 +55555,7 @@ define void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_
   br i1 %41, label %42, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread180
 
 42:                                               ; preds = %39
-  %43 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9sock_send8CALLSITE17hf15c83ef9a3d2915E", i64 0, i32 1, i64 8) monotonic, align 8
+  %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$9sock_send8CALLSITE17hf15c83ef9a3d2915E", i64 16) monotonic, align 8
   switch i8 %43, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread180
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
@@ -55998,7 +55998,7 @@ define noalias noundef nonnull ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1C
   br i1 %34, label %35, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread136
 
 35:                                               ; preds = %32
-  %36 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$13sock_shutdown8CALLSITE17h2b7e9d235d919779E", i64 0, i32 1, i64 8) monotonic, align 8
+  %36 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$13sock_shutdown8CALLSITE17h2b7e9d235d919779E", i64 16) monotonic, align 8
   switch i8 %36, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread136
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread

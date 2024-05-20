@@ -74,7 +74,7 @@ define dso_local noundef zeroext i1 @exec_prog(ptr noundef %0, ptr noundef %1, i
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [2048 x i8], align 16
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  %9 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 40), align 8
   %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %9, ptr noundef %0) #9
   call void @llvm.va_start.p0(ptr nonnull %8)
   %11 = call i32 @pg_vsnprintf(ptr noundef nonnull %7, i64 noundef 2048, ptr noundef %4, ptr noundef nonnull %8) #9

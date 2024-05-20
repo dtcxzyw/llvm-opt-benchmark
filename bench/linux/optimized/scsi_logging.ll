@@ -70,7 +70,7 @@ define dso_local void @sdev_prefix_printk(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %6, label %24, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 2080, i64 noundef 128) #9
   %10 = icmp eq ptr %9, null
   br i1 %10, label %24, label %11
@@ -138,7 +138,7 @@ define dso_local void @scmd_printk(ptr noundef %0, ptr noundef readonly %1, ptr 
   br i1 %5, label %47, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 2080, i64 noundef 128) #9
   %9 = icmp eq ptr %8, null
   br i1 %9, label %47, label %10
@@ -456,7 +456,7 @@ define internal fastcc i64 @scsi_format_opcode_name(ptr noundef %0, i64 noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @scsi_print_command(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 2080, i64 noundef 128) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %120, label %5
@@ -660,7 +660,7 @@ define dso_local void @scsi_print_sense_hdr(ptr noundef %0, ptr noundef %1, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @scsi_log_print_sense_hdr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2080, i64 noundef 128) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %75, label %8
@@ -747,7 +747,7 @@ define internal fastcc void @scsi_log_print_sense_hdr(ptr noundef %0, ptr nounde
   %63 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %63, ptr noundef nonnull @.str.2, ptr noundef nonnull %6) #10
   tail call void @kfree(ptr noundef nonnull %6) #8
-  %64 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %65 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %64, i32 noundef 2080, i64 noundef 128) #9
   %66 = icmp eq ptr %65, null
   br i1 %66, label %75, label %67
@@ -788,7 +788,7 @@ define internal fastcc void @scsi_log_print_sense(ptr noundef %0, ptr noundef %1
   br label %78
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %11 = call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 2080, i64 noundef 128) #9
   %12 = icmp eq ptr %11, null
   br i1 %12, label %78, label %13
@@ -948,7 +948,7 @@ define dso_local void @scsi_print_result(ptr nocapture noundef readonly %0, ptr 
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
   %12 = udiv i64 %11, 1000
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 2080, i64 noundef 128) #9
   %15 = icmp eq ptr %14, null
   br i1 %15, label %108, label %16

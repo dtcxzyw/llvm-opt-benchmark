@@ -2789,7 +2789,7 @@ invoke.cont:
   %iter = alloca %"class.icu_75::LocalePriorityList::Iterator", align 8
   call void @_ZN6icu_7518LocalePriorityListC1ENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %list, ptr %desiredLocaleList.coerce0, i32 %desiredLocaleList.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i64 0, i32 0, i64 2), ptr %iter, align 8, !alias.scope !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i64 16), ptr %iter, align 8, !alias.scope !36
   %list2.i.i = getelementptr inbounds i8, ptr %iter, i64 8
   store ptr %list, ptr %list2.i.i, align 8, !alias.scope !36
   %index.i.i = getelementptr inbounds i8, ptr %iter, i64 16
@@ -3518,7 +3518,7 @@ if.end11:                                         ; preds = %cond.true4, %cond.f
 invoke.cont:                                      ; preds = %if.end11
   %idx.ext = zext nneg i32 %acceptListCount to i64
   %add.ptr = getelementptr inbounds ptr, ptr %acceptList, i64 %idx.ext
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 0, i32 0, i64 2), ptr %desiredLocales, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %desiredLocales, align 8
   %it_.i = getelementptr inbounds i8, ptr %desiredLocales, i64 8
   store ptr %acceptList, ptr %it_.i, align 8
   %end_.i = getelementptr inbounds i8, ptr %desiredLocales, i64 16
@@ -3540,7 +3540,7 @@ invoke.cont13:                                    ; preds = %invoke.cont
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 0, i32 0, i64 2), ptr %desiredLocales, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %desiredLocales, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i) #15
   call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales) #15
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter) #15
@@ -3554,7 +3554,7 @@ lpad:                                             ; preds = %if.end11
 lpad14:                                           ; preds = %invoke.cont13
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 0, i32 0, i64 2), ptr %desiredLocales, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %desiredLocales, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i) #15
   call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales) #15
   br label %ehcleanup
@@ -3764,7 +3764,7 @@ return:                                           ; preds = %entry, %cleanup47
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %this, align 8
   %converter_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_) #15
   tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
@@ -3810,7 +3810,7 @@ invoke.cont:                                      ; preds = %lor.lhs.false
   %3 = load i32, ptr %2, align 8
   call void @_ZN6icu_7518LocalePriorityListC1ENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %list, ptr %1, i32 %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i64 0, i32 0, i64 2), ptr %desiredLocales, align 8, !alias.scope !65
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i64 16), ptr %desiredLocales, align 8, !alias.scope !65
   %list2.i.i = getelementptr inbounds i8, ptr %desiredLocales, i64 8
   store ptr %list, ptr %list2.i.i, align 8, !alias.scope !65
   %index.i.i = getelementptr inbounds i8, ptr %desiredLocales, i64 16
@@ -3919,7 +3919,7 @@ declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %this, align 8
   %converter_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i) #15
   tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15

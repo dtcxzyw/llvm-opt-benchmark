@@ -58,8 +58,8 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @diff_output_prefix_callback(ptr nocapture noundef readonly %opt, ptr noundef %data) #2 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @diff_output_prefix_callback.msgbuf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @diff_output_prefix_callback.msgbuf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @diff_output_prefix_callback.msgbuf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @diff_output_prefix_callback.msgbuf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -166,7 +166,7 @@ parse_graph_colors_config.exit:                   ; preds = %if.end.i, %if.else
   %4 = load ptr, ptr %string, align 8
   call void @free(ptr noundef %4) #15
   %5 = load ptr, ptr @graph_init.custom_colors, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.strvec, ptr @graph_init.custom_colors, i64 0, i32 1), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @graph_init.custom_colors, i64 8), align 8
   %7 = trunc i64 %6 to i16
   %conv4 = add i16 %7, -1
   store ptr %5, ptr @column_colors, align 8

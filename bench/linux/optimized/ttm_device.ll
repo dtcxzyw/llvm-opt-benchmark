@@ -40,13 +40,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_device_c
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ttm_global_swapout(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @ttm_global_mutex) #7
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1), align 8
-  %4 = icmp eq ptr %3, getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1)
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 8), align 8
+  %4 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @ttm_glob, i64 8)
   br i1 %4, label %.loopexit, label %.preheader
 
 5:                                                ; preds = %.preheader
   %6 = load ptr, ptr %8, align 8
-  %7 = icmp eq ptr %6, getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1)
+  %7 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @ttm_glob, i64 8)
   br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %2, %5
@@ -62,9 +62,9 @@ define dso_local i32 @ttm_global_swapout(ptr noundef %0, i32 noundef %1) local_u
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %13, ptr %15, align 8
   store volatile ptr %14, ptr %13, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1, i32 1), align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1), ptr %8, align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 16), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 8), ptr %8, align 8
   store ptr %16, ptr %12, align 8
   store volatile ptr %8, ptr %16, align 8
   br label %.loopexit
@@ -234,11 +234,11 @@ define dso_local noundef range(i32 -22, 1) i32 @ttm_device_init(ptr noundef %0, 
   br label %40
 
 40:                                               ; preds = %38, %15
-  store volatile ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1), ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1), align 8
-  store volatile ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1), ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1, i32 1), align 8
-  store volatile i32 0, ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 2), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 8), ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 8), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 8), ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 16), align 8
+  store volatile i32 0, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 24), align 8
   %41 = load ptr, ptr @ttm_debugfs_root, align 8
-  call void @debugfs_create_atomic_t(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %41, ptr noundef nonnull getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 2)) #7
+  call void @debugfs_create_atomic_t(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %41, ptr noundef nonnull getelementptr inbounds (i8, ptr @ttm_glob, i64 24)) #7
   br label %48
 
 42:                                               ; preds = %35
@@ -315,9 +315,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ttm_device_init(ptr noundef %0, 
   %73 = getelementptr inbounds i8, ptr %0, i64 2104
   store ptr %3, ptr %73, align 8
   call void @mutex_lock(ptr noundef nonnull @ttm_global_mutex) #7
-  %74 = load ptr, ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 1), ptr %0, align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 16), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 8), ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %74, ptr %75, align 8
   store volatile ptr %0, ptr %74, align 8

@@ -2734,7 +2734,7 @@ define internal fastcc i32 @do_epoll_create(i32 noundef %0) unnamed_addr #0 alig
   br i1 %3, label %4, label %.thread
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 176) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8, !prof !24

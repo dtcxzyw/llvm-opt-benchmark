@@ -1206,7 +1206,7 @@ define internal fastcc i64 @do_seccomp(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %77, %72
-  %80 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %81 = call noalias align 8 dereferenceable_or_null(224) ptr @kmalloc_trace(ptr noundef %80, i32 noundef 11712, i64 noundef 224) #18
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.thread, label %83
@@ -1266,7 +1266,7 @@ define internal fastcc i64 @do_seccomp(i32 noundef %0, i32 noundef %1, ptr nound
   br label %209
 
 107:                                              ; preds = %102
-  %108 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %109 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %108, i32 noundef 3520, i64 noundef 32) #18
   %110 = getelementptr inbounds i8, ptr %96, i64 160
   store ptr %109, ptr %110, align 8

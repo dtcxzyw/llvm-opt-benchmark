@@ -348,7 +348,7 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 71:                                               ; preds = %67, %69, %52
   call void @proto_tree_add_bitmask_list(ptr noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 0) #3
-  %72 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 5), align 4
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 20), align 4
   %.not59 = icmp eq i32 %72, 0
   br i1 %.not59, label %proto_item_set_generated.exit, label %73
 

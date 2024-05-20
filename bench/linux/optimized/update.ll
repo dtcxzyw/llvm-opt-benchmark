@@ -969,7 +969,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_utilization(ptr noundef, ptr noundef) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_utilization(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_utilization, i64 0, i32 8), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_utilization, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1004,7 +1004,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_grace_period(ptr noundef, ptr noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_grace_period(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_grace_period, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_grace_period, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1033,7 +1033,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_future_grace_period(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_future_grace_period(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #1 align 16 {
-  %9 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_future_grace_period, i64 0, i32 8), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_future_grace_period, i64 72), align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
 
@@ -1062,7 +1062,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_grace_period_init(ptr noundef, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_grace_period_init(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i64 noundef %6) #1 align 16 {
-  %8 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_grace_period_init, i64 0, i32 8), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_grace_period_init, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
 
@@ -1091,7 +1091,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_exp_grace_period(ptr noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_exp_grace_period(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_exp_grace_period, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_exp_grace_period, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1120,7 +1120,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_exp_funnel_lock(ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_exp_funnel_lock(ptr nocapture readnone %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
-  %7 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_exp_funnel_lock, i64 0, i32 8), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_exp_funnel_lock, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -1149,7 +1149,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_preempt_task(ptr noundef, ptr noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_preempt_task(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_preempt_task, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_preempt_task, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1178,7 +1178,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_unlock_preempted_task(ptr noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_unlock_preempted_task(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_unlock_preempted_task, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_unlock_preempted_task, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1207,7 +1207,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_quiescent_state_report(ptr noundef, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_quiescent_state_report(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #1 align 16 {
-  %10 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_quiescent_state_report, i64 0, i32 8), align 8
+  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_quiescent_state_report, i64 72), align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
 
@@ -1236,7 +1236,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_fqs(ptr noundef, ptr noundef, i64 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_fqs(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) #1 align 16 {
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_fqs, i64 0, i32 8), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_fqs, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -1265,7 +1265,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_stall_warning(ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_stall_warning(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_stall_warning, i64 0, i32 8), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_stall_warning, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -1294,7 +1294,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_dyntick(ptr noundef, ptr noundef, i64 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_dyntick(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #1 align 16 {
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_dyntick, i64 0, i32 8), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_dyntick, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -1323,7 +1323,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_callback(ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_callback, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_callback, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1352,7 +1352,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_segcb_stats(ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_segcb_stats(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_segcb_stats, i64 0, i32 8), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_segcb_stats, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -1381,7 +1381,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_kvfree_callback(ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_kvfree_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_kvfree_callback, i64 0, i32 8), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_kvfree_callback, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -1410,7 +1410,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_batch_start(ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_batch_start(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_batch_start, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_batch_start, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1439,7 +1439,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_invoke_callback(ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_invoke_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_invoke_callback, i64 0, i32 8), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_invoke_callback, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -1468,7 +1468,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_invoke_kvfree_callback(ptr noundef, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_invoke_kvfree_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_invoke_kvfree_callback, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_invoke_kvfree_callback, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1497,7 +1497,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_invoke_kfree_bulk_callback(ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_invoke_kfree_bulk_callback(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_invoke_kfree_bulk_callback, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_invoke_kfree_bulk_callback, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1526,7 +1526,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_batch_end(ptr noundef, ptr noundef, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_batch_end(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #1 align 16 {
-  %8 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_batch_end, i64 0, i32 8), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_batch_end, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
 
@@ -1555,7 +1555,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_torture_read(ptr noundef, ptr noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_torture_read(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #1 align 16 {
-  %7 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_torture_read, i64 0, i32 8), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_torture_read, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -1584,7 +1584,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_barrier(ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_rcu_barrier(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #1 align 16 {
-  %7 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_barrier, i64 0, i32 8), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_barrier, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -4151,11 +4151,11 @@ define dso_local void @finish_rcuwait(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @do_trace_rcu_torture_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_torture_read, i64 0, i32 1), i32 2) #16
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rcu_torture_read, i64 8), i32 2) #16
           to label %26 [label %6], !srcloc !62
 
 6:                                                ; preds = %5
-  %7 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !63
+  %7 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !63
   %8 = zext i32 %7 to i64
   %9 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %8) #16, !srcloc !64
   %10 = icmp ult i8 %9, 2
@@ -4164,9 +4164,9 @@ define dso_local void @do_trace_rcu_torture_read(ptr noundef %0, ptr noundef %1,
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %6
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !65
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !65
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !66
-  %13 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rcu_torture_read, i64 0, i32 8), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rcu_torture_read, i64 72), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
 
@@ -4178,7 +4178,7 @@ define dso_local void @do_trace_rcu_torture_read(ptr noundef %0, ptr noundef %1,
 
 19:                                               ; preds = %15, %12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !67
-  %20 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !68
+  %20 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !68
   %21 = icmp ult i8 %20, 2
   tail call void @llvm.assume(i1 %21)
   %22 = icmp eq i8 %20, 0
@@ -4207,7 +4207,7 @@ define dso_local void @rcu_early_boot_tests() local_unnamed_addr #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @call_rcu_tasks(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i64, align 8
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 11), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 104), align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !70
   %5 = icmp eq ptr %4, null
   store ptr null, ptr %0, align 8
@@ -4220,8 +4220,8 @@ define dso_local void @call_rcu_tasks(ptr noundef %0, ptr noundef %1) #1 align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !72
   call void @__rcu_read_lock() #16
-  %8 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #17, !srcloc !73
-  %9 = load volatile i32, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 21), align 8
+  %8 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !73
+  %9 = load volatile i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 184), align 8
   %10 = ashr i32 %8, %9
   %11 = icmp ugt i32 %10, 63
   br i1 %11, label %22, label %12, !prof !31
@@ -4242,7 +4242,7 @@ define dso_local void @call_rcu_tasks(ptr noundef %0, ptr noundef %1) #1 align 1
 
 22:                                               ; preds = %18, %12, %2
   %23 = phi i64 [ 64, %2 ], [ %21, %18 ], [ 64, %12 ]
-  %24 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 20), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 176), align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
   %27 = load i64, ptr %26, align 8
@@ -4282,7 +4282,7 @@ define dso_local void @call_rcu_tasks(ptr noundef %0, ptr noundef %1) #1 align 1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %42
-  %50 = load volatile i32, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 22), align 4
+  %50 = load volatile i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 188), align 4
   %51 = load i32, ptr @nr_cpu_ids, align 4
   %52 = icmp ne i32 %50, %51
   br label %53
@@ -4323,7 +4323,7 @@ define dso_local void @call_rcu_tasks(ptr noundef %0, ptr noundef %1) #1 align 1
   br i1 %73, label %74, label %.thread6
 
 74:                                               ; preds = %69
-  %75 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 12), align 8
+  %75 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 112), align 8
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %81, label %77
 
@@ -4353,24 +4353,24 @@ define dso_local void @call_rcu_tasks(ptr noundef %0, ptr noundef %1) #1 align 1
   br i1 %54, label %87, label %97, !prof !31
 
 87:                                               ; preds = %.thread6
-  %88 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 1)) #16
-  %89 = load i32, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 22), align 4
+  %88 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (i8, ptr @rcu_tasks, i64 8)) #16
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 188), align 4
   %90 = load i32, ptr @nr_cpu_ids, align 4
   %91 = icmp eq i32 %89, %90
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %87
-  store volatile i32 0, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 21), align 8
-  store volatile i32 %90, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 23), align 8
+  store volatile i32 0, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 184), align 8
+  store volatile i32 %90, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 192), align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !78
   %93 = load i32, ptr @nr_cpu_ids, align 4
-  store volatile i32 %93, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 22), align 4
-  %94 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 29), align 8
+  store volatile i32 %93, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 188), align 4
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 288), align 8
   %95 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.82, ptr noundef %94) #19
   br label %96
 
 96:                                               ; preds = %92, %87
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 1), i64 noundef %88) #16
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (i8, ptr @rcu_tasks, i64 8), i64 noundef %88) #16
   br label %97
 
 97:                                               ; preds = %96, %.thread6
@@ -4378,7 +4378,7 @@ define dso_local void @call_rcu_tasks(ptr noundef %0, ptr noundef %1) #1 align 1
   br i1 %86, label %98, label %104
 
 98:                                               ; preds = %97
-  %99 = load volatile ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 11), align 8
+  %99 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 104), align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %104, label %101
 
@@ -4403,7 +4403,7 @@ define dso_local void @synchronize_rcu_tasks() #1 align 16 {
 .thread:                                          ; preds = %0
   store i1 true, ptr @synchronize_rcu_tasks_generic.__already_done, align 1
   tail call void asm sideeffect "893: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 893b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 893) #16, !srcloc !79
-  %6 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 29), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 288), align 8
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.86, ptr noundef %6) #16
   tail call void asm sideeffect "894: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 894b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 894) #16, !srcloc !80
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.81, i32 637, i32 2313, i64 12) #16, !srcloc !81
@@ -4415,12 +4415,12 @@ define dso_local void @synchronize_rcu_tasks() #1 align 16 {
   br i1 %3, label %8, label %16
 
 8:                                                ; preds = %7
-  %9 = load volatile ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 11), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 104), align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 19), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 168), align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #16
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4441,12 +4441,12 @@ define dso_local void @synchronize_rcu_tasks() #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rcu_barrier_tasks() #1 align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 28), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 280), align 8
   %2 = add i64 %1, 7
   %3 = and i64 %2, -4
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !84
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 25)) #16
-  %4 = load volatile i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 28), align 8
+  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rcu_tasks, i64 208)) #16
+  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 280), align 8
   %5 = sub i64 %4, %3
   %6 = icmp sgt i64 %5, -1
   br i1 %6, label %7, label %8
@@ -4457,9 +4457,9 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
 
 8:                                                ; preds = %0
   %9 = add i64 %4, 1
-  store volatile i64 %9, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 28), align 8
+  store volatile i64 %9, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 280), align 8
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !86
-  %10 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 28), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 280), align 8
   %11 = and i64 %10, 3
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %14, label %13, !prof !30
@@ -4471,9 +4471,9 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
   br label %14
 
 14:                                               ; preds = %13, %8
-  store i32 0, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 27), align 8
-  tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 27, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull @.str.78, ptr noundef nonnull @init_completion.__key) #16
-  store volatile i32 2, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 26), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 248), align 8
+  tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds (i8, ptr @rcu_tasks, i64 256), ptr noundef nonnull @.str.78, ptr noundef nonnull @init_completion.__key) #16
+  store volatile i32 2, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 240), align 8
   br label %15
 
 15:                                               ; preds = %14, %42
@@ -4491,13 +4491,13 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %21
-  %26 = load volatile i32, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 23), align 8
+  %26 = load volatile i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 192), align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !90
   %27 = icmp sgt i32 %26, %23
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 20), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 176), align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %22, 63
   %32 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %31
@@ -4513,7 +4513,7 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %28
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 26), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 26)) #16, !srcloc !55
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @rcu_tasks, i64 240), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @rcu_tasks, i64 240)) #16, !srcloc !55
   br label %42
 
 42:                                               ; preds = %41, %28
@@ -4524,20 +4524,20 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
   br i1 %45, label %.thread, label %15, !prof !91, !llvm.loop !92
 
 .thread:                                          ; preds = %15, %42, %25, %21
-  %46 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 26), i32 2, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 26)) #16, !srcloc !93
+  %46 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @rcu_tasks, i64 240), i32 2, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @rcu_tasks, i64 240)) #16, !srcloc !93
   %47 = icmp ult i8 %46, 2
   tail call void @llvm.assume(i1 %47)
   %48 = icmp eq i8 %46, 0
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %.thread
-  tail call void @complete(ptr noundef nonnull getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 27)) #16
+  tail call void @complete(ptr noundef nonnull getelementptr inbounds (i8, ptr @rcu_tasks, i64 248)) #16
   br label %50
 
 50:                                               ; preds = %49, %.thread
-  tail call void @wait_for_completion(ptr noundef nonnull getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 27)) #16
+  tail call void @wait_for_completion(ptr noundef nonnull getelementptr inbounds (i8, ptr @rcu_tasks, i64 248)) #16
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !94
-  %51 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 28), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 280), align 8
   %52 = and i64 %51, 3
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %54, label %55, !prof !31
@@ -4546,18 +4546,18 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
   tail call void asm sideeffect "801: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 801b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 801) #16, !srcloc !95
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.89, i32 111, i32 2307, i64 12) #16, !srcloc !96
   tail call void asm sideeffect "802: nop\0A\09.pushsection .discard.instr_end\0A\09.long 802b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 802) #16, !srcloc !97
-  %.pre = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 28), align 8
+  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 280), align 8
   br label %55
 
 55:                                               ; preds = %54, %50
   %56 = phi i64 [ %.pre, %54 ], [ %51, %50 ]
   %57 = or i64 %56, 3
   %58 = add i64 %57, 1
-  store volatile i64 %58, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 28), align 8
+  store volatile i64 %58, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 280), align 8
   br label %59
 
 59:                                               ; preds = %55, %7
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 25)) #16
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rcu_tasks, i64 208)) #16
   ret void
 }
 
@@ -4565,7 +4565,7 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
 define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %1 = alloca i32, align 4
   %2 = load i64, ptr @__cpu_possible_mask, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 20), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 176), align 8
   %4 = ptrtoint ptr %3 to i64
   br label %5
 
@@ -4622,9 +4622,9 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %46 = phi i8 [ %36, %20 ], [ %6, %16 ], [ %6, %5 ], [ %6, %12 ]
   %47 = phi i8 [ %32, %20 ], [ %7, %16 ], [ %7, %5 ], [ %7, %12 ]
   %48 = phi i8 [ %28, %20 ], [ %8, %16 ], [ %8, %5 ], [ %8, %12 ]
-  %49 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 30), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 296), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  %50 = load i32, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 3), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 48), align 8
   store i32 %50, ptr %1, align 4
   %.0..0..0..0. = load volatile i32, ptr %1, align 4
   %51 = icmp ugt i32 %.0..0..0..0., 11
@@ -4640,12 +4640,12 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %57 = phi ptr [ %55, %52 ], [ @.str.95, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   %58 = load volatile i64, ptr @jiffies, align 64
-  %59 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 6), align 8
+  %59 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 64), align 8
   %60 = sub i64 %58, %59
-  %61 = load volatile i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 8), align 8
-  %62 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 10), align 8
-  %63 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 9), align 8
-  %64 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 11), align 8
+  %61 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 80), align 8
+  %62 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 96), align 8
+  %63 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 88), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 104), align 8
   %65 = icmp ne ptr %64, null
   %66 = zext i1 %65 to i64
   %67 = getelementptr [3 x i8], ptr @.str.91, i64 0, i64 %66
@@ -4666,14 +4666,14 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %82 = getelementptr [3 x i8], ptr @.str.94, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
-  %85 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 12), align 8
+  %85 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 112), align 8
   %86 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.90, ptr noundef %49, ptr noundef %57, i32 noundef %50, i64 noundef %60, i64 noundef %61, i64 noundef %62, i64 noundef %63, i32 noundef %69, i32 noundef %74, i32 noundef %79, i32 noundef %84, i64 noundef %85, ptr noundef nonnull @.str) #19
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local ptr @get_rcu_tasks_gp_kthread() #5 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 11), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 104), align 8
   ret ptr %1
 }
 
@@ -4759,10 +4759,10 @@ define internal fastcc void @rcu_spawn_tasks_kthread() unnamed_addr #6 section "
   %16 = icmp uge i32 %15, %11
   %17 = zext i1 %16 to i32
   %18 = add i32 %13, %17
-  store volatile i32 %18, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 21), align 8
-  store volatile i32 %11, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 23), align 8
+  store volatile i32 %18, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 184), align 8
+  store volatile i32 %11, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 192), align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !100
-  store volatile i32 %11, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 22), align 4
+  store volatile i32 %11, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 188), align 4
   br label %19
 
 19:                                               ; preds = %8, %64
@@ -4780,7 +4780,7 @@ define internal fastcc void @rcu_spawn_tasks_kthread() unnamed_addr #6 section "
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 20), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 176), align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %26, 63
   %33 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %32
@@ -4860,29 +4860,29 @@ define internal fastcc void @rcu_spawn_tasks_kthread() unnamed_addr #6 section "
   br i1 %67, label %.thread, label %19, !prof !91, !llvm.loop !105
 
 .thread:                                          ; preds = %19, %64, %25
-  %68 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 29), align 8
-  %69 = load i32, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 21), align 8
-  %70 = load i32, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 22), align 4
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 288), align 8
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 184), align 8
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 188), align 4
   %71 = load i1, ptr @rcu_task_cb_adjust, align 1
   %72 = zext i1 %71 to i32
   %73 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.108, ptr noundef %68, i32 noundef %69, i32 noundef %70, i32 noundef %72) #19
-  store i32 100, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 4), align 4
-  store i32 100, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 5), align 8
+  store i32 100, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 52), align 4
+  store i32 100, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 56), align 8
   %74 = load i32, ptr @rcu_tasks_lazy_ms, align 4
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %.thread
   %77 = call i64 @__msecs_to_jiffies(i32 noundef %74) #16
-  store i64 %77, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 12), align 8
+  store i64 %77, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 112), align 8
   br label %78
 
 78:                                               ; preds = %76, %.thread
-  store ptr @rcu_tasks_pregp_step, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 14), align 8
-  store ptr @rcu_tasks_pertask, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 15), align 8
-  store ptr @rcu_tasks_postscan, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 16), align 8
-  store ptr @check_all_holdout_tasks, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 17), align 8
-  store ptr @rcu_tasks_postgp, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 18), align 8
+  store ptr @rcu_tasks_pregp_step, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 128), align 8
+  store ptr @rcu_tasks_pertask, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 136), align 8
+  store ptr @rcu_tasks_postscan, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 144), align 8
+  store ptr @check_all_holdout_tasks, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 152), align 8
+  store ptr @rcu_tasks_postgp, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 160), align 8
   call fastcc void @rcu_spawn_tasks_kthread_generic() #20
   ret void
 }
@@ -5693,7 +5693,7 @@ define internal void @rcu_tasks_wait_gp(ptr noundef %0) #1 align 16 {
 
 14:                                               ; preds = %1
   call void @__rcu_read_lock() #16
-  %15 = load volatile ptr, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 45, i32 0), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
   %16 = getelementptr i8, ptr %15, i64 -1112
   %17 = icmp eq ptr %16, @init_task
   br i1 %17, label %.loopexit8, label %.preheader7
@@ -6288,7 +6288,7 @@ define internal fastcc void @rcu_tasks_invoke_cbs(ptr noundef %0, ptr noundef %1
 
 65:                                               ; preds = %63, %.preheader
   %66 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !126
-  call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !127
+  call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !127
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !128
   %67 = load ptr, ptr %60, align 8
   call void %67(ptr noundef nonnull %59) #16
@@ -6465,7 +6465,7 @@ define internal void @rcu_tasks_postscan(ptr nocapture readnone %0) #1 align 16 
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = sext i32 %2 to i64
   %5 = add i64 %3, %4
-  store i64 %5, ptr getelementptr inbounds (%struct.timer_list, ptr @tasks_rcu_exit_srcu_stall_timer, i64 0, i32 1), align 8
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @tasks_rcu_exit_srcu_stall_timer, i64 16), align 8
   tail call void @add_timer(ptr noundef nonnull @tasks_rcu_exit_srcu_stall_timer) #16
   tail call void @synchronize_srcu(ptr noundef nonnull @tasks_rcu_exit_srcu) #16
   %6 = tail call i32 @timer_delete_sync(ptr noundef nonnull @tasks_rcu_exit_srcu_stall_timer) #16
@@ -6597,7 +6597,7 @@ define internal void @rcu_tasks_postgp(ptr nocapture readnone %0) #1 align 16 {
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @rcu_spawn_tasks_kthread_generic() unnamed_addr #6 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 30), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 296), align 8
   %2 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @rcu_tasks_kthread, ptr noundef nonnull @rcu_tasks, i32 noundef -1, ptr noundef nonnull @.str.115, ptr noundef %1) #16
   %.not = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
   br i1 %.not, label %3, label %7
@@ -6609,7 +6609,7 @@ define internal fastcc void @rcu_spawn_tasks_kthread_generic() unnamed_addr #6 s
 5:                                                ; preds = %3
   store i1 true, ptr @rcu_spawn_tasks_kthread_generic.__already_done, align 1
   tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #16, !srcloc !138
-  %6 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 29), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 288), align 8
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.116, ptr noundef nonnull @__func__.rcu_spawn_tasks_kthread_generic, ptr noundef %6) #16
   tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #16, !srcloc !139
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.81, i32 654, i32 2313, i64 12) #16, !srcloc !140
@@ -6660,10 +6660,10 @@ declare dso_local void @synchronize_srcu(ptr noundef) local_unnamed_addr #0
 define internal void @tasks_rcu_exit_srcu_stall(ptr nocapture readnone %0) #1 align 16 {
   %2 = alloca i32, align 4
   %3 = load volatile i32, ptr @rcu_task_stall_info, align 4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 30), align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 296), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 80), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %6 = load i32, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 3), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 48), align 8
   store i32 %6, ptr %2, align 4
   %.0..0..0..0. = load volatile i32, ptr %2, align 4
   %7 = icmp ugt i32 %.0..0..0..0., 11
@@ -6679,14 +6679,14 @@ define internal void @tasks_rcu_exit_srcu_stall(ptr nocapture readnone %0) #1 al
   %13 = phi ptr [ %11, %8 ], [ @.str.95, %1 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %14 = load volatile i64, ptr @jiffies, align 64
-  %15 = load i64, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 6), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 64), align 8
   %16 = sub i64 %14, %15
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.109, ptr noundef nonnull @__func__.tasks_rcu_exit_srcu_stall, ptr noundef %4, i64 noundef %5, ptr noundef %13, i64 noundef %16) #19
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.110) #19
   %19 = load volatile i64, ptr @jiffies, align 64
   %20 = sext i32 %3 to i64
   %21 = add i64 %19, %20
-  store i64 %21, ptr getelementptr inbounds (%struct.timer_list, ptr @tasks_rcu_exit_srcu_stall_timer, i64 0, i32 1), align 8
+  store i64 %21, ptr getelementptr inbounds (i8, ptr @tasks_rcu_exit_srcu_stall_timer, i64 16), align 8
   tail call void @add_timer(ptr noundef nonnull @tasks_rcu_exit_srcu_stall_timer) #16
   ret void
 }

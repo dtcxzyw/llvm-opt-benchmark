@@ -129,10 +129,10 @@ use_component.exit:                               ; preds = %.lr.ph.i
   br i1 %.1, label %use_component.exit.thread, label %78
 
 use_component.exit.thread:                        ; preds = %42, %use_component.exit.thr_comm, %use_component.exit
-  %53 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_component_list_item_t_class, i64 0, i32 8), align 8
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_component_list_item_t_class, i64 56), align 8
   %54 = tail call noalias noundef ptr @malloc(i64 noundef %53) #14
   %55 = load i32, ptr @pmix_class_init_epoch, align 4
-  %56 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_component_list_item_t_class, i64 0, i32 4), align 8
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_component_list_item_t_class, i64 32), align 8
   %.not.i41 = icmp eq i32 %55, %56
   br i1 %.not.i41, label %58, label %57
 
@@ -154,7 +154,7 @@ use_component.exit.thread:                        ; preds = %42, %use_component.
   %64 = getelementptr inbounds i8, ptr %54, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
-  %65 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_component_list_item_t_class, i64 0, i32 6), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_component_list_item_t_class, i64 40), align 8
   %66 = load ptr, ptr %65, align 8
   %.not6.i.i = icmp eq ptr %66, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread65, label %.lr.ph.i.i
@@ -343,7 +343,7 @@ find_dyn_components.exit:                         ; preds = %use_component.exit.
   br label %145
 
 139:                                              ; preds = %81, %.loopexit
-  %140 = load i32, ptr getelementptr inbounds ([0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 0, i32 2), align 4
+  %140 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_info, i64 4), align 4
   %141 = icmp sgt i32 %140, 39
   br i1 %141, label %142, label %145
 

@@ -9201,7 +9201,7 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h5dbf1ed3c6f81e63E.
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -38372,7 +38372,7 @@ define internal fastcc { i64, ptr } @_ZN11ide_assists8handlers16extract_function
   br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %28
-  %32 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers16extract_function8FlowKind19make_result_handler10__CALLSITE17ha5c77d9a0e34f960E, i64 0, i32 1, i64 8) monotonic, align 8
+  %32 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers16extract_function8FlowKind19make_result_handler10__CALLSITE17ha5c77d9a0e34f960E, i64 16) monotonic, align 8
   switch i8 %32, label %33 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -38505,7 +38505,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.14339125420948612040.e
   br i1 %75, label %76, label %.critedge73
 
 76:                                               ; preds = %73
-  %77 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers16extract_function8FlowKind19make_result_handler10__CALLSITE17h78be44a4845f80c3E, i64 0, i32 1, i64 8) monotonic, align 8
+  %77 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers16extract_function8FlowKind19make_result_handler10__CALLSITE17h78be44a4845f80c3E, i64 16) monotonic, align 8
   switch i8 %77, label %78 [
     i8 0, label %.critedge73
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.thread
@@ -38690,7 +38690,7 @@ define internal fastcc { ptr, ptr } @_ZN11ide_assists8handlers16extract_function
   br i1 %23, label %50, label %46
 
 24:                                               ; preds = %16
-  %25 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers16extract_function8FlowKind7expr_ty10__CALLSITE17h662113455788cf3dE, i64 0, i32 1, i64 8) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers16extract_function8FlowKind7expr_ty10__CALLSITE17h662113455788cf3dE, i64 16) monotonic, align 8
   switch i8 %25, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -46038,7 +46038,7 @@ switch.early.test:                                ; preds = %67, %62, %72
   br i1 %93, label %94, label %.critedge
 
 94:                                               ; preds = %91
-  %95 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers16extract_function25path_element_of_reference10__CALLSITE17h82d7413a9ab46220E, i64 0, i32 1, i64 8) monotonic, align 8
+  %95 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers16extract_function25path_element_of_reference10__CALLSITE17h82d7413a9ab46220E, i64 16) monotonic, align 8
   switch i8 %95, label %96 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -52399,7 +52399,7 @@ default.unreachable:                              ; preds = %3
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %29
-  %33 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers16extract_function7FunType7make_ty10__CALLSITE17hcf02629168dc0d99E, i64 0, i32 1, i64 8) monotonic, align 8
+  %33 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers16extract_function7FunType7make_ty10__CALLSITE17hcf02629168dc0d99E, i64 16) monotonic, align 8
   switch i8 %33, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -52495,7 +52495,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %28
 
 62:                                               ; preds = %53
-  %63 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers16extract_function7FunType7make_ty10__CALLSITE17he35edbe10e28c71dE, i64 0, i32 1, i64 8) monotonic, align 8
+  %63 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers16extract_function7FunType7make_ty10__CALLSITE17he35edbe10e28c71dE, i64 16) monotonic, align 8
   switch i8 %63, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit67 [
     i8 0, label %.critedge62
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit67.thread
@@ -65260,7 +65260,7 @@ define hidden { i64, ptr } @_ZN11ide_assists8handlers10remove_dbg19replace_neste
 40:                                               ; preds = %38
   %41 = icmp ult i64 %39, 5
   tail call void @llvm.assume(i1 %41)
-  %42 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers10remove_dbg19replace_nested_dbgs10__CALLSITE17he4cb96fa855cb21cE, i64 0, i32 1, i64 8) monotonic, align 8
+  %42 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers10remove_dbg19replace_nested_dbgs10__CALLSITE17he4cb96fa855cb21cE, i64 16) monotonic, align 8
   switch i8 %42, label %43 [
     i8 0, label %.thread117
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

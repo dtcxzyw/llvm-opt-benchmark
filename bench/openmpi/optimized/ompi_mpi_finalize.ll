@@ -51,13 +51,13 @@ define i32 @ompi_mpi_finalize() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = icmp slt i32 %3, 2
   %6 = tail call i32 @getpid() #5
-  %7 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %opal_gethostname.exit
 
 9:                                                ; preds = %4
   %10 = tail call i32 @opal_init_gethostname() #5
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %4, %9
@@ -76,13 +76,13 @@ opal_gethostname.exit:                            ; preds = %4, %9
 17:                                               ; preds = %0
   fence release
   %18 = atomicrmw volatile xchg ptr @ompi_mpi_state, i32 3 monotonic, align 4
-  %19 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_self, i64 0, i32 0, i32 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 272), align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %45, label %20
 
 20:                                               ; preds = %17
   %21 = tail call i32 @ompi_attr_delete_all(i32 noundef 1, ptr noundef nonnull @ompi_mpi_comm_self, ptr noundef nonnull %19) #5
-  %22 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_self, i64 0, i32 0, i32 16), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 272), align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @opal_uses_threads, align 1
   %25 = trunc i8 %24 to i1
@@ -106,7 +106,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %26, %29
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %35 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_self, i64 0, i32 0, i32 16), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 272), align 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
@@ -124,7 +124,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %26, %29
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_self, i64 0, i32 0, i32 16), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 272), align 8
   br label %opal_obj_run_destructors.exit
 
 opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destructors.exit.loopexit, %34
@@ -133,7 +133,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %44
 
 44:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  store ptr null, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_self, i64 0, i32 0, i32 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 272), align 8
   br label %45
 
 45:                                               ; preds = %44, %17
@@ -228,7 +228,7 @@ opal_obj_run_destructors.exit37:                  ; preds = %opal_obj_run_destru
 
 90:                                               ; preds = %83
   %91 = load i32, ptr @ompi_ftmpi_output_handle, align 4
-  %92 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 6), align 4
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 220), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %91, ptr noundef nonnull @.str.5, i32 noundef %92) #5
   br label %93
 
@@ -241,7 +241,7 @@ opal_obj_run_destructors.exit37:                  ; preds = %opal_obj_run_destru
   br i1 %97, label %.loopexit, label %98
 
 98:                                               ; preds = %93
-  %99 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
+  %99 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
   %100 = trunc i8 %99 to i1
   br i1 %100, label %.loopexit, label %101
 

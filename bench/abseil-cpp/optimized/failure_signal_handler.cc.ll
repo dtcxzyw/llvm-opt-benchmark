@@ -81,7 +81,7 @@ for.body:                                         ; preds = %entry, %_ZN4abslL24
   %0 = load i32, ptr %sa_flags.i, align 8
   %or2.i = or i32 %0, 1073741828
   store i32 %or2.i, ptr %sa_flags.i, align 8
-  %1 = load i8, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i64 0, i32 1), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4abslL11fsh_optionsE, i64 1), align 1
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
@@ -124,7 +124,7 @@ if.end.i:                                         ; preds = %_ZN4abslL24MaybeSet
   br i1 %cmp.not.i, label %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit, label %do.body8.i
 
 do.body8.i:                                       ; preds = %if.end.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([140 x i8], ptr @.str.8, i64 0, i64 114), i32 noundef 226, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 114), i32 noundef 226, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
   unreachable
 
 _ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit: ; preds = %if.end.i
@@ -152,7 +152,7 @@ entry:
 do.body:                                          ; preds = %entry
   %3 = extractvalue { i32, i1 } %1, 0
   %call2 = tail call noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef %ucontext)
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds ([140 x i8], ptr @.str.8, i64 0, i64 114), i32 noundef 348, ptr noundef nonnull @.str.14, i32 noundef %signo, ptr noundef %call2)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 114), i32 noundef 348, ptr noundef nonnull @.str.14, i32 noundef %signo, ptr noundef %call2)
   %cmp.not = icmp eq i32 %call, %3
   br i1 %cmp.not, label %if.end4, label %if.then3
 
@@ -182,31 +182,31 @@ _ZN4abslL23PortableSleepForSecondsEi.exit:        ; preds = %while.cond.i, %land
 
 if.end4:                                          ; preds = %do.body, %entry
   %call5 = tail call i32 @sched_getcpu() #13
-  %5 = load i32, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i64 0, i32 2), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4abslL11fsh_optionsE, i64 4), align 4
   %cmp6 = icmp sgt i32 %5, 0
   br i1 %cmp6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end4
   %call8 = tail call i32 @alarm(i32 noundef 0) #13
   %call9 = tail call ptr @signal(i32 noundef 14, ptr noundef nonnull @_ZN4abslL27ImmediateAbortSignalHandlerEi) #13
-  %6 = load i32, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i64 0, i32 2), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4abslL11fsh_optionsE, i64 4), align 4
   %call10 = tail call i32 @alarm(i32 noundef %6) #13
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then7, %if.end4
   tail call fastcc void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %signo, ptr noundef %ucontext, i32 noundef %call5, ptr noundef nonnull @"_ZZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPvEN3$_08__invokeEPKc")
-  %7 = load ptr, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8
   %cmp13.not = icmp eq ptr %7, null
   br i1 %cmp13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
   tail call fastcc void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %signo, ptr noundef %ucontext, i32 noundef %call5, ptr noundef nonnull %7)
-  %8 = load ptr, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i64 0, i32 4), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8
   tail call void %8(ptr noundef null)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end11
-  %9 = load i8, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i64 0, i32 3), align 8
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4abslL11fsh_optionsE, i64 8), align 8
   %tobool = trunc i8 %9 to i1
   br i1 %tobool, label %for.body.i, label %if.else
 
@@ -280,7 +280,7 @@ entry:
   br i1 %cmp, label %do.body, label %if.end
 
 do.body:                                          ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([140 x i8], ptr @.str.8, i64 0, i64 114), i32 noundef 167, ptr noundef nonnull @.str.12)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 114), i32 noundef 167, ptr noundef nonnull @.str.12)
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -291,7 +291,7 @@ if.end:                                           ; preds = %entry
 do.body12:                                        ; preds = %if.end
   %call14 = tail call ptr @__errno_location() #14
   %1 = load i32, ptr %call14, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([140 x i8], ptr @.str.8, i64 0, i64 114), i32 noundef 177, ptr noundef nonnull @.str.13, i32 noundef %1)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 114), i32 noundef 177, ptr noundef nonnull @.str.13, i32 noundef %1)
   unreachable
 
 if.end18:                                         ; preds = %if.end

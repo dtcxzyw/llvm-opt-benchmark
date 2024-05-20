@@ -495,7 +495,7 @@ define dso_local void @_ZN5StateC2Ev(ptr noundef nonnull align 8 dereferenceable
   %13 = getelementptr inbounds i8, ptr %0, i64 104
   %14 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10BindingEnv, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 152
@@ -572,7 +572,7 @@ define dso_local void @_ZN5State7AddPoolEP4Pool(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10BindingEnvD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10BindingEnv, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -3477,10 +3477,10 @@ common.resume:                                    ; preds = %.body14, %47, %49, 
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kDefaultPoolE, i64 0, i32 1), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kDefaultPoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kDefaultPoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kDefaultPoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kDefaultPoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kDefaultPoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5State12kDefaultPoolE, i64 32), i8 0, i64 32, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN5State12kDefaultPoolE, i64 48), ptr getelementptr inbounds (i8, ptr @_ZN5State12kDefaultPoolE, i64 64), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5State12kDefaultPoolE, i64 48), ptr getelementptr inbounds (i8, ptr @_ZN5State12kDefaultPoolE, i64 72), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5State12kDefaultPoolE, i64 80), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
   %23 = call i32 @__cxa_atexit(ptr nonnull @_ZN4PoolD2Ev, ptr nonnull @_ZN5State12kDefaultPoolE, ptr nonnull @__dso_handle) #21
@@ -3514,7 +3514,7 @@ __cxx_global_var_init.exit:                       ; preds = %_ZNSt7__cxx1112basi
           to label %31 unwind label %.body11
 
 31:                                               ; preds = %29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %30, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.4, i64 0, i64 7)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %30, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 7)) #21
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5 unwind label %.body11
@@ -3543,12 +3543,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5: ;
   br label %common.resume
 
 __cxx_global_var_init.3.exit:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5
-  store i32 0, ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kConsolePoolE, i64 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kConsolePoolE, i64 0, i32 2), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kConsolePoolE, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kConsolePoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kConsolePoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kConsolePoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kConsolePoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.Pool, ptr @_ZN5State12kConsolePoolE, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5State12kConsolePoolE, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5State12kConsolePoolE, i64 36), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5State12kConsolePoolE, i64 40), i8 0, i64 24, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN5State12kConsolePoolE, i64 48), ptr getelementptr inbounds (i8, ptr @_ZN5State12kConsolePoolE, i64 64), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5State12kConsolePoolE, i64 48), ptr getelementptr inbounds (i8, ptr @_ZN5State12kConsolePoolE, i64 72), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5State12kConsolePoolE, i64 80), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
   %37 = call i32 @__cxa_atexit(ptr nonnull @_ZN4PoolD2Ev, ptr nonnull @_ZN5State12kConsolePoolE, ptr nonnull @__dso_handle) #21
@@ -3582,7 +3582,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZNSt7__cxx1112basi
           to label %45 unwind label %.body14
 
 45:                                               ; preds = %43
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %44, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.6, i64 0, i64 5)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %44, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 5)) #21
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 5)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i10 unwind label %.body14
@@ -3611,11 +3611,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i10: 
   br label %common.resume
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i10
-  store i32 0, ptr getelementptr inbounds (%struct.Rule, ptr @_ZN5State10kPhonyRuleE, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.Rule, ptr @_ZN5State10kPhonyRuleE, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.Rule, ptr @_ZN5State10kPhonyRuleE, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%struct.Rule, ptr @_ZN5State10kPhonyRuleE, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.Rule, ptr @_ZN5State10kPhonyRuleE, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%struct.Rule, ptr @_ZN5State10kPhonyRuleE, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.Rule, ptr @_ZN5State10kPhonyRuleE, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5State10kPhonyRuleE, i64 40), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN5State10kPhonyRuleE, i64 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5State10kPhonyRuleE, i64 40), ptr getelementptr inbounds (i8, ptr @_ZN5State10kPhonyRuleE, i64 56), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5State10kPhonyRuleE, i64 40), ptr getelementptr inbounds (i8, ptr @_ZN5State10kPhonyRuleE, i64 64), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5State10kPhonyRuleE, i64 72), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
   %51 = call i32 @__cxa_atexit(ptr nonnull @_ZN4RuleD2Ev, ptr nonnull @_ZN5State10kPhonyRuleE, ptr nonnull @__dso_handle) #21

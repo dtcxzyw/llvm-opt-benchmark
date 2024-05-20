@@ -2019,7 +2019,7 @@ common.ret:                                       ; preds = %1817, %214, %179
   br i1 %228, label %229, label %.thread622
 
 229:                                              ; preds = %227
-  %230 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h834bc25efcbad3eeE", i64 0, i32 1, i64 8) monotonic, align 8
+  %230 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h834bc25efcbad3eeE", i64 16) monotonic, align 8
   switch i8 %230, label %231 [
     i8 0, label %.thread622
     i8 1, label %.thread
@@ -2384,7 +2384,7 @@ common.ret:                                       ; preds = %1817, %214, %179
   br i1 %339, label %340, label %.thread630
 
 340:                                              ; preds = %338
-  %341 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h29b2ee875aadb14cE", i64 0, i32 1, i64 8) monotonic, align 8
+  %341 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h29b2ee875aadb14cE", i64 16) monotonic, align 8
   switch i8 %341, label %342 [
     i8 0, label %.thread630
     i8 1, label %.thread627
@@ -4067,7 +4067,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %980, label %981, label %.thread927.i
 
 981:                                              ; preds = %977
-  %982 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1568eeb7747902c0E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !373
+  %982 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1568eeb7747902c0E", i64 16) monotonic, align 8, !noalias !373
   switch i8 %982, label %983 [
     i8 0, label %.thread927.i
     i8 1, label %.thread924.i
@@ -4762,7 +4762,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %1217, label %1218, label %.thread945.i
 
 1218:                                             ; preds = %1215
-  %1219 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1056556e7ac3499cE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !373
+  %1219 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1056556e7ac3499cE", i64 16) monotonic, align 8, !noalias !373
   switch i8 %1219, label %1220 [
     i8 0, label %.thread945.i
     i8 1, label %.thread942.i
@@ -5142,7 +5142,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %1344, label %1345, label %.thread961.i
 
 1345:                                             ; preds = %1342
-  %1346 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h60c9bc1bf9772af3E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !373
+  %1346 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h60c9bc1bf9772af3E", i64 16) monotonic, align 8, !noalias !373
   switch i8 %1346, label %1347 [
     i8 0, label %.thread961.i
     i8 1, label %.thread958.i
@@ -5552,7 +5552,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %1475, label %1476, label %.thread977.i
 
 1476:                                             ; preds = %1473
-  %1477 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2e913990213401d6E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !373
+  %1477 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2e913990213401d6E", i64 16) monotonic, align 8, !noalias !373
   switch i8 %1477, label %1478 [
     i8 0, label %.thread977.i
     i8 1, label %.thread974.i
@@ -6140,7 +6140,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %1669, label %1670, label %.thread1000.i
 
 1670:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h43950450712a37acE.exit.thread.i"
-  %1671 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a2664062357b791E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !373
+  %1671 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a2664062357b791E", i64 16) monotonic, align 8, !noalias !373
   switch i8 %1671, label %1672 [
     i8 0, label %.thread1000.i
     i8 1, label %.thread997.i
@@ -6759,7 +6759,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %1869, label %1870, label %.thread646
 
 1870:                                             ; preds = %1866
-  %1871 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h35e7e0ca71914af3E", i64 0, i32 1, i64 8) monotonic, align 8
+  %1871 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h35e7e0ca71914af3E", i64 16) monotonic, align 8
   switch i8 %1871, label %1872 [
     i8 0, label %.thread646
     i8 1, label %.thread643
@@ -7168,7 +7168,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %1997, label %1998, label %.thread662
 
 1998:                                             ; preds = %1995
-  %1999 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h473a7838508a6d03E", i64 0, i32 1, i64 8) monotonic, align 8
+  %1999 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h473a7838508a6d03E", i64 16) monotonic, align 8
   switch i8 %1999, label %2000 [
     i8 0, label %.thread662
     i8 1, label %.thread659
@@ -8322,7 +8322,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %336, label %337, label %.thread1477
 
 337:                                              ; preds = %334
-  %338 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9149130f96f25611E", i64 0, i32 1, i64 8) monotonic, align 8
+  %338 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9149130f96f25611E", i64 16) monotonic, align 8
   switch i8 %338, label %339 [
     i8 0, label %.thread1477
     i8 1, label %.thread
@@ -8630,7 +8630,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %436, label %437, label %.thread1485
 
 437:                                              ; preds = %434
-  %438 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8fb50bc824f69654E", i64 0, i32 1, i64 8) monotonic, align 8
+  %438 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8fb50bc824f69654E", i64 16) monotonic, align 8
   switch i8 %438, label %439 [
     i8 0, label %.thread1485
     i8 1, label %.thread1482
@@ -9018,7 +9018,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %568, label %569, label %.thread1493
 
 569:                                              ; preds = %566
-  %570 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57bd7af5be16066cE", i64 0, i32 1, i64 8) monotonic, align 8
+  %570 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57bd7af5be16066cE", i64 16) monotonic, align 8
   switch i8 %570, label %571 [
     i8 0, label %.thread1493
     i8 1, label %.thread1490
@@ -9387,7 +9387,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %680, label %681, label %.thread1510
 
 681:                                              ; preds = %678
-  %682 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he13bc8a5c42ffff8E", i64 0, i32 1, i64 8) monotonic, align 8
+  %682 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he13bc8a5c42ffff8E", i64 16) monotonic, align 8
   switch i8 %682, label %683 [
     i8 0, label %.thread1510
     i8 1, label %.thread1507
@@ -9793,7 +9793,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %805, label %806, label %.thread1525
 
 806:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h43950450712a37acE.exit784.thread"
-  %807 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h56e06ec57f6175b8E", i64 0, i32 1, i64 8) monotonic, align 8
+  %807 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h56e06ec57f6175b8E", i64 16) monotonic, align 8
   switch i8 %807, label %808 [
     i8 0, label %.thread1525
     i8 1, label %.thread1522
@@ -10240,7 +10240,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %949, label %950, label %.thread1535
 
 950:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5fb1f10084f7d6daE.exit.thread"
-  %951 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a7d7ac3e320088cE", i64 0, i32 1, i64 8) monotonic, align 8
+  %951 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a7d7ac3e320088cE", i64 16) monotonic, align 8
   switch i8 %951, label %952 [
     i8 0, label %.thread1535
     i8 1, label %.thread1532
@@ -10726,7 +10726,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %1113, label %1114, label %.thread1544
 
 1114:                                             ; preds = %1111
-  %1115 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h44df300c5aab2722E", i64 0, i32 1, i64 8) monotonic, align 8
+  %1115 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h44df300c5aab2722E", i64 16) monotonic, align 8
   switch i8 %1115, label %1116 [
     i8 0, label %.thread1544
     i8 1, label %.thread1541
@@ -11017,7 +11017,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %1206, label %1207, label %.thread1552
 
 1207:                                             ; preds = %1204
-  %1208 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h51ce5e2243d0238bE", i64 0, i32 1, i64 8) monotonic, align 8
+  %1208 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h51ce5e2243d0238bE", i64 16) monotonic, align 8
   switch i8 %1208, label %1209 [
     i8 0, label %.thread1552
     i8 1, label %.thread1549
@@ -11408,7 +11408,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   br i1 %1313, label %1314, label %.thread1577
 
 1314:                                             ; preds = %1310
-  %1315 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8c23154174cb71cfE", i64 0, i32 1, i64 8) monotonic, align 8
+  %1315 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8c23154174cb71cfE", i64 16) monotonic, align 8
   switch i8 %1315, label %1316 [
     i8 0, label %.thread1577
     i8 1, label %.thread1574
@@ -13145,7 +13145,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   br i1 %105, label %106, label %.thread359
 
 106:                                              ; preds = %104
-  %107 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7cd61c1f7d9f22a5E", i64 0, i32 1, i64 8) monotonic, align 8
+  %107 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7cd61c1f7d9f22a5E", i64 16) monotonic, align 8
   switch i8 %107, label %108 [
     i8 0, label %.thread359
     i8 1, label %.thread356
@@ -13519,7 +13519,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   br i1 %227, label %228, label %.thread379
 
 228:                                              ; preds = %226
-  %229 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5673a17e460137e7E", i64 0, i32 1, i64 8) monotonic, align 8
+  %229 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5673a17e460137e7E", i64 16) monotonic, align 8
   switch i8 %229, label %230 [
     i8 0, label %.thread379
     i8 1, label %.thread376
@@ -14041,7 +14041,7 @@ common.ret:                                       ; preds = %410, %69
   br i1 %74, label %75, label %.thread607
 
 75:                                               ; preds = %71
-  %76 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he57d36046ee5a2bdE", i64 0, i32 1, i64 8) monotonic, align 8
+  %76 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he57d36046ee5a2bdE", i64 16) monotonic, align 8
   switch i8 %76, label %77 [
     i8 0, label %.thread607
     i8 1, label %.thread
@@ -14424,7 +14424,7 @@ common.ret:                                       ; preds = %410, %69
   br i1 %204, label %205, label %.thread615
 
 205:                                              ; preds = %202
-  %206 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6cd8c0fea723e16aE", i64 0, i32 1, i64 8) monotonic, align 8
+  %206 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6cd8c0fea723e16aE", i64 16) monotonic, align 8
   switch i8 %206, label %207 [
     i8 0, label %.thread615
     i8 1, label %.thread612
@@ -14708,7 +14708,7 @@ common.ret:                                       ; preds = %410, %69
   br i1 %297, label %298, label %.thread623
 
 298:                                              ; preds = %295
-  %299 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h21fba66e71a748edE", i64 0, i32 1, i64 8) monotonic, align 8
+  %299 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h21fba66e71a748edE", i64 16) monotonic, align 8
   switch i8 %299, label %300 [
     i8 0, label %.thread623
     i8 1, label %.thread620
@@ -15077,7 +15077,7 @@ common.ret:                                       ; preds = %410, %69
   br i1 %416, label %417, label %.thread631
 
 417:                                              ; preds = %414
-  %418 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6c8d6d6e33b7a414E", i64 0, i32 1, i64 8) monotonic, align 8
+  %418 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6c8d6d6e33b7a414E", i64 16) monotonic, align 8
   switch i8 %418, label %419 [
     i8 0, label %.thread631
     i8 1, label %.thread628
@@ -15364,7 +15364,7 @@ common.ret:                                       ; preds = %410, %69
   br i1 %508, label %509, label %.thread639
 
 509:                                              ; preds = %506
-  %510 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h36da62d20805691bE", i64 0, i32 1, i64 8) monotonic, align 8
+  %510 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h36da62d20805691bE", i64 16) monotonic, align 8
   switch i8 %510, label %511 [
     i8 0, label %.thread639
     i8 1, label %.thread636

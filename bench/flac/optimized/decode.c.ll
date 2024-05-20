@@ -1528,7 +1528,7 @@ if.else291:                                       ; preds = %if.else273
 
 for.body299:                                      ; preds = %if.else291, %for.body299
   %indvars.iv630 = phi i64 [ 0, %if.else291 ], [ %indvars.iv.next631, %for.body299 ]
-  %buf1_.0446 = phi ptr [ getelementptr inbounds (i16, ptr @write_callback.ubuf, i64 1), %if.else291 ], [ %add.ptr306, %for.body299 ]
+  %buf1_.0446 = phi ptr [ getelementptr inbounds (i8, ptr @write_callback.ubuf, i64 2), %if.else291 ], [ %add.ptr306, %for.body299 ]
   %66 = load ptr, ptr %arrayidx300, align 8
   %arrayidx302 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv630
   %67 = load i32, ptr %arrayidx302, align 4

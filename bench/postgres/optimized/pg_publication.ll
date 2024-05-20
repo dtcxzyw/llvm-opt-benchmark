@@ -760,7 +760,7 @@ GetPubPartitionOptionRelations.exit:              ; preds = %166, %169
   br label %171
 
 171:                                              ; preds = %16, %GetPubPartitionOptionRelations.exit
-  %.sink = phi ptr [ %154, %GetPubPartitionOptionRelations.exit ], [ getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), %16 ]
+  %.sink = phi ptr [ %154, %GetPubPartitionOptionRelations.exit ], [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %16 ]
   %.sroa.036.0.in = phi ptr [ %6, %GetPubPartitionOptionRelations.exit ], [ @InvalidObjectAddress, %16 ]
   %.sroa.3.0.copyload38 = load i32, ptr %.sink, align 4
   %.sroa.036.0 = load i64, ptr %.sroa.036.0.in, align 4
@@ -1030,7 +1030,7 @@ check_publication_add_schema.exit:                ; preds = %31
   br label %51
 
 51:                                               ; preds = %13, %check_publication_add_schema.exit
-  %.sink = phi ptr [ %47, %check_publication_add_schema.exit ], [ getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), %13 ]
+  %.sink = phi ptr [ %47, %check_publication_add_schema.exit ], [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %13 ]
   %.sroa.021.0.in = phi ptr [ %6, %check_publication_add_schema.exit ], [ @InvalidObjectAddress, %13 ]
   %.sroa.3.0.copyload23 = load i32, ptr %.sink, align 4
   %.sroa.021.0 = load i64, ptr %.sroa.021.0.in, align 4

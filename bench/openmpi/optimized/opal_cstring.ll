@@ -31,10 +31,10 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
   br i1 %or.cond, label %5, label %19
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i64 0, i32 8), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 56), align 8
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #11
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i64 0, i32 4), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %8, %9
   br i1 %.not.i, label %11, label %10
 
@@ -50,7 +50,7 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
   store ptr @opal_cstring_t_class, ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 8
   store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i64 0, i32 6), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -73,7 +73,7 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
 
 24:                                               ; preds = %19
   %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i64 0, i32 4), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 32), align 8
   %.not = icmp eq i32 %25, %26
   br i1 %.not, label %28, label %27
 
@@ -85,7 +85,7 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
   store ptr @opal_cstring_t_class, ptr %22, align 8
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   store volatile i32 1, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i64 0, i32 6), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i = icmp eq ptr %31, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -125,10 +125,10 @@ define noalias noundef ptr @opal_cstring_create(ptr noundef %0) local_unnamed_ad
   br i1 %2, label %3, label %17
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i64 0, i32 8), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i64 0, i32 4), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 
@@ -144,7 +144,7 @@ define noalias noundef ptr @opal_cstring_create(ptr noundef %0) local_unnamed_ad
   store ptr @opal_cstring_t_class, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store volatile i32 1, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i64 0, i32 6), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i.i = icmp eq ptr %13, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i

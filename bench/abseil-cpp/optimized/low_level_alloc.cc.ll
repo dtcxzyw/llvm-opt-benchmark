@@ -81,44 +81,44 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
   %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
   %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i1.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i1.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
   %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i2.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i2.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %3, 94570706
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
@@ -193,44 +193,44 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
   %call.i.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i.i.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
   %call.i.i1.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i1.i.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
   %call.i.i2.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i2.i.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i2.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
   %cmp4.i.i.i = icmp eq i32 %3, 94570706
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end6
@@ -299,44 +299,44 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
   %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
   %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i1.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i1.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
   %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
-  store i64 %call.i.i2.i, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds ([328 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 0, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i2.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %3, 94570706
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
@@ -356,7 +356,7 @@ entry:
   br i1 %cmp.not, label %do.body1, label %do.end4
 
 do.body1:                                         ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 622, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 622, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   unreachable
 
 do.end4:                                          ; preds = %entry
@@ -383,7 +383,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp3, label %do.body4, label %do.end7
 
 do.body4:                                         ; preds = %land.lhs.true, %entry, %land.rhs
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 385, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 385, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
 do.end7:                                          ; preds = %land.rhs
@@ -508,7 +508,7 @@ do.body77.invoke:                                 ; preds = %do.body71, %do.body
   %20 = phi i32 [ 397, %while.body ], [ 399, %do.body39 ], [ 401, %do.body56 ], [ 403, %do.body71 ]
   %21 = phi ptr [ @.str.4, %while.body ], [ @.str.6, %do.body39 ], [ @.str.8, %do.body56 ], [ @.str.10, %do.body71 ]
   %22 = phi ptr [ @.str.5, %while.body ], [ @.str.7, %do.body39 ], [ @.str.9, %do.body56 ], [ @.str.11, %do.body71 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull %21, ptr noundef nonnull %22)
           to label %do.body77.cont unwind label %lpad
 
 do.body77.cont:                                   ; preds = %do.body77.invoke
@@ -566,7 +566,7 @@ do.body.i41.invoke:                               ; preds = %if.then.i25, %if.th
   %29 = phi i32 [ 421, %do.body96 ], [ 301, %if.then.i37 ], [ 301, %if.then.i25 ]
   %30 = phi ptr [ @.str.12, %do.body96 ], [ @.str.18, %if.then.i37 ], [ @.str.18, %if.then.i25 ]
   %31 = phi i32 [ %24, %do.body96 ], [ %call.i39, %if.then.i37 ], [ %call.i26, %if.then.i25 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef %29, ptr noundef nonnull %30, i32 noundef %31)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef %29, ptr noundef nonnull %30, i32 noundef %31)
           to label %do.body.i41.cont unwind label %lpad
 
 do.body.i41.cont:                                 ; preds = %do.body.i41.invoke
@@ -583,7 +583,7 @@ cleanup:                                          ; preds = %invoke.cont106
   br i1 %32, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %do.body2.i
 
 do.body2.i:                                       ; preds = %cleanup
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 294, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 294, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
           to label %do.body3.i unwind label %terminate.lpad.i
 
 do.body3.i:                                       ; preds = %do.body2.i
@@ -674,7 +674,7 @@ do.body:                                          ; preds = %_ZN4absl13base_inte
   br i1 %cmp2, label %do.body4, label %do.end10
 
 do.body4:                                         ; preds = %do.body
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 515, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 515, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
           to label %do.body6 unwind label %lpad
 
 do.body6:                                         ; preds = %do.body4
@@ -713,7 +713,7 @@ if.then.i9:                                       ; preds = %_ZN4absl13base_inte
   br i1 %cmp.not.i11, label %if.end13, label %do.body.i
 
 do.body.i:                                        ; preds = %if.then.i9
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 301, ptr noundef nonnull @.str.18, i32 noundef %call.i10)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 301, ptr noundef nonnull @.str.18, i32 noundef %call.i10)
           to label %.noexc12 unwind label %lpad
 
 .noexc12:                                         ; preds = %do.body.i
@@ -730,7 +730,7 @@ entry:
   br i1 %tobool, label %do.end7, label %do.body2
 
 do.body2:                                         ; preds = %entry
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 294, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 294, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
           to label %do.body3 unwind label %terminate.lpad
 
 do.body3:                                         ; preds = %do.body2
@@ -760,7 +760,7 @@ entry:
   br i1 %cmp.not, label %do.body6, label %do.body2
 
 do.body2:                                         ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 494, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 494, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
   unreachable
 
 do.body6:                                         ; preds = %entry
@@ -770,7 +770,7 @@ do.body6:                                         ; preds = %entry
   br i1 %cmp9.not, label %do.end18, label %do.body12
 
 do.body12:                                        ; preds = %do.body6
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 496, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 496, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24)
   unreachable
 
 do.end18:                                         ; preds = %do.body6
@@ -817,7 +817,7 @@ _ZN4absl13base_internalL6RandomEPj.exit.i:        ; preds = %while.cond.i.i
   br i1 %cmp7.i, label %do.body10.i, label %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
 
 do.body10.i:                                      ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 148, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 148, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
   unreachable
 
 _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
@@ -1134,7 +1134,7 @@ do.body.invoke:                                   ; preds = %if.then.i96, %do.bo
   %24 = phi i32 [ 569, %do.body ], [ 301, %if.then.i96 ]
   %25 = phi ptr [ @.str.29, %do.body ], [ @.str.18, %if.then.i96 ]
   %26 = phi i32 [ %23, %do.body ], [ %call.i97, %if.then.i96 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef %24, ptr noundef nonnull %25, i32 noundef %26)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef %24, ptr noundef nonnull %25, i32 noundef %26)
           to label %do.body.cont unwind label %lpad.loopexit.split-lp
 
 do.body.cont:                                     ; preds = %do.body.invoke
@@ -1312,7 +1312,7 @@ do.body76.invoke:                                 ; preds = %_ZN4absl13base_inte
   %50 = phi i32 [ 188, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ 437, %invoke.cont43 ], [ 607, %if.end66 ], [ 437, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit ], [ 437, %invoke.cont ], [ 453, %while.cond ], [ 458, %do.body8.i ], [ 459, %do.body20.i ], [ 461, %do.body35.i ], [ 464, %do.body46.i ], [ 437, %invoke.cont15 ], [ 148, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ]
   %51 = phi ptr [ @.str.27, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ @.str.32, %invoke.cont43 ], [ @.str.30, %if.end66 ], [ @.str.32, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit ], [ @.str.32, %invoke.cont ], [ @.str.34, %while.cond ], [ @.str.36, %do.body8.i ], [ @.str.38, %do.body20.i ], [ @.str.40, %do.body35.i ], [ @.str.42, %do.body46.i ], [ @.str.32, %invoke.cont15 ], [ @.str.25, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ]
   %52 = phi ptr [ @.str.28, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ @.str.33, %invoke.cont43 ], [ @.str.31, %if.end66 ], [ @.str.33, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit ], [ @.str.33, %invoke.cont ], [ @.str.35, %while.cond ], [ @.str.37, %do.body8.i ], [ @.str.39, %do.body20.i ], [ @.str.41, %do.body35.i ], [ @.str.43, %do.body46.i ], [ @.str.33, %invoke.cont15 ], [ @.str.26, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef %50, ptr noundef nonnull @.str.1, ptr noundef nonnull %51, ptr noundef nonnull %52)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef %50, ptr noundef nonnull @.str.1, ptr noundef nonnull %51, ptr noundef nonnull %52)
           to label %do.body76.cont unwind label %lpad.loopexit.split-lp
 
 do.body76.cont:                                   ; preds = %do.body76.invoke
@@ -1460,7 +1460,7 @@ land.rhs.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %land.rhs.i
 
 do.body1.i:                                       ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 188, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 188, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
   unreachable
 
 land.rhs.i:                                       ; preds = %for.body.i, %land.rhs.lr.ph.i
@@ -1571,7 +1571,7 @@ for.cond.preheader.i28:                           ; preds = %_ZN4absl13base_inte
   br i1 %cmp5.not17.i30, label %for.end.i41, label %land.rhs.i33
 
 do.body1.i27:                                     ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 188, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 188, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
   unreachable
 
 land.rhs.i33:                                     ; preds = %for.cond.preheader.i28, %for.body.i53
@@ -1665,7 +1665,7 @@ _ZN4absl13base_internalL6RandomEPj.exit.i:        ; preds = %while.cond.i.i
   br i1 %cmp7.i, label %do.body10.i, label %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
 
 do.body10.i:                                      ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([137 x i8], ptr @.str, i64 0, i64 118), i32 noundef 148, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 148, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
   unreachable
 
 _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i

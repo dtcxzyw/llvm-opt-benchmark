@@ -45806,12 +45806,12 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
   store i8 %574, ptr @stbi__parse_png_file.invalid_chunk, align 16
   %575 = lshr i32 %53, 16
   %576 = trunc i32 %575 to i8
-  store i8 %576, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 1), align 1
+  store i8 %576, ptr getelementptr inbounds (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 1), align 1
   %577 = lshr i32 %53, 8
   %578 = trunc i32 %577 to i8
-  store i8 %578, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 2), align 2
+  store i8 %578, ptr getelementptr inbounds (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 2), align 2
   %579 = trunc i32 %53 to i8
-  store i8 %579, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 3), align 1
+  store i8 %579, ptr getelementptr inbounds (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 3), align 1
   store ptr @stbi__parse_png_file.invalid_chunk, ptr @stbi__g_failure_reason, align 8
   br label %.loopexit
 

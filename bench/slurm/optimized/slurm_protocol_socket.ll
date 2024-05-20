@@ -284,7 +284,7 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_recv_timeout(i32 noundef 
   ]
 
 98:                                               ; preds = %95, %95
-  %99 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %99 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %100 = and i64 %99, 1024
   %.not52 = icmp eq i64 %100, 0
   br i1 %.not52, label %.backedge.backedge, label %101
@@ -365,7 +365,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_msg_sendto(i32 noundef %0,
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %7 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %8 = zext i16 %7 to i32
   %9 = mul nuw nsw i32 %8, 1000
   %10 = tail call ptr @xsignal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #10
@@ -616,7 +616,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef
   br i1 %112, label %113, label %.outer
 
 113:                                              ; preds = %111
-  %114 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %114 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %115 = and i64 %114, 1024
   %.not52 = icmp eq i64 %115, 0
   br i1 %.not52, label %.backedge.backedge, label %116
@@ -691,7 +691,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef
 define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %5 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %6 = zext i16 %5 to i32
   %7 = mul nuw nsw i32 %6, 1000
   store i32 %7, ptr %4, align 4
@@ -1033,7 +1033,7 @@ _sock_bind_wild.exit:                             ; preds = %42, %45
   br label %70
 
 70:                                               ; preds = %.backedge, %.thread.i
-  %71 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 209), align 8
+  %71 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1440), align 8
   %72 = zext i16 %71 to i32
   %73 = mul nuw nsw i32 %72, 1000
   %74 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef %73) #10
@@ -1072,7 +1072,7 @@ _sock_bind_wild.exit:                             ; preds = %42, %45
   br i1 %89, label %90, label %_slurm_connect.exit.thread36
 
 90:                                               ; preds = %87
-  %91 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 209), align 8
+  %91 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1440), align 8
   %92 = zext i16 %91 to i32
   %93 = call ptr @slurm_strerror(i32 noundef 110) #10
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._slurm_connect, ptr noundef nonnull %0, i32 noundef %92, ptr noundef %93) #10
@@ -1191,7 +1191,7 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @slurm_set_addr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %5 = and i64 %4, 1024
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %11, label %6
@@ -1237,7 +1237,7 @@ define dso_local void @slurm_set_addr(ptr noundef %0, i16 noundef zeroext %1, pt
   br i1 %.not22, label %23, label %.loopexit
 
 23:                                               ; preds = %22
-  %24 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %25 = and i32 %24, 128
   %.not23 = icmp eq i32 %25, 0
   br i1 %.not23, label %.loopexit, label %.preheader
@@ -1263,7 +1263,7 @@ define dso_local void @slurm_set_addr(ptr noundef %0, i16 noundef zeroext %1, pt
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 2 %33, i64 %36, i1 false)
-  %37 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %38 = and i64 %37, 1024
   %.not25 = icmp eq i64 %38, 0
   br i1 %.not25, label %43, label %39

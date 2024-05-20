@@ -603,7 +603,7 @@ invoke.cont27.i:                                  ; preds = %invoke.cont25.i
   br i1 %cmp.i16.i, label %invoke.cont33.i, label %cleanup.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont27.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_120PluralRangesDataSinkE, i64 0, i32 0, i64 2), ptr %sink.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_120PluralRangesDataSinkE, i64 16), ptr %sink.i, align 8
   %fOutput.i.i = getelementptr inbounds i8, ptr %sink.i, i64 8
   store ptr %agg.result, ptr %fOutput.i.i, align 8
   %10 = load ptr, ptr %dataPath.i, align 8

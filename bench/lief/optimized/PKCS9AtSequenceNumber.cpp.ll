@@ -225,7 +225,7 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber5cloneEv(ptr
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE21PKCS9AtSequenceNumberE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE21PKCS9AtSequenceNumberE, i64 16), ptr %3, align 8
   %7 = load <2 x i32>, ptr %6, align 8
   store <2 x i32> %7, ptr %5, align 8
   store ptr %3, ptr %0, align 8

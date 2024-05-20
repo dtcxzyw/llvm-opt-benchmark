@@ -2386,7 +2386,7 @@ lpad294.loopexit.split-lp:                        ; preds = %if.then514, %invoke
   br label %ehcleanup521
 
 for.end298:                                       ; preds = %for.inc297
-  %191 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel_stack, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %191 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel_stack, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %191 to i1
   br i1 %tobool.i.i.i, label %if.then301, label %if.end511
 

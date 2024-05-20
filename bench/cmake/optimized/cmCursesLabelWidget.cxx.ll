@@ -17,7 +17,7 @@ $_ZN14cmCursesWidget9PrintKeysEv = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN19cmCursesLabelWidgetC2EiiiiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19cmCursesLabelWidget, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19cmCursesLabelWidget, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = invoke i32 @field_opts_off(ptr noundef %8, i32 noundef 8)

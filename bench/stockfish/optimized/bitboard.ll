@@ -47,7 +47,7 @@ define dso_local void @_ZN9Stockfish9Bitboards6prettyB5cxx11Em(ptr dead_on_unwin
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   %7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %3) #7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([35 x i8], ptr @.str, i64 0, i64 34))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 34))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   br label %.preheader
 
@@ -278,16 +278,16 @@ define dso_local void @_ZN9Stockfish9Bitboards4initEv() local_unnamed_addr #3 {
   %32 = lshr i64 %23, 7
   %33 = and i64 %32, 71775015237779198
   %34 = or i64 %31, %33
-  %35 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %indvars.iv148
+  %35 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %indvars.iv148
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %indvars.iv148
+  %36 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %indvars.iv148
   %.promoted = load i64, ptr %36, align 8
   %37 = trunc nuw nsw i64 %indvars.iv148 to i32
   br label %39
 
 .preheader:                                       ; preds = %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit
   store i64 %51, ptr %36, align 8
-  %38 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %indvars.iv148
+  %38 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %indvars.iv148
   %.promoted128 = load i64, ptr %38, align 8
   br label %52
 
@@ -350,9 +350,9 @@ _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit38: ; preds = %52
   %70 = getelementptr inbounds i8, ptr %66, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = load i64, ptr %68, align 8
-  %73 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 3, i64 %indvars.iv148
+  %73 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %indvars.iv148
   store i64 %72, ptr %73, align 8
-  %74 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 5, i64 %indvars.iv148
+  %74 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2560), i64 0, i64 %indvars.iv148
   store i64 %72, ptr %74, align 8
   %75 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %indvars.iv148
   %76 = getelementptr inbounds i8, ptr %75, i64 16
@@ -361,7 +361,7 @@ _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit38: ; preds = %52
   %79 = getelementptr inbounds i8, ptr %75, i64 24
   %80 = load i32, ptr %79, align 8
   %81 = load i64, ptr %77, align 8
-  %82 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 4, i64 %indvars.iv148
+  %82 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %indvars.iv148
   store i64 %81, ptr %82, align 8
   %83 = or i64 %81, %72
   store i64 %83, ptr %74, align 8
@@ -740,7 +740,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %84 = trunc nuw nsw i64 %indvars.iv to i32
   %85 = lshr i64 %indvars.iv102, 3
   %86 = and i64 %85, 536870911
-  %87 = getelementptr inbounds [2 x [8 x i32]], ptr @__const._ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceTypeEPmPNS_5MagicE.seeds, i64 0, i64 1, i64 %86
+  %87 = getelementptr inbounds [8 x i32], ptr getelementptr inbounds (i8, ptr @__const._ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceTypeEPmPNS_5MagicE.seeds, i64 32), i64 0, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %26, i64 8

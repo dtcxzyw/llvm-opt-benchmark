@@ -260,7 +260,7 @@ entry:
   %0 = load i64, ptr @EscapeKey, align 8
   store i64 %0, ptr %arrayidx, align 8
   %m_name.i = getelementptr inbounds i8, ptr %this, i64 408
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%class.KeyPress, ptr @EscapeKey, i64 0, i32 2, i32 0, i32 0))
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @EscapeKey, i64 8))
   ret void
 }
 
@@ -5779,12 +5779,12 @@ if.then2:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %1 = load ptr, ptr getelementptr inbounds (%class.MainMenuManager, ptr @g_menumgr, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), align 8, !tbaa !29
-  %cmp.i.i = icmp eq ptr %1, getelementptr inbounds (%class.MainMenuManager, ptr @g_menumgr, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @g_menumgr, i64 8), align 8, !tbaa !29
+  %cmp.i.i = icmp eq ptr %1, getelementptr inbounds (i8, ptr @g_menumgr, i64 8)
   br i1 %cmp.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%class.MainMenuManager, ptr @g_menumgr, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !31
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @g_menumgr, i64 16), align 8, !tbaa !31
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !28
   %4 = icmp eq ptr %3, null
@@ -7094,43 +7094,43 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %ehcleanup24.thread
 
 invoke.cont:                                      ; preds = %init
-  store float 0.000000e+00, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 0, i32 1), align 16, !tbaa !115
-  store i32 40, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 0, i32 2), align 4, !tbaa !117
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 32), align 16, !tbaa !115
+  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 36), align 4, !tbaa !117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 1), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 40), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  store float 0.000000e+00, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 1, i32 1), align 8, !tbaa !115
-  store i32 40, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 1, i32 2), align 4, !tbaa !117
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 72), align 8, !tbaa !115
+  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 76), align 4, !tbaa !117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp5) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 2), ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 80), ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  store float 0.000000e+00, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 2, i32 1), align 16, !tbaa !115
-  store i32 40, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 2, i32 2), align 4, !tbaa !117
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 112), align 16, !tbaa !115
+  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 116), align 4, !tbaa !117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp8) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 3), ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 120), ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  store float 0.000000e+00, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 3, i32 1), align 8, !tbaa !115
-  store i32 40, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 3, i32 2), align 4, !tbaa !117
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 152), align 8, !tbaa !115
+  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 156), align 4, !tbaa !117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 4), ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 160), ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  store float 0.000000e+00, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 4, i32 1), align 16, !tbaa !115
-  store i32 30, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 4, i32 2), align 4, !tbaa !117
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 192), align 16, !tbaa !115
+  store i32 30, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 196), align 4, !tbaa !117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp14) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 5), ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 200), ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  store float 0.000000e+00, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 5, i32 1), align 8, !tbaa !115
-  store i32 15, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 5, i32 2), align 4, !tbaa !117
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 232), align 8, !tbaa !115
+  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 236), align 4, !tbaa !117
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp14) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp11) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp8) #21
@@ -7198,25 +7198,25 @@ lpad15:                                           ; preds = %invoke.cont13
 
 ehcleanup:                                        ; preds = %lpad15, %lpad12
   %.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %9, %lpad12 ]
-  %arrayinit.endOfInit.0 = phi ptr [ getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 5), %lpad15 ], [ getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 4), %lpad12 ]
+  %arrayinit.endOfInit.0 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 200), %lpad15 ], [ getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 160), %lpad12 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp11) #21
   br label %ehcleanup18
 
 ehcleanup18:                                      ; preds = %ehcleanup, %lpad9
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %8, %lpad9 ]
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %ehcleanup ], [ getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 3), %lpad9 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %ehcleanup ], [ getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 120), %lpad9 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp8) #21
   br label %ehcleanup20
 
 ehcleanup20:                                      ; preds = %ehcleanup18, %lpad6
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup18 ], [ %7, %lpad6 ]
-  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.1, %ehcleanup18 ], [ getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 2), %lpad6 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.1, %ehcleanup18 ], [ getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 80), %lpad6 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp5) #21
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %ehcleanup20, %lpad3
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup20 ], [ %6, %lpad3 ]
-  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup20 ], [ getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 1), %lpad3 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup20 ], [ getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 40), %lpad3 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp) #21
   br label %arraydestroy.body
@@ -7576,12 +7576,12 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #6 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  %1 = load ptr, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 5, i32 0, i32 0, i32 0), align 8, !tbaa !4
-  %cmp.i.i.i.i = icmp eq ptr %1, getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 5, i32 0, i32 2, i32 0)
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 200), align 8, !tbaa !4
+  %cmp.i.i.i.i = icmp eq ptr %1, getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 216)
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %2 = load i64, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 5, i32 0, i32 1), align 16, !tbaa !11
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 208), align 16, !tbaa !11
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit
@@ -7591,8 +7591,8 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit
 
 _ZN25RandomInputHandlerSimDataD2Ev.exit:          ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %3 = load ptr, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 4, i32 0, i32 0, i32 0), align 16, !tbaa !4
-  %cmp.i.i.i.i.1 = icmp eq ptr %3, getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 4, i32 0, i32 2, i32 0)
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 160), align 16, !tbaa !4
+  %cmp.i.i.i.i.1 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 176)
   br i1 %cmp.i.i.i.i.1, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.1, label %if.then.i.i.i.1
 
 if.then.i.i.i.1:                                  ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit
@@ -7600,14 +7600,14 @@ if.then.i.i.i.1:                                  ; preds = %_ZN25RandomInputHan
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.1
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.1: ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit
-  %4 = load i64, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 4, i32 0, i32 1), align 8, !tbaa !11
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 168), align 8, !tbaa !11
   %cmp3.i.i.i.i.1 = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.1)
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.1
 
 _ZN25RandomInputHandlerSimDataD2Ev.exit.1:        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.1, %if.then.i.i.i.1
-  %5 = load ptr, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 3, i32 0, i32 0, i32 0), align 8, !tbaa !4
-  %cmp.i.i.i.i.2 = icmp eq ptr %5, getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 3, i32 0, i32 2, i32 0)
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 120), align 8, !tbaa !4
+  %cmp.i.i.i.i.2 = icmp eq ptr %5, getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 136)
   br i1 %cmp.i.i.i.i.2, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.2, label %if.then.i.i.i.2
 
 if.then.i.i.i.2:                                  ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit.1
@@ -7615,14 +7615,14 @@ if.then.i.i.i.2:                                  ; preds = %_ZN25RandomInputHan
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.2
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.2: ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit.1
-  %6 = load i64, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 3, i32 0, i32 1), align 16, !tbaa !11
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 128), align 16, !tbaa !11
   %cmp3.i.i.i.i.2 = icmp ult i64 %6, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.2)
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.2
 
 _ZN25RandomInputHandlerSimDataD2Ev.exit.2:        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.2, %if.then.i.i.i.2
-  %7 = load ptr, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 2, i32 0, i32 0, i32 0), align 16, !tbaa !4
-  %cmp.i.i.i.i.3 = icmp eq ptr %7, getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 2, i32 0, i32 2, i32 0)
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 80), align 16, !tbaa !4
+  %cmp.i.i.i.i.3 = icmp eq ptr %7, getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 96)
   br i1 %cmp.i.i.i.i.3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.3, label %if.then.i.i.i.3
 
 if.then.i.i.i.3:                                  ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit.2
@@ -7630,14 +7630,14 @@ if.then.i.i.i.3:                                  ; preds = %_ZN25RandomInputHan
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.3
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.3: ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit.2
-  %8 = load i64, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 2, i32 0, i32 1), align 8, !tbaa !11
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 88), align 8, !tbaa !11
   %cmp3.i.i.i.i.3 = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.3)
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.3
 
 _ZN25RandomInputHandlerSimDataD2Ev.exit.3:        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.3, %if.then.i.i.i.3
-  %9 = load ptr, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 1, i32 0, i32 0, i32 0), align 8, !tbaa !4
-  %cmp.i.i.i.i.4 = icmp eq ptr %9, getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 1, i32 0, i32 2, i32 0)
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 40), align 8, !tbaa !4
+  %cmp.i.i.i.i.4 = icmp eq ptr %9, getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 56)
   br i1 %cmp.i.i.i.i.4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.4, label %if.then.i.i.i.4
 
 if.then.i.i.i.4:                                  ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit.3
@@ -7645,14 +7645,14 @@ if.then.i.i.i.4:                                  ; preds = %_ZN25RandomInputHan
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.4
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.4: ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit.3
-  %10 = load i64, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 1, i32 0, i32 1), align 16, !tbaa !11
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 48), align 16, !tbaa !11
   %cmp3.i.i.i.i.4 = icmp ult i64 %10, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.4)
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.4
 
 _ZN25RandomInputHandlerSimDataD2Ev.exit.4:        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.4, %if.then.i.i.i.4
   %11 = load ptr, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, align 16, !tbaa !4
-  %cmp.i.i.i.i.5 = icmp eq ptr %11, getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 0, i32 0, i32 2, i32 0)
+  %cmp.i.i.i.i.5 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 16)
   br i1 %cmp.i.i.i.i.5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.5, label %if.then.i.i.i.5
 
 if.then.i.i.i.5:                                  ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit.4
@@ -7660,7 +7660,7 @@ if.then.i.i.i.5:                                  ; preds = %_ZN25RandomInputHan
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.5
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.5: ; preds = %_ZN25RandomInputHandlerSimDataD2Ev.exit.4
-  %12 = load i64, ptr getelementptr inbounds ([6 x %struct.RandomInputHandlerSimData], ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 0, i64 0, i32 0, i32 1), align 8, !tbaa !11
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN18RandomInputHandler4stepEfE8rnd_data, i64 8), align 8, !tbaa !11
   %cmp3.i.i.i.i.5 = icmp ult i64 %12, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.5)
   br label %_ZN25RandomInputHandlerSimDataD2Ev.exit.5
@@ -7685,7 +7685,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %joystick = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %joystick, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTV12InputHandler, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
   br label %arraydestroy.body.i.i
 
 arraydestroy.body.i.i:                            ; preds = %_ZN8KeyPressD2Ev.exit.i.i, %entry
@@ -7786,7 +7786,7 @@ entry:
   %0 = load ptr, ptr %m_receiver.i, align 8, !tbaa !57
   %joystick.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %joystick.i, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTV12InputHandler, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
   br label %arraydestroy.body.i.i.i
 
 arraydestroy.body.i.i.i:                          ; preds = %_ZN8KeyPressD2Ev.exit.i.i.i, %entry
@@ -8465,7 +8465,7 @@ _ZN15MyEventReceiver14releaseAllKeysEv.exit:      ; preds = %_ZNSt16allocator_tr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15MyEventReceiverD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15MyEventReceiver, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15MyEventReceiver, i64 16), ptr %this, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %this, i64 160
   %1 = load ptr, ptr %0, align 8, !tbaa !29
   %cmp.not9.i.i.i = icmp eq ptr %1, %0
@@ -8635,7 +8635,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18RandomInputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(3640) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTV18RandomInputHandler, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV18RandomInputHandler, i64 16), ptr %this, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %this, i64 3592
   %1 = load ptr, ptr %0, align 8, !tbaa !29
   %cmp.not9.i.i.i = icmp eq ptr %1, %0
@@ -8667,7 +8667,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeI8KeyPressEEE7destroyIS1_EEvRS3_PT_.exi
   br i1 %cmp.not.i.i.i, label %_ZN7KeyListD2Ev.exit, label %while.body.i.i.i, !llvm.loop !135
 
 _ZN7KeyListD2Ev.exit:                             ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeI8KeyPressEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i, %entry
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTV12InputHandler, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
   br label %arraydestroy.body.i.i
 
 arraydestroy.body.i.i:                            ; preds = %_ZN8KeyPressD2Ev.exit.i.i, %_ZN7KeyListD2Ev.exit
@@ -8998,7 +8998,7 @@ declare float @atan2f(float noundef, float noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12InputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(3584) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTV12InputHandler, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN8KeyPressD2Ev.exit.i, %entry

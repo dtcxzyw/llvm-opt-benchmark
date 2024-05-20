@@ -31,12 +31,12 @@ define noalias ptr @opal_shmem_base_best_runnable_component_name() local_unnamed
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %4 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %3) #3
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %6, ptr noundef nonnull @.str) #3
   br label %7
 
@@ -48,7 +48,7 @@ define noalias ptr @opal_shmem_base_best_runnable_component_name() local_unnamed
 9:                                                ; preds = %7
   %10 = load ptr, ptr %1, align 8
   %.not1 = icmp eq ptr %10, null
-  %11 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %12 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %11) #3
   br i1 %.not1, label %20, label %13
 
@@ -56,7 +56,7 @@ define noalias ptr @opal_shmem_base_best_runnable_component_name() local_unnamed
   br i1 %12, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %16 = getelementptr inbounds i8, ptr %10, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %15, ptr noundef nonnull @.str.1, ptr noundef nonnull %16) #3
   br label %17
@@ -70,7 +70,7 @@ define noalias ptr @opal_shmem_base_best_runnable_component_name() local_unnamed
   br i1 %12, label %21, label %23
 
 21:                                               ; preds = %20
-  %22 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %22, ptr noundef nonnull @.str.2) #3
   br label %23
 
@@ -103,18 +103,18 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
 10:                                               ; preds = %2
   store ptr null, ptr %0, align 8
   store ptr null, ptr %1, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %12 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %11) #3
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %14, ptr noundef nonnull @.str.3) #3
   br label %15
 
 15:                                               ; preds = %10, %13
-  %.02225 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not26 = icmp eq ptr %.02225, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1)
+  %.02225 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 112), align 8
+  %.not26 = icmp eq ptr %.02225, getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 96)
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %53
@@ -125,7 +125,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   %18 = getelementptr inbounds i8, ptr %17, i64 264
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %22 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %21) #3
   br i1 %20, label %23, label %27
 
@@ -133,7 +133,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   br i1 %22, label %24, label %53
 
 24:                                               ; preds = %23
-  %25 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %26 = getelementptr inbounds i8, ptr %17, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %25, ptr noundef nonnull @.str.4, ptr noundef nonnull %26) #3
   br label %53
@@ -142,7 +142,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   br i1 %22, label %28, label %31
 
 28:                                               ; preds = %27
-  %29 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %30 = getelementptr inbounds i8, ptr %17, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %29, ptr noundef nonnull @.str.5, ptr noundef nonnull %30) #3
   br label %31
@@ -153,7 +153,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   %34 = call i32 %32(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %33) #3
   %35 = load ptr, ptr %3, align 8
   %36 = icmp eq ptr %35, null
-  %37 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %38 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %37) #3
   br i1 %36, label %39, label %43
 
@@ -161,7 +161,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   br i1 %38, label %40, label %53
 
 40:                                               ; preds = %39
-  %41 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %42 = getelementptr inbounds i8, ptr %17, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %41, ptr noundef nonnull @.str.6, ptr noundef nonnull %42) #3
   br label %53
@@ -170,7 +170,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   br i1 %38, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %46 = getelementptr inbounds i8, ptr %17, i64 84
   %47 = load i32, ptr %4, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %45, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull %46, i32 noundef %47) #3
@@ -191,13 +191,13 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   %.1 = phi i32 [ %.027, %24 ], [ %.027, %23 ], [ %.027, %40 ], [ %.027, %39 ], [ %49, %51 ], [ %.027, %48 ]
   %54 = getelementptr inbounds i8, ptr %.02228, i64 16
   %.022 = load volatile ptr, ptr %54, align 8
-  %.not = icmp eq ptr %.022, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.022, getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %53, %15
   %55 = load ptr, ptr %1, align 8
   %56 = icmp eq ptr %55, null
-  %57 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %58 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %57) #3
   br i1 %56, label %59, label %62
 
@@ -205,7 +205,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   br i1 %58, label %60, label %72
 
 60:                                               ; preds = %59
-  %61 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %61, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8) #3
   br label %72
 
@@ -213,7 +213,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
   br i1 %58, label %63, label %67
 
 63:                                               ; preds = %62
-  %64 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 11), align 4
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %65 = load ptr, ptr %1, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %64, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, ptr noundef nonnull %66) #3

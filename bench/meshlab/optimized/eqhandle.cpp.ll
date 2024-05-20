@@ -38,9 +38,9 @@ define void @_ZN8EqHandleC2EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEP
   %15 = getelementptr inbounds i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %14, ptr noundef nonnull align 4 dereferenceable(10) %15, i64 10, i1 false)
   call void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull %12, double %3, double %4, i32 noundef %9, i32 noundef %10)
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8EqHandle, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i64 0, i32 1, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8EqHandle, i64 168), ptr %16, align 8
   %scevgep = getelementptr inbounds i8, ptr %0, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep, i8 0, i64 48, i1 false)
   %spec.select.i = or i32 %10, 1

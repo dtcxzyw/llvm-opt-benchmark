@@ -319,7 +319,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %0 = load i8, ptr %__begin1.07, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store ptr @.str, ptr %ref.tmp.i, align 8, !noalias !4
-  store ptr getelementptr inbounds ([7 x i8], ptr @.str, i64 0, i64 6), ptr %str.sroa.2.0.str_.sroa_idx.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @.str, i64 6), ptr %str.sroa.2.0.str_.sroa_idx.i.i.i, align 8, !noalias !4
   store i8 %0, ptr %values_.i.i.i, align 8, !noalias !4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i.i.i), !noalias !7
@@ -625,7 +625,7 @@ entry:
   %cbuf = alloca %"class.std::unique_ptr", align 8
   %ref.tmp18 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN12_GLOBAL__N_18printersE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18printersE, i64 8), align 8
   %1 = load ptr, ptr @_ZN12_GLOBAL__N_18printersE, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -2024,10 +2024,10 @@ entry:
   store ptr %args.coerce1, ptr %0, align 8, !noalias !29
   store ptr @.str.24, ptr %ref.tmp.i.i, align 8, !noalias !29
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr getelementptr inbounds ([26 x i8], ptr @.str.24, i64 0, i64 25), ptr %1, align 8, !noalias !29
+  store ptr getelementptr inbounds (i8, ptr @.str.24, i64 25), ptr %1, align 8, !noalias !29
   store ptr @.str.25, ptr %ref.tmp1.i.i, align 8, !noalias !29
   %2 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
-  store ptr getelementptr inbounds ([4 x i8], ptr @.str.25, i64 0, i64 3), ptr %2, align 8, !noalias !29
+  store ptr getelementptr inbounds (i8, ptr @.str.25, i64 3), ptr %2, align 8, !noalias !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   store ptr %ref.tmp.i, ptr %ref.tmp.i.i.i, align 8, !noalias !32
@@ -2063,7 +2063,7 @@ lpad.i:                                           ; preds = %_ZN5folly12BadForma
 
 _ZN5folly12BadFormatArgC2IJPKcEEENS0_11ErrorStrTagENS_5RangeIS3_EEDpRKT_.exit: ; preds = %_ZN5folly12BadFormatArg3strIJPKcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIS3_EEDpRKT_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %ref.tmp, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN5folly15throw_exceptionINS_12BadFormatArgEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #23
           to label %invoke.cont unwind label %lpad
@@ -2100,7 +2100,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN5folly12BadFormatArgC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2255,10 +2255,10 @@ entry:
   store ptr %args.coerce1, ptr %0, align 8, !noalias !35
   store ptr @.str.24, ptr %ref.tmp.i.i, align 8, !noalias !35
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr getelementptr inbounds ([26 x i8], ptr @.str.24, i64 0, i64 25), ptr %1, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @.str.24, i64 25), ptr %1, align 8, !noalias !35
   store ptr @.str.25, ptr %ref.tmp5.i.i, align 8, !noalias !35
   %2 = getelementptr inbounds i8, ptr %ref.tmp5.i.i, i64 8
-  store ptr getelementptr inbounds ([4 x i8], ptr @.str.25, i64 0, i64 3), ptr %2, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @.str.25, i64 3), ptr %2, align 8, !noalias !35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   store ptr %ref.tmp.i, ptr %ref.tmp.i.i.i, align 8, !noalias !38
@@ -2294,7 +2294,7 @@ lpad.i:                                           ; preds = %_ZN5folly12BadForma
 
 _ZN5folly12BadFormatArgC2IJPKccS3_EEENS0_11ErrorStrTagENS_5RangeIS3_EEDpRKT_.exit: ; preds = %_ZN5folly12BadFormatArg3strIJPKccS3_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIS3_EEDpRKT_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %ref.tmp, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN5folly15throw_exceptionINS_12BadFormatArgEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #23
           to label %invoke.cont unwind label %lpad
@@ -2620,7 +2620,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2632,7 +2632,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_12BadFormatArgEJ
 entry:
   %ref.tmp = alloca %"class.folly::BadFormatArg", align 8
   call void @_ZNSt16invalid_argumentC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionINS_12BadFormatArgEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #23
           to label %invoke.cont unwind label %lpad
 
@@ -2791,10 +2791,10 @@ entry:
   store ptr %args.coerce1, ptr %0, align 8, !noalias !42
   store ptr @.str.24, ptr %ref.tmp.i.i, align 8, !noalias !42
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr getelementptr inbounds ([26 x i8], ptr @.str.24, i64 0, i64 25), ptr %1, align 8, !noalias !42
+  store ptr getelementptr inbounds (i8, ptr @.str.24, i64 25), ptr %1, align 8, !noalias !42
   store ptr @.str.25, ptr %ref.tmp3.i.i, align 8, !noalias !42
   %2 = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  store ptr getelementptr inbounds ([4 x i8], ptr @.str.25, i64 0, i64 3), ptr %2, align 8, !noalias !42
+  store ptr getelementptr inbounds (i8, ptr @.str.25, i64 3), ptr %2, align 8, !noalias !42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   store ptr %ref.tmp.i, ptr %ref.tmp.i.i.i, align 8, !noalias !45
@@ -2830,7 +2830,7 @@ lpad.i:                                           ; preds = %_ZN5folly12BadForma
 
 _ZN5folly12BadFormatArgC2IJPKcmEEENS0_11ErrorStrTagENS_5RangeIS3_EEDpRKT_.exit: ; preds = %_ZN5folly12BadFormatArg3strIJPKcmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIS3_EEDpRKT_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %ref.tmp, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN5folly15throw_exceptionINS_12BadFormatArgEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #23
           to label %invoke.cont unwind label %lpad
@@ -3071,17 +3071,17 @@ entry:
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Logging.cpp() #16 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen15HexFollyPrinterE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_115hexFollyPrinterE, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12Hex16PrinterE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_112hex16PrinterE, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16ChainInfoPrinterE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_116chainInfoPrinterE, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen10BinPrinterE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_110binPrinterE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen15HexFollyPrinterE, i64 16), ptr @_ZN12_GLOBAL__N_115hexFollyPrinterE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12Hex16PrinterE, i64 16), ptr @_ZN12_GLOBAL__N_112hex16PrinterE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16ChainInfoPrinterE, i64 16), ptr @_ZN12_GLOBAL__N_116chainInfoPrinterE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen10BinPrinterE, i64 16), ptr @_ZN12_GLOBAL__N_110binPrinterE, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN12_GLOBAL__N_18printersE, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   store ptr %call5.i.i.i.i2.i.i, ptr @_ZN12_GLOBAL__N_18printersE, align 8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 32
-  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN12_GLOBAL__N_18printersE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18printersE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
-  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN12_GLOBAL__N_18printersE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18printersE, i64 8), align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIPN8proxygen12IOBufPrinterESaIS2_EED2Ev, ptr nonnull @_ZN12_GLOBAL__N_18printersE, ptr nonnull @__dso_handle) #20
   ret void
 }

@@ -60,18 +60,18 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @jobcomp_p_set_location() local_unnamed_addr #1 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 488), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %4
 
 2:                                                ; preds = %0
   %3 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @default_job_comp_loc) #11
-  store ptr %3, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 488), align 8
   br label %4
 
 4:                                                ; preds = %2, %0
   tail call void @slurm_xfree(ptr noundef nonnull @log_name) #11
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 488), align 8
   %6 = tail call ptr @slurm_xstrdup(ptr noundef %5) #11
   store ptr %6, ptr @log_name, align 8
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @file_lock) #11

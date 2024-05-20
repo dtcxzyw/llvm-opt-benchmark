@@ -128,7 +128,7 @@ define dso_local noundef range(i32 -14, 1) i32 @con_set_trans_old(ptr noundef %0
 
 20:                                               ; preds = %13
   tail call void @console_lock() #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) getelementptr inbounds ([4 x [256 x i16]], ptr @translations, i64 0, i64 3), ptr noundef nonnull align 16 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) getelementptr inbounds (i8, ptr @translations, i64 1536), ptr noundef nonnull align 16 dereferenceable(512) %2, i64 512, i1 false)
   tail call fastcc void @update_user_maps()
   tail call void @console_unlock() #16
   br label %.loopexit
@@ -185,7 +185,7 @@ define internal fastcc void @update_user_maps() unnamed_addr #3 align 16 {
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %22 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3264, i64 noundef 1024) #17
   store ptr %22, ptr %17, align 8
   %23 = icmp eq ptr %22, null
@@ -282,7 +282,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_old(ptr noundef %0) local_
 
 8:                                                ; preds = %43, %1
   %9 = phi i64 [ 0, %1 ], [ %48, %43 ]
-  %10 = getelementptr i16, ptr getelementptr inbounds ([4 x [256 x i16]], ptr @translations, i64 0, i64 3), i64 %9
+  %10 = getelementptr i16, ptr getelementptr inbounds (i8, ptr @translations, i64 1536), i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
   %13 = icmp ult i16 %11, 32
@@ -433,7 +433,7 @@ define dso_local noundef range(i32 -14, 1) i32 @con_set_trans_new(ptr noundef %0
 
 5:                                                ; preds = %1
   call void @console_lock() #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) getelementptr inbounds ([4 x [256 x i16]], ptr @translations, i64 0, i64 3), ptr noundef nonnull align 16 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) getelementptr inbounds (i8, ptr @translations, i64 1536), ptr noundef nonnull align 16 dereferenceable(512) %2, i64 512, i1 false)
   call fastcc void @update_user_maps()
   call void @console_unlock() #16
   br label %6
@@ -449,7 +449,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_new(ptr noundef %0) local_
   %2 = alloca [256 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #16
   tail call void @console_lock() #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %2, ptr noundef nonnull align 16 dereferenceable(512) getelementptr inbounds ([4 x [256 x i16]], ptr @translations, i64 0, i64 3), i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %2, ptr noundef nonnull align 16 dereferenceable(512) getelementptr inbounds (i8, ptr @translations, i64 1536), i64 512, i1 false)
   tail call void @console_unlock() #16
   %3 = call i64 @_copy_to_user(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 512) #16
   %4 = icmp eq i64 %3, 0
@@ -565,7 +565,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %6, %1
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(312) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 312) #17
   %13 = icmp eq ptr %12, null
   br i1 %13, label %51, label %14
@@ -682,7 +682,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   br i1 %21, label %22, label %130
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %24 = tail call noalias noundef align 8 dereferenceable_or_null(312) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 312) #17
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit46.thread, label %26
@@ -743,7 +743,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %56
-  %63 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %64 = tail call noalias noundef align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %63, i32 noundef 3520, i64 noundef 256) #17
   store ptr %64, ptr %59, align 8
   %65 = icmp eq ptr %64, null
@@ -760,7 +760,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %66
-  %75 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %76 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %75, i32 noundef 3264, i64 noundef 128) #17
   store ptr %76, ptr %71, align 8
   %77 = icmp eq ptr %76, null
@@ -902,7 +902,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   br i1 %148, label %149, label %153
 
 149:                                              ; preds = %137
-  %150 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %151 = tail call noalias noundef align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %150, i32 noundef 3520, i64 noundef 256) #17
   store ptr %151, ptr %146, align 8
   %152 = icmp eq ptr %151, null
@@ -919,7 +919,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   br i1 %160, label %161, label %166
 
 161:                                              ; preds = %153
-  %162 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %163 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %162, i32 noundef 3264, i64 noundef 128) #17
   store ptr %163, ptr %158, align 8
   %164 = icmp eq ptr %163, null
@@ -967,7 +967,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   br i1 %190, label %191, label %195
 
 191:                                              ; preds = %187
-  %192 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %193 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %192, i32 noundef 3264, i64 noundef 1024) #17
   store ptr %193, ptr %188, align 8
   %194 = icmp eq ptr %193, null
@@ -1227,7 +1227,7 @@ define internal fastcc void @set_inverse_transl(ptr nocapture noundef readonly %
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %14 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 512) #17
   store ptr %14, ptr %9, align 8
   %15 = icmp eq ptr %14, null
@@ -1439,7 +1439,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %63
-  %75 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %76 = tail call noalias noundef align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %75, i32 noundef 3520, i64 noundef 256) #17
   store ptr %76, ptr %71, align 8
   %77 = icmp eq ptr %76, null
@@ -1456,7 +1456,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %78
-  %87 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %88 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %87, i32 noundef 3264, i64 noundef 128) #17
   store ptr %88, ptr %83, align 8
   %89 = icmp eq ptr %88, null
@@ -1512,7 +1512,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %117, label %118, label %122
 
 118:                                              ; preds = %114
-  %119 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %120 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %119, i32 noundef 3264, i64 noundef 1024) #17
   store ptr %120, ptr %115, align 8
   %121 = icmp eq ptr %120, null

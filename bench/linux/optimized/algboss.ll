@@ -64,7 +64,7 @@ define internal noundef i32 @cryptomgr_notify(ptr nocapture readnone %0, i64 nou
   br i1 %7, label %8, label %105
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(4656) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 4656) #9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %104, label %.preheader6

@@ -148,8 +148,8 @@ define dso_local void @unix_gc() local_unnamed_addr #0 align 16 {
   %33 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %32, ptr %33, align 8
   store volatile ptr %14, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @gc_candidates, i64 0, i32 1), align 8
-  store ptr %13, ptr getelementptr inbounds (%struct.list_head, ptr @gc_candidates, i64 0, i32 1), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @gc_candidates, i64 8), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @gc_candidates, i64 8), align 8
   store ptr @gc_candidates, ptr %13, align 8
   store ptr %34, ptr %31, align 8
   store volatile ptr %13, ptr %34, align 8
@@ -225,7 +225,7 @@ define dso_local void @unix_gc() local_unnamed_addr #0 align 16 {
 .loopexit25:                                      ; preds = %.loopexit25.loopexit, %.thread, %42
   %62 = phi ptr [ @gc_candidates, %.thread ], [ @gc_candidates, %42 ], [ %.pre, %.loopexit25.loopexit ]
   %63 = phi ptr [ %12, %.thread ], [ %44, %42 ], [ %44, %.loopexit25.loopexit ]
-  store ptr %62, ptr getelementptr inbounds (%struct.list_head, ptr @gc_candidates, i64 0, i32 1), align 8
+  store ptr %62, ptr getelementptr inbounds (i8, ptr @gc_candidates, i64 8), align 8
   store volatile ptr @gc_candidates, ptr %62, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %63, align 8
@@ -274,8 +274,8 @@ define dso_local void @unix_gc() local_unnamed_addr #0 align 16 {
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   store ptr %83, ptr %85, align 8
   store volatile ptr %84, ptr %83, align 8
-  %86 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @gc_inflight_list, i64 0, i32 1), align 8
-  store ptr %80, ptr getelementptr inbounds (%struct.list_head, ptr @gc_inflight_list, i64 0, i32 1), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @gc_inflight_list, i64 8), align 8
+  store ptr %80, ptr getelementptr inbounds (i8, ptr @gc_inflight_list, i64 8), align 8
   store ptr @gc_inflight_list, ptr %80, align 8
   store ptr %86, ptr %82, align 8
   store volatile ptr %80, ptr %86, align 8
@@ -362,8 +362,8 @@ define dso_local void @unix_gc() local_unnamed_addr #0 align 16 {
   %129 = getelementptr inbounds i8, ptr %126, i64 8
   store ptr %128, ptr %129, align 8
   store volatile ptr %126, ptr %128, align 8
-  %130 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @gc_inflight_list, i64 0, i32 1), align 8
-  store ptr %125, ptr getelementptr inbounds (%struct.list_head, ptr @gc_inflight_list, i64 0, i32 1), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @gc_inflight_list, i64 8), align 8
+  store ptr %125, ptr getelementptr inbounds (i8, ptr @gc_inflight_list, i64 8), align 8
   store ptr @gc_inflight_list, ptr %125, align 8
   store ptr %130, ptr %127, align 8
   store volatile ptr %125, ptr %130, align 8
@@ -518,8 +518,8 @@ define internal void @inc_inflight_move_tail(ptr noundef %0) #0 align 16 {
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %10, ptr %12, align 8
   store volatile ptr %11, ptr %10, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @gc_candidates, i64 0, i32 1), align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.list_head, ptr @gc_candidates, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gc_candidates, i64 8), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @gc_candidates, i64 8), align 8
   store ptr @gc_candidates, ptr %8, align 8
   store ptr %13, ptr %9, align 8
   store volatile ptr %8, ptr %13, align 8

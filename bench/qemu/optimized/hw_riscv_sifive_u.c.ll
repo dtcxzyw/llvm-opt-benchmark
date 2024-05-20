@@ -1676,7 +1676,7 @@ for.end104:                                       ; preds = %for.body95
 if.end110:                                        ; preds = %for.end104
   %call.i131 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %otp, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.141, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
   tail call void @sysbus_mmio_map(ptr noundef %call.i131, i32 noundef 0, i64 noundef 268894208) #7
-  %11 = load i32, ptr getelementptr inbounds ([8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 0, i32 5), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @nd_table, i64 40), align 8
   %tobool.not = icmp eq i32 %11, 0
   br i1 %tobool.not, label %if.end117, label %if.then115
 

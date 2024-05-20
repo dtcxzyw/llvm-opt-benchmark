@@ -256,7 +256,7 @@ define hidden range(i32 0, 2) i32 @is_down_link(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %1
   %6 = icmp eq i32 %3, -1
-  %7 = load i32, ptr getelementptr inbounds (%struct._address, ptr @bs_address, i64 0, i32 1), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @bs_address, i64 4), align 4
   %8 = icmp ne i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
   br i1 %or.cond, label %9, label %cmp_address.exit.thread
@@ -275,7 +275,7 @@ define hidden range(i32 0, 2) i32 @is_down_link(ptr nocapture noundef readonly %
   br i1 %or.cond8.not, label %cmp_address.exit, label %cmp_address.exit.thread
 
 cmp_address.exit:                                 ; preds = %13
-  %16 = load ptr, ptr getelementptr inbounds (%struct._address, ptr @bs_address, i64 0, i32 2), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @bs_address, i64 8), align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 216
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %7 to i64

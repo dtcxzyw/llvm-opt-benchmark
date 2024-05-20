@@ -53,7 +53,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17MLPluginGLContextC2ERK9QGLFormatP12QPaintDeviceR26MLSceneGLSharedDataContext(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #4 align 2 {
   tail call void @_ZN10QGLContextC2ERK9QGLFormatP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17MLPluginGLContext, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17MLPluginGLContext, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %5, align 8
   ret void

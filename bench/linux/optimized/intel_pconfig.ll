@@ -44,7 +44,7 @@ define dso_local i32 @pconfig_target_supported(i32 noundef %0) local_unnamed_add
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @intel_pconfig_init() #1 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 64), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 112), align 8
   %2 = and i64 %1, 262144
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %.loopexit, label %.preheader

@@ -105,14 +105,14 @@ define noundef float @_Z7fit_ahxiP4t_bbiiPiPA3_fiS1_b(i32 noundef %0, ptr nocapt
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4xref, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4xref, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4xref, i64 8), align 8
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %36, label %.lr.ph.preheader
 
 36:                                               ; preds = %32
   %37 = sext i32 %2 to i64
   tail call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4xref, i64 noundef %37)
-  %38 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4mass, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4mass, i64 8), align 8
   %39 = load ptr, ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4mass, align 8
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
@@ -136,7 +136,7 @@ define noundef float @_Z7fit_ahxiP4t_bbiiPiPA3_fiS1_b(i32 noundef %0, ptr nocapt
   br i1 %.not.i.i, label %.lr.ph.preheader, label %51
 
 51:                                               ; preds = %49
-  store ptr %50, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4mass, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4mass, i64 8), align 8
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %32, %45, %47, %49, %51

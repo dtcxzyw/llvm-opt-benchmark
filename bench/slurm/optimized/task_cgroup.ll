@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @init() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %7
 
@@ -46,7 +46,7 @@ define i32 @init() local_unnamed_addr #0 {
   br i1 %8, label %9, label %57
 
 9:                                                ; preds = %7
-  %10 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), align 8
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %13
 
@@ -55,18 +55,18 @@ define i32 @init() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %12, %9
-  %14 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 165), align 8
+  %14 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
   %15 = and i16 %14, 16
   %.not = icmp eq i16 %15, 0
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %13
-  %17 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), align 1
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %23
 
@@ -75,7 +75,7 @@ define i32 @init() local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %22, %19, %13
-  %24 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), align 8
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %27
 

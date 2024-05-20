@@ -1422,7 +1422,7 @@ entry:
   store i64 1114111, ptr %_M_maxcode.i.i.i, align 8
   %_M_mode.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 1, ptr %_M_mode.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt18codecvt_utf8_utf16IDsLm1114111ELSt12codecvt_mode1EE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18codecvt_utf8_utf16IDsLm1114111ELSt12codecvt_mode1EE, i64 16), ptr %call.i, align 8
   store ptr %call.i, ptr %cnv, align 8
   %_M_byte_err_string.i = getelementptr inbounds i8, ptr %cnv, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_byte_err_string.i) #19
@@ -1588,7 +1588,7 @@ entry:
   store i64 1114111, ptr %_M_maxcode.i.i.i, align 8
   %_M_mode.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 1, ptr %_M_mode.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt18codecvt_utf8_utf16IDsLm1114111ELSt12codecvt_mode1EE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18codecvt_utf8_utf16IDsLm1114111ELSt12codecvt_mode1EE, i64 16), ptr %call.i, align 8
   store ptr %call.i, ptr %cnv, align 8
   %_M_byte_err_string.i = getelementptr inbounds i8, ptr %cnv, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_byte_err_string.i) #19

@@ -28,7 +28,7 @@ define void @nxsched_suspend(ptr noundef %0) local_unnamed_addr #0 {
   store i16 4, ptr %8, align 4
   store i8 9, ptr %4, align 16
   store ptr null, ptr %0, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_stoppedtasks, i64 8), align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = load ptr, ptr @g_stoppedtasks, align 8
@@ -37,12 +37,12 @@ define void @nxsched_suspend(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %7
   store ptr %0, ptr @g_stoppedtasks, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_stoppedtasks, i64 8), align 8
   br label %22
 
 13:                                               ; preds = %7
   store ptr %0, ptr %9, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_stoppedtasks, i64 8), align 8
   br label %22
 
 14:                                               ; preds = %1
@@ -50,14 +50,14 @@ define void @nxsched_suspend(ptr noundef %0) local_unnamed_addr #0 {
   %16 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef nonnull %0, i1 noundef zeroext true) #3
   store i8 9, ptr %4, align 16
   store ptr null, ptr %0, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i64 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @g_stoppedtasks, i64 8), align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr @g_stoppedtasks, align 8
   %.not = icmp eq ptr %19, null
   %g_stoppedtasks. = select i1 %.not, ptr @g_stoppedtasks, ptr %17
   store ptr %0, ptr %g_stoppedtasks., align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_stoppedtasks, i64 8), align 8
   br i1 %16, label %20, label %22
 
 20:                                               ; preds = %14

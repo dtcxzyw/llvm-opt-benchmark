@@ -303,7 +303,7 @@ while.body.i:                                     ; preds = %if.end4.i, %if.then
   br i1 %cmp.i, label %while.end.i, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @resolve_symlink.link, i64 16), align 8
   %.val.i = load i8, ptr %2, align 1
   %cmp.i.i.not.i = icmp eq i8 %.val.i, 47
   br i1 %cmp.i.i.not.i, label %if.then3.i, label %if.else.i
@@ -395,8 +395,8 @@ if.end4.i:                                        ; preds = %if.end4.sink.split.
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %if.end4.i, %while.body.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i64 0, i32 1), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @resolve_symlink.link, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @resolve_symlink.link, i64 16), align 8
   %cmp3.not.i9.i = icmp eq ptr %12, @strbuf_slopbuf
   br i1 %cmp3.not.i9.i, label %if.end, label %if.then4.i10.i
 

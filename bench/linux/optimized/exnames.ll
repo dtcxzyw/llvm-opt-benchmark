@@ -33,7 +33,7 @@ define dso_local noundef i32 @acpi_ex_get_name_string(i32 noundef %0, ptr nounde
   %15 = and i64 %14, 512
   %16 = icmp eq i64 %15, 0
   %17 = select i1 %16, i32 2080, i32 3264
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %19 = call noalias align 8 dereferenceable_or_null(7) ptr @kmalloc_trace(ptr noundef %18, i32 noundef %17, i64 noundef 7) #8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21

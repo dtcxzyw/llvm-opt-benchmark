@@ -59,7 +59,7 @@ $_ZTIN7Minisat20OutOfMemoryExceptionE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9ezMiniSATC2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5ezSATC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9ezMiniSAT, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = getelementptr inbounds i8, ptr %0, i64 328
@@ -137,7 +137,7 @@ declare void @_ZN5ezSATD2Ev(ptr noundef nonnull align 8 dereferenceable(284)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9ezMiniSATD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9ezMiniSAT, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

@@ -1031,7 +1031,7 @@ decode_iei_reset_flag.exit.i:                     ; preds = %236, %225
   ]
 
 251:                                              ; preds = %242
-  %252 = load i32, ptr getelementptr inbounds (%struct.nsip_ip_element_info_t, ptr @ipv4_element, i64 0, i32 1), align 4
+  %252 = load i32, ptr getelementptr inbounds (i8, ptr @ipv4_element, i64 4), align 4
   %253 = trunc i32 %252 to i16
   %254 = add i16 %253, 2
   %255 = getelementptr inbounds i8, ptr %11, i64 10
@@ -1049,7 +1049,7 @@ decode_iei_reset_flag.exit.i:                     ; preds = %236, %225
   br label %280
 
 266:                                              ; preds = %242
-  %267 = load i32, ptr getelementptr inbounds (%struct.nsip_ip_element_info_t, ptr @ipv6_element, i64 0, i32 1), align 4
+  %267 = load i32, ptr getelementptr inbounds (i8, ptr @ipv6_element, i64 4), align 4
   %268 = trunc i32 %267 to i16
   %269 = add i16 %268, 2
   %270 = getelementptr inbounds i8, ptr %11, i64 10

@@ -55,12 +55,12 @@ define internal i32 @setup_listener(ptr noundef %0, i64 noundef %1) #1 {
   br i1 %.not, label %6, label %24
 
 6:                                                ; preds = %2
-  %7 = load i8, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 17), align 8
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 1632), align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i64 0, i32 17), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 976), align 8
   %.not10 = icmp eq ptr %10, null
   br i1 %.not10, label %13, label %11
 
@@ -69,7 +69,7 @@ define internal i32 @setup_listener(ptr noundef %0, i64 noundef %1) #1 {
   br label %13
 
 13:                                               ; preds = %11, %9
-  %14 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i64 0, i32 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 968), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %17, label %15
 
@@ -88,7 +88,7 @@ define internal i32 @setup_listener(ptr noundef %0, i64 noundef %1) #1 {
   call void @PMIx_Argv_free(ptr noundef %21) #3
   %22 = call i32 @PMIx_Info_load(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef %20, i16 noundef zeroext 3) #3
   call void @free(ptr noundef %20) #3
-  %23 = call i32 @PMIx_Job_control_nb(ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i64 noundef 1, ptr noundef nonnull %4, i64 noundef 1, ptr noundef null, ptr noundef null) #3
+  %23 = call i32 @PMIx_Job_control_nb(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i64 noundef 1, ptr noundef nonnull %4, i64 noundef 1, ptr noundef null, ptr noundef null) #3
   call void @PMIx_Info_destruct(ptr noundef nonnull %4) #3
   br label %24
 

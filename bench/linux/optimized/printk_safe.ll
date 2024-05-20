@@ -33,7 +33,7 @@ define dso_local i32 @vprintk(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #3, !srcloc !8
+  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #3, !srcloc !8
   %7 = and i32 %6, 15728640
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %9

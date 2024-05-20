@@ -10110,12 +10110,12 @@ define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZNK5vcpkg10V
 12:                                               ; preds = %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i8 0, i64 32, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 1), i8 0, i64 32, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 1)) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 2), i8 0, i64 24, i1 false)
-  store ptr @.str.61, ptr getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 3), align 8
-  store i64 8, ptr getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 3, i32 0, i32 1), align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 4)) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 32), i8 0, i64 32, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 32)) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 64), i8 0, i64 24, i1 false)
+  store ptr @.str.61, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 88), align 8
+  store i64 8, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 96), align 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 104)) #22
   store ptr @.str.62, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %13, align 8
@@ -10131,7 +10131,7 @@ define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZNK5vcpkg10V
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %3, i64 20
   store i32 %17, ptr %19, align 4
-  invoke void @_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 5), ptr nonnull %3, i64 1, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 136), ptr nonnull %3, i64 1, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %20 unwind label %25
 
 20:                                               ; preds = %18
@@ -10154,9 +10154,9 @@ define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZNK5vcpkg10V
 
 27:                                               ; preds = %23, %25
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 4)) #22
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 2)) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Toolset", ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 0, i32 1)) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 104)) #22
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 64)) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset, i64 32)) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset) #22
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK5vcpkg10VcpkgPaths11get_toolsetERKNS_12PreBuildInfoEE16external_toolset) #22
   resume { ptr, i32 } %.pn
@@ -16787,7 +16787,7 @@ _ZNSt10shared_ptrIN5vcpkg15DownloadManagerEED2Ev.exit.i: ; preds = %_ZNO5vcpkg9E
   store i32 1, ptr %174, align 8, !noalias !322
   %175 = getelementptr inbounds i8, ptr %173, i64 12
   store i32 1, ptr %175, align 4, !noalias !322
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5vcpkg15DownloadManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %173, align 8, !noalias !322
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5vcpkg15DownloadManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %173, align 8, !noalias !322
   %176 = getelementptr inbounds i8, ptr %173, i64 16
   call void @_ZN5vcpkg21DownloadManagerConfigC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %176, ptr noundef nonnull align 8 dereferenceable(200) %45) #22, !noalias !322
   store ptr %176, ptr %160, align 8

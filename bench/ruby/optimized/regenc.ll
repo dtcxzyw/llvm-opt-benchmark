@@ -1402,7 +1402,7 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
   br label %31
 
 31:                                               ; preds = %onigenc_strlen.exit, %onigenc_with_ascii_strnicmp.exit.thread37
-  %indvars.iv = phi ptr [ getelementptr inbounds ([14 x %struct.PosixBracketEntryType], ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 0, i64 0, i32 1, i64 0), %onigenc_strlen.exit ], [ %scevgep, %onigenc_with_ascii_strnicmp.exit.thread37 ]
+  %indvars.iv = phi ptr [ getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 2), %onigenc_strlen.exit ], [ %scevgep, %onigenc_with_ascii_strnicmp.exit.thread37 ]
   %.01327 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %83, %onigenc_with_ascii_strnicmp.exit.thread37 ]
   %32 = load i16, ptr %.01327, align 4
   %33 = sext i16 %32 to i32
@@ -1499,7 +1499,7 @@ onigenc_with_ascii_strnicmp.exit.thread:          ; preds = %35, %onigenc_with_a
 
 onigenc_with_ascii_strnicmp.exit.thread37:        ; preds = %48, %31, %onigenc_with_ascii_strnicmp.exit
   %83 = getelementptr i8, ptr %.01327, i64 12
-  %84 = icmp ult ptr %83, getelementptr inbounds ([14 x %struct.PosixBracketEntryType], ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 1, i64 0)
+  %84 = icmp ult ptr %83, getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 168)
   %scevgep = getelementptr i8, ptr %indvars.iv, i64 12
   br i1 %84, label %31, label %.loopexit, !llvm.loop !19
 

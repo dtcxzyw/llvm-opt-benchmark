@@ -56,7 +56,7 @@ entry:
 define dso_local void @_ZN4absl15random_internal21ThrowSeedGenExceptionEv() local_unnamed_addr #6 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl16SeedGenExceptionE, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl16SeedGenExceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4absl16SeedGenExceptionE, ptr nonnull @_ZN4absl16SeedGenExceptionD2Ev) #10
   unreachable
 }

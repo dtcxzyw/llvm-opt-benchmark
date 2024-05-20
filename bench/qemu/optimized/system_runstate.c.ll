@@ -307,11 +307,11 @@ for.inc.i:                                        ; preds = %for.body.i
 do.body15.i:                                      ; preds = %for.inc.i, %entry
   %entries16.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %entries16.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   %tql_prev18.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %3, ptr %tql_prev18.i, align 8
   store ptr %call.i, ptr %3, align 8
-  store ptr %entries16.i, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  store ptr %entries16.i, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   br label %qemu_add_vm_change_state_handler_prio_full.exit
 
 qemu_add_vm_change_state_handler_prio_full.exit:  ; preds = %do.body.i, %do.body15.i
@@ -361,11 +361,11 @@ for.inc:                                          ; preds = %for.body
 do.body15:                                        ; preds = %for.inc, %entry
   %entries16 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %entries16, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   %tql_prev18 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %3, ptr %tql_prev18, align 8
   store ptr %call, ptr %3, align 8
-  store ptr %entries16, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  store ptr %entries16, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   br label %return
 
 return:                                           ; preds = %do.body15, %do.body
@@ -415,11 +415,11 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 do.body15.i.i:                                    ; preds = %for.inc.i.i, %entry
   %entries16.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr null, ptr %entries16.i.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   %tql_prev18.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %3, ptr %tql_prev18.i.i, align 8
   store ptr %call.i.i, ptr %3, align 8
-  store ptr %entries16.i.i, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  store ptr %entries16.i.i, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   br label %qemu_add_vm_change_state_handler_prio.exit
 
 qemu_add_vm_change_state_handler_prio.exit:       ; preds = %do.body.i.i, %do.body15.i.i
@@ -443,7 +443,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store ptr %1, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -539,7 +539,7 @@ land.rhs9:                                        ; preds = %for.end, %land.rhs9
   br i1 %tobool8.not, label %if.end51, label %land.rhs9, !llvm.loop !8
 
 if.else:                                          ; preds = %trace_vm_state_notify.exit
-  %13 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %tql_prev, align 8
   %15 = load ptr, ptr %14, align 8
@@ -569,7 +569,7 @@ for.inc33:                                        ; preds = %land.rhs19, %if.the
   br i1 %tobool18.not, label %for.end34, label %land.rhs19, !llvm.loop !9
 
 for.end34:                                        ; preds = %for.inc33
-  %.pre = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @vm_change_state_head, i64 8), align 8
   %tql_prev35.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre42 = load ptr, ptr %tql_prev35.phi.trans.insert, align 8
   %.pre43 = load ptr, ptr %.pre42, align 8

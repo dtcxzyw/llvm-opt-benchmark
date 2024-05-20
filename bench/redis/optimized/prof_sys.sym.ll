@@ -114,35 +114,35 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @prof_get_default_filename(ptr noundef %tsdn, ptr noundef %filename, i64 noundef %ind) local_unnamed_addr #1 {
 entry:
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @prof_dump_filename_mtx) #8
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 104) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 56), align 8
   %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsdn, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %tsdn, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 48), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 40), align 8
   %inc2.i.i = add i64 %2, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 40), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %call.i = tail call i32 @getpid() #8
   %call2 = tail call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef %filename, i64 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @opt_prof_prefix, i32 noundef %call.i, i64 noundef %ind) #8
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 104) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   ret void
 }
 
@@ -151,7 +151,7 @@ declare i64 @malloc_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @prof_fdump_impl(ptr nocapture noundef readnone %tsd) local_unnamed_addr #5 {
 entry:
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   %cmp.i.not.i = icmp ne i32 %call.i.i, 0
   tail call void @llvm.assume(i1 %cmp.i.not.i)
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @prof_dump_filename_mtx) #8
@@ -167,36 +167,36 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @prof_idump_impl(ptr noundef %tsd) local_unnamed_addr #1 {
 entry:
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @prof_dump_filename_mtx) #8
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 104) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 56), align 8
   %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsd, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %tsd, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 48), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 40), align 8
   %inc2.i.i = add i64 %2, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 40), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %3 = load i8, ptr @opt_prof_prefix, align 1
   %cmp = icmp eq i8 %3, 0
   tail call void @llvm.assume(i1 %cmp)
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 104) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   ret void
 }
 
@@ -205,72 +205,72 @@ define hidden noundef zeroext i1 @prof_mdump_impl(ptr noundef %tsd, ptr noundef 
 entry:
   %cmp = icmp eq ptr %filename, null
   tail call void @llvm.assume(i1 %cmp)
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @prof_dump_filename_mtx) #8
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 104) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 56), align 8
   %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsd, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %tsd, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 48), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 40), align 8
   %inc2.i.i = add i64 %2, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 40), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %3 = load i8, ptr @opt_prof_prefix, align 1
   %cmp3 = icmp eq i8 %3, 0
   tail call void @llvm.assume(i1 %cmp3)
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 104) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @prof_gdump_impl(ptr noundef %tsd) local_unnamed_addr #1 {
 entry:
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @prof_dump_filename_mtx) #8
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 104) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 56), align 8
   %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsd, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %tsd, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 48), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 40), align 8
   %inc2.i.i = add i64 %2, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 40), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %3 = load i8, ptr @opt_prof_prefix, align 1
   %cmp = icmp eq i8 %3, 0
   tail call void @llvm.assume(i1 %cmp)
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @prof_dump_filename_mtx, i64 0, i32 0, i32 0, i32 1)) #8
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 104) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   ret void
 }
 

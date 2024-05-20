@@ -302,7 +302,7 @@ select.unfold:                                    ; preds = %118, %102
   %.478 = phi i32 [ %.276175, %.thread ], [ 256, %29 ], [ %.377, %123 ], [ %.074126, %37 ], [ %.276175, %78 ], [ %.276175, %99 ], [ %.276175, %select.unfold ], [ %.074126, %57 ], [ %.276175, %87 ]
   %.4 = phi i32 [ 10, %.thread ], [ 0, %29 ], [ 0, %123 ], [ %40, %37 ], [ %79, %78 ], [ %101, %99 ], [ %112, %select.unfold ], [ 20, %57 ], [ 1, %87 ]
   %.2 = phi i32 [ 0, %.thread ], [ 0, %29 ], [ %.1, %123 ], [ %.065129, %37 ], [ 18, %78 ], [ 0, %99 ], [ 0, %select.unfold ], [ %.065129, %57 ], [ %71, %87 ]
-  %127 = load ptr, ptr getelementptr inbounds (%struct.ISzAlloc, ptr @allocImp, i64 0, i32 1), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @allocImp, i64 8), align 8
   %128 = load ptr, ptr %8, align 8
   call void %127(ptr noundef nonnull @allocImp, ptr noundef %128) #6
   %129 = icmp sgt i32 %.478, 256

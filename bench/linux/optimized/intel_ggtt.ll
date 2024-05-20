@@ -1450,7 +1450,7 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
 
 264:                                              ; preds = %256, %.thread
   %265 = phi ptr [ %262, %256 ], [ null, %.thread ]
-  %266 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @intel_graphics_stolen_res, i64 0, i32 1), align 8
+  %266 = load i64, ptr getelementptr inbounds (i8, ptr @intel_graphics_stolen_res, i64 8), align 8
   %267 = load i64, ptr @intel_graphics_stolen_res, align 8
   %268 = add i64 %266, 1
   %269 = sub i64 %268, %267

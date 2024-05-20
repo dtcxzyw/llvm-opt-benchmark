@@ -1196,11 +1196,11 @@ define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not46, label %11, label %12
 
 11:                                               ; preds = %8
-  store ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 3), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @expr, i64 16), ptr %9, align 8
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = phi ptr [ getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 3), %11 ], [ %10, %8 ]
+  %13 = phi ptr [ getelementptr inbounds (i8, ptr @expr, i64 16), %11 ], [ %10, %8 ]
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %3, ptr %14, align 8
   %.not47 = icmp eq ptr %3, null
@@ -1264,7 +1264,7 @@ define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %40, label %.sink.split, label %41
 
 .sink.split:                                      ; preds = %39, %36
-  store i32 %2, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %41
 
 41:                                               ; preds = %.sink.split, %39, %36
@@ -1276,18 +1276,18 @@ define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef 
   %45 = getelementptr inbounds i8, ptr %0, i64 856
   store i32 0, ptr %45, align 8
   store ptr %5, ptr %9, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 5), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %46, ptr %47, align 8
   %48 = icmp sgt i32 %2, -1
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %41
-  store ptr %.1, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 5), align 8
+  store ptr %.1, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
   br label %50
 
 50:                                               ; preds = %49, %41
-  %51 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %52 = getelementptr inbounds i8, ptr %5, i64 32
   store i32 %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %5, i64 36
@@ -1298,10 +1298,10 @@ define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef 
   %55 = zext i1 %54 to i32
   %56 = getelementptr inbounds i8, ptr %5, i64 44
   store i32 %55, ptr %56, align 4
-  %57 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %57, ptr %58, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br label %59
 
 59:                                               ; preds = %50, %6
@@ -1355,7 +1355,7 @@ define range(i32 -1, 1) i32 @expop(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %12, %9
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 5), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %16, align 8
   %.not33 = icmp eq ptr %17, null
@@ -1391,7 +1391,7 @@ define range(i32 -1, 1) i32 @expop(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %.preheader, %.preheader, %18, %21, %24, %13
   %storemerge.in = getelementptr inbounds i8, ptr %3, i64 32
   %storemerge = load i32, ptr %storemerge.in, align 8
-  store i32 %storemerge, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not38 = icmp eq ptr %31, null
@@ -1425,7 +1425,7 @@ define range(i32 -1, 1) i32 @expop(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not40, label %47, label %46
 
 46:                                               ; preds = %37
-  store ptr %45, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br label %47
 
 47:                                               ; preds = %37, %46, %1, %4, %6
@@ -1472,7 +1472,7 @@ define range(i32 -1, 1) i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 0, ptr %21, align 4
   %22 = tail call i32 @expop(ptr noundef nonnull %0)
   store i32 %7, ptr %6, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 9), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
   %.not25 = icmp eq i32 %23, 0
   br i1 %.not25, label %41, label %24
 
@@ -1495,9 +1495,9 @@ define range(i32 -1, 1) i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef 
   %32 = load ptr, ptr %25, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %32, ptr noundef nonnull %.02430, i32 noundef 2) #21
-  %35 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 9), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
   %36 = add nsw i32 %35, -1
-  store i32 %36, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 9), align 8
+  store i32 %36, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
   %.not28 = icmp eq i32 %36, 0
   br i1 %.not28, label %._crit_edge, label %37
 
@@ -1509,7 +1509,7 @@ define range(i32 -1, 1) i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %37, %31, %24
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 9), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
   br label %41
 
 41:                                               ; preds = %9, %._crit_edge, %5
@@ -1678,7 +1678,7 @@ yy_stack_print.exit:                              ; preds = %.lr.ph.i, %18
   br label %76
 
 76:                                               ; preds = %71, %73
-  %77 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %78 = call i32 @extoken_fn(ptr noundef %77) #21
   store i32 %78, ptr @ex_char, align 4
   br label %79
@@ -1983,7 +1983,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   br i1 %.not896, label %.loopexit1006, label %181
 
 181:                                              ; preds = %178
-  %182 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 280
   %184 = load ptr, ptr %183, align 8
   %.not897 = icmp eq ptr %184, null
@@ -2006,12 +2006,12 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   %193 = load ptr, ptr %192, align 8
   store ptr %193, ptr %179, align 8
   store ptr null, ptr %192, align 8
-  %194 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   call void @exfreenode(ptr noundef %194, ptr noundef nonnull %187)
   br label %195
 
 195:                                              ; preds = %191, %186
-  %196 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 240
   store i64 293, ptr %197, align 8
   %198 = load ptr, ptr %179, align 8
@@ -2027,13 +2027,13 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   store i32 1, ptr %203, align 8
   %205 = getelementptr inbounds i8, ptr %202, i64 40
   store ptr %198, ptr %205, align 8
-  %206 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 280
   store ptr %202, ptr %207, align 8
   br label %.loopexit1006
 
 208:                                              ; preds = %yy_reduce_print.exit
-  %209 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %.not891 = icmp eq ptr %209, null
   br i1 %.not891, label %211, label %210
 
@@ -2046,7 +2046,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 16
   store i64 293, ptr %214, align 8
-  %215 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %216 = load ptr, ptr %212, align 8
   %217 = getelementptr inbounds i8, ptr %216, i64 32
   %218 = load i64, ptr %217, align 8
@@ -2065,7 +2065,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   %226 = load ptr, ptr %212, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 56
   store ptr %222, ptr %227, align 8
-  store ptr %222, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  store ptr %222, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   store i32 259, ptr %222, align 8
   %228 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #22
   %.not892 = icmp eq ptr %228, null
@@ -2077,7 +2077,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
 
 231:                                              ; preds = %229, %211
   store i32 80, ptr %228, align 8
-  %232 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 7), align 8
+  %232 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 104), align 8
   %.not893 = icmp eq i32 %232, 0
   br i1 %.not893, label %.loopexit1006, label %233
 
@@ -2091,17 +2091,17 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
 238:                                              ; preds = %233
   %239 = load ptr, ptr @Dtset, align 8
   %240 = call ptr @dtopen(ptr noundef nonnull %228, ptr noundef %239) #21
-  %241 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 48
   store ptr %240, ptr %242, align 8
   %.not894 = icmp eq ptr %240, null
   br i1 %.not894, label %251, label %243
 
 243:                                              ; preds = %238
-  %244 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %244 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 48
   %246 = load ptr, ptr %245, align 8
-  %247 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8
   %250 = call ptr @dtview(ptr noundef %246, ptr noundef %249) #21
@@ -2113,10 +2113,10 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   br label %253
 
 253:                                              ; preds = %251, %243
-  %254 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %254 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 48
   %256 = load ptr, ptr %255, align 8
-  %257 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 112
   store ptr %256, ptr %258, align 8
   %259 = getelementptr inbounds i8, ptr %257, i64 8
@@ -2124,8 +2124,8 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   br label %.loopexit1006
 
 260:                                              ; preds = %yy_reduce_print.exit
-  store ptr null, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
-  %261 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 112
   %263 = load ptr, ptr %262, align 8
   %.not889 = icmp eq ptr %263, null
@@ -2136,11 +2136,11 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   %266 = load ptr, ptr %265, align 8
   %267 = getelementptr inbounds i8, ptr %261, i64 8
   store ptr %266, ptr %267, align 8
-  %268 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %268 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %269 = getelementptr inbounds i8, ptr %268, i64 112
   %270 = load ptr, ptr %269, align 8
   %271 = call ptr @dtview(ptr noundef %270, ptr noundef null) #21
-  %272 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %272 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %273 = getelementptr inbounds i8, ptr %272, i64 112
   store ptr null, ptr %273, align 8
   br label %274
@@ -2162,9 +2162,9 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   %283 = load ptr, ptr %282, align 8
   store ptr %283, ptr %.2703, align 8
   store ptr null, ptr %282, align 8
-  %284 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %284 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   call void @exfreenode(ptr noundef %284, ptr noundef nonnull %276)
-  %.pre1077 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %.pre1077 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %.pre1078 = load ptr, ptr %.2703, align 8
   br label %285
 
@@ -2202,7 +2202,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   %305 = getelementptr inbounds i8, ptr %301, i64 4
   %306 = load i32, ptr %305, align 4
   %307 = icmp eq i32 %306, 271
-  %308 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %308 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br i1 %307, label %309, label %311
 
 309:                                              ; preds = %304
@@ -2244,7 +2244,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   br i1 %328, label %329, label %.loopexit1006
 
 329:                                              ; preds = %326
-  %330 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %330 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 96
   %332 = load ptr, ptr %331, align 8
   %333 = call ptr @vmalloc(ptr noundef %332, i64 noundef 72) #21
@@ -2261,7 +2261,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
 337:                                              ; preds = %yy_reduce_print.exit
   %338 = load i64, ptr %.2703, align 8
   %339 = trunc i64 %338 to i32
-  store i32 %339, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 8), align 4
+  store i32 %339, ptr getelementptr inbounds (i8, ptr @expr, i64 108), align 4
   br label %.loopexit1006
 
 340:                                              ; preds = %yy_reduce_print.exit
@@ -2269,13 +2269,13 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
   %342 = getelementptr inbounds i8, ptr %341, i64 32
   %343 = load i64, ptr %342, align 8
   %344 = trunc i64 %343 to i32
-  store i32 %344, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store i32 %344, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   br label %.loopexit1006
 
 345:                                              ; preds = %yy_reduce_print.exit
   %346 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %347 = load ptr, ptr %346, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   br label %.loopexit1006
 
 348:                                              ; preds = %yy_reduce_print.exit
@@ -2304,7 +2304,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br i1 %359, label %360, label %368
 
 360:                                              ; preds = %exisAssign.exit.thread
-  %361 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %361 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %362 = getelementptr inbounds i8, ptr %361, i64 96
   %363 = load ptr, ptr %362, align 8
   %364 = call ptr @vmalloc(ptr noundef %363, i64 noundef 72) #21
@@ -2324,7 +2324,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br i1 %or.cond, label %373, label %370
 
 370:                                              ; preds = %368
-  %371 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %371 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %372 = call ptr @excast(ptr noundef %371, ptr noundef nonnull %357, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split
 
@@ -2335,7 +2335,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
 
 373:                                              ; preds = %.sink.split, %368
   %374 = phi ptr [ %357, %368 ], [ %.sink1103, %.sink.split ]
-  %375 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %375 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %376 = getelementptr inbounds i8, ptr %.2703, i64 -40
   %377 = load ptr, ptr %376, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 24
@@ -2381,7 +2381,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br label %.loopexit1006
 
 401:                                              ; preds = %yy_reduce_print.exit
-  %402 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %402 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %403 = getelementptr inbounds i8, ptr %402, i64 96
   %404 = load ptr, ptr %403, align 8
   %405 = call ptr @vmalloc(ptr noundef %404, i64 noundef 72) #21
@@ -2438,7 +2438,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
 
 430:                                              ; preds = %429, %426, %418
   %431 = phi ptr [ %.pre1075, %429 ], [ %422, %426 ], [ %422, %418 ]
-  %432 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %432 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %433 = getelementptr inbounds i8, ptr %431, i64 48
   %434 = load ptr, ptr %433, align 8
   call void @exfreenode(ptr noundef %432, ptr noundef %434)
@@ -2457,7 +2457,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br i1 %.not879, label %442, label %451
 
 442:                                              ; preds = %439
-  %443 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %443 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 96
   %445 = load ptr, ptr %444, align 8
   %446 = call ptr @vmalloc(ptr noundef %445, i64 noundef 72) #21
@@ -2480,7 +2480,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br i1 %453, label %454, label %462
 
 454:                                              ; preds = %451
-  %455 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %455 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %456 = getelementptr inbounds i8, ptr %455, i64 96
   %457 = load ptr, ptr %456, align 8
   %458 = call ptr @vmalloc(ptr noundef %457, i64 noundef 72) #21
@@ -2501,14 +2501,14 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br i1 %or.cond908, label %467, label %464
 
 464:                                              ; preds = %462
-  %465 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %465 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %466 = call ptr @excast(ptr noundef %465, ptr noundef nonnull %441, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %466, ptr %440, align 8
   br label %467
 
 467:                                              ; preds = %462, %454, %464, %442
   %468 = phi ptr [ %441, %462 ], [ %458, %454 ], [ %466, %464 ], [ %.pre1071, %442 ]
-  %469 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %469 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %470 = getelementptr inbounds i8, ptr %.2703, i64 -64
   %471 = load ptr, ptr %470, align 8
   %472 = getelementptr inbounds i8, ptr %471, i64 24
@@ -2548,7 +2548,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br i1 %.not880, label %.loopexit1006, label %493
 
 493:                                              ; preds = %467
-  %494 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %494 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %495 = getelementptr inbounds i8, ptr %494, i64 96
   %496 = load ptr, ptr %495, align 8
   %497 = call ptr @vmalloc(ptr noundef %496, i64 noundef 72) #21
@@ -2565,7 +2565,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br label %.loopexit1006
 
 502:                                              ; preds = %yy_reduce_print.exit
-  %503 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %503 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %504 = getelementptr inbounds i8, ptr %503, i64 96
   %505 = load ptr, ptr %504, align 8
   %506 = call ptr @vmalloc(ptr noundef %505, i64 noundef 72) #21
@@ -2622,7 +2622,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
 
 531:                                              ; preds = %530, %527, %519
   %532 = phi ptr [ %.pre1070, %530 ], [ %523, %527 ], [ %523, %519 ]
-  %533 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %533 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %534 = getelementptr inbounds i8, ptr %532, i64 48
   %535 = load ptr, ptr %534, align 8
   call void @exfreenode(ptr noundef %533, ptr noundef %535)
@@ -2648,7 +2648,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br label %548
 
 548:                                              ; preds = %546, %540
-  %549 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %549 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %550 = getelementptr inbounds i8, ptr %549, i64 96
   %551 = load ptr, ptr %550, align 8
   %552 = call ptr @vmalloc(ptr noundef %551, i64 noundef 72) #21
@@ -2710,7 +2710,7 @@ exisAssign.exit.thread:                           ; preds = %348, %356, %exisAss
   br label %extypename.exit
 
 587:                                              ; preds = %576
-  %588 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %588 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %589 = getelementptr inbounds i8, ptr %588, i64 160
   %590 = load ptr, ptr %589, align 8
   %591 = getelementptr inbounds i8, ptr %590, i64 72
@@ -2736,7 +2736,7 @@ extypename.exit:                                  ; preds = %580, %587
   br label %extypename.exit923
 
 603:                                              ; preds = %extypename.exit
-  %604 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %604 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %605 = getelementptr inbounds i8, ptr %604, i64 160
   %606 = load ptr, ptr %605, align 8
   %607 = getelementptr inbounds i8, ptr %606, i64 72
@@ -2750,7 +2750,7 @@ extypename.exit923:                               ; preds = %596, %603
   br label %610
 
 610:                                              ; preds = %extypename.exit923, %571, %566
-  %611 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %611 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %612 = getelementptr inbounds i8, ptr %611, i64 96
   %613 = load ptr, ptr %612, align 8
   %614 = call ptr @vmalloc(ptr noundef %613, i64 noundef 72) #21
@@ -2795,7 +2795,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %633, label %634, label %642
 
 634:                                              ; preds = %exisAssign.exit924.thread
-  %635 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %635 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %636 = getelementptr inbounds i8, ptr %635, i64 96
   %637 = load ptr, ptr %636, align 8
   %638 = call ptr @vmalloc(ptr noundef %637, i64 noundef 72) #21
@@ -2815,7 +2815,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %or.cond909, label %647, label %644
 
 644:                                              ; preds = %642
-  %645 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %645 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %646 = call ptr @excast(ptr noundef %645, ptr noundef nonnull %631, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split1104
 
@@ -2826,7 +2826,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 
 647:                                              ; preds = %.sink.split1104, %642
   %648 = phi ptr [ %631, %642 ], [ %.sink1106, %.sink.split1104 ]
-  %649 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %649 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %650 = getelementptr inbounds i8, ptr %.2703, i64 -32
   %651 = load ptr, ptr %650, align 8
   %652 = getelementptr inbounds i8, ptr %651, i64 24
@@ -2861,12 +2861,12 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 668:                                              ; preds = %yy_reduce_print.exit
   %669 = load ptr, ptr %.2703, align 8
   %670 = load i32, ptr %669, align 8
-  store i32 %670, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store i32 %670, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   br label %.loopexit1006
 
 671:                                              ; preds = %yy_reduce_print.exit
-  %672 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
-  %673 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %672 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %673 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %674 = getelementptr inbounds i8, ptr %.2703, i64 -56
   %675 = load ptr, ptr %674, align 8
   %676 = getelementptr inbounds i8, ptr %675, i64 24
@@ -2903,9 +2903,9 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   store ptr %680, ptr %696, align 8
   %697 = getelementptr inbounds i8, ptr %693, i64 40
   store ptr %687, ptr %697, align 8
-  %698 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %698 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %699 = load ptr, ptr %698, align 8
-  store ptr %699, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  store ptr %699, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %700 = getelementptr inbounds i8, ptr %672, i64 32
   %701 = load ptr, ptr %700, align 8
   call void @free(ptr noundef %701) #21
@@ -2917,7 +2917,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %703
 
 703:                                              ; preds = %702, %671
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   br label %.loopexit1006
 
 704:                                              ; preds = %yy_reduce_print.exit, %yy_reduce_print.exit
@@ -2927,7 +2927,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %.not872, label %707, label %716
 
 707:                                              ; preds = %704
-  %708 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %708 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %709 = getelementptr inbounds i8, ptr %708, i64 96
   %710 = load ptr, ptr %709, align 8
   %711 = call ptr @vmalloc(ptr noundef %710, i64 noundef 72) #21
@@ -2951,14 +2951,14 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %or.cond910, label %722, label %719
 
 719:                                              ; preds = %716
-  %720 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %720 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %721 = call ptr @excast(ptr noundef %720, ptr noundef nonnull %706, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %721, ptr %705, align 8
   br label %722
 
 722:                                              ; preds = %716, %719, %707
   %723 = phi ptr [ %706, %716 ], [ %721, %719 ], [ %.pre1062, %707 ]
-  %724 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %724 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %725 = getelementptr inbounds i8, ptr %.2703, i64 -16
   %726 = load ptr, ptr %725, align 8
   %727 = getelementptr inbounds i8, ptr %726, i64 24
@@ -2984,16 +2984,16 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %.not867, label %.thread996, label %740
 
 .thread996:                                       ; preds = %736
-  %739 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %739 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br label %757
 
 740:                                              ; preds = %736
-  %741 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %741 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %.not868 = icmp eq ptr %741, null
   br i1 %.not868, label %.thread, label %743
 
 .thread:                                          ; preds = %740
-  %742 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %742 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br label %749
 
 743:                                              ; preds = %740
@@ -3002,13 +3002,13 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %.not869, label %746, label %.thread994
 
 .thread994:                                       ; preds = %743
-  %745 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %745 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br label %749
 
 746:                                              ; preds = %743
   call void (ptr, ...) @exerror(ptr noundef nonnull @.str.28) #21
-  %.pr = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
-  %747 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %747 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %748 = load ptr, ptr %737, align 8
   %.not870 = icmp eq ptr %.pr, null
   br i1 %.not870, label %749, label %._crit_edge1060
@@ -3023,7 +3023,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %752 = phi i32 [ 259, %746 ], [ 259, %.thread ], [ %744, %.thread994 ], [ %.pre1061, %._crit_edge1060 ]
   %753 = call ptr @excast(ptr noundef %751, ptr noundef %750, i32 noundef %752, ptr noundef null, i32 noundef 0)
   store ptr %753, ptr %737, align 8
-  %754 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %754 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %.not871 = icmp eq ptr %753, null
   br i1 %.not871, label %757, label %755
 
@@ -3049,7 +3049,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 767:                                              ; preds = %yy_reduce_print.exit
-  %768 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %768 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %.not864 = icmp eq ptr %768, null
   br i1 %.not864, label %775, label %769
 
@@ -3060,7 +3060,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 
 771:                                              ; preds = %769
   %772 = call ptr @exnospace() #21
-  %.pre1058 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %.pre1058 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   br label %773
 
 773:                                              ; preds = %771, %769
@@ -3071,8 +3071,8 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 
 775:                                              ; preds = %767, %773
   %.1718 = phi ptr [ %.0717, %773 ], [ @swstate, %767 ]
-  store ptr %.1718, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
-  %776 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store ptr %.1718, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %776 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   %777 = getelementptr inbounds i8, ptr %.1718, i64 60
   store i32 %776, ptr %777, align 4
   %778 = getelementptr inbounds i8, ptr %.1718, i64 8
@@ -3101,8 +3101,8 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 789:                                              ; preds = %yy_reduce_print.exit
-  %790 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
-  %791 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %790 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %791 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %792 = load ptr, ptr %.2703, align 8
   %793 = getelementptr inbounds i8, ptr %791, i64 96
   %794 = load ptr, ptr %793, align 8
@@ -3148,7 +3148,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %815 = ptrtoint ptr %812 to i64
   %816 = sub i64 %814, %815
   store ptr %812, ptr %799, align 8
-  %817 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %817 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %818 = getelementptr inbounds i8, ptr %817, i64 96
   %819 = load ptr, ptr %818, align 8
   %820 = add i64 %816, 8
@@ -3185,7 +3185,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 835:                                              ; preds = %yy_reduce_print.exit
-  %836 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %836 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %837 = getelementptr inbounds i8, ptr %836, i64 40
   %838 = load ptr, ptr %837, align 8
   %839 = getelementptr inbounds i8, ptr %836, i64 48
@@ -3202,7 +3202,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %847 = ashr exact i64 %846, 3
   %848 = shl i64 %846, 1
   %849 = call ptr @realloc(ptr noundef %843, i64 noundef %848) #27
-  %850 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %850 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %851 = getelementptr inbounds i8, ptr %850, i64 32
   store ptr %849, ptr %851, align 8
   %.not859 = icmp eq ptr %849, null
@@ -3214,20 +3214,20 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 
 853:                                              ; preds = %852, %841
   %.0719 = phi i64 [ %847, %841 ], [ 0, %852 ]
-  %854 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %854 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %855 = getelementptr inbounds i8, ptr %854, i64 32
   %856 = load ptr, ptr %855, align 8
   %857 = getelementptr inbounds ptr, ptr %856, i64 %.0719
   %858 = getelementptr inbounds i8, ptr %854, i64 40
   store ptr %857, ptr %858, align 8
-  %859 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %859 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %860 = getelementptr inbounds i8, ptr %859, i64 32
   %861 = load ptr, ptr %860, align 8
   %862 = shl nsw i64 %.0719, 1
   %863 = getelementptr inbounds ptr, ptr %861, i64 %862
   %864 = getelementptr inbounds i8, ptr %859, i64 48
   store ptr %863, ptr %864, align 8
-  %.pre1053 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %.pre1053 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %.phi.trans.insert1054 = getelementptr inbounds i8, ptr %.pre1053, i64 40
   %.pre1055 = load ptr, ptr %.phi.trans.insert1054, align 8
   br label %865
@@ -3239,7 +3239,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %.not860, label %.loopexit1006, label %868
 
 868:                                              ; preds = %865
-  %869 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %869 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %870 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %871 = load ptr, ptr %870, align 8
   %872 = getelementptr inbounds i8, ptr %867, i64 60
@@ -3247,7 +3247,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %874 = call ptr @excast(ptr noundef %869, ptr noundef %871, i32 noundef %873, ptr noundef null, i32 noundef 0)
   store ptr %874, ptr %870, align 8
   %875 = getelementptr inbounds i8, ptr %874, i64 32
-  %876 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %876 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %877 = getelementptr inbounds i8, ptr %876, i64 40
   %878 = load ptr, ptr %877, align 8
   %879 = getelementptr inbounds i8, ptr %878, i64 8
@@ -3256,7 +3256,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 880:                                              ; preds = %yy_reduce_print.exit
-  %881 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 10), align 8
+  %881 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
   %882 = getelementptr inbounds i8, ptr %881, i64 56
   store i32 1, ptr %882, align 8
   br label %.loopexit1006
@@ -3279,7 +3279,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %.not857, label %.loopexit1006, label %890
 
 890:                                              ; preds = %887
-  %891 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %891 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %892 = load i32, ptr %886, align 8
   %893 = getelementptr inbounds i8, ptr %891, i64 96
   %894 = load ptr, ptr %893, align 8
@@ -3309,7 +3309,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %906 = getelementptr inbounds i8, ptr %905, i64 32
   %907 = load i64, ptr %906, align 8
   %908 = icmp eq i64 %907, 0
-  %909 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  %909 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   %910 = icmp ne i32 %909, 0
   %or.cond5 = select i1 %908, i1 true, i1 %910
   br i1 %or.cond5, label %911, label %913
@@ -3354,7 +3354,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %930 = phi ptr [ %.pre1047, %._crit_edge1046 ], [ %.pre1048, %915 ]
   %931 = getelementptr inbounds i8, ptr %930, i64 16
   store i64 275, ptr %931, align 8
-  %932 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %932 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %933 = getelementptr inbounds i8, ptr %932, i64 96
   %934 = load ptr, ptr %933, align 8
   %935 = call ptr @vmalloc(ptr noundef %934, i64 noundef 72) #21
@@ -3444,7 +3444,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 978:                                              ; preds = %971
   %979 = trunc i64 %977 to i32
   store i32 %979, ptr %972, align 8
-  %980 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %980 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %981 = load ptr, ptr %.2703, align 8
   %982 = getelementptr inbounds i8, ptr %981, i64 40
   %983 = load ptr, ptr %982, align 8
@@ -3463,7 +3463,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 
 991:                                              ; preds = %978, %971
   %992 = phi i64 [ %.pre1052, %978 ], [ %974, %971 ]
-  %993 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %993 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %994 = trunc i64 %992 to i32
   %995 = getelementptr inbounds i8, ptr %993, i64 96
   %996 = load ptr, ptr %995, align 8
@@ -3529,7 +3529,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1033, label %.loopexit1006, label %1034
 
 1034:                                             ; preds = %1025
-  %1035 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1035 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1036 = trunc i64 %1032 to i32
   %1037 = call ptr @excast(ptr noundef %1035, ptr noundef nonnull %1026, i32 noundef %1036, ptr noundef null, i32 noundef 0)
   br label %.loopexit1006
@@ -3588,7 +3588,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1057, label %1058, label %1061
 
 1058:                                             ; preds = %1056
-  %1059 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1059 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1060 = call ptr @excast(ptr noundef %1059, ptr noundef nonnull %1052, i32 noundef %1055, ptr noundef nonnull %1054, i32 noundef 0)
   store ptr %1060, ptr %1040, align 8
   br label %1076
@@ -3598,7 +3598,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1062, label %1063, label %1066
 
 1063:                                             ; preds = %1061
-  %1064 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1064 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1065 = call ptr @excast(ptr noundef %1064, ptr noundef nonnull %1054, i32 noundef %1053, ptr noundef nonnull %1052, i32 noundef 0)
   store ptr %1065, ptr %.2703, align 8
   br label %1076
@@ -3608,7 +3608,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1067, label %1068, label %1071
 
 1068:                                             ; preds = %1066
-  %1069 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1069 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1070 = call ptr @excast(ptr noundef %1069, ptr noundef nonnull %1054, i32 noundef 262, ptr noundef nonnull %1052, i32 noundef 0)
   store ptr %1070, ptr %.2703, align 8
   br label %1076
@@ -3618,7 +3618,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1072, label %1073, label %1076
 
 1073:                                             ; preds = %1071
-  %1074 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1074 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1075 = call ptr @excast(ptr noundef %1074, ptr noundef nonnull %1052, i32 noundef 262, ptr noundef nonnull %1054, i32 noundef 0)
   store ptr %1075, ptr %1040, align 8
   br label %1076
@@ -3644,7 +3644,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 
 1082:                                             ; preds = %1079, %.fold.split, %1077, %1076
   %.1716 = phi i32 [ %.0715, %1076 ], [ %1078, %1077 ], [ %1081, %1079 ], [ 260, %.fold.split ]
-  %1083 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1083 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1084 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %1085 = load i32, ptr %1084, align 8
   %1086 = load ptr, ptr %.2703, align 8
@@ -3661,7 +3661,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   store ptr %.pre1043, ptr %1092, align 8
   %1093 = getelementptr inbounds i8, ptr %1089, i64 40
   store ptr %1086, ptr %1093, align 8
-  %1094 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1094 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1095 = getelementptr inbounds i8, ptr %1094, i64 860
   %1096 = load i32, ptr %1095, align 4
   %.not848 = icmp eq i32 %1096, 0
@@ -3693,7 +3693,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1108, label %1109, label %1114
 
 1109:                                             ; preds = %1105
-  %1110 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1110 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1111 = getelementptr inbounds i8, ptr %1110, i64 96
   %1112 = load ptr, ptr %1111, align 8
   %1113 = call ptr @vmstrdup(ptr noundef %1112, ptr noundef %1106) #21
@@ -3703,10 +3703,10 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 1114:                                             ; preds = %1109, %1105
   store i32 0, ptr %1090, align 8
   store i32 271, ptr %1091, align 4
-  %1115 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1115 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1116 = load ptr, ptr %1040, align 8
   call void @exfreenode(ptr noundef %1115, ptr noundef %1116)
-  %1117 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1117 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1118 = load ptr, ptr %.2703, align 8
   call void @exfreenode(ptr noundef %1117, ptr noundef %1118)
   br label %.loopexit1006
@@ -3734,7 +3734,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1130, label %1131, label %1139
 
 1131:                                             ; preds = %1126
-  %1132 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1132 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1133 = getelementptr inbounds i8, ptr %1132, i64 96
   %1134 = load ptr, ptr %1133, align 8
   %1135 = call ptr @vmalloc(ptr noundef %1134, i64 noundef 72) #21
@@ -3753,7 +3753,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1140, label %1144, label %1141
 
 1141:                                             ; preds = %1139
-  %1142 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1142 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1143 = call ptr @excast(ptr noundef %1142, ptr noundef nonnull %1128, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split1109
 
@@ -3769,7 +3769,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1147, label %1148, label %1156
 
 1148:                                             ; preds = %1144
-  %1149 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1149 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1150 = getelementptr inbounds i8, ptr %1149, i64 96
   %1151 = load ptr, ptr %1150, align 8
   %1152 = call ptr @vmalloc(ptr noundef %1151, i64 noundef 72) #21
@@ -3788,7 +3788,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1157, label %1038, label %1158
 
 1158:                                             ; preds = %1156
-  %1159 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1159 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1160 = call ptr @excast(ptr noundef %1159, ptr noundef nonnull %1145, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split1107
 
@@ -3798,7 +3798,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %1164 = getelementptr inbounds i8, ptr %1163, i64 4
   %1165 = load i32, ptr %1164, align 4
   %1166 = icmp eq i32 %1165, 271
-  %1167 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1167 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br i1 %1166, label %1168, label %1170
 
 1168:                                             ; preds = %1161
@@ -3825,11 +3825,11 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1180:                                             ; preds = %yy_reduce_print.exit
-  store i32 1, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 2), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @expr, i64 12), align 4
   br label %.loopexit1006
 
 1181:                                             ; preds = %yy_reduce_print.exit
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 2), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 12), align 4
   br label %.loopexit1006
 
 1182:                                             ; preds = %yy_reduce_print.exit
@@ -3870,7 +3870,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1198, label %1199, label %1207
 
 1199:                                             ; preds = %1194
-  %1200 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1200 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1201 = getelementptr inbounds i8, ptr %1200, i64 96
   %1202 = load ptr, ptr %1201, align 8
   %1203 = call ptr @vmalloc(ptr noundef %1202, i64 noundef 72) #21
@@ -3890,7 +3890,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %or.cond911, label %1212, label %1209
 
 1209:                                             ; preds = %1207
-  %1210 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1210 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1211 = call ptr @excast(ptr noundef %1210, ptr noundef nonnull %1196, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split1111
 
@@ -3922,7 +3922,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1222, label %1223, label %1226
 
 1223:                                             ; preds = %1221
-  %1224 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1224 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1225 = call ptr @excast(ptr noundef %1224, ptr noundef nonnull %1215, i32 noundef 262, ptr noundef null, i32 noundef 0)
   store ptr %1225, ptr %.2703, align 8
   br label %1231
@@ -3932,7 +3932,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1227, label %1228, label %1231
 
 1228:                                             ; preds = %1226
-  %1229 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1229 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1230 = call ptr @excast(ptr noundef %1229, ptr noundef nonnull %1213, i32 noundef 262, ptr noundef null, i32 noundef 0)
   store ptr %1230, ptr %1183, align 8
   br label %1231
@@ -3948,19 +3948,19 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %1237 = getelementptr inbounds i8, ptr %1232, i64 32
   %1238 = load i64, ptr %1237, align 8
   %.not841 = icmp eq i64 %1238, 0
-  %1239 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1239 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %.2703. = select i1 %.not841, ptr %.2703, ptr %1183
   %..2703 = select i1 %.not841, ptr %1183, ptr %.2703
   %1240 = load ptr, ptr %.2703., align 8
   %1241 = load ptr, ptr %..2703, align 8
   call void @exfreenode(ptr noundef %1239, ptr noundef %1241)
-  %1242 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1242 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1243 = load ptr, ptr %1195, align 8
   call void @exfreenode(ptr noundef %1242, ptr noundef %1243)
   br label %.loopexit1006
 
 1244:                                             ; preds = %1231
-  %1245 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1245 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1246 = load ptr, ptr %1183, align 8
   %1247 = load i32, ptr %1246, align 8
   %1248 = load ptr, ptr %.2703, align 8
@@ -3998,7 +3998,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1265, label %1266, label %1274
 
 1266:                                             ; preds = %1262
-  %1267 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1267 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1268 = getelementptr inbounds i8, ptr %1267, i64 96
   %1269 = load ptr, ptr %1268, align 8
   %1270 = call ptr @vmalloc(ptr noundef %1269, i64 noundef 72) #21
@@ -4019,14 +4019,14 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %or.cond913, label %1279, label %1276
 
 1276:                                             ; preds = %1274
-  %1277 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1277 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1278 = call ptr @excast(ptr noundef %1277, ptr noundef nonnull %1263, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %1278, ptr %.2703, align 8
   br label %1279
 
 1279:                                             ; preds = %yy_reduce_print.exit._crit_edge, %1274, %1266, %1276
   %1280 = phi ptr [ %.pre1042, %yy_reduce_print.exit._crit_edge ], [ %1263, %1274 ], [ %1270, %1266 ], [ %1278, %1276 ]
-  %1281 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1281 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1282 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %1283 = load i32, ptr %1282, align 8
   %1284 = load i32, ptr %1280, align 8
@@ -4050,12 +4050,12 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1295, label %1296, label %1301
 
 1296:                                             ; preds = %1279
-  %1297 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1297 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1298 = call ptr @exeval(ptr noundef %1297, ptr noundef nonnull %1288, ptr noundef null) #21
   store ptr %1298, ptr %1291, align 8
   store i32 0, ptr %1289, align 8
   store i32 271, ptr %1290, align 4
-  %1299 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1299 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1300 = load ptr, ptr %.2703, align 8
   call void @exfreenode(ptr noundef %1299, ptr noundef %1300)
   br label %.loopexit1006
@@ -4066,7 +4066,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %1303, label %.loopexit1006, label %1304
 
 1304:                                             ; preds = %1301
-  %1305 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1305 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   call fastcc void @checkBinary(ptr noundef %1305, ptr noundef nonnull %1292, ptr noundef nonnull %1288, ptr noundef null)
   br label %.loopexit1006
 
@@ -4083,7 +4083,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %1313
 
 1313:                                             ; preds = %1311, %1306
-  %1314 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1314 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1315 = getelementptr inbounds i8, ptr %1314, i64 96
   %1316 = load ptr, ptr %1315, align 8
   %1317 = call ptr @vmalloc(ptr noundef %1316, i64 noundef 72) #21
@@ -4103,7 +4103,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1324:                                             ; preds = %yy_reduce_print.exit
-  %1325 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1325 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1326 = load ptr, ptr %.2703, align 8
   %1327 = load i32, ptr %1326, align 8
   %1328 = getelementptr inbounds i8, ptr %1325, i64 160
@@ -4130,7 +4130,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1342:                                             ; preds = %yy_reduce_print.exit
-  %1343 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1343 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1344 = getelementptr inbounds i8, ptr %.2703, i64 -24
   %1345 = load ptr, ptr %1344, align 8
   %1346 = getelementptr inbounds i8, ptr %1345, i64 32
@@ -4165,7 +4165,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1366:                                             ; preds = %yy_reduce_print.exit
-  %1367 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1367 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1368 = getelementptr inbounds i8, ptr %.2703, i64 -24
   %1369 = load ptr, ptr %1368, align 8
   %1370 = getelementptr inbounds i8, ptr %1369, i64 32
@@ -4200,28 +4200,28 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1390:                                             ; preds = %yy_reduce_print.exit
-  %1391 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1391 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1392 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %1393 = load ptr, ptr %1392, align 8
   %1394 = call fastcc ptr @exnewsub(ptr noundef %1391, ptr noundef %1393, i32 noundef 280)
   br label %.loopexit1006
 
 1395:                                             ; preds = %yy_reduce_print.exit
-  %1396 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1396 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1397 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %1398 = load ptr, ptr %1397, align 8
   %1399 = call fastcc ptr @exnewsub(ptr noundef %1396, ptr noundef %1398, i32 noundef 302)
   br label %.loopexit1006
 
 1400:                                             ; preds = %yy_reduce_print.exit
-  %1401 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1401 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1402 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %1403 = load ptr, ptr %1402, align 8
   %1404 = call fastcc ptr @exnewsubstr(ptr noundef %1401, ptr noundef %1403)
   br label %.loopexit1006
 
 1405:                                             ; preds = %yy_reduce_print.exit
-  %1406 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1406 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1407 = getelementptr inbounds i8, ptr %.2703, i64 -40
   %1408 = load ptr, ptr %1407, align 8
   %1409 = getelementptr inbounds i8, ptr %1408, i64 24
@@ -4235,7 +4235,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1417:                                             ; preds = %yy_reduce_print.exit
-  %1418 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1418 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1419 = getelementptr inbounds i8, ptr %.2703, i64 -56
   %1420 = load ptr, ptr %1419, align 8
   %1421 = getelementptr inbounds i8, ptr %1420, i64 24
@@ -4259,14 +4259,14 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %or.cond915, label %1439, label %1436
 
 1436:                                             ; preds = %1431
-  %1437 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1437 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1438 = call ptr @excast(ptr noundef %1437, ptr noundef nonnull %1433, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %1438, ptr %1432, align 8
   br label %1439
 
 1439:                                             ; preds = %1431, %1436
   %1440 = phi ptr [ %1433, %1431 ], [ %1438, %1436 ]
-  %1441 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1441 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1442 = getelementptr inbounds i8, ptr %1441, i64 96
   %1443 = load ptr, ptr %1442, align 8
   %1444 = call ptr @vmalloc(ptr noundef %1443, i64 noundef 72) #21
@@ -4281,7 +4281,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1448:                                             ; preds = %yy_reduce_print.exit
-  %1449 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1449 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1450 = getelementptr inbounds i8, ptr %1449, i64 96
   %1451 = load ptr, ptr %1450, align 8
   %1452 = call ptr @vmalloc(ptr noundef %1451, i64 noundef 72) #21
@@ -4295,7 +4295,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1456:                                             ; preds = %yy_reduce_print.exit
-  %1457 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1457 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1458 = getelementptr inbounds i8, ptr %1457, i64 96
   %1459 = load ptr, ptr %1458, align 8
   %1460 = call ptr @vmalloc(ptr noundef %1459, i64 noundef 72) #21
@@ -4317,14 +4317,14 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br i1 %or.cond916, label %1472, label %1469
 
 1469:                                             ; preds = %1464
-  %1470 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1470 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1471 = call ptr @excast(ptr noundef %1470, ptr noundef nonnull %1466, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %1471, ptr %1465, align 8
   br label %1472
 
 1472:                                             ; preds = %1464, %1469
   %1473 = phi ptr [ %1466, %1464 ], [ %1471, %1469 ]
-  %1474 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1474 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1475 = getelementptr inbounds i8, ptr %1474, i64 96
   %1476 = load ptr, ptr %1475, align 8
   %1477 = call ptr @vmalloc(ptr noundef %1476, i64 noundef 72) #21
@@ -4339,7 +4339,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1481:                                             ; preds = %yy_reduce_print.exit
-  %1482 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1482 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1483 = getelementptr inbounds i8, ptr %.2703, i64 -24
   %1484 = load ptr, ptr %1483, align 8
   %1485 = getelementptr inbounds i8, ptr %1484, i64 32
@@ -4364,7 +4364,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1498:                                             ; preds = %yy_reduce_print.exit
-  %1499 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1499 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1500 = getelementptr inbounds i8, ptr %.2703, i64 -24
   %1501 = load ptr, ptr %1500, align 8
   %1502 = getelementptr inbounds i8, ptr %.2703, i64 -8
@@ -4373,7 +4373,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1505:                                             ; preds = %yy_reduce_print.exit
-  %1506 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1506 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1507 = getelementptr inbounds i8, ptr %.2703, i64 -24
   %1508 = load ptr, ptr %1507, align 8
   %1509 = getelementptr inbounds i8, ptr %1508, i64 24
@@ -4423,7 +4423,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   ]
 
 1537:                                             ; preds = %1533
-  %1538 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1538 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1539 = getelementptr inbounds i8, ptr %1538, i64 96
   %1540 = load ptr, ptr %1539, align 8
   %1541 = call ptr @vmalloc(ptr noundef %1540, i64 noundef 72) #21
@@ -4440,7 +4440,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %1555
 
 1546:                                             ; preds = %1533
-  %1547 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1547 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1548 = getelementptr inbounds i8, ptr %1547, i64 96
   %1549 = load ptr, ptr %1548, align 8
   %1550 = call ptr @vmalloc(ptr noundef %1549, i64 noundef 72) #21
@@ -4463,7 +4463,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   br label %.loopexit1006
 
 1558:                                             ; preds = %yy_reduce_print.exit
-  %1559 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1559 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1560 = getelementptr inbounds i8, ptr %.2703, i64 -24
   %1561 = load ptr, ptr %1560, align 8
   %1562 = getelementptr inbounds i8, ptr %1561, i64 24
@@ -4613,7 +4613,7 @@ thread-pre-split:                                 ; preds = %1586, %1600
   br i1 %1638, label %1639, label %1649
 
 1639:                                             ; preds = %1633
-  %1640 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1640 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1641 = getelementptr inbounds i8, ptr %1640, i64 160
   %1642 = load ptr, ptr %1641, align 8
   %1643 = getelementptr inbounds i8, ptr %1642, i64 120
@@ -4644,7 +4644,7 @@ thread-pre-split:                                 ; preds = %1586, %1600
 
 1654:                                             ; preds = %1653
   store i32 %1650, ptr %1632, align 8
-  %1655 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1655 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1656 = load ptr, ptr %.2703, align 8
   %1657 = getelementptr inbounds i8, ptr %1656, i64 40
   %1658 = load ptr, ptr %1657, align 8
@@ -4679,7 +4679,7 @@ thread-pre-split:                                 ; preds = %1586, %1600
 1674:                                             ; preds = %1673, %1669
   %1675 = phi i32 [ %.pre1037, %1673 ], [ %1671, %1669 ]
   %1676 = phi ptr [ %.pre1036, %1673 ], [ %1670, %1669 ]
-  %1677 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1677 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1678 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %1679 = load i32, ptr %1678, align 8
   %1680 = getelementptr inbounds i8, ptr %1677, i64 96
@@ -4712,7 +4712,7 @@ thread-pre-split:                                 ; preds = %1586, %1600
 1693:                                             ; preds = %1692, %1687
   %1694 = phi i32 [ %.pre1035, %1692 ], [ %1690, %1687 ]
   %1695 = phi ptr [ %.pre1034, %1692 ], [ %1689, %1687 ]
-  %1696 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1696 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1697 = load i32, ptr %.2703, align 8
   %1698 = getelementptr inbounds i8, ptr %1696, i64 96
   %1699 = load ptr, ptr %1698, align 8
@@ -4772,7 +4772,7 @@ thread-pre-split:                                 ; preds = %1586, %1600
   br label %extypename.exit934
 
 1733:                                             ; preds = %1722
-  %1734 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1734 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1735 = getelementptr inbounds i8, ptr %1734, i64 160
   %1736 = load ptr, ptr %1735, align 8
   %1737 = getelementptr inbounds i8, ptr %1736, i64 72
@@ -4798,7 +4798,7 @@ extypename.exit934:                               ; preds = %1726, %1733
   br label %extypename.exit936
 
 1749:                                             ; preds = %extypename.exit934
-  %1750 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1750 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1751 = getelementptr inbounds i8, ptr %1750, i64 160
   %1752 = load ptr, ptr %1751, align 8
   %1753 = getelementptr inbounds i8, ptr %1752, i64 72
@@ -4812,7 +4812,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %1756
 
 1756:                                             ; preds = %extypename.exit936, %1717, %1712
-  %1757 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1757 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1758 = getelementptr inbounds i8, ptr %1757, i64 96
   %1759 = load ptr, ptr %1758, align 8
   %1760 = call ptr @vmalloc(ptr noundef %1759, i64 noundef 72) #21
@@ -4832,7 +4832,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %.loopexit1006
 
 1768:                                             ; preds = %yy_reduce_print.exit
-  %1769 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1769 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1770 = load ptr, ptr %.2703, align 8
   %1771 = getelementptr inbounds i8, ptr %1770, i64 32
   %1772 = load i64, ptr %1771, align 8
@@ -4847,7 +4847,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   store i32 %1773, ptr %1776, align 8
   %1779 = getelementptr inbounds i8, ptr %1776, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1779, i8 0, i64 16, i1 false)
-  %1780 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1780 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1781 = getelementptr inbounds i8, ptr %1780, i64 160
   %1782 = load ptr, ptr %1781, align 8
   %1783 = getelementptr inbounds i8, ptr %1782, i64 112
@@ -4867,7 +4867,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %.loopexit1006
 
 1790:                                             ; preds = %yy_reduce_print.exit
-  %1791 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1791 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1792 = getelementptr inbounds i8, ptr %1791, i64 96
   %1793 = load ptr, ptr %1792, align 8
   %1794 = call ptr @vmalloc(ptr noundef %1793, i64 noundef 72) #21
@@ -4883,7 +4883,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %.loopexit1006
 
 1799:                                             ; preds = %yy_reduce_print.exit
-  %1800 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1800 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1801 = getelementptr inbounds i8, ptr %1800, i64 96
   %1802 = load ptr, ptr %1801, align 8
   %1803 = call ptr @vmalloc(ptr noundef %1802, i64 noundef 72) #21
@@ -4899,7 +4899,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %.loopexit1006
 
 1808:                                             ; preds = %yy_reduce_print.exit
-  %1809 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1809 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1810 = getelementptr inbounds i8, ptr %1809, i64 96
   %1811 = load ptr, ptr %1810, align 8
   %1812 = call ptr @vmalloc(ptr noundef %1811, i64 noundef 72) #21
@@ -4915,7 +4915,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %.loopexit1006
 
 1817:                                             ; preds = %yy_reduce_print.exit
-  %1818 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1818 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1819 = getelementptr inbounds i8, ptr %1818, i64 96
   %1820 = load ptr, ptr %1819, align 8
   %1821 = call ptr @vmalloc(ptr noundef %1820, i64 noundef 72) #21
@@ -4931,7 +4931,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %.loopexit1006
 
 1826:                                             ; preds = %yy_reduce_print.exit
-  %1827 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1827 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1828 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %1829 = load ptr, ptr %1828, align 8
   %1830 = load ptr, ptr %.2703, align 8
@@ -4939,7 +4939,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %.loopexit1006
 
 1832:                                             ; preds = %yy_reduce_print.exit
-  %1833 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1833 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1834 = getelementptr inbounds i8, ptr %.2703, i64 -16
   %1835 = load ptr, ptr %1834, align 8
   %1836 = getelementptr inbounds i8, ptr %1835, i64 32
@@ -5016,7 +5016,7 @@ extypename.exit936:                               ; preds = %1742, %1749
   br label %extypename.exit938
 
 1880:                                             ; preds = %1869
-  %1881 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1881 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1882 = getelementptr inbounds i8, ptr %1881, i64 160
   %1883 = load ptr, ptr %1882, align 8
   %1884 = getelementptr inbounds i8, ptr %1883, i64 72
@@ -5042,7 +5042,7 @@ extypename.exit938:                               ; preds = %1873, %1880
   br label %extypename.exit940
 
 1896:                                             ; preds = %extypename.exit938
-  %1897 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1897 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1898 = getelementptr inbounds i8, ptr %1897, i64 160
   %1899 = load ptr, ptr %1898, align 8
   %1900 = getelementptr inbounds i8, ptr %1899, i64 72
@@ -5061,14 +5061,14 @@ extypename.exit940:                               ; preds = %1889, %1896
   br i1 %.not822, label %.loopexit1006, label %1905
 
 1905:                                             ; preds = %1903
-  %1906 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1906 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1907 = getelementptr inbounds i8, ptr %1906, i64 96
   %1908 = load ptr, ptr %1907, align 8
   %1909 = call ptr @vmalloc(ptr noundef %1908, i64 noundef 72) #21
   %1910 = getelementptr inbounds i8, ptr %1841, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1909, i8 0, i64 72, i1 false)
   store ptr %1909, ptr %1910, align 8
-  %1911 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1911 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1912 = load ptr, ptr %1834, align 8
   %1913 = load ptr, ptr %1847, align 8
   %1914 = load ptr, ptr %.2703, align 8
@@ -5076,7 +5076,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   br label %.loopexit1006
 
 1916:                                             ; preds = %yy_reduce_print.exit
-  %1917 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1917 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1918 = getelementptr inbounds i8, ptr %1917, i64 96
   %1919 = load ptr, ptr %1918, align 8
   %1920 = call ptr @vmalloc(ptr noundef %1919, i64 noundef 72) #21
@@ -5091,7 +5091,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   %1925 = load ptr, ptr %.2703, align 8
   store ptr %1925, ptr %1923, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1924, i8 0, i64 24, i1 false)
-  %1926 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1926 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1927 = getelementptr inbounds i8, ptr %1926, i64 160
   %1928 = load ptr, ptr %1927, align 8
   %1929 = getelementptr inbounds i8, ptr %1928, i64 8
@@ -5143,13 +5143,13 @@ extypename.exit940:                               ; preds = %1889, %1896
   %1953 = load ptr, ptr %.2703, align 8
   %1954 = getelementptr inbounds i8, ptr %1953, i64 32
   store ptr null, ptr %1954, align 8
-  %1955 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1955 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1956 = load ptr, ptr %.2703, align 8
   call void @exfreenode(ptr noundef %1955, ptr noundef %1956)
   br label %.loopexit1006
 
 1957:                                             ; preds = %yy_reduce_print.exit
-  %1958 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1958 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1959 = load ptr, ptr %.2703, align 8
   %1960 = load i32, ptr %1959, align 8
   %1961 = getelementptr inbounds i8, ptr %1958, i64 96
@@ -5178,7 +5178,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   br label %.loopexit1006
 
 1973:                                             ; preds = %yy_reduce_print.exit
-  %1974 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1974 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1975 = getelementptr inbounds i8, ptr %.2703, i64 -16
   %1976 = load ptr, ptr %1975, align 8
   %1977 = load i32, ptr %1976, align 8
@@ -5219,7 +5219,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   br label %.loopexit1006
 
 1997:                                             ; preds = %yy_reduce_print.exit
-  %1998 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %1998 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %1999 = load ptr, ptr %.2703, align 8
   %2000 = load i32, ptr %1999, align 8
   %2001 = getelementptr inbounds i8, ptr %1998, i64 96
@@ -5249,7 +5249,7 @@ extypename.exit940:                               ; preds = %1889, %1896
 
 2013:                                             ; preds = %2010
   %2014 = getelementptr inbounds i8, ptr %.0708, i64 40
-  %2015 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2015 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2016 = load ptr, ptr %.2703, align 8
   %2017 = load i32, ptr %2016, align 8
   %2018 = getelementptr inbounds i8, ptr %2015, i64 96
@@ -5271,11 +5271,11 @@ extypename.exit940:                               ; preds = %1889, %1896
   %2026 = getelementptr inbounds i8, ptr %2025, i64 32
   %2027 = load i64, ptr %2026, align 8
   %2028 = trunc i64 %2027 to i32
-  store i32 %2028, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store i32 %2028, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   br label %.loopexit1006
 
 2029:                                             ; preds = %yy_reduce_print.exit
-  %2030 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2030 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2031 = getelementptr inbounds i8, ptr %.2703, i64 -16
   %2032 = load ptr, ptr %2031, align 8
   %2033 = getelementptr inbounds i8, ptr %2032, i64 32
@@ -5301,7 +5301,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   %2047 = load ptr, ptr %.2703, align 8
   %2048 = getelementptr inbounds i8, ptr %2047, i64 32
   store i64 %2046, ptr %2048, align 8
-  %2049 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2049 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2050 = getelementptr inbounds i8, ptr %2049, i64 96
   %2051 = load ptr, ptr %2050, align 8
   %2052 = call ptr @vmalloc(ptr noundef %2051, i64 noundef 72) #21
@@ -5309,20 +5309,20 @@ extypename.exit940:                               ; preds = %1889, %1896
   %2053 = load ptr, ptr %.2703, align 8
   %2054 = getelementptr inbounds i8, ptr %2053, i64 56
   store ptr %2052, ptr %2054, align 8
-  %2055 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %2055 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %2056 = getelementptr inbounds i8, ptr %2055, i64 56
   %2057 = load i32, ptr %2056, align 8
   %2058 = add nsw i32 %2057, 1
   store i32 %2058, ptr %2056, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   br label %.loopexit1006
 
 2059:                                             ; preds = %yy_reduce_print.exit
-  store ptr null, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 6), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @expr, i64 96), align 8
   br label %.loopexit1006
 
 2060:                                             ; preds = %yy_reduce_print.exit
-  %2061 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2061 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2062 = getelementptr inbounds i8, ptr %2061, i64 96
   %2063 = load ptr, ptr %2062, align 8
   %2064 = call ptr @vmalloc(ptr noundef %2063, i64 noundef 24) #21
@@ -5330,15 +5330,15 @@ extypename.exit940:                               ; preds = %1889, %1896
   %2065 = load ptr, ptr %.2703, align 8
   %2066 = getelementptr inbounds i8, ptr %2064, i64 8
   store ptr %2065, ptr %2066, align 8
-  store ptr %2064, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 6), align 8
+  store ptr %2064, ptr getelementptr inbounds (i8, ptr @expr, i64 96), align 8
   store ptr null, ptr %2064, align 8
   %2067 = getelementptr inbounds i8, ptr %2064, i64 16
   store ptr null, ptr %2067, align 8
-  %2068 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 6), align 8
+  %2068 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 96), align 8
   br label %.loopexit1006
 
 2069:                                             ; preds = %yy_reduce_print.exit
-  %2070 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2070 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2071 = getelementptr inbounds i8, ptr %2070, i64 96
   %2072 = load ptr, ptr %2071, align 8
   %2073 = call ptr @vmalloc(ptr noundef %2072, i64 noundef 24) #21
@@ -5349,7 +5349,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   %2076 = getelementptr inbounds i8, ptr %2073, i64 16
   store ptr null, ptr %2076, align 8
   store ptr null, ptr %2073, align 8
-  %2077 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2077 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2078 = getelementptr inbounds i8, ptr %2077, i64 96
   %2079 = load ptr, ptr %2078, align 8
   %2080 = call ptr @vmalloc(ptr noundef %2079, i64 noundef 24) #21
@@ -5361,7 +5361,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   %2084 = getelementptr inbounds i8, ptr %2080, i64 16
   store ptr null, ptr %2084, align 8
   store ptr %2073, ptr %2080, align 8
-  store ptr %2080, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 6), align 8
+  store ptr %2080, ptr getelementptr inbounds (i8, ptr @expr, i64 96), align 8
   br label %.loopexit1006
 
 2085:                                             ; preds = %yy_reduce_print.exit
@@ -5376,7 +5376,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   br label %.loopexit1006
 
 2090:                                             ; preds = %yy_reduce_print.exit
-  %2091 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2091 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2092 = load ptr, ptr %.2703, align 8
   %2093 = load i32, ptr %2092, align 8
   %2094 = getelementptr inbounds i8, ptr %2091, i64 96
@@ -5397,7 +5397,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   br label %.loopexit1006
 
 2103:                                             ; preds = %yy_reduce_print.exit
-  %2104 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %2104 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %.not811 = icmp eq ptr %2104, null
   br i1 %.not811, label %2108, label %2105
 
@@ -5408,8 +5408,8 @@ extypename.exit940:                               ; preds = %1889, %1896
   br label %2108
 
 2108:                                             ; preds = %2105, %2103
-  %2109 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
-  %2110 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  %2109 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2110 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   %2111 = getelementptr inbounds i8, ptr %2109, i64 96
   %2112 = load ptr, ptr %2111, align 8
   %2113 = call ptr @vmalloc(ptr noundef %2112, i64 noundef 72) #21
@@ -5421,7 +5421,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   store i32 1, ptr %2114, align 8
   %2116 = getelementptr inbounds i8, ptr %2113, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2116, i8 0, i64 16, i1 false)
-  store ptr %2113, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  store ptr %2113, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %2117 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #22
   %.not812 = icmp eq ptr %2117, null
   br i1 %.not812, label %2118, label %2120
@@ -5441,17 +5441,17 @@ extypename.exit940:                               ; preds = %1889, %1896
 2125:                                             ; preds = %2120
   %2126 = load ptr, ptr @Dtset, align 8
   %2127 = call ptr @dtopen(ptr noundef nonnull %2117, ptr noundef %2126) #21
-  %2128 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %2128 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %2129 = getelementptr inbounds i8, ptr %2128, i64 48
   store ptr %2127, ptr %2129, align 8
   %.not813 = icmp eq ptr %2127, null
   br i1 %.not813, label %2138, label %2130
 
 2130:                                             ; preds = %2125
-  %2131 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %2131 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %2132 = getelementptr inbounds i8, ptr %2131, i64 48
   %2133 = load ptr, ptr %2132, align 8
-  %2134 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2134 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2135 = getelementptr inbounds i8, ptr %2134, i64 8
   %2136 = load ptr, ptr %2135, align 8
   %2137 = call ptr @dtview(ptr noundef %2133, ptr noundef %2136) #21
@@ -5463,42 +5463,42 @@ extypename.exit940:                               ; preds = %1889, %1896
   br label %2140
 
 2140:                                             ; preds = %2138, %2130
-  %2141 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %2141 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %2142 = getelementptr inbounds i8, ptr %2141, i64 48
   %2143 = load ptr, ptr %2142, align 8
-  %2144 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2144 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2145 = getelementptr inbounds i8, ptr %2144, i64 112
   store ptr %2143, ptr %2145, align 8
   %2146 = getelementptr inbounds i8, ptr %2144, i64 8
   store ptr %2143, ptr %2146, align 8
-  %2147 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2147 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2148 = getelementptr inbounds i8, ptr %2147, i64 864
   store i32 1, ptr %2148, align 8
   br label %2149
 
 2149:                                             ; preds = %2140, %2120
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   br label %.loopexit1006
 
 2150:                                             ; preds = %yy_reduce_print.exit
   %2151 = load ptr, ptr @expr, align 8
   %2152 = getelementptr inbounds i8, ptr %2151, i64 16
   store i64 293, ptr %2152, align 8
-  %2153 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
+  %2153 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
   %2154 = load i32, ptr %2153, align 8
   %2155 = sext i32 %2154 to i64
   %2156 = getelementptr inbounds i8, ptr %2151, i64 32
   store i64 %2155, ptr %2156, align 8
-  %2157 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2157 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2158 = getelementptr inbounds i8, ptr %2157, i64 864
   store i32 0, ptr %2158, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
   br label %.loopexit1006
 
 2159:                                             ; preds = %yy_reduce_print.exit
-  %2160 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 5), align 8
-  %2161 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2160 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %2161 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2162 = getelementptr inbounds i8, ptr %2161, i64 112
   %2163 = load ptr, ptr %2162, align 8
   %.not810 = icmp eq ptr %2163, null
@@ -5509,11 +5509,11 @@ extypename.exit940:                               ; preds = %1889, %1896
   %2166 = load ptr, ptr %2165, align 8
   %2167 = getelementptr inbounds i8, ptr %2161, i64 8
   store ptr %2166, ptr %2167, align 8
-  %2168 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2168 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2169 = getelementptr inbounds i8, ptr %2168, i64 112
   %2170 = load ptr, ptr %2169, align 8
   %2171 = call ptr @dtview(ptr noundef %2170, ptr noundef null) #21
-  %2172 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2172 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2173 = getelementptr inbounds i8, ptr %2172, i64 112
   store ptr null, ptr %2173, align 8
   br label %2174
@@ -5523,14 +5523,14 @@ extypename.exit940:                               ; preds = %1889, %1896
   %2176 = load ptr, ptr %2175, align 8
   %2177 = getelementptr inbounds i8, ptr %2160, i64 32
   store ptr %2176, ptr %2177, align 8
-  %2178 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2178 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2179 = getelementptr inbounds i8, ptr %.2703, i64 -8
   %2180 = load ptr, ptr %2179, align 8
   %2181 = load i32, ptr %2160, align 8
   %2182 = call ptr @excast(ptr noundef %2178, ptr noundef %2180, i32 noundef %2181, ptr noundef null, i32 noundef 0)
   %2183 = getelementptr inbounds i8, ptr %2160, i64 40
   store ptr %2182, ptr %2183, align 8
-  %2184 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %2184 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %2185 = getelementptr inbounds i8, ptr %2184, i64 848
   %2186 = load ptr, ptr %2185, align 8
   %2187 = getelementptr inbounds i8, ptr %2186, i64 -1
@@ -6230,7 +6230,7 @@ extypename.exit16:                                ; preds = %45, %52
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @vmalloc(ptr noundef %5, i64 noundef 72) #21
@@ -6248,7 +6248,7 @@ define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed
   store ptr %0, ptr %9, align 8
   store ptr null, ptr %10, align 8
   %.0242 = ashr i32 %13, 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 160
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 136
@@ -6283,7 +6283,7 @@ define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed
 29:                                               ; preds = %24
   %30 = tail call ptr @excast(ptr noundef nonnull %23, ptr noundef nonnull %27, i32 noundef %.0.i10, ptr noundef null, i32 noundef %25)
   store ptr %30, ptr %26, align 8
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br label %31
 
 31:                                               ; preds = %29, %24
@@ -6890,7 +6890,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not134, label %17, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @vmalloc(ptr noundef %14, i64 noundef 48) #21
@@ -6916,7 +6916,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %34
   %23 = phi i8 [ %36, %34 ], [ %22, %.lr.ph ]
   %.0116222.us = phi ptr [ %35, %34 ], [ %19, %.lr.ph ]
-  %24 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %25, i8 noundef signext %23)
   %26 = load i8, ptr %.0116222.us, align 1
@@ -6949,7 +6949,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
   %37 = phi i8 [ %53, %51 ], [ %22, %.lr.ph ]
   %.0116222 = phi ptr [ %52, %51 ], [ %19, %.lr.ph ]
-  %38 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %39, i8 noundef signext %37)
   %40 = load i8, ptr %.0116222, align 1
@@ -6973,7 +6973,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not137, label %48, label %._crit_edge.preheader
 
 48:                                               ; preds = %46
-  %49 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %50, i8 noundef signext 37)
   br label %51
@@ -6995,7 +6995,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   %.0106 = phi ptr [ %.3, %265 ], [ %.fr, %._crit_edge.preheader ]
   %.0105 = phi ptr [ %.10, %265 ], [ %19, %._crit_edge.preheader ]
   %.0104 = phi ptr [ %.1, %265 ], [ null, %._crit_edge.preheader ]
-  %54 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 96
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @vmalloc(ptr noundef %56, i64 noundef 48) #21
@@ -7078,7 +7078,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 79:                                               ; preds = %.outer, %agxbputc.exit
   %.5 = phi ptr [ %123, %agxbputc.exit ], [ %.5.ph, %.outer ]
   %.0114 = phi i8 [ %124, %agxbputc.exit ], [ %.0114.ph, %.outer ]
-  %80 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 184
   %82 = getelementptr i8, ptr %80, i64 215
   %.val.i.i = load i8, ptr %82, align 1
@@ -7230,7 +7230,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %.1115 = phi i8 [ %63, %131 ], [ 42, %72 ], [ %63, %62 ], [ %124, %agxbputc.exit ], [ 41, %127 ]
   %.1110 = phi i32 [ %.0109, %131 ], [ %75, %72 ], [ %.0109, %62 ], [ %.0109, %agxbputc.exit ], [ %.0109, %127 ]
   %.2 = phi ptr [ %.1107, %131 ], [ %78, %72 ], [ %.1107, %62 ], [ %.1107, %agxbputc.exit ], [ %.1107, %127 ]
-  %136 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %137, i8 noundef signext %.1115)
   %.pr162 = load i8, ptr %.6, align 1
@@ -7247,7 +7247,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
 
 .loopexit165:                                     ; preds = %62, %62, %62, %.loopexit165.loopexit, %.loopexit354, %.loopexit292
   %.2113 = phi i32 [ 260, %.loopexit292 ], [ 263, %.loopexit354 ], [ 259, %.loopexit165.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
-  %138 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %139, i8 noundef signext %63)
   br label %140
@@ -7275,7 +7275,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
 
 146:                                              ; preds = %142, %140
   %.8 = phi ptr [ %.7, %140 ], [ %143, %142 ]
-  %147 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %148, i8 noundef signext %141)
   %149 = getelementptr inbounds i8, ptr %.8, i64 1
@@ -7308,7 +7308,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br i1 %.not155, label %247, label %158
 
 158:                                              ; preds = %156
-  %159 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %160 = icmp eq i32 %157, 263
   %161 = add i32 %157, -259
   %spec.select = icmp ult i32 %161, 3
@@ -7340,7 +7340,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br i1 %or.cond, label %195, label %178
 
 178:                                              ; preds = %175
-  %179 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %180 = icmp eq i32 %176, 263
   %181 = icmp eq i32 %176, 262
   %182 = select i1 %181, i32 308, i32 319
@@ -7381,14 +7381,14 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br i1 %202, label %203, label %._crit_edge288
 
 ._crit_edge288:                                   ; preds = %199
-  %.pre289 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %.pre289 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br label %225
 
 203:                                              ; preds = %199
   %204 = getelementptr inbounds i8, ptr %154, i64 40
   %205 = load ptr, ptr %204, align 8
   %.not147 = icmp eq ptr %205, null
-  %.pre290 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %.pre290 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   br i1 %.not147, label %225, label %206
 
 206:                                              ; preds = %203
@@ -7409,7 +7409,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br label %247
 
 215:                                              ; preds = %211
-  %216 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %216 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %217 = getelementptr inbounds i8, ptr %216, i64 96
   %218 = load ptr, ptr %217, align 8
   %219 = load ptr, ptr %155, align 8
@@ -7474,7 +7474,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
 250:                                              ; preds = %247, %59
   %.10 = phi ptr [ %.7, %247 ], [ %.3119, %59 ]
   %.3 = phi ptr [ %249, %247 ], [ %.0106, %59 ]
-  %251 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %251 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 96
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds i8, ptr %251, i64 184
@@ -7521,7 +7521,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   br label %269
 
 269:                                              ; preds = %267, %268, %151, %145, %130, %71, %69, %65
-  %270 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %270 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %271 = getelementptr i8, ptr %270, i64 215
   %.val.i = load i8, ptr %271, align 1
   %.not.i161 = icmp eq i8 %.val.i, -1
@@ -7606,7 +7606,7 @@ define internal fastcc noundef ptr @makeVar(ptr noundef %0, ptr noundef %1, ptr 
   br label %45
 
 37:                                               ; preds = %19
-  %38 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 160
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 112

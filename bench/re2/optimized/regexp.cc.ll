@@ -455,7 +455,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   tail call void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN3re2L11ref_storageE)
   store ptr %this, ptr %ref.tmp, align 8
-  %call6 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %call6 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.end
@@ -627,8 +627,8 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i
 
 release.i.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.then.i
   store i64 0, ptr @_ZN3re2L11ref_storageE, align 8
-  store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 16), i8 0, i64 32, i1 false)
+  store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 16), i8 0, i64 32, i1 false)
   %4 = atomicrmw xchg ptr @_ZZN3re26Regexp6IncrefEvE8ref_once, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %4, 94570706
   br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
@@ -645,7 +645,7 @@ if.then5.i.i:                                     ; preds = %release.i.i.i
 
 if.then5:                                         ; preds = %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
   store ptr %this, ptr %ref.tmp7, align 8
-  %call9 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7)
+  %call9 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then5
@@ -672,7 +672,7 @@ _ZN4absl7debian29MutexLockD2Ev.exit:              ; preds = %lpad
 
 if.else:                                          ; preds = %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
   store ptr %this, ptr %ref.tmp12, align 8
-  %call14 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
+  %call14 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.else
@@ -714,7 +714,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN3re2L11ref_storageE)
   store ptr %this, ptr %ref.tmp, align 8
-  %call4 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %call4 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.then
@@ -727,7 +727,7 @@ if.then6:                                         ; preds = %invoke.cont3
   %conv7 = trunc i32 %sub to i16
   store i16 %conv7, ptr %ref_, align 4
   store ptr %this, ptr %ref.tmp11, align 8
-  %call13 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE5eraseIS6_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11)
+  %call13 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE5eraseIS6_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.else, %if.then6, %if.then
@@ -748,7 +748,7 @@ _ZN4absl7debian29MutexLockD2Ev.exit:              ; preds = %lpad
 
 if.else:                                          ; preds = %invoke.cont3
   store ptr %this, ptr %ref.tmp16, align 8
-  %call18 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16)
+  %call18 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %if.else
@@ -1046,8 +1046,8 @@ if.then.i:                                        ; preds = %if.end21
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %12 = load ptr, ptr getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), align 8, !noalias !10
-  %13 = load i64, ptr getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 32), align 8, !noalias !10
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), align 8, !noalias !10
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 32), align 8, !noalias !10
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %14 = ptrtoint ptr %12 to i64
   %shr.i.i.i.i.i.i = lshr i64 %14, 12
@@ -1056,7 +1056,7 @@ if.then.i:                                        ; preds = %if.end21
   %conv.i.i.i.i = and i8 %15, 127
   %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %16 = load ptr, ptr getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 16), align 8, !noalias !10
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 16), align 8, !noalias !10
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end31.i.i.i, %if.then.i
@@ -1103,17 +1103,17 @@ if.end31.i.i.i:                                   ; preds = %for.end.i.i.i
   br label %while.body.i.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %for.end.i.i.i
-  %call33.i.i.i44 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %call33.i.i.i44 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %call33.i.i.i.noexc unwind label %lpad.i25
 
 call33.i.i.i.noexc:                               ; preds = %if.then.i.i
-  %23 = load ptr, ptr getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 16), align 8, !noalias !10
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 16), align 8, !noalias !10
   %add.ptr.i3.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %23, i64 %call33.i.i.i44
   store ptr %9, ptr %add.ptr.i3.i.i, align 8, !noalias !10
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i.i, i64 8
   store i32 0, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
-  %.pre.i.i = load ptr, ptr getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), align 8, !noalias !10
-  %.pre20.i.i = load ptr, ptr getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 16), align 8, !noalias !10
+  %.pre.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), align 8, !noalias !10
+  %.pre20.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 16), align 8, !noalias !10
   br label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE16try_emplace_implIS6_JEEESC_INS1_12raw_hash_setIS7_SA_SB_SF_E8iteratorEbEOT_DpOT0_.exit.i
 
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE16try_emplace_implIS6_JEEESC_INS1_12raw_hash_setIS7_SA_SB_SF_E8iteratorEbEOT_DpOT0_.exit.i: ; preds = %for.body.i.i.i, %call33.i.i.i.noexc
@@ -1144,7 +1144,7 @@ if.then6.i:                                       ; preds = %invoke.cont3.i
   %conv7.i = trunc i32 %sub.i to i16
   store i16 %conv7.i, ptr %ref_22, align 4
   store ptr %9, ptr %ref.tmp11.i, align 8
-  %call13.i = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE5eraseIS6_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11.i)
+  %call13.i = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE5eraseIS6_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11.i)
           to label %if.end.i unwind label %lpad.i25
 
 lpad.i25:                                         ; preds = %if.then.i.i, %if.else.i, %if.then6.i
@@ -1162,7 +1162,7 @@ terminate.lpad.i.i:                               ; preds = %lpad.i25
 
 if.else.i:                                        ; preds = %invoke.cont3.i
   store ptr %9, ptr %ref.tmp16.i, align 8
-  %call18.i = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([48 x i8], ptr @_ZN3re2L11ref_storageE, i64 0, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16.i)
+  %call18.i = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16.i)
           to label %invoke.cont17.i unwind label %lpad.i25
 
 invoke.cont17.i:                                  ; preds = %if.else.i
@@ -2691,13 +2691,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef i32 @_ZN3re26Regexp11NumCapturesEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca %"class.re2::NumCapturesWalker", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
   %stack_.i.i = getelementptr inbounds i8, ptr %w, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i64 noundef 0)
   %stopped_early_.i.i = getelementptr inbounds i8, ptr %w, i64 88
   store i8 0, ptr %stopped_early_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re217NumCapturesWalkerE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re217NumCapturesWalkerE, i64 16), ptr %w, align 8
   %ncapture_.i = getelementptr inbounds i8, ptr %w, i64 96
   store i32 0, ptr %ncapture_.i, align 8
   %max_visits_.i = getelementptr inbounds i8, ptr %w, i64 92
@@ -2707,7 +2707,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load i32, ptr %ncapture_.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %w)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -2762,7 +2762,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re217NumCapturesWalkerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -2813,13 +2813,13 @@ _ZN3re26Regexp6WalkerIiED2Ev.exit:                ; preds = %invoke.cont.i, %_ZN
 define noundef ptr @_ZN3re26Regexp13NamedCapturesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca %"class.re2::NamedCapturesWalker", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
   %stack_.i.i = getelementptr inbounds i8, ptr %w, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i64 noundef 0)
   %stopped_early_.i.i = getelementptr inbounds i8, ptr %w, i64 88
   store i8 0, ptr %stopped_early_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re219NamedCapturesWalkerE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re219NamedCapturesWalkerE, i64 16), ptr %w, align 8
   %map_.i = getelementptr inbounds i8, ptr %w, i64 96
   store ptr null, ptr %map_.i, align 8
   %max_visits_.i = getelementptr inbounds i8, ptr %w, i64 92
@@ -2843,7 +2843,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re219NamedCapturesWalkerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re219NamedCapturesWalkerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re219NamedCapturesWalkerE, i64 16), ptr %this, align 8
   %map_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %map_, align 8
   %isnull = icmp eq ptr %0, null
@@ -2867,7 +2867,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev.exit, %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -2918,13 +2918,13 @@ _ZN3re26Regexp6WalkerIiED2Ev.exit:                ; preds = %invoke.cont.i, %_ZN
 define noundef ptr @_ZN3re26Regexp12CaptureNamesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca %"class.re2::CaptureNamesWalker", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
   %stack_.i.i = getelementptr inbounds i8, ptr %w, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i64 noundef 0)
   %stopped_early_.i.i = getelementptr inbounds i8, ptr %w, i64 88
   store i8 0, ptr %stopped_early_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re218CaptureNamesWalkerE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re218CaptureNamesWalkerE, i64 16), ptr %w, align 8
   %map_.i = getelementptr inbounds i8, ptr %w, i64 96
   store ptr null, ptr %map_.i, align 8
   %max_visits_.i = getelementptr inbounds i8, ptr %w, i64 92
@@ -2948,7 +2948,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re218CaptureNamesWalkerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re218CaptureNamesWalkerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re218CaptureNamesWalkerE, i64 16), ptr %this, align 8
   %map_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %map_, align 8
   %isnull = icmp eq ptr %0, null
@@ -2972,7 +2972,7 @@ _ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4p
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev.exit, %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -4755,7 +4755,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re217NumCapturesWalkerD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -4883,7 +4883,7 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re26Regexp6WalkerIiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont unwind label %terminate.lpad
 

@@ -557,7 +557,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %tobool17.not, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.end12
-  %call21 = call i32 @test_mem_eq(ptr noundef nonnull @.str.5, i32 noundef 1559, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.176, ptr noundef nonnull %got_tag, i64 noundef 16, ptr noundef nonnull getelementptr inbounds ([36 x i8], ptr @retry_encoded, i64 0, i64 20), i64 noundef 16) #3
+  %call21 = call i32 @test_mem_eq(ptr noundef nonnull @.str.5, i32 noundef 1559, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.176, ptr noundef nonnull %got_tag, i64 noundef 16, ptr noundef nonnull getelementptr inbounds (i8, ptr @retry_encoded, i64 20), i64 noundef 16) #3
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %err, label %if.end24
 
@@ -1614,7 +1614,7 @@ if.end18:                                         ; preds = %if.end13
 
 if.end26:                                         ; preds = %if.end18
   %stateless_reset = getelementptr inbounds i8, ptr %f, i64 37
-  %call28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.5, i32 noundef 791, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114, ptr noundef nonnull %stateless_reset, i64 noundef 16, ptr noundef nonnull getelementptr inbounds ({ i64, i64, { i8, <{ i8, i8, i8, i8, [16 x i8] }> }, %struct.QUIC_STATELESS_RESET_TOKEN }, ptr @encode_case_16_f, i64 0, i32 3), i64 noundef 16) #3
+  %call28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.5, i32 noundef 791, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114, ptr noundef nonnull %stateless_reset, i64 noundef 16, ptr noundef nonnull getelementptr inbounds (i8, ptr @encode_case_16_f, i64 37), i64 noundef 16) #3
   %tobool29.not = icmp ne i32 %call28, 0
   %. = zext i1 %tobool29.not to i32
   br label %return

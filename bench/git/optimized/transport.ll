@@ -1241,7 +1241,7 @@ if.then99:                                        ; preds = %if.end95
 
 if.end104:                                        ; preds = %if.end95, %if.then99, %if.end80
   %hash_algo = getelementptr inbounds i8, ptr %call, i64 144
-  store ptr getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1), ptr %hash_algo, align 8
+  store ptr getelementptr inbounds (i8, ptr @hash_algos, i64 104), ptr %hash_algo, align 8
   ret ptr %call
 }
 
@@ -3229,7 +3229,7 @@ if.then22:                                        ; preds = %for.body.i
   %5 = load i32, ptr @transport_use_color, align 4
   %call.i = tail call i32 @want_color_fd(i32 noundef 2, i32 noundef %5) #20
   %tobool.not.i17 = icmp eq i32 %call.i, 0
-  %retval.0.i18 = select i1 %tobool.not.i17, ptr @.str.38, ptr getelementptr inbounds ([2 x [75 x i8]], ptr @transport_colors, i64 0, i64 1)
+  %retval.0.i18 = select i1 %tobool.not.i17, ptr @.str.38, ptr getelementptr inbounds (i8, ptr @transport_colors, i64 75)
   %6 = load i32, ptr @transport_use_color, align 4
   %call.i19 = tail call i32 @want_color_fd(i32 noundef 2, i32 noundef %6) #20
   %tobool.not.i20 = icmp eq i32 %call.i19, 0

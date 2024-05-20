@@ -72,7 +72,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.i915_gem_ww_ctx, align 8
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 48) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %129, label %6
@@ -87,7 +87,7 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
   store ptr %10, ptr %4, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @gsc_hdcp_ops, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 24) #9
   %14 = icmp eq ptr %13, null
   br i1 %14, label %127, label %15

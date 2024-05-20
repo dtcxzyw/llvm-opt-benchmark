@@ -31,7 +31,7 @@ define i32 @mca_coll_sync_bcast(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i64 0, i32 2), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 284), align 4
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %.thread
 
@@ -59,7 +59,7 @@ define i32 @mca_coll_sync_bcast(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4
-  %38 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i64 0, i32 3), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 288), align 8
   %39 = icmp eq i32 %37, %38
   %40 = icmp eq i32 %.1, 0
   %or.cond = select i1 %39, i1 %40, i1 false

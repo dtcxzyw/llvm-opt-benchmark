@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @rgpusm_open() #0 {
   %1 = tail call i32 @opal_output_open(ptr noundef null) #4
-  store i32 %1, ptr getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 5), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 296), align 8
   %2 = load i32, ptr @opal_rcache_rgpusm_verbose, align 4
   tail call void @opal_output_set_verbosity(i32 noundef %1, i32 noundef %2) #4
   ret i32 0
@@ -40,18 +40,18 @@ define internal noundef i32 @rgpusm_close() #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @rgpusm_register() #0 {
-  store ptr @.str, ptr getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 1), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 1)) #4
-  store i64 0, ptr getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 2), align 8
-  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 2)) #4
-  store i32 1, ptr getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 4), align 4
-  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 4)) #4
-  store i8 0, ptr getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 3), align 8
-  %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 3)) #4
+  store ptr @.str, ptr getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 272), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 272)) #4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 280), align 8
+  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 280)) #4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 292), align 4
+  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 292)) #4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 288), align 8
+  %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 288)) #4
   store i32 0, ptr @opal_rcache_rgpusm_verbose, align 4
   %5 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @opal_rcache_rgpusm_verbose) #4
-  store i8 0, ptr getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 6), align 4
-  %6 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 6)) #4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 300), align 4
+  %6 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_rgpusm_component, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_rgpusm_component, i64 300)) #4
   ret i32 0
 }
 

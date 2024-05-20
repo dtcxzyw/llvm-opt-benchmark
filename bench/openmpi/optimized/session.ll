@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @psched_alloc_fn(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timeval, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 6), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
   %or.cond = icmp ult i32 %8, 64
   br i1 %or.cond, label %9, label %18
 
@@ -51,10 +51,10 @@ define dso_local noundef i32 @psched_alloc_fn(ptr noundef %0, i8 noundef zeroext
   br label %18
 
 18:                                               ; preds = %14, %9, %6
-  %19 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @psched_req_t_class, i64 0, i32 8), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @psched_req_t_class, i64 56), align 8
   %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #7
   %21 = load i32, ptr @pmix_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @psched_req_t_class, i64 0, i32 4), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @psched_req_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %21, %22
   br i1 %.not.i, label %24, label %23
 
@@ -76,7 +76,7 @@ define dso_local noundef i32 @psched_alloc_fn(ptr noundef %0, i8 noundef zeroext
   %30 = getelementptr inbounds i8, ptr %20, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  %31 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @psched_req_t_class, i64 0, i32 6), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @psched_req_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i.i = icmp eq ptr %32, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -105,7 +105,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   store ptr %4, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %20, i64 560
   store ptr %5, ptr %43, align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 5), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 704), align 8
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %67
 
@@ -118,7 +118,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   %52 = sitofp i64 %51 to double
   %53 = fdiv double %52, 1.000000e+06
   %54 = fadd double %53, %49
-  %55 = load i32, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 6), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
   %or.cond3 = icmp ult i32 %55, 64
   br i1 %or.cond3, label %56, label %67
 
@@ -160,7 +160,7 @@ declare void @psched_activate_sched_state(ptr noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @psched_session_ctrl_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timeval, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 6), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
   %or.cond = icmp ult i32 %8, 64
   br i1 %or.cond, label %9, label %18
 
@@ -179,10 +179,10 @@ define dso_local noundef i32 @psched_session_ctrl_fn(ptr noundef %0, i32 noundef
   br label %18
 
 18:                                               ; preds = %14, %9, %6
-  %19 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @psched_req_t_class, i64 0, i32 8), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @psched_req_t_class, i64 56), align 8
   %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #7
   %21 = load i32, ptr @pmix_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @psched_req_t_class, i64 0, i32 4), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @psched_req_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %21, %22
   br i1 %.not.i, label %24, label %23
 
@@ -204,7 +204,7 @@ define dso_local noundef i32 @psched_session_ctrl_fn(ptr noundef %0, i32 noundef
   %30 = getelementptr inbounds i8, ptr %20, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  %31 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @psched_req_t_class, i64 0, i32 6), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @psched_req_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i.i = icmp eq ptr %32, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -233,7 +233,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   store ptr %4, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %20, i64 560
   store ptr %5, ptr %43, align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 5), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 704), align 8
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %67
 
@@ -246,7 +246,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   %52 = sitofp i64 %51 to double
   %53 = fdiv double %52, 1.000000e+06
   %54 = fadd double %53, %49
-  %55 = load i32, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 6), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
   %or.cond3 = icmp ult i32 %55, 64
   br i1 %or.cond3, label %56, label %67
 

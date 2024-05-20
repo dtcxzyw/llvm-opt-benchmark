@@ -1202,11 +1202,11 @@ define void @Lf_ObjMergeOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 48:                                               ; preds = %2
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 20), align 4
-  store i32 2, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 0, i64 2), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 16), align 16
   %50 = and i32 %49, 4194303
   %51 = or disjoint i32 %50, 16777216
   store i32 %51, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 20), align 4
-  store i32 %43, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 0, i64 3), align 8
+  store i32 %43, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 24), align 8
   %52 = and i32 %43, 63
   %53 = zext nneg i32 %52 to i64
   %54 = shl nuw i64 1, %53
@@ -1250,16 +1250,16 @@ Lf_ManPrepareSet.exit:                            ; preds = %.lr.ph.i, %61, %48,
   br i1 %73, label %74, label %81
 
 74:                                               ; preds = %Lf_ManPrepareSet.exit
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 1), i64 20), align 4
-  store i32 2, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 1, i64 2), align 16
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 100), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 96), align 16
   %76 = and i32 %75, 4194303
   %77 = or disjoint i32 %76, 16777216
-  store i32 %77, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 1), i64 20), align 4
-  store i32 %69, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 1, i64 3), align 8
+  store i32 %77, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 100), align 4
+  store i32 %69, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 104), align 8
   %78 = and i32 %69, 63
   %79 = zext nneg i32 %78 to i64
   %80 = shl nuw i64 1, %79
-  store i64 %80, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 1), align 16
+  store i64 %80, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 80), align 16
   br label %Lf_ManPrepareSet.exit426
 
 81:                                               ; preds = %Lf_ManPrepareSet.exit
@@ -1287,7 +1287,7 @@ Lf_ManPrepareSet.exit:                            ; preds = %.lr.ph.i, %61, %48,
   br i1 %exitcond.not.i425, label %Lf_ManPrepareSet.exit426, label %.lr.ph.i422, !llvm.loop !16
 
 Lf_ManPrepareSet.exit426:                         ; preds = %.lr.ph.i422, %90, %74, %81
-  %.0533 = phi ptr [ getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 1), %74 ], [ %85, %81 ], [ %85, %90 ], [ %85, %.lr.ph.i422 ]
+  %.0533 = phi ptr [ getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 80), %74 ], [ %85, %81 ], [ %85, %90 ], [ %85, %.lr.ph.i422 ]
   %.0.i421 = phi i32 [ 1, %74 ], [ 0, %81 ], [ %.01821.i423, %.lr.ph.i422 ], [ %84, %90 ]
   %.0.i421.fr = freeze i32 %.0.i421
   %95 = load ptr, ptr %0, align 8
@@ -1582,16 +1582,16 @@ Gia_ObjSiblObj.exit:                              ; preds = %225
   br i1 %238, label %Lf_ManPrepareSet.exit440.thread, label %245
 
 Lf_ManPrepareSet.exit440.thread:                  ; preds = %Gia_ObjSiblObj.exit
-  %239 = load i32, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2), i64 20), align 4
-  store i32 2, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2, i64 2), align 16
+  %239 = load i32, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 180), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 176), align 16
   %240 = and i32 %239, 4194303
   %241 = or disjoint i32 %240, 16777216
-  store i32 %241, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2), i64 20), align 4
-  store i32 %100, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2, i64 3), align 8
+  store i32 %241, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 180), align 4
+  store i32 %100, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 184), align 8
   %242 = and i32 %100, 63
   %243 = zext nneg i32 %242 to i64
   %244 = shl nuw i64 1, %243
-  store i64 %244, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2), align 16
+  store i64 %244, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 160), align 16
   br label %.lr.ph585
 
 245:                                              ; preds = %Gia_ObjSiblObj.exit
@@ -1625,7 +1625,7 @@ Lf_ManPrepareSet.exit440:                         ; preds = %.lr.ph.i436, %254
 
 .lr.ph585:                                        ; preds = %Lf_ManPrepareSet.exit440.thread, %Lf_ManPrepareSet.exit440
   %.0.i435701 = phi i32 [ 1, %Lf_ManPrepareSet.exit440.thread ], [ %.0.i435, %Lf_ManPrepareSet.exit440 ]
-  %.0531700 = phi ptr [ getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2), %Lf_ManPrepareSet.exit440.thread ], [ %249, %Lf_ManPrepareSet.exit440 ]
+  %.0531700 = phi ptr [ getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 160), %Lf_ManPrepareSet.exit440.thread ], [ %249, %Lf_ManPrepareSet.exit440 ]
   %260 = sext i32 %35 to i64
   %261 = shl nsw i64 %260, 3
   %.lobit = lshr i64 %234, 63
@@ -1703,16 +1703,16 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   br i1 %298, label %299, label %306
 
 299:                                              ; preds = %Gia_ObjFaninId2.exit
-  %300 = load i32, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2), i64 20), align 4
-  store i32 2, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2, i64 2), align 16
+  %300 = load i32, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 180), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 176), align 16
   %301 = and i32 %300, 4194303
   %302 = or disjoint i32 %301, 16777216
-  store i32 %302, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2), i64 20), align 4
-  store i32 %294, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2, i64 3), align 8
+  store i32 %302, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 180), align 4
+  store i32 %294, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 184), align 8
   %303 = and i32 %294, 63
   %304 = zext nneg i32 %303 to i64
   %305 = shl nuw i64 1, %304
-  store i64 %305, ptr getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2), align 16
+  store i64 %305, ptr getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 160), align 16
   br label %Lf_ManPrepareSet.exit451
 
 306:                                              ; preds = %Gia_ObjFaninId2.exit
@@ -1745,7 +1745,7 @@ Lf_ManPrepareSet.exit451.loopexit:                ; preds = %315, %.lr.ph.i447
   br label %Lf_ManPrepareSet.exit451
 
 Lf_ManPrepareSet.exit451:                         ; preds = %Lf_ManPrepareSet.exit451.loopexit, %299, %306
-  %.1532 = phi ptr [ getelementptr inbounds ([3 x [10 x i64]], ptr @Lf_ManPrepareSet.CutTemp, i64 0, i64 2), %299 ], [ %310, %306 ], [ %310, %Lf_ManPrepareSet.exit451.loopexit ]
+  %.1532 = phi ptr [ getelementptr inbounds (i8, ptr @Lf_ManPrepareSet.CutTemp, i64 160), %299 ], [ %310, %306 ], [ %310, %Lf_ManPrepareSet.exit451.loopexit ]
   %.0.i446 = phi i32 [ 1, %299 ], [ 0, %306 ], [ %320, %Lf_ManPrepareSet.exit451.loopexit ]
   %321 = mul nuw nsw i32 %.0.i421.fr, %.0.i
   %322 = mul nuw nsw i32 %321, %.0.i446
@@ -3492,12 +3492,12 @@ Gia_ObjIsMuxId.exit520:                           ; preds = %1210
   %1219 = load i32, ptr %1218, align 8
   %.not.i.i522 = icmp eq i32 %1219, 0
   %1220 = select i1 %.not.i.i522, i32 -1, i32 4
-  store i32 %1220, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutMux.CutSet, i64 0, i64 2), align 16
+  store i32 %1220, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutMux.CutSet, i64 16), align 16
   %.val15.i.i = load i64, ptr %1217, align 4
   %1221 = trunc i64 %.val15.i.i to i32
   %1222 = and i32 %1221, 536870911
   %1223 = sub nsw i32 %1, %1222
-  store i32 %1223, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutMux.CutSet, i64 0, i64 3), align 8
+  store i32 %1223, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutMux.CutSet, i64 24), align 8
   %.val16.i.i = load i64, ptr %1217, align 4
   %1224 = lshr i64 %.val16.i.i, 32
   %1225 = trunc nuw i64 %1224 to i32
@@ -3520,13 +3520,13 @@ Gia_ObjIsMuxId.exit520:                           ; preds = %1210
 
 Lf_ObjCutMux.exit:                                ; preds = %1215, %1230
   %1234 = phi i32 [ -1, %1215 ], [ %spec.select.i.i.i, %1230 ]
-  store i32 %1234, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutMux.CutSet, i64 0, i64 4), align 16
+  store i32 %1234, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutMux.CutSet, i64 32), align 16
   %1235 = load i32, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutMux.CutSet, i64 20), align 4
   %1236 = and i32 %1235, 8388607
   %1237 = or disjoint i32 %1236, 58720256
   store i32 %1237, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutMux.CutSet, i64 20), align 4
   call fastcc void @Lf_CutParams(ptr noundef nonnull %0, ptr noundef nonnull @Lf_ObjCutMux.CutSet, i32 noundef %.1329, float noundef %21)
-  %1238 = load i32, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutMux.CutSet, i64 0, i64 1), align 8
+  %1238 = load i32, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutMux.CutSet, i64 8), align 8
   %1239 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 %1238, ptr %1239, align 4
   %1240 = load float, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutMux.CutSet, i64 12), align 4
@@ -7398,10 +7398,10 @@ define internal fastcc noundef nonnull ptr @Lf_ObjCutBest(ptr nocapture noundef 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %9, i64 8
   %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutBest.CutSet, i64 0, i64 1), align 8
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 8), align 8
   %20 = getelementptr inbounds i8, ptr %9, i64 20
   %21 = load float, ptr %20, align 4
-  store float %21, ptr getelementptr inbounds (%struct.Lf_Cut_t_, ptr @Lf_ObjCutBest.CutSet, i64 0, i32 2), align 4
+  store float %21, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 12), align 4
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr i8, ptr %22, i64 32
   %.val.i = load ptr, ptr %23, align 8
@@ -7412,12 +7412,12 @@ define internal fastcc noundef nonnull ptr @Lf_ObjCutBest(ptr nocapture noundef 
   %28 = load i32, ptr %27, align 8
   %.not.i20 = icmp eq i32 %28, 0
   %29 = select i1 %.not.i20, i32 -1, i32 4
-  store i32 %29, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutBest.CutSet, i64 0, i64 2), align 16
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 16), align 16
   %.val15.i = load i64, ptr %24, align 4
   %30 = trunc i64 %.val15.i to i32
   %31 = and i32 %30, 536870911
   %32 = sub nsw i32 %1, %31
-  store i32 %32, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutBest.CutSet, i64 0, i64 3), align 8
+  store i32 %32, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 24), align 8
   %.val16.i = load i64, ptr %24, align 4
   %33 = lshr i64 %.val16.i, 32
   %34 = trunc nuw i64 %33 to i32
@@ -7440,7 +7440,7 @@ define internal fastcc noundef nonnull ptr @Lf_ObjCutBest(ptr nocapture noundef 
 
 Lf_MemLoadMuxCut.exit:                            ; preds = %17, %39
   %43 = phi i32 [ -1, %17 ], [ %spec.select.i.i, %39 ]
-  store i32 %43, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutBest.CutSet, i64 0, i64 4), align 16
+  store i32 %43, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 32), align 16
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 20), align 4
   %45 = and i32 %44, 8388607
   %46 = or disjoint i32 %45, 58720256
@@ -7451,11 +7451,11 @@ Lf_MemLoadMuxCut.exit:                            ; preds = %17, %39
   %.0.i.ph = phi i64 [ 1, %13 ], [ 0, %2 ]
   %48 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %.0.i.ph
   %49 = load i32, ptr %48, align 4
-  store i32 %49, ptr getelementptr inbounds ([10 x i64], ptr @Lf_ObjCutBest.CutSet, i64 0, i64 1), align 8
+  store i32 %49, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 8), align 8
   %50 = getelementptr inbounds i8, ptr %9, i64 12
   %51 = getelementptr inbounds [3 x float], ptr %50, i64 0, i64 %.0.i.ph
   %52 = load float, ptr %51, align 4
-  store float %52, ptr getelementptr inbounds (%struct.Lf_Cut_t_, ptr @Lf_ObjCutBest.CutSet, i64 0, i32 2), align 4
+  store float %52, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 12), align 4
   %53 = getelementptr inbounds i8, ptr %0, i64 88
   %54 = getelementptr inbounds [2 x %struct.Lf_Plc_t_], ptr %10, i64 0, i64 %.0.i.ph
   %55 = load i32, ptr %54, align 4

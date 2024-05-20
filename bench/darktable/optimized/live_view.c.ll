@@ -452,7 +452,7 @@ define internal void @_toggle_live_view_clicked(ptr noundef %0, ptr nocapture re
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #13
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #13
   %6 = icmp eq i32 %5, 1
-  %7 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   br i1 %6, label %8, label %13
 
 8:                                                ; preds = %2
@@ -483,7 +483,7 @@ declare void @dtgtk_cairo_paint_zoom(ptr noundef, i32 noundef, i32 noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_zoom_live_view_clicked(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds i8, ptr %5, i64 32980
@@ -509,7 +509,7 @@ declare void @dtgtk_cairo_paint_refresh(ptr noundef, i32 noundef, i32 noundef, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_rotate_ccw(ptr nocapture readnone %0, ptr nocapture readnone %1) #7 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds i8, ptr %5, i64 33000
@@ -522,7 +522,7 @@ define internal void @_rotate_ccw(ptr nocapture readnone %0, ptr nocapture readn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_rotate_cw(ptr nocapture readnone %0, ptr nocapture readnone %1) #7 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds i8, ptr %5, i64 33000
@@ -537,7 +537,7 @@ declare void @dtgtk_cairo_paint_flip(ptr noundef, i32 noundef, i32 noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_toggle_flip_clicked(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = tail call i64 @gtk_toggle_button_get_type() #15
@@ -556,13 +556,13 @@ define internal void @_focus_button_clicked(ptr nocapture readnone %0, ptr nound
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   %7 = call i32 @dt_camctl_camera_get_property_type(ptr noundef %6, ptr noundef null, ptr noundef nonnull @.str.53, ptr noundef nonnull %3) #13
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   call void @dt_camctl_camera_set_property_choice(ptr noundef %10, ptr noundef null, ptr noundef nonnull @.str.53, i32 noundef %5) #13
   br label %29
 
@@ -585,17 +585,17 @@ define internal void @_focus_button_clicked(ptr nocapture readnone %0, ptr nound
 
 19:                                               ; preds = %15, %13
   %20 = phi float [ %18, %15 ], [ 0.000000e+00, %13 ]
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   call void @dt_camctl_camera_set_property_float(ptr noundef %21, ptr noundef null, ptr noundef nonnull @.str.53, float noundef %20) #13
   br label %29
 
 22:                                               ; preds = %11
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   call void @dt_camctl_camera_set_property_choice(ptr noundef %23, ptr noundef null, ptr noundef nonnull @.str.53, i32 noundef %5) #13
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !52
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !52
   %26 = and i32 %25, 32
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %29, label %28
@@ -617,13 +617,13 @@ declare void @dtgtk_cairo_paint_lock(ptr noundef, i32 noundef, i32 noundef, i32 
 define internal void @_auto_focus_button_clicked(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   %5 = call i32 @dt_camctl_camera_get_property_type(ptr noundef %4, ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef nonnull %3) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !52
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !52
   %9 = and i32 %8, 32
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %22, label %11
@@ -638,12 +638,12 @@ define internal void @_auto_focus_button_clicked(ptr nocapture readnone %0, ptr 
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   call void @dt_camctl_camera_set_property_toggle(ptr noundef %16, ptr noundef null, ptr noundef nonnull @.str.55) #13
   br label %22
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !52
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !52
   %19 = and i32 %18, 32
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %22, label %21
@@ -771,7 +771,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 define void @view_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   %7 = getelementptr inbounds i8, ptr %6, i64 144
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = icmp eq ptr %8, null
@@ -826,7 +826,7 @@ define void @view_leave(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   tail call void @dt_camctl_camera_stop_live_view(ptr noundef %13) #13
   %14 = load ptr, ptr %6, align 8, !tbaa !16
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %8) #13
@@ -849,7 +849,7 @@ declare void @gtk_toggle_button_set_active(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.dt_mipmap_buffer_t, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !33
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !33
   %9 = getelementptr inbounds i8, ptr %8, i64 144
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = getelementptr inbounds i8, ptr %0, i64 280
@@ -906,7 +906,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   ]
 
 50:                                               ; preds = %28
-  %51 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %52 = tail call i32 @dt_view_tethering_get_selected_imgid(ptr noundef %51) #13
   br label %55
 
@@ -921,26 +921,26 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
 
 58:                                               ; preds = %55
   tail call void @cairo_save(ptr noundef %1) #13
-  %59 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !60
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !60
   %60 = tail call ptr @dt_image_cache_testget(ptr noundef %59, i32 noundef %56, i8 noundef signext 114) #13
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %58
-  %63 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !60
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !60
   %64 = tail call ptr @dt_image_cache_get(ptr noundef %63, i32 noundef %56, i8 noundef signext 114) #13
   br label %65
 
 65:                                               ; preds = %62, %58
   %66 = phi ptr [ %60, %58 ], [ %64, %62 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #13
-  %67 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !61
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !61
   %68 = fmul reassoc nsz arcp contract afn double %31, 0x3FEF0A3D80000000
   %69 = fptosi double %68 to i32
   %70 = fmul reassoc nsz arcp contract afn double %34, 0x3FEF0A3D80000000
   %71 = fptosi double %70 to i32
   %72 = tail call i32 @dt_mipmap_cache_get_matching_size(ptr noundef %67, i32 noundef %69, i32 noundef %71) #13
-  %73 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !61
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !61
   call void @dt_mipmap_cache_get_with_caller(ptr noundef %73, ptr noundef nonnull %7, i32 noundef %56, i32 noundef %72, i32 noundef 0, i8 noundef signext 114, ptr noundef nonnull @.str.48, i32 noundef 468) #13
   %74 = getelementptr inbounds i8, ptr %7, i64 24
   %75 = load ptr, ptr %74, align 8, !tbaa !62
@@ -1118,7 +1118,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   br i1 %192, label %195, label %193
 
 193:                                              ; preds = %190
-  %194 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !61
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !61
   call void @dt_mipmap_cache_release_with_caller(ptr noundef %194, ptr noundef nonnull %7, ptr noundef nonnull @.str.48, i32 noundef 546) #13
   br label %195
 
@@ -1127,7 +1127,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   br i1 %196, label %199, label %197
 
 197:                                              ; preds = %195
-  %198 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !60
+  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !60
   call void @dt_image_cache_read_release(ptr noundef %198, ptr noundef nonnull %66) #13
   br label %199
 
@@ -1372,7 +1372,7 @@ define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonl
   ]
 
 13:                                               ; preds = %7
-  %14 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %15 = tail call i32 @dt_view_tethering_get_selected_imgid(ptr noundef %14) #13
   br label %18
 

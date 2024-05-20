@@ -27,7 +27,7 @@ define dso_local void @efi_bgrt_init(ptr nocapture noundef readonly %0) local_un
   br i1 %3, label %4, label %54
 
 4:                                                ; preds = %1
-  %5 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %6 = and i64 %5, 16
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %54, label %8
@@ -44,7 +44,7 @@ define dso_local void @efi_bgrt_init(ptr nocapture noundef readonly %0) local_un
 
 14:                                               ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) @bgrt_tab, ptr noundef align 1 dereferenceable(56) %0, i64 56, i1 false)
-  %15 = load i16, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 1), align 1
+  %15 = load i16, ptr getelementptr inbounds (i8, ptr @bgrt_tab, i64 36), align 1
   %16 = icmp ugt i16 %15, 1
   br i1 %16, label %17, label %20
 
@@ -54,7 +54,7 @@ define dso_local void @efi_bgrt_init(ptr nocapture noundef readonly %0) local_un
   br label %53
 
 20:                                               ; preds = %14
-  %21 = load i8, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 3), align 1
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @bgrt_tab, i64 39), align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %26, label %23
 
@@ -64,7 +64,7 @@ define dso_local void @efi_bgrt_init(ptr nocapture noundef readonly %0) local_un
   br label %53
 
 26:                                               ; preds = %20
-  %27 = load i64, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4), align 1
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @bgrt_tab, i64 40), align 1
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %31
 
@@ -82,7 +82,7 @@ define dso_local void @efi_bgrt_init(ptr nocapture noundef readonly %0) local_un
   br label %53
 
 36:                                               ; preds = %31
-  %37 = load i64, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4), align 1
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @bgrt_tab, i64 40), align 1
   %38 = tail call ptr @early_memremap(i64 noundef %37, i64 noundef 6) #6
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %42
@@ -107,7 +107,7 @@ define dso_local void @efi_bgrt_init(ptr nocapture noundef readonly %0) local_un
 50:                                               ; preds = %42
   %51 = zext i32 %45 to i64
   store i64 %51, ptr @bgrt_image_size, align 8
-  %52 = load i64, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4), align 1
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @bgrt_tab, i64 40), align 1
   tail call void @efi_mem_reserve(i64 noundef %52, i64 noundef %51) #6
   br label %54
 

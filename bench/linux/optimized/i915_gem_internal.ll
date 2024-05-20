@@ -119,7 +119,7 @@ define internal noundef i32 @i915_gem_object_get_pages_internal(ptr noundef %0) 
   %18 = and i32 %17, 49152
   %19 = icmp eq i32 %18, 0
   %20 = select i1 %19, i32 3282, i32 3284
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %22 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3264, i64 noundef 16) #6
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit21, label %24
@@ -303,7 +303,7 @@ define internal noundef i32 @i915_gem_object_get_pages_internal(ptr noundef %0) 
 .thread15:                                        ; preds = %121, %133, %106
   tail call void @sg_free_table(ptr noundef nonnull %30) #4
   tail call void @kfree(ptr noundef nonnull %30) #4
-  %136 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %137 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %136, i32 noundef 3264, i64 noundef 16) #6
   %138 = icmp eq ptr %137, null
   br i1 %138, label %.loopexit21, label %29

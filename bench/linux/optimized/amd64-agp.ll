@@ -122,8 +122,8 @@ define dso_local i32 @agp_amd64_init() local_unnamed_addr #0 section ".init.text
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %18
-  store ptr @agp_amd64_pci_promisc_table, ptr getelementptr inbounds (%struct.pci_driver, ptr @agp_amd64_pci_driver, i64 0, i32 1), align 8
-  %22 = tail call i32 @driver_attach(ptr noundef nonnull getelementptr inbounds (%struct.pci_driver, ptr @agp_amd64_pci_driver, i64 0, i32 13)) #6
+  store ptr @agp_amd64_pci_promisc_table, ptr getelementptr inbounds (i8, ptr @agp_amd64_pci_driver, i64 8), align 8
+  %22 = tail call i32 @driver_attach(ptr noundef nonnull getelementptr inbounds (i8, ptr @agp_amd64_pci_driver, i64 104)) #6
   %23 = icmp eq i32 %22, 0
   %24 = load i32, ptr @agp_bridges_found, align 4
   %25 = icmp eq i32 %24, 0

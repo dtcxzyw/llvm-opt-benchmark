@@ -213,9 +213,9 @@ define void @_ZN13PacketDiagramC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %9 = alloca %"class.QMetaObject::Connection", align 8
   %10 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN13QGraphicsViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13PacketDiagram, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13PacketDiagram, i64 512), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
           to label %14 unwind label %40
@@ -694,9 +694,9 @@ declare void @_ZN13QGraphicsViewD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13PacketDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13PacketDiagram, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13PacketDiagram, i64 512), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1602,7 +1602,7 @@ _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i180
 304:                                              ; preds = %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i180, %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.i.i.i.i179
   %305 = load ptr, ptr %292, align 8
   %306 = load ptr, ptr %36, align 8
-  %307 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  %307 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %.not.i184 = icmp ne i32 %307, 0
   %308 = getelementptr inbounds i8, ptr %306, i64 72
   %309 = load i32, ptr %308, align 8
@@ -1680,7 +1680,7 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc185
   %349 = sitofp i32 %344 to double
   %350 = fdiv double %348, %349
   %351 = call double @llvm.floor.f64(double %350)
-  %352 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  %352 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %.not.i.i187 = icmp ne i32 %352, 0
   %353 = getelementptr inbounds i8, ptr %343, i64 72
   %354 = load i32, ptr %353, align 8
@@ -1716,7 +1716,7 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc185
   %377 = sitofp i32 %372 to double
   %378 = fdiv double %376, %377
   %379 = call double @llvm.ceil.f64(double %378)
-  %380 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  %380 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %.not.i.i189 = icmp ne i32 %380, 0
   %381 = getelementptr inbounds i8, ptr %371, i64 72
   %382 = load i32, ptr %381, align 8
@@ -2330,7 +2330,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %19
 
 _ZN7QStringD2Ev.exit:                             ; preds = %19, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %22
   call void @_ZN7QAction12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %18, i1 noundef zeroext true)
-  %24 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %25 = icmp ne i32 %24, 0
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %18, i1 noundef zeroext %25)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -2518,7 +2518,7 @@ declare void @_ZN7QAction7toggledEb(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13PacketDiagram17showFieldsToggledEb(ptr noundef nonnull align 8 dereferenceable(76) %0, i1 noundef zeroext %1) #0 align 2 {
   %3 = zext i1 %1 to i32
-  store i32 %3, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN13PacketDiagram11setRootNodeEP11_proto_node(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %5)
@@ -3490,7 +3490,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i: ; preds = %31
   br label %_ZN9QPolygonFD2Ev.exit
 
 _ZN9QPolygonFD2Ev.exit:                           ; preds = %31, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i, %34
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28FieldInformationGraphicsItem, i64 16), ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
           to label %38 unwind label %65
@@ -4845,7 +4845,7 @@ define linkonce_odr void @_ZN28FieldInformationGraphicsItem12updateLayoutEv(ptr 
   %16 = fmul double %15, %13
   %17 = fptosi double %16 to i32
   %18 = sitofp i32 %17 to double
-  %19 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %.not.i = icmp ne i32 %19, 0
   %20 = zext i1 %.not.i to i32
   %21 = shl i32 %12, %20
@@ -4963,7 +4963,7 @@ _ZN9QPolygonFD2Ev.exit30:                         ; preds = %75, %_ZN17QArrayDat
   %80 = getelementptr inbounds i8, ptr %5, i64 8
   %81 = load double, ptr %80, align 8
   %82 = load ptr, ptr %9, align 8
-  %83 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %.not.i31 = icmp ne i32 %83, 0
   %84 = getelementptr inbounds i8, ptr %82, i64 72
   %85 = load i32, ptr %84, align 8
@@ -5186,7 +5186,7 @@ declare void @_ZN20QGraphicsPolygonItemD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN28FieldInformationGraphicsItemD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28FieldInformationGraphicsItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5238,7 +5238,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QPolygonFD2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN28FieldInformationGraphicsItemD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28FieldInformationGraphicsItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5812,7 +5812,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %195
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %195, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %198
-  %200 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %.not = icmp eq i32 %200, 0
   br i1 %.not, label %_ZN7QStringD2Ev.exit94, label %201
 
@@ -8604,7 +8604,7 @@ _Zeq9QMetaTypeS_.exit.thread11:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 

@@ -209,7 +209,7 @@ define internal fastcc i32 @create_app(ptr nocapture noundef readonly %0, ptr no
   %9 = alloca %struct.pmix_value, align 8
   store i8 0, ptr %3, align 1
   %10 = load i32, ptr @pmix_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_result_t_class, i64 0, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not = icmp eq i32 %10, %11
   br i1 %.not, label %13, label %12
 
@@ -224,7 +224,7 @@ define internal fastcc i32 @create_app(ptr nocapture noundef readonly %0, ptr no
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
-  %17 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_result_t_class, i64 0, i32 6), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i = icmp eq ptr %18, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -302,10 +302,10 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   br i1 %53, label %.thread33, label %54
 
 54:                                               ; preds = %50
-  %55 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_pmix_app_t_class, i64 0, i32 8), align 8
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @prte_pmix_app_t_class, i64 56), align 8
   %56 = call noalias noundef ptr @malloc(i64 noundef %55) #15
   %57 = load i32, ptr @pmix_class_init_epoch, align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_pmix_app_t_class, i64 0, i32 4), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @prte_pmix_app_t_class, i64 32), align 8
   %.not.i210 = icmp eq i32 %57, %58
   br i1 %.not.i210, label %60, label %59
 
@@ -327,7 +327,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   %66 = getelementptr inbounds i8, ptr %56, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
-  %67 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_pmix_app_t_class, i64 0, i32 6), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_pmix_app_t_class, i64 40), align 8
   %68 = load ptr, ptr %67, align 8
   %.not6.i.i = icmp eq ptr %68, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i

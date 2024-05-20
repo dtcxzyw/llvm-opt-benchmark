@@ -491,7 +491,7 @@ if.end4:                                          ; preds = %do.end
   store i32 %2, ptr %kind.i.i.i, align 8, !noalias !5
   %states.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %states.i.i.i, i8 0, i64 30, i1 false), !noalias !5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211raw_som_dfaE, i64 16), ptr %call.i, align 8, !noalias !5
   %state_som.i.i = getelementptr inbounds i8, ptr %call.i, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %state_som.i.i, i8 0, i64 24, i1 false), !noalias !5
   %stream_som_loc_width.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -10368,7 +10368,7 @@ _ZNSt6vectorIN3ue26dstateESaIS1_EE5clearEv.exit.i: ; preds = %for.end
   store i32 %100, ptr %kind.i.i.i, align 8, !noalias !197
   %states.i.i.i = getelementptr inbounds i8, ptr %call.i23, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %states.i.i.i, i8 0, i64 30, i1 false), !noalias !197
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i64 0, i32 0, i64 2), ptr %call.i23, align 8, !noalias !197
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211raw_som_dfaE, i64 16), ptr %call.i23, align 8, !noalias !197
   %state_som.i.i = getelementptr inbounds i8, ptr %call.i23, i64 560
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %state_som.i.i, i8 0, i64 24, i1 false), !noalias !197
   %stream_som_loc_width.i.i = getelementptr inbounds i8, ptr %call.i23, i64 584

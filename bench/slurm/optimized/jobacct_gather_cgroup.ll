@@ -144,7 +144,7 @@ define void @jobacct_gather_p_poll_data(ptr noundef %0, i64 noundef %1, i1 nound
   br i1 %.b, label %5, label %4
 
 4:                                                ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.jag_callbacks, ptr @jobacct_gather_p_poll_data.callbacks, i64 0, i32 1), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @jobacct_gather_p_poll_data.callbacks, i64 8), i8 0, i64 16, i1 false)
   store i1 true, ptr @jobacct_gather_p_poll_data.first, align 1
   store ptr @_prec_extra, ptr @jobacct_gather_p_poll_data.callbacks, align 8
   br label %5

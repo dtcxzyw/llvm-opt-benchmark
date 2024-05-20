@@ -686,8 +686,8 @@ define internal i32 @hpet_insert_resource() #0 section ".init.text" align 16 {
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @acpi_generic_reduced_hw_init() local_unnamed_addr #7 section ".init.text" align 16 {
-  store ptr @x86_init_noop, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 5, i32 1), align 8
-  store ptr @x86_init_noop, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 2), align 8
+  store ptr @x86_init_noop, ptr getelementptr inbounds (i8, ptr @x86_init, i64 120), align 8
+  store ptr @x86_init_noop, ptr getelementptr inbounds (i8, ptr @x86_init, i64 48), align 8
   store ptr @null_legacy_pic, ptr @legacy_pic, align 8
   ret void
 }
@@ -765,7 +765,7 @@ define dso_local noundef range(i32 0, 2) i32 @early_acpi_boot_init() local_unnam
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 9, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 240), align 8
   tail call void %17() #18
   br label %18
 
@@ -846,7 +846,7 @@ define dso_local noundef range(i32 0, 2) i32 @acpi_boot_init() local_unnamed_add
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  store ptr @pci_acpi_init, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 1), align 8
+  store ptr @pci_acpi_init, ptr getelementptr inbounds (i8, ptr @x86_init, i64 152), align 8
   br label %15
 
 15:                                               ; preds = %14, %11
@@ -862,30 +862,30 @@ define dso_local noundef range(i32 0, 2) i32 @acpi_boot_init() local_unnamed_add
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @acpi_parse_fadt(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
-  %2 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 36), align 1
+  %2 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 109), align 1
   %3 = and i16 %2, 1
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 108), align 4
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 8), align 1
   %8 = icmp ugt i8 %7, 2
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %6
   %10 = and i16 %2, 2
   %11 = icmp eq i16 %10, 0
-  %12 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 88), align 8
   %13 = icmp ne i32 %12, 0
   %14 = select i1 %11, i1 %13, i1 false
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 88), align 8
   br label %16
 
 16:                                               ; preds = %15, %9, %6
@@ -894,7 +894,7 @@ define internal noundef i32 @acpi_parse_fadt(ptr nocapture readnone %0) #0 secti
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %16
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 92), align 4
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -903,26 +903,26 @@ define internal noundef i32 @acpi_parse_fadt(ptr nocapture readnone %0) #0 secti
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %20
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 3), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 100), align 4
   br label %24
 
 24:                                               ; preds = %23, %20
   br i1 %8, label %25, label %32
 
 25:                                               ; preds = %24
-  %26 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50), align 1
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 208), align 1
   %27 = icmp eq i8 %26, 1
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %25
-  %29 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50, i32 4), align 1
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 212), align 1
   %30 = trunc i64 %29 to i32
   store i32 %30, ptr @pmtmr_ioport, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %24, %28
-  %33 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 16), align 1
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 76), align 1
   store i32 %33, ptr @pmtmr_ioport, align 4
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %37, label %.thread
@@ -1355,13 +1355,13 @@ declare dso_local void @e820__update_table_print() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @x86_default_set_root_pointer(i64 noundef %0) local_unnamed_addr #13 align 16 {
-  store i64 %0, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 5), align 1
+  store i64 %0, ptr getelementptr inbounds (i8, ptr @boot_params, i64 112), align 1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i64 @x86_default_get_root_pointer() local_unnamed_addr #14 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 5), align 1
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 112), align 1
   ret i64 %1
 }
 
@@ -1457,7 +1457,7 @@ define internal noundef i32 @disable_acpi_xsdt(ptr nocapture noundef readonly %0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 -22, 1) i32 @acpi_parse_madt(ptr noundef %0) #0 section ".init.text" align 16 {
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %3 = and i64 %2, 512
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %34, label %5
@@ -1493,13 +1493,13 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_madt(ptr noundef %0) #
   br label %21
 
 21:                                               ; preds = %20, %15
-  %22 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 8), align 1
   %23 = icmp ugt i8 %22, 6
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %21
   %25 = icmp eq i8 %22, 6
-  %26 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 42), align 1
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 131), align 1
   %27 = icmp ugt i8 %26, 2
   %28 = select i1 %25, i1 %27, i1 false
   br i1 %28, label %29, label %30
@@ -1521,7 +1521,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_madt(ptr noundef %0) #
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @early_acpi_parse_madt_lapic_addr_ovr() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %2 = and i64 %1, 512
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %11, label %4
@@ -1606,7 +1606,7 @@ define internal noundef i32 @dmi_ignore_irq0_timer_override(ptr nocapture nounde
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @acpi_parse_madt_lapic_entries() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %2 = and i64 %1, 512
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %28, label %4
@@ -1661,7 +1661,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @acpi_parse_madt_ioapic_ent
   br i1 %5, label %40, label %6
 
 6:                                                ; preds = %0
-  %7 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %8 = and i64 %7, 512
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %40, label %10
@@ -1695,7 +1695,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @acpi_parse_madt_ioapic_ent
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %22
-  %29 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  %29 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %30 = trunc i16 %29 to i8
   %31 = zext i16 %29 to i32
   tail call fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %30, i16 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef %31) #20
@@ -1739,7 +1739,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_mp_wake(ptr noundef %0
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 1
   store i64 %14, ptr @acpi_mp_wake_mailbox_paddr, align 8
-  store ptr @acpi_wakeup_cpu, ptr getelementptr inbounds (%struct.apic_override, ptr @__x86_apic_override, i64 0, i32 13), align 8
+  store ptr @acpi_wakeup_cpu, ptr getelementptr inbounds (i8, ptr @__x86_apic_override, i64 104), align 8
   %15 = load ptr, ptr @apic, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 224
   store ptr @acpi_wakeup_cpu, ptr %16, align 8
@@ -2013,7 +2013,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_int_src_ovr(ptr nounde
 
 19:                                               ; preds = %16, %12
   %20 = phi i8 [ %.pr, %16 ], [ %14, %12 ]
-  %21 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  %21 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %22 = zext i8 %20 to i16
   %23 = icmp eq i16 %21, %22
   br i1 %23, label %24, label %32
@@ -2395,7 +2395,7 @@ define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 nound
   %19 = load i32, ptr @enable_update_mptable, align 4
   %20 = icmp eq i32 %19, 0
   %21 = select i1 %18, i1 true, i1 %20
-  %22 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  %22 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %23 = zext i16 %22 to i32
   %24 = icmp eq i32 %23, %1
   %25 = select i1 %21, i1 true, i1 %24

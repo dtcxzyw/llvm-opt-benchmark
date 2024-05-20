@@ -165,7 +165,7 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = tail call ptr @gres_device_id2str(ptr noundef nonnull %6) #4
   store ptr %7, ptr %4, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %9 = and i64 %8, 64
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %36, label %10
@@ -202,7 +202,7 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
 
 22:                                               ; preds = %12, %16, %18, %20
   %23 = phi ptr [ %15, %12 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
-  %24 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %25 = and i64 %24, 64
   %.not12 = icmp eq i64 %25, 0
   br i1 %.not12, label %35, label %26

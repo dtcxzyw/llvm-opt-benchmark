@@ -33,7 +33,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_init_uts_ns:
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @early_hostname(ptr noundef %0) #0 section ".init.text" align 16 {
-  %2 = tail call i64 @strscpy(ptr noundef nonnull getelementptr inbounds (%struct.uts_namespace, ptr @init_uts_ns, i64 0, i32 0, i32 1), ptr noundef %0, i64 noundef 65) #3
+  %2 = tail call i64 @strscpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 65), ptr noundef %0, i64 noundef 65) #3
   %3 = icmp slt i64 %2, 0
   br i1 %3, label %4, label %6
 

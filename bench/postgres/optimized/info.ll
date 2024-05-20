@@ -228,7 +228,7 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 
 70:                                               ; preds = %62
   store ptr %67, ptr %65, align 8
-  %71 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 12), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 256), align 8
   br label %72
 
 72:                                               ; preds = %70, %69
@@ -248,7 +248,7 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 
 79:                                               ; preds = %72
   store ptr %75, ptr %77, align 8
-  %80 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 12), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 256), align 8
   br label %create_rel_filename_map.exit
 
 create_rel_filename_map.exit:                     ; preds = %78, %79
@@ -784,7 +784,7 @@ get_rel_infos.exit:                               ; preds = %197, %114
   %199 = getelementptr inbounds i8, ptr %116, i64 1048
   store i32 %.076.lcssa.i, ptr %199, align 8
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
-  %200 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %201 = icmp ult i32 %200, 160100
   %or.cond = select i1 %112, i1 true, i1 %201
   br i1 %or.cond, label %get_db_subscription_count.exit, label %202
@@ -913,7 +913,7 @@ get_old_cluster_logical_slot_infos.exit:          ; preds = %.tail.i, %202, %207
   %270 = getelementptr inbounds i8, ptr %116, i64 1064
   store ptr %.0.i, ptr %270, align 8
   store i32 %206, ptr %269, align 8
-  %.pr = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %271 = icmp ult i32 %.pr, 170000
   br i1 %271, label %get_db_subscription_count.exit, label %272
 
@@ -941,7 +941,7 @@ get_db_subscription_count.exit:                   ; preds = %272, %get_old_clust
   %283 = icmp eq ptr %0, @old_cluster
   %.str.3..str.4 = select i1 %283, ptr @.str.3, ptr @.str.4
   call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef nonnull %.str.3..str.4) #8
-  %284 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
+  %284 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
   %285 = trunc i8 %284 to i1
   br i1 %285, label %286, label %print_db_infos.exit
 
@@ -1028,12 +1028,12 @@ print_db_infos.exit:                              ; preds = %print_slot_infos.ex
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @count_old_cluster_logical_slots() local_unnamed_addr #4 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %4
 
@@ -1054,12 +1054,12 @@ define dso_local i32 @count_old_cluster_logical_slots() local_unnamed_addr #4 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @count_old_cluster_subscriptions() local_unnamed_addr #4 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %4
 

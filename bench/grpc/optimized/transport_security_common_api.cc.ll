@@ -84,7 +84,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %0 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -199,7 +199,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
 
 if.then.i:                                        ; preds = %entry
-  %2 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 0, i32 2), align 8
+  %2 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %2 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -250,7 +250,7 @@ grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit: ; preds = %entry, %up
   br i1 %cmp.i10, label %if.then.i12, label %grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit
 
 if.then.i12:                                      ; preds = %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
-  %11 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 0, i32 2), align 8
+  %11 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 16), align 8
   %conv.i.i.i13 = zext i16 %11 to i64
   %add.i.i.i14 = add nuw nsw i64 %conv.i.i.i13, 8
   %sub.i.i.i15 = add nuw nsw i64 %conv.i.i.i13, 23
@@ -361,7 +361,7 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %data6, align 8
   %conv = and i64 %2, 255
   %cond11 = select i1 %tobool.not, i64 %conv, i64 %2
-  %3 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 0, i32 2), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %3 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23

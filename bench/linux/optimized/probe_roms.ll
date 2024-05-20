@@ -364,7 +364,7 @@ define dso_local void @probe_roms() local_unnamed_addr #3 section ".init.text" a
 23:                                               ; preds = %20
   %24 = add i64 %5, -1
   %25 = add i64 %24, %18
-  store i64 %25, ptr getelementptr inbounds (%struct.resource, ptr @video_rom_resource, i64 0, i32 1), align 8
+  store i64 %25, ptr getelementptr inbounds (i8, ptr @video_rom_resource, i64 8), align 8
   br label %26
 
 26:                                               ; preds = %23, %20, %15
@@ -377,7 +377,7 @@ define dso_local void @probe_roms() local_unnamed_addr #3 section ".init.text" a
   br i1 %30, label %.preheader6, label %.loopexit7, !llvm.loop !12
 
 .loopexit7:                                       ; preds = %28, %26, %0
-  %31 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @video_rom_resource, i64 0, i32 1), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @video_rom_resource, i64 8), align 8
   %32 = and i64 %31, -2048
   %33 = add i64 %32, 2048
   %34 = call i64 @llvm.umax.i64(i64 %33, i64 %3)
@@ -392,7 +392,7 @@ define dso_local void @probe_roms() local_unnamed_addr #3 section ".init.text" a
   br i1 %42, label %53, label %43
 
 43:                                               ; preds = %.loopexit7
-  %44 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @extension_rom_resource, i64 0, i32 1), align 8
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @extension_rom_resource, i64 8), align 8
   %45 = load i64, ptr @extension_rom_resource, align 8
   %46 = add i64 %44, 1
   %47 = sub i64 %46, %45

@@ -139,7 +139,7 @@ define ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br label %12, !llvm.loop !8
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 111), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 760), align 8
   %19 = tail call ptr @xstrdup(ptr noundef %18) #10
   store ptr %19, ptr %7, align 8
   %.not31 = icmp eq ptr %19, null
@@ -633,7 +633,7 @@ define ptr @plugin_context_create(ptr noundef %0, ptr noundef %1, ptr noundef wr
 40:                                               ; preds = %36
   %41 = tail call ptr @plugrack_create(ptr noundef nonnull %0) #10
   store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 111), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 760), align 8
   %43 = tail call i32 @plugrack_read_dir(ptr noundef %41, ptr noundef %42) #10
   %.pre = load ptr, ptr %38, align 8
   br label %44
@@ -764,7 +764,7 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 111), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 760), align 8
   %8 = tail call ptr @xstrdup(ptr noundef %7) #10
   store ptr %8, ptr %2, align 8
   %.not = icmp eq ptr %8, null

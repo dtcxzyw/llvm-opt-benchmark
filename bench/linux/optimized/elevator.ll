@@ -97,7 +97,7 @@ declare dso_local zeroext i1 @blk_rq_merge_ok(ptr noundef, ptr noundef) local_un
 define dso_local noundef ptr @elevator_alloc(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 488
   %4 = load i32, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(632) ptr @kmalloc_node_trace(ptr noundef %5, i32 noundef 3520, i32 noundef %4, i64 noundef 632) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8, !prof !5
@@ -1371,8 +1371,8 @@ define dso_local noundef range(i32 -22, 1) i32 @elv_register(ptr noundef %0) #0 
 
 .thread:                                          ; preds = %55, %38, %58
   %63 = getelementptr inbounds i8, ptr %0, i64 280
-  %64 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @elv_list, i64 0, i32 1), align 8
-  store ptr %63, ptr getelementptr inbounds (%struct.list_head, ptr @elv_list, i64 0, i32 1), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @elv_list, i64 8), align 8
+  store ptr %63, ptr getelementptr inbounds (i8, ptr @elv_list, i64 8), align 8
   store ptr @elv_list, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %64, ptr %65, align 8

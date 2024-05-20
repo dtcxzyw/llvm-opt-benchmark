@@ -140,7 +140,7 @@ define void @_ZN4LIEF2PE17ResourceDirectory4swapERS1_(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(92) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(76) %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = getelementptr inbounds i8, ptr %1, i64 76
   %5 = load i32, ptr %4, align 4
@@ -175,7 +175,7 @@ declare void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE17ResourceDirectoryC2Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -188,7 +188,7 @@ declare void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKNS0_7details27pe_resource_directory_tableE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %1, align 1
   store i32 %4, ptr %3, align 4

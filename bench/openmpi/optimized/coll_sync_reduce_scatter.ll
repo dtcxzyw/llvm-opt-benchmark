@@ -31,7 +31,7 @@ define i32 @mca_coll_sync_reduce_scatter(ptr noundef %0, ptr noundef %1, ptr nou
   %19 = load i32, ptr %18, align 8
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i64 0, i32 2), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 284), align 4
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %23, label %.thread
 
@@ -59,7 +59,7 @@ define i32 @mca_coll_sync_reduce_scatter(ptr noundef %0, ptr noundef %1, ptr nou
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 4
-  %39 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i64 0, i32 3), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 288), align 8
   %40 = icmp eq i32 %38, %39
   %41 = icmp eq i32 %.1, 0
   %or.cond = select i1 %40, i1 %41, i1 false

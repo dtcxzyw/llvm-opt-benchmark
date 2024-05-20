@@ -9172,7 +9172,7 @@ _ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i.
   br i1 %196, label %197, label %.critedge28.i.i
 
 197:                                              ; preds = %194
-  %198 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model15cargo_workspace25cargo_config_build_target10__CALLSITE17hd59822854444f3c5E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1727
+  %198 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model15cargo_workspace25cargo_config_build_target10__CALLSITE17hd59822854444f3c5E, i64 16) monotonic, align 8, !noalias !1727
   switch i8 %198, label %199 [
     i8 0, label %.critedge28.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i
@@ -9629,7 +9629,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17hc53448788368fd60E.llvm
   br i1 %323, label %324, label %.critedge.i.i.i.i.i
 
 324:                                              ; preds = %320
-  %325 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model15cargo_workspace38parse_output_cargo_config_build_target10__CALLSITE17h57566362b4fb7ae8E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1819
+  %325 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model15cargo_workspace38parse_output_cargo_config_build_target10__CALLSITE17h57566362b4fb7ae8E, i64 16) monotonic, align 8, !noalias !1819
   switch i8 %325, label %326 [
     i8 0, label %.critedge.i.i.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i.i.i.i
@@ -9965,7 +9965,7 @@ _ZN3std7process7Command11current_dir17hbcc9a2033c129824E.exit.i12.i: ; preds = %
   br i1 %422, label %423, label %.critedge.i.i
 
 423:                                              ; preds = %420
-  %424 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model15cargo_workspace26rustc_discover_host_triple10__CALLSITE17h1ae6e4580ad782dbE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1890
+  %424 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model15cargo_workspace26rustc_discover_host_triple10__CALLSITE17h1ae6e4580ad782dbE, i64 16) monotonic, align 8, !noalias !1890
   switch i8 %424, label %425 [
     i8 0, label %.critedge.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i17.i
@@ -10190,7 +10190,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %480, label %481, label %.critedge121.i.i
 
 481:                                              ; preds = %478
-  %482 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model15cargo_workspace26rustc_discover_host_triple10__CALLSITE17hfc73c1cddb4d088eE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1890
+  %482 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model15cargo_workspace26rustc_discover_host_triple10__CALLSITE17hfc73c1cddb4d088eE, i64 16) monotonic, align 8, !noalias !1890
   switch i8 %482, label %483 [
     i8 0, label %.critedge121.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit143.thread.i.i
@@ -10300,7 +10300,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit143
   br i1 %514, label %515, label %.critedge125.i.i
 
 515:                                              ; preds = %510
-  %516 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model15cargo_workspace26rustc_discover_host_triple10__CALLSITE17h2aee5fe3517109f8E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1890
+  %516 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model15cargo_workspace26rustc_discover_host_triple10__CALLSITE17h2aee5fe3517109f8E, i64 16) monotonic, align 8, !noalias !1890
   switch i8 %516, label %517 [
     i8 0, label %.critedge125.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit153.thread.i.i
@@ -13066,7 +13066,7 @@ select.unfold566:                                 ; preds = %_ZN4core4iter8adapt
   br i1 %555, label %556, label %.critedge
 
 556:                                              ; preds = %553
-  %557 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model15cargo_workspace14CargoWorkspace3new10__CALLSITE17h26c4c6b4ee74f154E, i64 0, i32 1, i64 8) monotonic, align 8
+  %557 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model15cargo_workspace14CargoWorkspace3new10__CALLSITE17h26c4c6b4ee74f154E, i64 16) monotonic, align 8
   switch i8 %557, label %558 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -13559,7 +13559,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !2593
   store ptr %650, ptr %18, align 8, !noalias !2593
   store i64 %652, ptr %164, align 8, !noalias !2593
-  store ptr getelementptr inbounds (<{ [3 x i8] }>, ptr @anon.56ffe90d041e4ec6470efb76ac23cf2c.100, i64 0, i32 0, i64 1), ptr %165, align 8, !noalias !2593
+  store ptr getelementptr inbounds (i8, ptr @anon.56ffe90d041e4ec6470efb76ac23cf2c.100, i64 1), ptr %165, align 8, !noalias !2593
   store i64 2, ptr %166, align 8, !noalias !2593
   %665 = icmp ugt i64 %652, 66
   br i1 %665, label %.lr.ph.i.i.i393.preheader, label %._crit_edge.i.i.i
@@ -13634,7 +13634,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 685:                                              ; preds = %684
   %686 = add nuw nsw i64 %.sroa.9.0.i.us.i, 1
   %687 = getelementptr inbounds i8, ptr %gep23.us.i, i64 %.sroa.9.0.i.us.i
-  %688 = getelementptr inbounds i8, ptr getelementptr inbounds (<{ [3 x i8] }>, ptr @anon.56ffe90d041e4ec6470efb76ac23cf2c.100, i64 0, i32 0, i64 1), i64 %.sroa.9.0.i.us.i
+  %688 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @anon.56ffe90d041e4ec6470efb76ac23cf2c.100, i64 1), i64 %.sroa.9.0.i.us.i
   %689 = load i8, ptr %687, align 1, !alias.scope !2594, !noalias !2599, !noundef !14
   %690 = load i8, ptr %688, align 1, !alias.scope !2597, !noalias !2602, !noundef !14
   %.not21.i.us.i = icmp eq i8 %689, %690

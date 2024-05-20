@@ -102,7 +102,7 @@ entry:
 define void @_ZN15b2RevoluteJointC2EPK18b2RevoluteJointDef(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %def) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %def)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15b2RevoluteJoint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15b2RevoluteJoint, i64 16), ptr %this, align 8
   %localAnchorA = getelementptr inbounds i8, ptr %def, i64 36
   %m_localAnchorA2 = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i64, ptr %localAnchorA, align 4

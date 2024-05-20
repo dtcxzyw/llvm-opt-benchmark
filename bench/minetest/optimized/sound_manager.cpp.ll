@@ -2459,7 +2459,7 @@ call5.i.i.i31.i.i.i.i.noexc:                      ; preds = %if.end46
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !75, !noalias !120
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i31.i.i.i.i130, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !77, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound12PlayingSoundESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i31.i.i.i.i130, align 8, !tbaa !63, !noalias !120
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound12PlayingSoundESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i31.i.i.i.i130, align 8, !tbaa !63, !noalias !120
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i31.i.i.i.i130, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !120
   %39 = load i32, ptr %source_id, align 4, !tbaa !61, !noalias !120
@@ -3669,7 +3669,7 @@ if.then.i.i46:                                    ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5sound18OpenALSoundManagerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !63
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5sound18OpenALSoundManagerE, i64 16), ptr %this, align 8, !tbaa !63
   %m_fallback_path_provider = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %fallback_path_provider, align 8, !tbaa !57
   store i64 %5, ptr %m_fallback_path_provider, align 8, !tbaa !57
@@ -5139,7 +5139,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !185
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5sound19SoundDataUnopenFileE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !63, !noalias !185
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5sound19SoundDataUnopenFileE, i64 16), ptr %call.i, align 8, !tbaa !63, !noalias !185
   %m_path.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %0, ptr %m_path.i.i, align 8, !tbaa !85, !noalias !185
@@ -5269,7 +5269,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !188
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5sound21SoundDataUnopenBufferE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !63, !noalias !188
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5sound21SoundDataUnopenBufferE, i64 16), ptr %call.i, align 8, !tbaa !63, !noalias !188
   %m_buffer.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %0, ptr %m_buffer.i.i, align 8, !tbaa !85, !noalias !188
@@ -5859,7 +5859,7 @@ _ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr
 
 if.then.i43:                                      ; preds = %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8, !tbaa !63
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i, align 8, !tbaa !63
   %_M_reason.i.i.i = getelementptr inbounds i8, ptr %exception.i.i, i64 8
   store ptr @.str.37, ptr %_M_reason.i.i.i, align 8, !tbaa !221
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #29

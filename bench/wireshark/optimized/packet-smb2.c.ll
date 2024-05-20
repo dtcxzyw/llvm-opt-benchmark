@@ -12340,8 +12340,8 @@ define internal fastcc i32 @dissect_smb2_fid(ptr noundef %0, ptr noundef %1, ptr
   store i32 %26, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr null, ptr %28, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_smb2_fid.di, i64 0, i32 4), align 4
-  store ptr @dissect_smb2_fid.call_data, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_smb2_fid.di, i64 0, i32 14), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_smb2_fid.di, i64 28), align 4
+  store ptr @dissect_smb2_fid.call_data, ptr getelementptr inbounds (i8, ptr @dissect_smb2_fid.di, i64 72), align 8
   switch i32 %5, label %default.unreachable [
     i32 0, label %29
     i32 1, label %108

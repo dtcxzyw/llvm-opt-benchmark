@@ -19,23 +19,23 @@ define void @fdp_initParams(ptr noundef %0) local_unnamed_addr #0 {
   store <2 x i32> %3, ptr @parms, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
-  store i32 %5, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 3), align 8
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @parms, i64 16), align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 12
   %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 5), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 11), align 8
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @parms, i64 24), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @parms, i64 72), align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load double, ptr %8, align 8
-  store double %9, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 6), align 8
+  store double %9, ptr getelementptr inbounds (i8, ptr @parms, i64 32), align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load double, ptr %10, align 8
-  store double %11, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 7), align 8
+  store double %11, ptr getelementptr inbounds (i8, ptr @parms, i64 40), align 8
   %12 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef null) #6
   %13 = tail call i32 @late_int(ptr noundef %0, ptr noundef %12, i32 noundef 600, i32 noundef 0) #6
-  store i32 %13, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
+  store i32 %13, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
   %14 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef null) #6
   %15 = tail call double @late_double(ptr noundef %0, ptr noundef %14, double noundef 3.000000e-01, double noundef 0.000000e+00) #6
-  store double %15, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  store double %15, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %16 = load ptr, ptr @fdp_parms, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   store double %15, ptr %17, align 8
@@ -51,35 +51,35 @@ define void @fdp_initParams(ptr noundef %0) local_unnamed_addr #0 {
 
 24:                                               ; preds = %1, %21
   %storemerge = phi double [ %23, %21 ], [ %19, %1 ]
-  store double %storemerge, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 9), align 8
-  store i64 1, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 2), align 8
-  %25 = tail call i32 @setSeed(ptr noundef %0, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 2)) #6
-  store i32 %25, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 10), align 8
+  store double %storemerge, ptr getelementptr inbounds (i8, ptr @parms, i64 56), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @parms, i64 8), align 8
+  %25 = tail call i32 @setSeed(ptr noundef %0, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @parms, i64 8)) #6
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @parms, i64 64), align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
   %28 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.3) #6
-  store i64 2, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 2), align 8
+  store i64 2, ptr getelementptr inbounds (i8, ptr @parms, i64 8), align 8
   br label %29
 
 29:                                               ; preds = %27, %24
-  %30 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 5), align 8
-  %31 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 24), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
   %32 = mul nsw i32 %31, %30
   %33 = sdiv i32 %32, 100
-  store i32 %33, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 14), align 8
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @parms, i64 96), align 8
   %34 = load i32, ptr @parms, align 8
   %35 = icmp ne i32 %34, 0
-  %36 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 11), align 8
+  %36 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 72), align 8
   %37 = fcmp ole double %36, 0.000000e+00
   %or.cond = select i1 %35, i1 %37, i1 false
   br i1 %or.cond, label %38, label %41
 
 38:                                               ; preds = %29
-  %39 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %39 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %40 = fmul double %39, 3.000000e+00
-  store double %40, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 11), align 8
+  store double %40, ptr getelementptr inbounds (i8, ptr @parms, i64 72), align 8
   br label %41
 
 41:                                               ; preds = %38, %29
@@ -103,26 +103,26 @@ define void @fdp_tLayout(ptr noundef %0, ptr nocapture noundef %1) local_unnamed
   %5 = getelementptr inbounds i8, ptr %4, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 9), align 8
+  %8 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 56), align 8
   %9 = fcmp une double %8, -1.000000e+00
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %2
   %11 = tail call i32 @agnnodes(ptr noundef nonnull %0) #6
-  %12 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 7), align 8
-  %13 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %12 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 40), align 8
+  %13 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %14 = fmul double %12, %13
   %15 = sitofp i32 %11 to double
   %16 = tail call double @sqrt(double noundef %15) #6
   %17 = fmul double %14, %16
   %18 = fdiv double %17, 5.000000e+00
-  store double %18, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 9), align 8
+  store double %18, ptr getelementptr inbounds (i8, ptr @parms, i64 56), align 8
   br label %19
 
 19:                                               ; preds = %10, %2
   %20 = phi double [ %18, %10 ], [ %8, %2 ]
-  %21 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 14), align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 96), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
   %23 = sub nsw i32 %22, %21
   %24 = sitofp i32 %23 to double
   %25 = fmul double %20, %24
@@ -130,19 +130,19 @@ define void @fdp_tLayout(ptr noundef %0, ptr nocapture noundef %1) local_unnamed
   %27 = fdiv double %25, %26
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   store double %27, ptr %28, align 8
-  %29 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %29 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 16
   store double %29, ptr %30, align 8
-  %31 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 6), align 8
+  %31 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 32), align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 24
   store double %31, ptr %32, align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 14), align 8
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 96), align 8
   %35 = sub nsw i32 %33, %34
   store i32 %35, ptr %1, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 3), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 16), align 8
   %37 = icmp sgt i32 %36, -1
-  %38 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 14), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 96), align 8
   br i1 %37, label %39, label %45
 
 39:                                               ; preds = %19
@@ -150,21 +150,21 @@ define void @fdp_tLayout(ptr noundef %0, ptr nocapture noundef %1) local_unnamed
   br i1 %.not.i, label %41, label %40
 
 40:                                               ; preds = %39
-  store i32 %36, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 15), align 4
+  store i32 %36, ptr getelementptr inbounds (i8, ptr @parms, i64 100), align 4
   br label %.sink.split.i
 
 41:                                               ; preds = %39
-  %42 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
   %.not12.i = icmp sgt i32 %36, %42
   br i1 %.not12.i, label %init_params.exit, label %43
 
 43:                                               ; preds = %41
-  store i32 %38, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 15), align 4
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @parms, i64 100), align 4
   %44 = sub nsw i32 %36, %38
   br label %.sink.split.i
 
 45:                                               ; preds = %19
-  store i32 %38, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 15), align 4
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @parms, i64 100), align 4
   %46 = load i32, ptr %1, align 8
   br label %.sink.split.i
 
@@ -241,15 +241,15 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %.0159.lcssa.i = phi i32 [ 0, %init_params.exit ], [ %.1160.i, %84 ]
   %88 = phi <2 x double> [ zeroinitializer, %init_params.exit ], [ %85, %84 ]
   %89 = phi <2 x double> [ zeroinitializer, %init_params.exit ], [ %86, %84 ]
-  %90 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %90 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %91 = sitofp i32 %54 to double
   %92 = tail call double @sqrt(double noundef %91) #6
   %93 = fadd double %92, 1.000000e+00
   %94 = fmul double %90, %93
   %95 = fmul double %94, 5.000000e-01
   %96 = fmul double %95, 1.200000e+00
-  store double %96, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
-  store double %96, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  store double %96, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
+  store double %96, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   %97 = icmp eq i32 %.0159.lcssa.i, 1
   %98 = extractelement <2 x double> %89, i64 0
   %99 = extractelement <2 x double> %89, i64 1
@@ -280,7 +280,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
 118:                                              ; preds = %102
   %119 = fmul <2 x double> %110, <double 5.000000e-01, double 5.000000e-01>
   %120 = extractelement <2 x double> %119, i64 0
-  store double %120, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  store double %120, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   br label %.sink.split.i37
 
 121:                                              ; preds = %102
@@ -294,7 +294,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %127 = shufflevector <2 x double> %126, <2 x double> poison, <2 x i32> zeroinitializer
   %128 = fdiv <2 x double> %110, %127
   %129 = extractelement <2 x double> %128, i64 0
-  store double %129, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  store double %129, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   br label %.sink.split.i37
 
 130:                                              ; preds = %121
@@ -306,7 +306,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %134 = insertelement <2 x double> %110, double %133, i64 1
   %135 = fmul <2 x double> %134, <double 5.000000e-01, double 5.000000e-01>
   %136 = extractelement <2 x double> %135, i64 0
-  store double %136, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  store double %136, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   br label %.sink.split.i37
 
 137:                                              ; preds = %130
@@ -320,13 +320,13 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %143 = insertelement <2 x double> %110, double %142, i64 0
   %144 = fmul <2 x double> %143, <double 5.000000e-01, double 5.000000e-01>
   %145 = extractelement <2 x double> %144, i64 0
-  store double %145, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  store double %145, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   br label %.sink.split.i37
 
 .sink.split.i37:                                  ; preds = %141, %132, %123, %118
   %146 = phi <2 x double> [ %128, %123 ], [ %144, %141 ], [ %135, %132 ], [ %119, %118 ]
   %147 = extractelement <2 x double> %146, i64 1
-  store double %147, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
+  store double %147, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
   br label %148
 
 148:                                              ; preds = %.sink.split.i37, %137
@@ -334,25 +334,25 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %150 = extractelement <2 x double> %149, i64 0
   %151 = extractelement <2 x double> %149, i64 1
   %152 = tail call double @atan2(double noundef %151, double noundef %150) #6
-  %153 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  %153 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   %154 = tail call double @cos(double noundef %152) #6
   %155 = fdiv double %153, %154
-  store double %155, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
-  %156 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
+  store double %155, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
+  %156 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
   %157 = tail call double @sin(double noundef %152) #6
   %158 = fdiv double %156, %157
-  store double %158, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
+  store double %158, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
   br label %159
 
 159:                                              ; preds = %148, %100, %._crit_edge.i
   %.sroa.0147.0.i = phi double [ %105, %148 ], [ %98, %._crit_edge.i ], [ 0.000000e+00, %100 ]
   %.sroa.8151.0.i = phi double [ %108, %148 ], [ %99, %._crit_edge.i ], [ 0.000000e+00, %100 ]
-  %160 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 10), align 8
+  %160 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 64), align 8
   %161 = icmp eq i32 %160, 2
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %159
-  %163 = load i64, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 2), align 8
+  %163 = load i64, ptr getelementptr inbounds (i8, ptr @parms, i64 8), align 8
   br label %169
 
 164:                                              ; preds = %159
@@ -377,7 +377,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %.0155202.i = phi ptr [ %192, %.lr.ph203.i ], [ %7, %.preheader.i ]
   %171 = getelementptr inbounds i8, ptr %.0155202.i, i64 8
   %172 = load ptr, ptr %171, align 8
-  %173 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  %173 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   %174 = getelementptr inbounds i8, ptr %.0155202.i, i64 16
   %175 = load double, ptr %174, align 8
   %176 = tail call double @cos(double noundef %175) #6
@@ -387,7 +387,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %180 = getelementptr inbounds i8, ptr %179, i64 176
   %181 = load ptr, ptr %180, align 8
   store double %177, ptr %181, align 8
-  %182 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
+  %182 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
   %183 = load double, ptr %174, align 8
   %184 = tail call double @sin(double noundef %183) #6
   %185 = tail call double @llvm.fmuladd.f64(double %182, double %184, double %.sroa.8151.0.i)
@@ -560,7 +560,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %280 = fmul double %279, 0x401921FB54442D18
   %281 = tail call double @drand48() #6
   %282 = fmul double %281, 9.000000e-01
-  %283 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  %283 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   %284 = fmul double %282, %283
   %285 = tail call double @cos(double noundef %280) #6
   %286 = fmul double %284, %285
@@ -568,7 +568,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %288 = getelementptr inbounds i8, ptr %287, i64 176
   %289 = load ptr, ptr %288, align 8
   store double %286, ptr %289, align 8
-  %290 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
+  %290 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
   %291 = fmul double %282, %290
   %292 = tail call double @sin(double noundef %280) #6
   %293 = fmul double %291, %292
@@ -625,7 +625,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   br label %337
 
 321:                                              ; preds = %.lr.ph226.i
-  %322 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  %322 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   %323 = tail call double @drand48() #6
   %324 = tail call double @llvm.fmuladd.f64(double %323, double 2.000000e+00, double -1.000000e+00)
   %325 = fmul double %322, %324
@@ -633,7 +633,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %327 = getelementptr inbounds i8, ptr %326, i64 176
   %328 = load ptr, ptr %327, align 8
   store double %325, ptr %328, align 8
-  %329 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
+  %329 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
   %330 = tail call double @drand48() #6
   %331 = tail call double @llvm.fmuladd.f64(double %330, double 2.000000e+00, double -1.000000e+00)
   %332 = fmul double %329, %331
@@ -654,7 +654,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
 
 .lr.ph230.i:                                      ; preds = %339, %.lr.ph230.i
   %.3228.i = phi ptr [ %356, %.lr.ph230.i ], [ %304, %339 ]
-  %340 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  %340 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   %341 = tail call double @drand48() #6
   %342 = tail call double @llvm.fmuladd.f64(double %341, double 2.000000e+00, double -1.000000e+00)
   %343 = fmul double %340, %342
@@ -663,7 +663,7 @@ init_params.exit:                                 ; preds = %41, %.sink.split.i
   %346 = getelementptr inbounds i8, ptr %345, i64 176
   %347 = load ptr, ptr %346, align 8
   store double %343, ptr %347, align 8
-  %348 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
+  %348 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
   %349 = tail call double @drand48() #6
   %350 = tail call double @llvm.fmuladd.f64(double %349, double 2.000000e+00, double -1.000000e+00)
   %351 = fmul double %348, %350
@@ -682,13 +682,13 @@ initPositions.exit:                               ; preds = %301, %337, %.lr.ph2
   br i1 %.not, label %.preheader, label %360
 
 .preheader:                                       ; preds = %initPositions.exit
-  %358 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 15), align 4
+  %358 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 100), align 4
   %359 = icmp sgt i32 %358, 0
   br i1 %359, label %.lr.ph92.preheader, label %.loopexit77
 
 .lr.ph92.preheader:                               ; preds = %.preheader
-  %.pre114 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 9), align 8
-  %.pre116 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
+  %.pre114 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 56), align 8
+  %.pre116 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
   br label %.lr.ph92
 
 360:                                              ; preds = %initPositions.exit
@@ -696,13 +696,13 @@ initPositions.exit:                               ; preds = %301, %337, %.lr.ph2
   %362 = tail call ptr @mkGrid(i32 noundef %361) #6
   %363 = tail call i32 @agnnodes(ptr noundef %0) #6
   tail call void @adjustGrid(ptr noundef %362, i32 noundef %363) #6
-  %364 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 15), align 4
+  %364 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 100), align 4
   %365 = icmp sgt i32 %364, 0
   br i1 %365, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %360
-  %.pre109 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 9), align 8
-  %.pre111 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
+  %.pre109 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 56), align 8
+  %.pre111 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %gAdjust.exit
@@ -741,7 +741,7 @@ initPositions.exit:                               ; preds = %301, %337, %.lr.ph2
   %387 = getelementptr inbounds i8, ptr %386, i64 176
   %388 = load ptr, ptr %387, align 8
   %389 = load double, ptr %388, align 8
-  %390 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 11), align 8
+  %390 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 72), align 8
   %391 = fdiv double %389, %390
   %392 = tail call double @llvm.floor.f64(double %391)
   %393 = fptosi double %392 to i32
@@ -822,7 +822,7 @@ initPositions.exit:                               ; preds = %301, %337, %.lr.ph2
   %.033.lcssa.i.i = phi double [ %420, %410 ], [ %432, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi double [ %427, %410 ], [ %438, %.lr.ph.i.i ]
   %sqrt.i.i = tail call double @llvm.sqrt.f64(double %.0.lcssa.i.i)
-  %440 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 1), align 4
+  %440 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 4), align 4
   %.not.i.i = icmp eq i32 %440, 0
   %441 = getelementptr inbounds i8, ptr %.045.i, i64 16
   %442 = load ptr, ptr %441, align 8
@@ -892,9 +892,9 @@ applyAttr.exit.i:                                 ; preds = %451, %445
 ._crit_edge53.i:                                  ; preds = %._crit_edge48.i, %._crit_edge.i41
   tail call void @walkGrid(ptr noundef %362, ptr noundef nonnull @gridRepulse) #6
   tail call fastcc void @updatePos(ptr noundef %0, double noundef %373, ptr noundef %7)
-  %.pre = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 9), align 8
-  %.pre110 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
-  %.pre112 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 15), align 4
+  %.pre = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 56), align 8
+  %.pre110 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
+  %.pre112 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 100), align 4
   br label %gAdjust.exit
 
 gAdjust.exit:                                     ; preds = %.lr.ph, %._crit_edge53.i
@@ -999,20 +999,20 @@ gAdjust.exit:                                     ; preds = %.lr.ph, %._crit_edg
   %.028.lcssa.i.i = phi double [ %529, %514 ], [ %540, %.lr.ph.i46.i ]
   %.027.lcssa.i.i = phi double [ %531, %514 ], [ %542, %.lr.ph.i46.i ]
   %.0.lcssa.i44.i = phi double [ %524, %514 ], [ %536, %.lr.ph.i46.i ]
-  %544 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 1), align 4
+  %544 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 4), align 4
   %.not.i45.i = icmp eq i32 %544, 0
   br i1 %.not.i45.i, label %550, label %545
 
 545:                                              ; preds = %._crit_edge.i43.i
   %sqrt.i = tail call double @llvm.sqrt.f64(double %.027.lcssa.i.i)
-  %546 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %546 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %547 = fmul double %546, %546
   %548 = fmul double %.027.lcssa.i.i, %sqrt.i
   %549 = fdiv double %547, %548
   br label %554
 
 550:                                              ; preds = %._crit_edge.i43.i
-  %551 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %551 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %552 = fmul double %551, %551
   %553 = fdiv double %552, %.027.lcssa.i.i
   br label %554
@@ -1153,7 +1153,7 @@ doRep.exit.i:                                     ; preds = %571, %568, %563, %5
   %.033.lcssa.i.i50 = phi double [ %619, %609 ], [ %631, %.lr.ph.i.i57 ]
   %.0.lcssa.i.i51 = phi double [ %626, %609 ], [ %637, %.lr.ph.i.i57 ]
   %sqrt.i.i52 = tail call double @llvm.sqrt.f64(double %.0.lcssa.i.i51)
-  %639 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 1), align 4
+  %639 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 4), align 4
   %.not.i.i53 = icmp eq i32 %639, 0
   %640 = getelementptr inbounds i8, ptr %.060.i, i64 16
   %641 = load ptr, ptr %640, align 8
@@ -1222,9 +1222,9 @@ applyAttr.exit.i54:                               ; preds = %650, %644
 
 ._crit_edge68.i:                                  ; preds = %._crit_edge63.i, %._crit_edge.i45
   tail call fastcc void @updatePos(ptr noundef %0, double noundef %497, ptr noundef %7)
-  %.pre113 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 9), align 8
-  %.pre115 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 4), align 4
-  %.pre117 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 15), align 4
+  %.pre113 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 56), align 8
+  %.pre115 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 20), align 4
+  %.pre117 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 100), align 4
   br label %adjust.exit
 
 adjust.exit:                                      ; preds = %.lr.ph92, %._crit_edge68.i
@@ -1270,7 +1270,7 @@ adjust.exit:                                      ; preds = %.lr.ph92, %._crit_e
   br i1 %9, label %707, label %706
 
 706:                                              ; preds = %.loopexit
-  store double -1.000000e+00, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 9), align 8
+  store double -1.000000e+00, ptr getelementptr inbounds (i8, ptr @parms, i64 56), align 8
   br label %707
 
 707:                                              ; preds = %706, %.loopexit
@@ -1394,20 +1394,20 @@ define internal noundef i32 @gridRepulse(ptr nocapture noundef readonly %0, ptr 
   %.028.lcssa.i = phi double [ %27, %9 ], [ %38, %.lr.ph.i ]
   %.027.lcssa.i = phi double [ %29, %9 ], [ %40, %.lr.ph.i ]
   %.0.lcssa.i = phi double [ %22, %9 ], [ %34, %.lr.ph.i ]
-  %42 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 1), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 4), align 4
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %48, label %43
 
 43:                                               ; preds = %._crit_edge.i
   %sqrt = tail call double @llvm.sqrt.f64(double %.027.lcssa.i)
-  %44 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %44 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %45 = fmul double %44, %44
   %46 = fmul double %.027.lcssa.i, %sqrt
   %47 = fdiv double %45, %46
   br label %52
 
 48:                                               ; preds = %._crit_edge.i
-  %49 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %49 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %50 = fmul double %49, %49
   %51 = fdiv double %50, %.027.lcssa.i
   br label %52
@@ -1628,12 +1628,12 @@ define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr no
   %76 = extractelement <2 x double> %75, i64 0
   %77 = fmul <2 x double> %75, %75
   %78 = extractelement <2 x double> %77, i64 0
-  %79 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 12), align 8
+  %79 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 80), align 8
   %80 = fmul double %79, %79
   %81 = fdiv double %78, %80
   %82 = extractelement <2 x double> %75, i64 1
   %83 = fmul double %82, %82
-  %84 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 13), align 8
+  %84 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 88), align 8
   %85 = fmul double %84, %84
   %86 = fdiv double %83, %85
   %87 = fadd double %81, %86
@@ -1726,7 +1726,7 @@ define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph:                                           ; preds = %.preheader.split
   %12 = load ptr, ptr %.0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %.pre38 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 11), align 8
+  %.pre38 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 72), align 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %104
@@ -1776,20 +1776,20 @@ define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noun
   %.028.lcssa.i = phi double [ %31, %36 ], [ %45, %.lr.ph.i ]
   %.027.lcssa.i = phi double [ %33, %36 ], [ %47, %.lr.ph.i ]
   %.0.lcssa.i = phi double [ %26, %36 ], [ %41, %.lr.ph.i ]
-  %49 = load i32, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 1), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @parms, i64 4), align 4
   %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %55, label %50
 
 50:                                               ; preds = %._crit_edge.i
   %sqrt = tail call double @llvm.sqrt.f64(double %.027.lcssa.i)
-  %51 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %51 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %52 = fmul double %51, %51
   %53 = fmul double %.027.lcssa.i, %sqrt
   %54 = fdiv double %52, %53
   br label %59
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 8), align 8
+  %56 = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 48), align 8
   %57 = fmul double %56, %56
   %58 = fdiv double %57, %.027.lcssa.i
   br label %59
@@ -1865,7 +1865,7 @@ doRep.exit:                                       ; preds = %.doRep.exit_crit_ed
   %102 = fneg double %.028.lcssa.i
   %103 = tail call double @llvm.fmuladd.f64(double %102, double %.1.i, double %101)
   store double %103, ptr %100, align 8
-  %.pre = load double, ptr getelementptr inbounds (%struct.parms_t, ptr @parms, i64 0, i32 11), align 8
+  %.pre = load double, ptr getelementptr inbounds (i8, ptr @parms, i64 72), align 8
   br label %104
 
 104:                                              ; preds = %14, %doRep.exit

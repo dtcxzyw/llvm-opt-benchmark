@@ -493,10 +493,10 @@ define dso_local noundef i32 @pmix_info_register_project_frameworks(ptr noundef 
   ]
 
 7:                                                ; preds = %.lr.ph, %.lr.ph
-  %8 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_info_component_map_t_class, i64 0, i32 8), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_info_component_map_t_class, i64 56), align 8
   %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #22
   %10 = load i32, ptr @pmix_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_info_component_map_t_class, i64 0, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_info_component_map_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %10, %11
   br i1 %.not.i.i, label %13, label %12
 
@@ -518,7 +518,7 @@ define dso_local noundef i32 @pmix_info_register_project_frameworks(ptr noundef 
   %19 = getelementptr inbounds i8, ptr %9, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  %20 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_info_component_map_t_class, i64 0, i32 6), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_info_component_map_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i.i = icmp eq ptr %21, null
   br i1 %.not6.i.i.i, label %pmix_obj_new_tma.exit.i, label %.lr.ph.i.i.i
@@ -1066,55 +1066,55 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %12, %pmix_cmd_line_
   %20 = load ptr, ptr @pmix_pinstall_dirs, align 8
   tail call void @pmix_info_show_path(ptr noundef %19, ptr noundef %20)
   %21 = load ptr, ptr @pmix_info_path_exec_prefix, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 8), align 8
   tail call void @pmix_info_show_path(ptr noundef %21, ptr noundef %22)
   %23 = load ptr, ptr @pmix_info_path_bindir, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 2), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 16), align 8
   tail call void @pmix_info_show_path(ptr noundef %23, ptr noundef %24)
   %25 = load ptr, ptr @pmix_info_path_sbindir, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 3), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 24), align 8
   tail call void @pmix_info_show_path(ptr noundef %25, ptr noundef %26)
   %27 = load ptr, ptr @pmix_info_path_libdir, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 10), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 80), align 8
   tail call void @pmix_info_show_path(ptr noundef %27, ptr noundef %28)
   %29 = load ptr, ptr @pmix_info_path_incdir, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 11), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 88), align 8
   tail call void @pmix_info_show_path(ptr noundef %29, ptr noundef %30)
   %31 = load ptr, ptr @pmix_info_path_mandir, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 13), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 104), align 8
   tail call void @pmix_info_show_path(ptr noundef %31, ptr noundef %32)
   %33 = load ptr, ptr @pmix_info_path_pkglibdir, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 15), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
   tail call void @pmix_info_show_path(ptr noundef %33, ptr noundef %34)
   %35 = load ptr, ptr @pmix_info_path_libexecdir, align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 4), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 32), align 8
   tail call void @pmix_info_show_path(ptr noundef %35, ptr noundef %36)
   %37 = load ptr, ptr @pmix_info_path_datarootdir, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 5), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 40), align 8
   tail call void @pmix_info_show_path(ptr noundef %37, ptr noundef %38)
   %39 = load ptr, ptr @pmix_info_path_datadir, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 6), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 48), align 8
   tail call void @pmix_info_show_path(ptr noundef %39, ptr noundef %40)
   %41 = load ptr, ptr @pmix_info_path_sysconfdir, align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 7), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 56), align 8
   tail call void @pmix_info_show_path(ptr noundef %41, ptr noundef %42)
   %43 = load ptr, ptr @pmix_info_path_sharedstatedir, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 8), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 64), align 8
   tail call void @pmix_info_show_path(ptr noundef %43, ptr noundef %44)
   %45 = load ptr, ptr @pmix_info_path_localstatedir, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 9), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 72), align 8
   tail call void @pmix_info_show_path(ptr noundef %45, ptr noundef %46)
   %47 = load ptr, ptr @pmix_info_path_infodir, align 8
-  %48 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 12), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 96), align 8
   tail call void @pmix_info_show_path(ptr noundef %47, ptr noundef %48)
   %49 = load ptr, ptr @pmix_info_path_pkgdatadir, align 8
-  %50 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 14), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
   tail call void @pmix_info_show_path(ptr noundef %49, ptr noundef %50)
   %51 = load ptr, ptr @pmix_info_path_pkglibdir, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 15), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
   tail call void @pmix_info_show_path(ptr noundef %51, ptr noundef %52)
   %53 = load ptr, ptr @pmix_info_path_pkgincludedir, align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 16), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 128), align 8
   tail call void @pmix_info_show_path(ptr noundef %53, ptr noundef %54)
   br label %.loopexit
 
@@ -1238,7 +1238,7 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %12, %pmix_cmd_line_
   unreachable
 
 129:                                              ; preds = %123, %119, %115, %111, %107, %103, %99, %95, %91, %87, %83, %79, %75, %71, %67, %63, %.lr.ph47
-  %pmix_pinstall_dirs.sink = phi ptr [ @pmix_pinstall_dirs, %.lr.ph47 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 2), %63 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 10), %67 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 11), %71 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 13), %75 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 15), %79 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 7), %83 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 1), %87 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 3), %91 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 4), %95 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 5), %99 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 6), %103 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 8), %107 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 9), %111 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 12), %115 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 14), %119 ], [ getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 16), %123 ]
+  %pmix_pinstall_dirs.sink = phi ptr [ @pmix_pinstall_dirs, %.lr.ph47 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 16), %63 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 80), %67 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 88), %71 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 104), %75 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), %79 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 56), %83 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 8), %87 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 24), %91 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 32), %95 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 40), %99 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 48), %103 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 64), %107 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 72), %111 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 96), %115 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 112), %119 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 128), %123 ]
   %.sink = phi ptr [ %60, %.lr.ph47 ], [ %64, %63 ], [ %68, %67 ], [ %72, %71 ], [ %76, %75 ], [ %80, %79 ], [ %84, %83 ], [ %88, %87 ], [ %92, %91 ], [ %96, %95 ], [ %100, %99 ], [ %104, %103 ], [ %108, %107 ], [ %112, %111 ], [ %116, %115 ], [ %120, %119 ], [ %124, %123 ]
   %130 = load ptr, ptr %pmix_pinstall_dirs.sink, align 8
   tail call void @pmix_info_show_path(ptr noundef %.sink, ptr noundef %130)
@@ -1302,14 +1302,14 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i, %12, %1
 
 .preheader:                                       ; preds = %15, %pmix_cmd_line_get_param.exit
   %.03559.ph = phi ptr [ null, %pmix_cmd_line_get_param.exit ], [ %19, %15 ]
-  %23 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i64 0, i32 3), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %pmix_pointer_array_get_item.exit, label %.loopexit
 
 pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %40
   %25 = phi i32 [ %41, %40 ], [ %23, %.preheader ]
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %40 ], [ 0, %.preheader ]
-  %mca_types.val43 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i64 0, i32 7), align 8
+  %mca_types.val43 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
   %26 = getelementptr inbounds ptr, ptr %mca_types.val43, i64 %indvars.iv80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -1341,7 +1341,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %40
 
 pmix_info_show_mca_params.exit:                   ; preds = %33, %36, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.pre = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i64 0, i32 3), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   br label %40
 
 40:                                               ; preds = %pmix_pointer_array_get_item.exit, %pmix_info_show_mca_params.exit
@@ -1366,12 +1366,12 @@ pmix_info_show_mca_params.exit:                   ; preds = %33, %36, %.sink.spl
 .preheader70:                                     ; preds = %47, %pmix_info_show_mca_params.exit51
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %pmix_info_show_mca_params.exit51 ], [ 0, %47 ]
   %50 = phi ptr [ %72, %pmix_info_show_mca_params.exit51 ], [ %49, %47 ]
-  %51 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i64 0, i32 3), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %pmix_pointer_array_get_item.exit48.lr.ph, label %.critedge
 
 pmix_pointer_array_get_item.exit48.lr.ph:         ; preds = %.preheader70
-  %mca_types.val45 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i64 0, i32 7), align 8
+  %mca_types.val45 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
   %wide.trip.count = zext nneg i32 %51 to i64
   br label %pmix_pointer_array_get_item.exit48
 
@@ -1497,12 +1497,12 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @pmix_info_err_params() local_unnamed_addr #2 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_component_map, i64 0, i32 3), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 128), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %pmix_pointer_array_get_item.exit.lr.ph, label %._crit_edge.thread
 
 pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %0
-  %pmix_component_map.val7 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_component_map, i64 0, i32 7), align 8
+  %pmix_component_map.val7 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 152), align 8
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %pmix_pointer_array_get_item.exit
 
@@ -2060,12 +2060,12 @@ define dso_local void @pmix_info_show_component_version(ptr nocapture noundef re
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %12 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i64 0, i32 3), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %pmix_pointer_array_get_item.exit.lr.ph, label %.critedge
 
 pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %.preheader
-  %mca_types.val48 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i64 0, i32 7), align 8
+  %mca_types.val48 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %pmix_pointer_array_get_item.exit
 
@@ -2087,14 +2087,14 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %exitcond.not, label %.critedge, label %pmix_pointer_array_get_item.exit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %17, %4
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_component_map, i64 0, i32 3), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 128), align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %pmix_pointer_array_get_item.exit50, label %.critedge
 
 pmix_pointer_array_get_item.exit50:               ; preds = %.loopexit, %100
   %23 = phi i32 [ %101, %100 ], [ %21, %.loopexit ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %100 ], [ 0, %.loopexit ]
-  %pmix_component_map.val47 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_component_map, i64 0, i32 7), align 8
+  %pmix_component_map.val47 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 152), align 8
   %24 = getelementptr inbounds ptr, ptr %pmix_component_map.val47, i64 %indvars.iv67
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -2256,7 +2256,7 @@ pmix_info_show_failed_component.exit:             ; preds = %72, %84, %.sink.spl
   br i1 %.not, label %._crit_edge61._crit_edge, label %.critedge
 
 ._crit_edge61._crit_edge:                         ; preds = %._crit_edge61
-  %.pre71 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_component_map, i64 0, i32 3), align 8
+  %.pre71 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 128), align 8
   br label %100
 
 100:                                              ; preds = %._crit_edge61._crit_edge, %28, %33, %pmix_pointer_array_get_item.exit50

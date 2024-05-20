@@ -56,12 +56,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 ; Function Attrs: nounwind uwtable
 define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #1 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  %1 = load ptr, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2), align 16
-  %cmp.i.i.i.i = icmp eq ptr %1, getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 2)
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 80), align 16
+  %cmp.i.i.i.i = icmp eq ptr %1, getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 96)
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %2 = load i64, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 88), align 8
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN12XcompileModeD2Ev.exit
@@ -71,8 +71,8 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN12XcompileModeD2Ev.exit
 
 _ZN12XcompileModeD2Ev.exit:                       ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %3 = load ptr, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1), align 8
-  %cmp.i.i.i.i.1 = icmp eq ptr %3, getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 2)
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 40), align 8
+  %cmp.i.i.i.i.1 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 56)
   br i1 %cmp.i.i.i.i.1, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.1, label %if.then.i.i.i.1
 
 if.then.i.i.i.1:                                  ; preds = %_ZN12XcompileModeD2Ev.exit
@@ -80,14 +80,14 @@ if.then.i.i.i.1:                                  ; preds = %_ZN12XcompileModeD2
   br label %_ZN12XcompileModeD2Ev.exit.1
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.1: ; preds = %_ZN12XcompileModeD2Ev.exit
-  %4 = load i64, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 1), align 16
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 48), align 16
   %cmp3.i.i.i.i.1 = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.1)
   br label %_ZN12XcompileModeD2Ev.exit.1
 
 _ZN12XcompileModeD2Ev.exit.1:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.1, %if.then.i.i.i.1
   %5 = load ptr, ptr @_ZL16xcompile_options, align 16
-  %cmp.i.i.i.i.2 = icmp eq ptr %5, getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 0, i32 0, i32 2)
+  %cmp.i.i.i.i.2 = icmp eq ptr %5, getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 16)
   br i1 %cmp.i.i.i.i.2, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.2, label %if.then.i.i.i.2
 
 if.then.i.i.i.2:                                  ; preds = %_ZN12XcompileModeD2Ev.exit.1
@@ -95,7 +95,7 @@ if.then.i.i.i.2:                                  ; preds = %_ZN12XcompileModeD2
   br label %_ZN12XcompileModeD2Ev.exit.2
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.2: ; preds = %_ZN12XcompileModeD2Ev.exit.1
-  %6 = load i64, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 0, i32 0, i32 1), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 8), align 8
   %cmp3.i.i.i.i.2 = icmp ult i64 %6, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.2)
   br label %_ZN12XcompileModeD2Ev.exit.2
@@ -280,7 +280,7 @@ invoke.cont6:                                     ; preds = %if.end.i.i.i.i.i.i5
   br i1 %cmp.i60, label %cleanup18, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %invoke.cont6
-  %23 = load i64, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 0, i32 0, i32 1), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 8), align 8
   %cmp.i62 = icmp eq i64 %22, %23
   br i1 %cmp.i62, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %for.inc
 
@@ -301,7 +301,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %27, label %cleanup11.thread, label %for.inc
 
 cleanup11.thread:                                 ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %__begin2.0.ptr103.lcssa = phi ptr [ @_ZL16xcompile_options, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 0, i32 0), %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.1 ], [ getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 0, i32 0), %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.2 ]
+  %__begin2.0.ptr103.lcssa = phi ptr [ @_ZL16xcompile_options, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 40), %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.1 ], [ getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 80), %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.2 ]
   %cpu_features = getelementptr inbounds i8, ptr %__begin2.0.ptr103.lcssa, i64 32
   %28 = load i64, ptr %cpu_features, align 8
   %cpu_features10 = getelementptr inbounds i8, ptr %rv, i64 8
@@ -310,23 +310,23 @@ cleanup11.thread:                                 ; preds = %_ZSteqIcEN9__gnu_cx
           to label %_ZN5boost11make_uniqueI16hs_platform_infoJRS1_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEDpOT0_.exit unwind label %lpad16
 
 for.inc:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %for.cond.preheader
-  %29 = load i64, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 1), align 16
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 48), align 16
   %cmp.i62.1 = icmp eq i64 %22, %29
   br i1 %cmp.i62.1, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.1, label %for.inc.1
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.1: ; preds = %for.inc
-  %30 = load ptr, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 0, i32 0), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 40), align 8
   %bcmp.i.1 = call i32 @bcmp(ptr %.pre, ptr %30, i64 %22)
   %31 = icmp eq i32 %bcmp.i.1, 0
   br i1 %31, label %cleanup11.thread, label %for.inc.1
 
 for.inc.1:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.1, %for.inc
-  %32 = load i64, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 1), align 8
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 88), align 8
   %cmp.i62.2 = icmp eq i64 %22, %32
   br i1 %cmp.i62.2, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.2, label %cleanup18
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.2: ; preds = %for.inc.1
-  %33 = load ptr, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 0, i32 0), align 16
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 80), align 16
   %bcmp.i.2 = call i32 @bcmp(ptr %.pre, ptr %33, i64 %22)
   %34 = icmp eq i32 %bcmp.i.2, 0
   br i1 %34, label %cleanup11.thread, label %cleanup18
@@ -572,13 +572,13 @@ if.else.i.i:                                      ; preds = %if.end28
 invoke.cont29:                                    ; preds = %if.else.i.i, %if.then.i.i
   %11 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %11, ptr %out, align 8
-  %12 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %11, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i.i
   store ptr %12, ptr %add.ptr.i.i, align 8
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %out, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %out, i64 80
   %13 = load ptr, ptr %_M_string.i.i.i, align 8
   %14 = getelementptr inbounds i8, ptr %out, i64 96
@@ -597,7 +597,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont29
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #18
   %16 = getelementptr inbounds i8, ptr %out, i64 112
@@ -681,7 +681,7 @@ if.then.i.i21:                                    ; preds = %invoke.cont5
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1) #18
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 0, i32 0))
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 40))
           to label %invoke.cont3.1 unwind label %lpad2
 
 invoke.cont3.1:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -714,7 +714,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.1, %if.then.i.i21.1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1) #18
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 0, i32 0))
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 80))
           to label %invoke.cont3.2 unwind label %lpad2
 
 invoke.cont3.2:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
@@ -917,21 +917,21 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_cross_compile.cpp() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 0, i32 0, i32 2), ptr @_ZL16xcompile_options, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 0, i32 0, i32 2), ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false)
-  store i64 6, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 0, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 0, i32 0, i32 2), i64 6), align 2
-  store i64 8, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 0, i32 1), align 16
-  store ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 2), ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1), align 8
-  store i32 846755425, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 0, i32 2), i64 4), align 4
-  store i64 4, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 1, i32 1), align 8
-  store ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 2), ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2), align 16
-  store i32 1702060386, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 2), align 16
-  store i64 4, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 0, i32 2), i64 4), align 4
-  store i64 0, ptr getelementptr inbounds ([3 x %struct.XcompileMode], ptr @_ZL16xcompile_options, i64 0, i64 2, i32 1), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 16), ptr @_ZL16xcompile_options, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false)
+  store i64 6, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 22), align 2
+  store i64 8, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 32), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 56), ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 40), align 8
+  store i32 846755425, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 56), align 8
+  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 48), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 60), align 4
+  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 72), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 96), ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 80), align 16
+  store i32 1702060386, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 96), align 16
+  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 88), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 100), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16xcompile_options, i64 112), align 16
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #18
   ret void
 }

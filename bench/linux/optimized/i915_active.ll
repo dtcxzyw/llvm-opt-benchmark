@@ -1150,7 +1150,7 @@ define internal fastcc i32 @await_active(ptr noundef %0, i32 noundef %1, ptr noc
   br i1 %71, label %72, label %.loopexit
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %74 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %73, i32 noundef 3264, i64 noundef 48) #9
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.loopexit, label %76, !prof !8
@@ -1922,7 +1922,7 @@ define dso_local void @i915_active_put(ptr noundef %0) local_unnamed_addr #0 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @i915_active_create() local_unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %2 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3264, i64 noundef 168) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %19, label %4

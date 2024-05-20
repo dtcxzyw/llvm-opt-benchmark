@@ -665,7 +665,7 @@ define hidden void @_ZN6uu_env14split_iterator13SplitIterator15state_delimiter17
 70:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !146
   store ptr @anon.6126f6c3ba55af2b6950f393ac5adac1.2, ptr %28, align 8, !noalias !146
-  store ptr getelementptr inbounds (<{ [24 x i8] }>, ptr @anon.6126f6c3ba55af2b6950f393ac5adac1.2, i64 1, i32 0, i64 0), ptr %58, align 8, !noalias !146
+  store ptr getelementptr inbounds (i8, ptr @anon.6126f6c3ba55af2b6950f393ac5adac1.2, i64 24), ptr %58, align 8, !noalias !146
   br label %71
 
 71:                                               ; preds = %73, %70
@@ -1396,7 +1396,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
 130:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52), !noalias !309
   store ptr @anon.6126f6c3ba55af2b6950f393ac5adac1.2, ptr %52, align 8, !noalias !309
-  store ptr getelementptr inbounds (<{ [24 x i8] }>, ptr @anon.6126f6c3ba55af2b6950f393ac5adac1.2, i64 1, i32 0, i64 0), ptr %106, align 8, !noalias !309
+  store ptr getelementptr inbounds (i8, ptr @anon.6126f6c3ba55af2b6950f393ac5adac1.2, i64 24), ptr %106, align 8, !noalias !309
   br label %131
 
 131:                                              ; preds = %133, %130

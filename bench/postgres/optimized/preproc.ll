@@ -29707,7 +29707,7 @@ sub_14901:                                        ; preds = %sub_04900
   store i32 %15656, ptr @when_error, align 8
   %15657 = getelementptr inbounds i8, ptr %.24599, i64 8
   %15658 = load ptr, ptr %15657, align 8
-  store ptr %15658, ptr getelementptr inbounds (%struct.when, ptr @when_error, i64 0, i32 1), align 8
+  store ptr %15658, ptr getelementptr inbounds (i8, ptr @when_error, i64 8), align 8
   %15659 = call ptr @mm_strdup(ptr noundef nonnull @.str.1241) #17
   %15660 = getelementptr inbounds i8, ptr %.24599, i64 16
   %15661 = load ptr, ptr %15660, align 8
@@ -29720,7 +29720,7 @@ sub_14901:                                        ; preds = %sub_04900
   store i32 %15665, ptr @when_nf, align 8
   %15666 = getelementptr inbounds i8, ptr %.24599, i64 8
   %15667 = load ptr, ptr %15666, align 8
-  store ptr %15667, ptr getelementptr inbounds (%struct.when, ptr @when_nf, i64 0, i32 1), align 8
+  store ptr %15667, ptr getelementptr inbounds (i8, ptr @when_nf, i64 8), align 8
   %15668 = call ptr @mm_strdup(ptr noundef nonnull @.str.1243) #17
   %15669 = getelementptr inbounds i8, ptr %.24599, i64 16
   %15670 = load ptr, ptr %15669, align 8
@@ -29733,7 +29733,7 @@ sub_14901:                                        ; preds = %sub_04900
   store i32 %15674, ptr @when_warn, align 8
   %15675 = getelementptr inbounds i8, ptr %.24599, i64 8
   %15676 = load ptr, ptr %15675, align 8
-  store ptr %15676, ptr getelementptr inbounds (%struct.when, ptr @when_warn, i64 0, i32 1), align 8
+  store ptr %15676, ptr getelementptr inbounds (i8, ptr @when_warn, i64 8), align 8
   %15677 = call ptr @mm_strdup(ptr noundef nonnull @.str.1244) #17
   %15678 = getelementptr inbounds i8, ptr %.24599, i64 16
   %15679 = load ptr, ptr %15678, align 8

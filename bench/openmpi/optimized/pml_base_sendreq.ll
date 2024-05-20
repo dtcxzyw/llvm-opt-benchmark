@@ -16,7 +16,7 @@ define internal void @mca_pml_base_send_request_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 1, ptr %2, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -29,7 +29,7 @@ define internal void @mca_pml_base_send_request_construct(ptr noundef %0) #0 {
   store ptr @opal_convertor_t_class, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 200
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i = icmp eq ptr %10, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i

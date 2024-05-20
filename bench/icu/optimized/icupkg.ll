@@ -63,9 +63,9 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %call = tail call ptr @findBasename(ptr noundef %0)
   %call1 = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef nonnull %argv, i32 noundef 18, ptr noundef nonnull @_ZL7options)
-  %1 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 0, i32 6), align 2
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 34), align 2
   %tobool = icmp ne i8 %1, 0
-  %2 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 74), align 2
   %tobool2 = icmp ne i8 %2, 0
   %3 = select i1 %tobool, i1 true, i1 %tobool2
   br i1 %3, label %if.then, label %if.end
@@ -85,7 +85,7 @@ lpad:                                             ; preds = %if.end
   br label %eh.resume
 
 if.end7:                                          ; preds = %if.end
-  %5 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 15, i32 6), align 2
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 634), align 2
   %tobool8.not = icmp eq i8 %5, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
@@ -96,12 +96,12 @@ if.then9:                                         ; preds = %if.end7
 
 if.end10:                                         ; preds = %if.then9, %if.end7
   %autoPrefix.0 = phi i32 [ 1, %if.then9 ], [ 0, %if.end7 ]
-  %6 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 16, i32 6), align 2
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 674), align 2
   %tobool11.not = icmp eq i8 %6, 0
   br i1 %tobool11.not, label %if.end18, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %7 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 17, i32 6), align 2
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 714), align 2
   %tobool13.not = icmp eq i8 %7, 0
   br i1 %tobool13.not, label %if.end16, label %if.then14
 
@@ -134,13 +134,13 @@ if.then23:                                        ; preds = %if.end18
   br label %return
 
 if.end24:                                         ; preds = %if.end18
-  %13 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 234), align 2
   %tobool25.not = icmp eq i8 %13, 0
-  %14 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 1), align 16
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 208), align 16
   %sourcePath.0 = select i1 %tobool25.not, ptr null, ptr %14
-  %15 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %tobool28.not = icmp eq i8 %15, 0
-  %16 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 248), align 8
   %destPath.0 = select i1 %tobool28.not, ptr null, ptr %16
   %arrayidx32 = getelementptr inbounds i8, ptr %argv, i64 8
   %17 = load ptr, ptr %arrayidx32, align 8
@@ -196,19 +196,19 @@ if.end64:                                         ; preds = %if.end47, %if.end47
   %call53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %21) #15
   %cmp54.not = icmp ne i32 %call53, 0
   %isModified.0 = zext i1 %cmp54.not to i8
-  %23 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 6), align 2
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 114), align 2
   %tobool65.not = icmp eq i8 %23, 0
   br i1 %tobool65.not, label %if.else89, label %if.then66
 
 if.end64.thread180:                               ; preds = %if.end47.thread
   %cmp61 = icmp ne ptr %sourcePath.0, %destPath.0
   %isModified.0185 = zext i1 %cmp61 to i8
-  %24 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 6), align 2
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 114), align 2
   %tobool65.not186 = icmp eq i8 %24, 0
   br i1 %tobool65.not186, label %if.end95.thread, label %if.then66
 
 if.end64.thread:                                  ; preds = %if.end47
-  %25 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 6), align 2
+  %25 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 114), align 2
   %tobool65.not129 = icmp eq i8 %25, 0
   br i1 %tobool65.not129, label %if.end95.thread159, label %if.then66
 
@@ -217,7 +217,7 @@ if.then66:                                        ; preds = %if.end64.thread180,
   %outFilename.0137 = phi ptr [ null, %if.end64.thread ], [ %21, %if.end64 ], [ %17, %if.end64.thread180 ]
   %inFilename.0115134 = phi ptr [ %inFilename.0, %if.end64.thread ], [ %inFilename.0117, %if.end64 ], [ %17, %if.end64.thread180 ]
   %tobool58.not119131 = phi i1 [ false, %if.end64.thread ], [ %tobool58.not120, %if.end64 ], [ true, %if.end64.thread180 ]
-  %26 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 88), align 8
   %27 = load i8, ptr %26, align 1
   %cmp69 = icmp eq i8 %27, 0
   br i1 %cmp69, label %if.then74, label %lor.lhs.false70
@@ -254,7 +254,7 @@ if.else89:                                        ; preds = %if.end64
 if.end95.thread:                                  ; preds = %if.end64.thread180, %if.else89
   %outFilename.0189198 = phi ptr [ %21, %if.else89 ], [ %17, %if.end64.thread180 ]
   %isModified.0.in190197 = phi i1 [ %cmp54.not, %if.else89 ], [ %cmp61, %if.end64.thread180 ]
-  %31 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
+  %31 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %tobool96.not154 = icmp eq i8 %31, 0
   %32 = xor i1 %isModified.0.in190197, true
   %33 = select i1 %tobool96.not154, i1 %32, i1 false
@@ -278,24 +278,24 @@ if.then100:                                       ; preds = %sw.epilog, %if.end9
   %spec.select98158 = phi i1 [ %33, %if.end95.thread ], [ false, %sw.epilog ]
   %outType.0157 = phi i8 [ 0, %if.end95.thread ], [ %27, %sw.epilog ]
   %outFilename.0136156 = phi ptr [ %outFilename.0189198, %if.end95.thread ], [ %outFilename.0137, %sw.epilog ]
-  %36 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6), align 2
+  %36 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 194), align 2
   %tobool101 = icmp ne i8 %36, 0
-  %37 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
+  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 154), align 2
   %tobool103 = icmp ne i8 %37, 0
   %or.cond2 = select i1 %tobool101, i1 true, i1 %tobool103
-  %38 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6), align 2
+  %38 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 354), align 2
   %tobool105 = icmp ne i8 %38, 0
   %or.cond3 = select i1 %or.cond2, i1 true, i1 %tobool105
-  %39 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 11, i32 6), align 2
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 474), align 2
   %tobool107 = icmp ne i8 %39, 0
   %or.cond4 = select i1 %or.cond3, i1 true, i1 %tobool107
-  %40 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 10, i32 6), align 2
+  %40 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 434), align 2
   %tobool109 = icmp ne i8 %40, 0
   %or.cond5 = select i1 %or.cond4, i1 true, i1 %tobool109
-  %41 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 12, i32 6), align 2
+  %41 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 514), align 2
   %tobool111 = icmp ne i8 %41, 0
   %or.cond6 = select i1 %or.cond5, i1 true, i1 %tobool111
-  %42 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 13, i32 6), align 2
+  %42 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 554), align 2
   %tobool113 = icmp ne i8 %42, 0
   %or.cond7 = select i1 %or.cond6, i1 true, i1 %tobool113
   br i1 %or.cond7, label %if.then114, label %if.end115
@@ -322,22 +322,22 @@ if.end119:                                        ; preds = %if.end95, %if.end95
   %outType.0169 = phi i8 [ %27, %if.end95 ], [ %call92, %if.end95.thread159 ]
   %inFilename.0115133168 = phi ptr [ %inFilename.0115134, %if.end95 ], [ %inFilename.0115135147, %if.end95.thread159 ]
   %outFilename.0136167 = phi ptr [ %outFilename.0137, %if.end95 ], [ %outFilename.0138146, %if.end95.thread159 ]
-  %44 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
+  %44 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %tobool96.not = icmp eq i8 %44, 0
   %spec.select98 = select i1 %tobool96.not, i8 %.sink, i8 1
-  %45 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6), align 2
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 194), align 2
   %tobool120.not = icmp eq i8 %45, 0
-  %46 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 1), align 8
-  %47 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 168), align 8
+  %47 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 154), align 2
   %tobool123.not = icmp eq i8 %47, 0
   %..str.4 = select i1 %tobool123.not, ptr null, ptr @.str.4
   %outComment.0 = select i1 %tobool120.not, ptr %..str.4, ptr %46
-  %48 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6), align 2
+  %48 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 354), align 2
   %tobool128.not = icmp eq i8 %48, 0
   br i1 %tobool128.not, label %if.end135, label %if.then129
 
 if.then129:                                       ; preds = %if.end119
-  %49 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 1), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 328), align 8
   %call130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(8) @.str.5) #15
   %cmp131 = icmp eq i32 %call130, 0
   br i1 %cmp131, label %if.then132, label %if.else133
@@ -352,7 +352,7 @@ if.else133:                                       ; preds = %if.then129
   br label %return
 
 if.end135:                                        ; preds = %if.then132, %if.end119
-  %51 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 11, i32 6), align 2
+  %51 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 474), align 2
   %tobool136.not = icmp eq i8 %51, 0
   br i1 %tobool136.not, label %if.end153, label %if.then137
 
@@ -367,7 +367,7 @@ lpad139:                                          ; preds = %if.then137
   br label %eh.resume
 
 if.end144:                                        ; preds = %if.then137
-  %53 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 11, i32 1), align 16
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 448), align 16
   %call145 = tail call ptr @readList(ptr noundef null, ptr noundef %53, i8 noundef signext 0, ptr noundef nonnull %call138)
   %tobool146.not = icmp eq ptr %call145, null
   br i1 %tobool146.not, label %if.else151, label %if.then147
@@ -385,7 +385,7 @@ if.else151:                                       ; preds = %if.end144
 
 if.end153:                                        ; preds = %if.then147, %if.end135
   %isModified.3 = phi i8 [ 1, %if.then147 ], [ %spec.select98, %if.end135 ]
-  %55 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 10, i32 6), align 2
+  %55 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 434), align 2
   %tobool154.not = icmp eq i8 %55, 0
   br i1 %tobool154.not, label %if.end168, label %if.then155
 
@@ -400,7 +400,7 @@ lpad157:                                          ; preds = %if.then155
   br label %eh.resume
 
 if.end162:                                        ; preds = %if.then155
-  %57 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 10, i32 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 408), align 8
   %call163 = tail call ptr @readList(ptr noundef %sourcePath.0, ptr noundef %57, i8 noundef signext 1, ptr noundef nonnull %call156)
   %tobool164.not = icmp eq ptr %call163, null
   br i1 %tobool164.not, label %if.else166, label %if.then165
@@ -417,7 +417,7 @@ if.else166:                                       ; preds = %if.end162
 if.end168:                                        ; preds = %if.then165, %if.end153
   %isModified.4 = phi i8 [ 1, %if.then165 ], [ %isModified.3, %if.end153 ]
   %addListPkg.0 = phi ptr [ %call156, %if.then165 ], [ null, %if.end153 ]
-  %59 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 12, i32 6), align 2
+  %59 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 514), align 2
   %tobool169.not = icmp eq i8 %59, 0
   br i1 %tobool169.not, label %if.end186, label %if.then170
 
@@ -432,7 +432,7 @@ lpad172:                                          ; preds = %if.then170
   br label %eh.resume
 
 if.end177:                                        ; preds = %if.then170
-  %61 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 12, i32 1), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 488), align 8
   %call178 = tail call ptr @readList(ptr noundef null, ptr noundef %61, i8 noundef signext 0, ptr noundef nonnull %call171)
   %tobool179.not = icmp eq ptr %call178, null
   br i1 %tobool179.not, label %if.else184, label %if.then180
@@ -449,12 +449,12 @@ if.else184:                                       ; preds = %if.end177
   br label %return
 
 if.end186:                                        ; preds = %if.then180, %if.end168
-  %63 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 13, i32 6), align 2
+  %63 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 554), align 2
   %tobool187.not = icmp eq i8 %63, 0
   br i1 %tobool187.not, label %if.end214, label %if.then188
 
 if.then188:                                       ; preds = %if.end186
-  %64 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 14, i32 6), align 2
+  %64 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 594), align 2
   %tobool189.not = icmp eq i8 %64, 0
   br i1 %tobool189.not, label %for.cond203.preheader, label %if.then190
 
@@ -464,7 +464,7 @@ for.cond203.preheader:                            ; preds = %if.then188
   br i1 %cmp205178, label %for.body206, label %if.end214
 
 if.then190:                                       ; preds = %if.then188
-  %65 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 14, i32 1), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 568), align 8
   %call191 = tail call ptr @T_FileStream_open(ptr noundef %65, ptr noundef nonnull @.str.6)
   %cmp192.not = icmp eq ptr %call191, null
   br i1 %cmp192.not, label %return, label %for.cond.preheader
@@ -501,7 +501,7 @@ for.body206:                                      ; preds = %for.cond203.prehead
   br i1 %cmp205, label %for.body206, label %if.end214, !llvm.loop !7
 
 if.end214:                                        ; preds = %for.body206, %for.cond203.preheader, %for.end, %if.end186
-  %69 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 9, i32 6), align 2
+  %69 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 394), align 2
   %tobool215.not = icmp eq i8 %69, 0
   br i1 %tobool215.not, label %land.lhs.true, label %if.end219
 
@@ -560,12 +560,12 @@ if.then247:                                       ; preds = %land.lhs.true243
 
 if.end251:                                        ; preds = %if.end235, %land.lhs.true243, %if.then247, %lor.lhs.false223
   %outFilename.1 = phi ptr [ %outFilename.0136167, %lor.lhs.false223 ], [ %outFilenameBuffer, %if.then247 ], [ %outFilenameBuffer, %land.lhs.true243 ], [ %outFilenameBuffer, %if.end235 ]
-  %74 = load i8, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 17, i32 6), align 2
+  %74 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 714), align 2
   %tobool252.not = icmp eq i8 %74, 0
   br i1 %tobool252.not, label %if.end254, label %if.then253
 
 if.then253:                                       ; preds = %if.end251
-  %75 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 17, i32 1), align 16
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 688), align 16
   call void @_ZN6icu_757Package9setPrefixEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %call4, ptr noundef %75)
   br label %if.end254
 

@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -5, 1) i32 @option_ms_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(36) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 36) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
@@ -67,7 +67,7 @@ define dso_local noundef range(i32 -5, 1) i32 @option_ms_init(ptr noundef %0) lo
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %33 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3520, i64 noundef 1024) #5
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread, label %35

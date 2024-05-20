@@ -46,17 +46,17 @@ define range(i32 -1, 1) i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
   br i1 %.not, label %2, label %58
 
 2:                                                ; preds = %0
-  %3 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
   %4 = and i8 %3, 1
   store i8 %4, ptr @constrain_ram_space, align 1
-  %5 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
   %6 = and i8 %5, 1
   store i8 %6, ptr @constrain_swap_space, align 1
   %7 = trunc i8 %3 to i1
-  %8 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 4), align 4
+  %8 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), align 4
   %storemerge = select i1 %7, float %8, float 1.000000e+02
   store float %storemerge, ptr @allowed_ram_space, align 4
-  %9 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 8), align 4
+  %9 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), align 4
   store float %9, ptr @allowed_swap_space, align 4
   %10 = load ptr, ptr @conf, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 4208
@@ -72,7 +72,7 @@ define range(i32 -1, 1) i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
 
 16:                                               ; preds = %14, %2
   %17 = phi i64 [ %.pre, %14 ], [ %12, %2 ]
-  %18 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
+  %18 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
   %19 = shl i64 %17, 20
   %20 = uitofp i64 %19 to double
   %21 = fpext float %18 to double
@@ -80,14 +80,14 @@ define range(i32 -1, 1) i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
   %23 = fmul double %22, %20
   %24 = fptoui double %23 to i64
   store i64 %24, ptr @max_ram, align 8
-  %25 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
+  %25 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
   %26 = fpext float %25 to double
   %27 = fdiv double %26, 1.000000e+02
   %28 = fmul double %27, %20
   %29 = fptoui double %28 to i64
   %30 = add i64 %29, %24
   store i64 %30, ptr @max_swap, align 8
-  %31 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
   %32 = shl i64 %31, 20
   store i64 %32, ptr @min_ram_space, align 8
   %33 = tail call i32 @get_log_level() #4
@@ -106,15 +106,15 @@ define range(i32 -1, 1) i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
   %44 = load i8, ptr @constrain_swap_space, align 1
   %45 = trunc nuw i8 %44 to i1
   %46 = select i1 %45, ptr @.str.2, ptr @.str.3
-  %47 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
+  %47 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
   %48 = fpext float %47 to double
   %49 = load i64, ptr @max_ram, align 8
   %50 = lshr i64 %49, 20
-  %51 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
+  %51 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
   %52 = fpext float %51 to double
   %53 = load i64, ptr @max_swap, align 8
   %54 = lshr i64 %53, 20
-  %55 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_init, i64 noundef %36, double noundef %38, ptr noundef nonnull %41, double noundef %43, ptr noundef nonnull %46, double noundef %48, i64 noundef %50, double noundef %52, i64 noundef %54, i64 noundef %55) #4
   br label %56
 
@@ -271,7 +271,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   br i1 %46, label %47, label %56
 
 47:                                               ; preds = %38
-  %48 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), align 8
+  %48 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
   store i64 %48, ptr %44, align 8
   store i64 %.0.i31, ptr %43, align 8
   %49 = call i32 @get_log_level() #4

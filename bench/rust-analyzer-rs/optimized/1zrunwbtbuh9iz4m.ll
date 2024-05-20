@@ -3254,7 +3254,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i302: ; preds = %777, %770
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !577
   store ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.8, ptr %9, align 8, !noalias !577
   %784 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr getelementptr inbounds (<{ [6 x i8] }>, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.8, i64 1, i32 0, i64 0), ptr %784, align 8, !noalias !577
+  store ptr getelementptr inbounds (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.8, i64 6), ptr %784, align 8, !noalias !577
   br label %785
 
 785:                                              ; preds = %787, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i302
@@ -3305,7 +3305,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit2.i: ; preds = %800, %793
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !595
   store ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.9, ptr %7, align 8, !noalias !595
   %807 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds (<{ [4 x i8] }>, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.9, i64 1, i32 0, i64 0), ptr %807, align 8, !noalias !595
+  store ptr getelementptr inbounds (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.9, i64 4), ptr %807, align 8, !noalias !595
   br label %808
 
 808:                                              ; preds = %810, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit2.i
@@ -3380,7 +3380,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit6.i: ; preds = %823, %816
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !613
   store ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.10, ptr %5, align 8, !noalias !613
   %830 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (<{ [8 x i8] }>, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.10, i64 1, i32 0, i64 0), ptr %830, align 8, !noalias !613
+  store ptr getelementptr inbounds (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.10, i64 8), ptr %830, align 8, !noalias !613
   br label %831
 
 831:                                              ; preds = %833, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit6.i

@@ -43,7 +43,7 @@ do.body17.invoke:                                 ; preds = %if.end, %do.body10
   %5 = phi i32 [ 88, %do.body10 ], [ 87, %if.end ]
   %6 = phi ptr [ @.str.4, %do.body10 ], [ @.str.2, %if.end ]
   %7 = phi ptr [ @.str.5, %do.body10 ], [ @.str.3, %if.end ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([146 x i8], ptr @.str, i64 0, i64 123), i32 noundef %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, ptr noundef nonnull %7)
           to label %do.body17.cont unwind label %lpad
 
 do.body17.cont:                                   ; preds = %do.body17.invoke

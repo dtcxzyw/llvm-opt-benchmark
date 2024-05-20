@@ -233,25 +233,25 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %dummy = alloca %"class.cvc5::internal::Minisat::vec.4", align 8
   tail call void @_ZN4cvc58internal7Minisat6SolverC2ERNS0_3EnvEPNS0_4prop11TheoryProxyEPNS_7context7ContextEPNS8_11UserContextEPNS0_16ProofNodeManagerEb(ptr noundef nonnull align 8 dereferenceable(850) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %proxy, ptr noundef %context, ptr noundef %userContext, ptr noundef %pnm, i1 noundef zeroext %enableIncremental)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 16), ptr %this, align 8
   %grow = getelementptr inbounds i8, ptr %this, i64 852
-  %0 = load i32, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL8opt_grow, i64 0, i32 2), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL8opt_grow, i64 48), align 8
   store i32 %0, ptr %grow, align 4
   %clause_lim = getelementptr inbounds i8, ptr %this, i64 856
-  %1 = load i32, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL14opt_clause_lim, i64 0, i32 2), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14opt_clause_lim, i64 48), align 8
   store i32 %1, ptr %clause_lim, align 8
   %subsumption_lim = getelementptr inbounds i8, ptr %this, i64 860
-  %2 = load i32, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL19opt_subsumption_lim, i64 0, i32 2), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19opt_subsumption_lim, i64 48), align 8
   store i32 %2, ptr %subsumption_lim, align 4
   %simp_garbage_frac = getelementptr inbounds i8, ptr %this, i64 864
-  %3 = load double, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::DoubleOption", ptr @_ZL21opt_simp_garbage_frac, i64 0, i32 2), align 8
+  %3 = load double, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8
   store double %3, ptr %simp_garbage_frac, align 8
   %use_asymm = getelementptr inbounds i8, ptr %this, i64 872
-  %4 = load i8, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::BoolOption", ptr @_ZL13opt_use_asymm, i64 0, i32 1), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13opt_use_asymm, i64 40), align 8
   %frombool11 = and i8 %4, 1
   store i8 %frombool11, ptr %use_asymm, align 8
   %use_rcheck = getelementptr inbounds i8, ptr %this, i64 873
-  %5 = load i8, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::BoolOption", ptr @_ZL14opt_use_rcheck, i64 0, i32 1), align 8
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL14opt_use_rcheck, i64 40), align 8
   %tobool14 = trunc i8 %5 to i1
   br i1 %tobool14, label %land.lhs.true, label %land.end
 
@@ -1187,7 +1187,7 @@ declare void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 16), ptr %this, align 8
   %eliminated = getelementptr inbounds i8, ptr %this, i64 1080
   %0 = load ptr, ptr %eliminated, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -6701,7 +6701,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %name_, ptr noundef %desc_, ptr noundef %cate_, ptr noundef %type_) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat6OptionE, i64 16), ptr %this, align 8
   %name = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %name_, ptr %name, align 8
   %description = getelementptr inbounds i8, ptr %this, i64 16
@@ -6726,8 +6726,8 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN4cvc58internal7Minisat6Option13getOptionListEv.exit
 
 _ZN4cvc58internal7Minisat6Option13getOptionListEv.exit: ; preds = %entry, %init.check.i, %init.i
-  %3 = load i32, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::vec.279", ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 0, i32 1), align 8
-  %4 = load i32, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::vec.279", ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 0, i32 2), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 12), align 4
   %cmp.i = icmp eq i32 %3, %4
   br i1 %cmp.i, label %if.end.i.i, label %entry.if.end_crit_edge.i
 
@@ -6747,7 +6747,7 @@ if.end.i.i:                                       ; preds = %_ZN4cvc58internal7M
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %7 = load ptr, ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, align 8
   %add11.i.i = add nsw i32 %add.i.i.i, %3
-  store i32 %add11.i.i, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::vec.279", ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 0, i32 2), align 4
+  store i32 %add11.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 12), align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 3
   %call12.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef %mul.i.i) #27
@@ -6756,7 +6756,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit_crit_edge
 
 lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit_crit_edge: ; preds = %lor.lhs.false.i.i
-  %.pre = load i32, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::vec.279", ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 0, i32 1), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 8), align 8
   br label %_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
@@ -6775,7 +6775,7 @@ _ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit: ; preds = %lor.lhs
   %9 = phi i32 [ %3, %entry.if.end_crit_edge.i ], [ %.pre, %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit_crit_edge ]
   %10 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call12.i.i, %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit_crit_edge ]
   %inc.i = add nsw i32 %9, 1
-  store i32 %inc.i, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::vec.279", ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 0, i32 1), align 8
+  store i32 %inc.i, ptr getelementptr inbounds (i8, ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 8), align 8
   %idxprom.i = sext i32 %9 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i
   store ptr %this, ptr %arrayidx.i, align 8
@@ -8026,29 +8026,29 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_use_asymm, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 0, i32 0, i64 2), ptr @_ZL13opt_use_asymm, align 8
-  store i8 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::BoolOption", ptr @_ZL13opt_use_asymm, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 16), ptr @_ZL13opt_use_asymm, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13opt_use_asymm, i64 40), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_use_rcheck, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 0, i32 0, i64 2), ptr @_ZL14opt_use_rcheck, align 8
-  store i8 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::BoolOption", ptr @_ZL14opt_use_rcheck, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 16), ptr @_ZL14opt_use_rcheck, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14opt_use_rcheck, i64 40), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL8opt_grow, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.38)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL8opt_grow, align 8
-  store i64 9223372034707292160, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL8opt_grow, i64 0, i32 1, i32 0), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL8opt_grow, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 16), ptr @_ZL8opt_grow, align 8
+  store i64 9223372034707292160, ptr getelementptr inbounds (i8, ptr @_ZL8opt_grow, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL8opt_grow, i64 48), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_clause_lim, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.38)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL14opt_clause_lim, align 8
-  store i64 9223372036854775807, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL14opt_clause_lim, i64 0, i32 1, i32 0), align 8
-  store i32 20, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL14opt_clause_lim, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 16), ptr @_ZL14opt_clause_lim, align 8
+  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @_ZL14opt_clause_lim, i64 40), align 8
+  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZL14opt_clause_lim, i64 48), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_subsumption_lim, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.38)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL19opt_subsumption_lim, align 8
-  store i64 9223372036854775807, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL19opt_subsumption_lim, i64 0, i32 1, i32 0), align 8
-  store i32 1000, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL19opt_subsumption_lim, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 16), ptr @_ZL19opt_subsumption_lim, align 8
+  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @_ZL19opt_subsumption_lim, i64 40), align 8
+  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZL19opt_subsumption_lim, i64 48), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL21opt_simp_garbage_frac, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.48)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL21opt_simp_garbage_frac, align 8
-  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::DoubleOption", ptr @_ZL21opt_simp_garbage_frac, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::DoubleOption", ptr @_ZL21opt_simp_garbage_frac, i64 0, i32 1, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::DoubleOption", ptr @_ZL21opt_simp_garbage_frac, i64 0, i32 1, i32 3), align 1
-  store double 5.000000e-01, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::DoubleOption", ptr @_ZL21opt_simp_garbage_frac, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i64 16), ptr @_ZL21opt_simp_garbage_frac, align 8
+  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 57), align 1
+  store double 5.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8
   ret void
 }
 

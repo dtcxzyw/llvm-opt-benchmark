@@ -112,7 +112,7 @@ define dso_local void @setup_per_cpu_areas() local_unnamed_addr #0 section ".ini
   %40 = inttoptr i64 %39 to ptr
   store i64 %37, ptr %40, align 8
   %41 = load i64, ptr %38, align 8
-  %42 = add i64 %41, ptrtoint (ptr getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2) to i64)
+  %42 = add i64 %41, ptrtoint (ptr getelementptr inbounds (i8, ptr @pcpu_hot, i64 12) to i64)
   %43 = inttoptr i64 %42 to ptr
   store i32 %30, ptr %43, align 4
   %44 = getelementptr [0 x i32], ptr @x86_cpu_to_apicid_early_map, i64 0, i64 %34

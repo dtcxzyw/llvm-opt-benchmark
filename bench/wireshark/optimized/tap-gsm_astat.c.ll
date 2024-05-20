@@ -148,7 +148,7 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts100 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %puts101 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %2 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_bssmap_msg_strings, i64 0, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_bssmap_msg_strings, i64 8), align 8
   %.not122 = icmp eq ptr %2, null
   br i1 %.not122, label %._crit_edge, label %.lr.ph
 
@@ -177,10 +177,10 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %12, %1
-  %18 = load ptr, ptr getelementptr ([0 x ptr], ptr @gsm_a_pd_str, i64 0, i64 5), align 8
+  %18 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 40), align 8
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %18)
   %puts102 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %20 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_dtap_msg_mm_strings, i64 0, i64 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_dtap_msg_mm_strings, i64 8), align 8
   %.not103124 = icmp eq ptr %20, null
   br i1 %.not103124, label %._crit_edge128, label %.lr.ph127
 
@@ -213,10 +213,10 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   br i1 %.not103, label %._crit_edge128, label %22, !llvm.loop !7
 
 ._crit_edge128:                                   ; preds = %32, %._crit_edge
-  %38 = load ptr, ptr getelementptr ([0 x ptr], ptr @gsm_a_pd_str, i64 0, i64 6), align 8
+  %38 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 48), align 8
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %38)
   %puts104 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %40 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_dtap_msg_rr_strings, i64 0, i64 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_dtap_msg_rr_strings, i64 8), align 8
   %.not105129 = icmp eq ptr %40, null
   br i1 %.not105129, label %._crit_edge133, label %.lr.ph132
 
@@ -249,10 +249,10 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   br i1 %.not105, label %._crit_edge133, label %42, !llvm.loop !8
 
 ._crit_edge133:                                   ; preds = %52, %._crit_edge128
-  %58 = load ptr, ptr getelementptr ([0 x ptr], ptr @gsm_a_pd_str, i64 0, i64 3), align 8
+  %58 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 24), align 8
   %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %58)
   %puts106 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %60 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_dtap_msg_cc_strings, i64 0, i64 0, i32 1), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_dtap_msg_cc_strings, i64 8), align 8
   %.not107134 = icmp eq ptr %60, null
   br i1 %.not107134, label %._crit_edge138, label %.lr.ph137
 
@@ -285,10 +285,10 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   br i1 %.not107, label %._crit_edge138, label %62, !llvm.loop !9
 
 ._crit_edge138:                                   ; preds = %72, %._crit_edge133
-  %78 = load ptr, ptr getelementptr ([0 x ptr], ptr @gsm_a_pd_str, i64 0, i64 8), align 8
+  %78 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 64), align 8
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %78)
   %puts108 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %80 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_dtap_msg_gmm_strings, i64 0, i64 0, i32 1), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_dtap_msg_gmm_strings, i64 8), align 8
   %.not109139 = icmp eq ptr %80, null
   br i1 %.not109139, label %._crit_edge143, label %.lr.ph142
 
@@ -321,10 +321,10 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   br i1 %.not109, label %._crit_edge143, label %82, !llvm.loop !10
 
 ._crit_edge143:                                   ; preds = %92, %._crit_edge138
-  %98 = load ptr, ptr getelementptr ([0 x ptr], ptr @gsm_a_pd_str, i64 0, i64 9), align 8
+  %98 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 72), align 8
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %98)
   %puts110 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %100 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_dtap_msg_sms_strings, i64 0, i64 0, i32 1), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_dtap_msg_sms_strings, i64 8), align 8
   %.not111144 = icmp eq ptr %100, null
   br i1 %.not111144, label %._crit_edge148, label %.lr.ph147
 
@@ -357,10 +357,10 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   br i1 %.not111, label %._crit_edge148, label %102, !llvm.loop !11
 
 ._crit_edge148:                                   ; preds = %112, %._crit_edge143
-  %118 = load ptr, ptr getelementptr ([0 x ptr], ptr @gsm_a_pd_str, i64 0, i64 10), align 8
+  %118 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 80), align 8
   %119 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %118)
   %puts112 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %120 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_dtap_msg_sm_strings, i64 0, i64 0, i32 1), align 8
+  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_dtap_msg_sm_strings, i64 8), align 8
   %.not113149 = icmp eq ptr %120, null
   br i1 %.not113149, label %._crit_edge153, label %.lr.ph152
 
@@ -393,10 +393,10 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   br i1 %.not113, label %._crit_edge153, label %122, !llvm.loop !12
 
 ._crit_edge153:                                   ; preds = %132, %._crit_edge148
-  %138 = load ptr, ptr getelementptr ([0 x ptr], ptr @gsm_a_pd_str, i64 0, i64 11), align 8
+  %138 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 88), align 8
   %139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %138)
   %puts114 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %140 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_dtap_msg_ss_strings, i64 0, i64 0, i32 1), align 8
+  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_dtap_msg_ss_strings, i64 8), align 8
   %.not115154 = icmp eq ptr %140, null
   br i1 %.not115154, label %._crit_edge158, label %.lr.ph157
 
@@ -429,10 +429,10 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
   br i1 %.not115, label %._crit_edge158, label %142, !llvm.loop !13
 
 ._crit_edge158:                                   ; preds = %152, %._crit_edge153
-  %158 = load ptr, ptr getelementptr ([0 x ptr], ptr @gsm_a_pd_str, i64 0, i64 15), align 8
+  %158 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 120), align 8
   %159 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %158)
   %puts116 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %160 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_dtap_msg_tp_strings, i64 0, i64 0, i32 1), align 8
+  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_dtap_msg_tp_strings, i64 8), align 8
   %.not117159 = icmp eq ptr %160, null
   br i1 %.not117159, label %._crit_edge163, label %.lr.ph162
 
@@ -467,7 +467,7 @@ define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
 ._crit_edge163:                                   ; preds = %172, %._crit_edge158
   %puts118 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
   %puts119 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %178 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @gsm_a_rr_short_pd_msg_strings, i64 0, i64 0, i32 1), align 8
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @gsm_a_rr_short_pd_msg_strings, i64 8), align 8
   %.not120164 = icmp eq ptr %178, null
   br i1 %.not120164, label %._crit_edge168, label %.lr.ph167
 

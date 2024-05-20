@@ -632,7 +632,7 @@ call6.i.i.noexc.i:                                ; preds = %call3.i.i.noexc.i
   store i8 1, ptr %podType_.i.i.i.i.i, align 4, !noalias !24
   %padding_.i.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i29.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !24
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i, align 8, !noalias !24
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i, align 8, !noalias !24
   store i64 4, ptr %size_.i.i.i.i.i, align 8, !noalias !24
   store ptr %call6.i.i29.i, ptr %offsets.i, align 8, !alias.scope !25, !noalias !4
   %45 = atomicrmw add ptr %referenceCount_.i.i.i.i.i, i32 1 seq_cst, align 4, !noalias !24
@@ -699,7 +699,7 @@ call6.i.i.noexc54.i:                              ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i, align 4, !noalias !32
   %padding_.i.i.i.i42.i = getelementptr inbounds i8, ptr %call6.i.i55.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i, i8 -1, i64 16, i1 false), !noalias !32
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i, align 8, !noalias !32
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i, align 8, !noalias !32
   store i64 4, ptr %size_.i.i.i.i38.i, align 8, !noalias !32
   store ptr %call6.i.i55.i, ptr %sizes.i, align 8, !alias.scope !33, !noalias !4
   %53 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i, i32 1 seq_cst, align 4, !noalias !32
@@ -764,7 +764,7 @@ call5.i.i.i3.i.i.i.i.noexc.i:                     ; preds = %invoke.cont17.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i, align 8, !noalias !37
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !37
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i, align 8, !noalias !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i, align 8, !noalias !37
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorINS1_12UnknownValueEEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i)
           to label %invoke.cont21.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !37
@@ -1346,7 +1346,7 @@ call6.i.i.noexc.i:                                ; preds = %call3.i.i.noexc.i
   store i8 1, ptr %podType_.i.i.i.i.i, align 4, !noalias !57
   %padding_.i.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i21.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !57
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i21.i, align 8, !noalias !57
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i21.i, align 8, !noalias !57
   store i64 4, ptr %size_.i.i.i.i.i, align 8, !noalias !57
   store ptr %call6.i.i21.i, ptr %offsets.i, align 8, !alias.scope !58, !noalias !38
   %46 = atomicrmw add ptr %referenceCount_.i.i.i.i.i, i32 1 seq_cst, align 4, !noalias !57
@@ -1413,7 +1413,7 @@ call6.i.i.noexc46.i:                              ; preds = %call3.i.i.noexc44.i
   store i8 1, ptr %podType_.i.i.i.i33.i, align 4, !noalias !65
   %padding_.i.i.i.i34.i = getelementptr inbounds i8, ptr %call6.i.i47.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i34.i, i8 -1, i64 16, i1 false), !noalias !65
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i47.i, align 8, !noalias !65
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i47.i, align 8, !noalias !65
   store i64 4, ptr %size_.i.i.i.i30.i, align 8, !noalias !65
   store ptr %call6.i.i47.i, ptr %sizes.i, align 8, !alias.scope !66, !noalias !38
   %54 = atomicrmw add ptr %referenceCount_.i.i.i.i32.i, i32 1 seq_cst, align 4, !noalias !65
@@ -1478,7 +1478,7 @@ call5.i.i.i3.i.i.i.i.noexc.i:                     ; preds = %invoke.cont18.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i55.i, align 8, !noalias !70
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i56.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !70
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i56.i, align 8, !noalias !70
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i56.i, align 8, !noalias !70
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i56.i, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorIbEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21.i, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i)
           to label %invoke.cont22.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !70
@@ -1994,7 +1994,7 @@ call6.i.i.noexc.i59:                              ; preds = %call3.i.i.noexc.i56
   store i8 1, ptr %podType_.i.i.i.i.i67, align 4, !noalias !90
   %padding_.i.i.i.i.i68 = getelementptr inbounds i8, ptr %call6.i.i29.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i68, i8 -1, i64 16, i1 false), !noalias !90
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i, align 8, !noalias !90
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i, align 8, !noalias !90
   store i64 4, ptr %size_.i.i.i.i.i64, align 8, !noalias !90
   store ptr %call6.i.i29.i, ptr %offsets.i4, align 8, !alias.scope !91, !noalias !71
   %140 = atomicrmw add ptr %referenceCount_.i.i.i.i.i66, i32 1 seq_cst, align 4, !noalias !90
@@ -2061,7 +2061,7 @@ call6.i.i.noexc54.i:                              ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i, align 4, !noalias !98
   %padding_.i.i.i.i42.i = getelementptr inbounds i8, ptr %call6.i.i55.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i, i8 -1, i64 16, i1 false), !noalias !98
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i, align 8, !noalias !98
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i, align 8, !noalias !98
   store i64 4, ptr %size_.i.i.i.i38.i, align 8, !noalias !98
   store ptr %call6.i.i55.i, ptr %sizes.i5, align 8, !alias.scope !99, !noalias !71
   %148 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i, i32 1 seq_cst, align 4, !noalias !98
@@ -2126,7 +2126,7 @@ call5.i.i.i3.i.i.i.i.noexc.i78:                   ; preds = %invoke.cont17.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i, align 8, !noalias !103
   %_M_weak_count.i.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i79, align 4, !noalias !103
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i, align 8, !noalias !103
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i, align 8, !noalias !103
   %_M_impl.i.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorIiEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i80, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i2, ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i4, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i5, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i3)
           to label %invoke.cont21.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i81, !noalias !103
@@ -2638,7 +2638,7 @@ call6.i.i.noexc.i244:                             ; preds = %call3.i.i.noexc.i24
   store i8 1, ptr %podType_.i.i.i.i.i252, align 4, !noalias !123
   %padding_.i.i.i.i.i253 = getelementptr inbounds i8, ptr %call6.i.i29.i243, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i253, i8 -1, i64 16, i1 false), !noalias !123
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i243, align 8, !noalias !123
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i243, align 8, !noalias !123
   store i64 4, ptr %size_.i.i.i.i.i249, align 8, !noalias !123
   store ptr %call6.i.i29.i243, ptr %offsets.i161, align 8, !alias.scope !124, !noalias !104
   %234 = atomicrmw add ptr %referenceCount_.i.i.i.i.i251, i32 1 seq_cst, align 4, !noalias !123
@@ -2705,7 +2705,7 @@ call6.i.i.noexc54.i272:                           ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i280, align 4, !noalias !131
   %padding_.i.i.i.i42.i281 = getelementptr inbounds i8, ptr %call6.i.i55.i271, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i281, i8 -1, i64 16, i1 false), !noalias !131
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i271, align 8, !noalias !131
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i271, align 8, !noalias !131
   store i64 4, ptr %size_.i.i.i.i38.i277, align 8, !noalias !131
   store ptr %call6.i.i55.i271, ptr %sizes.i162, align 8, !alias.scope !132, !noalias !104
   %242 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i279, i32 1 seq_cst, align 4, !noalias !131
@@ -2770,7 +2770,7 @@ call5.i.i.i3.i.i.i.i.noexc.i300:                  ; preds = %invoke.cont17.i297
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i301, align 8, !noalias !136
   %_M_weak_count.i.i.i.i.i.i.i302 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i299, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i302, align 4, !noalias !136
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i299, align 8, !noalias !136
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i299, align 8, !noalias !136
   %_M_impl.i.i.i.i.i.i.i303 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i299, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorIaEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i303, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i159, ptr noundef nonnull align 8 dereferenceable(16) %186, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i163, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i164, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i161, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i162, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i160)
           to label %invoke.cont21.i305 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i304, !noalias !136
@@ -3282,7 +3282,7 @@ call6.i.i.noexc.i504:                             ; preds = %call3.i.i.noexc.i50
   store i8 1, ptr %podType_.i.i.i.i.i512, align 4, !noalias !156
   %padding_.i.i.i.i.i513 = getelementptr inbounds i8, ptr %call6.i.i29.i503, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i513, i8 -1, i64 16, i1 false), !noalias !156
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i503, align 8, !noalias !156
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i503, align 8, !noalias !156
   store i64 4, ptr %size_.i.i.i.i.i509, align 8, !noalias !156
   store ptr %call6.i.i29.i503, ptr %offsets.i421, align 8, !alias.scope !157, !noalias !137
   %328 = atomicrmw add ptr %referenceCount_.i.i.i.i.i511, i32 1 seq_cst, align 4, !noalias !156
@@ -3349,7 +3349,7 @@ call6.i.i.noexc54.i532:                           ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i540, align 4, !noalias !164
   %padding_.i.i.i.i42.i541 = getelementptr inbounds i8, ptr %call6.i.i55.i531, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i541, i8 -1, i64 16, i1 false), !noalias !164
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i531, align 8, !noalias !164
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i531, align 8, !noalias !164
   store i64 4, ptr %size_.i.i.i.i38.i537, align 8, !noalias !164
   store ptr %call6.i.i55.i531, ptr %sizes.i422, align 8, !alias.scope !165, !noalias !137
   %336 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i539, i32 1 seq_cst, align 4, !noalias !164
@@ -3414,7 +3414,7 @@ call5.i.i.i3.i.i.i.i.noexc.i560:                  ; preds = %invoke.cont17.i557
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i561, align 8, !noalias !169
   %_M_weak_count.i.i.i.i.i.i.i562 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i559, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i562, align 4, !noalias !169
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i559, align 8, !noalias !169
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i559, align 8, !noalias !169
   %_M_impl.i.i.i.i.i.i.i563 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i559, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorIsEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i563, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i419, ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i423, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i424, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i421, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i422, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i420)
           to label %invoke.cont21.i565 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i564, !noalias !169
@@ -3926,7 +3926,7 @@ call6.i.i.noexc.i764:                             ; preds = %call3.i.i.noexc.i76
   store i8 1, ptr %podType_.i.i.i.i.i772, align 4, !noalias !189
   %padding_.i.i.i.i.i773 = getelementptr inbounds i8, ptr %call6.i.i29.i763, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i773, i8 -1, i64 16, i1 false), !noalias !189
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i763, align 8, !noalias !189
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i763, align 8, !noalias !189
   store i64 4, ptr %size_.i.i.i.i.i769, align 8, !noalias !189
   store ptr %call6.i.i29.i763, ptr %offsets.i681, align 8, !alias.scope !190, !noalias !170
   %422 = atomicrmw add ptr %referenceCount_.i.i.i.i.i771, i32 1 seq_cst, align 4, !noalias !189
@@ -3993,7 +3993,7 @@ call6.i.i.noexc54.i792:                           ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i800, align 4, !noalias !197
   %padding_.i.i.i.i42.i801 = getelementptr inbounds i8, ptr %call6.i.i55.i791, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i801, i8 -1, i64 16, i1 false), !noalias !197
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i791, align 8, !noalias !197
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i791, align 8, !noalias !197
   store i64 4, ptr %size_.i.i.i.i38.i797, align 8, !noalias !197
   store ptr %call6.i.i55.i791, ptr %sizes.i682, align 8, !alias.scope !198, !noalias !170
   %430 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i799, i32 1 seq_cst, align 4, !noalias !197
@@ -4058,7 +4058,7 @@ call5.i.i.i3.i.i.i.i.noexc.i820:                  ; preds = %invoke.cont17.i817
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i821, align 8, !noalias !202
   %_M_weak_count.i.i.i.i.i.i.i822 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i819, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i822, align 4, !noalias !202
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i819, align 8, !noalias !202
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i819, align 8, !noalias !202
   %_M_impl.i.i.i.i.i.i.i823 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i819, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorIlEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i823, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i679, ptr noundef nonnull align 8 dereferenceable(16) %374, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i683, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i684, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i681, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i682, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i680)
           to label %invoke.cont21.i825 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i824, !noalias !202
@@ -4570,7 +4570,7 @@ call6.i.i.noexc.i1024:                            ; preds = %call3.i.i.noexc.i10
   store i8 1, ptr %podType_.i.i.i.i.i1032, align 4, !noalias !222
   %padding_.i.i.i.i.i1033 = getelementptr inbounds i8, ptr %call6.i.i29.i1023, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i1033, i8 -1, i64 16, i1 false), !noalias !222
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i1023, align 8, !noalias !222
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i1023, align 8, !noalias !222
   store i64 4, ptr %size_.i.i.i.i.i1029, align 8, !noalias !222
   store ptr %call6.i.i29.i1023, ptr %offsets.i941, align 8, !alias.scope !223, !noalias !203
   %516 = atomicrmw add ptr %referenceCount_.i.i.i.i.i1031, i32 1 seq_cst, align 4, !noalias !222
@@ -4637,7 +4637,7 @@ call6.i.i.noexc54.i1052:                          ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i1060, align 4, !noalias !230
   %padding_.i.i.i.i42.i1061 = getelementptr inbounds i8, ptr %call6.i.i55.i1051, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i1061, i8 -1, i64 16, i1 false), !noalias !230
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i1051, align 8, !noalias !230
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i1051, align 8, !noalias !230
   store i64 4, ptr %size_.i.i.i.i38.i1057, align 8, !noalias !230
   store ptr %call6.i.i55.i1051, ptr %sizes.i942, align 8, !alias.scope !231, !noalias !203
   %524 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i1059, i32 1 seq_cst, align 4, !noalias !230
@@ -4702,7 +4702,7 @@ call5.i.i.i3.i.i.i.i.noexc.i1080:                 ; preds = %invoke.cont17.i1077
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i1081, align 8, !noalias !235
   %_M_weak_count.i.i.i.i.i.i.i1082 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i1079, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1082, align 4, !noalias !235
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i1079, align 8, !noalias !235
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i1079, align 8, !noalias !235
   %_M_impl.i.i.i.i.i.i.i1083 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i1079, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorInEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i1083, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i939, ptr noundef nonnull align 8 dereferenceable(16) %468, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i943, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i944, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i941, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i942, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i940)
           to label %invoke.cont21.i1085 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i1084, !noalias !235
@@ -5214,7 +5214,7 @@ call6.i.i.noexc.i1284:                            ; preds = %call3.i.i.noexc.i12
   store i8 1, ptr %podType_.i.i.i.i.i1292, align 4, !noalias !255
   %padding_.i.i.i.i.i1293 = getelementptr inbounds i8, ptr %call6.i.i29.i1283, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i1293, i8 -1, i64 16, i1 false), !noalias !255
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i1283, align 8, !noalias !255
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i1283, align 8, !noalias !255
   store i64 4, ptr %size_.i.i.i.i.i1289, align 8, !noalias !255
   store ptr %call6.i.i29.i1283, ptr %offsets.i1201, align 8, !alias.scope !256, !noalias !236
   %610 = atomicrmw add ptr %referenceCount_.i.i.i.i.i1291, i32 1 seq_cst, align 4, !noalias !255
@@ -5281,7 +5281,7 @@ call6.i.i.noexc54.i1312:                          ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i1320, align 4, !noalias !263
   %padding_.i.i.i.i42.i1321 = getelementptr inbounds i8, ptr %call6.i.i55.i1311, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i1321, i8 -1, i64 16, i1 false), !noalias !263
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i1311, align 8, !noalias !263
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i1311, align 8, !noalias !263
   store i64 4, ptr %size_.i.i.i.i38.i1317, align 8, !noalias !263
   store ptr %call6.i.i55.i1311, ptr %sizes.i1202, align 8, !alias.scope !264, !noalias !236
   %618 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i1319, i32 1 seq_cst, align 4, !noalias !263
@@ -5346,7 +5346,7 @@ call5.i.i.i3.i.i.i.i.noexc.i1340:                 ; preds = %invoke.cont17.i1337
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i1341, align 8, !noalias !268
   %_M_weak_count.i.i.i.i.i.i.i1342 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i1339, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1342, align 4, !noalias !268
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i1339, align 8, !noalias !268
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i1339, align 8, !noalias !268
   %_M_impl.i.i.i.i.i.i.i1343 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i1339, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorIfEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i1343, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i1199, ptr noundef nonnull align 8 dereferenceable(16) %562, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i1203, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i1204, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i1201, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i1202, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i1200)
           to label %invoke.cont21.i1345 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i1344, !noalias !268
@@ -5858,7 +5858,7 @@ call6.i.i.noexc.i1544:                            ; preds = %call3.i.i.noexc.i15
   store i8 1, ptr %podType_.i.i.i.i.i1552, align 4, !noalias !288
   %padding_.i.i.i.i.i1553 = getelementptr inbounds i8, ptr %call6.i.i29.i1543, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i1553, i8 -1, i64 16, i1 false), !noalias !288
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i1543, align 8, !noalias !288
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i1543, align 8, !noalias !288
   store i64 4, ptr %size_.i.i.i.i.i1549, align 8, !noalias !288
   store ptr %call6.i.i29.i1543, ptr %offsets.i1461, align 8, !alias.scope !289, !noalias !269
   %704 = atomicrmw add ptr %referenceCount_.i.i.i.i.i1551, i32 1 seq_cst, align 4, !noalias !288
@@ -5925,7 +5925,7 @@ call6.i.i.noexc54.i1572:                          ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i1580, align 4, !noalias !296
   %padding_.i.i.i.i42.i1581 = getelementptr inbounds i8, ptr %call6.i.i55.i1571, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i1581, i8 -1, i64 16, i1 false), !noalias !296
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i1571, align 8, !noalias !296
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i1571, align 8, !noalias !296
   store i64 4, ptr %size_.i.i.i.i38.i1577, align 8, !noalias !296
   store ptr %call6.i.i55.i1571, ptr %sizes.i1462, align 8, !alias.scope !297, !noalias !269
   %712 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i1579, i32 1 seq_cst, align 4, !noalias !296
@@ -5990,7 +5990,7 @@ call5.i.i.i3.i.i.i.i.noexc.i1600:                 ; preds = %invoke.cont17.i1597
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i1601, align 8, !noalias !301
   %_M_weak_count.i.i.i.i.i.i.i1602 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i1599, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1602, align 4, !noalias !301
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i1599, align 8, !noalias !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i1599, align 8, !noalias !301
   %_M_impl.i.i.i.i.i.i.i1603 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i1599, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorIdEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i1603, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i1459, ptr noundef nonnull align 8 dereferenceable(16) %656, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i1463, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i1464, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i1461, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i1462, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i1460)
           to label %invoke.cont21.i1605 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i1604, !noalias !301
@@ -6490,7 +6490,7 @@ call6.i.i.noexc.i1780:                            ; preds = %call3.i.i.noexc.i17
   store i8 1, ptr %podType_.i.i.i.i.i1788, align 4, !noalias !321
   %padding_.i.i.i.i.i1789 = getelementptr inbounds i8, ptr %call6.i.i24.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i1789, i8 -1, i64 16, i1 false), !noalias !321
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i24.i, align 8, !noalias !321
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i24.i, align 8, !noalias !321
   store i64 4, ptr %size_.i.i.i.i.i1785, align 8, !noalias !321
   store ptr %call6.i.i24.i, ptr %offsets.i1721, align 8, !alias.scope !322, !noalias !302
   %790 = atomicrmw add ptr %referenceCount_.i.i.i.i.i1787, i32 1 seq_cst, align 4, !noalias !321
@@ -6557,7 +6557,7 @@ call6.i.i.noexc49.i:                              ; preds = %call3.i.i.noexc47.i
   store i8 1, ptr %podType_.i.i.i.i36.i, align 4, !noalias !329
   %padding_.i.i.i.i37.i = getelementptr inbounds i8, ptr %call6.i.i50.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i37.i, i8 -1, i64 16, i1 false), !noalias !329
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i50.i, align 8, !noalias !329
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i50.i, align 8, !noalias !329
   store i64 4, ptr %size_.i.i.i.i33.i, align 8, !noalias !329
   store ptr %call6.i.i50.i, ptr %sizes.i1722, align 8, !alias.scope !330, !noalias !302
   %798 = atomicrmw add ptr %referenceCount_.i.i.i.i35.i, i32 1 seq_cst, align 4, !noalias !329
@@ -6622,7 +6622,7 @@ call5.i.i.i3.i.i.i.i.noexc.i1807:                 ; preds = %invoke.cont18.i1806
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i58.i, align 8, !noalias !334
   %_M_weak_count.i.i.i.i.i.i.i1808 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i59.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1808, align 4, !noalias !334
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i59.i, align 8, !noalias !334
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i59.i, align 8, !noalias !334
   %_M_impl.i.i.i.i.i.i.i1809 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i59.i, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorINS1_10StringViewEEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i1809, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i1719, ptr noundef nonnull align 8 dereferenceable(16) %750, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i1723, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21.i1724, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i1721, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i1722, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i1720)
           to label %invoke.cont22.i1811 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i1810, !noalias !334
@@ -7123,7 +7123,7 @@ call6.i.i.noexc.i1971:                            ; preds = %call3.i.i.noexc.i19
   store i8 1, ptr %podType_.i.i.i.i.i1979, align 4, !noalias !354
   %padding_.i.i.i.i.i1980 = getelementptr inbounds i8, ptr %call6.i.i24.i1970, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i1980, i8 -1, i64 16, i1 false), !noalias !354
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i24.i1970, align 8, !noalias !354
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i24.i1970, align 8, !noalias !354
   store i64 4, ptr %size_.i.i.i.i.i1976, align 8, !noalias !354
   store ptr %call6.i.i24.i1970, ptr %offsets.i1891, align 8, !alias.scope !355, !noalias !335
   %876 = atomicrmw add ptr %referenceCount_.i.i.i.i.i1978, i32 1 seq_cst, align 4, !noalias !354
@@ -7190,7 +7190,7 @@ call6.i.i.noexc49.i1999:                          ; preds = %call3.i.i.noexc47.i
   store i8 1, ptr %podType_.i.i.i.i36.i2007, align 4, !noalias !362
   %padding_.i.i.i.i37.i2008 = getelementptr inbounds i8, ptr %call6.i.i50.i1998, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i37.i2008, i8 -1, i64 16, i1 false), !noalias !362
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i50.i1998, align 8, !noalias !362
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i50.i1998, align 8, !noalias !362
   store i64 4, ptr %size_.i.i.i.i33.i2004, align 8, !noalias !362
   store ptr %call6.i.i50.i1998, ptr %sizes.i1892, align 8, !alias.scope !363, !noalias !335
   %884 = atomicrmw add ptr %referenceCount_.i.i.i.i35.i2006, i32 1 seq_cst, align 4, !noalias !362
@@ -7255,7 +7255,7 @@ call5.i.i.i3.i.i.i.i.noexc.i2027:                 ; preds = %invoke.cont18.i2024
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i58.i2028, align 8, !noalias !367
   %_M_weak_count.i.i.i.i.i.i.i2029 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i59.i2026, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i2029, align 4, !noalias !367
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i59.i2026, align 8, !noalias !367
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i59.i2026, align 8, !noalias !367
   %_M_impl.i.i.i.i.i.i.i2030 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i59.i2026, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorINS1_10StringViewEEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i2030, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i1888, ptr noundef nonnull align 8 dereferenceable(16) %836, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i1893, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21.i1894, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i1891, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i1892, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i1889)
           to label %invoke.cont22.i2032 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i2031, !noalias !367
@@ -7768,7 +7768,7 @@ call6.i.i.noexc.i2231:                            ; preds = %call3.i.i.noexc.i22
   store i8 1, ptr %podType_.i.i.i.i.i2239, align 4, !noalias !387
   %padding_.i.i.i.i.i2240 = getelementptr inbounds i8, ptr %call6.i.i29.i2230, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i2240, i8 -1, i64 16, i1 false), !noalias !387
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i29.i2230, align 8, !noalias !387
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i29.i2230, align 8, !noalias !387
   store i64 4, ptr %size_.i.i.i.i.i2236, align 8, !noalias !387
   store ptr %call6.i.i29.i2230, ptr %offsets.i2148, align 8, !alias.scope !388, !noalias !368
   %970 = atomicrmw add ptr %referenceCount_.i.i.i.i.i2238, i32 1 seq_cst, align 4, !noalias !387
@@ -7835,7 +7835,7 @@ call6.i.i.noexc54.i2259:                          ; preds = %call3.i.i.noexc52.i
   store i8 1, ptr %podType_.i.i.i.i41.i2267, align 4, !noalias !395
   %padding_.i.i.i.i42.i2268 = getelementptr inbounds i8, ptr %call6.i.i55.i2258, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i42.i2268, i8 -1, i64 16, i1 false), !noalias !395
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i55.i2258, align 8, !noalias !395
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i55.i2258, align 8, !noalias !395
   store i64 4, ptr %size_.i.i.i.i38.i2264, align 8, !noalias !395
   store ptr %call6.i.i55.i2258, ptr %sizes.i2149, align 8, !alias.scope !396, !noalias !368
   %978 = atomicrmw add ptr %referenceCount_.i.i.i.i40.i2266, i32 1 seq_cst, align 4, !noalias !395
@@ -7900,7 +7900,7 @@ call5.i.i.i3.i.i.i.i.noexc.i2287:                 ; preds = %invoke.cont17.i2284
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i63.i2288, align 8, !noalias !400
   %_M_weak_count.i.i.i.i.i.i.i2289 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i2286, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i2289, align 4, !noalias !400
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i64.i2286, align 8, !noalias !400
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i64.i2286, align 8, !noalias !400
   %_M_impl.i.i.i.i.i.i.i2290 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i64.i2286, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDniRN5boost13intrusive_ptrINS1_6BufferEEESH_RS7_INS1_10FlatVectorINS1_9TimestampEEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i2290, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr.i2146, ptr noundef nonnull align 8 dereferenceable(16) %922, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i2150, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i2151, ptr noundef nonnull align 8 dereferenceable(8) %offsets.i2148, ptr noundef nonnull align 8 dereferenceable(8) %sizes.i2149, ptr noundef nonnull align 8 dereferenceable(16) %arrayElements.i2147)
           to label %invoke.cont21.i2292 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i2291, !noalias !400
@@ -8412,7 +8412,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox13AlignedBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -9262,7 +9262,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox11ArrayVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox11ArrayVectorE, i64 16), ptr %this, align 8
   %elements_ = getelementptr inbounds i8, ptr %this, i64 136
   %43 = load ptr, ptr %elements, align 8
   store ptr %43, ptr %agg.tmp9, align 8
@@ -9685,7 +9685,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox15ArrayVectorBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ArrayVectorBaseE, i64 16), ptr %this, align 8
   %offsets_ = getelementptr inbounds i8, ptr %this, i64 104
   %25 = load ptr, ptr %offsets, align 8
   store ptr %25, ptr %offsets_, align 8
@@ -9746,7 +9746,7 @@ declare void @_ZN8facebook5velox10BaseVectorC2EPNS0_6memory10MemoryPoolESt10shar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox10BaseVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10BaseVectorE, i64 16), ptr %this, align 8
   %nulls_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %nulls_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -9872,7 +9872,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZN5boost13intru
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox15ArrayVectorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox15ArrayVectorBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ArrayVectorBaseE, i64 16), ptr %this, align 8
   %sizes_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %sizes_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -10512,7 +10512,7 @@ declare void @_ZNK8facebook5velox10BaseVector15toSummaryStringB5cxx11Ev(ptr sret
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #11 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #19
   unreachable
 }
@@ -12160,7 +12160,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !429
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !429
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !429
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !429
   store i64 %6, ptr %size_.i.i.i, align 8, !noalias !429
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !429
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !429
@@ -12853,7 +12853,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !432
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !432
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !432
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !432
   store i64 %conv, ptr %size_.i.i.i, align 8, !noalias !432
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !432
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !432
@@ -13544,7 +13544,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !435
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !435
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !435
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !435
   store i64 %7, ptr %size_.i.i.i, align 8, !noalias !435
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !435
   %11 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !435
@@ -14237,7 +14237,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !438
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !438
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !438
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !438
   store i64 %6, ptr %size_.i.i.i, align 8, !noalias !438
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !438
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !438
@@ -14930,7 +14930,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !441
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !441
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !441
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !441
   store i64 %6, ptr %size_.i.i.i, align 8, !noalias !441
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !441
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !441
@@ -15623,7 +15623,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !444
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !444
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !444
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !444
   store i64 %6, ptr %size_.i.i.i, align 8, !noalias !444
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !444
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !444
@@ -16316,7 +16316,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !447
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !447
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !447
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !447
   store i64 %6, ptr %size_.i.i.i, align 8, !noalias !447
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !447
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !447
@@ -17474,7 +17474,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !450
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !450
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !450
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !450
   store i64 %6, ptr %size_.i.i.i, align 8, !noalias !450
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !450
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !450
@@ -18167,7 +18167,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !453
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !453
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !453
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !453
   store i64 %conv, ptr %size_.i.i.i, align 8, !noalias !453
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !453
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !453

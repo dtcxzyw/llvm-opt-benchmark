@@ -163,7 +163,7 @@ lor.lhs.false:                                    ; preds = %entry, %for.body
   br i1 %cmp4, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %lor.lhs.false
-  %arrayidx.lcssa = phi ptr [ %arrayidx, %lor.lhs.false ], [ getelementptr inbounds ([4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 3, i32 0), %for.body ]
+  %arrayidx.lcssa = phi ptr [ %arrayidx, %lor.lhs.false ], [ getelementptr inbounds (i8, ptr @class_tables, i64 72), %for.body ]
   %table = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 8
   %2 = load ptr, ptr %table, align 8
   store ptr %2, ptr @class_table, align 8

@@ -32,7 +32,7 @@ define range(i32 -13, 1) i32 @mca_vprotocol_base_select(i1 noundef zeroext %0, i
   %4 = alloca %struct.opal_list_t, align 8
   store i32 0, ptr %3, align 4
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -44,7 +44,7 @@ define range(i32 -13, 1) i32 @mca_vprotocol_base_select(i1 noundef zeroext %0, i
   store ptr @opal_list_t_class, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store volatile i32 1, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -59,8 +59,8 @@ define range(i32 -13, 1) i32 @mca_vprotocol_base_select(i1 noundef zeroext %0, i
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
-  %.04274 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_vprotocol_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not5475 = icmp eq ptr %.04274, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_vprotocol_base_framework, i64 0, i32 12, i32 1)
+  %.04274 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_vprotocol_base_framework, i64 112), align 8
+  %.not5475 = icmp eq ptr %.04274, getelementptr inbounds (i8, ptr @ompi_vprotocol_base_framework, i64 96)
   br i1 %.not5475, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %opal_obj_run_constructors.exit
@@ -75,7 +75,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
   %.04279.us = phi ptr [ %.042.us, %.lr.ph.split.us ], [ %.04274, %.lr.ph ]
   %20 = getelementptr inbounds i8, ptr %.04279.us, i64 16
   %.042.us = load volatile ptr, ptr %20, align 8
-  %.not54.us = icmp eq ptr %.042.us, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_vprotocol_base_framework, i64 0, i32 12, i32 1)
+  %.not54.us = icmp eq ptr %.042.us, getelementptr inbounds (i8, ptr @ompi_vprotocol_base_framework, i64 96)
   br i1 %.not54.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.splitthread-pre-split:                     ; preds = %59
@@ -122,7 +122,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
 
 40:                                               ; preds = %35
   %41 = load i32, ptr @opal_class_init_epoch, align 4
-  %42 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_item_t_class, i64 0, i32 4), align 8
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_item_t_class, i64 32), align 8
   %.not60 = icmp eq i32 %41, %42
   br i1 %.not60, label %44, label %43
 
@@ -134,7 +134,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
   store ptr @opal_list_item_t_class, ptr %38, align 8
   %45 = getelementptr inbounds i8, ptr %38, i64 8
   store volatile i32 1, ptr %45, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_item_t_class, i64 0, i32 6), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_item_t_class, i64 40), align 8
   %47 = load ptr, ptr %46, align 8
   %.not6.i61 = icmp eq ptr %47, null
   br i1 %.not6.i61, label %opal_obj_run_constructors.exit65, label %.lr.ph.i62
@@ -171,7 +171,7 @@ opal_obj_run_constructors.exit65:                 ; preds = %.lr.ph.i62, %44
   %.2 = phi ptr [ %.078, %.lr.ph.split ], [ %.1, %opal_obj_run_constructors.exit65 ], [ %.078, %25 ], [ %.078, %28 ], [ %.078, %32 ]
   %60 = getelementptr inbounds i8, ptr %.04279, i64 16
   %.042 = load volatile ptr, ptr %60, align 8
-  %.not54 = icmp eq ptr %.042, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_vprotocol_base_framework, i64 0, i32 12, i32 1)
+  %.not54 = icmp eq ptr %.042, getelementptr inbounds (i8, ptr @ompi_vprotocol_base_framework, i64 96)
   br i1 %.not54, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %59
@@ -265,7 +265,7 @@ opal_list_remove_first.exit71:                    ; preds = %opal_obj_run_destru
 
 ._crit_edge85:                                    ; preds = %opal_obj_run_destructors.exit, %._crit_edge.thread
   %104 = load i32, ptr @mca_pml_v, align 8
-  %105 = call i32 @mca_base_components_close(i32 noundef %104, ptr noundef nonnull getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_vprotocol_base_framework, i64 0, i32 12), ptr noundef %.039.lcssa89) #7
+  %105 = call i32 @mca_base_components_close(i32 noundef %104, ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_vprotocol_base_framework, i64 80), ptr noundef %.039.lcssa89) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %._crit_edge85

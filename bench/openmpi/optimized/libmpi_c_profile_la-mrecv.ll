@@ -147,15 +147,15 @@ thread-pre-split:                                 ; preds = %39, %47
   br i1 %.not60, label %62, label %54
 
 54:                                               ; preds = %53
-  %55 = load i32, ptr getelementptr inbounds (%struct.ompi_request_t, ptr @ompi_request_empty, i64 0, i32 2, i32 1), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 68), align 4
   %56 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %55, ptr %56, align 4
-  %57 = load i32, ptr getelementptr inbounds (%struct.ompi_request_t, ptr @ompi_request_empty, i64 0, i32 2), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 64), align 8
   store i32 %57, ptr %4, align 8
-  %58 = load i64, ptr getelementptr inbounds (%struct.ompi_request_t, ptr @ompi_request_empty, i64 0, i32 2, i32 4), align 8
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 80), align 8
   %59 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %58, ptr %59, align 8
-  %60 = load i32, ptr getelementptr inbounds (%struct.ompi_request_t, ptr @ompi_request_empty, i64 0, i32 2, i32 3), align 4
+  %60 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 76), align 4
   %61 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %60, ptr %61, align 4
   br label %62
@@ -165,7 +165,7 @@ thread-pre-split:                                 ; preds = %39, %47
   br label %101
 
 63:                                               ; preds = %thread-pre-split
-  %64 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 19), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 152), align 8
   %65 = sext i32 %1 to i64
   %66 = tail call i32 %64(ptr noundef %0, i64 noundef %65, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) #3
   %.not59 = icmp eq i32 %66, 0
@@ -189,7 +189,7 @@ thread-pre-split:                                 ; preds = %39, %47
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %71
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %71 ], [ 0, %.preheader.i ]
-  %75 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %76 = sext i32 %75 to i64
   %.not.i = icmp slt i64 %indvars.iv.i, %76
   br i1 %.not.i, label %77, label %opal_pointer_array_get_item.exit.i
@@ -200,20 +200,20 @@ thread-pre-split:                                 ; preds = %39, %47
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+  %81 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #3
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %82
 
 82:                                               ; preds = %80, %77
   %83 = phi i8 [ %78, %77 ], [ %.pre.i.i, %80 ]
-  %84 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %85 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv.i
   %86 = load ptr, ptr %85, align 8
   %87 = trunc i8 %83 to i1
   br i1 %87, label %88, label %opal_pointer_array_get_item.exit.i
 
 88:                                               ; preds = %82
-  %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+  %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #3
   br label %opal_pointer_array_get_item.exit.i
 
 opal_pointer_array_get_item.exit.i:               ; preds = %88, %82, %.lr.ph.i

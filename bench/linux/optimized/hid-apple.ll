@@ -207,7 +207,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %48, label %49, label %37
 
 49:                                               ; preds = %40
-  %50 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %51 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3264, i64 noundef 512) #12
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.critedge, label %53
@@ -252,7 +252,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr nocapture noundef readonly 
   store i32 %69, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %62, i64 40
   store ptr @apple_backlight_led_set, ptr %71, align 8
-  %72 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %73 = tail call noalias align 8 dereferenceable_or_null(6) ptr @kmalloc_trace(ptr noundef %72, i32 noundef 3264, i64 noundef 6) #12
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.thread, label %75
@@ -1228,7 +1228,7 @@ declare dso_local i32 @hid_hw_raw_request(ptr noundef, i8 noundef zeroext, ptr n
 define internal i32 @apple_backlight_led_set(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(6) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 6) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8

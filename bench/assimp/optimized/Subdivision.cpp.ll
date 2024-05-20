@@ -103,7 +103,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22CatmullClarkSubdivider, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22CatmullClarkSubdivider, i64 16), ptr %call, align 8
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb

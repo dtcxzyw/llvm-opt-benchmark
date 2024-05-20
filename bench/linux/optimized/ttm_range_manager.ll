@@ -18,7 +18,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_range_ma
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @ttm_range_man_init_nocheck(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 368) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %28, label %8
@@ -180,7 +180,7 @@ define internal i32 @ttm_range_man_alloc(ptr noundef %0, ptr noundef %1, ptr nou
 
 13:                                               ; preds = %10, %4
   %14 = phi i64 [ %8, %4 ], [ %12, %10 ]
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(240) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 240) #4
   %17 = icmp eq ptr %16, null
   br i1 %17, label %39, label %18

@@ -588,7 +588,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   %.sroa.0102.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.0102.sroa.3.0.extract.shift = lshr i64 %.sroa.0102.0.copyload, 32
   %.sroa.0102.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.0102.sroa.3.0.extract.shift to i32
-  %.sroa.4103.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
+  %.sroa.4103.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %231 = and i64 %.sroa.0102.0.copyload, 4294967295
   br label %238
 

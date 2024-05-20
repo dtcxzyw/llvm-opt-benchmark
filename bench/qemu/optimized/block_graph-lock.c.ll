@@ -80,14 +80,14 @@ if.else:                                          ; preds = %entry
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry
   %next_aio = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %next_aio, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%union.anon.2, ptr @aio_context_list, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @aio_context_list, i64 8), align 8
   %5 = load ptr, ptr %bdrv_graph, align 8
   %tql_prev = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %4, ptr %tql_prev, align 8
   %6 = load ptr, ptr %bdrv_graph, align 8
   store ptr %6, ptr %4, align 8
   %next_aio9 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %next_aio9, ptr getelementptr inbounds (%union.anon.2, ptr @aio_context_list, i64 0, i32 0, i32 1), align 8
+  store ptr %next_aio9, ptr getelementptr inbounds (i8, ptr @aio_context_list, i64 8), align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @aio_context_list_lock, ptr noundef nonnull @.str.7, i32 noundef 132) #5
   ret void
 }
@@ -142,7 +142,7 @@ if.then:                                          ; preds = %entry
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.else:                                          ; preds = %entry
-  store ptr %6, ptr getelementptr inbounds (%union.anon.2, ptr @aio_context_list, i64 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @aio_context_list, i64 8), align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.else, %if.then

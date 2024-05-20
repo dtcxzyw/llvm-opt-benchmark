@@ -1244,7 +1244,7 @@ define internal void @pci_amd_enable_64bit_bar(ptr noundef %0) #0 align 16 {
   br i1 %42, label %.thread, label %43
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %45 = call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3520, i64 noundef 64) #13
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %47

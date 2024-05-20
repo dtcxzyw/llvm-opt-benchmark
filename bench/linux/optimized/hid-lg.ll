@@ -116,7 +116,7 @@ define internal i32 @lg_probe(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %18, label %94, label %19
 
 19:                                               ; preds = %6
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %21 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 16) #9
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24

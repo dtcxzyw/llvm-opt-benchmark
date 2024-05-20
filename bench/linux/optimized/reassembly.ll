@@ -98,12 +98,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @ipv6_frag_init() local_unnamed_addr #0 section ".init.text" align 16 {
-  store ptr @ip6frag_init, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 2), align 8
+  store ptr @ip6frag_init, ptr getelementptr inbounds (i8, ptr @ip6_frags, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ip6_frags, i64 16), align 8
   store i32 184, ptr @ip6_frags, align 8
-  store ptr @ip6_frag_expire, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 3), align 8
-  store ptr @ip6_frag_cache_name, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 5), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 6), ptr noundef nonnull align 8 dereferenceable(40) @ip6_rhash_params, i64 40, i1 false)
+  store ptr @ip6_frag_expire, ptr getelementptr inbounds (i8, ptr @ip6_frags, i64 24), align 8
+  store ptr @ip6_frag_cache_name, ptr getelementptr inbounds (i8, ptr @ip6_frags, i64 40), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @ip6_frags, i64 48), ptr noundef nonnull align 8 dereferenceable(40) @ip6_rhash_params, i64 40, i1 false)
   %1 = tail call i32 @inet_frags_init(ptr noundef nonnull @ip6_frags) #13
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %12

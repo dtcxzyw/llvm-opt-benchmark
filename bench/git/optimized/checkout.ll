@@ -1903,7 +1903,7 @@ if.end138.i:                                      ; preds = %if.then136.i, %if.e
   %conv.i = sext i32 %142 to i64
   %call140.i = call ptr @xcalloc(i64 noundef %conv.i, i64 noundef 1) #15
   store ptr %call140.i, ptr @checkout_paths.ps_matched, align 8
-  %143 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %143 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp141185.not.i = icmp eq i32 %143, 0
   br i1 %cmp141185.not.i, label %for.end.i148, label %for.body.lr.ph.i
 
@@ -2001,7 +2001,7 @@ for.inc.sink.split.i:                             ; preds = %if.then12.i110.i, %
 
 for.inc.i146:                                     ; preds = %for.inc.sink.split.i, %if.then5.i.i160, %if.end.i95.i, %if.else145.i, %if.end10.i.i158, %if.end.i.i157, %if.then144.i
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i145, 1
-  %158 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %158 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %159 = zext i32 %158 to i64
   %cmp141.i = icmp ult i64 %indvars.iv.next.i147, %159
   br i1 %cmp141.i, label %for.body.i144, label %for.end.loopexit.i, !llvm.loop !8
@@ -2019,7 +2019,7 @@ for.end.i148:                                     ; preds = %for.end.loopexit.i,
   br i1 %tobool151.not.i, label %if.end153.i, label %checkout_paths.exit
 
 if.end153.i:                                      ; preds = %for.end.i148
-  %162 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %162 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp155187.not.i = icmp eq i32 %162, 0
   br i1 %cmp155187.not.i, label %if.end205.i, label %for.body157.lr.ph.i
 
@@ -2202,7 +2202,7 @@ _.exit144.i:                                      ; preds = %if.end3.i141.i, %if
 
 if.end197.i:                                      ; preds = %_.exit144.i, %check_stages.exit.i, %check_stage.exit.i, %_.exit116.i, %if.then169.i
   %errs.1.i = phi i32 [ %errs.0189.i, %if.then169.i ], [ %errs.0189.i, %_.exit116.i ], [ %or.i, %check_stage.exit.i ], [ %or188.i, %check_stages.exit.i ], [ 1, %_.exit144.i ]
-  %185 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %185 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %186 = load ptr, ptr @the_index, align 8
   %name1.i145.i = getelementptr inbounds i8, ptr %165, i64 108
   %187 = add nsw i32 %pos.1188.i, 1
@@ -2282,7 +2282,7 @@ if.then.i.i151:                                   ; preds = %if.then208.i
   br label %if.end.i158.i
 
 if.end.i158.i:                                    ; preds = %if.then.i.i151, %if.then208.i
-  %196 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %196 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp684.not.i.i = icmp eq i32 %196, 0
   br i1 %cmp684.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
@@ -2319,7 +2319,7 @@ if.then12.i171.i:                                 ; preds = %if.then8.i.i150
   %call.i.i172.i = call i32 @checkout_entry_ca(ptr noundef nonnull %199, ptr noundef null, ptr noundef nonnull %state.i.i, ptr noundef null, ptr noundef nonnull %nr_checkouts.i.i) #15
   %or.i173.i = or i32 %call.i.i172.i, %errs.086.i.i
   %.pre.i.i = load ptr, ptr @the_index, align 8
-  %.pre90.i.i = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %.pre90.i.i = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   br label %for.inc.i.i
 
 if.end13.i.i:                                     ; preds = %if.then8.i.i150
@@ -2663,7 +2663,7 @@ checkout_merged.exit.i.i:                         ; preds = %if.end57.i.i.i, %_.
 
 if.end24.i.i:                                     ; preds = %checkout_merged.exit.i.i, %if.else.i.i, %checkout_stage.exit.i.i
   %errs.1.i.i = phi i32 [ %or18.i.i, %checkout_stage.exit.i.i ], [ %or22.i.i, %checkout_merged.exit.i.i ], [ %errs.086.i.i, %if.else.i.i ]
-  %232 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %232 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %233 = load ptr, ptr @the_index, align 8
   %name1.i47.i.i = getelementptr inbounds i8, ptr %199, i64 108
   %234 = add nsw i32 %pos.085.i.i, 1
@@ -3739,7 +3739,7 @@ if.end93.i.i.i:                                   ; preds = %if.end87.i.i.i
   br i1 %tobool95.not.i.i.i, label %if.end99.i.i.i, label %if.then49.i.i
 
 if.end99.i.i.i:                                   ; preds = %if.end93.i.i.i, %if.end50.i.i.i, %if.then15.i.i.i
-  %366 = load ptr, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 6), align 8
+  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @the_index, i64 32), align 8
   %call100.i.i.i = call i32 @cache_tree_fully_valid(ptr noundef %366) #15
   %tobool101.not.i.i.i = icmp eq i32 %call100.i.i.i, 0
   br i1 %tobool101.not.i.i.i, label %if.then102.i.i.i, label %if.end104.i.i.i

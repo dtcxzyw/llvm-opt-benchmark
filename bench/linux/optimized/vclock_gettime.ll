@@ -36,7 +36,7 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %8, label %.loopexit16, label %.preheader15, !prof !7
 
 .preheader15:                                     ; preds = %.preheader17, %60
-  %9 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 1), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 4), align 4
   %10 = icmp eq i32 %9, 2147483647
   br i1 %10, label %.preheader14, label %60
 
@@ -56,7 +56,7 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
 .loopexit:                                        ; preds = %.preheader13, %.preheader14
   %17 = phi i32 [ %11, %.preheader14 ], [ %14, %.preheader13 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !13
-  %18 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 1), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 4), align 4
   switch i32 %18, label %.thread11 [
     i32 1, label %.thread
     i32 2, label %20
@@ -74,11 +74,11 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 23:                                               ; preds = %.thread, %20
   %24 = phi i64 [ %19, %.thread ], [ %21, %20 ]
-  %25 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 1), align 4
-  %26 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 2), align 4
-  %27 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 4), align 4
-  %28 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 5), align 4
-  %29 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 0), align 4
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 40), align 4
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 8), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 24), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 28), align 4
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 32), align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !19
   %30 = load volatile i32, ptr @timens__vdso_data, align 4
   %31 = icmp eq i32 %30, %17
@@ -95,9 +95,9 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %40 = add i64 %39, %25
   %41 = zext nneg i32 %28 to i64
   %42 = lshr i64 %40, %41
-  %43 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 0), align 4
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 32), align 4
   %44 = add i64 %43, %29
-  %45 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 1), align 4
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 40), align 4
   %46 = add i64 %45, %42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %46, ptr %4, align 8
@@ -137,7 +137,7 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
 .loopexit16:                                      ; preds = %60, %.preheader17
   %64 = phi i32 [ %6, %.preheader17 ], [ %61, %60 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !25
-  %65 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 1), align 4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 4), align 4
   switch i32 %65, label %.thread11 [
     i32 1, label %.thread8
     i32 2, label %67
@@ -155,11 +155,11 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 70:                                               ; preds = %.thread8, %67
   %71 = phi i64 [ %66, %.thread8 ], [ %68, %67 ]
-  %72 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 1), align 4
-  %73 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 2), align 4
-  %74 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 4), align 4
-  %75 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 5), align 4
-  %76 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 0), align 4
+  %72 = load i64, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 40), align 4
+  %73 = load i64, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 8), align 4
+  %74 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 24), align 4
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 28), align 4
+  %76 = load i64, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 32), align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !19
   %77 = load volatile i32, ptr @vvar__vdso_data, align 4
   %78 = icmp eq i32 %77, %64
@@ -224,14 +224,14 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %110, label %121, label %111, !prof !20
 
 111:                                              ; preds = %109
-  %112 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 1), align 4
+  %112 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 4), align 4
   %113 = icmp eq i32 %112, 2147483647
-  %114 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 7), align 4
-  %115 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 7), align 4
+  %114 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 224), align 4
+  %115 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 224), align 4
   %116 = select i1 %113, i32 %114, i32 %115
   store i32 %116, ptr %1, align 4
-  %117 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 8), align 4
-  %118 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 8), align 4
+  %117 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 228), align 4
+  %118 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 228), align 4
   %119 = select i1 %113, i32 %117, i32 %118
   %120 = getelementptr inbounds i8, ptr %1, i32 4
   store i32 %119, ptr %120, align 4
@@ -244,9 +244,9 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 ; Function Attrs: mustprogress nofree noimplicitfloat norecurse nounwind null_pointer_is_valid willreturn
 define i32 @__vdso_time(ptr noundef writeonly %0) #1 align 16 {
-  %2 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 1), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 4), align 4
   %3 = icmp eq i32 %2, 2147483647
-  %4 = select i1 %3, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 0), ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 0)
+  %4 = select i1 %3, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 32), ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 32)
   %5 = load volatile i64, ptr %4, align 4
   %6 = trunc i64 %5 to i32
   %7 = icmp eq ptr %0, null
@@ -280,7 +280,7 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %13, label %67, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr [12 x %struct.vdso_timestamp], ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 6), i32 0, i32 %0
+  %15 = getelementptr [12 x %struct.vdso_timestamp], ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 32), i32 0, i32 %0
   %16 = getelementptr inbounds i8, ptr %15, i32 8
   br label %17
 
@@ -291,12 +291,12 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %20, label %.loopexit22, label %.preheader21
 
 .preheader21:                                     ; preds = %17, %58
-  %21 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 1), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 4), align 4
   %22 = icmp eq i32 %21, 2147483647
   br i1 %22, label %23, label %58
 
 23:                                               ; preds = %.preheader21
-  %24 = getelementptr [12 x %struct.vdso_timestamp], ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 6), i32 0, i32 %0
+  %24 = getelementptr [12 x %struct.vdso_timestamp], ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 32), i32 0, i32 %0
   %25 = getelementptr inbounds i8, ptr %24, i32 8
   br label %26
 
@@ -380,7 +380,7 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %69, label %.thread9, label %70, !prof !33
 
 70:                                               ; preds = %67, %7
-  %71 = phi ptr [ @vvar__vdso_data, %7 ], [ getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 1), %67 ]
+  %71 = phi ptr [ @vvar__vdso_data, %7 ], [ getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 240), %67 ]
   %72 = getelementptr inbounds i8, ptr %71, i32 32
   %73 = getelementptr [12 x %struct.vdso_timestamp], ptr %72, i32 0, i32 %0
   %74 = getelementptr inbounds i8, ptr %71, i32 4
@@ -403,8 +403,8 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
 
 85:                                               ; preds = %.preheader15
   %86 = icmp eq i32 %0, 4
-  %87 = select i1 %86, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1), ptr @timens__vdso_data
-  %88 = select i1 %86, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 6, i32 0, i32 0, i32 0), ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 0)
+  %87 = select i1 %86, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 240), ptr @timens__vdso_data
+  %88 = select i1 %86, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 272), ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 32)
   %89 = getelementptr [12 x %struct.vdso_timestamp], ptr %88, i32 0, i32 %0
   %90 = getelementptr inbounds i8, ptr %89, i32 8
   br label %91
@@ -425,8 +425,8 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
 .loopexit:                                        ; preds = %.preheader14, %91
   %98 = phi i32 [ %92, %91 ], [ %95, %.preheader14 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !13
-  %99 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 1), align 4
-  %100 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 1), align 4
+  %99 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 244), align 4
+  %100 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 4), align 4
   %101 = select i1 %86, i32 %99, i32 %100
   switch i32 %101, label %.thread9 [
     i32 1, label %.thread
@@ -446,12 +446,12 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
 106:                                              ; preds = %.thread, %103
   %107 = phi i64 [ %102, %.thread ], [ %104, %103 ]
   %108 = load i64, ptr %90, align 4
-  %109 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 2), align 4
-  %110 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 2), align 4
-  %111 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 4), align 4
-  %112 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 4), align 4
-  %113 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 5), align 4
-  %114 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 5), align 4
+  %109 = load i64, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 248), align 4
+  %110 = load i64, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 8), align 4
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 264), align 4
+  %112 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 24), align 4
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 268), align 4
+  %114 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 28), align 4
   %115 = load i64, ptr %89, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !19
   %116 = load volatile i32, ptr %87, align 4
@@ -625,7 +625,7 @@ define i32 @__vdso_clock_gettime64(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %13, label %64, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr [12 x %struct.vdso_timestamp], ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 6), i32 0, i32 %0
+  %15 = getelementptr [12 x %struct.vdso_timestamp], ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 32), i32 0, i32 %0
   %16 = getelementptr inbounds i8, ptr %15, i32 8
   %17 = getelementptr inbounds i8, ptr %1, i32 8
   br label %18
@@ -637,12 +637,12 @@ define i32 @__vdso_clock_gettime64(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %21, label %.loopexit26, label %.preheader25
 
 .preheader25:                                     ; preds = %18, %55
-  %22 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 1), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 4), align 4
   %23 = icmp eq i32 %22, 2147483647
   br i1 %23, label %24, label %55
 
 24:                                               ; preds = %.preheader25
-  %25 = getelementptr [12 x %struct.vdso_timestamp], ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 6), i32 0, i32 %0
+  %25 = getelementptr [12 x %struct.vdso_timestamp], ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 32), i32 0, i32 %0
   %26 = getelementptr inbounds i8, ptr %25, i32 8
   br label %27
 
@@ -725,7 +725,7 @@ define i32 @__vdso_clock_gettime64(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %66, label %.thread11, label %67
 
 67:                                               ; preds = %64, %7
-  %68 = phi ptr [ @vvar__vdso_data, %7 ], [ getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 1), %64 ]
+  %68 = phi ptr [ @vvar__vdso_data, %7 ], [ getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 240), %64 ]
   %69 = getelementptr inbounds i8, ptr %68, i32 32
   %70 = getelementptr [12 x %struct.vdso_timestamp], ptr %69, i32 0, i32 %0
   %71 = getelementptr inbounds i8, ptr %68, i32 4
@@ -748,8 +748,8 @@ define i32 @__vdso_clock_gettime64(i32 noundef %0, ptr noundef %1) #0 align 16 {
 
 82:                                               ; preds = %.preheader18
   %83 = icmp eq i32 %0, 4
-  %84 = select i1 %83, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1), ptr @timens__vdso_data
-  %85 = select i1 %83, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 6, i32 0, i32 0, i32 0), ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 6, i32 0, i32 0, i32 0)
+  %84 = select i1 %83, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 240), ptr @timens__vdso_data
+  %85 = select i1 %83, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 272), ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 32)
   %86 = getelementptr [12 x %struct.vdso_timestamp], ptr %85, i32 0, i32 %0
   %87 = getelementptr inbounds i8, ptr %86, i32 8
   br label %88
@@ -770,8 +770,8 @@ define i32 @__vdso_clock_gettime64(i32 noundef %0, ptr noundef %1) #0 align 16 {
 .loopexit17:                                      ; preds = %.preheader16, %88
   %95 = phi i32 [ %89, %88 ], [ %92, %.preheader16 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !13
-  %96 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 1), align 4
-  %97 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 1), align 4
+  %96 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 244), align 4
+  %97 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 4), align 4
   %98 = select i1 %83, i32 %96, i32 %97
   switch i32 %98, label %.thread11 [
     i32 1, label %.thread
@@ -791,12 +791,12 @@ define i32 @__vdso_clock_gettime64(i32 noundef %0, ptr noundef %1) #0 align 16 {
 103:                                              ; preds = %.thread, %100
   %104 = phi i64 [ %99, %.thread ], [ %101, %100 ]
   %105 = load i64, ptr %87, align 4
-  %106 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 2), align 4
-  %107 = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 2), align 4
-  %108 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 4), align 4
-  %109 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 4), align 4
-  %110 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 1, i32 5), align 4
-  %111 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 5), align 4
+  %106 = load i64, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 248), align 4
+  %107 = load i64, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 8), align 4
+  %108 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 264), align 4
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 24), align 4
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 268), align 4
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 28), align 4
   %112 = load i64, ptr %86, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !19
   %113 = load volatile i32, ptr %84, align 4
@@ -945,9 +945,9 @@ define i32 @__vdso_clock_getres(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %7, label %12, label %.thread
 
 .thread:                                          ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 1), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 4), align 4
   %9 = icmp eq i32 %8, 2147483647
-  %10 = select i1 %9, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @timens__vdso_data, i32 0, i32 0, i32 9), ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @vvar__vdso_data, i32 0, i32 0, i32 9)
+  %10 = select i1 %9, ptr getelementptr inbounds (i8, ptr @timens__vdso_data, i32 232), ptr getelementptr inbounds (i8, ptr @vvar__vdso_data, i32 232)
   %11 = load volatile i32, ptr %10, align 4
   br label %15
 
@@ -991,17 +991,17 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @vread_pvclock() 
   %2 = phi i32 [ %25, %22 ], [ %.pre, %0 ]
   %3 = and i32 %2, -2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !38
-  %4 = load i8, ptr getelementptr inbounds (%struct.pvclock_vsyscall_time_info, ptr @pvclock_page, i32 0, i32 0, i32 6), align 1
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @pvclock_page, i32 29), align 1
   %5 = and i8 %4, 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.loopexit, label %7, !prof !6
 
 7:                                                ; preds = %1
   %8 = tail call i64 asm sideeffect "# ALT: oldinstr2\0A661:\0A\09rdtsc\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 1*32+27)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence; rdtsc\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09rdtscp\0A6652:\0A.popsection\0A", "=A,~{ecx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !15
-  %9 = load i64, ptr getelementptr inbounds (%struct.pvclock_vsyscall_time_info, ptr @pvclock_page, i32 0, i32 0, i32 2), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @pvclock_page, i32 8), align 8
   %10 = sub i64 %8, %9
-  %11 = load i32, ptr getelementptr inbounds (%struct.pvclock_vsyscall_time_info, ptr @pvclock_page, i32 0, i32 0, i32 4), align 8
-  %12 = load i8, ptr getelementptr inbounds (%struct.pvclock_vsyscall_time_info, ptr @pvclock_page, i32 0, i32 0, i32 5), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pvclock_page, i32 24), align 8
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @pvclock_page, i32 28), align 4
   %13 = sext i8 %12 to i32
   %14 = icmp slt i8 %12, 0
   br i1 %14, label %15, label %19
@@ -1027,7 +1027,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @vread_pvclock() 
   %.sink10.off0 = phi i32 [ %extract.t11, %19 ], [ %extract.t12, %15 ]
   %.sink10.off32 = phi i32 [ %extract.t14, %19 ], [ %extract.t16, %15 ]
   %23 = tail call { i64, i32, i32 } asm "mul  $5       ; mov  $4,%eax ; mov  %edx,$4 ; mul  $5       ; xor  $5,$5    ; add  $4,%eax ; adc  $5,%edx ; ", "=A,=r,=r,{ax},1,2,~{dirflag},~{fpsr},~{flags}"(i32 %.sink10.off0, i32 %.sink10.off32, i32 %11) #5, !srcloc !39
-  %24 = load i64, ptr getelementptr inbounds (%struct.pvclock_vsyscall_time_info, ptr @pvclock_page, i32 0, i32 0, i32 3), align 16
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @pvclock_page, i32 16), align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !40
   %25 = load i32, ptr @pvclock_page, align 64
   %26 = icmp eq i32 %25, %3

@@ -94,7 +94,7 @@ declare void @batch_bind(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @task_p_slurmd_launch_request(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [100 x i8], align 16
-  %5 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %6 = and i64 %5, 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %19, label %7
@@ -104,7 +104,7 @@ define i32 @task_p_slurmd_launch_request(ptr noundef %0, i32 noundef %1, ptr nou
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %4, i32 noundef %10) #5
-  %11 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 8
   %.not9 = icmp eq i64 %12, 0
   br i1 %.not9, label %21, label %13
@@ -129,7 +129,7 @@ define i32 @task_p_slurmd_launch_request(ptr noundef %0, i32 noundef %1, ptr nou
   %23 = load i16, ptr %8, align 8
   %24 = zext i16 %23 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %4, i32 noundef %24) #5
-  %25 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 8
   %.not10 = icmp eq i64 %26, 0
   br i1 %.not10, label %33, label %27

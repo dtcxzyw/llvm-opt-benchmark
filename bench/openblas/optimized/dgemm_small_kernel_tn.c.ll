@@ -22,7 +22,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %24 = insertelement <4 x double> poison, double %8, i64 0
   %25 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> zeroinitializer
   %26 = load <8 x i64>, ptr @__const.dgemm_small_kernel_tn.permute_table, align 64
-  %27 = load <8 x i64>, ptr getelementptr inbounds ([16 x i64], ptr @__const.dgemm_small_kernel_tn.permute_table, i64 0, i64 8), align 64
+  %27 = load <8 x i64>, ptr getelementptr inbounds (i8, ptr @__const.dgemm_small_kernel_tn.permute_table, i64 64), align 64
   %28 = icmp sgt i64 %12, 0
   br i1 %28, label %29, label %.loopexit73
 

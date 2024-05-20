@@ -385,7 +385,7 @@ common.ret:                                       ; preds = %.thread447, %461, %
   br i1 %84, label %85, label %.thread443
 
 85:                                               ; preds = %80
-  %86 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he95322c667179429E", i64 0, i32 2, i32 0) monotonic, align 8
+  %86 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he95322c667179429E", i64 16) monotonic, align 8
   switch i8 %86, label %87 [
     i8 0, label %.thread443
     i8 1, label %.thread
@@ -1145,7 +1145,7 @@ common.ret:                                       ; preds = %.thread447, %461, %
   br i1 %342, label %343, label %.thread464
 
 343:                                              ; preds = %340
-  %344 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb851475ed35046d8E", i64 0, i32 2, i32 0) monotonic, align 8
+  %344 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb851475ed35046d8E", i64 16) monotonic, align 8
   switch i8 %344, label %345 [
     i8 0, label %.thread464
     i8 1, label %.thread461
@@ -1640,7 +1640,7 @@ common.ret:                                       ; preds = %.thread447, %461, %
   br i1 %488, label %489, label %.thread475
 
 489:                                              ; preds = %486
-  %490 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0a063e030e82aac1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %490 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0a063e030e82aac1E", i64 16) monotonic, align 8
   switch i8 %490, label %491 [
     i8 0, label %.thread475
     i8 1, label %.thread472

@@ -924,7 +924,7 @@ invoke.cont70:                                    ; preds = %invoke.cont66
   br i1 %new.isnull, label %cleanup.sink.split, label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont70
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %call71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call71, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %call71, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %while.cond77
@@ -990,7 +990,7 @@ invoke.cont109:                                   ; preds = %while.end107
   br i1 %new.isnull111, label %new.cont120, label %new.notnull112
 
 new.notnull112:                                   ; preds = %invoke.cont109
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %call110, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call110, align 8
   %fUnion2.i74 = getelementptr inbounds i8, ptr %call110, i64 8
   store i16 2, ptr %fUnion2.i74, align 8
   br label %new.cont120

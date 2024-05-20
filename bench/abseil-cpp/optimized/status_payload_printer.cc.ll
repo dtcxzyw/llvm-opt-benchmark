@@ -35,7 +35,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl15status_internal23SetStatusPayloadPrinterEPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS5_ERKNS_4CordEE(ptr noundef %printer) local_unnamed_addr #3 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook", ptr @_ZN4absl15status_internalL7storageB5cxx11E, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl15status_internalL7storageB5cxx11E, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %printer to i64
   %3 = cmpxchg ptr @_ZN4absl15status_internalL7storageB5cxx11E, i64 %1, i64 %2 acq_rel acquire, align 8

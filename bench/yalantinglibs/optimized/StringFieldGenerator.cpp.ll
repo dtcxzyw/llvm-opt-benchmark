@@ -188,7 +188,7 @@ _ZN9struct_pb8compiler14FieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK
   %d_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %field, ptr %d_.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler20StringFieldGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler20StringFieldGeneratorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2297,7 +2297,7 @@ _ZN9struct_pb8compiler14FieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK
   %d_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %field, ptr %d_.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler28RepeatedStringFieldGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler28RepeatedStringFieldGeneratorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2959,7 +2959,7 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i, 
   %d_.i.i = getelementptr inbounds i8, ptr %g, i64 56
   store ptr %2, ptr %d_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler20StringFieldGeneratorE, i64 0, i32 0, i64 2), ptr %g, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler20StringFieldGeneratorE, i64 16), ptr %g, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont6 unwind label %lpad5
@@ -3219,7 +3219,7 @@ _ZN9struct_pb8compiler20StringFieldGeneratorC2EPKN6google8protobuf15FieldDescrip
   %d_.i.i = getelementptr inbounds i8, ptr %g, i64 56
   store ptr %0, ptr %d_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler20StringFieldGeneratorE, i64 0, i32 0, i64 2), ptr %g, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler20StringFieldGeneratorE, i64 16), ptr %g, align 8
   store ptr %p, ptr %format, align 8
   %10 = getelementptr inbounds i8, ptr %format, i64 16
   store i32 0, ptr %10, align 8

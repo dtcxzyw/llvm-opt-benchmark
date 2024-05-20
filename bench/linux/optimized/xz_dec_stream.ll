@@ -770,7 +770,7 @@ define dso_local void @xz_dec_reset(ptr nocapture noundef writeonly %0) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @xz_dec_init(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(1232) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 1232) #15
   %5 = icmp eq ptr %4, null
   br i1 %5, label %24, label %6

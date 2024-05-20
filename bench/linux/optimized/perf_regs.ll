@@ -99,7 +99,7 @@ define dso_local void @perf_get_regs_user(ptr nocapture noundef writeonly %0, pt
   %9 = ptrtoint ptr %8 to i64
   %10 = add i64 %9, 16384
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #6, !srcloc !11
+  %12 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !11
   %13 = and i32 %12, 15728640
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %26

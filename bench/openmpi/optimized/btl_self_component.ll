@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_btl_self_component_open() #0 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 4), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -51,9 +51,9 @@ define internal noundef i32 @mca_btl_self_component_open() #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 4), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 6), align 8
+  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 304), align 16
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 312), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -61,7 +61,7 @@ define internal noundef i32 @mca_btl_self_component_open() #0 {
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %4 ]
-  tail call void %7(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 4)) #3
+  tail call void %7(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 304)) #3
   %8 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -69,7 +69,7 @@ define internal noundef i32 @mca_btl_self_component_open() #0 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
   %10 = load i32, ptr @opal_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not1 = icmp eq i32 %10, %11
   br i1 %.not1, label %13, label %12
 
@@ -78,9 +78,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
   br label %13
 
 13:                                               ; preds = %12, %opal_obj_run_constructors.exit
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 5), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 5, i32 0, i32 0, i32 1), align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 6), align 8
+  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 656), align 16
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 664), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i3 = icmp eq ptr %15, null
   br i1 %.not6.i3, label %opal_obj_run_constructors.exit7, label %.lr.ph.i4
@@ -88,7 +88,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 .lr.ph.i4:                                        ; preds = %13, %.lr.ph.i4
   %16 = phi ptr [ %18, %.lr.ph.i4 ], [ %15, %13 ]
   %.07.i5 = phi ptr [ %17, %.lr.ph.i4 ], [ %14, %13 ]
-  tail call void %16(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 5)) #3
+  tail call void %16(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 656)) #3
   %17 = getelementptr inbounds i8, ptr %.07.i5, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i6 = icmp eq ptr %18, null
@@ -96,7 +96,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 opal_obj_run_constructors.exit7:                  ; preds = %.lr.ph.i4, %13
   %19 = load i32, ptr @opal_class_init_epoch, align 4
-  %20 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 4), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not2 = icmp eq i32 %19, %20
   br i1 %.not2, label %22, label %21
 
@@ -105,9 +105,9 @@ opal_obj_run_constructors.exit7:                  ; preds = %.lr.ph.i4, %13
   br label %22
 
 22:                                               ; preds = %21, %opal_obj_run_constructors.exit7
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 6), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 6, i32 0, i32 0, i32 1), align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 6), align 8
+  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1008), align 16
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1016), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i8 = icmp eq ptr %24, null
   br i1 %.not6.i8, label %opal_obj_run_constructors.exit12, label %.lr.ph.i9
@@ -115,7 +115,7 @@ opal_obj_run_constructors.exit7:                  ; preds = %.lr.ph.i4, %13
 .lr.ph.i9:                                        ; preds = %22, %.lr.ph.i9
   %25 = phi ptr [ %27, %.lr.ph.i9 ], [ %24, %22 ]
   %.07.i10 = phi ptr [ %26, %.lr.ph.i9 ], [ %23, %22 ]
-  tail call void %25(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 6)) #3
+  tail call void %25(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1008)) #3
   %26 = getelementptr inbounds i8, ptr %.07.i10, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i11 = icmp eq ptr %27, null
@@ -127,7 +127,7 @@ opal_obj_run_constructors.exit12:                 ; preds = %.lr.ph.i9, %22
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_btl_self_component_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 4), align 16
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 304), align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -137,14 +137,14 @@ define internal noundef i32 @mca_btl_self_component_close() #0 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %5 = phi ptr [ %7, %.lr.ph.i ], [ %4, %0 ]
   %.07.i = phi ptr [ %6, %.lr.ph.i ], [ %3, %0 ]
-  tail call void %5(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 4)) #3
+  tail call void %5(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 304)) #3
   %6 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 5), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 656), align 16
   %9 = getelementptr inbounds i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -154,14 +154,14 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
 .lr.ph.i2:                                        ; preds = %opal_obj_run_destructors.exit, %.lr.ph.i2
   %12 = phi ptr [ %14, %.lr.ph.i2 ], [ %11, %opal_obj_run_destructors.exit ]
   %.07.i3 = phi ptr [ %13, %.lr.ph.i2 ], [ %10, %opal_obj_run_destructors.exit ]
-  tail call void %12(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 5)) #3
+  tail call void %12(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 656)) #3
   %13 = getelementptr inbounds i8, ptr %.07.i3, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i4 = icmp eq ptr %14, null
   br i1 %.not.i4, label %opal_obj_run_destructors.exit5, label %.lr.ph.i2, !llvm.loop !6
 
 opal_obj_run_destructors.exit5:                   ; preds = %.lr.ph.i2, %opal_obj_run_destructors.exit
-  %15 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 6), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1008), align 16
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
@@ -171,7 +171,7 @@ opal_obj_run_destructors.exit5:                   ; preds = %.lr.ph.i2, %opal_ob
 .lr.ph.i7:                                        ; preds = %opal_obj_run_destructors.exit5, %.lr.ph.i7
   %19 = phi ptr [ %21, %.lr.ph.i7 ], [ %18, %opal_obj_run_destructors.exit5 ]
   %.07.i8 = phi ptr [ %20, %.lr.ph.i7 ], [ %17, %opal_obj_run_destructors.exit5 ]
-  tail call void %19(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 6)) #3
+  tail call void %19(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1008)) #3
   %20 = getelementptr inbounds i8, ptr %.07.i8, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i9 = icmp eq ptr %21, null
@@ -184,55 +184,55 @@ opal_obj_run_destructors.exit10:                  ; preds = %.lr.ph.i7, %opal_ob
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_btl_self_component_register() #0 {
   %1 = tail call i32 @mca_base_var_group_component_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str) #3
-  store i32 0, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 1), align 8
-  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 1)) #3
-  store i32 64, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 2), align 4
-  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 2)) #3
-  store i32 8, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 3), align 16
-  %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 3)) #3
-  store i64 1024, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 1), align 8
-  store i64 131072, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 2), align 8
-  store i64 16384, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 3), align 8
-  store i64 2147483647, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 4), align 8
-  store i64 2147483647, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 5), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 6), align 8
-  store <4 x i32> <i32 65536, i32 0, i32 100, i32 8388623>, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 7), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 280), align 8
+  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 280)) #3
+  store i32 64, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 284), align 4
+  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 284)) #3
+  store i32 8, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 288), align 16
+  %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 288)) #3
+  store i64 1024, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 8), align 8
+  store i64 131072, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 16), align 8
+  store i64 16384, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 24), align 8
+  store i64 2147483647, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 32), align 8
+  store i64 2147483647, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 48), align 8
+  store <4 x i32> <i32 65536, i32 0, i32 100, i32 8388623>, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 56), align 8
   %5 = tail call i32 @mca_btl_base_param_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @mca_btl_self) #3
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @mca_btl_self_component_init(ptr nocapture noundef writeonly %0, i1 zeroext %1, i1 zeroext %2) #0 {
-  %4 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 8), align 8
   %5 = add i64 %4, 160
   %6 = load i32, ptr @opal_cache_line_size, align 4
   %7 = sext i32 %6 to i64
-  %8 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 1), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 2), align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 3), align 16
-  %11 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 4), i64 noundef %5, i64 noundef %7, ptr noundef nonnull @mca_btl_self_frag_eager_t_class, i64 noundef 0, i64 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #3
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 280), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 284), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 288), align 16
+  %11 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 304), i64 noundef %5, i64 noundef %7, ptr noundef nonnull @mca_btl_self_frag_eager_t_class, i64 noundef 0, i64 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #3
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %32
 
 12:                                               ; preds = %3
-  %13 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i64 0, i32 3), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 24), align 8
   %14 = add i64 %13, 160
   %15 = load i32, ptr @opal_cache_line_size, align 4
   %16 = sext i32 %15 to i64
-  %17 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 1), align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 2), align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 3), align 16
-  %20 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 5), i64 noundef %14, i64 noundef %16, ptr noundef nonnull @mca_btl_self_frag_send_t_class, i64 noundef 0, i64 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #3
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 280), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 284), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 288), align 16
+  %20 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 656), i64 noundef %14, i64 noundef %16, ptr noundef nonnull @mca_btl_self_frag_send_t_class, i64 noundef 0, i64 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #3
   %.not8 = icmp eq i32 %20, 0
   br i1 %.not8, label %21, label %32
 
 21:                                               ; preds = %12
   %22 = load i32, ptr @opal_cache_line_size, align 4
   %23 = sext i32 %22 to i64
-  %24 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 1), align 8
-  %25 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 2), align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 3), align 16
-  %27 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i64 0, i32 6), i64 noundef 288, i64 noundef %23, ptr noundef nonnull @mca_btl_self_frag_rdma_t_class, i64 noundef 0, i64 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #3
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 280), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 284), align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 288), align 16
+  %27 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1008), i64 noundef 288, i64 noundef %23, ptr noundef nonnull @mca_btl_self_frag_rdma_t_class, i64 noundef 0, i64 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #3
   %.not9 = icmp eq i32 %27, 0
   br i1 %.not9, label %28, label %32
 

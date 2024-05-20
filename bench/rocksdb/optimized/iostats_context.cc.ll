@@ -588,7 +588,7 @@ entry:
 
 init:                                             ; preds = %entry
   store i1 true, ptr @__tls_guard, align 1
-  store i8 0, ptr getelementptr inbounds (%"struct.rocksdb::IOStatsContext", ptr @_ZN7rocksdb15iostats_contextE, i64 0, i32 14), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb15iostats_contextE, i64 152), align 8
   br label %exit
 
 exit:                                             ; preds = %init, %entry

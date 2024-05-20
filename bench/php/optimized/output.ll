@@ -127,9 +127,9 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 define noundef i32 @php_output_activate() local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @output_globals, i8 0, i64 56, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull @output_globals, i32 noundef 8) #20
-  %1 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %2 = or i32 %1, 1048576
-  store i32 %2, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   ret i32 0
 }
 
@@ -140,18 +140,18 @@ declare void @zend_stack_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @php_output_deactivate() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %2 = and i32 %1, 1048576
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %0
   tail call fastcc void @php_output_header()
-  %4 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %5 = xor i32 %4, 1048576
-  store i32 %5, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 0, i32 3), align 8
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @output_globals, i64 24), i8 0, i64 16, i1 false)
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 16), align 8
   %.not10 = icmp eq ptr %6, null
   br i1 %.not10, label %.loopexit, label %.preheader
 
@@ -184,7 +184,7 @@ php_output_handler_free.exit:                     ; preds = %.lr.ph, %10
   br label %13
 
 13:                                               ; preds = %.loopexit, %0
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 3), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 40), align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %29, label %15
 
@@ -218,7 +218,7 @@ php_output_handler_free.exit:                     ; preds = %.lr.ph, %10
   br label %28
 
 28:                                               ; preds = %19, %27, %26, %15
-  store ptr null, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @output_globals, i64 40), align 8
   br label %29
 
 29:                                               ; preds = %28, %13
@@ -227,12 +227,12 @@ php_output_handler_free.exit:                     ; preds = %.lr.ph, %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_output_header() unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %2, label %28
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 40), align 8
   %.not3 = icmp eq ptr %3, null
   br i1 %.not3, label %4, label %23
 
@@ -242,7 +242,7 @@ define internal fastcc void @php_output_header() unnamed_addr #0 {
 
 6:                                                ; preds = %4
   %7 = tail call ptr @zend_get_compiled_filename() #20
-  store ptr %7, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 3), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @output_globals, i64 40), align 8
   %8 = tail call i32 @zend_get_compiled_lineno() #20
   br label %.sink.split
 
@@ -252,17 +252,17 @@ define internal fastcc void @php_output_header() unnamed_addr #0 {
 
 11:                                               ; preds = %9
   %12 = tail call ptr @zend_get_executed_filename_ex() #20
-  store ptr %12, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 3), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @output_globals, i64 40), align 8
   %13 = tail call i32 @zend_get_executed_lineno() #20
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %11
   %.sink = phi i32 [ %13, %11 ], [ %8, %6 ]
-  store i32 %.sink, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 4), align 8
+  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @output_globals, i64 48), align 8
   br label %14
 
 14:                                               ; preds = %.sink.split, %9
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 40), align 8
   %.not4 = icmp eq ptr %15, null
   br i1 %.not4, label %23, label %16
 
@@ -285,9 +285,9 @@ define internal fastcc void @php_output_header() unnamed_addr #0 {
   br i1 %.not6, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %27 = or i32 %26, 2
-  store i32 %27, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   br label %28
 
 28:                                               ; preds = %23, %25, %0
@@ -319,21 +319,21 @@ declare void @zend_stack_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @php_output_set_status(i32 noundef %0) local_unnamed_addr #4 {
-  %2 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %3 = and i32 %2, -16
   %4 = and i32 %0, 15
   %5 = or disjoint i32 %3, %4
-  store i32 %5, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 256) i32 @php_output_get_status() local_unnamed_addr #5 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %2, null
   %3 = select i1 %.not, i32 0, i32 16
-  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   %.not1 = icmp eq ptr %4, null
   %5 = select i1 %.not1, i32 0, i32 32
   %.masked2 = and i32 %1, 255
@@ -344,11 +344,11 @@ define range(i32 0, 256) i32 @php_output_get_status() local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define i64 @php_output_write_unbuffered(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %4 = and i32 %3, 1048576
   %.not = icmp eq i32 %4, 0
   %php_output_direct.val = load ptr, ptr @php_output_direct, align 8
-  %.val = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 6), align 8
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 48), align 8
   %5 = select i1 %.not, ptr %php_output_direct.val, ptr %.val
   %6 = tail call i64 %5(ptr noundef %0, i64 noundef %1) #20
   ret i64 %6
@@ -356,7 +356,7 @@ define i64 @php_output_write_unbuffered(ptr noundef %0, i64 noundef %1) local_un
 
 ; Function Attrs: nounwind uwtable
 define i64 @php_output_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %4 = and i32 %3, 1048576
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -384,10 +384,10 @@ define i64 @php_output_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
 define internal fastcc void @php_output_op(i32 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._php_output_context, align 8
   %5 = icmp ne i32 %0, 0
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %7 = icmp ne ptr %6, null
   %or.cond.i = select i1 %5, i1 %7, i1 false
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   %9 = icmp ne ptr %8, null
   %or.cond3.i = select i1 %or.cond.i, i1 %9, i1 false
   br i1 %or.cond3.i, label %php_output_lock_error.exit, label %10
@@ -468,30 +468,30 @@ php_output_lock_error.exit:                       ; preds = %3
 
 42:                                               ; preds = %35
   call fastcc void @php_output_header()
-  %43 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %44 = and i32 %43, 2
   %.not16 = icmp eq i32 %44, 0
   br i1 %.not16, label %45, label %57
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 6), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 48), align 8
   %47 = load ptr, ptr %36, align 8
   %48 = load i64, ptr %39, align 8
   %49 = call i64 %46(ptr noundef %47, i64 noundef %48) #20
-  %50 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %51 = and i32 %50, 1
   %.not17 = icmp eq i32 %51, 0
   br i1 %.not17, label %54, label %52
 
 52:                                               ; preds = %45
   %53 = call i32 @sapi_flush() #20
-  %.pre = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   br label %54
 
 54:                                               ; preds = %52, %45
   %55 = phi i32 [ %.pre, %52 ], [ %50, %45 ]
   %56 = or i32 %55, 8
-  store i32 %56, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  store i32 %56, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   br label %57
 
 57:                                               ; preds = %42, %54, %35
@@ -535,7 +535,7 @@ php_output_context_dtor.exit:                     ; preds = %71, %69, %65, %php_
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_output_flush() local_unnamed_addr #0 {
   %1 = alloca %struct._php_output_context, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %php_output_context_dtor.exit, label %3
 
@@ -563,7 +563,7 @@ define range(i32 -1, 1) i32 @php_output_flush() local_unnamed_addr #0 {
   call void @zend_stack_del_top(ptr noundef nonnull @output_globals) #20
   %16 = load ptr, ptr %9, align 8
   %17 = load i64, ptr %12, align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %19 = and i32 %18, 1048576
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %21, label %20
@@ -583,7 +583,7 @@ define range(i32 -1, 1) i32 @php_output_flush() local_unnamed_addr #0 {
   br label %php_output_write.exit
 
 php_output_write.exit:                            ; preds = %20, %21, %23
-  %26 = call i32 @zend_stack_push(ptr noundef nonnull @output_globals, ptr noundef nonnull getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1)) #20
+  %26 = call i32 @zend_stack_push(ptr noundef nonnull @output_globals, ptr noundef nonnull getelementptr inbounds (i8, ptr @output_globals, i64 24)) #20
   br label %27
 
 27:                                               ; preds = %php_output_write.exit, %7
@@ -631,10 +631,10 @@ define internal fastcc range(i32 0, 3) i32 @php_output_handler_op(ptr noundef %0
   %4 = alloca %struct._zval_struct, align 8
   %5 = load i32, ptr %1, align 8
   %6 = icmp ne i32 %5, 0
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %8 = icmp ne ptr %7, null
   %or.cond.i = select i1 %6, i1 %8, i1 false
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   %10 = icmp ne ptr %9, null
   %or.cond3.i = select i1 %or.cond.i, i1 %10, i1 false
   br i1 %or.cond3.i, label %php_output_lock_error.exit, label %11
@@ -652,9 +652,9 @@ php_output_lock_error.exit:                       ; preds = %2
   br i1 %.not.i, label %php_output_handler_append.exit.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %17 = or i32 %16, 4
-  store i32 %17, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load i64, ptr %19, align 8
@@ -705,7 +705,7 @@ php_output_lock_error.exit:                       ; preds = %2
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, -1
   %or.cond.not.i = icmp ult i64 %53, %50
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   %.not41.i.not = icmp eq ptr %54, null
   %or.cond = select i1 %or.cond.not.i, i1 %.not41.i.not, i1 false
   br i1 %or.cond, label %57, label %.php_output_handler_append.exit.thread_crit_edge
@@ -737,7 +737,7 @@ php_output_handler_append.exit.thread:            ; preds = %.php_output_handler
   br label %64
 
 64:                                               ; preds = %61, %57
-  store ptr %0, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   %65 = load i32, ptr %58, align 8
   %66 = and i32 %65, 1
   %.not122 = icmp eq i32 %66, 0
@@ -864,7 +864,7 @@ php_output_context_feed.exit:                     ; preds = %116, %122, %124
   %133 = load i32, ptr %58, align 8
   %134 = or i32 %133, 4096
   store i32 %134, ptr %58, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   br label %143
 
 135:                                              ; preds = %php_output_context_feed.exit
@@ -874,7 +874,7 @@ php_output_context_feed.exit:                     ; preds = %116, %122, %124
   %138 = load i32, ptr %58, align 8
   %139 = or i32 %138, 4096
   store i32 %139, ptr %58, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   br i1 %.not123, label %.thread140, label %.thread144
 
 140:                                              ; preds = %115, %100, %104, %96
@@ -885,7 +885,7 @@ php_output_context_feed.exit:                     ; preds = %116, %122, %124
   %141 = load i32, ptr %58, align 8
   %142 = or i32 %141, 4096
   store i32 %142, ptr %58, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   switch i32 %.0114, label %default.unreachable146 [
     i32 0, label %143
     i32 2, label %.thread140
@@ -993,7 +993,7 @@ declare i32 @zend_stack_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @php_output_flush_all() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
@@ -1008,7 +1008,7 @@ define void @php_output_flush_all() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_output_clean() local_unnamed_addr #0 {
   %1 = alloca %struct._php_output_context, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %php_output_context_dtor.exit, label %3
 
@@ -1065,7 +1065,7 @@ php_output_context_dtor.exit:                     ; preds = %23, %20, %16, %0, %
 ; Function Attrs: nounwind uwtable
 define void @php_output_clean_all() local_unnamed_addr #0 {
   %1 = alloca %struct._php_output_context, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1138,7 +1138,7 @@ define range(i32 -1, 1) i32 @php_output_end() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca %struct._php_output_context, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
@@ -1207,7 +1207,7 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef %0)
 
 32:                                               ; preds = %28, %30
   %storemerge = phi ptr [ %31, %30 ], [ null, %28 ]
-  store ptr %storemerge, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %33 = getelementptr inbounds i8, ptr %2, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ne ptr %34, null
@@ -1221,7 +1221,7 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef %0)
   br i1 %or.cond25, label %40, label %php_output_handler_free.exit
 
 40:                                               ; preds = %32
-  %41 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %42 = and i32 %41, 1048576
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %44, label %43
@@ -1283,14 +1283,14 @@ php_output_context_dtor.exit:                     ; preds = %62, %60, %56, %12, 
 
 ; Function Attrs: nounwind uwtable
 define void @php_output_end_all() local_unnamed_addr #0 {
-  %.old = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %.old = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.old1.not = icmp eq ptr %.old, null
   br i1 %.old1.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %0, %.preheader
   %1 = tail call fastcc i32 @php_output_stack_pop(i32 noundef 1)
   %2 = icmp ne i32 %1, 0
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %4 = icmp ne ptr %3, null
   %or.cond = select i1 %2, i1 %4, i1 false
   br i1 %or.cond, label %.preheader, label %.critedge
@@ -1308,13 +1308,13 @@ define range(i32 -1, 1) i32 @php_output_discard() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @php_output_discard_all() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not1 = icmp eq ptr %1, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %2 = tail call fastcc i32 @php_output_stack_pop(i32 noundef 17)
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1324,7 +1324,7 @@ define void @php_output_discard_all() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @php_output_get_level() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
@@ -1341,7 +1341,7 @@ declare i32 @zend_stack_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_output_get_contents(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %3
 
@@ -1377,7 +1377,7 @@ define range(i32 -1, 1) i32 @php_output_get_contents(ptr nocapture noundef write
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @php_output_get_length(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
 
@@ -1397,7 +1397,7 @@ define range(i32 -1, 1) i32 @php_output_get_length(ptr nocapture noundef writeon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @php_output_get_active_handler() local_unnamed_addr #5 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   ret ptr %1
 }
 
@@ -1560,9 +1560,9 @@ define internal noundef i32 @php_output_handler_default_func(ptr nocapture readn
 define range(i32 -1, 1) i32 @php_output_handler_start(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %4 = icmp ne ptr %3, null
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   %6 = icmp ne ptr %5, null
   %or.cond3.i = select i1 %4, i1 %6, i1 false
   br i1 %or.cond3.i, label %php_output_lock_error.exit.thread, label %php_output_lock_error.exit
@@ -1641,7 +1641,7 @@ php_output_lock_error.exit:                       ; preds = %1
   %44 = load ptr, ptr %2, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 12
   store i32 %43, ptr %45, align 4
-  store ptr %44, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %php_output_lock_error.exit.thread, %10, %php_output_lock_error.exit, %.thread44
@@ -2042,7 +2042,7 @@ declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @php_output_handler_started(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %php_output_get_level.exit.thread, label %php_output_get_level.exit
 
@@ -2090,7 +2090,7 @@ declare ptr @zend_stack_base(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @php_output_handler_conflict(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %php_output_handler_started.exit.thread, label %php_output_get_level.exit.i
 
@@ -2154,7 +2154,7 @@ php_output_handler_started.exit.thread:           ; preds = %.critedge.i, %7, %4
 ; Function Attrs: nounwind uwtable
 define noundef i32 @php_output_handler_conflict_register(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 54), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 984), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
@@ -2204,7 +2204,7 @@ define range(i32 -1, 1) i32 @php_output_handler_reverse_conflict_register(ptr no
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zend_array, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 54), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 984), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %10
 
@@ -2243,7 +2243,7 @@ define range(i32 -1, 1) i32 @php_output_handler_reverse_conflict_register(ptr no
 21:                                               ; preds = %17
   %22 = load ptr, ptr @zend_string_init_interned, align 8
   %23 = call ptr %22(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true) #20
-  %24 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @php_output_handler_reverse_conflicts, i64 0, i32 0, i32 1), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @php_output_handler_reverse_conflicts, i64 4), align 4
   %25 = and i32 %24, 128
   %.not93 = icmp eq i32 %25, 0
   br i1 %.not93, label %28, label %26
@@ -2293,7 +2293,7 @@ define range(i32 -1, 1) i32 @php_output_handler_reverse_conflict_register(ptr no
 ; Function Attrs: nounwind uwtable
 define noundef i32 @php_output_handler_alias_register(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 54), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 984), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
@@ -2336,7 +2336,7 @@ define noundef i32 @php_output_handler_alias_register(ptr noundef %0, i64 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @php_output_handler_hook(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %21, label %4
 
@@ -2463,17 +2463,17 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @php_output_set_implicit_flush(i32 noundef %0) local_unnamed_addr #4 {
   %.not = icmp ne i32 %0, 0
-  %2 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %3 = and i32 %2, -2
   %masksel = zext i1 %.not to i32
   %storemerge = or disjoint i32 %3, %masksel
-  store i32 %storemerge, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @php_output_get_start_filename() local_unnamed_addr #5 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 40), align 8
   %.not = icmp eq ptr %1, null
   %2 = getelementptr inbounds i8, ptr %1, i64 24
   %3 = select i1 %.not, ptr null, ptr %2
@@ -2482,7 +2482,7 @@ define ptr @php_output_get_start_filename() local_unnamed_addr #5 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @php_output_get_start_lineno() local_unnamed_addr #5 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 48), align 8
   ret i32 %1
 }
 
@@ -2501,7 +2501,7 @@ define hidden void @zif_ob_start(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %34
@@ -2572,13 +2572,13 @@ define hidden void @zif_ob_flush(ptr nocapture noundef readonly %0, ptr nocaptur
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %22
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not4 = icmp eq ptr %8, null
   br i1 %.not4, label %9, label %11
 
@@ -2594,7 +2594,7 @@ define hidden void @zif_ob_flush(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not5, label %20, label %13
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = getelementptr inbounds i8, ptr %14, i64 12
@@ -2625,13 +2625,13 @@ define hidden void @zif_ob_clean(ptr nocapture noundef readonly %0, ptr nocaptur
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %41
 
 .critedge:                                        ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not4 = icmp eq ptr %9, null
   br i1 %.not4, label %10, label %12
 
@@ -2717,13 +2717,13 @@ define hidden void @zif_ob_end_flush(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %15
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not3 = icmp eq ptr %8, null
   br i1 %.not3, label %9, label %11
 
@@ -2754,13 +2754,13 @@ define hidden void @zif_ob_end_clean(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %15
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not3 = icmp eq ptr %8, null
   br i1 %.not3, label %9, label %11
 
@@ -2791,13 +2791,13 @@ define hidden void @zif_ob_get_flush(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %24, label %9
 
@@ -2835,7 +2835,7 @@ define hidden void @zif_ob_get_flush(ptr nocapture noundef readonly %0, ptr noca
   br label %32
 
 26:                                               ; preds = %9
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = getelementptr inbounds i8, ptr %27, i64 12
@@ -2856,13 +2856,13 @@ define hidden void @zif_ob_get_clean(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not4 = icmp eq ptr %8, null
   br i1 %.not4, label %9, label %11
 
@@ -2898,7 +2898,7 @@ define hidden void @zif_ob_get_clean(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not5.not, label %26, label %32
 
 26:                                               ; preds = %11
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = getelementptr inbounds i8, ptr %27, i64 12
@@ -2919,13 +2919,13 @@ define hidden void @zif_ob_get_contents(ptr nocapture noundef readonly %0, ptr n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %24
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %22, label %php_output_get_contents.exit
 
@@ -2971,13 +2971,13 @@ define hidden void @zif_ob_get_level(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %php_output_get_level.exit, label %9
 
@@ -3006,13 +3006,13 @@ define hidden void @zif_ob_get_length(ptr nocapture noundef readonly %0, ptr noc
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %12, label %php_output_get_length.exit
 
@@ -3042,7 +3042,7 @@ define hidden void @zif_ob_list_handlers(ptr nocapture noundef readonly %0, ptr 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %12
@@ -3052,7 +3052,7 @@ define hidden void @zif_ob_list_handlers(ptr nocapture noundef readonly %0, ptr 
   store ptr %8, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not6 = icmp eq ptr %10, null
   br i1 %.not6, label %12, label %11
 
@@ -3098,13 +3098,13 @@ define hidden void @zif_ob_get_status(ptr nocapture noundef readonly %0, ptr nou
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %24
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %16
 
@@ -3204,7 +3204,7 @@ define hidden void @zif_ob_implicit_flush(ptr nocapture noundef readonly %0, ptr
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %16
@@ -3213,11 +3213,11 @@ define hidden void @zif_ob_implicit_flush(ptr nocapture noundef readonly %0, ptr
   %12 = load i64, ptr %3, align 8
   %13 = and i64 %12, 4294967295
   %.not.i = icmp ne i64 %13, 0
-  %14 = load i32, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   %15 = and i32 %14, -2
   %masksel.i = zext i1 %.not.i to i32
   %storemerge.i = or disjoint i32 %15, %masksel.i
-  store i32 %storemerge.i, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 5), align 4
+  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @output_globals, i64 52), align 4
   br label %16
 
 16:                                               ; preds = %11, %8
@@ -3233,7 +3233,7 @@ define hidden void @zif_output_reset_rewrite_vars(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -3271,7 +3271,7 @@ define hidden void @zif_output_add_rewrite_var(ptr nocapture noundef readonly %0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %24

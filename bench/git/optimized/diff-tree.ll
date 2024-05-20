@@ -114,20 +114,20 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  store i32 0, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 20), align 8
-  %bf.load = load i64, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 14), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 328), align 8
+  %bf.load = load i64, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 280), align 8
   %bf.set = or i64 %bf.load, 17592186044416
-  store i64 %bf.set, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 14), align 8
-  %bf.load6 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 16), align 4
+  store i64 %bf.set, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 280), align 8
+  %bf.load6 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 292), align 4
   %bf.set8 = or i32 %bf.load6, 131072
-  store i32 %bf.set8, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 16), align 4
+  store i32 %bf.set8, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 292), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s_r_opt, i8 0, i64 24, i1 false)
   %tweak = getelementptr inbounds i8, ptr %s_r_opt, i64 8
   store ptr @diff_tree_tweak_rev, ptr %tweak, align 8
   %call10 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %s_r_opt) #11
   store i32 0, ptr %w, align 4
   call void @userformat_find_requirements(ptr noundef null, ptr noundef nonnull %w) #11
-  %bf.load11 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 16), align 4
+  %bf.load11 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 292), align 4
   %15 = and i32 %bf.load11, 8
   %tobool13.not = icmp eq i32 %15, 0
   br i1 %tobool13.not, label %land.lhs.true14, label %if.end19
@@ -139,16 +139,16 @@ land.lhs.true14:                                  ; preds = %if.end5
   br i1 %tobool17.not, label %if.end19, label %if.end19.thread
 
 if.end19.thread:                                  ; preds = %land.lhs.true14
-  store i32 1, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 15), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 288), align 8
   br label %if.then22
 
 if.end19:                                         ; preds = %land.lhs.true14, %if.end5
-  %.pr = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 15), align 8
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 288), align 8
   %tobool21.not = icmp eq i32 %.pr, 0
   br i1 %tobool21.not, label %while.cond.outer.preheader, label %if.then22
 
 if.then22:                                        ; preds = %if.end19.thread, %if.end19
-  call void @load_display_notes(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 58)) #11
+  call void @load_display_notes(ptr noundef nonnull getelementptr inbounds (i8, ptr @log_tree_opt, i64 2752)) #11
   br label %while.cond.outer.preheader
 
 while.cond.outer.preheader:                       ; preds = %if.then22, %if.end19
@@ -196,7 +196,7 @@ if.then36:                                        ; preds = %while.end
   unreachable
 
 if.end38:                                         ; preds = %while.end
-  %17 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 8), align 8
   %cmp41.not = icmp ne i32 %17, 2
   %or.cond19.not = select i1 %tobool35, i1 %cmp41.not, i1 false
   br i1 %or.cond19.not, label %if.then42, label %if.end44
@@ -207,7 +207,7 @@ if.then42:                                        ; preds = %if.end38
   unreachable
 
 if.end44:                                         ; preds = %if.end38
-  store i32 1, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 3), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1492), align 4
   switch i32 %17, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb50
@@ -222,7 +222,7 @@ if.then48:                                        ; preds = %sw.bb
   unreachable
 
 sw.bb50:                                          ; preds = %if.end44
-  %18 = load ptr, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1, i32 2), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 16), align 8
   %19 = load ptr, ptr %18, align 8
   %oid = getelementptr inbounds i8, ptr %19, i64 4
   %20 = load ptr, ptr @the_repository, align 8
@@ -235,7 +235,7 @@ if.end.i:                                         ; preds = %sw.bb50
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %if.end44
-  %21 = load ptr, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1, i32 2), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 16), align 8
   %arrayidx61 = getelementptr inbounds i8, ptr %21, i64 32
   %22 = load ptr, ptr %arrayidx61, align 8
   br i1 %tobool35, label %if.then64, label %if.else
@@ -260,7 +260,7 @@ if.end73:                                         ; preds = %if.else, %if.then64
   %tree2.0 = phi ptr [ %22, %if.then64 ], [ %spec.select20, %if.else ]
   %oid74 = getelementptr inbounds i8, ptr %tree1.0, i64 4
   %oid75 = getelementptr inbounds i8, ptr %tree2.0, i64 4
-  call void @diff_tree_oid(ptr noundef nonnull %oid74, ptr noundef nonnull %oid75, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #11
+  call void @diff_tree_oid(ptr noundef nonnull %oid74, ptr noundef nonnull %oid75, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @log_tree_opt, i64 1472)) #11
   %call77 = call i32 @log_tree_diff_flush(ptr noundef nonnull @log_tree_opt) #11
   br label %sw.epilog
 
@@ -268,9 +268,9 @@ sw.epilog:                                        ; preds = %if.end.i, %sw.bb50,
   br i1 %tobool33, label %if.then79, label %if.end127
 
 if.then79:                                        ; preds = %sw.bb, %sw.epilog
-  store i32 0, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 3), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 74), align 8
-  %26 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 21), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1492), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 2064), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1740), align 4
   %tobool84.not = icmp eq i32 %26, 0
   br i1 %tobool84.not, label %if.end91, label %if.then85
 
@@ -285,9 +285,9 @@ if.then87:                                        ; preds = %if.then85
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then87, %if.then85
-  %29 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 32), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1784), align 8
   %or = or i32 %29, 4
-  store i32 %or, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 32), align 8
+  store i32 %or, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1784), align 8
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end89, %if.then79
@@ -460,7 +460,7 @@ if.end13.i.i:                                     ; preds = %lor.lhs.false9.i.i
   %oid17.i.i = getelementptr inbounds i8, ptr %call7.i.i, i64 4
   %call18.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid17.i.i) #11
   %call19.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %call15.i.i, ptr noundef %call18.i.i)
-  call void @diff_tree_oid(ptr noundef nonnull %oid14.i.i, ptr noundef nonnull %oid17.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #11
+  call void @diff_tree_oid(ptr noundef nonnull %oid14.i.i, ptr noundef nonnull %oid17.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @log_tree_opt, i64 1472)) #11
   %call24.i.i = call i32 @log_tree_diff_flush(ptr noundef nonnull @log_tree_opt) #11
   br label %stdin_diff_trees.exit.i
 
@@ -481,9 +481,9 @@ if.end26.i:                                       ; preds = %if.end13.i
 diff_tree_stdin.exit:                             ; preds = %if.else105, %lor.lhs.false.i, %if.end.i26, %if.end9.i, %stdin_diff_commit.exit.i, %stdin_diff_trees.exit.i, %if.end26.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %53 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 28), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1768), align 8
   %spec.select21 = call i32 @llvm.smax.i32(i32 %saved_nrl.033, i32 %53)
-  %54 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 29), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1772), align 4
   %tobool115.not = icmp eq i32 %54, 0
   %spec.select22 = select i1 %tobool115.not, i32 %saved_dcctc.034, i32 1
   br label %if.end118
@@ -499,14 +499,14 @@ if.end118:                                        ; preds = %diff_tree_stdin.exi
 while.end119:                                     ; preds = %if.end118, %if.end91
   %saved_nrl.0.lcssa = phi i32 [ 0, %if.end91 ], [ %saved_nrl.2, %if.end118 ]
   %saved_dcctc.0.lcssa = phi i32 [ 0, %if.end91 ], [ %saved_dcctc.1, %if.end118 ]
-  store i32 %saved_dcctc.0.lcssa, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 29), align 4
-  store i32 %saved_nrl.0.lcssa, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 28), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 74), align 8
-  call void @diff_free(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #11
+  store i32 %saved_dcctc.0.lcssa, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1772), align 4
+  store i32 %saved_nrl.0.lcssa, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1768), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 2064), align 8
+  call void @diff_free(ptr noundef nonnull getelementptr inbounds (i8, ptr @log_tree_opt, i64 1472)) #11
   br label %if.end127
 
 if.end127:                                        ; preds = %while.end119, %sw.epilog
-  %call129 = call i32 @diff_result_code(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #11
+  %call129 = call i32 @diff_result_code(ptr noundef nonnull getelementptr inbounds (i8, ptr @log_tree_opt, i64 1472)) #11
   ret i32 %call129
 }
 

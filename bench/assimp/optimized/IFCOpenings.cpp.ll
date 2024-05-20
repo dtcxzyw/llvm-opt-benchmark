@@ -2576,7 +2576,7 @@ if.then.i.i.i86:                                  ; preds = %invoke.cont68
 _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit87: ; preds = %invoke.cont68, %if.then.i.i.i86
   %32 = load ptr, ptr @_ZTTN10ClipperLib7ClipperE, align 8
   store ptr %32, ptr %clipper, align 8
-  %33 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZTTN10ClipperLib7ClipperE, i64 0, i64 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %32, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i88 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset.i.i
@@ -2642,7 +2642,7 @@ define linkonce_odr hidden void @_ZN10ClipperLib7ClipperD1Ev(ptr noundef nonnull
 entry:
   %0 = load ptr, ptr @_ZTTN10ClipperLib7ClipperE, align 8
   store ptr %0, ptr %this, align 8
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZTTN10ClipperLib7ClipperE, i64 0, i64 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %0, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
@@ -3066,7 +3066,7 @@ if.then.i.i.i86:                                  ; preds = %invoke.cont68
 _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit87: ; preds = %invoke.cont68, %if.then.i.i.i86
   %32 = load ptr, ptr @_ZTTN10ClipperLib7ClipperE, align 8
   store ptr %32, ptr %clipper, align 8
-  %33 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZTTN10ClipperLib7ClipperE, i64 0, i64 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %32, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i88 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset.i.i
@@ -3381,7 +3381,7 @@ if.then.i.i.i29:                                  ; preds = %invoke.cont.i
 _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i29
   %20 = load ptr, ptr @_ZTTN10ClipperLib7ClipperE, align 8
   store ptr %20, ptr %clipper, align 8
-  %21 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZTTN10ClipperLib7ClipperE, i64 0, i64 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %20, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i30 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset.i.i
@@ -4520,7 +4520,7 @@ if.then.i.i.i232:                                 ; preds = %invoke.cont.i
 _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i232
   %58 = load ptr, ptr @_ZTTN10ClipperLib7ClipperE, align 8
   store ptr %58, ptr %clipper, align 8
-  %59 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZTTN10ClipperLib7ClipperE, i64 0, i64 1), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %58, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i233 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset.i.i
@@ -10899,7 +10899,7 @@ if.then.i.i.i251:                                 ; preds = %invoke.cont218
 _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit252: ; preds = %invoke.cont218, %if.then.i.i.i251
   %143 = load ptr, ptr @_ZTTN10ClipperLib7ClipperE, align 8
   store ptr %143, ptr %clipper_holes, align 8
-  %144 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZTTN10ClipperLib7ClipperE, i64 0, i64 1), align 8
+  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %143, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i253 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset.i.i
@@ -10950,7 +10950,7 @@ ehcleanup221:                                     ; preds = %lpad47.loopexit, %l
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %invoke.cont.i ], [ %.pn58, %if.then.i.i.i162 ], [ %lpad.phi734, %lpad176 ], [ %lpad.phi734, %if.then.i.i.i234 ], [ %lpad.loopexit744, %lpad47.loopexit ], [ %lpad.loopexit.split-lp745, %lpad47.loopexit.split-lp ]
   %150 = load ptr, ptr @_ZTTN10ClipperLib7ClipperE, align 8
   store ptr %150, ptr %clipper_holes, align 8
-  %151 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZTTN10ClipperLib7ClipperE, i64 0, i64 1), align 8
+  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i255 = getelementptr i8, ptr %150, i64 -24
   %vbase.offset.i.i256 = load i64, ptr %vbase.offset.ptr.i.i255, align 8
   %add.ptr.i.i257 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset.i.i256
@@ -12011,7 +12011,7 @@ if.then.i.i.i552:                                 ; preds = %_ZNSt6vectorIjSaIjE
 cleanup492.critedge:                              ; preds = %invoke.cont145
   %278 = load ptr, ptr @_ZTTN10ClipperLib7ClipperE, align 8
   store ptr %278, ptr %clipper_holes, align 8
-  %279 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZTTN10ClipperLib7ClipperE, i64 0, i64 1), align 8
+  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i554 = getelementptr i8, ptr %278, i64 -24
   %vbase.offset.i.i555 = load i64, ptr %vbase.offset.ptr.i.i554, align 8
   %add.ptr.i.i556 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset.i.i555

@@ -570,13 +570,13 @@ entry:
   %6 = load i32, ptr %get_verbosely, align 8
   store i32 %6, ptr @http_is_verbose, align 4
   %node = getelementptr inbounds i8, ptr %call, i64 72
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @object_queue_head, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @object_queue_head, i64 8), align 8
   store ptr %node, ptr %7, align 8
   store ptr @object_queue_head, ptr %node, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @object_queue_head, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @object_queue_head, i64 8), align 8
   %prev3.i = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %8, ptr %prev3.i, align 8
-  store ptr %node, ptr getelementptr inbounds (%struct.list_head, ptr @object_queue_head, i64 0, i32 1), align 8
+  store ptr %node, ptr getelementptr inbounds (i8, ptr @object_queue_head, i64 8), align 8
   tail call void @fill_active_slots() #10
   tail call void @step_active_slots() #10
   ret void

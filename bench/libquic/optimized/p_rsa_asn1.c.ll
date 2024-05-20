@@ -79,7 +79,7 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   br i1 %tobool5.not, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i32 @CBB_add_bytes(ptr noundef nonnull %oid, ptr noundef nonnull getelementptr inbounds (%struct.evp_pkey_asn1_method_st, ptr @rsa_asn1_meth, i64 0, i32 1), i64 noundef 9) #2
+  %call7 = call i32 @CBB_add_bytes(ptr noundef nonnull %oid, ptr noundef nonnull getelementptr inbounds (i8, ptr @rsa_asn1_meth, i64 4), i64 noundef 9) #2
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then, label %lor.lhs.false9
 
@@ -225,7 +225,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false3
   br i1 %tobool8.not, label %if.then, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %call10 = call i32 @CBB_add_bytes(ptr noundef nonnull %oid, ptr noundef nonnull getelementptr inbounds (%struct.evp_pkey_asn1_method_st, ptr @rsa_asn1_meth, i64 0, i32 1), i64 noundef 9) #2
+  %call10 = call i32 @CBB_add_bytes(ptr noundef nonnull %oid, ptr noundef nonnull getelementptr inbounds (i8, ptr @rsa_asn1_meth, i64 4), i64 noundef 9) #2
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then, label %lor.lhs.false12
 

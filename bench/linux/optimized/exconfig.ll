@@ -330,7 +330,7 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
   %39 = and i64 %38, 512
   %40 = icmp eq i64 %39, 0
   %41 = select i1 %40, i32 2080, i32 3264
-  %42 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %43 = call noalias align 8 dereferenceable_or_null(36) ptr @kmalloc_trace(ptr noundef %42, i32 noundef %41, i64 noundef 36) #8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %104, label %45

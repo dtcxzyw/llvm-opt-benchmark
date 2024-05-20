@@ -564,7 +564,7 @@ entry:
 define void @_ZN6icu_7512PluralFormatC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont unwind label %lpad
@@ -582,7 +582,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -694,7 +694,7 @@ declare void @_ZN6icu_756FormatD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZN6icu_7512PluralFormatC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -708,7 +708,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -763,7 +763,7 @@ ehcleanup9:                                       ; preds = %ehcleanup8, %lpad
 define void @_ZN6icu_7512PluralFormatC2ERKNS_11PluralRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(28) %rules, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont unwind label %lpad
@@ -781,7 +781,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -844,7 +844,7 @@ ehcleanup10:                                      ; preds = %ehcleanup9, %lpad
 define void @_ZN6icu_7512PluralFormatC2ERKNS_6LocaleERKNS_11PluralRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(28) %rules, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -858,7 +858,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -921,7 +921,7 @@ ehcleanup9:                                       ; preds = %ehcleanup8, %lpad
 define void @_ZN6icu_7512PluralFormatC2ERKNS_6LocaleE11UPluralTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -935,7 +935,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -990,7 +990,7 @@ ehcleanup9:                                       ; preds = %ehcleanup8, %lpad
 define void @_ZN6icu_7512PluralFormatC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont unwind label %lpad
@@ -1008,7 +1008,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -1107,7 +1107,7 @@ return:                                           ; preds = %if.end, %if.then
 define void @_ZN6icu_7512PluralFormatC2ERKNS_6LocaleERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -1121,7 +1121,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -1196,7 +1196,7 @@ ehcleanup10:                                      ; preds = %ehcleanup9, %lpad
 define void @_ZN6icu_7512PluralFormatC2ERKNS_11PluralRulesERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(28) %rules, ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont unwind label %lpad
@@ -1214,7 +1214,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -1297,7 +1297,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 define void @_ZN6icu_7512PluralFormatC2ERKNS_6LocaleERKNS_11PluralRulesERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(28) %rules, ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -1311,7 +1311,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -1394,7 +1394,7 @@ ehcleanup10:                                      ; preds = %ehcleanup9, %lpad
 define void @_ZN6icu_7512PluralFormatC2ERKNS_6LocaleE11UPluralTypeRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -1408,7 +1408,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberFormat, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -1484,7 +1484,7 @@ define void @_ZN6icu_7512PluralFormatC2ERKS0_(ptr noundef nonnull align 8 derefe
 entry:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) %this, ptr noundef nonnull align 8 dereferenceable(322) %other)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 328
   %locale2 = getelementptr inbounds i8, ptr %other, i64 328
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %locale2)
@@ -1504,7 +1504,7 @@ if.end.i:                                         ; preds = %invoke.cont
   %0 = load double, ptr %offset6, align 8
   store double %0, ptr %offset, align 8
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %pluralRulesWrapper, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %pluralRulesWrapper, align 8
   %pluralRules.i = getelementptr inbounds i8, ptr %this, i64 704
   store ptr null, ptr %pluralRules.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
@@ -1659,7 +1659,7 @@ declare noundef ptr @_ZNK6icu_7511PluralRules5cloneEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512PluralFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7512PluralFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
   %0 = load ptr, ptr %numberFormat, align 8
   %isnull = icmp eq ptr %0, null
@@ -1763,7 +1763,7 @@ if.end5:                                          ; preds = %if.end
   %4 = load double, ptr %offset, align 8
   %sub = fsub double %number, %4
   call void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %data, i8 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %data, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %data, align 8
   %quantity.i = getelementptr inbounds i8, ptr %data, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1814,7 +1814,7 @@ if.else:                                          ; preds = %_ZN6icu_756number4i
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.then8, %if.else
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %numberString, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %numberString, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %numberString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %numberFormat14 = getelementptr inbounds i8, ptr %this, i64 680
@@ -2044,14 +2044,14 @@ invoke.cont:
   %fpos = alloca %"class.icu_75::FieldPosition", align 8
   %result = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::Formattable", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %fpos, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fpos, align 8
   %fField.i = getelementptr inbounds i8, ptr %fpos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds i8, ptr %fpos, i64 12
   store i32 0, ptr %fBeginIndex.i, align 4
   %fEndIndex.i = getelementptr inbounds i8, ptr %fpos, i64 16
   store i32 0, ptr %fEndIndex.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7511FormattableC1Ei(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp, i32 noundef %number)
@@ -2109,14 +2109,14 @@ invoke.cont:
   %fpos = alloca %"class.icu_75::FieldPosition", align 8
   %result = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::Formattable", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %fpos, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fpos, align 8
   %fField.i = getelementptr inbounds i8, ptr %fpos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds i8, ptr %fpos, i64 12
   store i32 0, ptr %fBeginIndex.i, align 4
   %fEndIndex.i = getelementptr inbounds i8, ptr %fpos, i64 16
   store i32 0, ptr %fEndIndex.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7511FormattableC1Ed(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp, double noundef %number)
@@ -2244,7 +2244,7 @@ if.then6:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.end, %if.then6
   %partIndex.addr.0 = phi i32 [ %inc, %if.then6 ], [ %partIndex, %if.end ]
   %offset.0 = phi double [ %call7, %if.then6 ], [ 0.000000e+00, %if.end ]
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %keyword, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %keyword, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %keyword, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr @_ZN6icu_75L12OTHER_STRINGE, ptr %agg.tmp, align 8
@@ -2926,10 +2926,10 @@ if.then:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %entry
   %1 = load i32, ptr %fBeginIndex.i, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %keyword, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %keyword, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %keyword, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %matchedWord, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %matchedWord, align 8
   %fUnion2.i33 = getelementptr inbounds i8, ptr %matchedWord, i64 8
   store i16 2, ptr %fUnion2.i33, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 568
@@ -3201,7 +3201,7 @@ declare void @llvm.trap() #11
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512PluralFormat21PluralSelectorAdapterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %this, align 8
   %pluralRules = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pluralRules, align 8
   %isnull = icmp eq ptr %0, null

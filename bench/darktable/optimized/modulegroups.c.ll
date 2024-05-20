@@ -804,14 +804,14 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
 
 358:                                              ; preds = %355, %350
   %359 = phi ptr [ %357, %355 ], [ %352, %350 ]
-  %360 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 3), align 8, !tbaa !14
+  %360 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 16), align 8, !tbaa !14
   %361 = icmp eq ptr %360, null
   br i1 %361, label %.loopexit9, label %.preheader8
 
 362:                                              ; preds = %350
   %363 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %352, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.147) #16
   %364 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %363, ptr noundef nonnull @.str.148) #16
-  %365 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 3), align 8, !tbaa !14
+  %365 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 16), align 8, !tbaa !14
   %366 = icmp eq ptr %365, null
   br i1 %366, label %.loopexit9, label %.preheader10
 
@@ -940,7 +940,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
 
 446:                                              ; preds = %.loopexit12, %268
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  %447 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %447 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %448 = and i32 %447, 256
   %449 = icmp eq i32 %448, 0
   br i1 %449, label %451, label %450
@@ -950,7 +950,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   br label %451
 
 451:                                              ; preds = %450, %446
-  %452 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %452 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %453 = tail call ptr @dt_database_get(ptr noundef %452) #16
   %454 = call i32 @sqlite3_prepare_v2(ptr noundef %453, ptr noundef nonnull @.str.168, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #16
   %455 = icmp eq i32 %454, 0
@@ -958,7 +958,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
 
 456:                                              ; preds = %451
   %457 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %458 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %458 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %459 = call ptr @dt_database_get(ptr noundef %458) #16
   %460 = call ptr @sqlite3_errmsg(ptr noundef %459) #16
   %461 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %457, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 1295, ptr noundef nonnull @__FUNCTION__._preset_retrieve_old_presets, ptr noundef nonnull @.str.168, ptr noundef %460) #18
@@ -1036,7 +1036,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
 .loopexit7:                                       ; preds = %.loopexit, %462
   %507 = load ptr, ptr %2, align 8, !tbaa !14
   %508 = call i32 @sqlite3_finalize(ptr noundef %507) #16
-  %509 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %509 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %510 = and i32 %509, 256
   %511 = icmp eq i32 %510, 0
   br i1 %511, label %513, label %512
@@ -1046,7 +1046,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   br label %513
 
 513:                                              ; preds = %512, %.loopexit7
-  %514 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %514 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %515 = call ptr @dt_database_get(ptr noundef %514) #16
   %516 = call i32 @sqlite3_exec(ptr noundef %515, ptr noundef nonnull @.str.172, ptr noundef null, ptr noundef null, ptr noundef null) #16
   %517 = icmp eq i32 %516, 0
@@ -1054,7 +1054,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
 
 518:                                              ; preds = %513
   %519 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %520 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %520 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %521 = call ptr @dt_database_get(ptr noundef %520) #16
   %522 = call ptr @sqlite3_errmsg(ptr noundef %521) #16
   %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %519, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 1337, ptr noundef nonnull @__FUNCTION__._preset_retrieve_old_presets, ptr noundef nonnull @.str.172, ptr noundef %522) #18
@@ -1151,7 +1151,7 @@ define internal fastcc ptr @_preset_retrieve_old_layout(ptr noundef readonly %0,
 
 33:                                               ; preds = %31, %29, %27, %25, %23, %22, %19
   %34 = phi ptr [ %21, %19 ], [ %17, %22 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ]
-  %35 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 3), align 8, !tbaa !14
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 16), align 8, !tbaa !14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %37
 
@@ -1987,7 +1987,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %16 = load ptr, ptr %12, align 8, !tbaa !42
   tail call void @gtk_container_add(ptr noundef %15, ptr noundef %16) #16
   %17 = tail call i64 @g_signal_connect_data(ptr noundef %13, ptr noundef nonnull @.str.123, ptr noundef nonnull @_scroll_group_buttons, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %18 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %19 = getelementptr inbounds i8, ptr %18, i64 5576
   %20 = load i32, ptr %19, align 8, !tbaa !64
   tail call void @gtk_widget_add_events(ptr noundef %13, i32 noundef %20) #16
@@ -2041,7 +2041,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %57 = tail call ptr @gtk_search_entry_new() #16
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %57, ptr %58, align 8, !tbaa !68
-  %59 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !69
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !69
   %60 = getelementptr inbounds i8, ptr %59, i64 424
   %61 = load ptr, ptr %60, align 8, !tbaa !70
   %62 = tail call ptr @dt_action_define(ptr noundef %61, ptr noundef null, ptr noundef nonnull @.str.130, ptr noundef %57, ptr noundef nonnull @dt_action_def_entry) #16
@@ -2055,7 +2055,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %69 = tail call i64 @g_signal_connect_data(ptr noundef %68, ptr noundef nonnull @.str.132, ptr noundef nonnull @_text_entry_changed_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
   %70 = load ptr, ptr %58, align 8, !tbaa !68
   %71 = tail call ptr @g_type_check_instance_cast(ptr noundef %70, i64 noundef 80) #16
-  %72 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %73 = load ptr, ptr %72, align 8, !tbaa !84
   %74 = tail call ptr @dt_ui_center(ptr noundef %73) #16
   %75 = tail call i64 @g_signal_connect_data(ptr noundef %71, ptr noundef nonnull @.str.133, ptr noundef nonnull @dt_gui_search_stop, ptr noundef %74, ptr noundef null, i32 noundef 0) #16
@@ -2121,7 +2121,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @gtk_widget_set_no_show_all(ptr noundef %115, i32 noundef 1) #16
   %116 = load ptr, ptr %10, align 8, !tbaa !45
   tail call void @gtk_widget_set_no_show_all(ptr noundef %116, i32 noundef 1) #16
-  %117 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %118 = getelementptr inbounds i8, ptr %117, i64 2240
   store ptr %0, ptr %118, align 16, !tbaa !87
   %119 = getelementptr inbounds i8, ptr %117, i64 2248
@@ -2140,16 +2140,16 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   store ptr @_lib_modulegroups_test_visible, ptr %125, align 8, !tbaa !112
   %126 = getelementptr inbounds i8, ptr %117, i64 2304
   store ptr @_lib_modulegroups_basics_module_toggle, ptr %126, align 16, !tbaa !113
-  %127 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !114
+  %127 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !114
   %128 = and i32 %127, 2
   %129 = icmp ne i32 %128, 0
-  %130 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 29), align 8
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3240), align 8
   %131 = icmp ne i32 %130, 0
   %132 = select i1 %129, i1 %131, i1 false
   br i1 %132, label %133, label %138
 
 133:                                              ; preds = %113
-  %134 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %135 = and i32 %134, 1048576
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %138, label %137
@@ -2159,18 +2159,18 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br label %138
 
 138:                                              ; preds = %137, %133, %113
-  %139 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !115
+  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !115
   tail call void @dt_control_signal_connect(ptr noundef %139, i32 noundef 29, ptr noundef nonnull @_dt_dev_image_changed_callback, ptr noundef nonnull %0) #16
-  %140 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !114
+  %140 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !114
   %141 = and i32 %140, 2
   %142 = icmp ne i32 %141, 0
-  %143 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 19), align 8
+  %143 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3200), align 8
   %144 = icmp ne i32 %143, 0
   %145 = select i1 %142, i1 %144, i1 false
   br i1 %145, label %146, label %151
 
 146:                                              ; preds = %138
-  %147 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %147 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %148 = and i32 %147, 1048576
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %151, label %150
@@ -2180,7 +2180,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br label %151
 
 151:                                              ; preds = %150, %146, %138
-  %152 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !115
+  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !115
   tail call void @dt_control_signal_connect(ptr noundef %152, i32 noundef 19, ptr noundef nonnull @_dt_dev_image_changed_callback, ptr noundef nonnull %0) #16
   ret void
 }
@@ -2316,7 +2316,7 @@ define internal noundef range(i32 0, 2) i32 @_manage_direct_basic_popup(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_modulegroups_toggle(ptr noundef readnone %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %4 = getelementptr inbounds i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !119
   %6 = icmp eq i32 %5, 0
@@ -2343,7 +2343,7 @@ define internal void @_lib_modulegroups_toggle(ptr noundef readnone %0, ptr noun
 
 22:                                               ; preds = %16, %7
   %23 = phi ptr [ %21, %16 ], [ null, %7 ]
-  %24 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %25 = getelementptr inbounds i8, ptr %24, i64 120
   %26 = load i32, ptr %25, align 8, !tbaa !119
   %27 = add nsw i32 %26, 1
@@ -2494,7 +2494,7 @@ define internal void @_lib_modulegroups_toggle(ptr noundef readnone %0, ptr noun
   br label %110
 
 110:                                              ; preds = %105, %100
-  %111 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %112 = getelementptr inbounds i8, ptr %111, i64 120
   %113 = load i32, ptr %112, align 8, !tbaa !119
   %114 = add nsw i32 %113, -1
@@ -2589,7 +2589,7 @@ declare i64 @gtk_entry_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @_text_entry_changed_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %4 = getelementptr inbounds i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !119
   %6 = icmp eq i32 %5, 0
@@ -2705,7 +2705,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 
 44:                                               ; preds = %38, %31
   %45 = phi ptr [ %43, %38 ], [ null, %31 ]
-  %46 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %47 = and i32 %46, 131072
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %50, label %49
@@ -2715,7 +2715,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   br label %50
 
 50:                                               ; preds = %49, %44
-  %51 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %52 = getelementptr inbounds i8, ptr %51, i64 120
   %53 = load i32, ptr %52, align 8, !tbaa !119
   %54 = add nsw i32 %53, 1
@@ -2800,7 +2800,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   br label %103
 
 103:                                              ; preds = %100, %86, %78, %69, %65
-  %104 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %105 = getelementptr inbounds i8, ptr %104, i64 120
   %106 = load i32, ptr %105, align 8, !tbaa !119
   %107 = add nsw i32 %106, -1
@@ -2808,7 +2808,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %108 = getelementptr inbounds i8, ptr %3, i64 56
   %109 = load ptr, ptr %108, align 8, !tbaa !85
   tail call void @gtk_widget_set_visible(ptr noundef %109, i32 noundef 0) #16
-  %110 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %111 = getelementptr inbounds i8, ptr %110, i64 2056
   %112 = load ptr, ptr %111, align 8, !tbaa !14
   %113 = icmp eq ptr %112, null
@@ -2837,7 +2837,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   br i1 %128, label %140, label %129
 
 129:                                              ; preds = %121
-  %130 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %131 = and i32 %130, 131072
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %140, label %133
@@ -2864,7 +2864,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   br i1 %146, label %147, label %156
 
 147:                                              ; preds = %143
-  %148 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %149 = getelementptr inbounds i8, ptr %148, i64 88
   %150 = load ptr, ptr %149, align 8, !tbaa !128
   %151 = icmp eq ptr %150, %123
@@ -2923,7 +2923,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   br i1 %177, label %178, label %187
 
 178:                                              ; preds = %175
-  %179 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %180 = getelementptr inbounds i8, ptr %179, i64 88
   %181 = load ptr, ptr %180, align 8, !tbaa !128
   %182 = icmp eq ptr %181, %123
@@ -2985,7 +2985,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   ]
 
 212:                                              ; preds = %208
-  %213 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   br label %323
 
 214:                                              ; preds = %208
@@ -2994,7 +2994,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   br i1 %216, label %232, label %217
 
 217:                                              ; preds = %214
-  %218 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %219 = getelementptr inbounds i8, ptr %218, i64 2024
   %220 = load ptr, ptr %219, align 8, !tbaa !14
   %221 = icmp eq ptr %220, null
@@ -3133,7 +3133,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 307:                                              ; preds = %304, %.loopexit27, %232, %230
   %308 = phi i32 [ %306, %304 ], [ %261, %.loopexit27 ], [ %233, %232 ], [ %231, %230 ]
   %309 = icmp eq i32 %308, 0
-  %310 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %310 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   br i1 %309, label %323, label %311
 
 311:                                              ; preds = %307
@@ -3214,7 +3214,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 352:                                              ; preds = %349, %341
   %353 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
   store ptr %353, ptr %343, align 8, !tbaa !55
-  %354 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %354 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %355 = load ptr, ptr %354, align 8, !tbaa !84
   tail call void @dt_ui_container_add_widget(ptr noundef %355, i32 noundef 4, ptr noundef %353) #16
   br label %356
@@ -3227,7 +3227,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   tail call void @gtk_widget_set_name(ptr noundef %359, ptr noundef nonnull %360) #16
   %361 = load ptr, ptr %343, align 8, !tbaa !55
   tail call void @dt_gui_add_class(ptr noundef %361, ptr noundef nonnull @.str.210) #16
-  %362 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %362 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %363 = getelementptr inbounds i8, ptr %362, i64 2056
   %364 = load ptr, ptr %363, align 8, !tbaa !135
   %365 = tail call ptr @g_list_last(ptr noundef %364) #16
@@ -3620,7 +3620,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !32
-  %7 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %8 = icmp eq ptr %7, null
   br i1 %8, label %225, label %9
 
@@ -3631,7 +3631,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
   br i1 %12, label %225, label %13
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !151
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !151
   %15 = tail call ptr @dt_image_cache_get(ptr noundef %14, i32 noundef %11, i8 noundef signext 114) #16
   %16 = icmp eq ptr %15, null
   br i1 %16, label %225, label %17
@@ -3650,7 +3650,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
   %26 = icmp eq i32 %25, 0
   %27 = select i1 %26, i32 16, i32 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  %28 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %29 = and i32 %28, 256
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %32, label %31
@@ -3660,7 +3660,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
   br label %32
 
 32:                                               ; preds = %31, %17
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %34 = call ptr @dt_database_get(ptr noundef %33) #16
   %35 = call i32 @sqlite3_prepare_v2(ptr noundef %34, ptr noundef nonnull %3, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #16
   %36 = icmp eq i32 %35, 0
@@ -3668,7 +3668,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %39 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %40 = call ptr @dt_database_get(ptr noundef %39) #16
   %41 = call ptr @sqlite3_errmsg(ptr noundef %40) #16
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 2661, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef nonnull %3, ptr noundef %41) #18
@@ -3685,7 +3685,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 50:                                               ; preds = %43
   %51 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %52 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %53 = call ptr @dt_database_get(ptr noundef %52) #16
   %54 = call ptr @sqlite3_errmsg(ptr noundef %53) #16
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2662, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %54) #18
@@ -3700,7 +3700,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %63 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %64 = call ptr @dt_database_get(ptr noundef %63) #16
   %65 = call ptr @sqlite3_errmsg(ptr noundef %64) #16
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2663, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %65) #18
@@ -3715,7 +3715,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %74 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %75 = call ptr @dt_database_get(ptr noundef %74) #16
   %76 = call ptr @sqlite3_errmsg(ptr noundef %75) #16
   %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2664, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %76) #18
@@ -3730,7 +3730,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 83:                                               ; preds = %78
   %84 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %85 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %86 = call ptr @dt_database_get(ptr noundef %85) #16
   %87 = call ptr @sqlite3_errmsg(ptr noundef %86) #16
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2665, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %87) #18
@@ -3745,7 +3745,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %96 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %97 = call ptr @dt_database_get(ptr noundef %96) #16
   %98 = call ptr @sqlite3_errmsg(ptr noundef %97) #16
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2666, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %98) #18
@@ -3760,7 +3760,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %107 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %108 = call ptr @dt_database_get(ptr noundef %107) #16
   %109 = call ptr @sqlite3_errmsg(ptr noundef %108) #16
   %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2667, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %109) #18
@@ -3779,7 +3779,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 120:                                              ; preds = %111
   %121 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %122 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %123 = call ptr @dt_database_get(ptr noundef %122) #16
   %124 = call ptr @sqlite3_errmsg(ptr noundef %123) #16
   %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2668, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %124) #18
@@ -3798,7 +3798,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 135:                                              ; preds = %126
   %136 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %137 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %138 = call ptr @dt_database_get(ptr noundef %137) #16
   %139 = call ptr @sqlite3_errmsg(ptr noundef %138) #16
   %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2669, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %139) #18
@@ -3817,7 +3817,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 150:                                              ; preds = %141
   %151 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %152 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %153 = call ptr @dt_database_get(ptr noundef %152) #16
   %154 = call ptr @sqlite3_errmsg(ptr noundef %153) #16
   %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2670, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %154) #18
@@ -3836,7 +3836,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 165:                                              ; preds = %156
   %166 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %167 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %167 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %168 = call ptr @dt_database_get(ptr noundef %167) #16
   %169 = call ptr @sqlite3_errmsg(ptr noundef %168) #16
   %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2671, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %169) #18
@@ -3850,7 +3850,7 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 175:                                              ; preds = %171
   %176 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %177 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %178 = call ptr @dt_database_get(ptr noundef %177) #16
   %179 = call ptr @sqlite3_errmsg(ptr noundef %178) #16
   %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2673, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %179) #18
@@ -3864,14 +3864,14 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 185:                                              ; preds = %181
   %186 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %187 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %188 = call ptr @dt_database_get(ptr noundef %187) #16
   %189 = call ptr @sqlite3_errmsg(ptr noundef %188) #16
   %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 2674, ptr noundef nonnull @__FUNCTION__._dt_dev_image_changed_callback, ptr noundef %189) #18
   br label %191
 
 191:                                              ; preds = %185, %181
-  %192 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !151
+  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !151
   call void @dt_image_cache_read_release(ptr noundef %192, ptr noundef nonnull %15) #16
   %193 = load ptr, ptr %4, align 8, !tbaa !14
   %194 = call i32 @sqlite3_step(ptr noundef %193) #16
@@ -3931,13 +3931,13 @@ define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, 
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !114
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !114
   %3 = and i32 %2, 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %7 = and i32 %6, 1048576
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9
@@ -3947,9 +3947,9 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br label %10
 
 10:                                               ; preds = %9, %5, %1
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !115
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !115
   tail call void @dt_control_signal_disconnect(ptr noundef %11, ptr noundef nonnull @_dt_dev_image_changed_callback, ptr noundef %0) #16
-  %12 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %13 = getelementptr inbounds i8, ptr %12, i64 2240
   %14 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, i8 0, i64 48, i1 false)
@@ -3965,7 +3965,7 @@ declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef
 define void @manage_presets(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !32
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %5 = load ptr, ptr %4, align 8, !tbaa !84
   %6 = tail call ptr @dt_ui_main_window(ptr noundef %5) #16
   %7 = tail call i64 @gtk_window_get_type() #19
@@ -4461,7 +4461,7 @@ define internal fastcc void @_manage_basics_add_popup(ptr noundef %0, ptr nounde
   store i32 0, ptr %4, align 4, !tbaa !33
   %5 = tail call ptr @gtk_menu_new() #16
   tail call void @gtk_widget_set_name(ptr noundef %5, ptr noundef nonnull @.str.179) #16
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !173
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !173
   %7 = getelementptr inbounds i8, ptr %6, i64 328
   %8 = load ptr, ptr %7, align 8, !tbaa !174
   %9 = call fastcc ptr @_build_menu_from_actions(ptr noundef %8, ptr noundef %1, ptr noundef null, ptr noundef %5, i32 noundef %2, ptr noundef nonnull %4)
@@ -4544,7 +4544,7 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
 
 17:                                               ; preds = %25, %13
   %18 = phi ptr [ %14, %13 ], [ %27, %25 ]
-  %19 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !173
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !173
   %20 = getelementptr inbounds i8, ptr %19, i64 400
   %21 = icmp eq ptr %18, %20
   %22 = getelementptr inbounds i8, ptr %19, i64 352
@@ -5143,7 +5143,7 @@ define internal fastcc void @_manage_editor_basics_update_list(ptr noundef %0) u
   %6 = tail call i64 @gtk_container_get_type() #19
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %6) #16
   tail call void @dt_gui_container_destroy_children(ptr noundef %7) #16
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %9 = getelementptr inbounds i8, ptr %8, i64 2056
   %10 = load ptr, ptr %9, align 8, !tbaa !135
   %11 = tail call ptr @g_list_last(ptr noundef %10) #16
@@ -5206,7 +5206,7 @@ define internal fastcc void @_manage_editor_basics_update_list(ptr noundef %0) u
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %48 = getelementptr inbounds i8, ptr %47, i64 2056
   %49 = load ptr, ptr %48, align 8, !tbaa !135
   %50 = tail call ptr @g_list_find_custom(ptr noundef %49, ptr noundef nonnull %27, ptr noundef nonnull @_manage_editor_module_find_multi) #16
@@ -6362,7 +6362,7 @@ declare i32 @gtk_toggle_button_get_active(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @_basics_on_off_callback(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %4 = getelementptr inbounds i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !119
   %6 = icmp eq i32 %5, 0
@@ -6395,7 +6395,7 @@ define internal void @_basics_on_off_callback2(ptr nocapture readnone %0, ptr no
   br i1 %9, label %22, label %10
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %12 = getelementptr inbounds i8, ptr %11, i64 120
   %13 = load i32, ptr %12, align 8, !tbaa !119
   %14 = add nsw i32 %13, 1
@@ -6404,7 +6404,7 @@ define internal void @_basics_on_off_callback2(ptr nocapture readnone %0, ptr no
   %16 = icmp eq i32 %15, 0
   %17 = zext i1 %16 to i32
   tail call void @gtk_toggle_button_set_active(ptr noundef nonnull %8, i32 noundef %17) #16
-  %18 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !63
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %19 = getelementptr inbounds i8, ptr %18, i64 120
   %20 = load i32, ptr %19, align 8, !tbaa !119
   %21 = add nsw i32 %20, -1
@@ -6520,7 +6520,7 @@ declare void @gtk_widget_set_valign(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_basics_goto_module(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   tail call void @dt_dev_modulegroups_switch(ptr noundef %4, ptr noundef %2) #16
   tail call void @dt_iop_gui_set_expanded(ptr noundef %2, i32 noundef 1, i32 noundef 1) #16
   tail call void @dt_iop_gui_set_expanded(ptr noundef %2, i32 noundef 1, i32 noundef 0) #16
@@ -6734,7 +6734,7 @@ define internal fastcc void @_manage_module_add_popup(ptr noundef %0, ptr nounde
   %6 = tail call ptr @gtk_menu_new() #16
   tail call void @gtk_widget_set_name(ptr noundef %6, ptr noundef nonnull @.str.179) #16
   %7 = tail call ptr @gtk_menu_new() #16
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 3), align 8, !tbaa !210
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 16), align 8, !tbaa !210
   %9 = tail call ptr @g_list_copy(ptr noundef %8) #16
   %10 = tail call ptr @g_list_sort(ptr noundef %9, ptr noundef nonnull @_manage_editor_module_so_add_sort) #16
   %11 = icmp eq ptr %10, null
@@ -7222,7 +7222,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 29:                                               ; preds = %25, %18, %10
   %30 = phi ptr [ %13, %10 ], [ %20, %18 ], [ %28, %25 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  %31 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %32 = and i32 %31, 256
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %35, label %34
@@ -7232,7 +7232,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
   br label %35
 
 35:                                               ; preds = %34, %29
-  %36 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %37 = tail call ptr @dt_database_get(ptr noundef %36) #16
   %38 = call i32 @sqlite3_prepare_v2(ptr noundef %37, ptr noundef nonnull @.str.279, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #16
   %39 = icmp eq i32 %38, 0
@@ -7240,7 +7240,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %42 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %43 = call ptr @dt_database_get(ptr noundef %42) #16
   %44 = call ptr @sqlite3_errmsg(ptr noundef %43) #16
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 3417, ptr noundef nonnull @__FUNCTION__._manage_editor_preset_action, ptr noundef nonnull @.str.279, ptr noundef %44) #18
@@ -7255,7 +7255,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %53 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %54 = call ptr @dt_database_get(ptr noundef %53) #16
   %55 = call ptr @sqlite3_errmsg(ptr noundef %54) #16
   %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3419, ptr noundef nonnull @__FUNCTION__._manage_editor_preset_action, ptr noundef %55) #18
@@ -7272,7 +7272,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 
 64:                                               ; preds = %57
   %65 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %66 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %67 = call ptr @dt_database_get(ptr noundef %66) #16
   %68 = call ptr @sqlite3_errmsg(ptr noundef %67) #16
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3420, ptr noundef nonnull @__FUNCTION__._manage_editor_preset_action, ptr noundef %68) #18
@@ -7357,7 +7357,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
   br i1 %124, label %125, label %203
 
 125:                                              ; preds = %122
-  %126 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %126 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %127 = and i32 %126, 256
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %130, label %129
@@ -7367,7 +7367,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
   br label %130
 
 130:                                              ; preds = %129, %125
-  %131 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %132 = call ptr @dt_database_get(ptr noundef %131) #16
   %133 = call i32 @sqlite3_prepare_v2(ptr noundef %132, ptr noundef nonnull @.str.285, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #16
   %134 = icmp eq i32 %133, 0
@@ -7375,7 +7375,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 
 135:                                              ; preds = %130
   %136 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %137 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %138 = call ptr @dt_database_get(ptr noundef %137) #16
   %139 = call ptr @sqlite3_errmsg(ptr noundef %138) #16
   %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 3463, ptr noundef nonnull @__FUNCTION__._manage_editor_preset_action, ptr noundef nonnull @.str.285, ptr noundef %139) #18
@@ -7391,7 +7391,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 
 147:                                              ; preds = %141
   %148 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %149 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %150 = call ptr @dt_database_get(ptr noundef %149) #16
   %151 = call ptr @sqlite3_errmsg(ptr noundef %150) #16
   %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3465, ptr noundef nonnull @__FUNCTION__._manage_editor_preset_action, ptr noundef %151) #18
@@ -7407,7 +7407,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 
 159:                                              ; preds = %153
   %160 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %161 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %161 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %162 = call ptr @dt_database_get(ptr noundef %161) #16
   %163 = call ptr @sqlite3_errmsg(ptr noundef %162) #16
   %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3466, ptr noundef nonnull @__FUNCTION__._manage_editor_preset_action, ptr noundef %163) #18
@@ -7421,7 +7421,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 
 169:                                              ; preds = %165
   %170 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %171 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %171 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %172 = call ptr @dt_database_get(ptr noundef %171) #16
   %173 = call ptr @sqlite3_errmsg(ptr noundef %172) #16
   %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3467, ptr noundef nonnull @__FUNCTION__._manage_editor_preset_action, ptr noundef %173) #18
@@ -7437,7 +7437,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 
 181:                                              ; preds = %175
   %182 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %183 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %184 = call ptr @dt_database_get(ptr noundef %183) #16
   %185 = call ptr @sqlite3_errmsg(ptr noundef %184) #16
   %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3468, ptr noundef nonnull @__FUNCTION__._manage_editor_preset_action, ptr noundef %185) #18
@@ -7704,7 +7704,7 @@ define internal void @_preset_autoapply_edit(ptr nocapture readnone %0, ptr noun
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  %10 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %11 = and i32 %10, 256
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %14, label %13
@@ -7714,7 +7714,7 @@ define internal void @_preset_autoapply_edit(ptr nocapture readnone %0, ptr noun
   br label %14
 
 14:                                               ; preds = %13, %9
-  %15 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %16 = tail call ptr @dt_database_get(ptr noundef %15) #16
   %17 = call i32 @sqlite3_prepare_v2(ptr noundef %16, ptr noundef nonnull @.str.286, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #16
   %18 = icmp eq i32 %17, 0
@@ -7722,7 +7722,7 @@ define internal void @_preset_autoapply_edit(ptr nocapture readnone %0, ptr noun
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %22 = call ptr @dt_database_get(ptr noundef %21) #16
   %23 = call ptr @sqlite3_errmsg(ptr noundef %22) #16
   %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 3523, ptr noundef nonnull @__FUNCTION__._preset_autoapply_edit, ptr noundef nonnull @.str.286, ptr noundef %23) #18
@@ -7737,7 +7737,7 @@ define internal void @_preset_autoapply_edit(ptr nocapture readnone %0, ptr noun
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %32 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %33 = call ptr @dt_database_get(ptr noundef %32) #16
   %34 = call ptr @sqlite3_errmsg(ptr noundef %33) #16
   %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3525, ptr noundef nonnull @__FUNCTION__._preset_autoapply_edit, ptr noundef %34) #18
@@ -7754,7 +7754,7 @@ define internal void @_preset_autoapply_edit(ptr nocapture readnone %0, ptr noun
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %45 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %46 = call ptr @dt_database_get(ptr noundef %45) #16
   %47 = call ptr @sqlite3_errmsg(ptr noundef %46) #16
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3526, ptr noundef nonnull @__FUNCTION__._preset_autoapply_edit, ptr noundef %47) #18
@@ -7770,7 +7770,7 @@ define internal void @_preset_autoapply_edit(ptr nocapture readnone %0, ptr noun
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %57 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %58 = call ptr @dt_database_get(ptr noundef %57) #16
   %59 = call ptr @sqlite3_errmsg(ptr noundef %58) #16
   %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3527, ptr noundef nonnull @__FUNCTION__._preset_autoapply_edit, ptr noundef %59) #18
@@ -7870,7 +7870,7 @@ define internal fastcc void @_manage_preset_update_list(ptr noundef %0) unnamed_
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #16
   tail call void @gtk_combo_box_text_remove_all(ptr noundef %8) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  %9 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %10 = and i32 %9, 256
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %13, label %12
@@ -7880,7 +7880,7 @@ define internal fastcc void @_manage_preset_update_list(ptr noundef %0) unnamed_
   br label %13
 
 13:                                               ; preds = %12, %1
-  %14 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %15 = tail call ptr @dt_database_get(ptr noundef %14) #16
   %16 = call i32 @sqlite3_prepare_v2(ptr noundef %15, ptr noundef nonnull @.str.311, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #16
   %17 = icmp eq i32 %16, 0
@@ -7888,7 +7888,7 @@ define internal fastcc void @_manage_preset_update_list(ptr noundef %0) unnamed_
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %20 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %21 = call ptr @dt_database_get(ptr noundef %20) #16
   %22 = call ptr @sqlite3_errmsg(ptr noundef %21) #16
   %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 3707, ptr noundef nonnull @__FUNCTION__._manage_preset_update_list, ptr noundef nonnull @.str.311, ptr noundef %22) #18
@@ -7903,7 +7903,7 @@ define internal fastcc void @_manage_preset_update_list(ptr noundef %0) unnamed_
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %31 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %32 = call ptr @dt_database_get(ptr noundef %31) #16
   %33 = call ptr @sqlite3_errmsg(ptr noundef %32) #16
   %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3709, ptr noundef nonnull @__FUNCTION__._manage_preset_update_list, ptr noundef %33) #18
@@ -7920,7 +7920,7 @@ define internal fastcc void @_manage_preset_update_list(ptr noundef %0) unnamed_
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %44 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %45 = call ptr @dt_database_get(ptr noundef %44) #16
   %46 = call ptr @sqlite3_errmsg(ptr noundef %45) #16
   %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3710, ptr noundef nonnull @__FUNCTION__._manage_preset_update_list, ptr noundef %46) #18
@@ -8033,7 +8033,7 @@ define internal fastcc void @_manage_editor_load(ptr noundef %0, ptr noundef %1)
   store ptr null, ptr %43, align 8, !tbaa !54
   store ptr null, ptr %6, align 8, !tbaa !216
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  %52 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %53 = and i32 %52, 256
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %56, label %55
@@ -8043,7 +8043,7 @@ define internal fastcc void @_manage_editor_load(ptr noundef %0, ptr noundef %1)
   br label %56
 
 56:                                               ; preds = %55, %51
-  %57 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %58 = tail call ptr @dt_database_get(ptr noundef %57) #16
   %59 = call i32 @sqlite3_prepare_v2(ptr noundef %58, ptr noundef nonnull @.str.312, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #16
   %60 = icmp eq i32 %59, 0
@@ -8051,7 +8051,7 @@ define internal fastcc void @_manage_editor_load(ptr noundef %0, ptr noundef %1)
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %63 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %64 = call ptr @dt_database_get(ptr noundef %63) #16
   %65 = call ptr @sqlite3_errmsg(ptr noundef %64) #16
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 3574, ptr noundef nonnull @__FUNCTION__._manage_editor_load, ptr noundef nonnull @.str.312, ptr noundef %65) #18
@@ -8066,7 +8066,7 @@ define internal fastcc void @_manage_editor_load(ptr noundef %0, ptr noundef %1)
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %74 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %75 = call ptr @dt_database_get(ptr noundef %74) #16
   %76 = call ptr @sqlite3_errmsg(ptr noundef %75) #16
   %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3576, ptr noundef nonnull @__FUNCTION__._manage_editor_load, ptr noundef %76) #18
@@ -8083,7 +8083,7 @@ define internal fastcc void @_manage_editor_load(ptr noundef %0, ptr noundef %1)
 
 85:                                               ; preds = %78
   %86 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %87 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %88 = call ptr @dt_database_get(ptr noundef %87) #16
   %89 = call ptr @sqlite3_errmsg(ptr noundef %88) #16
   %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3577, ptr noundef nonnull @__FUNCTION__._manage_editor_load, ptr noundef %89) #18
@@ -8097,7 +8097,7 @@ define internal fastcc void @_manage_editor_load(ptr noundef %0, ptr noundef %1)
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %97 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %98 = call ptr @dt_database_get(ptr noundef %97) #16
   %99 = call ptr @sqlite3_errmsg(ptr noundef %98) #16
   %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3578, ptr noundef nonnull @__FUNCTION__._manage_editor_load, ptr noundef %99) #18
@@ -8439,7 +8439,7 @@ define internal void @_preset_autoapply_changed(ptr nocapture noundef readonly %
   %5 = getelementptr inbounds i8, ptr %4, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  %7 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !20
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
   %8 = and i32 %7, 256
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %11, label %10
@@ -8449,7 +8449,7 @@ define internal void @_preset_autoapply_changed(ptr nocapture noundef readonly %
   br label %11
 
 11:                                               ; preds = %10, %1
-  %12 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %13 = tail call ptr @dt_database_get(ptr noundef %12) #16
   %14 = call i32 @sqlite3_prepare_v2(ptr noundef %13, ptr noundef nonnull @.str.287, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #16
   %15 = icmp eq i32 %14, 0
@@ -8457,7 +8457,7 @@ define internal void @_preset_autoapply_changed(ptr nocapture noundef readonly %
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %18 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %19 = call ptr @dt_database_get(ptr noundef %18) #16
   %20 = call ptr @sqlite3_errmsg(ptr noundef %19) #16
   %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.140, i32 noundef 3344, ptr noundef nonnull @__FUNCTION__._preset_autoapply_changed, ptr noundef nonnull @.str.287, ptr noundef %20) #18
@@ -8472,7 +8472,7 @@ define internal void @_preset_autoapply_changed(ptr nocapture noundef readonly %
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %29 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %30 = call ptr @dt_database_get(ptr noundef %29) #16
   %31 = call ptr @sqlite3_errmsg(ptr noundef %30) #16
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3346, ptr noundef nonnull @__FUNCTION__._preset_autoapply_changed, ptr noundef %31) #18
@@ -8489,7 +8489,7 @@ define internal void @_preset_autoapply_changed(ptr nocapture noundef readonly %
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %42 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %43 = call ptr @dt_database_get(ptr noundef %42) #16
   %44 = call ptr @sqlite3_errmsg(ptr noundef %43) #16
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3347, ptr noundef nonnull @__FUNCTION__._preset_autoapply_changed, ptr noundef %44) #18
@@ -8505,7 +8505,7 @@ define internal void @_preset_autoapply_changed(ptr nocapture noundef readonly %
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %54 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !30
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !30
   %55 = call ptr @dt_database_get(ptr noundef %54) #16
   %56 = call ptr @sqlite3_errmsg(ptr noundef %55) #16
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.140, i32 noundef 3348, ptr noundef nonnull @__FUNCTION__._preset_autoapply_changed, ptr noundef %56) #18
@@ -8996,7 +8996,7 @@ define internal fastcc void @_manage_editor_module_update_list(ptr noundef %0, p
   %7 = tail call i64 @gtk_container_get_type() #19
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #16
   tail call void @dt_gui_container_destroy_children(ptr noundef %8) #16
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %10 = getelementptr inbounds i8, ptr %9, i64 2056
   %11 = load ptr, ptr %10, align 8, !tbaa !135
   %12 = tail call ptr @g_list_last(ptr noundef %11) #16
@@ -9049,7 +9049,7 @@ define internal fastcc void @_manage_editor_module_update_list(ptr noundef %0, p
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %45 = getelementptr inbounds i8, ptr %44, i64 2056
   %46 = load ptr, ptr %45, align 8, !tbaa !135
   %47 = tail call ptr @g_list_find_custom(ptr noundef %46, ptr noundef nonnull %20, ptr noundef nonnull @_manage_editor_module_find_multi) #16

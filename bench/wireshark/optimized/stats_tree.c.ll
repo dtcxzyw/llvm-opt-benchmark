@@ -136,7 +136,7 @@ define i32 @stats_tree_branch_max_namelen(ptr nocapture noundef readonly %0, i32
 
 16:                                               ; preds = %.loopexit
   %17 = tail call noalias ptr @g_strdup(ptr noundef %15) #19
-  %18 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 113), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 580), align 4
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %.preheader.i, label %stats_tree_get_displayname.exit
 
@@ -190,7 +190,7 @@ stats_tree_get_displayname.exit:                  ; preds = %30, %16, %.preheade
 ; Function Attrs: nounwind uwtable
 define ptr @stats_tree_get_displayname(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @g_strdup(ptr noundef %0) #19
-  %3 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 113), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 580), align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -513,7 +513,7 @@ define void @stats_tree_reinit(ptr noundef %0) local_unnamed_addr #0 {
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noalias ptr @g_strdup(ptr noundef %40) #19
-  %42 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 113), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 580), align 4
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %.preheader.i, label %stats_tree_get_displayname.exit
 
@@ -775,7 +775,7 @@ define noundef ptr @stats_tree_new(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noalias ptr @g_strdup(ptr noundef %27) #19
-  %29 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 113), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 580), align 4
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %.preheader.i, label %stats_tree_get_displayname.exit
 
@@ -822,11 +822,11 @@ stats_tree_get_displayname.exit:                  ; preds = %41, %21, %.preheade
   br i1 %.not, label %48, label %55
 
 48:                                               ; preds = %stats_tree_get_displayname.exit
-  %49 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 111), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 572), align 4
   %50 = shl i32 %49, 16
   %51 = or i32 %50, %45
   store i32 %51, ptr %46, align 8
-  %52 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 112), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 576), align 8
   %.not34 = icmp eq i32 %52, 0
   br i1 %.not34, label %55, label %53
 
@@ -840,7 +840,7 @@ stats_tree_get_displayname.exit:                  ; preds = %41, %21, %.preheade
   store i32 9, ptr %56, align 4
   %57 = load ptr, ptr %26, align 8
   %58 = tail call noalias ptr @g_strdup(ptr noundef %57) #19
-  %59 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 113), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 580), align 4
   %.not.i35 = icmp eq i32 %59, 0
   br i1 %.not.i35, label %.preheader.i36, label %stats_tree_get_displayname.exit41
 
@@ -967,7 +967,7 @@ define internal i32 @compare_stat_menu_item(ptr nocapture noundef readonly %0, p
 ; Function Attrs: nounwind uwtable
 define void @stats_tree_presentation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store ptr %1, ptr @stats_tree_presentation.d, align 8
-  store ptr %2, ptr getelementptr inbounds (%struct._stats_tree_pres_cbs, ptr @stats_tree_presentation.d, i64 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @stats_tree_presentation.d, i64 8), align 8
   %5 = load ptr, ptr @registry, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
@@ -1333,7 +1333,7 @@ define i32 @stats_tree_manip_node_int(i32 noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @update_burst_calc(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 104), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 544), align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %114, label %4
 
@@ -1342,11 +1342,11 @@ define internal fastcc void @update_burst_calc(ptr nocapture noundef %0, i32 nou
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load double, ptr %7, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 106), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 552), align 8
   %10 = sitofp i32 %9 to double
   %11 = fdiv double %8, %10
   %12 = tail call double @llvm.floor.f64(double %11)
-  %13 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 107), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 556), align 4
   %14 = sdiv i32 %13, %9
   %15 = sitofp i32 %14 to double
   %16 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2172,7 +2172,7 @@ define nonnull ptr @stats_tree_get_column_name(ptr nocapture noundef readonly %0
   br label %16
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 105), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 548), align 4
   %.not = icmp eq i32 %12, 0
   %13 = select i1 %.not, ptr @.str.15, ptr @.str.14
   br label %16
@@ -2212,7 +2212,7 @@ define noalias ptr @stats_tree_get_values_from_node(ptr nocapture noundef readon
   %.not = icmp ne i32 %11, 0
   %12 = load ptr, ptr %0, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #19
-  %14 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 113), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 580), align 4
   %.not.i = icmp eq i32 %14, 0
   %or.cond = select i1 %.not, i1 %.not.i, i1 false
   br i1 %or.cond, label %.preheader.i, label %stats_tree_get_displayname.exit
@@ -2482,7 +2482,7 @@ stats_tree_get_displayname.exit:                  ; preds = %26, %1, %.preheader
   br i1 %153, label %154, label %192
 
 154:                                              ; preds = %147
-  %155 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 104), align 8
+  %155 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 544), align 8
   %.not74 = icmp eq i32 %155, 0
   br i1 %.not74, label %156, label %158
 
@@ -2497,7 +2497,7 @@ stats_tree_get_displayname.exit:                  ; preds = %26, %1, %.preheader
   br i1 %.not75, label %171, label %161
 
 161:                                              ; preds = %158
-  %162 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 105), align 4
+  %162 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 548), align 4
   %.not76 = icmp eq i32 %162, 0
   br i1 %.not76, label %165, label %163
 
@@ -2507,7 +2507,7 @@ stats_tree_get_displayname.exit:                  ; preds = %26, %1, %.preheader
 
 165:                                              ; preds = %161
   %166 = sitofp i32 %160 to double
-  %167 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 107), align 4
+  %167 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 556), align 4
   %168 = sitofp i32 %167 to double
   %169 = fdiv double %166, %168
   %170 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.23, double noundef %169) #19
@@ -2521,7 +2521,7 @@ stats_tree_get_displayname.exit:                  ; preds = %26, %1, %.preheader
   %174 = phi ptr [ %157, %156 ], [ %172, %171 ], [ %164, %163 ], [ %170, %165 ]
   %175 = getelementptr i8, ptr %8, i64 56
   store ptr %174, ptr %175, align 8
-  %176 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 104), align 8
+  %176 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 544), align 8
   %.not77 = icmp eq i32 %176, 0
   br i1 %.not77, label %177, label %179
 
@@ -2561,7 +2561,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define i32 @stats_tree_sort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 110), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 568), align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6
 
@@ -2582,7 +2582,7 @@ define i32 @stats_tree_sort_compare(ptr nocapture noundef readonly %0, ptr nocap
   %14 = load i32, ptr %11, align 4
   %15 = sub i32 %13, %14
   %16 = icmp eq i32 %3, 0
-  %17 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 109), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 564), align 4
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %16, i1 true, i1 %18
   %19 = sub i32 0, %15
@@ -2621,7 +2621,7 @@ define i32 @stats_tree_sort_compare(ptr nocapture noundef readonly %0, ptr nocap
   br label %140
 
 31:                                               ; preds = %24, %21
-  %32 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 108), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 560), align 8
   %.not102 = icmp eq i32 %32, 0
   %33 = load ptr, ptr %0, align 8
   %34 = load ptr, ptr %1, align 8
@@ -2828,7 +2828,7 @@ define i32 @stats_tree_sort_compare(ptr nocapture noundef readonly %0, ptr nocap
   br label %.thread
 
 158:                                              ; preds = %151, %.thread120
-  %159 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 108), align 8
+  %159 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 560), align 8
   %.not106 = icmp eq i32 %159, 0
   %160 = load ptr, ptr %0, align 8
   %161 = load ptr, ptr %1, align 8
@@ -2940,7 +2940,7 @@ define ptr @stats_tree_format_as_str(ptr nocapture noundef readonly %0, i32 noun
   br label %stats_tree_get_column_name.exit
 
 29:                                               ; preds = %.lr.ph76
-  %30 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 105), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 548), align 4
   %.not.i = icmp eq i32 %30, 0
   %31 = select i1 %.not.i, ptr @.str.15, ptr @.str.14
   br label %stats_tree_get_column_name.exit
@@ -3031,7 +3031,7 @@ stats_tree_get_column_name.exit:                  ; preds = %.lr.ph76, %20, %24,
   br label %stats_tree_get_column_name.exit67
 
 66:                                               ; preds = %.lr.ph72
-  %67 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 105), align 4
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 548), align 4
   %.not.i64 = icmp eq i32 %67, 0
   %68 = select i1 %.not.i64, ptr @.str.15, ptr @.str.14
   br label %stats_tree_get_column_name.exit67
@@ -3189,7 +3189,7 @@ define void @stats_tree_format_node_as_str(ptr nocapture noundef readonly %0, pt
   br label %stats_tree_get_column_name.exit
 
 43:                                               ; preds = %31
-  %44 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 105), align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 548), align 4
   %.not.i = icmp eq i32 %44, 0
   %45 = select i1 %.not.i, ptr @.str.15, ptr @.str.14
   br label %stats_tree_get_column_name.exit
@@ -3278,7 +3278,7 @@ stats_tree_get_column_name.exit:                  ; preds = %31, %33, %38, %39, 
   br label %stats_tree_get_column_name.exit107
 
 71:                                               ; preds = %.lr.ph117
-  %72 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 105), align 4
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 548), align 4
   %.not.i104 = icmp eq i32 %72, 0
   %73 = select i1 %.not.i104, ptr @.str.15, ptr @.str.14
   br label %stats_tree_get_column_name.exit107

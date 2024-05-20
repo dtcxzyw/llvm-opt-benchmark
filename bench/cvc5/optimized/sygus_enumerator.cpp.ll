@@ -455,7 +455,7 @@ entry:
   %frombool = zext i1 %enumShapes to i8
   %frombool1 = zext i1 %enumAnyConstHoles to i8
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumeratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumeratorE, i64 16), ptr %this, align 8
   %d_tds = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %tds, ptr %d_tds, align 8
   %d_sec = getelementptr inbounds i8, ptr %this, i64 24
@@ -3866,7 +3866,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal14LogicExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %msg)
           to label %_ZN4cvc58internal9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i
@@ -3878,14 +3878,14 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %0
 
 _ZN4cvc58internal9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal14LogicExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal14LogicExceptionE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal14LogicExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #22
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
@@ -7511,7 +7511,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %d_se, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -7555,7 +7555,7 @@ _ZN4cvc58internal8TypeNodeC2Ev.exit:              ; preds = %entry, %init.check.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %d_se.i, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -7593,7 +7593,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumC2Ev.exit: ; pred
   store ptr %3, ptr %d_tn.i, align 8
   %d_currSize.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %d_currSize.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveE, i64 16), ptr %this, align 8
   %d_sizeLim = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %d_sizeLim, align 4
   %d_indexValid = getelementptr inbounds i8, ptr %this, i64 32
@@ -9009,7 +9009,7 @@ _ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %entry, %if.then.i5.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMasterC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %d_se.i, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -9051,7 +9051,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumC2Ev.exit: ; pred
   store ptr %3, ptr %d_tn.i, align 8
   %d_currSize.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %d_currSize.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMasterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMasterE, i64 16), ptr %this, align 8
   %d_enumShapes = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %d_enumShapes, align 8
   %d_enumShapesInit = getelementptr inbounds i8, ptr %this, i64 41
@@ -14370,7 +14370,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESa
 define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpC2ENS0_8TypeNodeEm(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %tn, i64 noundef %numConstants) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %d_se.i, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -14412,7 +14412,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumC2Ev.exit: ; pred
   store ptr %3, ptr %d_tn.i, align 8
   %d_currSize.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %d_currSize.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpE, i64 16), ptr %this, align 8
   %4 = load ptr, ptr %tn, align 8
   store ptr %4, ptr %agg.tmp, align 8
   %bf.load.i.i = load i64, ptr %4, align 8
@@ -14827,7 +14827,7 @@ return:                                           ; preds = %if.then13.i.i37, %i
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %d_se.i, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -14865,7 +14865,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumC2Ev.exit: ; pred
   store ptr %3, ptr %d_tn.i, align 8
   %d_currSize.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %d_currSize.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -15215,7 +15215,7 @@ ehcleanup:                                        ; preds = %lpad18, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumeratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumeratorE, i64 16), ptr %this, align 8
   %d_sbExcTlCons = getelementptr inbounds i8, ptr %this, i64 288
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -15414,7 +15414,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_tn.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_tn.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
@@ -15449,7 +15449,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumD2Ev.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_tn.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_tn.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %0, align 8
@@ -15485,7 +15485,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveD2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMasterD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMasterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMasterE, i64 16), ptr %this, align 8
   %d_children = getelementptr inbounds i8, ptr %this, i64 120
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -15592,7 +15592,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i, %if.then13.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_tn.i = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %d_tn.i, align 8
   %bf.load.i.i.i = load i64, ptr %15, align 8
@@ -15635,7 +15635,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpE, i64 16), ptr %this, align 8
   %d_te = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_te, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -15649,7 +15649,7 @@ delete.notnull.i:                                 ; preds = %entry
   br label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit
 
 _ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit: ; preds = %entry, %delete.notnull.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_tn.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %d_tn.i, align 8
   %bf.load.i.i.i = load i64, ptr %2, align 8
@@ -15684,7 +15684,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumD2Ev.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpE, i64 16), ptr %this, align 8
   %d_te.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_te.i, align 8
   %isnull.i.i = icmp eq ptr %0, null
@@ -15698,7 +15698,7 @@ delete.notnull.i.i:                               ; preds = %entry
   br label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit.i
 
 _ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit.i: ; preds = %delete.notnull.i.i, %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_tn.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %d_tn.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %2, align 8
@@ -15734,7 +15734,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpD2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_tn.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_tn.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
@@ -15769,7 +15769,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumD2Ev.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_tn.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_tn.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %0, align 8
@@ -15879,7 +15879,7 @@ init.end:                                         ; preds = %_ZN4cvc58internal12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_tn = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_tn, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -16028,7 +16028,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pair
 entry:
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__p, i64 32
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second.i.i.i.i, align 8
   %d_tn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 56
   %0 = load ptr, ptr %d_tn.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
@@ -16540,7 +16540,7 @@ declare void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal14LogicExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #22
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
@@ -16847,7 +16847,7 @@ while.body:                                       ; preds = %entry, %_ZNSt8_Rb_t
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second.i.i.i.i.i, align 8
   %d_tn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 56
   %2 = load ptr, ptr %d_tn.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
@@ -22943,7 +22943,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
   %second = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second, align 8
   %d_se.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %d_se.i.i, align 8
   %3 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -22982,7 +22982,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i
   store ptr %6, ptr %d_tn.i.i, align 8
   %d_currSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %d_currSize.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvE, i64 0, i32 0, i64 2), ptr %second, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvE, i64 16), ptr %second, align 8
   ret void
 }
 
@@ -23672,7 +23672,7 @@ lpad:                                             ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %invoke.cont7
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second.i.i.i.i.i.i, align 8
   %d_tn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
   %7 = load ptr, ptr %d_tn.i.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i64, ptr %7, align 8
@@ -23932,7 +23932,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second.i.i.i.i.i, align 8
   %d_tn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %d_tn.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
@@ -23977,7 +23977,7 @@ entry:
   %2 = load i32, ptr %1, align 4
   store i32 %2, ptr %_M_storage.i, align 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second.i.i.i.i, align 8
   %d_se.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 48
   store ptr null, ptr %d_se.i.i.i.i.i.i, align 8
   %3 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -24025,7 +24025,7 @@ try.cont:                                         ; preds = %invoke.cont.i.i.i.i
   store ptr %9, ptr %d_tn.i.i.i.i.i.i, align 8
   %d_currSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 64
   store i32 0, ptr %d_currSize.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveE, i64 16), ptr %second.i.i.i.i, align 8
   %d_sizeLim.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 68
   store i32 0, ptr %d_sizeLim.i.i.i.i.i, align 4
   %d_indexValid.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 72
@@ -24105,7 +24105,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.09) #27
   %call.i5 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__first.sroa.0.09, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i4) #22
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second.i.i.i.i.i.i, align 8
   %d_tn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   %4 = load ptr, ptr %d_tn.i.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8
@@ -24201,7 +24201,7 @@ lpad:                                             ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %invoke.cont7
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second.i.i.i.i.i.i, align 8
   %d_tn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
   %7 = load ptr, ptr %d_tn.i.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i64, ptr %7, align 8
@@ -24247,7 +24247,7 @@ entry:
   %2 = load i32, ptr %1, align 4
   store i32 %2, ptr %_M_storage.i, align 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %second.i.i.i.i, align 8
   %d_se.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 48
   store ptr null, ptr %d_se.i.i.i.i.i.i, align 8
   %3 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -24295,7 +24295,7 @@ try.cont:                                         ; preds = %invoke.cont.i.i.i.i
   store ptr %9, ptr %d_tn.i.i.i.i.i.i, align 8
   %d_currSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 64
   store i32 0, ptr %d_currSize.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveE, i64 16), ptr %second.i.i.i.i, align 8
   %d_sizeLim.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 68
   store i32 0, ptr %d_sizeLim.i.i.i.i.i, align 4
   %d_indexValid.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 72

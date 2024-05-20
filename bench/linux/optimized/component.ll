@@ -262,7 +262,7 @@ define dso_local range(i32 -2147483648, 1) i32 @component_master_add_with_match(
   br label %24
 
 24:                                               ; preds = %23, %3
-  %25 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %26 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 48) #11
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %28
@@ -995,7 +995,7 @@ define dso_local range(i32 -2147483648, 1) i32 @component_add_typed(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 56) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %56, label %7
@@ -1008,8 +1008,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__component_add(ptr nounde
   %10 = getelementptr inbounds i8, ptr %5, i64 40
   store i32 %2, ptr %10, align 8
   tail call void @mutex_lock(ptr noundef nonnull @component_mutex) #9
-  %11 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @component_list, i64 0, i32 1), align 8
-  store ptr %5, ptr getelementptr inbounds (%struct.list_head, ptr @component_list, i64 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @component_list, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @component_list, i64 8), align 8
   store ptr @component_list, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8

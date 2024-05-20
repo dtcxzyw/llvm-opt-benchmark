@@ -72,7 +72,7 @@ $_ZTIN3net26QuicClientPushPromiseIndex9TryHandleE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22QuicClientPromisedInfoC2EPNS_21QuicClientSessionBaseEjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %session, i32 noundef %id, ptr noundef nonnull %url) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22QuicClientPromisedInfoE, i64 16), ptr %this, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %session, ptr %session_, align 8
   %id_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -90,7 +90,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22QuicClientPromisedInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22QuicClientPromisedInfoE, i64 16), ptr %this, align 8
   %cleanup_alarm_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %cleanup_alarm_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -235,7 +235,7 @@ entry:
   %alarm_factory_.i = getelementptr inbounds i8, ptr %1, i64 448
   %2 = load ptr, ptr %alarm_factory_.i, align 8
   %call3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfo12CleanupAlarmE, i64 0, i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22QuicClientPromisedInfo12CleanupAlarmE, i64 16), ptr %call3, align 8
   %promised_.i = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %this, ptr %promised_.i, align 8
   %vtable = load ptr, ptr %2, align 8

@@ -24,13 +24,13 @@ define internal noundef i32 @pdlopen_component_open() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pdlopen_component_close() #1 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
   tail call void @PMIx_Argv_free(ptr noundef nonnull %1) #4
-  store ptr null, ptr getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -39,7 +39,7 @@ define internal noundef i32 @pdlopen_component_close() #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal noundef i32 @pdlopen_component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #2 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 0, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 224), align 8
   store i32 %3, ptr %1, align 4
   store ptr @pmix_pdl_pdlopen_module, ptr %0, align 8
   ret i32 0
@@ -47,15 +47,15 @@ define internal noundef i32 @pdlopen_component_query(ptr nocapture noundef write
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @pdlopen_component_register() #1 {
-  store ptr @.str.1, ptr getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 1), align 8
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_pdl_pdlopen_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 1)) #4
+  store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 232), align 8
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_pdl_pdlopen_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 232)) #4
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 232), align 8
   %5 = tail call ptr @PMIx_Argv_split(ptr noundef %4, i32 noundef 44) #4
-  store ptr %5, ptr getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 2), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8
   br label %6
 
 6:                                                ; preds = %0, %3

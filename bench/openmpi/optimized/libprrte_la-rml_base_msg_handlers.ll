@@ -73,8 +73,8 @@ define void @prte_rml_base_post_recv(i32 noundef %0, i16 noundef signext %1, ptr
   %19 = getelementptr inbounds i8, ptr %2, i64 248
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  %.0108 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1, i32 1), align 8
-  %.not82109 = icmp eq ptr %.0108, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1)
+  %.0108 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 256), align 8
+  %.not82109 = icmp eq ptr %.0108, getelementptr inbounds (i8, ptr @prte_rml_base, i64 136)
   br i1 %21, label %.preheader, label %.preheader100
 
 .preheader100:                                    ; preds = %16
@@ -135,9 +135,9 @@ define void @prte_rml_base_post_recv(i32 noundef %0, i16 noundef signext %1, ptr
   %51 = load ptr, ptr %48, align 8
   %52 = getelementptr inbounds i8, ptr %47, i64 128
   store volatile ptr %51, ptr %52, align 8
-  %53 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 2), align 8
+  %53 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 280), align 8
   %54 = add i64 %53, -1
-  store volatile i64 %54, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 2), align 8
+  store volatile i64 %54, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 280), align 8
   %55 = tail call i32 @pthread_mutex_lock(ptr noundef %.0110) #7
   %56 = icmp eq i32 %55, 35
   br i1 %56, label %57, label %59
@@ -194,7 +194,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %65
 79:                                               ; preds = %26, %29
   %80 = getelementptr inbounds i8, ptr %.0110, i64 120
   %.0 = load ptr, ptr %80, align 8
-  %.not82 = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1)
+  %.not82 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rml_base, i64 136)
   br i1 %.not82, label %.loopexit, label %26, !llvm.loop !6
 
 .loopexit:                                        ; preds = %79, %.preheader, %76, %78, %59
@@ -275,7 +275,7 @@ pmix_obj_run_destructors.exit90:                  ; preds = %.lr.ph.i87, %91
 117:                                              ; preds = %105, %108
   %118 = getelementptr inbounds i8, ptr %.1107, i64 120
   %.1 = load ptr, ptr %118, align 8
-  %.not = icmp eq ptr %.1, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1)
+  %.not = icmp eq ptr %.1, getelementptr inbounds (i8, ptr @prte_rml_base, i64 136)
   br i1 %.not, label %._crit_edge, label %105, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %117, %.preheader100
@@ -304,23 +304,23 @@ pmix_obj_run_destructors.exit90:                  ; preds = %.lr.ph.i87, %91
   br label %135
 
 135:                                              ; preds = %125, %120, %._crit_edge
-  %136 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1, i32 2), align 8
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 264), align 8
   %137 = getelementptr inbounds i8, ptr %18, i64 128
   store ptr %136, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %136, i64 120
   store volatile ptr %18, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %18, i64 120
-  store ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0), ptr %139, align 8
-  store ptr %18, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1, i32 2), align 8
-  %140 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 136), ptr %139, align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 264), align 8
+  %140 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 280), align 8
   %141 = add i64 %140, 1
-  store volatile i64 %141, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 2), align 8
+  store volatile i64 %141, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 280), align 8
   store ptr null, ptr %17, align 8
   %142 = getelementptr inbounds i8, ptr %18, i64 412
   %143 = load i8, ptr %142, align 4
   %144 = trunc i8 %143 to i1
-  %145 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 1, i32 1), align 8
-  %.not18.i = icmp eq ptr %145, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 1)
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 528), align 8
+  %.not18.i = icmp eq ptr %145, getelementptr inbounds (i8, ptr @prte_rml_base, i64 408)
   br i1 %.not18.i, label %msg_match_recv.exit, label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %135
@@ -385,15 +385,15 @@ pmix_obj_run_destructors.exit90:                  ; preds = %.lr.ph.i87, %91
   %181 = load ptr, ptr %178, align 8
   %182 = getelementptr inbounds i8, ptr %177, i64 128
   store volatile ptr %181, ptr %182, align 8
-  %183 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 2), align 8
+  %183 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 552), align 8
   %184 = add i64 %183, -1
-  store volatile i64 %184, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 2), align 8
-  %.not.i93 = icmp ne ptr %152, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 1)
+  store volatile i64 %184, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 552), align 8
+  %.not.i93 = icmp ne ptr %152, getelementptr inbounds (i8, ptr @prte_rml_base, i64 408)
   %or.cond22.not.i = select i1 %144, i1 %.not.i93, i1 false
   br i1 %or.cond22.not.i, label %.backedge.i.backedge, label %msg_match_recv.exit
 
 185:                                              ; preds = %167, %164
-  %.not.old.i = icmp eq ptr %152, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 1)
+  %.not.old.i = icmp eq ptr %152, getelementptr inbounds (i8, ptr @prte_rml_base, i64 408)
   br i1 %.not.old.i, label %msg_match_recv.exit, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %185, %172
@@ -613,8 +613,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %59
   br label %197
 
 73:                                               ; preds = %20, %16
-  %.0119 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1, i32 1), align 8
-  %.not100120 = icmp eq ptr %.0119, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1)
+  %.0119 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 256), align 8
+  %.not100120 = icmp eq ptr %.0119, getelementptr inbounds (i8, ptr @prte_rml_base, i64 136)
   br i1 %.not100120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %73
@@ -752,9 +752,9 @@ pmix_obj_run_destructors.exit108:                 ; preds = %.lr.ph.i105, %115
   %149 = load ptr, ptr %146, align 8
   %150 = getelementptr inbounds i8, ptr %145, i64 128
   store volatile ptr %149, ptr %150, align 8
-  %151 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 2), align 8
+  %151 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 280), align 8
   %152 = add i64 %151, -1
-  store volatile i64 %152, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 2), align 8
+  store volatile i64 %152, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 280), align 8
   %153 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.0121) #7
   %154 = icmp eq i32 %153, 35
   br i1 %154, label %155, label %157
@@ -811,7 +811,7 @@ pmix_obj_run_destructors.exit114:                 ; preds = %.lr.ph.i111, %163
 177:                                              ; preds = %75, %78
   %178 = getelementptr inbounds i8, ptr %.0121, i64 120
   %.0 = load ptr, ptr %178, align 8
-  %.not100 = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 1)
+  %.not100 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rml_base, i64 136)
   br i1 %.not100, label %._crit_edge, label %75, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %177, %73
@@ -835,17 +835,17 @@ pmix_obj_run_destructors.exit114:                 ; preds = %.lr.ph.i111, %163
   br label %190
 
 190:                                              ; preds = %185, %180, %._crit_edge
-  %191 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 1, i32 2), align 8
+  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 536), align 8
   %192 = getelementptr inbounds i8, ptr %2, i64 128
   store ptr %191, ptr %192, align 8
   %193 = getelementptr inbounds i8, ptr %191, i64 120
   store volatile ptr %2, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %2, i64 120
-  store ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 0), ptr %194, align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 1, i32 2), align 8
-  %195 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 408), ptr %194, align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 536), align 8
+  %195 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 552), align 8
   %196 = add i64 %195, 1
-  store volatile i64 %196, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 2), align 8
+  store volatile i64 %196, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 552), align 8
   br label %197
 
 197:                                              ; preds = %174, %176, %70, %72, %139, %157, %53, %190, %47, %29

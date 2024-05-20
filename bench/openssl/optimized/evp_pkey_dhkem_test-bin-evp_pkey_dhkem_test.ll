@@ -235,7 +235,7 @@ if.end:                                           ; preds = %entry
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @opparam, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp1) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds ([2 x %struct.ossl_param_st], ptr @opparam, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(40) %tmp1, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @opparam, i64 40), ptr noundef nonnull align 8 dereferenceable(40) %tmp1, i64 40, i1 false)
   %0 = load ptr, ptr @libctx, align 8
   %call2 = call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #5
   store ptr %call2, ptr @rkey, align 16
@@ -246,7 +246,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %1 = load ptr, ptr @libctx, align 8
   %call7 = call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %1, ptr noundef null, ptr noundef nonnull @.str.8) #5
-  store ptr %call7, ptr getelementptr inbounds ([2 x ptr], ptr @rkey, i64 0, i64 1), align 8
+  store ptr %call7, ptr getelementptr inbounds (i8, ptr @rkey, i64 8), align 8
   %call8 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 804, ptr noundef nonnull @.str.7, ptr noundef %call7) #5
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11
@@ -262,9 +262,9 @@ if.end11:                                         ; preds = %if.end6
 
 if.end16:                                         ; preds = %if.end11
   %4 = load ptr, ptr @libctx, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @rkey, i64 0, i64 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @rkey, i64 8), align 8
   %call17 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %4, ptr noundef %5, ptr noundef null) #5
-  store ptr %call17, ptr getelementptr inbounds ([2 x ptr], ptr @rctx, i64 0, i64 1), align 8
+  store ptr %call17, ptr getelementptr inbounds (i8, ptr @rctx, i64 8), align 8
   %call18 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 814, ptr noundef nonnull @.str.10, ptr noundef %call17) #5
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %if.end21
@@ -1887,7 +1887,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @rctx, i64 0, i64 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @rctx, i64 8), align 8
   %call2 = tail call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %1, ptr noundef %call, ptr noundef nonnull @opparam) #5
   %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 764, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.74, i32 noundef %call2, i32 noundef 0) #5
   tail call void @EVP_PKEY_free(ptr noundef %call) #5
@@ -1938,11 +1938,11 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @rkey, i64 0, i64 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @rkey, i64 8), align 8
   tail call void @EVP_PKEY_free(ptr noundef %0) #5
   %1 = load ptr, ptr @rkey, align 16
   tail call void @EVP_PKEY_free(ptr noundef %1) #5
-  %2 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @rctx, i64 0, i64 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @rctx, i64 8), align 8
   tail call void @EVP_PKEY_CTX_free(ptr noundef %2) #5
   %3 = load ptr, ptr @rctx, align 16
   tail call void @EVP_PKEY_CTX_free(ptr noundef %3) #5

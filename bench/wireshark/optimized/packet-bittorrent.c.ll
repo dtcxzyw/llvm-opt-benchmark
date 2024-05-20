@@ -434,7 +434,7 @@ define internal i32 @dissect_bittorrent_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %28, ptr noundef %0, i32 noundef 48, i32 noundef 20, i32 noundef 0) #4
   %30 = load i32, ptr @decode_client_information, align 4
   %.not.i = icmp eq i32 %30, 0
-  %31 = load ptr, ptr getelementptr inbounds ([84 x %struct.client_information], ptr @peer_id, i64 0, i64 0, i32 2), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @peer_id, i64 8), align 8
   %.not4044.i = icmp eq ptr %31, null
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not4044.i
   br i1 %or.cond.i, label %dissect_bittorrent_welcome.exit, label %.lr.ph.i

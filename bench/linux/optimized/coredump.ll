@@ -206,7 +206,7 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %19 = load i64, ptr %18, align 32
   store i64 %19, ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 32
-  %21 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #19, !srcloc !8
+  %21 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !8
   store i32 %21, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 40
   %23 = getelementptr inbounds i8, ptr %4, i64 56
@@ -413,21 +413,21 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   br i1 %127, label %149, label %143
 
 143:                                              ; preds = %141
-  %144 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %145 = call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %144, i32 noundef 3264, i64 noundef 512) #22
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.thread38, label %147
 
 147:                                              ; preds = %143
   store i64 0, ptr %145, align 8
-  %148 = load i8, ptr getelementptr inbounds ([128 x i8], ptr @core_pattern, i64 0, i64 1), align 1
+  %148 = load i8, ptr getelementptr inbounds (i8, ptr @core_pattern, i64 1), align 1
   %.not = icmp eq i8 %148, 0
   br i1 %.not, label %.thread38, label %149
 
 149:                                              ; preds = %147, %141
   %150 = phi ptr [ %145, %147 ], [ null, %141 ]
   %151 = phi i32 [ 1, %147 ], [ 0, %141 ]
-  %152 = phi ptr [ getelementptr inbounds ([128 x i8], ptr @core_pattern, i64 0, i64 1), %147 ], [ @core_pattern, %141 ]
+  %152 = phi ptr [ getelementptr inbounds (i8, ptr @core_pattern, i64 1), %147 ], [ @core_pattern, %141 ]
   %153 = getelementptr inbounds i8, ptr %7, i64 1800
   %154 = getelementptr inbounds i8, ptr %7, i64 1872
   %155 = getelementptr inbounds i8, ptr %125, i64 12
@@ -783,10 +783,10 @@ thread-pre-split:                                 ; preds = %.preheader62.split.
 354:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !6
-  call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 119)) #19
-  %355 = load ptr, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 98), align 8
+  call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_task, i64 2056)) #19
+  %355 = load ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1848), align 8
   call fastcc void @get_fs_root(ptr noundef %355, ptr noundef nonnull %5)
-  call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 119)) #19
+  call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_task, i64 2056)) #19
   %356 = call ptr @file_open_root(ptr noundef nonnull %5, ptr noundef %346, i32 noundef 164033, i16 noundef zeroext 384) #19
   store ptr %356, ptr %11, align 8
   call void @path_put(ptr noundef nonnull %5) #19
@@ -1199,7 +1199,7 @@ define internal fastcc noundef zeroext i1 @dump_vma_snapshot(ptr nocapture nound
   store ptr %8, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 56
   store i32 1, ptr %10, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #19
           to label %12 [label %11], !srcloc !25
 
 11:                                               ; preds = %1
@@ -1209,7 +1209,7 @@ define internal fastcc noundef zeroext i1 @dump_vma_snapshot(ptr nocapture nound
 12:                                               ; preds = %11, %1
   %13 = getelementptr inbounds i8, ptr %7, i64 176
   %14 = tail call i32 @down_write_killable(ptr noundef %13) #19
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #19
           to label %17 [label %15], !srcloc !25
 
 15:                                               ; preds = %12
@@ -1255,7 +1255,7 @@ define internal fastcc noundef zeroext i1 @dump_vma_snapshot(ptr nocapture nound
   br label %45
 
 39:                                               ; preds = %.thread, %32
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #19
           to label %41 [label %40], !srcloc !25
 
 40:                                               ; preds = %39
@@ -1453,7 +1453,7 @@ define internal fastcc noundef zeroext i1 @dump_vma_snapshot(ptr nocapture nound
   br i1 %168, label %.thread6, label %45, !llvm.loop !28
 
 .thread6:                                         ; preds = %166, %45
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #19
           to label %170 [label %169], !srcloc !25
 
 169:                                              ; preds = %.thread6
@@ -1526,7 +1526,7 @@ define internal fastcc void @file_start_write(ptr nocapture readonly %.168.val) 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 584
   %8 = tail call i32 @__SCT__might_resched() #19
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #19, !srcloc !30
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !30
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !31
   %9 = load volatile i32, ptr %7, align 8
   %10 = icmp eq i32 %9, 0
@@ -1544,7 +1544,7 @@ define internal fastcc void @file_start_write(ptr nocapture readonly %.168.val) 
 
 16:                                               ; preds = %14, %11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !34
-  %17 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #19, !srcloc !35
+  %17 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !35
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
@@ -1654,7 +1654,7 @@ define internal fastcc void @file_end_write(ptr nocapture readonly %.168.val) un
   %5 = getelementptr inbounds i8, ptr %.168.val, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 584
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #19, !srcloc !30
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !30
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !37
   %8 = load volatile i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
@@ -1677,7 +1677,7 @@ define internal fastcc void @file_end_write(ptr nocapture readonly %.168.val) un
 
 18:                                               ; preds = %13, %10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !41
-  %19 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #19, !srcloc !35
+  %19 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !35
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i8 %19, 0
@@ -2415,7 +2415,7 @@ define internal fastcc i32 @cn_print_exe_file(ptr nocapture noundef %0, i1 nound
   br label %35
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 4096) #22
   %15 = icmp eq ptr %14, null
   br i1 %15, label %33, label %16

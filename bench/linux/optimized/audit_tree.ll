@@ -402,7 +402,7 @@ define dso_local void @audit_trim_trees() local_unnamed_addr #1 align 16 {
 
 .loopexit10:                                      ; preds = %.loopexit10.loopexit, %0
   %63 = phi ptr [ %.pre, %.loopexit10.loopexit ], [ @tree_list, %0 ]
-  store ptr %63, ptr getelementptr inbounds (%struct.list_head, ptr @tree_list, i64 0, i32 1), align 8
+  store ptr %63, ptr getelementptr inbounds (i8, ptr @tree_list, i64 8), align 8
   store volatile ptr @tree_list, ptr %63, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %1, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
@@ -990,7 +990,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr nocapture noundef r
   br i1 %24, label %25, label %178
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %27 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 112) #20
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %46

@@ -1741,7 +1741,7 @@ define hidden void @_hit_paths(ptr nocapture readnone %0, ptr noundef %1, ptr no
 
 11:                                               ; preds = %9, %5
   %12 = phi double [ 0x47EFFFFFE0000000, %5 ], [ %10, %9 ]
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %14 = getelementptr inbounds i8, ptr %13, i64 1448
   %15 = load double, ptr %14, align 8, !tbaa !105
   %16 = fmul reassoc nsz arcp contract afn double %15, 2.500000e+01
@@ -1766,7 +1766,7 @@ define hidden void @_hit_paths(ptr nocapture readnone %0, ptr noundef %1, ptr no
   %31 = icmp eq i32 %30, 0
   %32 = and i32 %26, 2
   %33 = icmp eq i32 %32, 0
-  %34 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1448
   br label %36
 
@@ -2188,7 +2188,7 @@ define internal fastcc void @casteljau(float %0, float %1, ptr nocapture noundef
 define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <2 x float> noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
   %5 = alloca { float, float }, align 8
   store <2 x float> %2, ptr %5, align 8
-  %6 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 0, i32 4), align 8, !tbaa !109
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 40), align 8, !tbaa !109
   %7 = and i32 %6, 1
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %9
@@ -2199,7 +2199,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 11:                                               ; preds = %9, %4
   %12 = phi ptr [ %10, %9 ], [ null, %4 ]
-  %13 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 1, i32 4), align 16, !tbaa !109
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 96), align 16, !tbaa !109
   %14 = and i32 %13, 1
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %18, label %16
@@ -2210,7 +2210,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 18:                                               ; preds = %16, %11
   %19 = phi ptr [ %17, %16 ], [ %12, %11 ]
-  %20 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 2, i32 4), align 8, !tbaa !109
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 152), align 8, !tbaa !109
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %25, label %23
@@ -2221,7 +2221,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 25:                                               ; preds = %23, %18
   %26 = phi ptr [ %24, %23 ], [ %19, %18 ]
-  %27 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 3, i32 4), align 16, !tbaa !109
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 208), align 16, !tbaa !109
   %28 = and i32 %27, 1
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %32, label %30
@@ -2232,7 +2232,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 32:                                               ; preds = %30, %25
   %33 = phi ptr [ %31, %30 ], [ %26, %25 ]
-  %34 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 4, i32 4), align 8, !tbaa !109
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 264), align 8, !tbaa !109
   %35 = and i32 %34, 1
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %39, label %37
@@ -2243,7 +2243,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 39:                                               ; preds = %37, %32
   %40 = phi ptr [ %38, %37 ], [ %33, %32 ]
-  %41 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 5, i32 4), align 16, !tbaa !109
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 320), align 16, !tbaa !109
   %42 = and i32 %41, 1
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %46, label %44
@@ -2254,7 +2254,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 46:                                               ; preds = %44, %39
   %47 = phi ptr [ %45, %44 ], [ %40, %39 ]
-  %48 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 6, i32 4), align 8, !tbaa !109
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 376), align 8, !tbaa !109
   %49 = and i32 %48, 1
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %53, label %51
@@ -2265,7 +2265,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 53:                                               ; preds = %51, %46
   %54 = phi ptr [ %52, %51 ], [ %47, %46 ]
-  %55 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 7, i32 4), align 16, !tbaa !109
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 432), align 16, !tbaa !109
   %56 = and i32 %55, 1
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %60, label %58
@@ -2276,7 +2276,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 60:                                               ; preds = %58, %53
   %61 = phi ptr [ %59, %58 ], [ %54, %53 ]
-  %62 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 8, i32 4), align 8, !tbaa !109
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 488), align 8, !tbaa !109
   %63 = and i32 %62, 1
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %67, label %65
@@ -2287,7 +2287,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 67:                                               ; preds = %65, %60
   %68 = phi ptr [ %66, %65 ], [ %61, %60 ]
-  %69 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 9, i32 4), align 16, !tbaa !109
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 544), align 16, !tbaa !109
   %70 = and i32 %69, 1
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %74, label %72
@@ -2298,7 +2298,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 74:                                               ; preds = %72, %67
   %75 = phi ptr [ %73, %72 ], [ %68, %67 ]
-  %76 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 10, i32 4), align 8, !tbaa !109
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 600), align 8, !tbaa !109
   %77 = and i32 %76, 1
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %81, label %79
@@ -2309,7 +2309,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 81:                                               ; preds = %79, %74
   %82 = phi ptr [ %80, %79 ], [ %75, %74 ]
-  %83 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 11, i32 4), align 16, !tbaa !109
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 656), align 16, !tbaa !109
   %84 = and i32 %83, 1
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %88, label %86
@@ -2320,7 +2320,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 88:                                               ; preds = %86, %81
   %89 = phi ptr [ %87, %86 ], [ %82, %81 ]
-  %90 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 12, i32 4), align 8, !tbaa !109
+  %90 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 712), align 8, !tbaa !109
   %91 = and i32 %90, 1
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %95, label %93
@@ -2331,7 +2331,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 95:                                               ; preds = %93, %88
   %96 = phi ptr [ %94, %93 ], [ %89, %88 ]
-  %97 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 13, i32 4), align 16, !tbaa !109
+  %97 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 768), align 16, !tbaa !109
   %98 = and i32 %97, 1
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %102, label %100
@@ -2342,7 +2342,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 102:                                              ; preds = %100, %95
   %103 = phi ptr [ %101, %100 ], [ %96, %95 ]
-  %104 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 14, i32 4), align 8, !tbaa !109
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 824), align 8, !tbaa !109
   %105 = and i32 %104, 1
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %109, label %107
@@ -2353,7 +2353,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 109:                                              ; preds = %107, %102
   %110 = phi ptr [ %108, %107 ], [ %103, %102 ]
-  %111 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 15, i32 4), align 16, !tbaa !109
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 880), align 16, !tbaa !109
   %112 = and i32 %111, 1
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %116, label %114
@@ -2364,7 +2364,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 116:                                              ; preds = %114, %109
   %117 = phi ptr [ %115, %114 ], [ %110, %109 ]
-  %118 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 16, i32 4), align 8, !tbaa !109
+  %118 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 936), align 8, !tbaa !109
   %119 = and i32 %118, 1
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %123, label %121
@@ -2375,7 +2375,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 123:                                              ; preds = %121, %116
   %124 = phi ptr [ %122, %121 ], [ %117, %116 ]
-  %125 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 17, i32 4), align 16, !tbaa !109
+  %125 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 992), align 16, !tbaa !109
   %126 = and i32 %125, 1
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %130, label %128
@@ -2386,7 +2386,7 @@ define hidden void @_hit_test_paths(ptr nocapture readnone %0, ptr noundef %1, <
 
 130:                                              ; preds = %128, %123
   %131 = phi ptr [ %129, %128 ], [ %124, %123 ]
-  %132 = load i32, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 18, i32 4), align 8, !tbaa !109
+  %132 = load i32, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 1048), align 8, !tbaa !109
   %133 = and i32 %132, 1
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %137, label %135
@@ -2548,7 +2548,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %105 = call ptr @g_list_reverse(ptr noundef %1333) #29
   %106 = load ptr, ptr %13, align 16, !tbaa !122
   call void @cairo_set_line_cap(ptr noundef %1, i32 noundef 1) #29
-  %107 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %108 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %107) #29
   %109 = icmp eq i32 %108, 0
   %110 = getelementptr i8, ptr %106, i64 48
@@ -2851,14 +2851,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 315:                                              ; preds = %218
   %316 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %317 = fpext float %316 to double
-  %318 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %318 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %319 = getelementptr inbounds i8, ptr %318, i64 1448
   %320 = load double, ptr %319, align 8, !tbaa !105
   %321 = fmul reassoc nsz arcp contract afn double %317, %133
   %322 = fmul reassoc nsz arcp contract afn double %321, %320
   %323 = fptrunc double %322 to float
   %324 = fpext float %323 to double
-  %325 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %326 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %325) #29
   %327 = icmp eq i32 %326, 0
   %328 = select reassoc nsz arcp contract afn i1 %327, double 1.000000e+00, double 5.000000e-01
@@ -2929,9 +2929,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %371 = load float, ptr %366, align 4
   %372 = getelementptr inbounds i8, ptr %366, i64 4
   %373 = load float, ptr %372, align 4
-  %374 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %374 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %375 = fpext float %374 to double
-  %376 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %376 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %377 = getelementptr inbounds i8, ptr %376, i64 1448
   %378 = load double, ptr %377, align 8, !tbaa !105
   %379 = fmul reassoc nsz arcp contract afn double %375, %131
@@ -2952,9 +2952,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %390 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %389) #30
   %391 = fadd reassoc nsz arcp contract afn float %390, %370
   %392 = fpext float %391 to double
-  %393 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %393 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %394 = fpext float %393 to double
-  %395 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %395 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %396 = getelementptr inbounds i8, ptr %395, i64 1448
   %397 = load double, ptr %396, align 8, !tbaa !105
   %398 = fmul reassoc nsz arcp contract afn double %394, %131
@@ -3036,16 +3036,16 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br label %453
 
 453:                                              ; preds = %436, %433
-  %454 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 1), align 4, !tbaa !11
+  %454 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
   %455 = fpext float %454 to double
-  %456 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %456 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %457 = getelementptr inbounds i8, ptr %456, i64 1448
   %458 = load double, ptr %457, align 8, !tbaa !105
   %459 = fmul reassoc nsz arcp contract afn double %455, %131
   %460 = fmul reassoc nsz arcp contract afn double %459, %458
   %461 = fptrunc double %460 to float
   %462 = fpext float %461 to double
-  %463 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %463 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %464 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %463) #29
   %465 = icmp eq i32 %464, 0
   %466 = select reassoc nsz arcp contract afn i1 %465, double 1.000000e+00, double 5.000000e-01
@@ -3063,14 +3063,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_stroke_preserve(ptr noundef %1) #29
   %476 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %477 = fpext float %476 to double
-  %478 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %478 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %479 = getelementptr inbounds i8, ptr %478, i64 1448
   %480 = load double, ptr %479, align 8, !tbaa !105
   %481 = fmul reassoc nsz arcp contract afn double %477, %131
   %482 = fmul reassoc nsz arcp contract afn double %481, %480
   %483 = fptrunc double %482 to float
   %484 = fpext float %483 to double
-  %485 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %485 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %486 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %485) #29
   %487 = icmp eq i32 %486, 0
   %488 = select reassoc nsz arcp contract afn i1 %487, double 1.000000e+00, double 5.000000e-01
@@ -3095,9 +3095,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br i1 %501, label %502, label %773
 
 502:                                              ; preds = %498
-  %503 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 3), align 4, !tbaa !11
+  %503 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 12), align 4, !tbaa !11
   %504 = fpext float %503 to double
-  %505 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %505 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %506 = getelementptr inbounds i8, ptr %505, i64 1448
   %507 = load double, ptr %506, align 8, !tbaa !105
   %508 = fmul reassoc nsz arcp contract afn double %504, %131
@@ -3177,7 +3177,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 
 550:                                              ; preds = %543, %536, %529, %513
   call void @cairo_restore(ptr noundef %1) #29
-  %551 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %551 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %552 = getelementptr inbounds i8, ptr %551, i64 1448
   %553 = load double, ptr %552, align 8, !tbaa !105
   br label %554
@@ -3190,7 +3190,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %559 = fmul reassoc nsz arcp contract afn double %558, %557
   %560 = fptrunc double %559 to float
   %561 = fpext float %560 to double
-  %562 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %562 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %563 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %562) #29
   %564 = icmp eq i32 %563, 0
   %565 = select reassoc nsz arcp contract afn i1 %564, double 1.000000e+00, double 5.000000e-01
@@ -3242,14 +3242,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 594:                                              ; preds = %590, %589
   %595 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %596 = fpext float %595 to double
-  %597 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %597 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %598 = getelementptr inbounds i8, ptr %597, i64 1448
   %599 = load double, ptr %598, align 8, !tbaa !105
   %600 = fmul reassoc nsz arcp contract afn double %596, %131
   %601 = fmul reassoc nsz arcp contract afn double %600, %599
   %602 = fptrunc double %601 to float
   %603 = fpext float %602 to double
-  %604 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %604 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %605 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %604) #29
   %606 = icmp eq i32 %605, 0
   %607 = select reassoc nsz arcp contract afn i1 %606, double 1.000000e+00, double 5.000000e-01
@@ -3294,14 +3294,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 636:                                              ; preds = %632
   %637 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %638 = fpext float %637 to double
-  %639 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %639 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %640 = getelementptr inbounds i8, ptr %639, i64 1448
   %641 = load double, ptr %640, align 8, !tbaa !105
   %642 = fmul reassoc nsz arcp contract afn double %638, %131
   %643 = fmul reassoc nsz arcp contract afn double %642, %641
   %644 = fptrunc double %643 to float
   %645 = fpext float %644 to double
-  %646 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %646 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %647 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %646) #29
   %648 = icmp eq i32 %647, 0
   %649 = select reassoc nsz arcp contract afn i1 %648, double 1.000000e+00, double 5.000000e-01
@@ -3348,14 +3348,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 675:                                              ; preds = %671, %670
   %676 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %677 = fpext float %676 to double
-  %678 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %678 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %679 = getelementptr inbounds i8, ptr %678, i64 1448
   %680 = load double, ptr %679, align 8, !tbaa !105
   %681 = fmul reassoc nsz arcp contract afn double %677, %131
   %682 = fmul reassoc nsz arcp contract afn double %681, %680
   %683 = fptrunc double %682 to float
   %684 = fpext float %683 to double
-  %685 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %685 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %686 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %685) #29
   %687 = icmp eq i32 %686, 0
   %688 = select reassoc nsz arcp contract afn i1 %687, double 1.000000e+00, double 5.000000e-01
@@ -3374,9 +3374,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %699 = load float, ptr %698, align 4
   %700 = getelementptr inbounds i8, ptr %168, i64 64
   %701 = load float, ptr %700, align 4
-  %702 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %702 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %703 = fpext float %702 to double
-  %704 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %704 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %705 = getelementptr inbounds i8, ptr %704, i64 1448
   %706 = load double, ptr %705, align 8, !tbaa !105
   %707 = fmul reassoc nsz arcp contract afn double %703, %131
@@ -3411,14 +3411,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 726:                                              ; preds = %722
   %727 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %728 = fpext float %727 to double
-  %729 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %729 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %730 = getelementptr inbounds i8, ptr %729, i64 1448
   %731 = load double, ptr %730, align 8, !tbaa !105
   %732 = fmul reassoc nsz arcp contract afn double %728, %131
   %733 = fmul reassoc nsz arcp contract afn double %732, %731
   %734 = fptrunc double %733 to float
   %735 = fpext float %734 to double
-  %736 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %736 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %737 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %736) #29
   %738 = icmp eq i32 %737, 0
   %739 = select reassoc nsz arcp contract afn i1 %738, double 1.000000e+00, double 5.000000e-01
@@ -3437,9 +3437,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %750 = load float, ptr %749, align 4
   %751 = getelementptr inbounds i8, ptr %168, i64 72
   %752 = load float, ptr %751, align 4
-  %753 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %753 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %754 = fpext float %753 to double
-  %755 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %755 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %756 = getelementptr inbounds i8, ptr %755, i64 1448
   %757 = load double, ptr %756, align 8, !tbaa !105
   %758 = fmul reassoc nsz arcp contract afn double %754, %131
@@ -3482,16 +3482,16 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_new_sub_path(ptr noundef %1) #29
   call void @cairo_arc(ptr noundef %1, double noundef %781, double noundef %783, double noundef %779, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
-  %784 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 1), align 4, !tbaa !11
+  %784 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
   %785 = fpext float %784 to double
-  %786 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %786 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %787 = getelementptr inbounds i8, ptr %786, i64 1448
   %788 = load double, ptr %787, align 8, !tbaa !105
   %789 = fmul reassoc nsz arcp contract afn double %785, %131
   %790 = fmul reassoc nsz arcp contract afn double %789, %788
   %791 = fptrunc double %790 to float
   %792 = fpext float %791 to double
-  %793 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %793 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %794 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %793) #29
   %795 = icmp eq i32 %794, 0
   %796 = select reassoc nsz arcp contract afn i1 %795, double 1.000000e+00, double 5.000000e-01
@@ -3509,14 +3509,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_stroke_preserve(ptr noundef %1) #29
   %806 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %807 = fpext float %806 to double
-  %808 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %808 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %809 = getelementptr inbounds i8, ptr %808, i64 1448
   %810 = load double, ptr %809, align 8, !tbaa !105
   %811 = fmul reassoc nsz arcp contract afn double %807, %131
   %812 = fmul reassoc nsz arcp contract afn double %811, %810
   %813 = fptrunc double %812 to float
   %814 = fpext float %813 to double
-  %815 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %815 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %816 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %815) #29
   %817 = icmp eq i32 %816, 0
   %818 = select reassoc nsz arcp contract afn i1 %817, double 1.000000e+00, double 5.000000e-01
@@ -3539,14 +3539,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 829:                                              ; preds = %828
   %830 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %831 = fpext float %830 to double
-  %832 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %832 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %833 = getelementptr inbounds i8, ptr %832, i64 1448
   %834 = load double, ptr %833, align 8, !tbaa !105
   %835 = fmul reassoc nsz arcp contract afn double %831, %131
   %836 = fmul reassoc nsz arcp contract afn double %835, %834
   %837 = fptrunc double %836 to float
   %838 = fpext float %837 to double
-  %839 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %839 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %840 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %839) #29
   %841 = icmp eq i32 %840, 0
   %842 = select reassoc nsz arcp contract afn i1 %841, double 1.000000e+00, double 5.000000e-01
@@ -3565,9 +3565,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %853 = load float, ptr %852, align 4
   %854 = getelementptr inbounds i8, ptr %168, i64 40
   %855 = load float, ptr %854, align 4
-  %856 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %856 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %857 = fpext float %856 to double
-  %858 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %858 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %859 = getelementptr inbounds i8, ptr %858, i64 1448
   %860 = load double, ptr %859, align 8, !tbaa !105
   %861 = fmul reassoc nsz arcp contract afn double %857, %131
@@ -3614,16 +3614,16 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %890 = fmul reassoc nsz arcp contract afn double %885, %882
   call void @cairo_arc(ptr noundef %1, double noundef %887, double noundef %889, double noundef %890, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
-  %891 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 1), align 4, !tbaa !11
+  %891 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
   %892 = fpext float %891 to double
-  %893 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %893 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %894 = getelementptr inbounds i8, ptr %893, i64 1448
   %895 = load double, ptr %894, align 8, !tbaa !105
   %896 = fmul reassoc nsz arcp contract afn double %892, %131
   %897 = fmul reassoc nsz arcp contract afn double %896, %895
   %898 = fptrunc double %897 to float
   %899 = fpext float %898 to double
-  %900 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %900 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %901 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %900) #29
   %902 = icmp eq i32 %901, 0
   %903 = select reassoc nsz arcp contract afn i1 %902, double 1.000000e+00, double 5.000000e-01
@@ -3641,14 +3641,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_stroke_preserve(ptr noundef %1) #29
   %913 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %914 = fpext float %913 to double
-  %915 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %915 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %916 = getelementptr inbounds i8, ptr %915, i64 1448
   %917 = load double, ptr %916, align 8, !tbaa !105
   %918 = fmul reassoc nsz arcp contract afn double %914, %131
   %919 = fmul reassoc nsz arcp contract afn double %918, %917
   %920 = fptrunc double %919 to float
   %921 = fpext float %920 to double
-  %922 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %922 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %923 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %922) #29
   %924 = icmp eq i32 %923, 0
   %925 = select reassoc nsz arcp contract afn i1 %924, double 1.000000e+00, double 5.000000e-01
@@ -3686,16 +3686,16 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %949 = fmul reassoc nsz arcp contract afn double %944, %941
   call void @cairo_arc(ptr noundef %1, double noundef %946, double noundef %948, double noundef %949, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
-  %950 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 1), align 4, !tbaa !11
+  %950 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
   %951 = fpext float %950 to double
-  %952 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %952 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %953 = getelementptr inbounds i8, ptr %952, i64 1448
   %954 = load double, ptr %953, align 8, !tbaa !105
   %955 = fmul reassoc nsz arcp contract afn double %951, %131
   %956 = fmul reassoc nsz arcp contract afn double %955, %954
   %957 = fptrunc double %956 to float
   %958 = fpext float %957 to double
-  %959 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %959 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %960 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %959) #29
   %961 = icmp eq i32 %960, 0
   %962 = select reassoc nsz arcp contract afn i1 %961, double 1.000000e+00, double 5.000000e-01
@@ -3713,14 +3713,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_stroke_preserve(ptr noundef %1) #29
   %972 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %973 = fpext float %972 to double
-  %974 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %974 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %975 = getelementptr inbounds i8, ptr %974, i64 1448
   %976 = load double, ptr %975, align 8, !tbaa !105
   %977 = fmul reassoc nsz arcp contract afn double %973, %131
   %978 = fmul reassoc nsz arcp contract afn double %977, %976
   %979 = fptrunc double %978 to float
   %980 = fpext float %979 to double
-  %981 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %981 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %982 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %981) #29
   %983 = icmp eq i32 %982, 0
   %984 = select reassoc nsz arcp contract afn i1 %983, double 1.000000e+00, double 5.000000e-01
@@ -3759,9 +3759,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %1008 = fadd reassoc nsz arcp contract afn float %1004, %1007
   %1009 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %1000) #30
   %1010 = fpext float %1009 to double
-  %1011 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %1011 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %1012 = fpext float %1011 to double
-  %1013 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1013 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1014 = getelementptr inbounds i8, ptr %1013, i64 1448
   %1015 = load double, ptr %1014, align 8, !tbaa !105
   %1016 = fmul reassoc nsz arcp contract afn double %1012, %131
@@ -3783,14 +3783,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_restore(ptr noundef %1) #29
   %1025 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %1026 = fpext float %1025 to double
-  %1027 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1027 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1028 = getelementptr inbounds i8, ptr %1027, i64 1448
   %1029 = load double, ptr %1028, align 8, !tbaa !105
   %1030 = fmul reassoc nsz arcp contract afn double %1026, %131
   %1031 = fmul reassoc nsz arcp contract afn double %1030, %1029
   %1032 = fptrunc double %1031 to float
   %1033 = fpext float %1032 to double
-  %1034 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %1034 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %1035 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1034) #29
   %1036 = icmp eq i32 %1035, 0
   %1037 = select reassoc nsz arcp contract afn i1 %1036, double 1.000000e+00, double 5.000000e-01
@@ -3834,9 +3834,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %1069 = fsub reassoc nsz arcp contract afn <2 x float> %210, %1059
   %1070 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %1069) #30
   %1071 = fpext float %1070 to double
-  %1072 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %1072 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %1073 = fpext float %1072 to double
-  %1074 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1074 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1075 = getelementptr inbounds i8, ptr %1074, i64 1448
   %1076 = load double, ptr %1075, align 8, !tbaa !105
   %1077 = fmul reassoc nsz arcp contract afn double %1073, %131
@@ -3858,14 +3858,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_restore(ptr noundef %1) #29
   %1086 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %1087 = fpext float %1086 to double
-  %1088 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1088 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1089 = getelementptr inbounds i8, ptr %1088, i64 1448
   %1090 = load double, ptr %1089, align 8, !tbaa !105
   %1091 = fmul reassoc nsz arcp contract afn double %1087, %131
   %1092 = fmul reassoc nsz arcp contract afn double %1091, %1090
   %1093 = fptrunc double %1092 to float
   %1094 = fpext float %1093 to double
-  %1095 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %1095 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %1096 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1095) #29
   %1097 = icmp eq i32 %1096, 0
   %1098 = select reassoc nsz arcp contract afn i1 %1097, double 1.000000e+00, double 5.000000e-01
@@ -3909,9 +3909,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br i1 %1124, label %1127, label %1151
 
 1127:                                             ; preds = %1117
-  %1128 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %1128 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %1129 = fpext float %1128 to double
-  %1130 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1130 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1131 = getelementptr inbounds i8, ptr %1130, i64 1448
   %1132 = load double, ptr %1131, align 8, !tbaa !105
   %1133 = fmul reassoc nsz arcp contract afn double %1129, %131
@@ -3947,16 +3947,16 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br label %1156
 
 1156:                                             ; preds = %1151, %1127
-  %1157 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 1), align 4, !tbaa !11
+  %1157 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
   %1158 = fpext float %1157 to double
-  %1159 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1159 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1160 = getelementptr inbounds i8, ptr %1159, i64 1448
   %1161 = load double, ptr %1160, align 8, !tbaa !105
   %1162 = fmul reassoc nsz arcp contract afn double %1158, %131
   %1163 = fmul reassoc nsz arcp contract afn double %1162, %1161
   %1164 = fptrunc double %1163 to float
   %1165 = fpext float %1164 to double
-  %1166 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %1166 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %1167 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1166) #29
   %1168 = icmp eq i32 %1167, 0
   %1169 = select reassoc nsz arcp contract afn i1 %1168, double 1.000000e+00, double 5.000000e-01
@@ -3974,14 +3974,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_stroke_preserve(ptr noundef %1) #29
   %1179 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %1180 = fpext float %1179 to double
-  %1181 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1181 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1182 = getelementptr inbounds i8, ptr %1181, i64 1448
   %1183 = load double, ptr %1182, align 8, !tbaa !105
   %1184 = fmul reassoc nsz arcp contract afn double %1180, %131
   %1185 = fmul reassoc nsz arcp contract afn double %1184, %1183
   %1186 = fptrunc double %1185 to float
   %1187 = fpext float %1186 to double
-  %1188 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %1188 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %1189 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1188) #29
   %1190 = icmp eq i32 %1189, 0
   %1191 = select reassoc nsz arcp contract afn i1 %1190, double 1.000000e+00, double 5.000000e-01
@@ -4019,9 +4019,9 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %1216 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %1215) #30
   %1217 = fadd reassoc nsz arcp contract afn float %1216, %1212
   %1218 = fpext float %1217 to double
-  %1219 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 4), align 16, !tbaa !11
+  %1219 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
   %1220 = fpext float %1219 to double
-  %1221 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1221 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1222 = getelementptr inbounds i8, ptr %1221, i64 1448
   %1223 = load double, ptr %1222, align 8, !tbaa !105
   %1224 = fmul reassoc nsz arcp contract afn double %1220, %131
@@ -4045,14 +4045,14 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_restore(ptr noundef %1) #29
   %1235 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
   %1236 = fpext float %1235 to double
-  %1237 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %1237 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %1238 = getelementptr inbounds i8, ptr %1237, i64 1448
   %1239 = load double, ptr %1238, align 8, !tbaa !105
   %1240 = fmul reassoc nsz arcp contract afn double %1236, %131
   %1241 = fmul reassoc nsz arcp contract afn double %1240, %1239
   %1242 = fptrunc double %1241 to float
   %1243 = fpext float %1242 to double
-  %1244 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %1244 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %1245 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1244) #29
   %1246 = icmp eq i32 %1245, 0
   %1247 = select reassoc nsz arcp contract afn i1 %1246, double 1.000000e+00, double 5.000000e-01
@@ -5014,7 +5014,7 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 21), align 8, !tbaa !153
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 160), align 8, !tbaa !153
   tail call void @dt_collection_hint_message(ptr noundef %5) #29
   %6 = tail call i32 @btn_make_radio_callback(ptr noundef null, ptr noundef null, ptr noundef %0)
   br label %7
@@ -5069,7 +5069,7 @@ define internal noundef i32 @btn_make_radio_callback(ptr noundef %0, ptr noundef
   %33 = phi i32 [ 0, %21 ], [ %31, %23 ]
   %34 = getelementptr inbounds i8, ptr %5, i64 112
   store i32 %33, ptr %34, align 8, !tbaa !157
-  %35 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !158
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !158
   tail call void @dt_control_hinter_message(ptr noundef %35, ptr noundef nonnull @.str.21) #29
   %36 = getelementptr inbounds i8, ptr %5, i64 64
   %37 = load i32, ptr %36, align 8, !tbaa !159
@@ -5144,7 +5144,7 @@ define internal noundef i32 @btn_make_radio_callback(ptr noundef %0, ptr noundef
 81:                                               ; preds = %78, %75
   %82 = phi ptr [ %70, %75 ], [ %.pre, %78 ]
   %83 = phi ptr [ @.str.21, %75 ], [ %80, %78 ]
-  store ptr %83, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 0, i32 5), align 16, !tbaa !160
+  store ptr %83, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 48), align 16, !tbaa !160
   %84 = icmp eq ptr %82, %0
   br i1 %84, label %91, label %85
 
@@ -5204,21 +5204,21 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   %21 = load float, ptr %8, align 4, !tbaa !11
   %22 = fmul reassoc nsz arcp contract afn float %21, %2
   store float %22, ptr %20, align 4, !tbaa !11
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %24 = getelementptr inbounds i8, ptr %23, i64 96
   %25 = load ptr, ptr %24, align 16, !tbaa !124
   %26 = getelementptr inbounds i8, ptr %0, i64 488
   %27 = load i32, ptr %26, align 8, !tbaa !161
   %28 = sitofp i32 %27 to double
   %29 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %23, ptr noundef %25, double noundef %28, i32 noundef 2, ptr noundef nonnull %9, i64 noundef 1) #29
-  %30 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %31 = getelementptr inbounds i8, ptr %30, i64 96
   %32 = load ptr, ptr %31, align 16, !tbaa !124
   %33 = load i32, ptr %26, align 8, !tbaa !161
   %34 = sitofp i32 %33 to double
   %35 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %30, ptr noundef %32, double noundef %34, i32 noundef 4, ptr noundef nonnull %9, i64 noundef 1) #29
   %36 = load float, ptr %9, align 4, !tbaa !11
-  %37 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 16, !tbaa !124
   %40 = getelementptr inbounds i8, ptr %39, i64 144
@@ -5232,7 +5232,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   %48 = load float, ptr %47, align 8, !tbaa !42
   %49 = call reassoc nsz arcp contract afn float @dt_dev_get_zoom_scale_full() #29
   %50 = fmul reassoc nsz arcp contract afn float %49, %48
-  %51 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %52 = getelementptr inbounds i8, ptr %51, i64 2696
   %53 = load ptr, ptr %52, align 8, !tbaa !164
   %54 = getelementptr inbounds i8, ptr %53, i64 144
@@ -5377,14 +5377,14 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   br label %147
 
 147:                                              ; preds = %145, %143
-  %148 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !158
+  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !158
   %149 = load i32, ptr %10, align 8, !tbaa !118
   %150 = zext i32 %149 to i64
   %151 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %150, i32 5
   %152 = load ptr, ptr %151, align 8, !tbaa !160
   call void @dt_control_hinter_message(ptr noundef %148, ptr noundef %152) #29
   %153 = load ptr, ptr %151, align 8, !tbaa !160
-  store ptr %153, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 0, i32 5), align 16, !tbaa !160
+  store ptr %153, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 48), align 16, !tbaa !160
   br label %384
 
 154:                                              ; preds = %129
@@ -5392,9 +5392,9 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   %156 = fsub reassoc nsz arcp contract afn <2 x float> %75, %132
   %157 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %156) #30
   %158 = fpext float %157 to double
-  %159 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 7), align 4, !tbaa !11
+  %159 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 28), align 4, !tbaa !11
   %160 = fpext float %159 to double
-  %161 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %161 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %162 = getelementptr inbounds i8, ptr %161, i64 1448
   %163 = load double, ptr %162, align 8, !tbaa !105
   %164 = fmul reassoc nsz arcp contract afn double %160, %155
@@ -5436,14 +5436,14 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   br i1 %187, label %382, label %188
 
 188:                                              ; preds = %183
-  %189 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !158
+  %189 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !158
   %190 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #29
   call void @dt_control_hinter_message(ptr noundef %189, ptr noundef %190) #29
   br label %382
 
 191:                                              ; preds = %6
-  %192 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !158
-  %193 = load ptr, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 0, i32 5), align 16, !tbaa !160
+  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !158
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 48), align 16, !tbaa !160
   call void @dt_control_hinter_message(ptr noundef %192, ptr noundef %193) #29
   %194 = getelementptr inbounds i8, ptr %12, i64 40
   %195 = load ptr, ptr %70, align 8, !tbaa !139
@@ -5887,7 +5887,7 @@ declare i32 @dt_mask_scroll_increases(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @get_stamp_params(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
   %4 = alloca %struct._cairo_rectangle_int, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %6 = load ptr, ptr %5, align 8, !tbaa !169
   %7 = tail call ptr @dt_ui_main_window(ptr noundef %6) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
@@ -5896,7 +5896,7 @@ define internal fastcc void @get_stamp_params(ptr nocapture noundef writeonly %0
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %4, i64 12
   %11 = load i32, ptr %10, align 4
-  %12 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %13 = getelementptr inbounds i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 16, !tbaa !124
   %15 = getelementptr inbounds i8, ptr %14, i64 144
@@ -5991,21 +5991,21 @@ define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef
   %22 = load float, ptr %10, align 4, !tbaa !11
   %23 = fmul reassoc nsz arcp contract afn float %22, %2
   store float %23, ptr %21, align 4, !tbaa !11
-  %24 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %25 = getelementptr inbounds i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 16, !tbaa !124
   %27 = getelementptr inbounds i8, ptr %0, i64 488
   %28 = load i32, ptr %27, align 8, !tbaa !161
   %29 = sitofp i32 %28 to double
   %30 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %24, ptr noundef %26, double noundef %29, i32 noundef 2, ptr noundef nonnull %11, i64 noundef 1) #29
-  %31 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %32 = getelementptr inbounds i8, ptr %31, i64 96
   %33 = load ptr, ptr %32, align 16, !tbaa !124
   %34 = load i32, ptr %27, align 8, !tbaa !161
   %35 = sitofp i32 %34 to double
   %36 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %31, ptr noundef %33, double noundef %35, i32 noundef 4, ptr noundef nonnull %11, i64 noundef 1) #29
   %37 = load float, ptr %11, align 4, !tbaa !11
-  %38 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 16, !tbaa !124
   %41 = getelementptr inbounds i8, ptr %40, i64 144
@@ -6016,7 +6016,7 @@ define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef
   %46 = load i32, ptr %45, align 4, !tbaa !163
   %47 = sitofp i32 %46 to float
   %48 = call reassoc nsz arcp contract afn float @dt_dev_get_zoom_scale_full() #29
-  %49 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %50 = getelementptr inbounds i8, ptr %49, i64 2696
   %51 = load ptr, ptr %50, align 8, !tbaa !164
   %52 = getelementptr inbounds i8, ptr %51, i64 144
@@ -6192,20 +6192,20 @@ define noundef range(i32 0, 3) i32 @button_released(ptr noundef %0, float nounde
   %23 = load float, ptr %9, align 4, !tbaa !11
   %24 = fmul reassoc nsz arcp contract afn float %23, %2
   store float %24, ptr %22, align 4, !tbaa !11
-  %25 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %26 = getelementptr inbounds i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 16, !tbaa !124
   %28 = getelementptr inbounds i8, ptr %0, i64 488
   %29 = load i32, ptr %28, align 8, !tbaa !161
   %30 = sitofp i32 %29 to double
   %31 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %25, ptr noundef %27, double noundef %30, i32 noundef 2, ptr noundef nonnull %10, i64 noundef 1) #29
-  %32 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %33 = getelementptr inbounds i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 16, !tbaa !124
   %35 = load i32, ptr %28, align 8, !tbaa !161
   %36 = sitofp i32 %35 to double
   %37 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %32, ptr noundef %34, double noundef %36, i32 noundef 4, ptr noundef nonnull %10, i64 noundef 1) #29
-  %38 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 16, !tbaa !124
   %41 = getelementptr inbounds i8, ptr %40, i64 144
@@ -6215,7 +6215,7 @@ define noundef range(i32 0, 3) i32 @button_released(ptr noundef %0, float nounde
   %45 = load <2 x i32>, ptr %41, align 16, !tbaa !7
   %46 = sitofp <2 x i32> %45 to <2 x float>
   %47 = call reassoc nsz arcp contract afn float @dt_dev_get_zoom_scale_full() #29
-  %48 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %49 = getelementptr inbounds i8, ptr %48, i64 2696
   %50 = load ptr, ptr %49, align 8, !tbaa !164
   %51 = getelementptr inbounds i8, ptr %50, i64 144
@@ -6252,9 +6252,9 @@ define noundef range(i32 0, 3) i32 @button_released(ptr noundef %0, float nounde
   %75 = fsub reassoc nsz arcp contract afn <2 x float> %74, %65
   %76 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %75) #30
   %77 = fpext float %76 to double
-  %78 = load float, ptr getelementptr inbounds ([8 x float], ptr @dt_liquify_ui_widths, i64 0, i64 7), align 4, !tbaa !11
+  %78 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 28), align 4, !tbaa !11
   %79 = fpext float %78 to double
-  %80 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !99
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %81 = getelementptr inbounds i8, ptr %80, i64 1448
   %82 = load double, ptr %81, align 8, !tbaa !105
   %83 = fmul reassoc nsz arcp contract afn double %79, %73
@@ -7349,7 +7349,7 @@ define noundef range(i32 0, 3) i32 @button_released(ptr noundef %0, float nounde
 789:                                              ; preds = %.loopexit
   %790 = load ptr, ptr %14, align 8, !tbaa !123
   call fastcc void @smooth_paths_linsys(ptr noundef %790)
-  %791 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %791 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   call void @dt_dev_add_history_item(ptr noundef %791, ptr noundef %0, i32 noundef 1) #29
   br label %793
 
@@ -7371,7 +7371,7 @@ define internal fastcc void @_start_new_shape(ptr nocapture noundef readonly %0)
   %7 = alloca float, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 704
   %9 = load ptr, ptr %8, align 16, !tbaa !122
-  %10 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %11 = getelementptr inbounds i8, ptr %10, i64 2632
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #29
@@ -7388,27 +7388,27 @@ define internal fastcc void @_start_new_shape(ptr nocapture noundef readonly %0)
   %21 = insertelement <2 x float> %20, float %19, i64 1
   %22 = fmul reassoc nsz arcp contract afn <2 x float> %16, %21
   store <2 x float> %22, ptr %4, align 8, !tbaa !11
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %24 = getelementptr inbounds i8, ptr %23, i64 96
   %25 = load ptr, ptr %24, align 16, !tbaa !124
   %26 = getelementptr inbounds i8, ptr %0, i64 488
   %27 = load i32, ptr %26, align 8, !tbaa !161
   %28 = sitofp i32 %27 to double
   %29 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %23, ptr noundef %25, double noundef %28, i32 noundef 2, ptr noundef nonnull %4, i64 noundef 1) #29
-  %30 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %31 = getelementptr inbounds i8, ptr %30, i64 96
   %32 = load ptr, ptr %31, align 16, !tbaa !124
   %33 = load i32, ptr %26, align 8, !tbaa !161
   %34 = sitofp i32 %33 to double
   %35 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %30, ptr noundef %32, double noundef %34, i32 noundef 4, ptr noundef nonnull %4, i64 noundef 1) #29
-  %36 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %37 = getelementptr inbounds i8, ptr %36, i64 96
   %38 = load ptr, ptr %37, align 16, !tbaa !124
   %39 = getelementptr inbounds i8, ptr %38, i64 144
   %40 = load <2 x float>, ptr %4, align 8, !tbaa !11
   %41 = load <2 x i32>, ptr %39, align 16, !tbaa !7
   %42 = call reassoc nsz arcp contract afn float @dt_dev_get_zoom_scale_full() #29
-  %43 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !138
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
   %44 = getelementptr inbounds i8, ptr %43, i64 2696
   %45 = load ptr, ptr %44, align 8, !tbaa !164
   %46 = getelementptr inbounds i8, ptr %45, i64 144
@@ -8192,23 +8192,23 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %50 = tail call ptr @g_type_check_instance_cast(ptr noundef %49, i64 noundef %40) #29
   %51 = getelementptr inbounds i8, ptr %9, i64 80
   store ptr %50, ptr %51, align 8, !tbaa !146
-  store ptr @.str.21, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 0, i32 5), align 16, !tbaa !160
+  store ptr @.str.21, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 48), align 16, !tbaa !160
   %52 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #29
-  store ptr %52, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 5, i32 5), align 8, !tbaa !160
+  store ptr %52, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 328), align 8, !tbaa !160
   %53 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #29
-  store ptr %53, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 12, i32 5), align 16, !tbaa !160
+  store ptr %53, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 720), align 16, !tbaa !160
   %54 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #29
-  store ptr %54, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 13, i32 5), align 8, !tbaa !160
+  store ptr %54, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 776), align 8, !tbaa !160
   %55 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #29
-  store ptr %55, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 14, i32 5), align 16, !tbaa !160
+  store ptr %55, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 832), align 16, !tbaa !160
   %56 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.25, i32 noundef 5) #29
-  store ptr %56, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 15, i32 5), align 8, !tbaa !160
+  store ptr %56, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 888), align 8, !tbaa !160
   %57 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #29
-  store ptr %57, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 16, i32 5), align 16, !tbaa !160
+  store ptr %57, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 944), align 16, !tbaa !160
   %58 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #29
-  store ptr %58, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 17, i32 5), align 8, !tbaa !160
+  store ptr %58, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 1000), align 8, !tbaa !160
   %59 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #29
-  store ptr %59, ptr getelementptr inbounds ([19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 18, i32 5), align 16, !tbaa !160
+  store ptr %59, ptr getelementptr inbounds (i8, ptr @dt_liquify_layers, i64 1056), align 16, !tbaa !160
   ret void
 }
 
@@ -8433,40 +8433,40 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 7, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 8, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 9, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 10, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 11, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 12, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 13, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 14, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 15, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 16, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 17, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 18, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 19, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 20, i32 0, i32 0, i32 7), align 8, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 21, i32 0, i32 0, i32 7), align 16, !tbaa !178
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 22, i32 0, i32 7), align 8, !tbaa !178
-  store ptr @introspection_init.f0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 2), align 8, !tbaa !178
-  store ptr @introspection_init.f0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 2), align 16, !tbaa !178
-  store ptr @introspection_init.f0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 2), align 8, !tbaa !178
-  store ptr @introspection_init.f0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 2), align 16, !tbaa !178
-  store ptr @introspection_init.f7, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 7, i32 0, i32 2), align 16, !tbaa !178
-  store ptr @introspection_init.f0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 13, i32 0, i32 2), align 16, !tbaa !178
-  store ptr @introspection_init.f0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 14, i32 0, i32 2), align 8, !tbaa !178
-  store ptr @introspection_init.f15, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 15, i32 0, i32 2), align 16, !tbaa !178
-  store ptr @introspection_init.f18, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 18, i32 0, i32 2), align 8, !tbaa !178
-  store ptr @introspection_init.f19, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 19, i32 0, i32 2), align 16, !tbaa !178
-  store ptr @introspection_init.f21, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 21, i32 0, i32 2), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 56), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 144), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 232), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 320), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 408), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 496), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 584), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 672), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 760), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 848), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 936), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1024), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1112), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1200), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1288), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1376), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1464), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1552), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1640), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1728), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1816), align 8, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1904), align 16, !tbaa !178
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1992), align 8, !tbaa !178
+  store ptr @introspection_init.f0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 72), align 8, !tbaa !178
+  store ptr @introspection_init.f0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 160), align 16, !tbaa !178
+  store ptr @introspection_init.f0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 248), align 8, !tbaa !178
+  store ptr @introspection_init.f0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 336), align 16, !tbaa !178
+  store ptr @introspection_init.f7, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 688), align 16, !tbaa !178
+  store ptr @introspection_init.f0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1216), align 16, !tbaa !178
+  store ptr @introspection_init.f0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1304), align 8, !tbaa !178
+  store ptr @introspection_init.f15, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1392), align 16, !tbaa !178
+  store ptr @introspection_init.f18, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1656), align 8, !tbaa !178
+  store ptr @introspection_init.f19, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1744), align 16, !tbaa !178
+  store ptr @introspection_init.f21, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1920), align 16, !tbaa !178
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -8761,11 +8761,11 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
 61:                                               ; preds = %58
   %62 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.57) #29
   %63 = icmp eq i32 %62, 0
-  %64 = select i1 %63, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 20, i32 0, i32 0, i32 0), ptr null
+  %64 = select i1 %63, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 1760), ptr null
   br label %65
 
 65:                                               ; preds = %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %66 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0), %4 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0), %7 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0), %10 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 0), %13 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 0), %16 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 0, i32 0), %19 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 7, i32 0, i32 0, i32 0), %22 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 8, i32 0, i32 0, i32 0), %25 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 9, i32 0, i32 0, i32 0), %28 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 10, i32 0, i32 0, i32 0), %31 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 11, i32 0, i32 0, i32 0), %34 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 12, i32 0, i32 0, i32 0), %37 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 13, i32 0, i32 0, i32 0), %40 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 14, i32 0, i32 0, i32 0), %43 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 15, i32 0, i32 0, i32 0), %46 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 16, i32 0, i32 0, i32 0), %49 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 17, i32 0, i32 0, i32 0), %52 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 18, i32 0, i32 0, i32 0), %55 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_int8_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_float_complex_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 19, i32 0, i32 0, i32 0), %58 ], [ %64, %61 ]
+  %66 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 88), %4 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 176), %7 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 264), %10 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 352), %13 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 440), %16 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 528), %19 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 616), %22 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 704), %25 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 792), %28 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 880), %31 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 968), %34 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 1056), %37 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 1144), %40 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 1232), %43 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 1320), %46 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 1408), %49 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 1496), %52 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 1584), %55 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 1672), %58 ], [ %64, %61 ]
   ret ptr %66
 }
 

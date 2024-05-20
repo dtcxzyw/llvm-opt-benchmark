@@ -294,7 +294,7 @@ entry:
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN4pbrt15PrintStackTraceEv()
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message) #18
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !11
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 8), align 8, !noalias !11
   %1 = load ptr, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, align 8, !noalias !14
   %cmp.i.i.i.not6 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.not6, label %for.end, label %for.body
@@ -378,8 +378,8 @@ declare void @abort() local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt18CheckCallbackScopeC2ESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEE(ptr nocapture nonnull readnone align 1 %this, ptr noundef %callback) unnamed_addr #3 align 2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 16), align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -403,9 +403,9 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
   br label %_ZNSt16allocator_traitsISaISt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 8), align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 8), align 8
   br label %_ZNSt6vectorISt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESaIS8_EE9push_backEOS8_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -421,7 +421,7 @@ define dso_local void @_ZN4pbrt18CheckCallbackScopeD2Ev(ptr nocapture nonnull re
 entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 8), align 8
   %1 = load ptr, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -441,7 +441,7 @@ invoke.cont:                                      ; preds = %if.then
 
 do.end:                                           ; preds = %entry
   %incdec.ptr.i = getelementptr inbounds i8, ptr %0, i64 -32
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt18CheckCallbackScope9callbacksB5cxx11E, i64 8), align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -16
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null

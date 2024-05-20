@@ -91,7 +91,7 @@ define internal void @ompi_errcode_intern_destruct(ptr nocapture noundef readonl
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @ompi_errcode_intern_init() local_unnamed_addr #1 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i64 0, i32 4), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -101,8 +101,8 @@ define range(i32 -1, 1) i32 @ompi_errcode_intern_init() local_unnamed_addr #1 {
 
 4:                                                ; preds = %3, %0
   store ptr @opal_pointer_array_t_class, ptr @ompi_errcodes_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_pointer_array_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -123,7 +123,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 11:                                               ; preds = %opal_obj_run_constructors.exit
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not26 = icmp eq i32 %12, %13
   br i1 %.not26, label %15, label %14
 
@@ -133,8 +133,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 15:                                               ; preds = %14, %11
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_success_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_success_intern, i64 0, i32 0, i32 1), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_success_intern, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i49 = icmp eq ptr %17, null
   br i1 %.not6.i49, label %opal_obj_run_constructors.exit53, label %.lr.ph.i50
@@ -149,14 +149,14 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
   br i1 %.not.i52, label %opal_obj_run_constructors.exit53, label %.lr.ph.i50, !llvm.loop !4
 
 opal_obj_run_constructors.exit53:                 ; preds = %.lr.ph.i50, %15
-  store i32 0, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_success_intern, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_success_intern, i64 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_success_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_success_intern, i64 0, i32 4), ptr noundef nonnull @.str.1, i64 noundef 64) #4
-  %21 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_success_intern, i64 0, i32 3), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ompi_success_intern, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ompi_success_intern, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ompi_success_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_success_intern, i64 28), ptr noundef nonnull @.str.1, i64 noundef 64) #4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_success_intern, i64 24), align 8
   %22 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %21, ptr noundef nonnull @ompi_success_intern) #4
   %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not27 = icmp eq i32 %23, %24
   br i1 %.not27, label %26, label %25
 
@@ -166,8 +166,8 @@ opal_obj_run_constructors.exit53:                 ; preds = %.lr.ph.i50, %15
 
 26:                                               ; preds = %25, %opal_obj_run_constructors.exit53
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_error_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_error_intern, i64 0, i32 0, i32 1), align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_error_intern, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i54 = icmp eq ptr %28, null
   br i1 %.not6.i54, label %opal_obj_run_constructors.exit58, label %.lr.ph.i55
@@ -182,14 +182,14 @@ opal_obj_run_constructors.exit53:                 ; preds = %.lr.ph.i50, %15
   br i1 %.not.i57, label %opal_obj_run_constructors.exit58, label %.lr.ph.i55, !llvm.loop !4
 
 opal_obj_run_constructors.exit58:                 ; preds = %.lr.ph.i55, %26
-  store i32 -1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_error_intern, i64 0, i32 1), align 8
-  store i32 16, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_error_intern, i64 0, i32 2), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_error_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_error_intern, i64 0, i32 4), ptr noundef nonnull @.str.2, i64 noundef 64) #4
-  %32 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_error_intern, i64 0, i32 3), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @ompi_error_intern, i64 16), align 8
+  store i32 16, ptr getelementptr inbounds (i8, ptr @ompi_error_intern, i64 20), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ompi_error_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_error_intern, i64 28), ptr noundef nonnull @.str.2, i64 noundef 64) #4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_error_intern, i64 24), align 8
   %33 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %32, ptr noundef nonnull @ompi_error_intern) #4
   %34 = load i32, ptr @opal_class_init_epoch, align 4
-  %35 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not28 = icmp eq i32 %34, %35
   br i1 %.not28, label %37, label %36
 
@@ -199,8 +199,8 @@ opal_obj_run_constructors.exit58:                 ; preds = %.lr.ph.i55, %26
 
 37:                                               ; preds = %36, %opal_obj_run_constructors.exit58
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_out_of_resource_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_out_of_resource_intern, i64 0, i32 0, i32 1), align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_out_of_resource_intern, i64 8), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %39 = load ptr, ptr %38, align 8
   %.not6.i59 = icmp eq ptr %39, null
   br i1 %.not6.i59, label %opal_obj_run_constructors.exit63, label %.lr.ph.i60
@@ -215,14 +215,14 @@ opal_obj_run_constructors.exit58:                 ; preds = %.lr.ph.i55, %26
   br i1 %.not.i62, label %opal_obj_run_constructors.exit63, label %.lr.ph.i60, !llvm.loop !4
 
 opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %37
-  store i32 -2, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_out_of_resource_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_out_of_resource_intern, i64 0, i32 2), align 4
-  store i32 2, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_out_of_resource_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_out_of_resource_intern, i64 0, i32 4), ptr noundef nonnull @.str.3, i64 noundef 64) #4
-  %43 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_out_of_resource_intern, i64 0, i32 3), align 8
+  store i32 -2, ptr getelementptr inbounds (i8, ptr @ompi_err_out_of_resource_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_out_of_resource_intern, i64 20), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @ompi_err_out_of_resource_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_out_of_resource_intern, i64 28), ptr noundef nonnull @.str.3, i64 noundef 64) #4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_out_of_resource_intern, i64 24), align 8
   %44 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %43, ptr noundef nonnull @ompi_err_out_of_resource_intern) #4
   %45 = load i32, ptr @opal_class_init_epoch, align 4
-  %46 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not29 = icmp eq i32 %45, %46
   br i1 %.not29, label %48, label %47
 
@@ -232,8 +232,8 @@ opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %37
 
 48:                                               ; preds = %47, %opal_obj_run_constructors.exit63
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_temp_out_of_resource_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_temp_out_of_resource_intern, i64 0, i32 0, i32 1), align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_temp_out_of_resource_intern, i64 8), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %50 = load ptr, ptr %49, align 8
   %.not6.i64 = icmp eq ptr %50, null
   br i1 %.not6.i64, label %opal_obj_run_constructors.exit68, label %.lr.ph.i65
@@ -248,14 +248,14 @@ opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %37
   br i1 %.not.i67, label %opal_obj_run_constructors.exit68, label %.lr.ph.i65, !llvm.loop !4
 
 opal_obj_run_constructors.exit68:                 ; preds = %.lr.ph.i65, %48
-  store i32 -3, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_temp_out_of_resource_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_temp_out_of_resource_intern, i64 0, i32 2), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_temp_out_of_resource_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_temp_out_of_resource_intern, i64 0, i32 4), ptr noundef nonnull @.str.4, i64 noundef 64) #4
-  %54 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_temp_out_of_resource_intern, i64 0, i32 3), align 8
+  store i32 -3, ptr getelementptr inbounds (i8, ptr @ompi_err_temp_out_of_resource_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_temp_out_of_resource_intern, i64 20), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @ompi_err_temp_out_of_resource_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_temp_out_of_resource_intern, i64 28), ptr noundef nonnull @.str.4, i64 noundef 64) #4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_temp_out_of_resource_intern, i64 24), align 8
   %55 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %54, ptr noundef nonnull @ompi_err_temp_out_of_resource_intern) #4
   %56 = load i32, ptr @opal_class_init_epoch, align 4
-  %57 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not30 = icmp eq i32 %56, %57
   br i1 %.not30, label %59, label %58
 
@@ -265,8 +265,8 @@ opal_obj_run_constructors.exit68:                 ; preds = %.lr.ph.i65, %48
 
 59:                                               ; preds = %58, %opal_obj_run_constructors.exit68
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_resource_busy_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_resource_busy_intern, i64 0, i32 0, i32 1), align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_resource_busy_intern, i64 8), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %61 = load ptr, ptr %60, align 8
   %.not6.i69 = icmp eq ptr %61, null
   br i1 %.not6.i69, label %opal_obj_run_constructors.exit73, label %.lr.ph.i70
@@ -281,14 +281,14 @@ opal_obj_run_constructors.exit68:                 ; preds = %.lr.ph.i65, %48
   br i1 %.not.i72, label %opal_obj_run_constructors.exit73, label %.lr.ph.i70, !llvm.loop !4
 
 opal_obj_run_constructors.exit73:                 ; preds = %.lr.ph.i70, %59
-  store i32 -4, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_resource_busy_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_resource_busy_intern, i64 0, i32 2), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_resource_busy_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_resource_busy_intern, i64 0, i32 4), ptr noundef nonnull @.str.5, i64 noundef 64) #4
-  %65 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_resource_busy_intern, i64 0, i32 3), align 8
+  store i32 -4, ptr getelementptr inbounds (i8, ptr @ompi_err_resource_busy_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_resource_busy_intern, i64 20), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @ompi_err_resource_busy_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_resource_busy_intern, i64 28), ptr noundef nonnull @.str.5, i64 noundef 64) #4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_resource_busy_intern, i64 24), align 8
   %66 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %65, ptr noundef nonnull @ompi_err_resource_busy_intern) #4
   %67 = load i32, ptr @opal_class_init_epoch, align 4
-  %68 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not31 = icmp eq i32 %67, %68
   br i1 %.not31, label %70, label %69
 
@@ -298,8 +298,8 @@ opal_obj_run_constructors.exit73:                 ; preds = %.lr.ph.i70, %59
 
 70:                                               ; preds = %69, %opal_obj_run_constructors.exit73
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_bad_param_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_bad_param_intern, i64 0, i32 0, i32 1), align 8
-  %71 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_bad_param_intern, i64 8), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %72 = load ptr, ptr %71, align 8
   %.not6.i74 = icmp eq ptr %72, null
   br i1 %.not6.i74, label %opal_obj_run_constructors.exit78, label %.lr.ph.i75
@@ -314,14 +314,14 @@ opal_obj_run_constructors.exit73:                 ; preds = %.lr.ph.i70, %59
   br i1 %.not.i77, label %opal_obj_run_constructors.exit78, label %.lr.ph.i75, !llvm.loop !4
 
 opal_obj_run_constructors.exit78:                 ; preds = %.lr.ph.i75, %70
-  store i32 -5, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_bad_param_intern, i64 0, i32 1), align 8
-  store i32 13, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_bad_param_intern, i64 0, i32 2), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_bad_param_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_bad_param_intern, i64 0, i32 4), ptr noundef nonnull @.str.6, i64 noundef 64) #4
-  %76 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_bad_param_intern, i64 0, i32 3), align 8
+  store i32 -5, ptr getelementptr inbounds (i8, ptr @ompi_err_bad_param_intern, i64 16), align 8
+  store i32 13, ptr getelementptr inbounds (i8, ptr @ompi_err_bad_param_intern, i64 20), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @ompi_err_bad_param_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_bad_param_intern, i64 28), ptr noundef nonnull @.str.6, i64 noundef 64) #4
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_bad_param_intern, i64 24), align 8
   %77 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %76, ptr noundef nonnull @ompi_err_bad_param_intern) #4
   %78 = load i32, ptr @opal_class_init_epoch, align 4
-  %79 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not32 = icmp eq i32 %78, %79
   br i1 %.not32, label %81, label %80
 
@@ -331,8 +331,8 @@ opal_obj_run_constructors.exit78:                 ; preds = %.lr.ph.i75, %70
 
 81:                                               ; preds = %80, %opal_obj_run_constructors.exit78
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_fatal_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_fatal_intern, i64 0, i32 0, i32 1), align 8
-  %82 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_fatal_intern, i64 8), align 8
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %83 = load ptr, ptr %82, align 8
   %.not6.i79 = icmp eq ptr %83, null
   br i1 %.not6.i79, label %opal_obj_run_constructors.exit83, label %.lr.ph.i80
@@ -347,14 +347,14 @@ opal_obj_run_constructors.exit78:                 ; preds = %.lr.ph.i75, %70
   br i1 %.not.i82, label %opal_obj_run_constructors.exit83, label %.lr.ph.i80, !llvm.loop !4
 
 opal_obj_run_constructors.exit83:                 ; preds = %.lr.ph.i80, %81
-  store i32 -6, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_fatal_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_fatal_intern, i64 0, i32 2), align 4
-  store i32 6, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_fatal_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_fatal_intern, i64 0, i32 4), ptr noundef nonnull @.str.7, i64 noundef 64) #4
-  %87 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_fatal_intern, i64 0, i32 3), align 8
+  store i32 -6, ptr getelementptr inbounds (i8, ptr @ompi_err_fatal_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_fatal_intern, i64 20), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @ompi_err_fatal_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_fatal_intern, i64 28), ptr noundef nonnull @.str.7, i64 noundef 64) #4
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_fatal_intern, i64 24), align 8
   %88 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %87, ptr noundef nonnull @ompi_err_fatal_intern) #4
   %89 = load i32, ptr @opal_class_init_epoch, align 4
-  %90 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %90 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not33 = icmp eq i32 %89, %90
   br i1 %.not33, label %92, label %91
 
@@ -364,8 +364,8 @@ opal_obj_run_constructors.exit83:                 ; preds = %.lr.ph.i80, %81
 
 92:                                               ; preds = %91, %opal_obj_run_constructors.exit83
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_not_implemented_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_implemented_intern, i64 0, i32 0, i32 1), align 8
-  %93 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_not_implemented_intern, i64 8), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %94 = load ptr, ptr %93, align 8
   %.not6.i84 = icmp eq ptr %94, null
   br i1 %.not6.i84, label %opal_obj_run_constructors.exit88, label %.lr.ph.i85
@@ -380,14 +380,14 @@ opal_obj_run_constructors.exit83:                 ; preds = %.lr.ph.i80, %81
   br i1 %.not.i87, label %opal_obj_run_constructors.exit88, label %.lr.ph.i85, !llvm.loop !4
 
 opal_obj_run_constructors.exit88:                 ; preds = %.lr.ph.i85, %92
-  store i32 -7, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_implemented_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_implemented_intern, i64 0, i32 2), align 4
-  store i32 7, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_implemented_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_implemented_intern, i64 0, i32 4), ptr noundef nonnull @.str.8, i64 noundef 64) #4
-  %98 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_implemented_intern, i64 0, i32 3), align 8
+  store i32 -7, ptr getelementptr inbounds (i8, ptr @ompi_err_not_implemented_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_not_implemented_intern, i64 20), align 4
+  store i32 7, ptr getelementptr inbounds (i8, ptr @ompi_err_not_implemented_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_not_implemented_intern, i64 28), ptr noundef nonnull @.str.8, i64 noundef 64) #4
+  %98 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_not_implemented_intern, i64 24), align 8
   %99 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %98, ptr noundef nonnull @ompi_err_not_implemented_intern) #4
   %100 = load i32, ptr @opal_class_init_epoch, align 4
-  %101 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %101 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not34 = icmp eq i32 %100, %101
   br i1 %.not34, label %103, label %102
 
@@ -397,8 +397,8 @@ opal_obj_run_constructors.exit88:                 ; preds = %.lr.ph.i85, %92
 
 103:                                              ; preds = %102, %opal_obj_run_constructors.exit88
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_not_supported_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_supported_intern, i64 0, i32 0, i32 1), align 8
-  %104 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_not_supported_intern, i64 8), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %105 = load ptr, ptr %104, align 8
   %.not6.i89 = icmp eq ptr %105, null
   br i1 %.not6.i89, label %opal_obj_run_constructors.exit93, label %.lr.ph.i90
@@ -413,14 +413,14 @@ opal_obj_run_constructors.exit88:                 ; preds = %.lr.ph.i85, %92
   br i1 %.not.i92, label %opal_obj_run_constructors.exit93, label %.lr.ph.i90, !llvm.loop !4
 
 opal_obj_run_constructors.exit93:                 ; preds = %.lr.ph.i90, %103
-  store i32 -8, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_supported_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_supported_intern, i64 0, i32 2), align 4
-  store i32 8, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_supported_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_supported_intern, i64 0, i32 4), ptr noundef nonnull @.str.9, i64 noundef 64) #4
-  %109 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_supported_intern, i64 0, i32 3), align 8
+  store i32 -8, ptr getelementptr inbounds (i8, ptr @ompi_err_not_supported_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_not_supported_intern, i64 20), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @ompi_err_not_supported_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_not_supported_intern, i64 28), ptr noundef nonnull @.str.9, i64 noundef 64) #4
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_not_supported_intern, i64 24), align 8
   %110 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %109, ptr noundef nonnull @ompi_err_not_supported_intern) #4
   %111 = load i32, ptr @opal_class_init_epoch, align 4
-  %112 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %112 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not35 = icmp eq i32 %111, %112
   br i1 %.not35, label %114, label %113
 
@@ -430,8 +430,8 @@ opal_obj_run_constructors.exit93:                 ; preds = %.lr.ph.i90, %103
 
 114:                                              ; preds = %113, %opal_obj_run_constructors.exit93
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_interupted_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_interupted_intern, i64 0, i32 0, i32 1), align 8
-  %115 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_interupted_intern, i64 8), align 8
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %116 = load ptr, ptr %115, align 8
   %.not6.i94 = icmp eq ptr %116, null
   br i1 %.not6.i94, label %opal_obj_run_constructors.exit98, label %.lr.ph.i95
@@ -446,14 +446,14 @@ opal_obj_run_constructors.exit93:                 ; preds = %.lr.ph.i90, %103
   br i1 %.not.i97, label %opal_obj_run_constructors.exit98, label %.lr.ph.i95, !llvm.loop !4
 
 opal_obj_run_constructors.exit98:                 ; preds = %.lr.ph.i95, %114
-  store i32 -9, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_interupted_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_interupted_intern, i64 0, i32 2), align 4
-  store i32 9, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_interupted_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_interupted_intern, i64 0, i32 4), ptr noundef nonnull @.str.10, i64 noundef 64) #4
-  %120 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_interupted_intern, i64 0, i32 3), align 8
+  store i32 -9, ptr getelementptr inbounds (i8, ptr @ompi_err_interupted_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_interupted_intern, i64 20), align 4
+  store i32 9, ptr getelementptr inbounds (i8, ptr @ompi_err_interupted_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_interupted_intern, i64 28), ptr noundef nonnull @.str.10, i64 noundef 64) #4
+  %120 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_interupted_intern, i64 24), align 8
   %121 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %120, ptr noundef nonnull @ompi_err_interupted_intern) #4
   %122 = load i32, ptr @opal_class_init_epoch, align 4
-  %123 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %123 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not36 = icmp eq i32 %122, %123
   br i1 %.not36, label %125, label %124
 
@@ -463,8 +463,8 @@ opal_obj_run_constructors.exit98:                 ; preds = %.lr.ph.i95, %114
 
 125:                                              ; preds = %124, %opal_obj_run_constructors.exit98
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_would_block_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_would_block_intern, i64 0, i32 0, i32 1), align 8
-  %126 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_would_block_intern, i64 8), align 8
+  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %127 = load ptr, ptr %126, align 8
   %.not6.i99 = icmp eq ptr %127, null
   br i1 %.not6.i99, label %opal_obj_run_constructors.exit103, label %.lr.ph.i100
@@ -479,14 +479,14 @@ opal_obj_run_constructors.exit98:                 ; preds = %.lr.ph.i95, %114
   br i1 %.not.i102, label %opal_obj_run_constructors.exit103, label %.lr.ph.i100, !llvm.loop !4
 
 opal_obj_run_constructors.exit103:                ; preds = %.lr.ph.i100, %125
-  store i32 -10, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_would_block_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_would_block_intern, i64 0, i32 2), align 4
-  store i32 10, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_would_block_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_would_block_intern, i64 0, i32 4), ptr noundef nonnull @.str.11, i64 noundef 64) #4
-  %131 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_would_block_intern, i64 0, i32 3), align 8
+  store i32 -10, ptr getelementptr inbounds (i8, ptr @ompi_err_would_block_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_would_block_intern, i64 20), align 4
+  store i32 10, ptr getelementptr inbounds (i8, ptr @ompi_err_would_block_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_would_block_intern, i64 28), ptr noundef nonnull @.str.11, i64 noundef 64) #4
+  %131 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_would_block_intern, i64 24), align 8
   %132 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %131, ptr noundef nonnull @ompi_err_would_block_intern) #4
   %133 = load i32, ptr @opal_class_init_epoch, align 4
-  %134 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not37 = icmp eq i32 %133, %134
   br i1 %.not37, label %136, label %135
 
@@ -496,8 +496,8 @@ opal_obj_run_constructors.exit103:                ; preds = %.lr.ph.i100, %125
 
 136:                                              ; preds = %135, %opal_obj_run_constructors.exit103
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_in_errno_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_in_errno_intern, i64 0, i32 0, i32 1), align 8
-  %137 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_in_errno_intern, i64 8), align 8
+  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %138 = load ptr, ptr %137, align 8
   %.not6.i104 = icmp eq ptr %138, null
   br i1 %.not6.i104, label %opal_obj_run_constructors.exit108, label %.lr.ph.i105
@@ -512,14 +512,14 @@ opal_obj_run_constructors.exit103:                ; preds = %.lr.ph.i100, %125
   br i1 %.not.i107, label %opal_obj_run_constructors.exit108, label %.lr.ph.i105, !llvm.loop !4
 
 opal_obj_run_constructors.exit108:                ; preds = %.lr.ph.i105, %136
-  store i32 -11, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_in_errno_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_in_errno_intern, i64 0, i32 2), align 4
-  store i32 11, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_in_errno_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_in_errno_intern, i64 0, i32 4), ptr noundef nonnull @.str.12, i64 noundef 64) #4
-  %142 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_in_errno_intern, i64 0, i32 3), align 8
+  store i32 -11, ptr getelementptr inbounds (i8, ptr @ompi_err_in_errno_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_in_errno_intern, i64 20), align 4
+  store i32 11, ptr getelementptr inbounds (i8, ptr @ompi_err_in_errno_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_in_errno_intern, i64 28), ptr noundef nonnull @.str.12, i64 noundef 64) #4
+  %142 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_in_errno_intern, i64 24), align 8
   %143 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %142, ptr noundef nonnull @ompi_err_in_errno_intern) #4
   %144 = load i32, ptr @opal_class_init_epoch, align 4
-  %145 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %145 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not38 = icmp eq i32 %144, %145
   br i1 %.not38, label %147, label %146
 
@@ -529,8 +529,8 @@ opal_obj_run_constructors.exit108:                ; preds = %.lr.ph.i105, %136
 
 147:                                              ; preds = %146, %opal_obj_run_constructors.exit108
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_unreach_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_unreach_intern, i64 0, i32 0, i32 1), align 8
-  %148 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_unreach_intern, i64 8), align 8
+  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %149 = load ptr, ptr %148, align 8
   %.not6.i109 = icmp eq ptr %149, null
   br i1 %.not6.i109, label %opal_obj_run_constructors.exit113, label %.lr.ph.i110
@@ -545,14 +545,14 @@ opal_obj_run_constructors.exit108:                ; preds = %.lr.ph.i105, %136
   br i1 %.not.i112, label %opal_obj_run_constructors.exit113, label %.lr.ph.i110, !llvm.loop !4
 
 opal_obj_run_constructors.exit113:                ; preds = %.lr.ph.i110, %147
-  store i32 -12, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_unreach_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_unreach_intern, i64 0, i32 2), align 4
-  store i32 12, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_unreach_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_unreach_intern, i64 0, i32 4), ptr noundef nonnull @.str.13, i64 noundef 64) #4
-  %153 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_unreach_intern, i64 0, i32 3), align 8
+  store i32 -12, ptr getelementptr inbounds (i8, ptr @ompi_err_unreach_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_unreach_intern, i64 20), align 4
+  store i32 12, ptr getelementptr inbounds (i8, ptr @ompi_err_unreach_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_unreach_intern, i64 28), ptr noundef nonnull @.str.13, i64 noundef 64) #4
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_unreach_intern, i64 24), align 8
   %154 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %153, ptr noundef nonnull @ompi_err_unreach_intern) #4
   %155 = load i32, ptr @opal_class_init_epoch, align 4
-  %156 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %156 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not39 = icmp eq i32 %155, %156
   br i1 %.not39, label %158, label %157
 
@@ -562,8 +562,8 @@ opal_obj_run_constructors.exit113:                ; preds = %.lr.ph.i110, %147
 
 158:                                              ; preds = %157, %opal_obj_run_constructors.exit113
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_not_found_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_found_intern, i64 0, i32 0, i32 1), align 8
-  %159 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_not_found_intern, i64 8), align 8
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %160 = load ptr, ptr %159, align 8
   %.not6.i114 = icmp eq ptr %160, null
   br i1 %.not6.i114, label %opal_obj_run_constructors.exit118, label %.lr.ph.i115
@@ -578,14 +578,14 @@ opal_obj_run_constructors.exit113:                ; preds = %.lr.ph.i110, %147
   br i1 %.not.i117, label %opal_obj_run_constructors.exit118, label %.lr.ph.i115, !llvm.loop !4
 
 opal_obj_run_constructors.exit118:                ; preds = %.lr.ph.i115, %158
-  store i32 -13, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_found_intern, i64 0, i32 1), align 8
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_found_intern, i64 0, i32 2), align 4
-  store i32 13, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_found_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_found_intern, i64 0, i32 4), ptr noundef nonnull @.str.14, i64 noundef 64) #4
-  %164 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_not_found_intern, i64 0, i32 3), align 8
+  store i32 -13, ptr getelementptr inbounds (i8, ptr @ompi_err_not_found_intern, i64 16), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_not_found_intern, i64 20), align 4
+  store i32 13, ptr getelementptr inbounds (i8, ptr @ompi_err_not_found_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_not_found_intern, i64 28), ptr noundef nonnull @.str.14, i64 noundef 64) #4
+  %164 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_not_found_intern, i64 24), align 8
   %165 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %164, ptr noundef nonnull @ompi_err_not_found_intern) #4
   %166 = load i32, ptr @opal_class_init_epoch, align 4
-  %167 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %167 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not40 = icmp eq i32 %166, %167
   br i1 %.not40, label %169, label %168
 
@@ -595,8 +595,8 @@ opal_obj_run_constructors.exit118:                ; preds = %.lr.ph.i115, %158
 
 169:                                              ; preds = %168, %opal_obj_run_constructors.exit118
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_buffer_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_buffer_intern, i64 0, i32 0, i32 1), align 8
-  %170 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_buffer_intern, i64 8), align 8
+  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %171 = load ptr, ptr %170, align 8
   %.not6.i119 = icmp eq ptr %171, null
   br i1 %.not6.i119, label %opal_obj_run_constructors.exit123, label %.lr.ph.i120
@@ -611,14 +611,14 @@ opal_obj_run_constructors.exit118:                ; preds = %.lr.ph.i115, %158
   br i1 %.not.i122, label %opal_obj_run_constructors.exit123, label %.lr.ph.i120, !llvm.loop !4
 
 opal_obj_run_constructors.exit123:                ; preds = %.lr.ph.i120, %169
-  store i32 -30, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_buffer_intern, i64 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_buffer_intern, i64 0, i32 2), align 4
-  store i32 14, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_buffer_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_buffer_intern, i64 0, i32 4), ptr noundef nonnull @.str.15, i64 noundef 64) #4
-  %175 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_buffer_intern, i64 0, i32 3), align 8
+  store i32 -30, ptr getelementptr inbounds (i8, ptr @ompi_err_buffer_intern, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_buffer_intern, i64 20), align 4
+  store i32 14, ptr getelementptr inbounds (i8, ptr @ompi_err_buffer_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_buffer_intern, i64 28), ptr noundef nonnull @.str.15, i64 noundef 64) #4
+  %175 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_buffer_intern, i64 24), align 8
   %176 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %175, ptr noundef nonnull @ompi_err_buffer_intern) #4
   %177 = load i32, ptr @opal_class_init_epoch, align 4
-  %178 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %178 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not41 = icmp eq i32 %177, %178
   br i1 %.not41, label %180, label %179
 
@@ -628,8 +628,8 @@ opal_obj_run_constructors.exit123:                ; preds = %.lr.ph.i120, %169
 
 180:                                              ; preds = %179, %opal_obj_run_constructors.exit123
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_request_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_request_intern, i64 0, i32 0, i32 1), align 8
-  %181 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_request_intern, i64 8), align 8
+  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %182 = load ptr, ptr %181, align 8
   %.not6.i124 = icmp eq ptr %182, null
   br i1 %.not6.i124, label %opal_obj_run_constructors.exit128, label %.lr.ph.i125
@@ -644,14 +644,14 @@ opal_obj_run_constructors.exit123:                ; preds = %.lr.ph.i120, %169
   br i1 %.not.i127, label %opal_obj_run_constructors.exit128, label %.lr.ph.i125, !llvm.loop !4
 
 opal_obj_run_constructors.exit128:                ; preds = %.lr.ph.i125, %180
-  store i32 -101, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_request_intern, i64 0, i32 1), align 8
-  store i32 7, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_request_intern, i64 0, i32 2), align 4
-  store i32 15, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_request_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_request_intern, i64 0, i32 4), ptr noundef nonnull @.str.16, i64 noundef 64) #4
-  %186 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_request_intern, i64 0, i32 3), align 8
+  store i32 -101, ptr getelementptr inbounds (i8, ptr @ompi_err_request_intern, i64 16), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @ompi_err_request_intern, i64 20), align 4
+  store i32 15, ptr getelementptr inbounds (i8, ptr @ompi_err_request_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_request_intern, i64 28), ptr noundef nonnull @.str.16, i64 noundef 64) #4
+  %186 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_request_intern, i64 24), align 8
   %187 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %186, ptr noundef nonnull @ompi_err_request_intern) #4
   %188 = load i32, ptr @opal_class_init_epoch, align 4
-  %189 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %189 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not42 = icmp eq i32 %188, %189
   br i1 %.not42, label %191, label %190
 
@@ -661,8 +661,8 @@ opal_obj_run_constructors.exit128:                ; preds = %.lr.ph.i125, %180
 
 191:                                              ; preds = %190, %opal_obj_run_constructors.exit128
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_rma_sync_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_sync_intern, i64 0, i32 0, i32 1), align 8
-  %192 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_sync_intern, i64 8), align 8
+  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %193 = load ptr, ptr %192, align 8
   %.not6.i129 = icmp eq ptr %193, null
   br i1 %.not6.i129, label %opal_obj_run_constructors.exit133, label %.lr.ph.i130
@@ -677,14 +677,14 @@ opal_obj_run_constructors.exit128:                ; preds = %.lr.ph.i125, %180
   br i1 %.not.i132, label %opal_obj_run_constructors.exit133, label %.lr.ph.i130, !llvm.loop !4
 
 opal_obj_run_constructors.exit133:                ; preds = %.lr.ph.i130, %191
-  store i32 -102, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_sync_intern, i64 0, i32 1), align 8
-  store i32 47, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_sync_intern, i64 0, i32 2), align 4
-  store i32 16, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_sync_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_sync_intern, i64 0, i32 4), ptr noundef nonnull @.str.17, i64 noundef 64) #4
-  %197 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_sync_intern, i64 0, i32 3), align 8
+  store i32 -102, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_sync_intern, i64 16), align 8
+  store i32 47, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_sync_intern, i64 20), align 4
+  store i32 16, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_sync_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_rma_sync_intern, i64 28), ptr noundef nonnull @.str.17, i64 noundef 64) #4
+  %197 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_sync_intern, i64 24), align 8
   %198 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %197, ptr noundef nonnull @ompi_err_rma_sync_intern) #4
   %199 = load i32, ptr @opal_class_init_epoch, align 4
-  %200 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not43 = icmp eq i32 %199, %200
   br i1 %.not43, label %202, label %201
 
@@ -694,8 +694,8 @@ opal_obj_run_constructors.exit133:                ; preds = %.lr.ph.i130, %191
 
 202:                                              ; preds = %201, %opal_obj_run_constructors.exit133
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_rma_shared_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_shared_intern, i64 0, i32 0, i32 1), align 8
-  %203 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_shared_intern, i64 8), align 8
+  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %204 = load ptr, ptr %203, align 8
   %.not6.i134 = icmp eq ptr %204, null
   br i1 %.not6.i134, label %opal_obj_run_constructors.exit138, label %.lr.ph.i135
@@ -710,14 +710,14 @@ opal_obj_run_constructors.exit133:                ; preds = %.lr.ph.i130, %191
   br i1 %.not.i137, label %opal_obj_run_constructors.exit138, label %.lr.ph.i135, !llvm.loop !4
 
 opal_obj_run_constructors.exit138:                ; preds = %.lr.ph.i135, %202
-  store i32 -103, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_shared_intern, i64 0, i32 1), align 8
-  store i32 71, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_shared_intern, i64 0, i32 2), align 4
-  store i32 17, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_shared_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_shared_intern, i64 0, i32 4), ptr noundef nonnull @.str.18, i64 noundef 64) #4
-  %208 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_shared_intern, i64 0, i32 3), align 8
+  store i32 -103, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_shared_intern, i64 16), align 8
+  store i32 71, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_shared_intern, i64 20), align 4
+  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_shared_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_rma_shared_intern, i64 28), ptr noundef nonnull @.str.18, i64 noundef 64) #4
+  %208 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_shared_intern, i64 24), align 8
   %209 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %208, ptr noundef nonnull @ompi_err_rma_shared_intern) #4
   %210 = load i32, ptr @opal_class_init_epoch, align 4
-  %211 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %211 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not44 = icmp eq i32 %210, %211
   br i1 %.not44, label %213, label %212
 
@@ -727,8 +727,8 @@ opal_obj_run_constructors.exit138:                ; preds = %.lr.ph.i135, %202
 
 213:                                              ; preds = %212, %opal_obj_run_constructors.exit138
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_rma_attach_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_attach_intern, i64 0, i32 0, i32 1), align 8
-  %214 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_attach_intern, i64 8), align 8
+  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %215 = load ptr, ptr %214, align 8
   %.not6.i139 = icmp eq ptr %215, null
   br i1 %.not6.i139, label %opal_obj_run_constructors.exit143, label %.lr.ph.i140
@@ -743,14 +743,14 @@ opal_obj_run_constructors.exit138:                ; preds = %.lr.ph.i135, %202
   br i1 %.not.i142, label %opal_obj_run_constructors.exit143, label %.lr.ph.i140, !llvm.loop !4
 
 opal_obj_run_constructors.exit143:                ; preds = %.lr.ph.i140, %213
-  store i32 -104, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_attach_intern, i64 0, i32 1), align 8
-  store i32 69, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_attach_intern, i64 0, i32 2), align 4
-  store i32 18, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_attach_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_attach_intern, i64 0, i32 4), ptr noundef nonnull @.str.19, i64 noundef 64) #4
-  %219 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_attach_intern, i64 0, i32 3), align 8
+  store i32 -104, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_attach_intern, i64 16), align 8
+  store i32 69, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_attach_intern, i64 20), align 4
+  store i32 18, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_attach_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_rma_attach_intern, i64 28), ptr noundef nonnull @.str.19, i64 noundef 64) #4
+  %219 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_attach_intern, i64 24), align 8
   %220 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %219, ptr noundef nonnull @ompi_err_rma_attach_intern) #4
   %221 = load i32, ptr @opal_class_init_epoch, align 4
-  %222 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %222 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not45 = icmp eq i32 %221, %222
   br i1 %.not45, label %224, label %223
 
@@ -760,8 +760,8 @@ opal_obj_run_constructors.exit143:                ; preds = %.lr.ph.i140, %213
 
 224:                                              ; preds = %223, %opal_obj_run_constructors.exit143
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_rma_range_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_range_intern, i64 0, i32 0, i32 1), align 8
-  %225 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_range_intern, i64 8), align 8
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %226 = load ptr, ptr %225, align 8
   %.not6.i144 = icmp eq ptr %226, null
   br i1 %.not6.i144, label %opal_obj_run_constructors.exit148, label %.lr.ph.i145
@@ -776,14 +776,14 @@ opal_obj_run_constructors.exit143:                ; preds = %.lr.ph.i140, %213
   br i1 %.not.i147, label %opal_obj_run_constructors.exit148, label %.lr.ph.i145, !llvm.loop !4
 
 opal_obj_run_constructors.exit148:                ; preds = %.lr.ph.i145, %224
-  store i32 -105, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_range_intern, i64 0, i32 1), align 8
-  store i32 68, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_range_intern, i64 0, i32 2), align 4
-  store i32 19, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_range_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_range_intern, i64 0, i32 4), ptr noundef nonnull @.str.20, i64 noundef 64) #4
-  %230 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_range_intern, i64 0, i32 3), align 8
+  store i32 -105, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_range_intern, i64 16), align 8
+  store i32 68, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_range_intern, i64 20), align 4
+  store i32 19, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_range_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_rma_range_intern, i64 28), ptr noundef nonnull @.str.20, i64 noundef 64) #4
+  %230 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_range_intern, i64 24), align 8
   %231 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %230, ptr noundef nonnull @ompi_err_rma_range_intern) #4
   %232 = load i32, ptr @opal_class_init_epoch, align 4
-  %233 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %233 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not46 = icmp eq i32 %232, %233
   br i1 %.not46, label %235, label %234
 
@@ -793,8 +793,8 @@ opal_obj_run_constructors.exit148:                ; preds = %.lr.ph.i145, %224
 
 235:                                              ; preds = %234, %opal_obj_run_constructors.exit148
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_rma_conflict_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_conflict_intern, i64 0, i32 0, i32 1), align 8
-  %236 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_conflict_intern, i64 8), align 8
+  %236 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %237 = load ptr, ptr %236, align 8
   %.not6.i149 = icmp eq ptr %237, null
   br i1 %.not6.i149, label %opal_obj_run_constructors.exit153, label %.lr.ph.i150
@@ -809,14 +809,14 @@ opal_obj_run_constructors.exit148:                ; preds = %.lr.ph.i145, %224
   br i1 %.not.i152, label %opal_obj_run_constructors.exit153, label %.lr.ph.i150, !llvm.loop !4
 
 opal_obj_run_constructors.exit153:                ; preds = %.lr.ph.i150, %235
-  store i32 -106, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_conflict_intern, i64 0, i32 1), align 8
-  store i32 46, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_conflict_intern, i64 0, i32 2), align 4
-  store i32 20, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_conflict_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_conflict_intern, i64 0, i32 4), ptr noundef nonnull @.str.21, i64 noundef 64) #4
-  %241 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_conflict_intern, i64 0, i32 3), align 8
+  store i32 -106, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_conflict_intern, i64 16), align 8
+  store i32 46, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_conflict_intern, i64 20), align 4
+  store i32 20, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_conflict_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_rma_conflict_intern, i64 28), ptr noundef nonnull @.str.21, i64 noundef 64) #4
+  %241 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_conflict_intern, i64 24), align 8
   %242 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %241, ptr noundef nonnull @ompi_err_rma_conflict_intern) #4
   %243 = load i32, ptr @opal_class_init_epoch, align 4
-  %244 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %244 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not47 = icmp eq i32 %243, %244
   br i1 %.not47, label %246, label %245
 
@@ -826,8 +826,8 @@ opal_obj_run_constructors.exit153:                ; preds = %.lr.ph.i150, %235
 
 246:                                              ; preds = %245, %opal_obj_run_constructors.exit153
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_win_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_win_intern, i64 0, i32 0, i32 1), align 8
-  %247 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_win_intern, i64 8), align 8
+  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %248 = load ptr, ptr %247, align 8
   %.not6.i154 = icmp eq ptr %248, null
   br i1 %.not6.i154, label %opal_obj_run_constructors.exit158, label %.lr.ph.i155
@@ -842,14 +842,14 @@ opal_obj_run_constructors.exit153:                ; preds = %.lr.ph.i150, %235
   br i1 %.not.i157, label %opal_obj_run_constructors.exit158, label %.lr.ph.i155, !llvm.loop !4
 
 opal_obj_run_constructors.exit158:                ; preds = %.lr.ph.i155, %246
-  store i32 -107, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_win_intern, i64 0, i32 1), align 8
-  store i32 53, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_win_intern, i64 0, i32 2), align 4
-  store i32 21, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_win_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_win_intern, i64 0, i32 4), ptr noundef nonnull @.str.22, i64 noundef 64) #4
-  %252 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_win_intern, i64 0, i32 3), align 8
+  store i32 -107, ptr getelementptr inbounds (i8, ptr @ompi_err_win_intern, i64 16), align 8
+  store i32 53, ptr getelementptr inbounds (i8, ptr @ompi_err_win_intern, i64 20), align 4
+  store i32 21, ptr getelementptr inbounds (i8, ptr @ompi_err_win_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_win_intern, i64 28), ptr noundef nonnull @.str.22, i64 noundef 64) #4
+  %252 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_win_intern, i64 24), align 8
   %253 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %252, ptr noundef nonnull @ompi_err_win_intern) #4
   %254 = load i32, ptr @opal_class_init_epoch, align 4
-  %255 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 4), align 8
+  %255 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 32), align 8
   %.not48 = icmp eq i32 %254, %255
   br i1 %.not48, label %257, label %256
 
@@ -859,8 +859,8 @@ opal_obj_run_constructors.exit158:                ; preds = %.lr.ph.i155, %246
 
 257:                                              ; preds = %256, %opal_obj_run_constructors.exit158
   store ptr @ompi_errcode_intern_t_class, ptr @ompi_err_rma_flavor_intern, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_flavor_intern, i64 0, i32 0, i32 1), align 8
-  %258 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_errcode_intern_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_flavor_intern, i64 8), align 8
+  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcode_intern_t_class, i64 40), align 8
   %259 = load ptr, ptr %258, align 8
   %.not6.i159 = icmp eq ptr %259, null
   br i1 %.not6.i159, label %opal_obj_run_constructors.exit163, label %.lr.ph.i160
@@ -875,11 +875,11 @@ opal_obj_run_constructors.exit158:                ; preds = %.lr.ph.i155, %246
   br i1 %.not.i162, label %opal_obj_run_constructors.exit163, label %.lr.ph.i160, !llvm.loop !4
 
 opal_obj_run_constructors.exit163:                ; preds = %.lr.ph.i160, %257
-  store i32 -108, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_flavor_intern, i64 0, i32 1), align 8
-  store i32 70, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_flavor_intern, i64 0, i32 2), align 4
-  store i32 22, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_flavor_intern, i64 0, i32 3), align 8
-  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_flavor_intern, i64 0, i32 4), ptr noundef nonnull @.str.23, i64 noundef 64) #4
-  %263 = load i32, ptr getelementptr inbounds (%struct.ompi_errcode_intern_t, ptr @ompi_err_rma_flavor_intern, i64 0, i32 3), align 8
+  store i32 -108, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_flavor_intern, i64 16), align 8
+  store i32 70, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_flavor_intern, i64 20), align 4
+  store i32 22, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_flavor_intern, i64 24), align 8
+  tail call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_err_rma_flavor_intern, i64 28), ptr noundef nonnull @.str.23, i64 noundef 64) #4
+  %263 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_err_rma_flavor_intern, i64 24), align 8
   %264 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_errcodes_intern, i32 noundef %263, ptr noundef nonnull @ompi_err_rma_flavor_intern) #4
   store i32 23, ptr @ompi_errcode_intern_lastused, align 4
   tail call void @opal_finalize_append_cleanup(ptr noundef nonnull @ompi_errcode_intern_finalize, ptr noundef nonnull @.str.24, ptr noundef null) #4

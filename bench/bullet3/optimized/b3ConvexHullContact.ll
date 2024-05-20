@@ -3594,7 +3594,7 @@ invoke.cont45:
   %errNum = alloca i32, align 4
   %flags = alloca [1024 x i8], align 16
   %flags114 = alloca [1024 x i8], align 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15GpuSatCollision, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15GpuSatCollision, i64 16), ptr %this, align 8
   %m_context = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ctx, ptr %m_context, align 8
   %m_device = getelementptr inbounds i8, ptr %this, i64 16
@@ -3607,7 +3607,7 @@ invoke.cont45:
   %m_findSeparatingAxisEdgeEdgeKernel = getelementptr inbounds i8, ptr %this, i64 64
   %m_unitSphereDirections = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_findSeparatingAxisVertexFaceKernel, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %m_unitSphereDirections, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %m_unitSphereDirections, align 8
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 200
   %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
@@ -3619,7 +3619,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 241
   store i8 1, ptr %m_allowGrowingCapacity.i, align 1
   %m_totalContactsOut = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_totalContactsOut, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_totalContactsOut, align 8
   %m_size.i41 = getelementptr inbounds i8, ptr %this, i64 256
   %m_clContext.i42 = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i41, i8 0, i64 24, i1 false)
@@ -3631,7 +3631,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i45 = getelementptr inbounds i8, ptr %this, i64 297
   store i8 1, ptr %m_allowGrowingCapacity.i45, align 1
   %m_sepNormals = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %m_sepNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %m_sepNormals, align 8
   %m_size.i46 = getelementptr inbounds i8, ptr %this, i64 312
   %m_clContext.i47 = getelementptr inbounds i8, ptr %this, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i46, i8 0, i64 24, i1 false)
@@ -3643,7 +3643,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i50 = getelementptr inbounds i8, ptr %this, i64 353
   store i8 1, ptr %m_allowGrowingCapacity.i50, align 1
   %m_dmins = getelementptr inbounds i8, ptr %this, i64 360
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIfE, i64 0, i32 0, i64 2), ptr %m_dmins, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIfE, i64 16), ptr %m_dmins, align 8
   %m_size.i51 = getelementptr inbounds i8, ptr %this, i64 368
   %m_clContext.i52 = getelementptr inbounds i8, ptr %this, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i51, i8 0, i64 24, i1 false)
@@ -3655,7 +3655,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i55 = getelementptr inbounds i8, ptr %this, i64 409
   store i8 1, ptr %m_allowGrowingCapacity.i55, align 1
   %m_hasSeparatingNormals = getelementptr inbounds i8, ptr %this, i64 416
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_hasSeparatingNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_hasSeparatingNormals, align 8
   %m_size.i56 = getelementptr inbounds i8, ptr %this, i64 424
   %m_clContext.i57 = getelementptr inbounds i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i56, i8 0, i64 24, i1 false)
@@ -3667,7 +3667,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i60 = getelementptr inbounds i8, ptr %this, i64 465
   store i8 1, ptr %m_allowGrowingCapacity.i60, align 1
   %m_concaveSepNormals = getelementptr inbounds i8, ptr %this, i64 472
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %m_concaveSepNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %m_concaveSepNormals, align 8
   %m_size.i61 = getelementptr inbounds i8, ptr %this, i64 480
   %m_clContext.i62 = getelementptr inbounds i8, ptr %this, i64 504
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i61, i8 0, i64 24, i1 false)
@@ -3679,7 +3679,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i65 = getelementptr inbounds i8, ptr %this, i64 521
   store i8 1, ptr %m_allowGrowingCapacity.i65, align 1
   %m_concaveHasSeparatingNormals = getelementptr inbounds i8, ptr %this, i64 528
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_concaveHasSeparatingNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_concaveHasSeparatingNormals, align 8
   %m_size.i66 = getelementptr inbounds i8, ptr %this, i64 536
   %m_clContext.i67 = getelementptr inbounds i8, ptr %this, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i66, i8 0, i64 24, i1 false)
@@ -3691,7 +3691,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i70 = getelementptr inbounds i8, ptr %this, i64 577
   store i8 1, ptr %m_allowGrowingCapacity.i70, align 1
   %m_numConcavePairsOut = getelementptr inbounds i8, ptr %this, i64 584
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_numConcavePairsOut, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_numConcavePairsOut, align 8
   %m_size.i71 = getelementptr inbounds i8, ptr %this, i64 592
   %m_clContext.i72 = getelementptr inbounds i8, ptr %this, i64 616
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i71, i8 0, i64 24, i1 false)
@@ -3703,7 +3703,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i75 = getelementptr inbounds i8, ptr %this, i64 633
   store i8 1, ptr %m_allowGrowingCapacity.i75, align 1
   %m_gpuCompoundPairs = getelementptr inbounds i8, ptr %this, i64 640
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i64 0, i32 0, i64 2), ptr %m_gpuCompoundPairs, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i64 16), ptr %m_gpuCompoundPairs, align 8
   %m_size.i76 = getelementptr inbounds i8, ptr %this, i64 648
   %m_clContext.i77 = getelementptr inbounds i8, ptr %this, i64 672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i76, i8 0, i64 24, i1 false)
@@ -3715,7 +3715,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i80 = getelementptr inbounds i8, ptr %this, i64 689
   store i8 1, ptr %m_allowGrowingCapacity.i80, align 1
   %m_gpuCompoundSepNormals = getelementptr inbounds i8, ptr %this, i64 696
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %m_gpuCompoundSepNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %m_gpuCompoundSepNormals, align 8
   %m_size.i81 = getelementptr inbounds i8, ptr %this, i64 704
   %m_clContext.i82 = getelementptr inbounds i8, ptr %this, i64 728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i81, i8 0, i64 24, i1 false)
@@ -3727,7 +3727,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i85 = getelementptr inbounds i8, ptr %this, i64 745
   store i8 1, ptr %m_allowGrowingCapacity.i85, align 1
   %m_gpuHasCompoundSepNormals = getelementptr inbounds i8, ptr %this, i64 752
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_gpuHasCompoundSepNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_gpuHasCompoundSepNormals, align 8
   %m_size.i86 = getelementptr inbounds i8, ptr %this, i64 760
   %m_clContext.i87 = getelementptr inbounds i8, ptr %this, i64 784
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i86, i8 0, i64 24, i1 false)
@@ -3739,7 +3739,7 @@ invoke.cont45:
   %m_allowGrowingCapacity.i90 = getelementptr inbounds i8, ptr %this, i64 801
   store i8 1, ptr %m_allowGrowingCapacity.i90, align 1
   %m_numCompoundPairsOut = getelementptr inbounds i8, ptr %this, i64 808
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_numCompoundPairsOut, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_numCompoundPairsOut, align 8
   %m_size.i91 = getelementptr inbounds i8, ptr %this, i64 816
   %m_clContext.i92 = getelementptr inbounds i8, ptr %this, i64 840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i91, i8 0, i64 24, i1 false)
@@ -4054,7 +4054,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -4087,7 +4087,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3Vector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -4120,7 +4120,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -4153,7 +4153,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIfE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIfE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -4186,7 +4186,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15GpuSatCollisionD2Ev(ptr noundef nonnull align 8 dereferenceable(864) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15GpuSatCollision, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15GpuSatCollision, i64 16), ptr %this, align 8
   %m_findSeparatingAxisVertexFaceKernel = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_findSeparatingAxisVertexFaceKernel, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -4408,7 +4408,7 @@ if.then112:                                       ; preds = %if.end110
 
 if.end116:                                        ; preds = %if.then112, %if.end110
   %m_numCompoundPairsOut = getelementptr inbounds i8, ptr %this, i64 808
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_numCompoundPairsOut, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_numCompoundPairsOut, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 832
   %40 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %40, null
@@ -4436,7 +4436,7 @@ _ZN13b3OpenCLArrayIiED2Ev.exit:                   ; preds = %if.end116, %land.lh
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
   %m_gpuHasCompoundSepNormals = getelementptr inbounds i8, ptr %this, i64 752
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_gpuHasCompoundSepNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_gpuHasCompoundSepNormals, align 8
   %m_clBuffer.i.i20 = getelementptr inbounds i8, ptr %this, i64 776
   %45 = load ptr, ptr %m_clBuffer.i.i20, align 8
   %tobool.not.i.i21 = icmp eq ptr %45, null
@@ -4464,7 +4464,7 @@ _ZN13b3OpenCLArrayIiED2Ev.exit29:                 ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i25 = getelementptr inbounds i8, ptr %this, i64 760
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i25, i8 0, i64 24, i1 false)
   %m_gpuCompoundSepNormals = getelementptr inbounds i8, ptr %this, i64 696
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %m_gpuCompoundSepNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %m_gpuCompoundSepNormals, align 8
   %m_clBuffer.i.i30 = getelementptr inbounds i8, ptr %this, i64 720
   %50 = load ptr, ptr %m_clBuffer.i.i30, align 8
   %tobool.not.i.i31 = icmp eq ptr %50, null
@@ -4492,7 +4492,7 @@ _ZN13b3OpenCLArrayI9b3Vector3ED2Ev.exit:          ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i35 = getelementptr inbounds i8, ptr %this, i64 704
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i35, i8 0, i64 24, i1 false)
   %m_gpuCompoundPairs = getelementptr inbounds i8, ptr %this, i64 640
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i64 0, i32 0, i64 2), ptr %m_gpuCompoundPairs, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i64 16), ptr %m_gpuCompoundPairs, align 8
   %m_clBuffer.i.i39 = getelementptr inbounds i8, ptr %this, i64 664
   %55 = load ptr, ptr %m_clBuffer.i.i39, align 8
   %tobool.not.i.i40 = icmp eq ptr %55, null
@@ -4520,7 +4520,7 @@ _ZN13b3OpenCLArrayI25b3CompoundOverlappingPairED2Ev.exit: ; preds = %_ZN13b3Open
   %m_size.i44 = getelementptr inbounds i8, ptr %this, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i44, i8 0, i64 24, i1 false)
   %m_numConcavePairsOut = getelementptr inbounds i8, ptr %this, i64 584
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_numConcavePairsOut, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_numConcavePairsOut, align 8
   %m_clBuffer.i.i48 = getelementptr inbounds i8, ptr %this, i64 608
   %60 = load ptr, ptr %m_clBuffer.i.i48, align 8
   %tobool.not.i.i49 = icmp eq ptr %60, null
@@ -4548,7 +4548,7 @@ _ZN13b3OpenCLArrayIiED2Ev.exit57:                 ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i53 = getelementptr inbounds i8, ptr %this, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i53, i8 0, i64 24, i1 false)
   %m_concaveHasSeparatingNormals = getelementptr inbounds i8, ptr %this, i64 528
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_concaveHasSeparatingNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_concaveHasSeparatingNormals, align 8
   %m_clBuffer.i.i58 = getelementptr inbounds i8, ptr %this, i64 552
   %65 = load ptr, ptr %m_clBuffer.i.i58, align 8
   %tobool.not.i.i59 = icmp eq ptr %65, null
@@ -4576,7 +4576,7 @@ _ZN13b3OpenCLArrayIiED2Ev.exit67:                 ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i63 = getelementptr inbounds i8, ptr %this, i64 536
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i63, i8 0, i64 24, i1 false)
   %m_concaveSepNormals = getelementptr inbounds i8, ptr %this, i64 472
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %m_concaveSepNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %m_concaveSepNormals, align 8
   %m_clBuffer.i.i68 = getelementptr inbounds i8, ptr %this, i64 496
   %70 = load ptr, ptr %m_clBuffer.i.i68, align 8
   %tobool.not.i.i69 = icmp eq ptr %70, null
@@ -4604,7 +4604,7 @@ _ZN13b3OpenCLArrayI9b3Vector3ED2Ev.exit77:        ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i73 = getelementptr inbounds i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i73, i8 0, i64 24, i1 false)
   %m_hasSeparatingNormals = getelementptr inbounds i8, ptr %this, i64 416
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_hasSeparatingNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_hasSeparatingNormals, align 8
   %m_clBuffer.i.i78 = getelementptr inbounds i8, ptr %this, i64 440
   %75 = load ptr, ptr %m_clBuffer.i.i78, align 8
   %tobool.not.i.i79 = icmp eq ptr %75, null
@@ -4632,7 +4632,7 @@ _ZN13b3OpenCLArrayIiED2Ev.exit87:                 ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i83 = getelementptr inbounds i8, ptr %this, i64 424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i83, i8 0, i64 24, i1 false)
   %m_dmins = getelementptr inbounds i8, ptr %this, i64 360
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIfE, i64 0, i32 0, i64 2), ptr %m_dmins, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIfE, i64 16), ptr %m_dmins, align 8
   %m_clBuffer.i.i88 = getelementptr inbounds i8, ptr %this, i64 384
   %80 = load ptr, ptr %m_clBuffer.i.i88, align 8
   %tobool.not.i.i89 = icmp eq ptr %80, null
@@ -4660,7 +4660,7 @@ _ZN13b3OpenCLArrayIfED2Ev.exit:                   ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i93 = getelementptr inbounds i8, ptr %this, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i93, i8 0, i64 24, i1 false)
   %m_sepNormals = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %m_sepNormals, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %m_sepNormals, align 8
   %m_clBuffer.i.i97 = getelementptr inbounds i8, ptr %this, i64 328
   %85 = load ptr, ptr %m_clBuffer.i.i97, align 8
   %tobool.not.i.i98 = icmp eq ptr %85, null
@@ -4688,7 +4688,7 @@ _ZN13b3OpenCLArrayI9b3Vector3ED2Ev.exit106:       ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i102 = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i102, i8 0, i64 24, i1 false)
   %m_totalContactsOut = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %m_totalContactsOut, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %m_totalContactsOut, align 8
   %m_clBuffer.i.i107 = getelementptr inbounds i8, ptr %this, i64 272
   %90 = load ptr, ptr %m_clBuffer.i.i107, align 8
   %tobool.not.i.i108 = icmp eq ptr %90, null
@@ -4716,7 +4716,7 @@ _ZN13b3OpenCLArrayIiED2Ev.exit116:                ; preds = %_ZN13b3OpenCLArrayI
   %m_size.i112 = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i112, i8 0, i64 24, i1 false)
   %m_unitSphereDirections = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %m_unitSphereDirections, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %m_unitSphereDirections, align 8
   %m_clBuffer.i.i117 = getelementptr inbounds i8, ptr %this, i64 216
   %95 = load ptr, ptr %m_clBuffer.i.i117, align 8
   %tobool.not.i.i118 = icmp eq ptr %95, null
@@ -28545,7 +28545,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3Vector3ED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -28675,7 +28675,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIiED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -28805,7 +28805,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIfED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIfE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIfE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -28935,7 +28935,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -30059,329 +30059,329 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 define internal void @_GLOBAL__sub_I_b3ConvexHullContact.cpp() #20 section ".text.startup" {
 entry:
   store <2 x float> <float 0.000000e+00, float -1.000000e+00>, ptr @unitSphere162, align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 0, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FCA01D5C0000000, float 0xBFEEF97240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 1), align 16
-  store <2 x float> <float 0x3FC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 1, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFB3DE0D60000000, float 0xBFEEF97240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 2), align 16
-  store <2 x float> <float 0x3FCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 2, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE727C9E0000000, float 0xBFDC9F40A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 3), align 16
-  store <2 x float> <float 0x3FE0D2BD40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 3, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE38168C0000000, float 0xBFE50A6540000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 4), align 16
-  store <2 x float> <float 0x3FDC57C0C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 4, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEA01E040000000, float 0xBFE012D980000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 5), align 16
-  store <2 x float> <float 0x3FD2E52DE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 5, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD012CAE0000000, float 0xBFEEF97020000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 6), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 6, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFB3DE0D60000000, float 0xBFEEF97240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 7), align 16
-  store <2 x float> <float 0xBFCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 7, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FCA01D5C0000000, float 0xBFEEF97240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 8), align 16
-  store <2 x float> <float 0xBFC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 8, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEB8AD680000000, float 0xBFD012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 9), align 16
-  store <2 x float> <float 0x3FDC57C920000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 9, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD1B05740000000, float 0xBFDC9F40A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 10), align 16
-  store <2 x float> <float 0x3FEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 10, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBF9E59AFA0000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 11), align 16
-  store <2 x float> <float 0x3FEBA76540000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 11, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFC3DE15C0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 12), align 16
-  store <2 x float> <float 0x3FEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 12, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEC9F2340000000, float 0xBFDC9F2FE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 13), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 13, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEA97F840000000, float 0xBFE012D560000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 14), align 16
-  store <2 x float> <float 0x3FCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 14, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEE9CAE20000000, float 0xBFD012D340000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 15), align 16
-  store <2 x float> <float 0x3FC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 15, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD1B05740000000, float 0xBFDC9F40A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 16), align 16
-  store <2 x float> <float 0xBFEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 16, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDEF96180000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 17), align 16
-  store <2 x float> <float 0xBFE6EE19C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 17, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDBE789E0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 18), align 16
-  store <2 x float> <float 0xBFEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 18, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE727C9E0000000, float 0xBFDC9F40A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 19), align 16
-  store <2 x float> <float 0xBFE0D2BD40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 19, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE105A920000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 20), align 16
-  store <2 x float> <float 0xBFE5D095A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 20, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE5FD34E0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 21), align 16
-  store <2 x float> <float 0xBFE5D09C00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 21, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE5FD34E0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 22), align 16
-  store <2 x float> <float 0x3FE5D09C00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 22, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDBE789E0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 23), align 16
-  store <2 x float> <float 0x3FEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 23, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEE9CAE20000000, float 0xBFD012D340000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 24), align 16
-  store <2 x float> <float 0xBFC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 24, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFC3DE15C0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 25), align 16
-  store <2 x float> <float 0xBFEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 25, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEB8AD680000000, float 0xBFD012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 26), align 16
-  store <2 x float> <float 0xBFDC57C920000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 26, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD1B05740000000, float 0x3FDC9F40A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 27), align 16
-  store <2 x float> <float 0x3FEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 27, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDEF96180000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 28), align 16
-  store <2 x float> <float 0x3FE6EE19C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 28, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FCDCD1C80000000, float 0x3FE50A6540000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 29), align 16
-  store <2 x float> <float 0x3FE6EE1580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 29, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE727C9E0000000, float 0x3FDC9F40A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 30), align 16
-  store <2 x float> <float 0x3FE0D2BD40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 30, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE105A920000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 31), align 16
-  store <2 x float> <float 0x3FE5D095A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 31, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE38168C0000000, float 0x3FE50A6540000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 32), align 16
-  store <2 x float> <float 0x3FDC57C0C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 32, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE727C9E0000000, float 0x3FDC9F40A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 33), align 16
-  store <2 x float> <float 0xBFE0D2BD40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 33, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEA01E040000000, float 0x3FE012D980000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 34), align 16
-  store <2 x float> <float 0xBFD2E52DE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 34, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE38168C0000000, float 0x3FE50A6540000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 35), align 16
-  store <2 x float> <float 0xBFDC57C0C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 35, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD1B05740000000, float 0x3FDC9F40A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 36), align 16
-  store <2 x float> <float 0xBFEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 36, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3F9E59AFA0000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 37), align 16
-  store <2 x float> <float 0xBFEBA76540000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 37, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FCDCD1C80000000, float 0x3FE50A6540000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 38), align 16
-  store <2 x float> <float 0xBFE6EE1580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 38, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEC9F2340000000, float 0x3FDC9F2FE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 39), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 39, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEA97F840000000, float 0x3FE012D560000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 40), align 16
-  store <2 x float> <float 0xBFCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 40, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE81C3260000000, float 0x3FE50A5CE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 41), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 41, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFCDCD1C80000000, float 0xBFE50A6540000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 42), align 16
-  store <2 x float> <float 0x3FE6EE1580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 42, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFC4CB5BC0000000, float 0xBFEB388EC0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 43), align 16
-  store <2 x float> <float 0x3FDFFFEB00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 43, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FAB074A80000000, float 0xBFE727D460000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 44), align 16
-  store <2 x float> <float 0x3FE6059C80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 44, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FC1B08140000000, float 0xBFEC9F29A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 45), align 16
-  store <2 x float> <float 0x3FDB3875A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 45, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD0D2D880000000, float 0xBFE0D2D880000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 46), align 16
-  store <2 x float> <float 0x3FE9E36D20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 46, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD727D020000000, float 0xBFE727D240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 47), align 16
-  store <2 x float> <float 0x3FE2CF15E0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 47, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE105A920000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 48), align 16
-  store <2 x float> <float 0x3FE5D095A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 48, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDB387E00000000, float 0xBFEB388EC0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 49), align 16
-  store <2 x float> <float 0x3FD3C6D620000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 49, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEA01E040000000, float 0xBFE012D980000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 50), align 16
-  store <2 x float> <float 0xBFD2E52DE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 50, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE38168C0000000, float 0xBFE50A6540000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 51), align 16
-  store <2 x float> <float 0xBFDC57C0C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 51, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEB388220000000, float 0xBFE0D2D440000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 52), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 52, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE5775540000000, float 0xBFE727D240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 53), align 16
-  store <2 x float> <float 0xBFC4CB6420000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 53, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE5775540000000, float 0xBFE727D020000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 54), align 16
-  store <2 x float> <float 0x3FC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 54, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDB387E00000000, float 0xBFEB388EC0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 55), align 16
-  store <2 x float> <float 0xBFD3C6D620000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 55, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDC9F1AE0000000, float 0xBFEC9F2780000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 56), align 16
-  store <2 x float> <float 0x3EB0C6F7A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 56, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE81C3260000000, float 0xBFE50A5CE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 57), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 57, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE0D2C7C0000000, float 0xBFEB388A80000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 58), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 58, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE46C17E0000000, float 0xBFE727CE00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 59), align 16
-  store <2 x float> <float 0x3FD0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 59, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD727BF60000000, float 0xBFEC9F2780000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 60), align 16
-  store <2 x float> <float 0x3FD0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 60, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE605A500000000, float 0xBFE0D2D440000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 61), align 16
-  store <2 x float> <float 0x3FDFFFF360000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 61, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDC9F1AE0000000, float 0xBFE727D020000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 62), align 16
-  store <2 x float> <float 0x3FE0D2C5A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 62, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDEF96180000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 63), align 16
-  store <2 x float> <float 0x3FE6EE19C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 63, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFCDCD1C80000000, float 0xBFE50A6540000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 64), align 16
-  store <2 x float> <float 0xBFE6EE1580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 64, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFC4CB5BC0000000, float 0xBFEB388EC0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 65), align 16
-  store <2 x float> <float 0xBFDFFFEB00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 65, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDC9F1AE0000000, float 0xBFE727D240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 66), align 16
-  store <2 x float> <float 0xBFE0D2C160000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 66, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD727BF60000000, float 0xBFEC9F29A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 67), align 16
-  store <2 x float> <float 0xBFD0D2BF60000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 67, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE605A500000000, float 0xBFE0D2D440000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 68), align 16
-  store <2 x float> <float 0xBFDFFFF360000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 68, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE46C17E0000000, float 0xBFE727CE00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 69), align 16
-  store <2 x float> <float 0xBFD0D2BF60000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 69, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEA97F840000000, float 0xBFE012D560000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 70), align 16
-  store <2 x float> <float 0xBFCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 70, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD727CC00000000, float 0xBFE727D460000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 71), align 16
-  store <2 x float> <float 0xBFE2CF15E0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 71, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FC1B07080000000, float 0xBFEC9F29A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 72), align 16
-  store <2 x float> <float 0xBFDB3875A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 72, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD0D2D880000000, float 0xBFE0D2D880000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 73), align 16
-  store <2 x float> <float 0xBFE9E36D20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 73, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FAB0728E0000000, float 0xBFE727D240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 74), align 16
-  store <2 x float> <float 0xBFE6059EA0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 74, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBF9E59AFA0000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 75), align 16
-  store <2 x float> <float 0xBFEBA76540000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 75, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEE9CAE20000000, float 0x3FD012D340000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 76), align 16
-  store <2 x float> <float 0x3FC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 76, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEE9CAE20000000, float 0x3FD012D340000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 77), align 16
-  store <2 x float> <float 0xBFC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 77, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEE6F1120000000, float -0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 78), align 16
-  store <2 x float> <float 0x3FD3C6DE80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 78, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 79), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 79, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEE4F91A0000000, float 0xBFD1B078E0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 80), align 16
-  store <2 x float> <float 0x3FC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 80, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEE6F1120000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 81), align 16
-  store <2 x float> <float 0xBFD3C6DE80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 81, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEE4F91A0000000, float 0xBFD1B078E0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 82), align 16
-  store <2 x float> <float 0xBFC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 82, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FC3DE15C0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 83), align 16
-  store <2 x float> <float 0x3FEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 83, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDBE789E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 84), align 16
-  store <2 x float> <float 0x3FEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 84, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float -0.000000e+00, float -0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 85), align 16
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 85, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD3C6EF40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 86), align 16
-  store <2 x float> <float 0x3FEE6F0D00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 86, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FC1B08140000000, float 0xBFD1B08140000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 87), align 16
-  store <2 x float> <float 0x3FEE6F0AE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 87, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE2CF24A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 88), align 16
-  store <2 x float> <float 0x3FE9E377A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 88, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDC9F2FE0000000, float 0xBFD1B08140000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 89), align 16
-  store <2 x float> <float 0x3FEB388220000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 89, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEB8AD680000000, float 0x3FD012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 90), align 16
-  store <2 x float> <float 0x3FDC57C920000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 90, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE5FD34E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 91), align 16
-  store <2 x float> <float 0x3FE5D09C00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 91, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEE6F1120000000, float -0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 92), align 16
-  store <2 x float> <float 0x3FD3C6DE80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 92, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE9E379C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 93), align 16
-  store <2 x float> <float 0x3FE2CF1E40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 93, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEB93E3E0000000, float 0xBFD1B078E0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 94), align 16
-  store <2 x float> <float 0x3FDB388220000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 94, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE2CF24A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 95), align 16
-  store <2 x float> <float 0x3FE9E377A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 95, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE5775960000000, float 0xBFD1B07D00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 96), align 16
-  store <2 x float> <float 0x3FE605A920000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 96, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE5FD34E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 97), align 16
-  store <2 x float> <float 0xBFE5D09C00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 97, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEB8AD680000000, float 0x3FD012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 98), align 16
-  store <2 x float> <float 0xBFDC57C920000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 98, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE2CF24A0000000, float -0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 99), align 16
-  store <2 x float> <float 0xBFE9E377A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 99, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE9E379C0000000, float -0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 100), align 16
-  store <2 x float> <float 0xBFE2CF1E40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 100, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE5775960000000, float 0xBFD1B07D00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 101), align 16
-  store <2 x float> <float 0xBFE605A920000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 101, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEE6F1120000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 102), align 16
-  store <2 x float> <float 0xBFD3C6DE80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 102, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEB93E3E0000000, float 0xBFD1B078E0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 103), align 16
-  store <2 x float> <float 0xBFDB388220000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 103, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDBE789E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 104), align 16
-  store <2 x float> <float 0xBFEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 104, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FC3DE15C0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 105), align 16
-  store <2 x float> <float 0xBFEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 105, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE2CF24A0000000, float -0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 106), align 16
-  store <2 x float> <float 0xBFE9E377A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 106, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD3C6EF40000000, float -0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 107), align 16
-  store <2 x float> <float 0xBFEE6F0D00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 107, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDC9F2FE0000000, float 0xBFD1B08140000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 108), align 16
-  store <2 x float> <float 0xBFEB388220000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 108, i32 0, i32 0, i64 2), align 8
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 109), align 16
-  store <2 x float> <float -1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 109, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FC1B08140000000, float 0xBFD1B08140000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 110), align 16
-  store <2 x float> <float 0xBFEE6F0AE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 110, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE5775B80000000, float 0x3FD1B078E0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 111), align 16
-  store <2 x float> <float 0x3FE605A700000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 111, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE9E37BE0000000, float 0xBEC0C6F7A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 112), align 16
-  store <2 x float> <float 0x3FE2CF1E40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 112, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE605A500000000, float 0x3FE0D2D440000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 113), align 16
-  store <2 x float> <float 0x3FDFFFF360000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 113, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEB93E600000000, float 0x3FD1B07080000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 114), align 16
-  store <2 x float> <float 0x3FDB387E00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 114, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEA97F840000000, float 0x3FE012D560000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 115), align 16
-  store <2 x float> <float 0x3FCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 115, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDC9F2FE0000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 116), align 16
-  store <2 x float> <float 0x3FEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 116, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD3C6EF40000000, float 0xBEB0C6F7A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 117), align 16
-  store <2 x float> <float 0x3FEE6F0D00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 117, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD0D2D880000000, float 0x3FE0D2D880000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 118), align 16
-  store <2 x float> <float 0x3FE9E36D20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 118, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFC1B08140000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 119), align 16
-  store <2 x float> <float 0x3FEE6F0AE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 119, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3F9E59AFA0000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 120), align 16
-  store <2 x float> <float 0x3FEBA76540000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 120, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEE4F91A0000000, float 0x3FD1B078E0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 121), align 16
-  store <2 x float> <float 0xBFC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 121, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float -1.000000e+00, float 0x3EB0C6F7A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 122), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 122, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEB388220000000, float 0x3FE0D2D440000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 123), align 16
-  store <2 x float> <float -0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 123, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEE4F91A0000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 124), align 16
-  store <2 x float> <float 0x3FC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 124, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFEA01E040000000, float 0x3FE012D980000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 125), align 16
-  store <2 x float> <float 0x3FD2E52DE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 125, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFC1B08140000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 126), align 16
-  store <2 x float> <float 0xBFEE6F0AE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 126, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD3C6EB00000000, float -0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 127), align 16
-  store <2 x float> <float 0xBFEE6F0F20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 127, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD0D2D880000000, float 0x3FE0D2D880000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 128), align 16
-  store <2 x float> <float 0xBFE9E36D20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 128, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDC9F2BA0000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 129), align 16
-  store <2 x float> <float 0xBFEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 129, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE105A920000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 130), align 16
-  store <2 x float> <float 0xBFE5D095A0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 130, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FEB93E600000000, float 0x3FD1B078E0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 131), align 16
-  store <2 x float> <float 0xBFDB3879C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 131, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE9E37BE0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 132), align 16
-  store <2 x float> <float 0xBFE2CF1C40000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 132, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE605A500000000, float 0x3FE0D2D440000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 133), align 16
-  store <2 x float> <float 0xBFDFFFF360000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 133, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE5775DA0000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 134), align 16
-  store <2 x float> <float 0xBFE605A500000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 134, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDEF96180000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 135), align 16
-  store <2 x float> <float 0xBFE6EE19C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 135, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FB3DE0D60000000, float 0x3FEEF97240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 136), align 16
-  store <2 x float> <float 0x3FCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 136, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD012CAE0000000, float 0x3FEEF97020000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 137), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 137, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 138), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 138, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FC4CB5BC0000000, float 0x3FEB388EC0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 139), align 16
-  store <2 x float> <float 0x3FDFFFEB00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 139, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD727BB20000000, float 0x3FEC9F29A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 140), align 16
-  store <2 x float> <float 0x3FD0D2BF60000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 140, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDC9F1280000000, float 0x3FE727D460000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 141), align 16
-  store <2 x float> <float 0x3FE0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 141, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE0D2C7C0000000, float 0x3FEB388A80000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 142), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 142, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE46C15E0000000, float 0x3FE727D020000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 143), align 16
-  store <2 x float> <float 0x3FD0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 143, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFCA01D5C0000000, float 0x3FEEF97240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 144), align 16
-  store <2 x float> <float 0x3FC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 144, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDB387E00000000, float 0x3FEB388EC0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 145), align 16
-  store <2 x float> <float 0x3FD3C6D620000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 145, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFC1B07080000000, float 0x3FEC9F2BA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 146), align 16
-  store <2 x float> <float 0x3FDB387160000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 146, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD727CC00000000, float 0x3FE727D460000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 147), align 16
-  store <2 x float> <float 0x3FE2CF13C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 147, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFAB074A80000000, float 0x3FE727D460000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 148), align 16
-  store <2 x float> <float 0x3FE6059C80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 148, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFCA01D5C0000000, float 0x3FEEF97240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 149), align 16
-  store <2 x float> <float 0xBFC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 149, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDB387E00000000, float 0x3FEB388EC0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 150), align 16
-  store <2 x float> <float 0xBFD3C6D620000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 150, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFDC9F16C0000000, float 0x3FEC9F29A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 151), align 16
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 151, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE5775540000000, float 0x3FE727D240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 152), align 16
-  store <2 x float> <float 0xBFC4CB6420000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 152, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFE5775540000000, float 0x3FE727D240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 153), align 16
-  store <2 x float> <float 0x3FC4CB6420000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 153, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FB3DE0D60000000, float 0x3FEEF97240000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 154), align 16
-  store <2 x float> <float 0xBFCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 154, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FC4CB5BC0000000, float 0x3FEB388EC0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 155), align 16
-  store <2 x float> <float 0xBFDFFFEB00000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 155, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFC1B07080000000, float 0x3FEC9F2BA0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 156), align 16
-  store <2 x float> <float 0xBFDB387160000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 156, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFAB074A80000000, float 0x3FE727D460000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 157), align 16
-  store <2 x float> <float 0xBFE6059C80000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 157, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0xBFD727CC00000000, float 0x3FE727D460000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 158), align 16
-  store <2 x float> <float 0xBFE2CF13C0000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 158, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FD727BB20000000, float 0x3FEC9F29A0000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 159), align 16
-  store <2 x float> <float 0xBFD0D2BF60000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 159, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FE46C15E0000000, float 0x3FE727D020000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 160), align 16
-  store <2 x float> <float 0xBFD0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 160, i32 0, i32 0, i64 2), align 8
-  store <2 x float> <float 0x3FDC9F1280000000, float 0x3FE727D460000000>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 161), align 16
-  store <2 x float> <float 0xBFE0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds ([162 x %class.b3Vector3], ptr @unitSphere162, i64 0, i64 161, i32 0, i32 0, i64 2), align 8
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 8), align 8
+  store <2 x float> <float 0x3FCA01D5C0000000, float 0xBFEEF97240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 16), align 16
+  store <2 x float> <float 0x3FC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 24), align 8
+  store <2 x float> <float 0xBFB3DE0D60000000, float 0xBFEEF97240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 32), align 16
+  store <2 x float> <float 0x3FCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 40), align 8
+  store <2 x float> <float 0x3FE727C9E0000000, float 0xBFDC9F40A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 48), align 16
+  store <2 x float> <float 0x3FE0D2BD40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 56), align 8
+  store <2 x float> <float 0x3FE38168C0000000, float 0xBFE50A6540000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 64), align 16
+  store <2 x float> <float 0x3FDC57C0C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 72), align 8
+  store <2 x float> <float 0x3FEA01E040000000, float 0xBFE012D980000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 80), align 16
+  store <2 x float> <float 0x3FD2E52DE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 88), align 8
+  store <2 x float> <float 0xBFD012CAE0000000, float 0xBFEEF97020000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 96), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 104), align 8
+  store <2 x float> <float 0xBFB3DE0D60000000, float 0xBFEEF97240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 112), align 16
+  store <2 x float> <float 0xBFCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 120), align 8
+  store <2 x float> <float 0x3FCA01D5C0000000, float 0xBFEEF97240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 128), align 16
+  store <2 x float> <float 0xBFC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 136), align 8
+  store <2 x float> <float 0x3FEB8AD680000000, float 0xBFD012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 144), align 16
+  store <2 x float> <float 0x3FDC57C920000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 152), align 8
+  store <2 x float> <float 0xBFD1B05740000000, float 0xBFDC9F40A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 160), align 16
+  store <2 x float> <float 0x3FEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 168), align 8
+  store <2 x float> <float 0xBF9E59AFA0000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 176), align 16
+  store <2 x float> <float 0x3FEBA76540000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 184), align 8
+  store <2 x float> <float 0xBFC3DE15C0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 192), align 16
+  store <2 x float> <float 0x3FEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 200), align 8
+  store <2 x float> <float 0xBFEC9F2340000000, float 0xBFDC9F2FE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 208), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 216), align 8
+  store <2 x float> <float 0xBFEA97F840000000, float 0xBFE012D560000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 224), align 16
+  store <2 x float> <float 0x3FCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 232), align 8
+  store <2 x float> <float 0xBFEE9CAE20000000, float 0xBFD012D340000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 240), align 16
+  store <2 x float> <float 0x3FC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 248), align 8
+  store <2 x float> <float 0xBFD1B05740000000, float 0xBFDC9F40A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 256), align 16
+  store <2 x float> <float 0xBFEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 264), align 8
+  store <2 x float> <float 0xBFDEF96180000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 272), align 16
+  store <2 x float> <float 0xBFE6EE19C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 280), align 8
+  store <2 x float> <float 0xBFDBE789E0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 288), align 16
+  store <2 x float> <float 0xBFEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 296), align 8
+  store <2 x float> <float 0x3FE727C9E0000000, float 0xBFDC9F40A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 304), align 16
+  store <2 x float> <float 0xBFE0D2BD40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 312), align 8
+  store <2 x float> <float 0x3FE105A920000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 320), align 16
+  store <2 x float> <float 0xBFE5D095A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 328), align 8
+  store <2 x float> <float 0x3FE5FD34E0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 336), align 16
+  store <2 x float> <float 0xBFE5D09C00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 344), align 8
+  store <2 x float> <float 0x3FE5FD34E0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 352), align 16
+  store <2 x float> <float 0x3FE5D09C00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 360), align 8
+  store <2 x float> <float 0xBFDBE789E0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 368), align 16
+  store <2 x float> <float 0x3FEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 376), align 8
+  store <2 x float> <float 0xBFEE9CAE20000000, float 0xBFD012D340000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 384), align 16
+  store <2 x float> <float 0xBFC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 392), align 8
+  store <2 x float> <float 0xBFC3DE15C0000000, float 0xBFD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 400), align 16
+  store <2 x float> <float 0xBFEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 408), align 8
+  store <2 x float> <float 0x3FEB8AD680000000, float 0xBFD012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 416), align 16
+  store <2 x float> <float 0xBFDC57C920000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 424), align 8
+  store <2 x float> <float 0x3FD1B05740000000, float 0x3FDC9F40A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 432), align 16
+  store <2 x float> <float 0x3FEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 440), align 8
+  store <2 x float> <float 0x3FDEF96180000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 448), align 16
+  store <2 x float> <float 0x3FE6EE19C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 456), align 8
+  store <2 x float> <float 0x3FCDCD1C80000000, float 0x3FE50A6540000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 464), align 16
+  store <2 x float> <float 0x3FE6EE1580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 472), align 8
+  store <2 x float> <float 0xBFE727C9E0000000, float 0x3FDC9F40A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 480), align 16
+  store <2 x float> <float 0x3FE0D2BD40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 488), align 8
+  store <2 x float> <float 0xBFE105A920000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 496), align 16
+  store <2 x float> <float 0x3FE5D095A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 504), align 8
+  store <2 x float> <float 0xBFE38168C0000000, float 0x3FE50A6540000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 512), align 16
+  store <2 x float> <float 0x3FDC57C0C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 520), align 8
+  store <2 x float> <float 0xBFE727C9E0000000, float 0x3FDC9F40A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 528), align 16
+  store <2 x float> <float 0xBFE0D2BD40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 536), align 8
+  store <2 x float> <float 0xBFEA01E040000000, float 0x3FE012D980000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 544), align 16
+  store <2 x float> <float 0xBFD2E52DE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 552), align 8
+  store <2 x float> <float 0xBFE38168C0000000, float 0x3FE50A6540000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 560), align 16
+  store <2 x float> <float 0xBFDC57C0C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 568), align 8
+  store <2 x float> <float 0x3FD1B05740000000, float 0x3FDC9F40A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 576), align 16
+  store <2 x float> <float 0xBFEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 584), align 8
+  store <2 x float> <float 0x3F9E59AFA0000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 592), align 16
+  store <2 x float> <float 0xBFEBA76540000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 600), align 8
+  store <2 x float> <float 0x3FCDCD1C80000000, float 0x3FE50A6540000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 608), align 16
+  store <2 x float> <float 0xBFE6EE1580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 616), align 8
+  store <2 x float> <float 0x3FEC9F2340000000, float 0x3FDC9F2FE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 624), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 632), align 8
+  store <2 x float> <float 0x3FEA97F840000000, float 0x3FE012D560000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 640), align 16
+  store <2 x float> <float 0xBFCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 648), align 8
+  store <2 x float> <float 0x3FE81C3260000000, float 0x3FE50A5CE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 656), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 664), align 8
+  store <2 x float> <float 0xBFCDCD1C80000000, float 0xBFE50A6540000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 672), align 16
+  store <2 x float> <float 0x3FE6EE1580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 680), align 8
+  store <2 x float> <float 0xBFC4CB5BC0000000, float 0xBFEB388EC0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 688), align 16
+  store <2 x float> <float 0x3FDFFFEB00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 696), align 8
+  store <2 x float> <float 0x3FAB074A80000000, float 0xBFE727D460000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 704), align 16
+  store <2 x float> <float 0x3FE6059C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 712), align 8
+  store <2 x float> <float 0x3FC1B08140000000, float 0xBFEC9F29A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 720), align 16
+  store <2 x float> <float 0x3FDB3875A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 728), align 8
+  store <2 x float> <float 0x3FD0D2D880000000, float 0xBFE0D2D880000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 736), align 16
+  store <2 x float> <float 0x3FE9E36D20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 744), align 8
+  store <2 x float> <float 0x3FD727D020000000, float 0xBFE727D240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 752), align 16
+  store <2 x float> <float 0x3FE2CF15E0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 760), align 8
+  store <2 x float> <float 0x3FE105A920000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 768), align 16
+  store <2 x float> <float 0x3FE5D095A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 776), align 8
+  store <2 x float> <float 0x3FDB387E00000000, float 0xBFEB388EC0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 784), align 16
+  store <2 x float> <float 0x3FD3C6D620000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 792), align 8
+  store <2 x float> <float 0x3FEA01E040000000, float 0xBFE012D980000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 800), align 16
+  store <2 x float> <float 0xBFD2E52DE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 808), align 8
+  store <2 x float> <float 0x3FE38168C0000000, float 0xBFE50A6540000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 816), align 16
+  store <2 x float> <float 0xBFDC57C0C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 824), align 8
+  store <2 x float> <float 0x3FEB388220000000, float 0xBFE0D2D440000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 832), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 840), align 8
+  store <2 x float> <float 0x3FE5775540000000, float 0xBFE727D240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 848), align 16
+  store <2 x float> <float 0xBFC4CB6420000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 856), align 8
+  store <2 x float> <float 0x3FE5775540000000, float 0xBFE727D020000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 864), align 16
+  store <2 x float> <float 0x3FC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 872), align 8
+  store <2 x float> <float 0x3FDB387E00000000, float 0xBFEB388EC0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 880), align 16
+  store <2 x float> <float 0xBFD3C6D620000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 888), align 8
+  store <2 x float> <float 0x3FDC9F1AE0000000, float 0xBFEC9F2780000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 896), align 16
+  store <2 x float> <float 0x3EB0C6F7A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 904), align 8
+  store <2 x float> <float 0xBFE81C3260000000, float 0xBFE50A5CE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 912), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 920), align 8
+  store <2 x float> <float 0xBFE0D2C7C0000000, float 0xBFEB388A80000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 928), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 936), align 8
+  store <2 x float> <float 0xBFE46C17E0000000, float 0xBFE727CE00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 944), align 16
+  store <2 x float> <float 0x3FD0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 952), align 8
+  store <2 x float> <float 0xBFD727BF60000000, float 0xBFEC9F2780000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 960), align 16
+  store <2 x float> <float 0x3FD0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 968), align 8
+  store <2 x float> <float 0xBFE605A500000000, float 0xBFE0D2D440000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 976), align 16
+  store <2 x float> <float 0x3FDFFFF360000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 984), align 8
+  store <2 x float> <float 0xBFDC9F1AE0000000, float 0xBFE727D020000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 992), align 16
+  store <2 x float> <float 0x3FE0D2C5A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1000), align 8
+  store <2 x float> <float 0xBFDEF96180000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1008), align 16
+  store <2 x float> <float 0x3FE6EE19C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1016), align 8
+  store <2 x float> <float 0xBFCDCD1C80000000, float 0xBFE50A6540000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1024), align 16
+  store <2 x float> <float 0xBFE6EE1580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1032), align 8
+  store <2 x float> <float 0xBFC4CB5BC0000000, float 0xBFEB388EC0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1040), align 16
+  store <2 x float> <float 0xBFDFFFEB00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1048), align 8
+  store <2 x float> <float 0xBFDC9F1AE0000000, float 0xBFE727D240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1056), align 16
+  store <2 x float> <float 0xBFE0D2C160000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1064), align 8
+  store <2 x float> <float 0xBFD727BF60000000, float 0xBFEC9F29A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1072), align 16
+  store <2 x float> <float 0xBFD0D2BF60000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1080), align 8
+  store <2 x float> <float 0xBFE605A500000000, float 0xBFE0D2D440000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1088), align 16
+  store <2 x float> <float 0xBFDFFFF360000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1096), align 8
+  store <2 x float> <float 0xBFE46C17E0000000, float 0xBFE727CE00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1104), align 16
+  store <2 x float> <float 0xBFD0D2BF60000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1112), align 8
+  store <2 x float> <float 0xBFEA97F840000000, float 0xBFE012D560000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1120), align 16
+  store <2 x float> <float 0xBFCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1128), align 8
+  store <2 x float> <float 0x3FD727CC00000000, float 0xBFE727D460000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1136), align 16
+  store <2 x float> <float 0xBFE2CF15E0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1144), align 8
+  store <2 x float> <float 0x3FC1B07080000000, float 0xBFEC9F29A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1152), align 16
+  store <2 x float> <float 0xBFDB3875A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1160), align 8
+  store <2 x float> <float 0x3FD0D2D880000000, float 0xBFE0D2D880000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1168), align 16
+  store <2 x float> <float 0xBFE9E36D20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1176), align 8
+  store <2 x float> <float 0x3FAB0728E0000000, float 0xBFE727D240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1184), align 16
+  store <2 x float> <float 0xBFE6059EA0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1192), align 8
+  store <2 x float> <float 0xBF9E59AFA0000000, float 0xBFE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1200), align 16
+  store <2 x float> <float 0xBFEBA76540000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1208), align 8
+  store <2 x float> <float 0x3FEE9CAE20000000, float 0x3FD012D340000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1216), align 16
+  store <2 x float> <float 0x3FC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1224), align 8
+  store <2 x float> <float 0x3FEE9CAE20000000, float 0x3FD012D340000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1232), align 16
+  store <2 x float> <float 0xBFC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1240), align 8
+  store <2 x float> <float 0x3FEE6F1120000000, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1248), align 16
+  store <2 x float> <float 0x3FD3C6DE80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1256), align 8
+  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1264), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1272), align 8
+  store <2 x float> <float 0x3FEE4F91A0000000, float 0xBFD1B078E0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1280), align 16
+  store <2 x float> <float 0x3FC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1288), align 8
+  store <2 x float> <float 0x3FEE6F1120000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1296), align 16
+  store <2 x float> <float 0xBFD3C6DE80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1304), align 8
+  store <2 x float> <float 0x3FEE4F91A0000000, float 0xBFD1B078E0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1312), align 16
+  store <2 x float> <float 0xBFC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1320), align 8
+  store <2 x float> <float 0x3FC3DE15C0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1328), align 16
+  store <2 x float> <float 0x3FEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1336), align 8
+  store <2 x float> <float 0x3FDBE789E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1344), align 16
+  store <2 x float> <float 0x3FEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1352), align 8
+  store <2 x float> <float -0.000000e+00, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1360), align 16
+  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1368), align 8
+  store <2 x float> <float 0x3FD3C6EF40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1376), align 16
+  store <2 x float> <float 0x3FEE6F0D00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1384), align 8
+  store <2 x float> <float 0x3FC1B08140000000, float 0xBFD1B08140000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1392), align 16
+  store <2 x float> <float 0x3FEE6F0AE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1400), align 8
+  store <2 x float> <float 0x3FE2CF24A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1408), align 16
+  store <2 x float> <float 0x3FE9E377A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1416), align 8
+  store <2 x float> <float 0x3FDC9F2FE0000000, float 0xBFD1B08140000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1424), align 16
+  store <2 x float> <float 0x3FEB388220000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1432), align 8
+  store <2 x float> <float 0xBFEB8AD680000000, float 0x3FD012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1440), align 16
+  store <2 x float> <float 0x3FDC57C920000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1448), align 8
+  store <2 x float> <float 0xBFE5FD34E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1456), align 16
+  store <2 x float> <float 0x3FE5D09C00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1464), align 8
+  store <2 x float> <float 0xBFEE6F1120000000, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1472), align 16
+  store <2 x float> <float 0x3FD3C6DE80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1480), align 8
+  store <2 x float> <float 0xBFE9E379C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1488), align 16
+  store <2 x float> <float 0x3FE2CF1E40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1496), align 8
+  store <2 x float> <float 0xBFEB93E3E0000000, float 0xBFD1B078E0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1504), align 16
+  store <2 x float> <float 0x3FDB388220000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1512), align 8
+  store <2 x float> <float 0xBFE2CF24A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1520), align 16
+  store <2 x float> <float 0x3FE9E377A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1528), align 8
+  store <2 x float> <float 0xBFE5775960000000, float 0xBFD1B07D00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1536), align 16
+  store <2 x float> <float 0x3FE605A920000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1544), align 8
+  store <2 x float> <float 0xBFE5FD34E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1552), align 16
+  store <2 x float> <float 0xBFE5D09C00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1560), align 8
+  store <2 x float> <float 0xBFEB8AD680000000, float 0x3FD012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1568), align 16
+  store <2 x float> <float 0xBFDC57C920000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1576), align 8
+  store <2 x float> <float 0xBFE2CF24A0000000, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1584), align 16
+  store <2 x float> <float 0xBFE9E377A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1592), align 8
+  store <2 x float> <float 0xBFE9E379C0000000, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1600), align 16
+  store <2 x float> <float 0xBFE2CF1E40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1608), align 8
+  store <2 x float> <float 0xBFE5775960000000, float 0xBFD1B07D00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1616), align 16
+  store <2 x float> <float 0xBFE605A920000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1624), align 8
+  store <2 x float> <float 0xBFEE6F1120000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1632), align 16
+  store <2 x float> <float 0xBFD3C6DE80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1640), align 8
+  store <2 x float> <float 0xBFEB93E3E0000000, float 0xBFD1B078E0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1648), align 16
+  store <2 x float> <float 0xBFDB388220000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1656), align 8
+  store <2 x float> <float 0x3FDBE789E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1664), align 16
+  store <2 x float> <float 0xBFEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1672), align 8
+  store <2 x float> <float 0x3FC3DE15C0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1680), align 16
+  store <2 x float> <float 0xBFEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1688), align 8
+  store <2 x float> <float 0x3FE2CF24A0000000, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1696), align 16
+  store <2 x float> <float 0xBFE9E377A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1704), align 8
+  store <2 x float> <float 0x3FD3C6EF40000000, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1712), align 16
+  store <2 x float> <float 0xBFEE6F0D00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1720), align 8
+  store <2 x float> <float 0x3FDC9F2FE0000000, float 0xBFD1B08140000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1728), align 16
+  store <2 x float> <float 0xBFEB388220000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1736), align 8
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1744), align 16
+  store <2 x float> <float -1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1752), align 8
+  store <2 x float> <float 0x3FC1B08140000000, float 0xBFD1B08140000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1760), align 16
+  store <2 x float> <float 0xBFEE6F0AE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1768), align 8
+  store <2 x float> <float 0x3FE5775B80000000, float 0x3FD1B078E0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1776), align 16
+  store <2 x float> <float 0x3FE605A700000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1784), align 8
+  store <2 x float> <float 0x3FE9E37BE0000000, float 0xBEC0C6F7A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1792), align 16
+  store <2 x float> <float 0x3FE2CF1E40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1800), align 8
+  store <2 x float> <float 0x3FE605A500000000, float 0x3FE0D2D440000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1808), align 16
+  store <2 x float> <float 0x3FDFFFF360000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1816), align 8
+  store <2 x float> <float 0x3FEB93E600000000, float 0x3FD1B07080000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1824), align 16
+  store <2 x float> <float 0x3FDB387E00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1832), align 8
+  store <2 x float> <float 0x3FEA97F840000000, float 0x3FE012D560000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1840), align 16
+  store <2 x float> <float 0x3FCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1848), align 8
+  store <2 x float> <float 0xBFDC9F2FE0000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1856), align 16
+  store <2 x float> <float 0x3FEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1864), align 8
+  store <2 x float> <float 0xBFD3C6EF40000000, float 0xBEB0C6F7A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1872), align 16
+  store <2 x float> <float 0x3FEE6F0D00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1880), align 8
+  store <2 x float> <float 0xBFD0D2D880000000, float 0x3FE0D2D880000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1888), align 16
+  store <2 x float> <float 0x3FE9E36D20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1896), align 8
+  store <2 x float> <float 0xBFC1B08140000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1904), align 16
+  store <2 x float> <float 0x3FEE6F0AE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1912), align 8
+  store <2 x float> <float 0x3F9E59AFA0000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1920), align 16
+  store <2 x float> <float 0x3FEBA76540000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1928), align 8
+  store <2 x float> <float 0xBFEE4F91A0000000, float 0x3FD1B078E0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1936), align 16
+  store <2 x float> <float 0xBFC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1944), align 8
+  store <2 x float> <float -1.000000e+00, float 0x3EB0C6F7A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1952), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1960), align 8
+  store <2 x float> <float 0xBFEB388220000000, float 0x3FE0D2D440000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1968), align 16
+  store <2 x float> <float -0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1976), align 8
+  store <2 x float> <float 0xBFEE4F91A0000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1984), align 16
+  store <2 x float> <float 0x3FC4CB6C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1992), align 8
+  store <2 x float> <float 0xBFEA01E040000000, float 0x3FE012D980000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2000), align 16
+  store <2 x float> <float 0x3FD2E52DE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2008), align 8
+  store <2 x float> <float 0xBFC1B08140000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2016), align 16
+  store <2 x float> <float 0xBFEE6F0AE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2024), align 8
+  store <2 x float> <float 0xBFD3C6EB00000000, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2032), align 16
+  store <2 x float> <float 0xBFEE6F0F20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2040), align 8
+  store <2 x float> <float 0xBFD0D2D880000000, float 0x3FE0D2D880000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2048), align 16
+  store <2 x float> <float 0xBFE9E36D20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2056), align 8
+  store <2 x float> <float 0xBFDC9F2BA0000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2064), align 16
+  store <2 x float> <float 0xBFEB388440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2072), align 8
+  store <2 x float> <float 0xBFE105A920000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2080), align 16
+  store <2 x float> <float 0xBFE5D095A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2088), align 8
+  store <2 x float> <float 0x3FEB93E600000000, float 0x3FD1B078E0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2096), align 16
+  store <2 x float> <float 0xBFDB3879C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2104), align 8
+  store <2 x float> <float 0x3FE9E37BE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2112), align 16
+  store <2 x float> <float 0xBFE2CF1C40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2120), align 8
+  store <2 x float> <float 0x3FE605A500000000, float 0x3FE0D2D440000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2128), align 16
+  store <2 x float> <float 0xBFDFFFF360000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2136), align 8
+  store <2 x float> <float 0x3FE5775DA0000000, float 0x3FD1B07D00000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2144), align 16
+  store <2 x float> <float 0xBFE605A500000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2152), align 8
+  store <2 x float> <float 0x3FDEF96180000000, float 0x3FE012DBA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2160), align 16
+  store <2 x float> <float 0xBFE6EE19C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2168), align 8
+  store <2 x float> <float 0x3FB3DE0D60000000, float 0x3FEEF97240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2176), align 16
+  store <2 x float> <float 0x3FCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2184), align 8
+  store <2 x float> <float 0x3FD012CAE0000000, float 0x3FEEF97020000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2192), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2200), align 8
+  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2208), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2216), align 8
+  store <2 x float> <float 0x3FC4CB5BC0000000, float 0x3FEB388EC0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2224), align 16
+  store <2 x float> <float 0x3FDFFFEB00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2232), align 8
+  store <2 x float> <float 0x3FD727BB20000000, float 0x3FEC9F29A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2240), align 16
+  store <2 x float> <float 0x3FD0D2BF60000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2248), align 8
+  store <2 x float> <float 0x3FDC9F1280000000, float 0x3FE727D460000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2256), align 16
+  store <2 x float> <float 0x3FE0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2264), align 8
+  store <2 x float> <float 0x3FE0D2C7C0000000, float 0x3FEB388A80000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2272), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2280), align 8
+  store <2 x float> <float 0x3FE46C15E0000000, float 0x3FE727D020000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2288), align 16
+  store <2 x float> <float 0x3FD0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2296), align 8
+  store <2 x float> <float 0xBFCA01D5C0000000, float 0x3FEEF97240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2304), align 16
+  store <2 x float> <float 0x3FC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2312), align 8
+  store <2 x float> <float 0xBFDB387E00000000, float 0x3FEB388EC0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2320), align 16
+  store <2 x float> <float 0x3FD3C6D620000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2328), align 8
+  store <2 x float> <float 0xBFC1B07080000000, float 0x3FEC9F2BA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2336), align 16
+  store <2 x float> <float 0x3FDB387160000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2344), align 8
+  store <2 x float> <float 0xBFD727CC00000000, float 0x3FE727D460000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2352), align 16
+  store <2 x float> <float 0x3FE2CF13C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2360), align 8
+  store <2 x float> <float 0xBFAB074A80000000, float 0x3FE727D460000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2368), align 16
+  store <2 x float> <float 0x3FE6059C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2376), align 8
+  store <2 x float> <float 0xBFCA01D5C0000000, float 0x3FEEF97240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2384), align 16
+  store <2 x float> <float 0xBFC2E52580000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2392), align 8
+  store <2 x float> <float 0xBFDB387E00000000, float 0x3FEB388EC0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2400), align 16
+  store <2 x float> <float 0xBFD3C6D620000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2408), align 8
+  store <2 x float> <float 0xBFDC9F16C0000000, float 0x3FEC9F29A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2416), align 16
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2424), align 8
+  store <2 x float> <float 0xBFE5775540000000, float 0x3FE727D240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2432), align 16
+  store <2 x float> <float 0xBFC4CB6420000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2440), align 8
+  store <2 x float> <float 0xBFE5775540000000, float 0x3FE727D240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2448), align 16
+  store <2 x float> <float 0x3FC4CB6420000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2456), align 8
+  store <2 x float> <float 0x3FB3DE0D60000000, float 0x3FEEF97240000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2464), align 16
+  store <2 x float> <float 0xBFCE92BC20000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2472), align 8
+  store <2 x float> <float 0x3FC4CB5BC0000000, float 0x3FEB388EC0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2480), align 16
+  store <2 x float> <float 0xBFDFFFEB00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2488), align 8
+  store <2 x float> <float 0xBFC1B07080000000, float 0x3FEC9F2BA0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2496), align 16
+  store <2 x float> <float 0xBFDB387160000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2504), align 8
+  store <2 x float> <float 0xBFAB074A80000000, float 0x3FE727D460000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2512), align 16
+  store <2 x float> <float 0xBFE6059C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2520), align 8
+  store <2 x float> <float 0xBFD727CC00000000, float 0x3FE727D460000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2528), align 16
+  store <2 x float> <float 0xBFE2CF13C0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2536), align 8
+  store <2 x float> <float 0x3FD727BB20000000, float 0x3FEC9F29A0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2544), align 16
+  store <2 x float> <float 0xBFD0D2BF60000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2552), align 8
+  store <2 x float> <float 0x3FE46C15E0000000, float 0x3FE727D020000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2560), align 16
+  store <2 x float> <float 0xBFD0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2568), align 8
+  store <2 x float> <float 0x3FDC9F1280000000, float 0x3FE727D460000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2576), align 16
+  store <2 x float> <float 0xBFE0D2C380000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 2584), align 8
   ret void
 }
 

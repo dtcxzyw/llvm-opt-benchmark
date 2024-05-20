@@ -354,16 +354,16 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i
           to label %59 unwind label %52
 
 59:                                               ; preds = %58
-  %60 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %61 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 8), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 16), align 8
   %.not.i.i = icmp eq ptr %60, %61
   br i1 %.not.i.i, label %65, label %62
 
 62:                                               ; preds = %59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %63 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 8), align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 32
-  store ptr %64, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %64, ptr getelementptr inbounds (i8, ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 8), align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
 
 65:                                               ; preds = %59
@@ -621,7 +621,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
 
 _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %.preheader.i.i, %45, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %36
   %48 = load ptr, ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 8), align 8
   %50 = icmp eq ptr %48, %49
   br i1 %50, label %51, label %58
 
@@ -631,7 +631,7 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
 
 ._crit_edge29:                                    ; preds = %51
   %.pre = load ptr, ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, align 8
-  %.pre30 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8V3Waiver12s_waiverListB5cxx11E, i64 8), align 8
   br label %58
 
 .loopexit:                                        ; preds = %.lr.ph, %62, %64

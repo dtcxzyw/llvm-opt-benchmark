@@ -672,7 +672,7 @@ if.else:                                          ; preds = %if.end19
 
 if.end28:                                         ; preds = %if.else, %if.then22
   call void @diffcore_std(ptr noundef nonnull %diffopt) #14
-  %35 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %36 = load i32, ptr %max_changed_paths, align 4
   %cmp.not = icmp ugt i32 %35, %36
   br i1 %cmp.not, label %for.cond93.preheader, label %if.then30
@@ -750,7 +750,7 @@ do.end53:                                         ; preds = %if.end48
   %43 = load ptr, ptr %arrayidx55, align 8
   call void @diff_free_filepair(ptr noundef %43) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %45 = sext i32 %44 to i64
   %cmp31 = icmp slt i64 %indvars.iv.next, %45
   br i1 %cmp31, label %for.body, label %for.end, !llvm.loop !12
@@ -878,7 +878,7 @@ for.body96:                                       ; preds = %for.cond93.preheade
   %61 = load ptr, ptr %arrayidx98, align 8
   call void @diff_free_filepair(ptr noundef %61) #14
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %62 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %63 = sext i32 %62 to i64
   %cmp94 = icmp slt i64 %indvars.iv.next105, %63
   br i1 %cmp94, label %for.body96, label %for.end101, !llvm.loop !14

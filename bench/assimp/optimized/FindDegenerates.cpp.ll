@@ -83,7 +83,7 @@ $_ZN6Assimp6Logger13formatMessageIJERA24_KcEENSt7__cxx1112basic_stringIcSt11char
 define void @_ZN6Assimp22FindDegeneratesProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(26) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #15
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp22FindDegeneratesProcessE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp22FindDegeneratesProcessE, i64 16), ptr %this, align 8
   %mConfigRemoveDegenerates = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %mConfigRemoveDegenerates, align 8
   %mConfigCheckAreaOfTriangle = getelementptr inbounds i8, ptr %this, i64 25

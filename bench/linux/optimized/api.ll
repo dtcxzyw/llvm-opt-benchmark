@@ -146,7 +146,7 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @crypto_larval_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(432) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 432) #6
   %6 = icmp eq ptr %5, null
   br i1 %6, label %17, label %7
@@ -441,7 +441,7 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br i1 %28, label %.thread16, label %.thread
 
 .thread16:                                        ; preds = %13, %36
-  %37 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %38 = tail call noalias align 8 dereferenceable_or_null(432) ptr @kmalloc_trace(ptr noundef %37, i32 noundef 3520, i64 noundef 432) #6
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread19, label %40

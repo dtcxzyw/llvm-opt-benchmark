@@ -5188,8 +5188,8 @@ rebase_path_message.exit.i:                       ; preds = %if.then.i.i79, %lan
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end15.i
 
 if.then10.i:                                      ; preds = %rebase_path_message.exit.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 1), align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 8), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 16), align 8
   %cmp3.not.i.i.i76 = icmp eq ptr %62, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i76, label %strbuf_setlen.exit.i.i78, label %if.then4.i.i.i77
 
@@ -5208,7 +5208,7 @@ if.then.i50.i:                                    ; preds = %strbuf_setlen.exit.
   br label %gpg_sign_opt_quoted.exit.i
 
 gpg_sign_opt_quoted.exit.i:                       ; preds = %if.then.i50.i, %strbuf_setlen.exit.i.i78
-  %64 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 2), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 16), align 8
   %65 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i51.i = icmp eq i32 %65, 0
   br i1 %tobool1.not.i51.i, label %_.exit55.i, label %if.end3.i52.i
@@ -7265,8 +7265,8 @@ define internal ptr @reflog_message(ptr nocapture noundef %opts, ptr noundef %su
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @reflog_message.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @reflog_message.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @reflog_message.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @reflog_message.buf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -7331,7 +7331,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then2, %if.end
   call void @llvm.va_end.p0(ptr nonnull %ap)
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @reflog_message.buf, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @reflog_message.buf, i64 16), align 8
   ret ptr %7
 }
 
@@ -15605,8 +15605,8 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @gpg_sign_opt_quoted(ptr nocapture noundef readonly %opts) unnamed_addr #0 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -15625,7 +15625,7 @@ if.then:                                          ; preds = %strbuf_setlen.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %strbuf_setlen.exit
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 16), align 8
   ret ptr %2
 }
 
@@ -15800,8 +15800,8 @@ land.lhs.true12:                                  ; preds = %land.lhs.true9, %lo
   br i1 %tobool14.not, label %if.end20, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true12
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 1), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %3, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -15820,7 +15820,7 @@ if.then.i:                                        ; preds = %strbuf_setlen.exit.
   br label %gpg_sign_opt_quoted.exit
 
 gpg_sign_opt_quoted.exit:                         ; preds = %strbuf_setlen.exit.i, %if.then.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gpg_sign_opt_quoted.buf, i64 16), align 8
   %6 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %6, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i

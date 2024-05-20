@@ -121,7 +121,7 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #2 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not4 = icmp eq i32 %4, %5
   br i1 %.not4, label %7, label %6
 
@@ -131,8 +131,8 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #2 {
 
 7:                                                ; preds = %6, %3
   store ptr @opal_list_t_class, ptr @mca_btl_base_modules_initialized, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i64 0, i32 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not1.i = icmp eq ptr %9, null
   br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -147,7 +147,7 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #2 {
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i64 0, i32 11), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
   %14 = tail call i32 @opal_output_get_verbosity(i32 noundef %13) #6
   store i32 %14, ptr @mca_btl_base_verbose, align 4
   br label %15
@@ -159,10 +159,10 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_btl_base_close() #2 {
-  %1 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i64 0, i32 1, i32 1), align 8
+  %1 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
   %.0.in9 = getelementptr inbounds i8, ptr %1, i64 16
   %.010 = load volatile ptr, ptr %.0.in9, align 8
-  %.not11 = icmp eq ptr %1, getelementptr inbounds (%struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i64 0, i32 1)
+  %.not11 = icmp eq ptr %1, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
@@ -183,14 +183,14 @@ define internal noundef i32 @mca_btl_base_close() #2 {
   %12 = load volatile ptr, ptr %.0.in13, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   store volatile ptr %11, ptr %13, align 8
-  %14 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i64 0, i32 2), align 8
+  %14 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 56), align 8
   %15 = add i64 %14, -1
-  store volatile i64 %15, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i64 0, i32 2), align 8
+  store volatile i64 %15, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 56), align 8
   %16 = load volatile ptr, ptr %8, align 8
   tail call void @free(ptr noundef %.0812) #6
   %.0.in = getelementptr inbounds i8, ptr %.014, i64 16
   %.0 = load volatile ptr, ptr %.0.in, align 8
-  %.not = icmp eq ptr %.014, getelementptr inbounds (%struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i64 0, i32 1)
+  %.not = icmp eq ptr %.014, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0

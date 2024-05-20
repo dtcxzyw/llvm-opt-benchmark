@@ -144,7 +144,7 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
 
 27:                                               ; preds = %23, %25
   %28 = load i32, ptr @pmix_class_init_epoch, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 4), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 32), align 8
   %.not30 = icmp eq i32 %28, %29
   br i1 %.not30, label %31, label %30
 
@@ -153,10 +153,10 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
   br label %31
 
 31:                                               ; preds = %30, %27
-  store ptr @pmix_output_stream_t_class, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 0, i32 3), i8 0, i64 64, i1 false)
-  %32 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 6), align 8
+  store ptr @pmix_output_stream_t_class, ptr getelementptr inbounds (i8, ptr @verbose, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @verbose, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @verbose, i64 56), i8 0, i64 64, i1 false)
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %33 = load ptr, ptr %32, align 8
   %.not1.i = icmp eq ptr %33, null
   br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -176,24 +176,24 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %31
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %pmix_obj_run_constructors.exit
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 7), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @verbose, i64 153), align 1
   %40 = load i32, ptr @pmix_output_redirected_syslog_pri, align 4
-  store i32 %40, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 2), align 4
+  store i32 %40, ptr getelementptr inbounds (i8, ptr @verbose, i64 124), align 4
   br i1 %.not29, label %44, label %41
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @redirect_syslog_ident, align 8
   %43 = tail call noalias ptr @strdup(ptr noundef %42) #21
-  store ptr %43, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 3), align 8
+  store ptr %43, ptr getelementptr inbounds (i8, ptr @verbose, i64 128), align 8
   br label %44
 
 44:                                               ; preds = %41, %39
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 9), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 8), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @verbose, i64 155), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @verbose, i64 154), align 2
   br label %46
 
 45:                                               ; preds = %pmix_obj_run_constructors.exit
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @verbose, i64 155), align 1
   br label %46
 
 46:                                               ; preds = %45, %44
@@ -201,7 +201,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %31
   %48 = getelementptr inbounds i8, ptr %1, i64 64
   store i8 0, ptr %48, align 16
   %49 = call i32 @getpid() #21
-  %50 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 4), ptr noundef nonnull @.str.9, ptr noundef nonnull %1, i32 noundef %49) #21
+  %50 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @verbose, i64 136), ptr noundef nonnull @.str.9, ptr noundef nonnull %1, i32 noundef %49) #21
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %71, label %.preheader
 
@@ -525,23 +525,23 @@ define void @pmix_output_reopen_all() local_unnamed_addr #2 {
   %storemerge = phi i32 [ %4, %3 ], [ -1, %0 ]
   store i32 %storemerge, ptr @default_stderr_fd, align 4
   %6 = call i32 @gethostname(ptr noundef nonnull %1, i64 noundef 65) #21
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @verbose, i64 136), align 8
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %9, label %8
 
 8:                                                ; preds = %5
   call void @free(ptr noundef nonnull %7) #21
-  store ptr null, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @verbose, i64 136), align 8
   br label %9
 
 9:                                                ; preds = %8, %5
   %10 = call i32 @getpid() #21
-  %11 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 4), ptr noundef nonnull @.str.9, ptr noundef nonnull %1, i32 noundef %10) #21
+  %11 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @verbose, i64 136), ptr noundef nonnull @.str.9, ptr noundef nonnull %1, i32 noundef %10) #21
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
-  store ptr null, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @verbose, i64 136), align 8
   br label %14
 
 14:                                               ; preds = %13, %9
@@ -1172,14 +1172,14 @@ define void @pmix_output_finalize() local_unnamed_addr #2 {
   br label %pmix_output_close.exit
 
 pmix_output_close.exit:                           ; preds = %.loopexit.loopexit.i, %9, %4, %1
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @verbose, i64 136), align 8
   tail call void @free(ptr noundef %13) #21
   store i32 -1, ptr @verbose_stream, align 4
   %14 = load ptr, ptr @output_prefix, align 8
   tail call void @free(ptr noundef %14) #21
   %15 = load ptr, ptr @output_dir, align 8
   tail call void @free(ptr noundef %15) #21
-  %16 = load ptr, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @verbose, i64 40), align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8

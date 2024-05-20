@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sync_file_ge
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @sync_file_create(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 120) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
@@ -344,7 +344,7 @@ define internal i64 @sync_file_ioctl(ptr nocapture noundef readonly %0, i32 noun
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %9, i64 31
   store i8 0, ptr %44, align 1
-  %45 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %46 = call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %45, i32 noundef 3520, i64 noundef 120) #8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread16, label %48

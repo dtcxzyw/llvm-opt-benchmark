@@ -523,13 +523,13 @@ declare void @warn_report_err(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @object_register_sugar_prop(ptr noundef %driver, ptr noundef %prop, ptr noundef %value, i1 noundef zeroext %optional) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 2), align 16
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @object_compat_props, i64 16), align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @g_ptr_array_new() #19
-  store ptr %call, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 2), align 16
+  store ptr %call, ptr getelementptr inbounds (i8, ptr @object_compat_props, i64 16), align 16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -545,7 +545,7 @@ if.end:                                           ; preds = %if.then, %entry
   store ptr %call5, ptr %value6, align 8
   %optional8 = getelementptr inbounds i8, ptr %call1, i64 25
   store i8 %frombool, ptr %optional8, align 1
-  %1 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 2), align 16
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @object_compat_props, i64 16), align 16
   tail call void @g_ptr_array_add(ptr noundef %1, ptr noundef nonnull %call1) #19
   ret void
 }
@@ -562,7 +562,7 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @object_set_machine_compat_props(ptr noundef %compat_props) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @object_compat_props, i64 8), align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.else
 
@@ -571,7 +571,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  store ptr %compat_props, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 1), align 8
+  store ptr %compat_props, ptr getelementptr inbounds (i8, ptr @object_compat_props, i64 8), align 8
   ret void
 }
 

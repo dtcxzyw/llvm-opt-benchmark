@@ -83,7 +83,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 176) #8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10

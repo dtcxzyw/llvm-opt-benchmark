@@ -199,7 +199,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @php_print_credits(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 32), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
   %.not = icmp ne i32 %2, 0
   %3 = and i32 %0, 32
   %.not14 = icmp eq i32 %3, 0
@@ -208,7 +208,7 @@ define void @php_print_credits(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   tail call void @php_print_info_htmlhead() #2
-  %.pr = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 32), align 8
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -243,7 +243,7 @@ define void @php_print_credits(i32 noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %14
   tail call void @php_info_print_table_start() #2
-  %17 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 32), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
   %.not18 = icmp eq i32 %17, 0
   %.str.4..str.5 = select i1 %.not18, ptr @.str.4, ptr @.str.5
   tail call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef nonnull %.str.4..str.5) #2
@@ -403,7 +403,7 @@ define void @php_print_credits(i32 noundef %0) local_unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %32, %30
-  %34 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 32), align 8
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
   %.not24 = icmp ne i32 %34, 0
   %or.cond26 = or i1 %.not14, %.not24
   br i1 %or.cond26, label %37, label %35

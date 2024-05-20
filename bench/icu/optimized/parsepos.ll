@@ -53,7 +53,7 @@ entry:
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %call, align 8
   %index.i = getelementptr inbounds i8, ptr %call, i64 8
   %index2.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index2.i, align 8

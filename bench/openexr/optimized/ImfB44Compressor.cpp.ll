@@ -41,7 +41,7 @@ define hidden void @_ZN7Imf_3_213B44CompressorC2ERKNS_6HeaderEmmb(ptr noundef no
 entry:
   %frombool = zext i1 %optFlatFields to i8
   tail call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(49) %hdr)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213B44CompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213B44CompressorE, i64 16), ptr %this, align 8
   %_optFlatFields = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %_optFlatFields, align 8
   %_format = getelementptr inbounds i8, ptr %this, i64 20
@@ -324,7 +324,7 @@ declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_213B44CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213B44CompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213B44CompressorE, i64 16), ptr %this, align 8
   %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_tmpBuffer, align 8
   %isnull = icmp eq ptr %0, null
@@ -365,7 +365,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_213B44CompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213B44CompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213B44CompressorE, i64 16), ptr %this, align 8
   %_tmpBuffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_tmpBuffer.i, align 8
   %isnull.i = icmp eq ptr %0, null

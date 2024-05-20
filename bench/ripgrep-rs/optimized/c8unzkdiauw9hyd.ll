@@ -4162,7 +4162,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h72c58dd31d047b88E.exit.i": ; preds = %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i.i, %23
-  %.0.i.i2.i.i = phi ptr [ %27, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17hf1fd3197cd586306E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %23 ]
+  %.0.i.i2.i.i = phi ptr [ %27, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17hf1fd3197cd586306E, i64 8), %23 ]
   %.0.val.i.i = load i64, ptr %.0.i.i2.i.i, align 8, !noalias !975, !noundef !4
   %30 = getelementptr inbounds i8, ptr %25, i64 32
   %31 = load atomic i64, ptr %30 acquire, align 8, !noalias !975

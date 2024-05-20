@@ -84,7 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @destroy_uploaded_files_hash() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 9), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 416), align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -118,13 +118,13 @@ define void @destroy_uploaded_files_hash() local_unnamed_addr #0 {
   br i1 %.not13, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %18
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 9), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 416), align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %0
   %20 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1, %0 ]
   tail call void @zend_hash_destroy(ptr noundef %20) #21
-  %21 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 9), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 416), align 8
   tail call void @_efree_56(ptr noundef %21) #21
   ret void
 }
@@ -176,15 +176,15 @@ define void @rfc1867_post_handler(ptr noundef %0, ptr noundef %1) local_unnamed_
   %35 = alloca %struct._zval_struct, align 8
   %36 = alloca %struct._multipart_event_end, align 8
   store ptr null, ptr %9, align 8
-  %37 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17), align 8
+  %37 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 560), align 8
   %38 = trunc i8 %37 to i1
   store ptr null, ptr %11, align 8
-  %39 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1), align 8
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 568), align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %2
-  %42 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 0, i32 1), align 8
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 576), align 8
   br label %45
 
 43:                                               ; preds = %2
@@ -193,12 +193,12 @@ define void @rfc1867_post_handler(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 45:                                               ; preds = %43, %41
   %46 = phi i64 [ %42, %41 ], [ %44, %43 ]
-  %47 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 2), align 8
+  %47 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 600), align 8
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %45
-  %50 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 2, i32 1), align 8
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 608), align 8
   br label %53
 
 51:                                               ; preds = %45
@@ -207,20 +207,20 @@ define void @rfc1867_post_handler(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 53:                                               ; preds = %51, %49
   %54 = phi i64 [ %50, %49 ], [ %52, %51 ]
-  %55 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 3), align 8
+  %55 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 616), align 8
   %56 = trunc i8 %55 to i1
-  %57 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 3, i32 1), align 8
-  %58 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 10), align 8
+  %57 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 624), align 8
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 424), align 8
   %59 = select i1 %56, i64 %57, i64 %58
-  %60 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 1), align 8
+  %60 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 584), align 8
   %61 = trunc i8 %60 to i1
-  %62 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 1, i32 1), align 8
-  %63 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 62), align 8
+  %62 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 592), align 8
+  %63 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 536), align 8
   %64 = select i1 %61, i64 %62, i64 %63
-  %65 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 4), align 8
+  %65 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 632), align 8
   %66 = trunc i8 %65 to i1
-  %67 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1, i64 4, i32 1), align 8
-  %68 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 24), align 8
+  %67 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 640), align 8
+  %68 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 136), align 8
   %69 = select i1 %66, i64 %67, i64 %68
   %70 = tail call ptr @zend_multibyte_get_internal_encoding() #21
   %71 = load ptr, ptr @php_rfc1867_encoding_translation, align 8
@@ -238,7 +238,7 @@ define void @rfc1867_post_handler(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %78, label %79, label %87
 
 79:                                               ; preds = %53
-  %80 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 3), align 8
+  %80 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 32), align 8
   %81 = icmp sgt i64 %80, %59
   br i1 %81, label %82, label %87
 
@@ -382,18 +382,18 @@ define void @rfc1867_post_handler(ptr noundef %0, ptr noundef %1) local_unnamed_
 multipart_buffer_new.exit:                        ; preds = %142, %146
   %148 = getelementptr inbounds i8, ptr %125, i64 48
   store ptr null, ptr %148, align 8
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #21
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #21
   %149 = tail call noalias ptr @_emalloc_56() #21
   tail call void @_zend_hash_init(ptr noundef %149, i32 noundef 8, ptr noundef nonnull @free_filename, i1 noundef zeroext false) #21
-  store ptr %149, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 9), align 8
-  %150 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5, i32 1), align 8
+  store ptr %149, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 416), align 8
+  %150 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 432), align 8
   %.not475 = icmp eq i8 %150, 7
   br i1 %.not475, label %153, label %151
 
 151:                                              ; preds = %multipart_buffer_new.exit
   %152 = tail call ptr @_zend_new_array_0() #21
-  store ptr %152, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5), align 8
-  store i32 775, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5, i32 1), align 8
+  store ptr %152, ptr getelementptr inbounds (i8, ptr @core_globals, i64 424), align 8
+  store i32 775, ptr getelementptr inbounds (i8, ptr @core_globals, i64 432), align 8
   br label %153
 
 153:                                              ; preds = %151, %multipart_buffer_new.exit
@@ -403,7 +403,7 @@ multipart_buffer_new.exit:                        ; preds = %142, %146
   br i1 %.not476, label %159, label %155
 
 155:                                              ; preds = %153
-  %156 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 3), align 8
+  %156 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 32), align 8
   store i64 %156, ptr %12, align 8
   %157 = call i32 %154(i32 noundef 0, ptr noundef nonnull %12, ptr noundef nonnull %11) #21
   %158 = icmp eq i32 %157, -1
@@ -498,7 +498,7 @@ multipart_buffer_new.exit:                        ; preds = %142, %146
   %194 = load ptr, ptr %125, align 8
   %195 = sext i32 %193 to i64
   %196 = getelementptr inbounds i8, ptr %194, i64 %195
-  %197 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 14), align 8
+  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 112), align 8
   %198 = zext nneg i32 %.029.i.i to i64
   %199 = call i64 %197(ptr noundef %196, i64 noundef %198) #21
   %200 = trunc i64 %199 to i32
@@ -510,9 +510,9 @@ multipart_buffer_new.exit:                        ; preds = %142, %146
   %204 = add nsw i32 %203, %200
   store i32 %204, ptr %139, align 4
   %205 = and i64 %199, 2147483647
-  %206 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %206 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   %207 = add nsw i64 %206, %205
-  store i64 %207, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  store i64 %207, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   %208 = add nuw nsw i32 %.02328.i.i, %200
   %209 = sub nsw i32 %.029.i.i, %200
   %210 = icmp sgt i32 %209, 0
@@ -992,7 +992,7 @@ multipart_buffer_read_body.exit:                  ; preds = %._crit_edge.i
   br i1 %.not515.not, label %403, label %421
 
 403:                                              ; preds = %401
-  %404 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 30), align 8
+  %404 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
   %405 = call i32 %404(i32 noundef 0, ptr noundef nonnull %.0403.lcssa, ptr noundef nonnull %23, i64 noundef %.1564, ptr noundef nonnull %24) #21
   %.not516 = icmp eq i32 %405, 0
   br i1 %.not516, label %421, label %406
@@ -1005,7 +1005,7 @@ multipart_buffer_read_body.exit:                  ; preds = %._crit_edge.i
 
 408:                                              ; preds = %406
   store i64 %.pre925, ptr %28, align 8
-  %409 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %409 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   store i64 %409, ptr %27, align 8
   store ptr %.0403.lcssa, ptr %165, align 8
   store ptr %23, ptr %166, align 8
@@ -1031,7 +1031,7 @@ multipart_buffer_read_body.exit:                  ; preds = %._crit_edge.i
   %417 = load ptr, ptr %23, align 8
   call fastcc void @normalize_protected_variable(ptr noundef nonnull %.0403.lcssa)
   %418 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0403.lcssa) #22
-  %419 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), ptr noundef nonnull %.0403.lcssa, i64 noundef %418) #21
+  %419 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef nonnull %.0403.lcssa, i64 noundef %418) #21
   %.not.i545 = icmp eq ptr %419, null
   br i1 %.not.i545, label %420, label %safe_php_register_variable.exit
 
@@ -1063,7 +1063,7 @@ multipart_buffer_read_body.exit:                  ; preds = %._crit_edge.i
   br i1 %.not517, label %safe_php_register_variable.exit, label %430
 
 430:                                              ; preds = %428
-  %431 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %431 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   store i64 %431, ptr %29, align 8
   store ptr %.0403.lcssa, ptr %169, align 8
   store ptr %23, ptr %170, align 8
@@ -1094,7 +1094,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   %440 = phi i1 [ false, %.critedge.thread ], [ %379, %.critedge ]
   %441 = phi ptr [ %312, %.critedge.thread ], [ %377, %.critedge ]
   %.0403.lcssa928 = phi ptr [ null, %.critedge.thread ], [ %.0403.lcssa, %.critedge ]
-  %442 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 50), align 1
+  %442 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 481), align 1
   %443 = trunc i8 %442 to i1
   br i1 %443, label %444, label %449
 
@@ -1210,7 +1210,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   br i1 %or.cond13, label %481, label %486
 
 481:                                              ; preds = %478
-  %482 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %482 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   store i64 %482, ptr %30, align 8
   store ptr %.2405, ptr %173, align 8
   store ptr %15, ptr %174, align 8
@@ -1242,7 +1242,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
 490:                                              ; preds = %487
   %491 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef nonnull %13, ptr noundef nonnull %18)
   store i64 %491, ptr %16, align 8
-  %492 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 23), align 8
+  %492 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 128), align 8
   %493 = call i32 @php_open_temporary_fd_ex(ptr noundef %492, ptr noundef nonnull @.str.17, ptr noundef nonnull %9, i32 noundef 1) #21
   %494 = add nsw i64 %.1428600, -1
   %495 = icmp eq i32 %493, -1
@@ -1287,7 +1287,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   br i1 %.not510, label %512, label %508
 
 508:                                              ; preds = %506
-  %509 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %509 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   store i64 %509, ptr %31, align 8
   store i64 %.0400.ph, ptr %175, align 8
   store ptr %13, ptr %176, align 8
@@ -1355,7 +1355,7 @@ thread-pre-split:                                 ; preds = %517
   br i1 %.not494, label %543, label %536
 
 536:                                              ; preds = %532
-  %537 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %537 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   store i64 %537, ptr %32, align 8
   %538 = load ptr, ptr %9, align 8
   %.not495 = icmp eq ptr %538, null
@@ -1421,7 +1421,7 @@ thread-pre-split:                                 ; preds = %517
   br label %570
 
 563:                                              ; preds = %543
-  %564 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 9), align 8
+  %564 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 416), align 8
   %565 = load ptr, ptr %9, align 8
   store ptr %565, ptr %8, align 8
   store i32 13, ptr %182, align 8
@@ -1530,12 +1530,12 @@ thread-pre-split:                                 ; preds = %517
   %617 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select539) #22
   call fastcc void @normalize_protected_variable(ptr noundef %.1380)
   %618 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1380) #22
-  %619 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), ptr noundef %.1380, i64 noundef %618) #21
+  %619 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.1380, i64 noundef %618) #21
   %.not.i.i546 = icmp eq ptr %619, null
   br i1 %.not.i.i546, label %620, label %register_http_post_files_variable.exit
 
 620:                                              ; preds = %616
-  call void @php_register_variable_safe(ptr noundef %.1380, ptr noundef %spec.select539, i64 noundef %617, ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5)) #21
+  call void @php_register_variable_safe(ptr noundef %.1380, ptr noundef %spec.select539, i64 noundef %617, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
   br label %register_http_post_files_variable.exit
 
 register_http_post_files_variable.exit:           ; preds = %616, %620
@@ -1555,12 +1555,12 @@ register_http_post_files_variable.exit:           ; preds = %616, %620
   %628 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %627) #22
   call fastcc void @normalize_protected_variable(ptr noundef %.1380)
   %629 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1380) #22
-  %630 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), ptr noundef %.1380, i64 noundef %629) #21
+  %630 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.1380, i64 noundef %629) #21
   %.not.i.i547 = icmp eq ptr %630, null
   br i1 %.not.i.i547, label %631, label %register_http_post_files_variable.exit548
 
 631:                                              ; preds = %626
-  call void @php_register_variable_safe(ptr noundef %.1380, ptr noundef %627, i64 noundef %628, ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5)) #21
+  call void @php_register_variable_safe(ptr noundef %.1380, ptr noundef %627, i64 noundef %628, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
   br label %register_http_post_files_variable.exit548
 
 register_http_post_files_variable.exit548:        ; preds = %626, %631
@@ -1630,12 +1630,12 @@ php_mime_get_hdr_value.exit555:                   ; preds = %.lr.ph.i550
   %653 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %652) #22
   call fastcc void @normalize_protected_variable(ptr noundef %.1380)
   %654 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1380) #22
-  %655 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), ptr noundef %.1380, i64 noundef %654) #21
+  %655 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.1380, i64 noundef %654) #21
   %.not.i.i556 = icmp eq ptr %655, null
   br i1 %.not.i.i556, label %656, label %register_http_post_files_variable.exit557
 
 656:                                              ; preds = %651
-  call void @php_register_variable_safe(ptr noundef %.1380, ptr noundef %652, i64 noundef %653, ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5)) #21
+  call void @php_register_variable_safe(ptr noundef %.1380, ptr noundef %652, i64 noundef %653, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
   br label %register_http_post_files_variable.exit557
 
 register_http_post_files_variable.exit557:        ; preds = %651, %656
@@ -1649,7 +1649,7 @@ register_http_post_files_variable.exit557:        ; preds = %651, %656
 658:                                              ; preds = %657, %register_http_post_files_variable.exit557
   call fastcc void @normalize_protected_variable(ptr noundef %.2405)
   %659 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2405) #22
-  %660 = call ptr @zend_hash_str_add_empty_element(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), ptr noundef %.2405, i64 noundef %659) #21
+  %660 = call ptr @zend_hash_str_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.2405, i64 noundef %659) #21
   %661 = zext i32 %.1425 to i64
   br i1 %585, label %662, label %664
 
@@ -1664,7 +1664,7 @@ register_http_post_files_variable.exit557:        ; preds = %651, %656
 666:                                              ; preds = %664, %662
   call fastcc void @normalize_protected_variable(ptr noundef %.1380)
   %667 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1380) #22
-  %668 = call ptr @zend_hash_str_add_empty_element(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), ptr noundef %.1380, i64 noundef %667) #21
+  %668 = call ptr @zend_hash_str_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.1380, i64 noundef %667) #21
   %669 = load ptr, ptr %9, align 8
   %.not508 = icmp eq ptr %669, null
   br i1 %.not508, label %677, label %670
@@ -1691,7 +1691,7 @@ register_http_post_files_variable.exit557:        ; preds = %651, %656
 679:                                              ; preds = %670, %674, %677
   %.sink1070 = phi i32 [ 262, %674 ], [ 6, %677 ], [ 6, %670 ]
   store i32 %.sink1070, ptr %183, align 8
-  call void @php_register_variable_ex(ptr noundef %.1380, ptr noundef nonnull %33, ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5)) #21
+  call void @php_register_variable_ex(ptr noundef %.1380, ptr noundef nonnull %33, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
   %680 = zext nneg i32 %.5625 to i64
   store i64 %680, ptr %35, align 8
   store i32 4, ptr %184, align 8
@@ -1712,12 +1712,12 @@ register_http_post_files_variable.exit557:        ; preds = %651, %656
 686:                                              ; preds = %684, %682
   call fastcc void @normalize_protected_variable(ptr noundef %.1380)
   %687 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1380) #22
-  %688 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), ptr noundef %.1380, i64 noundef %687) #21
+  %688 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.1380, i64 noundef %687) #21
   %.not.i.i558 = icmp eq ptr %688, null
   br i1 %.not.i.i558, label %689, label %register_http_post_files_variable_ex.exit
 
 689:                                              ; preds = %686
-  call void @php_register_variable_ex(ptr noundef %.1380, ptr noundef nonnull %35, ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5)) #21
+  call void @php_register_variable_ex(ptr noundef %.1380, ptr noundef nonnull %35, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
   br label %register_http_post_files_variable_ex.exit
 
 register_http_post_files_variable_ex.exit:        ; preds = %686, %689
@@ -1735,12 +1735,12 @@ register_http_post_files_variable_ex.exit:        ; preds = %686, %689
 695:                                              ; preds = %691, %693
   call fastcc void @normalize_protected_variable(ptr noundef %.1380)
   %696 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1380) #22
-  %697 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34), ptr noundef %.1380, i64 noundef %696) #21
+  %697 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.1380, i64 noundef %696) #21
   %.not.i.i559 = icmp eq ptr %697, null
   br i1 %.not.i.i559, label %698, label %register_http_post_files_variable_ex.exit560
 
 698:                                              ; preds = %695
-  call void @php_register_variable_ex(ptr noundef %.1380, ptr noundef nonnull %34, ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 5)) #21
+  call void @php_register_variable_ex(ptr noundef %.1380, ptr noundef nonnull %34, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
   br label %register_http_post_files_variable_ex.exit560
 
 register_http_post_files_variable_ex.exit560:     ; preds = %695, %698
@@ -1756,7 +1756,7 @@ multipart_buffer_eof.exit.thread579:              ; preds = %190, %multipart_buf
   br i1 %.not529, label %703, label %700
 
 700:                                              ; preds = %multipart_buffer_eof.exit.thread579
-  %701 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %701 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   store i64 %701, ptr %36, align 8
   %702 = call i32 %699(i32 noundef 5, ptr noundef nonnull %36, ptr noundef nonnull %11) #21
   br label %703
@@ -1786,7 +1786,7 @@ multipart_buffer_eof.exit.thread579:              ; preds = %190, %multipart_buf
   br label %709
 
 709:                                              ; preds = %708, %707
-  call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 34)) #21
+  call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224)) #21
   call void @zend_llist_destroy(ptr noundef nonnull %10) #21
   %710 = load ptr, ptr %133, align 8
   %.not533 = icmp eq ptr %710, null
@@ -2258,7 +2258,7 @@ define internal fastcc i64 @multipart_buffer_read(ptr nocapture noundef %0, ptr 
   %22 = load i32, ptr %4, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 14), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 112), align 8
   %26 = zext nneg i32 %.029.i to i64
   %27 = tail call i64 %25(ptr noundef %24, i64 noundef %26) #21
   %28 = trunc i64 %27 to i32
@@ -2270,9 +2270,9 @@ define internal fastcc i64 @multipart_buffer_read(ptr nocapture noundef %0, ptr 
   %32 = add nsw i32 %31, %28
   store i32 %32, ptr %4, align 4
   %33 = and i64 %27, 2147483647
-  %34 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   %35 = add nsw i64 %34, %33
-  store i64 %35, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  store i64 %35, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   %36 = sub nsw i32 %.029.i, %28
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph.i, label %fill_buffer.exit.loopexit
@@ -2522,7 +2522,7 @@ next_line.exit.thread:                            ; preds = %18, %next_line.exit
   %42 = load i32, ptr %4, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %41, i64 %43
-  %45 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 14), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 112), align 8
   %46 = zext nneg i32 %.029.i to i64
   %47 = tail call i64 %45(ptr noundef %44, i64 noundef %46) #21
   %48 = trunc i64 %47 to i32
@@ -2534,9 +2534,9 @@ next_line.exit.thread:                            ; preds = %18, %next_line.exit
   %52 = add nsw i32 %51, %48
   store i32 %52, ptr %4, align 4
   %53 = and i64 %47, 2147483647
-  %54 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %54 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   %55 = add nsw i64 %54, %53
-  store i64 %55, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  store i64 %55, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   %56 = sub nsw i32 %.029.i, %48
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph.i, label %fill_buffer.exit.loopexit

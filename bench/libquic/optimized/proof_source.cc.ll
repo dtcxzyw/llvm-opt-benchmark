@@ -38,7 +38,7 @@ define dso_local void @_ZN3net11ProofSource5ChainC2ERKSt6vectorINSt7__cxx1112bas
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net11ProofSource5ChainE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net11ProofSource5ChainE, i64 16), ptr %this, align 8
   %certs2 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %certs2, ptr noundef nonnull align 8 dereferenceable(24) %certs)
   ret void
@@ -153,7 +153,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net11ProofSource5ChainD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net11ProofSource5ChainE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net11ProofSource5ChainE, i64 16), ptr %this, align 8
   %certs = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %certs, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -188,7 +188,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net11ProofSource5ChainD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net11ProofSource5ChainE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net11ProofSource5ChainE, i64 16), ptr %this, align 8
   %certs.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %certs.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24

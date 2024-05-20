@@ -27,7 +27,7 @@ define i32 @mca_io_romio341_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = alloca %struct.ompi_info_t, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i64 0, i32 4), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_info_t_class, i64 32), align 8
   %.not = icmp eq i32 %8, %9
   br i1 %.not, label %11, label %10
 
@@ -39,7 +39,7 @@ define i32 @mca_io_romio341_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr @ompi_info_t_class, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store volatile i32 1, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i64 0, i32 6), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_info_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -157,14 +157,14 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = atomicrmw volatile add ptr getelementptr inbounds (%struct.ompi_predefined_errhandler_t, ptr @ompi_mpi_errors_return, i64 0, i32 0, i32 0, i32 1), i32 1 monotonic, align 4
+  %33 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_mpi_errors_return, i64 8), i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit17
 
 34:                                               ; preds = %29
-  %35 = load volatile i32, ptr getelementptr inbounds (%struct.ompi_predefined_errhandler_t, ptr @ompi_mpi_errors_return, i64 0, i32 0, i32 0, i32 1), align 8
+  %35 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errors_return, i64 8), align 8
   %36 = add nsw i32 %35, 1
-  store volatile i32 %36, ptr getelementptr inbounds (%struct.ompi_predefined_errhandler_t, ptr @ompi_mpi_errors_return, i64 0, i32 0, i32 0, i32 1), align 8
-  %37 = load volatile i32, ptr getelementptr inbounds (%struct.ompi_predefined_errhandler_t, ptr @ompi_mpi_errors_return, i64 0, i32 0, i32 0, i32 1), align 8
+  store volatile i32 %36, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errors_return, i64 8), align 8
+  %37 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errors_return, i64 8), align 8
   br label %opal_thread_add_fetch_32.exit17
 
 opal_thread_add_fetch_32.exit17:                  ; preds = %34, %32, %5
@@ -175,7 +175,7 @@ opal_thread_add_fetch_32.exit17:                  ; preds = %34, %32, %5
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %opal_thread_add_fetch_32.exit17
-  %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %44
 
 44:                                               ; preds = %opal_thread_add_fetch_32.exit17, %42
@@ -185,7 +185,7 @@ opal_thread_add_fetch_32.exit17:                  ; preds = %34, %32, %5
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %44
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %50
 
 50:                                               ; preds = %48, %44, %1
@@ -209,7 +209,7 @@ define i32 @mca_io_romio341_file_set_size(ptr nocapture noundef readonly %0, i64
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -220,7 +220,7 @@ define i32 @mca_io_romio341_file_set_size(ptr nocapture noundef readonly %0, i64
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -238,7 +238,7 @@ define i32 @mca_io_romio341_file_preallocate(ptr nocapture noundef readonly %0, 
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -249,7 +249,7 @@ define i32 @mca_io_romio341_file_preallocate(ptr nocapture noundef readonly %0, 
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -267,7 +267,7 @@ define i32 @mca_io_romio341_file_get_size(ptr nocapture noundef readonly %0, ptr
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -278,7 +278,7 @@ define i32 @mca_io_romio341_file_get_size(ptr nocapture noundef readonly %0, ptr
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -296,7 +296,7 @@ define i32 @mca_io_romio341_file_get_amode(ptr nocapture noundef readonly %0, pt
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -307,7 +307,7 @@ define i32 @mca_io_romio341_file_get_amode(ptr nocapture noundef readonly %0, pt
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -325,7 +325,7 @@ define i32 @mca_io_romio341_file_set_info(ptr nocapture noundef readonly %0, ptr
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -336,7 +336,7 @@ define i32 @mca_io_romio341_file_set_info(ptr nocapture noundef readonly %0, ptr
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -354,7 +354,7 @@ define i32 @mca_io_romio341_file_get_info(ptr nocapture noundef readonly %0, ptr
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -365,7 +365,7 @@ define i32 @mca_io_romio341_file_get_info(ptr nocapture noundef readonly %0, ptr
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -379,7 +379,7 @@ define i32 @mca_io_romio341_file_set_view(ptr nocapture noundef readonly %0, i64
   %7 = alloca %struct.ompi_info_t, align 8
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i64 0, i32 4), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_info_t_class, i64 32), align 8
   %.not = icmp eq i32 %9, %10
   br i1 %.not, label %12, label %11
 
@@ -391,7 +391,7 @@ define i32 @mca_io_romio341_file_set_view(ptr nocapture noundef readonly %0, i64
   store ptr @ompi_info_t_class, ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 8
   store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i64 0, i32 6), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_info_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %15, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -415,7 +415,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %opal_obj_run_constructors.exit
-  %25 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %25 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %26
 
 26:                                               ; preds = %opal_obj_run_constructors.exit, %24
@@ -426,7 +426,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %26
-  %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %33
 
 33:                                               ; preds = %31, %26
@@ -461,7 +461,7 @@ define i32 @mca_io_romio341_file_get_view(ptr nocapture noundef readonly %0, ptr
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %12
 
 12:                                               ; preds = %5, %10
@@ -472,7 +472,7 @@ define i32 @mca_io_romio341_file_get_view(ptr nocapture noundef readonly %0, ptr
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %19
 
 19:                                               ; preds = %12, %17
@@ -490,7 +490,7 @@ define i32 @mca_io_romio341_file_get_type_extent(ptr nocapture noundef readonly 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %10
 
 10:                                               ; preds = %3, %8
@@ -501,7 +501,7 @@ define i32 @mca_io_romio341_file_get_type_extent(ptr nocapture noundef readonly 
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %17
 
 17:                                               ; preds = %10, %15
@@ -519,7 +519,7 @@ define i32 @mca_io_romio341_file_set_atomicity(ptr nocapture noundef readonly %0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -530,7 +530,7 @@ define i32 @mca_io_romio341_file_set_atomicity(ptr nocapture noundef readonly %0
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -548,7 +548,7 @@ define i32 @mca_io_romio341_file_get_atomicity(ptr nocapture noundef readonly %0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -559,7 +559,7 @@ define i32 @mca_io_romio341_file_get_atomicity(ptr nocapture noundef readonly %0
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -577,7 +577,7 @@ define i32 @mca_io_romio341_file_sync(ptr nocapture noundef readonly %0) local_u
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %8
 
 8:                                                ; preds = %1, %6
@@ -588,7 +588,7 @@ define i32 @mca_io_romio341_file_sync(ptr nocapture noundef readonly %0) local_u
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %15
 
 15:                                               ; preds = %8, %13
@@ -606,7 +606,7 @@ define i32 @mca_io_romio341_file_seek_shared(ptr nocapture noundef readonly %0, 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %10
 
 10:                                               ; preds = %3, %8
@@ -617,7 +617,7 @@ define i32 @mca_io_romio341_file_seek_shared(ptr nocapture noundef readonly %0, 
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %17
 
 17:                                               ; preds = %10, %15
@@ -635,7 +635,7 @@ define i32 @mca_io_romio341_file_get_position_shared(ptr nocapture noundef reado
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -646,7 +646,7 @@ define i32 @mca_io_romio341_file_get_position_shared(ptr nocapture noundef reado
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -664,7 +664,7 @@ define i32 @mca_io_romio341_file_seek(ptr nocapture noundef readonly %0, i64 nou
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %10
 
 10:                                               ; preds = %3, %8
@@ -675,7 +675,7 @@ define i32 @mca_io_romio341_file_seek(ptr nocapture noundef readonly %0, i64 nou
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %17
 
 17:                                               ; preds = %10, %15
@@ -693,7 +693,7 @@ define i32 @mca_io_romio341_file_get_position(ptr nocapture noundef readonly %0,
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -704,7 +704,7 @@ define i32 @mca_io_romio341_file_get_position(ptr nocapture noundef readonly %0,
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %16
 
 16:                                               ; preds = %9, %14
@@ -722,7 +722,7 @@ define i32 @mca_io_romio341_file_get_byte_offset(ptr nocapture noundef readonly 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %10
 
 10:                                               ; preds = %3, %8
@@ -733,7 +733,7 @@ define i32 @mca_io_romio341_file_get_byte_offset(ptr nocapture noundef readonly 
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #4
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #4
   br label %17
 
 17:                                               ; preds = %10, %15

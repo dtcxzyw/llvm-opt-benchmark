@@ -94,7 +94,7 @@ define dso_local range(i32 0, 2) i32 @blk_mig_bulk_active() local_unnamed_addr #
 entry:
   %0 = load ptr, ptr @block_mig_state, align 8
   %cmp.i = icmp ne ptr %0, null
-  %1 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 8), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 64), align 8
   %tobool1.not = icmp eq i32 %1, 0
   %2 = select i1 %cmp.i, i1 %tobool1.not, i1 false
   %land.ext = zext i1 %2 to i32
@@ -106,7 +106,7 @@ define dso_local range(i64 0, -511) i64 @blk_mig_bytes_transferred() local_unnam
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   %bmds.04 = load ptr, ptr @block_mig_state, align 8
   %tobool.not5 = icmp eq ptr %bmds.04, null
   br i1 %tobool.not5, label %for.end, label %for.body
@@ -128,7 +128,7 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %sum.0.lcssa = phi i64 [ 0, %entry ], [ %3, %for.end.loopexit ]
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   ret i64 %sum.0.lcssa
 }
 
@@ -158,7 +158,7 @@ blk_mig_bytes_total.exit:                         ; preds = %entry, %for.end.loo
   %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %1, %for.end.loopexit.i ]
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  tail call void %3(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  tail call void %3(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   %bmds.04.i1 = load ptr, ptr @block_mig_state, align 8
   %tobool.not5.i2 = icmp eq ptr %bmds.04.i1, null
   br i1 %tobool.not5.i2, label %blk_mig_bytes_transferred.exit, label %for.body.i3
@@ -180,7 +180,7 @@ for.end.loopexit.i10:                             ; preds = %for.body.i3
 
 blk_mig_bytes_transferred.exit:                   ; preds = %blk_mig_bytes_total.exit, %for.end.loopexit.i10
   %sum.0.lcssa.i11 = phi i64 [ 0, %blk_mig_bytes_total.exit ], [ %5, %for.end.loopexit.i10 ]
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   %sub = sub i64 %sum.0.lcssa.i, %sum.0.lcssa.i11
   ret i64 %sub
 }
@@ -216,10 +216,10 @@ for.end:                                          ; preds = %for.end.loopexit, %
 define dso_local void @blk_mig_init() local_unnamed_addr #1 {
 entry:
   store ptr null, ptr @block_mig_state, align 8
-  store ptr @block_mig_state, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), align 8
-  store ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3, i32 1), align 8
-  tail call void @qemu_mutex_init(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9)) #13
+  store ptr @block_mig_state, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), align 8
+  store ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 40), align 8
+  tail call void @qemu_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72)) #13
   %call = tail call i32 @register_savevm_live(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @savevm_block_handlers, ptr noundef nonnull @block_mig_state) #13
   ret void
 }
@@ -238,8 +238,8 @@ entry:
   %it.i = alloca %struct.BdrvNextIterator, align 8
   %local_err.i = alloca ptr, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 6), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %2, 0
@@ -279,15 +279,15 @@ trace_migration_block_save.exit:                  ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
   tail call void @bdrv_graph_rdlock_main_loop() #13
-  store i32 0, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 6), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 7), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 16), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 60), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 64), align 8
   %call1.i = tail call zeroext i1 @migrate_zero_blocks() #13
   %frombool.i = zext i1 %call1.i to i8
-  store i8 %frombool.i, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 2), align 8
+  store i8 %frombool.i, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 24), align 8
   %call2.i = call ptr @bdrv_first(ptr noundef nonnull %it.i) #13
   %tobool.not2.i = icmp eq ptr %call2.i, null
   br i1 %tobool.not2.i, label %for.end.i, label %for.body.i
@@ -369,9 +369,9 @@ if.end25.i:                                       ; preds = %if.end14.i
   store ptr %call15.i, ptr %arrayidx.i, align 8
   %bs29.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %bs.16.i, ptr %bs29.i, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 1), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 16), align 8
   %add.i = add i64 %8, %call10.i
-  store i64 %add.i, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 1), align 8
+  store i64 %add.i, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 16), align 8
   %call33.i = call ptr @bdrv_get_device_name(ptr noundef nonnull %bs.16.i) #13
   br i1 %call20.i, label %if.then32.i, label %if.else34.i
 
@@ -450,9 +450,9 @@ trace_migration_block_init_full.exit.i:           ; preds = %if.else.i.i52.i, %i
 do.body.i:                                        ; preds = %trace_migration_block_init_full.exit.i, %trace_migration_block_init_shared.exit.i
   %entry37.i = getelementptr inbounds i8, ptr %call15.i, i64 32
   store ptr null, ptr %entry37.i, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 0, i32 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 8), align 8
   store ptr %call15.i, ptr %21, align 8
-  store ptr %entry37.i, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 0, i32 1), align 8
+  store ptr %entry37.i, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 8), align 8
   br label %for.inc40.i
 
 for.inc40.i:                                      ; preds = %do.body.i, %for.body8.i
@@ -590,8 +590,8 @@ entry:
   tail call fastcc void @block_migration_cleanup_bmds()
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
-  %2 = load ptr, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), align 8
+  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), align 8
   %cmp.not3 = icmp eq ptr %2, null
   br i1 %cmp.not3, label %while.end, label %do.body
 
@@ -599,12 +599,12 @@ do.body:                                          ; preds = %entry, %if.end
   %3 = phi ptr [ %6, %if.end ], [ %2, %entry ]
   %entry1 = getelementptr inbounds i8, ptr %3, i64 88
   %4 = load ptr, ptr %entry1, align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), align 8
   %cmp2 = icmp eq ptr %4, null
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  store ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 40), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
@@ -612,12 +612,12 @@ if.end:                                           ; preds = %if.then, %do.body
   %5 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %5) #13
   tail call void @g_free(ptr noundef nonnull %3) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), align 8
   %cmp.not = icmp eq ptr %6, null
   br i1 %cmp.not, label %while.end, label %do.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end, %entry
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   ret void
 }
 
@@ -626,8 +626,8 @@ define internal range(i32 -2147483648, 1) i32 @block_save_complete(ptr noundef %
 entry:
   %_now.i.i8 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 6), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %2, 0
@@ -683,8 +683,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 blk_mig_reset_dirty_cursor.exit:                  ; preds = %for.body.i, %if.end
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  tail call void %9(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
-  %10 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
+  tail call void %9(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   %cmp = icmp eq i32 %10, 0
   br i1 %cmp, label %if.end2, label %if.else
 
@@ -693,7 +693,7 @@ if.else:                                          ; preds = %blk_mig_reset_dirty
   unreachable
 
 if.end2:                                          ; preds = %blk_mig_reset_dirty_cursor.exit
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end2
@@ -764,8 +764,8 @@ entry:
   %count.i.i = alloca i64, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_file_transferred(ptr noundef %f) #13
-  %0 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 6), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %2, 0
@@ -821,30 +821,30 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 blk_mig_reset_dirty_cursor.exit:                  ; preds = %for.body.i, %if.end
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  tail call void %9(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  tail call void %9(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end21, %blk_mig_reset_dirty_cursor.exit
-  %10 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 5), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
   %conv = sext i32 %10 to i64
   %mul = shl nsw i64 %conv, 20
   %call2 = call i64 @migration_rate_get() #13
   %cmp = icmp ult i64 %mul, %call2
-  %11 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   %cmp4 = icmp slt i32 %11, 16
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %or.cond, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %while.cond
-  %12 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 5), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
   %add = add i32 %12, %11
   %cmp6 = icmp slt i32 %add, 512
   br i1 %cmp6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
-  %13 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 8), align 8
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 64), align 8
   %cmp8 = icmp eq i32 %13, 0
   br i1 %cmp8, label %if.then10, label %if.end17
 
@@ -945,11 +945,11 @@ mig_save_device_bulk.exit.i:                      ; preds = %if.end10.i.i
   store i64 %mul26.i.i, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i.i, align 8
   %21 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %22 = inttoptr i64 %21 to ptr
-  call void %22(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
-  %23 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
+  call void %22(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   %inc.i.i = add i32 %23, 1
-  store i32 %inc.i.i, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  store i32 %inc.i.i, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.1, i32 noundef 324) #13
   %24 = load ptr, ptr %bmds.021.i, align 8
   %call28.i.i = call ptr @blk_get_aio_context(ptr noundef %24) #13
@@ -992,7 +992,7 @@ if.else.i:                                        ; preds = %for.body.i13
 for.end.i:                                        ; preds = %if.else.i, %if.end.i, %if.then10
   %completed_sector_sum.1.i = phi i64 [ %add.i, %if.end.i ], [ 0, %if.then10 ], [ %add5.i, %if.else.i ]
   %cmp12 = phi i1 [ false, %if.end.i ], [ true, %if.then10 ], [ true, %if.else.i ]
-  %29 = load i64, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 1), align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 16), align 8
   %cmp8.not.i = icmp eq i64 %29, 0
   br i1 %cmp8.not.i, label %if.end11.i, label %if.then9.i
 
@@ -1004,12 +1004,12 @@ if.then9.i:                                       ; preds = %for.end.i
 
 if.end11.i:                                       ; preds = %if.then9.i, %for.end.i
   %progress.0.i = phi i32 [ %conv.i, %if.then9.i ], [ 100, %for.end.i ]
-  %30 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 7), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 60), align 4
   %cmp12.not.i = icmp eq i32 %progress.0.i, %30
   br i1 %cmp12.not.i, label %blk_mig_save_bulked_block.exit, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end11.i
-  store i32 %progress.0.i, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 7), align 4
+  store i32 %progress.0.i, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 60), align 4
   %shl.i = shl i32 %progress.0.i, 9
   %or.i = or disjoint i32 %shl.i, 4
   %conv15.i = sext i32 %or.i to i64
@@ -1053,7 +1053,7 @@ blk_mig_save_bulked_block.exit:                   ; preds = %if.end11.i, %trace_
   br i1 %cmp12, label %if.then14, label %if.end21
 
 if.then14:                                        ; preds = %blk_mig_save_bulked_block.exit
-  store i32 1, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 64), align 8
   br label %if.end21
 
 if.end17:                                         ; preds = %while.body
@@ -1067,12 +1067,12 @@ if.end21:                                         ; preds = %blk_mig_save_bulked
   %ret.021 = phi i32 [ %call16, %if.end17 ], [ 0, %if.then14 ], [ 0, %blk_mig_save_bulked_block.exit ]
   %37 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %38 = inttoptr i64 %37 to ptr
-  call void %38(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  call void %38(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   %cmp22.not = icmp eq i32 %ret.021, 0
   br i1 %cmp22.not, label %while.cond, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %while.cond, %if.end21, %land.rhs
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   %call26 = call fastcc i32 @flush_blks(ptr noundef %f)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.end29, label %return
@@ -1121,17 +1121,17 @@ get_remaining_dirty.exit:                         ; preds = %for.body.i, %entry
   tail call void @qemu_mutex_unlock_iothread() #13
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void %4(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
-  %5 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
+  tail call void %4(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   %conv = sext i32 %5 to i64
-  %6 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 5), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
   %conv1 = sext i32 %6 to i64
   %mul4 = add nsw i64 %conv1, %conv
   %add = shl nsw i64 %mul4, 20
   %add3 = add i64 %add, %dirty.0.lcssa.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   %tobool = icmp ne i64 %add3, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 8), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 64), align 8
   %tobool4 = icmp ne i32 %7, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool4
   %spec.store.select = select i1 %or.cond, i64 %add3, i64 1048576
@@ -1316,7 +1316,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %conv65 = sext i32 %mul64 to i64
   %add = add i64 %mul63, %conv65
   %add.ptr = getelementptr i8, ptr %call57, i64 %conv65
-  %9 = load i8, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 2), align 8
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 24), align 8
   %tobool67 = trunc i8 %9 to i1
   br i1 %tobool67, label %if.else78, label %land.lhs.true71
 
@@ -1409,9 +1409,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @flush_blks(ptr noundef %f)
 entry:
   %_now.i.i8 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 5), align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 6), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %3, 0
@@ -1448,11 +1448,11 @@ trace_migration_block_flush_blks.exit:            ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
-  tail call void %10(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  tail call void %10(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end9, %trace_migration_block_flush_blks.exit
-  %11 = load ptr, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), align 8
   %cmp.not = icmp eq ptr %11, null
   br i1 %cmp.not, label %while.end, label %while.body
 
@@ -1467,30 +1467,30 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp2, label %while.end, label %do.body
 
 do.body:                                          ; preds = %if.end
-  %13 = load ptr, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), align 8
   %entry6 = getelementptr inbounds i8, ptr %13, i64 88
   %14 = load ptr, ptr %entry6, align 8
-  store ptr %14, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), align 8
   %cmp7 = icmp eq ptr %14, null
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %do.body
-  store ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3), ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 32), ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 40), align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %do.body
   store ptr null, ptr %entry6, align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   tail call fastcc void @blk_send(ptr noundef %f, ptr noundef nonnull %11)
   %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
-  tail call void %16(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  tail call void %16(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   %17 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %17) #13
   tail call void @g_free(ptr noundef nonnull %11) #13
-  %18 = load <2 x i32>, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 5), align 4
+  %18 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
   %19 = add <2 x i32> %18, <i32 -1, i32 1>
-  store <2 x i32> %19, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 5), align 4
+  store <2 x i32> %19, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
   %20 = extractelement <2 x i32> %19, i64 0
   %cmp12 = icmp sgt i32 %20, -1
   br i1 %cmp12, label %while.cond, label %if.else, !llvm.loop !22
@@ -1501,10 +1501,10 @@ if.else:                                          ; preds = %if.end9
 
 while.end:                                        ; preds = %if.end, %while.body, %while.cond
   %ret.0 = phi i32 [ 0, %while.body ], [ 0, %while.cond ], [ %12, %if.end ]
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
-  %21 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 5), align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 6), align 8
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i8)
   %24 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i9 = icmp ne i32 %24, 0
@@ -1610,7 +1610,7 @@ declare zeroext i1 @migration_rate_exceeded(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @blk_send(ptr noundef %f, ptr nocapture noundef readonly %blk) unnamed_addr #1 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 2), align 8
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 24), align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end
 
@@ -1708,7 +1708,7 @@ do.body:                                          ; preds = %unset_dirty_trackin
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  store ptr @block_mig_state, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 0, i32 1), align 8
+  store ptr @block_mig_state, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
@@ -1801,7 +1801,7 @@ for.body.i:                                       ; preds = %if.end46.i, %for.bo
   %sector.062.i = phi i64 [ %2, %for.body.lr.ph.i ], [ %add48.i, %if.end46.i ]
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void %4(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  tail call void %4(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   %5 = load i64, ptr %total_sectors1.i, align 8
   %cmp.i.i = icmp sgt i64 %5, %sector.062.i
   br i1 %cmp.i.i, label %bmds_aio_inflight.exit.i, label %if.else.i
@@ -1819,13 +1819,13 @@ bmds_aio_inflight.exit.i:                         ; preds = %for.body.i
   br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %bmds_aio_inflight.exit.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   %8 = load ptr, ptr %bmds.010, align 8
   tail call void @blk_drain(ptr noundef %8) #13
   br label %if.end.i
 
 if.else.i:                                        ; preds = %bmds_aio_inflight.exit.i, %for.body.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -1873,10 +1873,10 @@ if.then23.i:                                      ; preds = %if.then6.i
   store ptr %call30.i, ptr %aiocb.i, align 8
   %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
-  tail call void %16(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
-  %17 = load i32, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
+  tail call void %16(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   %inc.i = add i32 %17, 1
-  store i32 %inc.i, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
+  store i32 %inc.i, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   %div10.i.i = lshr i64 %sector.062.i, 11
   %add.i.i = add i64 %sector.062.i, -1
   %sub.i.i = add i64 %add.i.i, %nr_sectors.059.i
@@ -1899,7 +1899,7 @@ for.body.i.i:                                     ; preds = %if.then23.i, %for.b
   br i1 %exitcond.not.i.i, label %bmds_set_aio_inflight.exit.i, label %for.body.i.i, !llvm.loop !26
 
 bmds_set_aio_inflight.exit.i:                     ; preds = %for.body.i.i, %if.then23.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   br label %if.end43.i
 
 if.else31.i:                                      ; preds = %if.then6.i
@@ -2012,14 +2012,14 @@ define internal void @blk_mig_read_cb(ptr noundef %opaque, i32 noundef %ret) #1 
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 112) #13
+  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   %ret1 = getelementptr inbounds i8, ptr %opaque, i64 80
   store i32 %ret, ptr %ret1, align 8
   %entry2 = getelementptr inbounds i8, ptr %opaque, i64 88
   store ptr null, ptr %entry2, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 40), align 8
   store ptr %opaque, ptr %2, align 8
-  store ptr %entry2, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 3, i32 1), align 8
+  store ptr %entry2, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 40), align 8
   %sector = getelementptr inbounds i8, ptr %opaque, i64 16
   %3 = load i64, ptr %sector, align 8
   %nr_sectors = getelementptr inbounds i8, ptr %opaque, i64 24
@@ -2054,9 +2054,9 @@ for.body.us.i:                                    ; preds = %for.body.us.i, %for
   br i1 %exitcond16.not.i, label %bmds_set_aio_inflight.exit, label %for.body.us.i, !llvm.loop !26
 
 bmds_set_aio_inflight.exit:                       ; preds = %for.body.us.i, %entry
-  %8 = load <2 x i32>, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
+  %8 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   %9 = add <2 x i32> %8, <i32 -1, i32 1>
-  store <2 x i32> %9, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 4), align 8
+  store <2 x i32> %9, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   %10 = extractelement <2 x i32> %9, i64 0
   %cmp = icmp sgt i32 %10, -1
   br i1 %cmp, label %if.end, label %if.else
@@ -2066,7 +2066,7 @@ if.else:                                          ; preds = %bmds_set_aio_inflig
   unreachable
 
 if.end:                                           ; preds = %bmds_set_aio_inflight.exit
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 9), ptr noundef nonnull @.str.1, i32 noundef 117) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   ret void
 }
 

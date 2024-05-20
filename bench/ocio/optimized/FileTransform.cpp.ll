@@ -343,7 +343,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev13FileTransformEEC2IS1_PFvPS1_EvEEPT_T0_
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev13FileTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i4.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev13FileTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 16
   store ptr @_ZN19OpenColorIO_v2_4dev13FileTransform7deleterEPS0_, ptr %_M_impl.i.i.i.i.i, align 8
   %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 24
@@ -386,7 +386,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev13FileTransformC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev13FileTransformE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev13FileTransformE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %call, align 8
@@ -527,7 +527,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev13FileTransformELN9__gnu_cxx12_Lock_po
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_4dev13FileTransformD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev13FileTransformE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev13FileTransformE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %isnull = icmp eq ptr %0, null
@@ -4967,7 +4967,7 @@ unreachable:                                      ; preds = %invoke.cont13
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 72
   %this.val.i.i = load ptr, ptr %0, align 8
   invoke fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %this.val.i.i)
@@ -5031,14 +5031,14 @@ entry:
   %os102 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp114 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 3)) #28
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 16)) #28
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i189.invoke
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load i8, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 1), align 8
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 8), align 8
   %tobool.i = trunc i8 %0 to i1
-  %1 = load i8, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 2), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 9), align 1
   %tobool2.i = trunc i8 %1 to i1
   %not.tobool.i = xor i1 %tobool.i, true
   %2 = select i1 %not.tobool.i, i1 %tobool2.i, i1 false
@@ -5159,7 +5159,7 @@ invoke.cont7:                                     ; preds = %if.then5
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !25
   %_M_weak_count.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i34, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i33, align 4, !noalias !25
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i34, align 8, !noalias !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i34, align 8, !noalias !25
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i34, i64 16
   %exceptionText.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i34, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl.i.i.i.i.i.i, i8 0, i64 104, i1 false), !noalias !25
@@ -5362,7 +5362,7 @@ lpad:                                             ; preds = %if.then.i.i189.invo
 lpad6:                                            ; preds = %if.else, %if.then5
   %46 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i113 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 3)) #28
+  %call1.i.i.i113 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 16)) #28
   br label %ehcleanup129
 
 if.else:                                          ; preds = %invoke.cont
@@ -5374,7 +5374,7 @@ invoke.cont12:                                    ; preds = %if.else
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i115, align 8, !noalias !28
   %_M_weak_count.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i119, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i116, align 4, !noalias !28
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i119, align 8, !noalias !28
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i119, align 8, !noalias !28
   %_M_impl.i.i.i.i.i.i117 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i119, i64 16
   %exceptionText.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i119, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl.i.i.i.i.i.i117, i8 0, i64 104, i1 false), !noalias !28
@@ -5386,7 +5386,7 @@ invoke.cont12:                                    ; preds = %if.else
 
 if.end14:                                         ; preds = %invoke.cont12, %if.end9.i.i.i91, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEEaSERKS3_.exit
   %result.val19 = phi ptr [ %_M_impl.i.i.i.i.i.i117, %invoke.cont12 ], [ %result.val19.pre, %if.end9.i.i.i91 ], [ %28, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEED2Ev.exit ], [ %result.val, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEEaSERKS3_.exit ]
-  %call1.i.i.i186 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 3)) #28
+  %call1.i.i.i186 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 16)) #28
   %call1.i.i.i187 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %result.val19) #28
   %tobool.not.i.i188 = icmp eq i32 %call1.i.i.i187, 0
   br i1 %tobool.not.i.i188, label %invoke.cont16, label %if.then.i.i189.invoke
@@ -7651,22 +7651,22 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %3 = load i8, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 1), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 8), align 8
   %tobool.i = trunc i8 %3 to i1
-  %4 = load i8, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 2), align 1
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 9), align 1
   %tobool2.i = trunc i8 %4 to i1
   %not.tobool.i = xor i1 %tobool.i, true
   %5 = select i1 %not.tobool.i, i1 %tobool2.i, i1 false
   br i1 %5, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %init.end
-  %.val.i.i.i = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 72), align 8
   %cmp.not2.i.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %cmp.not2.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %cond.true, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %__x.addr.04.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %.val.i.i.i, %cond.true ]
-  %__y.addr.03.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), %cond.true ]
+  %__y.addr.03.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), %cond.true ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.04.i.i.i.i, i64 32
   %call.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
@@ -7688,7 +7688,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i, label %while.body.i.i.i.i, !llvm.loop !35
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
-  %cmp.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64)
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i
@@ -7709,7 +7709,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then.i:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i, %cond.true
   %cmp.i4.i = phi i1 [ true, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i ], [ false, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ true, %cond.true ]
-  %__y.addr.0.lcssa.i.i.i3.i = phi ptr [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), %cond.true ]
+  %__y.addr.0.lcssa.i.i.i3.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), %cond.true ]
   %call5.i.i.i.i.i.i.i1 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
           to label %call5.i.i.i.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -7749,12 +7749,12 @@ invoke.cont.i.i:                                  ; preds = %call5.i.i.i.i.i.i.i
   br i1 %cmp.i4.i, label %if.then.i.i.i, label %if.else12.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i
-  %16 = load i64, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 96), align 8
   %cmp5.not.i.i.i = icmp eq i64 %16, 0
   br i1 %cmp5.not.i.i.i, label %if.else.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
-  %17 = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 88), align 8
   %_M_storage.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %17, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i6.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i4.i.i
@@ -7771,11 +7771,11 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i.i.i, label %if.then9.i.i.i, label %if.else.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %20 = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 88), align 8
   br label %invoke.cont7.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %if.then.i.i.i
-  %__x.011.i.i.i.i = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %__x.011.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 72), align 8
   %cmp.not12.i.i.i.i = icmp eq ptr %__x.011.i.i.i.i, null
   br i1 %cmp.not12.i.i.i.i, label %if.then.i.i.i.i, label %while.body.i.i.i9.i
 
@@ -7804,8 +7804,8 @@ while.end.i.i.i.i:                                ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i.i.i.i13.i, label %if.then.i.i.i.i, label %if.end12.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i.i, %if.else.i.i.i
-  %__y.0.lcssa18.i.i.i.i = phi ptr [ %__x.013.i.i.i.i, %while.end.i.i.i.i ], [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), %if.else.i.i.i ]
-  %23 = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
+  %__y.0.lcssa18.i.i.i.i = phi ptr [ %__x.013.i.i.i.i, %while.end.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), %if.else.i.i.i ]
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 80), align 8
   %cmp.i.i11.i.i.i = icmp eq ptr %__y.0.lcssa18.i.i.i.i, %23
   br i1 %cmp.i.i11.i.i.i, label %if.then.i.i, label %if.else.i.i.i.i
 
@@ -7848,7 +7848,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i16.i.i.i, label %if.then18.i.i.i, label %if.else44.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit17.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 80), align 8
   %cmp21.i.i.i = icmp eq ptr %28, %__y.addr.0.lcssa.i.i.i3.i
   br i1 %cmp21.i.i.i, label %invoke.cont7.i.i, label %if.else25.i.i.i
 
@@ -7876,7 +7876,7 @@ if.then32.i.i.i:                                  ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp35.i.i.i, label %if.then.i.i, label %invoke.cont7.i.i
 
 if.else42.i.i.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit23.i.i.i
-  %__x.011.i26.i.i.i = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %__x.011.i26.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 72), align 8
   %cmp.not12.i27.i.i.i = icmp eq ptr %__x.011.i26.i.i.i, null
   br i1 %cmp.not12.i27.i.i.i, label %if.then.i54.i.i.i, label %while.body.i28.i.i.i
 
@@ -7905,8 +7905,8 @@ while.end.i39.i.i.i:                              ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i.i34.i.i.i, label %if.then.i54.i.i.i, label %if.end12.i40.i.i.i
 
 if.then.i54.i.i.i:                                ; preds = %while.end.i39.i.i.i, %if.else42.i.i.i
-  %__y.0.lcssa18.i55.i.i.i = phi ptr [ %__x.013.i29.i.i.i, %while.end.i39.i.i.i ], [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), %if.else42.i.i.i ]
-  %34 = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
+  %__y.0.lcssa18.i55.i.i.i = phi ptr [ %__x.013.i29.i.i.i, %while.end.i39.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), %if.else42.i.i.i ]
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 80), align 8
   %cmp.i.i56.i.i.i = icmp eq ptr %__y.0.lcssa18.i55.i.i.i, %34
   br i1 %cmp.i.i56.i.i.i, label %if.then.i.i, label %if.else.i57.i.i.i
 
@@ -7948,7 +7948,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i63.i.i.i, label %if.then50.i.i.i, label %if.then.i13.i.i
 
 if.then50.i.i.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit64.i.i.i
-  %39 = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 88), align 8
   %cmp53.i.i.i = icmp eq ptr %39, %__y.addr.0.lcssa.i.i.i3.i
   br i1 %cmp53.i.i.i, label %invoke.cont7.i.i, label %if.else57.i.i.i
 
@@ -7976,7 +7976,7 @@ if.then64.i.i.i:                                  ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp67.i.i.i, label %if.then.i.i, label %invoke.cont7.i.i
 
 if.else74.i.i.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit71.i.i.i
-  %__x.011.i74.i.i.i = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %__x.011.i74.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 72), align 8
   %cmp.not12.i75.i.i.i = icmp eq ptr %__x.011.i74.i.i.i, null
   br i1 %cmp.not12.i75.i.i.i, label %if.then.i102.i.i.i, label %while.body.i76.i.i.i
 
@@ -8005,8 +8005,8 @@ while.end.i87.i.i.i:                              ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i.i82.i.i.i, label %if.then.i102.i.i.i, label %if.end12.i88.i.i.i
 
 if.then.i102.i.i.i:                               ; preds = %while.end.i87.i.i.i, %if.else74.i.i.i
-  %__y.0.lcssa18.i103.i.i.i = phi ptr [ %__x.013.i77.i.i.i, %while.end.i87.i.i.i ], [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), %if.else74.i.i.i ]
-  %45 = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
+  %__y.0.lcssa18.i103.i.i.i = phi ptr [ %__x.013.i77.i.i.i, %while.end.i87.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), %if.else74.i.i.i ]
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 80), align 8
   %cmp.i.i104.i.i.i = icmp eq ptr %__y.0.lcssa18.i103.i.i.i, %45
   br i1 %cmp.i.i104.i.i.i, label %if.then.i.i, label %if.else.i105.i.i.i
 
@@ -8042,7 +8042,7 @@ if.then.i.i:                                      ; preds = %invoke.cont7.i.i, %
   %retval.sroa.12.0.i10.i.i = phi ptr [ %retval.sroa.12.0.i.i.i, %invoke.cont7.i.i ], [ %__y.0.lcssa18.i103.i.i.i, %if.then.i102.i.i.i ], [ %__y.0.lcssa18.i55.i.i.i, %if.then.i54.i.i.i ], [ %__y.0.lcssa18.i.i.i.i, %if.then.i.i.i.i ], [ %call.i.i.i.i, %if.then32.i.i.i ], [ %__y.0.lcssa19.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i.i.i.i ], [ %__y.0.lcssa19.i41.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i46.i.i.i ], [ %__y.0.lcssa19.i89.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i94.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i, %if.then64.i.i.i ]
   %retval.sroa.0.0.i9.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %invoke.cont7.i.i ], [ null, %if.then.i102.i.i.i ], [ null, %if.then.i54.i.i.i ], [ null, %if.then.i.i.i.i ], [ null, %if.then32.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i46.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i94.i.i.i ], [ null, %if.then64.i.i.i ]
   %cmp.not.i.i6.i.i = icmp ne ptr %retval.sroa.0.0.i9.i.i, null
-  %cmp2.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i10.i.i, getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp2.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i10.i.i, getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64)
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i6.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.i.i, label %lor.rhs.i.i.i.i
 
@@ -8064,10 +8064,10 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 cleanup.i.i:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i11.i.i, %if.then.i.i
   %50 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i.i.i12.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i11.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %50, ptr noundef nonnull %call5.i.i.i.i.i.i.i1, ptr noundef %retval.sroa.12.0.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0)) #28
-  %51 = load i64, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1), align 8
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %50, ptr noundef nonnull %call5.i.i.i.i.i.i.i1, ptr noundef %retval.sroa.12.0.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64)) #28
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 96), align 8
   %inc.i.i.i.i = add i64 %51, 1
-  store i64 %inc.i.i.i.i, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1), align 8
+  store i64 %inc.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 96), align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEESt4lessIS5_ESaISt4pairIKS5_SA_EEEixERSE_.exit
 
 if.then.i13.i.i:                                  ; preds = %invoke.cont7.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i94.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit64.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i46.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i.i.i.i
@@ -8257,7 +8257,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev24ClearFileTransformCachesEv() local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 3)) #28
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 16)) #28
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont.i, label %if.then.i.i.i
 
@@ -8269,7 +8269,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 invoke.cont.i:                                    ; preds = %entry
-  %.val.i.i.i = load ptr, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 72), align 8
   invoke fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i)
           to label %_ZN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEE5clearEv.exit unwind label %terminate.lpad.i.i.i
 
@@ -8288,11 +8288,11 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEE5clearEv.exit: ; preds = %invoke.cont.i
-  store ptr null, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1), align 8
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 3)) #28
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 72), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 80), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 88), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 96), align 8
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 16)) #28
   ret void
 }
 
@@ -10039,7 +10039,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 72
   %this.val.i.i.i = load ptr, ptr %0, align 8
   invoke fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FileCacheResultEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %this.val.i.i.i)
@@ -11487,18 +11487,18 @@ define internal void @_GLOBAL__sub_I_FileTransform.cpp() #22 section ".text.star
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEEE, i64 0, i32 0, i64 2), ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEEE, i64 16), ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev23OCIO_DISABLE_ALL_CACHESE, align 8
   %call.i.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef %1)
   %frombool.i.i = zext i1 %call.i.i to i8
-  store i8 %frombool.i.i, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 2), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 3), i8 0, i64 40, i1 false)
-  store i32 0, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1), align 8
+  store i8 %frombool.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 9), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 16), i8 0, i64 40, i1 false)
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 72), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 80), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 64), ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 88), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 96), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN19OpenColorIO_v2_4dev12GenericCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_12_GLOBAL__N_115FileCacheResultEEED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, ptr nonnull @__dso_handle) #28
   ret void
 }

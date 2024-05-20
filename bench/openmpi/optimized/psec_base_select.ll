@@ -36,21 +36,21 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   store ptr null, ptr %1, align 8
-  %3 = load i8, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 2), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 273), align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %0
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 2), align 1
-  %.04258 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not59 = icmp eq ptr %.04258, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i64 0, i32 12, i32 1)
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 273), align 1
+  %.04258 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 320), align 8
+  %.not59 = icmp eq ptr %.04258, getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 200)
   br i1 %.not59, label %._crit_edge, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %5, %108
   %.04260 = phi ptr [ %.042, %108 ], [ %.04258, %5 ]
   %6 = getelementptr inbounds i8, ptr %.04260, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %8, 64
   br i1 %or.cond, label %9, label %16
 
@@ -70,7 +70,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
   %17 = getelementptr inbounds i8, ptr %7, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  %20 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i64 0, i32 11), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %20, 64
   br i1 %19, label %21, label %29
 
@@ -115,7 +115,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
   br i1 %or.cond7, label %43, label %52
 
 43:                                               ; preds = %37
-  %44 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i64 0, i32 11), align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond9 = icmp ult i32 %44, 64
   br i1 %or.cond9, label %45, label %108
 
@@ -143,7 +143,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
   br i1 %.not52, label %66, label %57
 
 57:                                               ; preds = %55
-  %58 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i64 0, i32 11), align 4
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond11 = icmp ult i32 %58, 64
   br i1 %or.cond11, label %59, label %108
 
@@ -160,10 +160,10 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
   br label %108
 
 66:                                               ; preds = %55, %52
-  %67 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_psec_base_active_module_t_class, i64 0, i32 8), align 8
+  %67 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_active_module_t_class, i64 56), align 8
   %68 = call noalias noundef ptr @malloc(i64 noundef %67) #6
   %69 = load i32, ptr @pmix_class_init_epoch, align 4
-  %70 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_psec_base_active_module_t_class, i64 0, i32 4), align 8
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_active_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %69, %70
   br i1 %.not.i, label %72, label %71
 
@@ -185,7 +185,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
   %78 = getelementptr inbounds i8, ptr %68, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
-  %79 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_psec_base_active_module_t_class, i64 0, i32 6), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_active_module_t_class, i64 40), align 8
   %80 = load ptr, ptr %79, align 8
   %.not6.i.i = icmp eq ptr %80, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -208,8 +208,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %72, %7
   %87 = load ptr, ptr %6, align 8
   %88 = getelementptr inbounds i8, ptr %68, i64 160
   store ptr %87, ptr %88, align 8
-  %.04155 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not53.not56 = icmp eq ptr %.04155, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.04155 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 240), align 8
+  %.not53.not56 = icmp eq ptr %.04155, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not53.not56, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %100
@@ -229,39 +229,39 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %72, %7
   %97 = getelementptr inbounds i8, ptr %95, i64 120
   store volatile ptr %68, ptr %97, align 8
   store ptr %68, ptr %94, align 8
-  %98 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 2), align 8
+  %98 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 264), align 8
   %99 = add i64 %98, 1
-  store volatile i64 %99, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 2), align 8
+  store volatile i64 %99, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 264), align 8
   br label %108
 
 100:                                              ; preds = %.lr.ph
   %101 = getelementptr inbounds i8, ptr %.04157, i64 120
   %.041 = load ptr, ptr %101, align 8
-  %.not53.not = icmp eq ptr %.041, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.not53.not = icmp eq ptr %.041, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not53.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %100, %pmix_obj_new_tma.exit
-  %102 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 2), align 8
+  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 248), align 8
   %103 = getelementptr inbounds i8, ptr %68, i64 128
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %102, i64 120
   store volatile ptr %68, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %68, i64 120
-  store ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1), ptr %105, align 8
-  store ptr %68, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 2), align 8
-  %106 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120), ptr %105, align 8
+  store ptr %68, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 248), align 8
+  %106 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 264), align 8
   %107 = add i64 %106, 1
-  store volatile i64 %107, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 2), align 8
+  store volatile i64 %107, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 264), align 8
   br label %108
 
 108:                                              ; preds = %92, %.critedge, %57, %59, %64, %43, %45, %50, %21, %22, %27
   %109 = getelementptr inbounds i8, ptr %.04260, i64 120
   %.042 = load ptr, ptr %109, align 8
-  %.not = icmp eq ptr %.042, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.042, getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 200)
   br i1 %.not, label %._crit_edge, label %.lr.ph61, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %108, %5
-  %110 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 2), align 8
+  %110 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 264), align 8
   %111 = icmp eq i64 %110, 0
   br i1 %111, label %112, label %114
 
@@ -270,15 +270,15 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %72, %7
   br label %.loopexit
 
 114:                                              ; preds = %._crit_edge
-  %115 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i64 0, i32 11), align 4
+  %115 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %116 = call i32 @pmix_output_get_verbosity(i32 noundef %115) #5
   %117 = icmp sgt i32 %116, 4
   br i1 %117, label %118, label %.loopexit
 
 118:                                              ; preds = %114
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.8) #5
-  %.162 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not5063 = icmp eq ptr %.162, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.162 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 240), align 8
+  %.not5063 = icmp eq ptr %.162, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not5063, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %118, %.lr.ph66
@@ -291,7 +291,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %72, %7
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %121, i32 noundef %123) #5
   %124 = getelementptr inbounds i8, ptr %.164, i64 120
   %.1 = load ptr, ptr %124, align 8
-  %.not50 = icmp eq ptr %.1, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %.not50 = icmp eq ptr %.1, getelementptr inbounds (i8, ptr @pmix_psec_globals, i64 120)
   br i1 %.not50, label %.loopexit, label %.lr.ph66, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph66, %118, %114, %0, %112

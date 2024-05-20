@@ -3122,32 +3122,32 @@ land.lhs.true106:                                 ; preds = %land.lhs.true101
   br i1 %tobool108.not, label %land.end, label %land.lhs.true109
 
 land.lhs.true109:                                 ; preds = %land.lhs.true106
-  %call110 = call i32 @test_str_eq(ptr noundef nonnull @.str.24, i32 noundef 494, ptr noundef nonnull @.str.398, ptr noundef nonnull @.str.399, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.400, i64 0, i64 1), ptr noundef nonnull @.str.401) #4
+  %call110 = call i32 @test_str_eq(ptr noundef nonnull @.str.24, i32 noundef 494, ptr noundef nonnull @.str.398, ptr noundef nonnull @.str.399, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.400, i64 1), ptr noundef nonnull @.str.401) #4
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %land.end, label %land.lhs.true112
 
 land.lhs.true112:                                 ; preds = %land.lhs.true109
-  %call114 = call i32 @test_str_eq(ptr noundef nonnull @.str.24, i32 noundef 495, ptr noundef nonnull @.str.402, ptr noundef nonnull @.str.394, ptr noundef nonnull @.str.403, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.400, i64 0, i64 2)) #4
+  %call114 = call i32 @test_str_eq(ptr noundef nonnull @.str.24, i32 noundef 495, ptr noundef nonnull @.str.402, ptr noundef nonnull @.str.394, ptr noundef nonnull @.str.403, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.400, i64 2)) #4
   %tobool115.not = icmp eq i32 %call114, 0
   br i1 %tobool115.not, label %land.end, label %land.lhs.true116
 
 land.lhs.true116:                                 ; preds = %land.lhs.true112
-  %call118 = call i32 @test_str_ne(ptr noundef nonnull @.str.24, i32 noundef 496, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.404, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.400, i64 0, i64 2), ptr noundef nonnull @.str.405) #4
+  %call118 = call i32 @test_str_ne(ptr noundef nonnull @.str.24, i32 noundef 496, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.404, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.400, i64 2), ptr noundef nonnull @.str.405) #4
   %tobool119.not = icmp eq i32 %call118, 0
   br i1 %tobool119.not, label %land.end, label %land.lhs.true120
 
 land.lhs.true120:                                 ; preds = %land.lhs.true116
-  %call122 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 498, ptr noundef nonnull @.str.406, ptr noundef nonnull @.str.402, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.400, i64 0, i64 2), i64 noundef 5, ptr noundef nonnull @.str.403, i64 noundef 5) #4
+  %call122 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 498, ptr noundef nonnull @.str.406, ptr noundef nonnull @.str.402, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.400, i64 2), i64 noundef 5, ptr noundef nonnull @.str.403, i64 noundef 5) #4
   %tobool123.not = icmp eq i32 %call122, 0
   br i1 %tobool123.not, label %land.end, label %land.lhs.true124
 
 land.lhs.true124:                                 ; preds = %land.lhs.true120
-  %call126 = call i32 @test_mem_ne(ptr noundef nonnull @.str.24, i32 noundef 499, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.404, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.400, i64 0, i64 2), i64 noundef 4, ptr noundef nonnull @.str.405, i64 noundef 4) #4
+  %call126 = call i32 @test_mem_ne(ptr noundef nonnull @.str.24, i32 noundef 499, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.404, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.400, i64 2), i64 noundef 4, ptr noundef nonnull @.str.405, i64 noundef 4) #4
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true124
-  %call129 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 500, ptr noundef nonnull @.str.407, ptr noundef nonnull @.str.404, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.400, i64 0, i64 3), i64 noundef 4, ptr noundef nonnull @.str.405, i64 noundef 4) #4
+  %call129 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 500, ptr noundef nonnull @.str.407, ptr noundef nonnull @.str.404, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.400, i64 3), i64 noundef 4, ptr noundef nonnull @.str.405, i64 noundef 4) #4
   %tobool130 = icmp ne i32 %call129, 0
   %0 = zext i1 %tobool130 to i32
   br label %land.end

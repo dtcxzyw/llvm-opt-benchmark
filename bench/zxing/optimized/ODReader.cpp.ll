@@ -137,7 +137,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
   store ptr %1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing4OneD6ReaderE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5ZXing4OneD6ReaderE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -168,7 +168,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6
 14:                                               ; preds = %.thread
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %1, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD17MultiUPCEANReaderE, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD17MultiUPCEANReaderE, i64 16), ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %13, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 8
@@ -195,7 +195,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %1, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD12Code39ReaderE, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD12Code39ReaderE, i64 16), ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %23, ptr %20, align 8
   %27 = load ptr, ptr %26, align 8
@@ -216,7 +216,7 @@ _ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_.exit: ; preds = %24, %_ZNSt6v
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %1, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD12Code93ReaderE, i64 0, i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD12Code93ReaderE, i64 16), ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %5, align 8
   %.not.i35 = icmp eq ptr %29, %36
@@ -302,7 +302,7 @@ _ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_.exit34: ; preds = %_ZNSt6vect
 66:                                               ; preds = %64
   %67 = getelementptr inbounds i8, ptr %65, i64 8
   store ptr %1, ptr %67, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13Code128ReaderE, i64 0, i32 0, i64 2), ptr %65, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD13Code128ReaderE, i64 16), ptr %65, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 32
   %69 = load ptr, ptr %5, align 8
   %.not.i51 = icmp eq ptr %62, %69
@@ -388,7 +388,7 @@ _ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_.exit50: ; preds = %_ZNSt6vect
 99:                                               ; preds = %97
   %100 = getelementptr inbounds i8, ptr %98, i64 8
   store ptr %1, ptr %100, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD9ITFReaderE, i64 0, i32 0, i64 2), ptr %98, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD9ITFReaderE, i64 16), ptr %98, align 8
   %101 = getelementptr inbounds i8, ptr %0, i64 32
   %102 = load ptr, ptr %5, align 8
   %.not.i67 = icmp eq ptr %95, %102
@@ -474,7 +474,7 @@ _ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_.exit66: ; preds = %_ZNSt6vect
 132:                                              ; preds = %130
   %133 = getelementptr inbounds i8, ptr %131, i64 8
   store ptr %1, ptr %133, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13CodabarReaderE, i64 0, i32 0, i64 2), ptr %131, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD13CodabarReaderE, i64 16), ptr %131, align 8
   %134 = getelementptr inbounds i8, ptr %0, i64 32
   %135 = load ptr, ptr %5, align 8
   %.not.i83 = icmp eq ptr %128, %135
@@ -560,7 +560,7 @@ _ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_.exit82: ; preds = %_ZNSt6vect
 165:                                              ; preds = %163
   %166 = getelementptr inbounds i8, ptr %164, i64 8
   store ptr %1, ptr %166, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13DataBarReaderE, i64 0, i32 0, i64 2), ptr %164, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD13DataBarReaderE, i64 16), ptr %164, align 8
   %167 = getelementptr inbounds i8, ptr %0, i64 32
   %168 = load ptr, ptr %5, align 8
   %.not.i98 = icmp eq ptr %161, %168
@@ -646,7 +646,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6
 198:                                              ; preds = %196
   %199 = getelementptr inbounds i8, ptr %197, i64 8
   store ptr %1, ptr %199, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD21DataBarExpandedReaderE, i64 0, i32 0, i64 2), ptr %197, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD21DataBarExpandedReaderE, i64 16), ptr %197, align 8
   %200 = getelementptr inbounds i8, ptr %0, i64 32
   %201 = load ptr, ptr %5, align 8
   %.not.i113 = icmp eq ptr %194, %201
@@ -732,7 +732,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6
 231:                                              ; preds = %229
   %232 = getelementptr inbounds i8, ptr %230, i64 8
   store ptr %1, ptr %232, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD16DXFilmEdgeReaderE, i64 0, i32 0, i64 2), ptr %230, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5ZXing4OneD16DXFilmEdgeReaderE, i64 16), ptr %230, align 8
   %233 = getelementptr inbounds i8, ptr %0, i64 32
   %234 = load ptr, ptr %5, align 8
   %.not.i129 = icmp eq ptr %227, %234
@@ -870,7 +870,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5ZXing4OneD6ReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing4OneD6ReaderE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5ZXing4OneD6ReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32

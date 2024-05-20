@@ -55,8 +55,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @sema_decl_stack_resolve_symbol(ptr noundef readnone %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
   br label %4
 
 4:                                                ; preds = %6, %1
@@ -78,24 +78,24 @@ define dso_local noundef ptr @sema_decl_stack_resolve_symbol(ptr noundef readnon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @sema_decl_stack_store() local_unnamed_addr #1 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @sema_decl_stack_restore(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_decl_stack_push(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
-  %3 = icmp eq ptr %2, getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
+  %3 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @global_context, i64 524688)
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
@@ -105,7 +105,7 @@ define dso_local void @sema_decl_stack_push(ptr noundef %0) local_unnamed_addr #
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %0, ptr %2, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   ret void
 }
 
@@ -114,12 +114,12 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @sema_decl_stack_find_decl_member(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
   tail call fastcc void @add_members_to_decl_stack(ptr noundef %0)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
   br label %7
 
 7:                                                ; preds = %9, %2
@@ -136,8 +136,8 @@ define dso_local noundef ptr @sema_decl_stack_find_decl_member(ptr nocapture nou
 
 sema_decl_stack_resolve_symbol.exit:              ; preds = %7, %9
   %.0.i = phi ptr [ %11, %9 ], [ null, %7 ]
-  store ptr %6, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
-  store ptr %3, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
   ret ptr %.0.i
 }
 
@@ -156,7 +156,7 @@ define internal fastcc void @add_members_to_decl_stack(ptr nocapture noundef rea
 
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext i32 %6 to i64
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   br label %.lr.ph
 
 .preheader:                                       ; preds = %sema_decl_stack_push.exit, %1, %4
@@ -169,7 +169,7 @@ define internal fastcc void @add_members_to_decl_stack(ptr nocapture noundef rea
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %sema_decl_stack_push.exit
   %11 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %17, %sema_decl_stack_push.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %sema_decl_stack_push.exit ]
-  %12 = icmp eq ptr %11, getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29)
+  %12 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @global_context, i64 524688)
   br i1 %12, label %13, label %sema_decl_stack_push.exit
 
 13:                                               ; preds = %.lr.ph
@@ -182,7 +182,7 @@ sema_decl_stack_push.exit:                        ; preds = %.lr.ph
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %16, ptr %11, align 8
-  store ptr %17, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !9
@@ -237,13 +237,13 @@ sema_decl_stack_push.exit:                        ; preds = %.lr.ph
 
 .lr.ph120.preheader:                              ; preds = %38
   %wide.trip.count145 = zext i32 %40 to i64
-  %.pre168 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  %.pre168 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   br label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %sema_decl_stack_push.exit104
   %41 = phi ptr [ %.pre168, %.lr.ph120.preheader ], [ %46, %sema_decl_stack_push.exit104 ]
   %indvars.iv142 = phi i64 [ 0, %.lr.ph120.preheader ], [ %indvars.iv.next143, %sema_decl_stack_push.exit104 ]
-  %42 = icmp eq ptr %41, getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29)
+  %42 = icmp eq ptr %41, getelementptr inbounds (i8, ptr @global_context, i64 524688)
   br i1 %42, label %43, label %sema_decl_stack_push.exit104
 
 43:                                               ; preds = %.lr.ph120
@@ -255,7 +255,7 @@ sema_decl_stack_push.exit104:                     ; preds = %.lr.ph120
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %45, ptr %41, align 8
-  store ptr %46, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  store ptr %46, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
   br i1 %exitcond146.not, label %.loopexit109.loopexit, label %.lr.ph120, !llvm.loop !11
@@ -307,13 +307,13 @@ sema_decl_stack_push.exit104:                     ; preds = %.lr.ph120
 
 .lr.ph123.preheader:                              ; preds = %64
   %wide.trip.count150 = zext i32 %66 to i64
-  %.pre170 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  %.pre170 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   br label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %sema_decl_stack_push.exit105
   %67 = phi ptr [ %.pre170, %.lr.ph123.preheader ], [ %72, %sema_decl_stack_push.exit105 ]
   %indvars.iv147 = phi i64 [ 0, %.lr.ph123.preheader ], [ %indvars.iv.next148, %sema_decl_stack_push.exit105 ]
-  %68 = icmp eq ptr %67, getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29)
+  %68 = icmp eq ptr %67, getelementptr inbounds (i8, ptr @global_context, i64 524688)
   br i1 %68, label %69, label %sema_decl_stack_push.exit105
 
 69:                                               ; preds = %.lr.ph123
@@ -325,7 +325,7 @@ sema_decl_stack_push.exit105:                     ; preds = %.lr.ph123
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %67, i64 8
   store ptr %71, ptr %67, align 8
-  store ptr %72, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  store ptr %72, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
   br i1 %exitcond151.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !12
@@ -349,13 +349,13 @@ sema_decl_stack_push.exit105:                     ; preds = %.lr.ph123
 
 .lr.ph131.preheader:                              ; preds = %75
   %wide.trip.count160 = zext i32 %77 to i64
-  %.pre171 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  %.pre171 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   br label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %sema_decl_stack_push.exit106
   %78 = phi ptr [ %.pre171, %.lr.ph131.preheader ], [ %83, %sema_decl_stack_push.exit106 ]
   %indvars.iv157 = phi i64 [ 0, %.lr.ph131.preheader ], [ %indvars.iv.next158, %sema_decl_stack_push.exit106 ]
-  %79 = icmp eq ptr %78, getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29)
+  %79 = icmp eq ptr %78, getelementptr inbounds (i8, ptr @global_context, i64 524688)
   br i1 %79, label %80, label %sema_decl_stack_push.exit106
 
 80:                                               ; preds = %.lr.ph131
@@ -367,7 +367,7 @@ sema_decl_stack_push.exit106:                     ; preds = %.lr.ph131
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %82, ptr %78, align 8
-  store ptr %83, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  store ptr %83, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %.loopexit108, label %.lr.ph131, !llvm.loop !14
@@ -411,8 +411,8 @@ sema_decl_stack_push.exit106:                     ; preds = %.lr.ph131
   br label %103
 
 98:                                               ; preds = %.lr.ph134
-  %99 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
-  %100 = icmp eq ptr %99, getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 29)
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
+  %100 = icmp eq ptr %99, getelementptr inbounds (i8, ptr @global_context, i64 524688)
   br i1 %100, label %101, label %sema_decl_stack_push.exit107
 
 101:                                              ; preds = %98
@@ -422,7 +422,7 @@ sema_decl_stack_push.exit106:                     ; preds = %.lr.ph131
 sema_decl_stack_push.exit107:                     ; preds = %98
   %102 = getelementptr inbounds i8, ptr %99, i64 8
   store ptr %94, ptr %99, align 8
-  store ptr %102, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 30), align 8
+  store ptr %102, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   br label %103
 
 103:                                              ; preds = %sema_decl_stack_push.exit107, %97
@@ -902,7 +902,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   br i1 %.not83, label %62, label %65
 
 62:                                               ; preds = %._crit_edge
-  %63 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), align 8
   %64 = call ptr @sema_resolve_method_in_module(ptr noundef %63, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
   br label %65
 
@@ -922,7 +922,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   br i1 %66, label %91, label %71
 
 71:                                               ; preds = %70
-  %72 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 5), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 48), align 8
   %.not.i92 = icmp eq ptr %72, null
   br i1 %.not.i92, label %.loopexit, label %73
 
@@ -1240,8 +1240,8 @@ define dso_local ptr @unit_resolve_parameterized_symbol(ptr nocapture noundef re
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 3), align 8
-  %9 = tail call fastcc ptr @sema_find_decl_in_global(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 19), ptr noundef %8, ptr noundef nonnull %1, i1 noundef zeroext true)
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  %9 = tail call fastcc ptr @sema_find_decl_in_global(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 296), ptr noundef %8, ptr noundef nonnull %1, i1 noundef zeroext true)
   %.not27 = icmp eq ptr %9, null
   br i1 %.not27, label %11, label %.thread
 
@@ -1610,7 +1610,7 @@ sema_is_path_found.exit:                          ; preds = %sema_is_path_found.
 
 63:                                               ; preds = %62
   %.not82 = icmp eq ptr %.val.pre, null
-  %. = select i1 %.not82, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %.val.pre
+  %. = select i1 %.not82, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %.val.pre
   %64 = load ptr, ptr %., align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1696,7 +1696,7 @@ matches_subpath.exit.thread107:                   ; preds = %62, %63, %matches_s
 
 104:                                              ; preds = %101
   %.not78 = icmp eq ptr %.val88.pre, null
-  %.84 = select i1 %.not78, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %.val88.pre
+  %.84 = select i1 %.not78, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %.val88.pre
   %105 = load ptr, ptr %.84, align 8
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %99, align 8
@@ -1904,7 +1904,7 @@ define internal fastcc void @sema_report_error_on_decl(ptr noundef %0, ptr nocap
   %26 = getelementptr inbounds i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8
   %.not81 = icmp eq ptr %27, null
-  %. = select i1 %.not81, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %27
+  %. = select i1 %.not81, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %27
   %28 = load ptr, ptr %., align 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -1930,7 +1930,7 @@ define internal fastcc void @sema_report_error_on_decl(ptr noundef %0, ptr nocap
   %37 = getelementptr inbounds i8, ptr %0, i64 56
   %38 = load ptr, ptr %37, align 8
   %.not85 = icmp eq ptr %38, null
-  %.90 = select i1 %.not85, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %38
+  %.90 = select i1 %.not85, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %38
   %39 = load ptr, ptr %.90, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
@@ -1939,7 +1939,7 @@ define internal fastcc void @sema_report_error_on_decl(ptr noundef %0, ptr nocap
   %44 = getelementptr inbounds i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8
   %.not87 = icmp eq ptr %45, null
-  %.in88 = select i1 %.not87, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %45
+  %.in88 = select i1 %.not87, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %45
   %46 = load ptr, ptr %.in88, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
@@ -2134,7 +2134,7 @@ define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr nocapture nound
   %13 = getelementptr inbounds i8, ptr %.066122, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not87 = icmp eq ptr %14, null
-  %. = select i1 %.not87, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %14
+  %. = select i1 %.not87, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %14
   %15 = load ptr, ptr %., align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -2203,7 +2203,7 @@ define dso_local ptr @sema_find_path_symbol(ptr nocapture noundef readonly %0, p
   br i1 %21, label %103, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 2), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
   %.not69 = icmp eq ptr %23, null
   br i1 %.not69, label %._crit_edge, label %24
 
@@ -2265,7 +2265,7 @@ matches_subpath.exit.thread:                      ; preds = %46, %50, %38, %matc
   br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %matches_subpath.exit.thread, %22, %24
-  %54 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 3), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
   %.not71 = icmp eq ptr %54, null
   br i1 %.not71, label %.thread125, label %55
 
@@ -2431,7 +2431,7 @@ define dso_local ptr @sema_resolve_symbol(ptr nocapture noundef readonly %0, ptr
   br i1 %22, label %104, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 2), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
   %.not69 = icmp eq ptr %24, null
   br i1 %.not69, label %._crit_edge, label %25
 
@@ -2493,7 +2493,7 @@ matches_subpath.exit.thread:                      ; preds = %47, %51, %39, %matc
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %matches_subpath.exit.thread, %23, %25
-  %55 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 3), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
   %.not71 = icmp eq ptr %55, null
   br i1 %.not71, label %.thread125, label %56
 
@@ -2846,7 +2846,7 @@ sema_find_local.exit.thread78:                    ; preds = %.lr.ph.i.i, %100, %
   %110 = getelementptr inbounds i8, ptr %.0.i6981, i64 56
   %111 = load ptr, ptr %110, align 8
   %.not63 = icmp eq ptr %111, null
-  %. = select i1 %.not63, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %111
+  %. = select i1 %.not63, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %111
   %112 = load ptr, ptr %., align 8
   %113 = load ptr, ptr %4, align 8
   %114 = icmp eq ptr %112, %113
@@ -3639,13 +3639,13 @@ define internal fastcc ptr @sema_resolve_path_symbol(ptr nocapture noundef reado
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 20, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 328), align 8
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
   store i8 1, ptr %5, align 8
-  %13 = tail call ptr @module_find_symbol(ptr noundef nonnull getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 17), ptr noundef %7) #10
+  %13 = tail call ptr @module_find_symbol(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 144), ptr noundef %7) #10
   br label %47
 
 14:                                               ; preds = %2
@@ -3704,8 +3704,8 @@ matches_subpath.exit.thread:                      ; preds = %31, %35, %22, %40, 
   br i1 %.not23, label %44, label %47
 
 44:                                               ; preds = %matches_subpath.exit.thread
-  %45 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 2), align 8
-  %46 = tail call fastcc ptr @sema_find_decl_in_global(ptr noundef nonnull %16, ptr noundef nonnull getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 18), ptr noundef %45, ptr noundef nonnull %1, i1 noundef zeroext false)
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %46 = tail call fastcc ptr @sema_find_decl_in_global(ptr noundef nonnull %16, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 272), ptr noundef %45, ptr noundef nonnull %1, i1 noundef zeroext false)
   br label %47
 
 47:                                               ; preds = %44, %matches_subpath.exit.thread, %matches_subpath.exit.thread25, %12
@@ -3825,7 +3825,7 @@ sema_find_local.exit.thread:                      ; preds = %26, %12, %7, %9, %3
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %44, align 8
-  %57 = tail call fastcc ptr @sema_find_decl_in_global(ptr noundef %56, ptr noundef nonnull getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 18), ptr noundef null, ptr noundef %1, i1 noundef zeroext false)
+  %57 = tail call fastcc ptr @sema_find_decl_in_global(ptr noundef %56, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 272), ptr noundef null, ptr noundef %1, i1 noundef zeroext false)
   br label %sema_find_local.exit.thread31
 
 sema_find_local.exit.thread31:                    ; preds = %.lr.ph.i.i, %34, %39, %55, %51, %48, %sema_find_local.exit.thread, %sema_find_local.exit

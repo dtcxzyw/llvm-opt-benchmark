@@ -855,292 +855,292 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_abis_oml() local_unnamed_addr #0 {
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 1), align 4
-  store i8 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 1, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 2), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 2, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 3), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 3, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 4), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 4, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 5), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 5, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 6), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 6, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 7), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 7, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 8), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 8, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 9), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 9, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 10), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 10, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 11), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 11, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 12), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 12, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 13), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 13, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 14), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 14, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 15), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 15, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 17), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 17, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 18), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 18, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 19), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 19, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 20), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 20, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 21), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 21, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 22), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 22, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 23), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 23, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 24), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 24, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 25), align 4
-  store i8 6, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 25, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 26), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 26, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 27), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 27, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 28), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 28, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 29), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 29, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 30), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 30, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 31), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 31, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 32), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 32, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 33), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 33, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 34), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 34, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 35), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 35, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 36), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 36, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 37), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 37, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 38), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 38, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 39), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 39, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 40), align 4
-  store i8 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 40, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 41), align 4
-  store i8 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 41, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 42), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 42, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 43), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 43, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 44), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 44, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 45), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 45, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 46), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 46, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 47), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 47, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 48), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 48, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 49), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 49, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 50), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 50, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 51), align 4
-  store i8 7, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 51, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 52), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 52, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 53), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 53, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 54), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 54, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 55), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 55, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 56), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 56, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 57), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 57, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 64), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 64, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 65), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 65, i32 1), align 4
-  store i32 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 66), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 66, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 67), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 67, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 68), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 68, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 69), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 69, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 70), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 70, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 71), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 71, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 72), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_base, i64 0, i32 0, i64 72, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 70), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 70, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 23), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 23, i32 1), align 4
-  store i32 6, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 5), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 5, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 145), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 145, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 2), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 2, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 232), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 232, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 66), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 66, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 68), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 68, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 97), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 97, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 98), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 98, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 102), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 102, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 110), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 110, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 148), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 148, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 149), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 149, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 88), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 88, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 197), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 197, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 143), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 143, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 220), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 220, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 221), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 221, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 155), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 155, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 159), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 159, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 76), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 76, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 79), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 79, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 85), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 85, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 161), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 161, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 89), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 89, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 213), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 213, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 168), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 168, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 253), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 253, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 62), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 62, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 61), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 61, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 172), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 172, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 171), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 171, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 160), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 160, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 63), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 63, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 198), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 198, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 199), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 199, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 200), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 200, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 201), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 201, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 240), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 240, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 241), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 241, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 252), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 252, i32 1), align 4
-  store i32 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 242), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 242, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 163), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 163, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 164), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdev_bs11, i64 0, i32 0, i64 164, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 128), align 4
-  store i8 4, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 128, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 129), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 129, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 136), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 136, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 134), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 134, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 135), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 135, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 137), align 4
-  store i8 6, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 137, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 138), align 4
-  store i8 8, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 138, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 139), align 4
-  store i8 12, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 139, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 142), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 142, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 145), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 145, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 147), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 147, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 148), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 148, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 149), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 149, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 164), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 164, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 151), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 151, i32 1), align 4
-  store i32 3, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 133), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 133, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 154), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 154, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 155), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 155, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 156), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 156, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 157), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 157, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 158), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 158, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 159), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 159, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 160), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 160, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 161), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 161, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 162), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 162, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 163), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 163, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 167), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 167, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 168), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 168, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 169), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 169, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 172), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 172, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 143), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 143, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 144), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 144, i32 1), align 4
-  store i32 5, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 153), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.tlv_definition, ptr @nm_att_tlvdef_ipa, i64 0, i32 0, i64 153, i32 1), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 8), align 4
+  store i8 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 12), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 16), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 20), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 24), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 28), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 32), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 36), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 40), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 44), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 48), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 52), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 56), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 60), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 64), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 68), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 72), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 76), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 80), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 84), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 88), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 92), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 96), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 100), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 104), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 108), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 112), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 116), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 120), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 124), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 136), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 140), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 144), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 148), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 152), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 156), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 160), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 164), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 168), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 172), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 176), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 180), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 184), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 188), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 192), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 196), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 200), align 4
+  store i8 6, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 204), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 208), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 212), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 216), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 220), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 224), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 228), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 232), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 236), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 240), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 244), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 248), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 252), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 256), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 260), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 264), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 268), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 272), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 276), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 280), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 284), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 288), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 292), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 296), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 300), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 304), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 308), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 312), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 316), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 320), align 4
+  store i8 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 324), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 328), align 4
+  store i8 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 332), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 336), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 340), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 344), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 348), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 352), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 356), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 360), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 364), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 368), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 372), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 376), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 380), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 384), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 388), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 392), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 396), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 400), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 404), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 408), align 4
+  store i8 7, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 412), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 416), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 420), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 424), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 428), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 432), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 436), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 440), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 444), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 448), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 452), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 456), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 460), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 512), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 516), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 520), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 524), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 528), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 532), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 536), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 540), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 544), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 548), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 552), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 556), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 560), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 564), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 568), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 572), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 576), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_base, i64 580), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 560), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 564), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 184), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 188), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 40), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 44), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1160), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1164), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 16), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 20), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1856), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1860), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 528), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 532), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 544), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 548), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 776), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 780), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 784), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 788), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 816), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 820), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 880), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 884), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1184), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1188), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1192), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1196), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 704), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 708), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1576), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1580), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1144), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1148), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1760), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1764), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1768), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1772), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1240), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1244), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1272), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1276), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 608), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 612), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 632), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 636), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 680), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 684), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1288), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1292), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 712), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 716), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1704), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1708), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1344), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1348), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 2024), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 2028), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 496), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 500), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 488), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 492), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1376), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1380), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1368), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1372), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1280), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1284), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 504), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 508), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1584), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1588), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1592), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1596), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1600), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1604), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1608), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1612), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1920), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1924), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1928), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1932), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 2016), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 2020), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1936), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1940), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1304), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1308), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1312), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdev_bs11, i64 1316), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1024), align 4
+  store i8 4, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1028), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1032), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1036), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1088), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1092), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1072), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1076), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1080), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1084), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1096), align 4
+  store i8 6, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1100), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1104), align 4
+  store i8 8, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1108), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1112), align 4
+  store i8 12, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1116), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1136), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1140), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1160), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1164), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1176), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1180), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1184), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1188), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1192), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1196), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1312), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1316), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1208), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1212), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1064), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1068), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1232), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1236), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1240), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1244), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1248), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1252), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1256), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1260), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1264), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1268), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1272), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1276), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1280), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1284), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1288), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1292), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1296), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1300), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1304), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1308), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1336), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1340), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1344), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1348), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1352), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1356), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1376), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1380), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1144), align 4
+  store i8 2, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1148), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1152), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1156), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1224), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nm_att_tlvdef_ipa, i64 1228), align 4
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.244) #5
   store i32 %1, ptr @proto_abis_oml, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_abis_oml.hf, i32 noundef 111) #5

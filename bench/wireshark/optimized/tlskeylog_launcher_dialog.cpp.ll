@@ -132,9 +132,9 @@ define void @_ZN15TLSKeylogDialogC2ER7QWidget(ptr noundef nonnull align 8 derefe
   %25 = alloca %class.QString, align 16
   %26 = alloca %class.QString, align 16
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, i32 0)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15TLSKeylogDialog, i64 16), ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i64 0, i32 1, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15TLSKeylogDialog, i64 488), ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 40
   %29 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #15
           to label %30 unwind label %129
@@ -969,7 +969,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i85:    ; preds = %100
   call void @_ZN11QGridLayout9addWidgetEP7QWidgetiiii6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %106, ptr noundef %107, i32 noundef 13, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 0)
   %108 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %109 = getelementptr inbounds i8, ptr %108, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %108, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %108, align 8
   store <4 x i32> <i32 0, i32 20, i32 10, i32 7405568>, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %108, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %110, align 4
@@ -1137,7 +1137,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i115:   ; preds = %158
   call void @_ZN11QGridLayout9addWidgetEP7QWidgetiiii6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %166, ptr noundef %167, i32 noundef 18, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 0)
   %168 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %169 = getelementptr inbounds i8, ptr %168, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %168, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %168, align 8
   store <4 x i32> <i32 0, i32 20, i32 40, i32 7405568>, ptr %169, align 8
   %170 = getelementptr inbounds i8, ptr %168, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %170, align 4
@@ -1179,7 +1179,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i121:   ; preds = %176
   call void @_ZN11QGridLayout9addWidgetEP7QWidgetiiii6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %183, ptr noundef %184, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 0)
   %185 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %186 = getelementptr inbounds i8, ptr %185, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %185, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %185, align 8
   store <4 x i32> <i32 0, i32 20, i32 10, i32 4259840>, ptr %186, align 8
   %187 = getelementptr inbounds i8, ptr %185, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %187, align 4
@@ -1251,7 +1251,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i133:   ; preds = %201
   call void @_ZN11QGridLayout9addLayoutEP7QLayoutiiii6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %210, ptr noundef %211, i32 noundef 15, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 0)
   %212 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %213 = getelementptr inbounds i8, ptr %212, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %212, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %212, align 8
   store <4 x i32> <i32 0, i32 20, i32 10, i32 4259840>, ptr %213, align 8
   %214 = getelementptr inbounds i8, ptr %212, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %214, align 4
@@ -3369,9 +3369,9 @@ declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15TLSKeylogDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15TLSKeylogDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15TLSKeylogDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

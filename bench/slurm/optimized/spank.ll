@@ -128,7 +128,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @spank_stack_init(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 112), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 768), align 8
   %5 = tail call ptr @xstrdup(ptr noundef %4) #19
   store ptr %5, ptr %3, align 8
   %.not = icmp eq ptr %5, null

@@ -201,7 +201,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_bus_generate_netlink_event(
   %34 = sub i64 %32, %33
   %35 = trunc i64 %34 to i32
   store i32 %35, ptr %25, align 4
-  %36 = load i8, ptr getelementptr inbounds (%struct.genl_family, ptr @acpi_event_genl_family, i64 0, i32 8), align 8
+  %36 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_event_genl_family, i64 32), align 8
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %39, !prof !6
 
@@ -212,8 +212,8 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_bus_generate_netlink_event(
   br label %44
 
 39:                                               ; preds = %17
-  %40 = load i32, ptr getelementptr inbounds (%struct.genl_family, ptr @acpi_event_genl_family, i64 0, i32 22), align 4
-  %41 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 22), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_event_genl_family, i64 132), align 4
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 280), align 8
   %42 = getelementptr inbounds i8, ptr %5, i64 56
   store i32 %40, ptr %42, align 8
   %43 = tail call i32 @netlink_broadcast_filtered(ptr noundef %41, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %40, i32 noundef 2080, ptr noundef null, ptr noundef null) #7

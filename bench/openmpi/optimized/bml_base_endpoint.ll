@@ -16,7 +16,7 @@ define internal void @mca_bml_base_endpoint_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_bml_base_btl_array_t_class, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -29,7 +29,7 @@ define internal void @mca_bml_base_endpoint_construct(ptr noundef %0) #0 {
   store ptr @mca_bml_base_btl_array_t_class, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_bml_base_btl_array_t_class, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i = icmp eq ptr %10, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -45,7 +45,7 @@ define internal void @mca_bml_base_endpoint_construct(ptr noundef %0) #0 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %14 = load i32, ptr @opal_class_init_epoch, align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_bml_base_btl_array_t_class, i64 0, i32 4), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
   %.not11 = icmp eq i32 %14, %15
   br i1 %.not11, label %17, label %16
 
@@ -58,7 +58,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   store ptr @mca_bml_base_btl_array_t_class, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 128
   store volatile i32 1, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_bml_base_btl_array_t_class, i64 0, i32 6), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i13 = icmp eq ptr %21, null
   br i1 %.not6.i13, label %opal_obj_run_constructors.exit17, label %.lr.ph.i14
@@ -74,7 +74,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
 
 opal_obj_run_constructors.exit17:                 ; preds = %.lr.ph.i14, %17
   %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_bml_base_btl_array_t_class, i64 0, i32 4), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
   %.not12 = icmp eq i32 %25, %26
   br i1 %.not12, label %28, label %27
 
@@ -87,7 +87,7 @@ opal_obj_run_constructors.exit17:                 ; preds = %.lr.ph.i14, %17
   store ptr @mca_bml_base_btl_array_t_class, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 176
   store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_bml_base_btl_array_t_class, i64 0, i32 6), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i18 = icmp eq ptr %32, null
   br i1 %.not6.i18, label %opal_obj_run_constructors.exit22, label %.lr.ph.i19

@@ -23,7 +23,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rlim.i.i.i.i)
-  store i8 0, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8), align 8
   %call.i.i.i.i = call i32 @getrlimit(i32 noundef 13, ptr noundef nonnull %rlim.i.i.i.i) #5
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   %1 = load i64, ptr %rlim.i.i.i.i, align 8
@@ -33,12 +33,12 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
-  store i8 1, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 0, i32 1), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8), align 8
   br label %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i
 
 _ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rlim.i.i.i.i)
-  call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 0, i32 1) to i64), ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, ptr noundef nonnull @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv)
+  call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8) to i64), ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, ptr noundef nonnull @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv)
   br label %_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i
@@ -73,7 +73,7 @@ land.lhs.true.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rlim.i.i.i.i.i)
-  store i8 0, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8), align 8
   %call.i.i.i.i.i = call i32 @getrlimit(i32 noundef 13, ptr noundef nonnull %rlim.i.i.i.i.i) #5
   %cmp.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   %1 = load i64, ptr %rlim.i.i.i.i.i, align 8
@@ -83,12 +83,12 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  store i8 1, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 0, i32 1), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8), align 8
   br label %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i.i
 
 _ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rlim.i.i.i.i.i)
-  call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 0, i32 1) to i64), ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, ptr noundef nonnull @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv)
+  call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8) to i64), ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, ptr noundef nonnull @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv)
   br label %_ZN4base7Process22CanBackgroundProcessesEv.exit
 
 _ZN4base7Process22CanBackgroundProcessesEv.exit:  ; preds = %entry, %land.lhs.true.i.i.i, %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i.i

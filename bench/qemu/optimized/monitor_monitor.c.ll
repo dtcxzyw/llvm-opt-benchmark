@@ -1157,7 +1157,7 @@ do.body1:                                         ; preds = %entry
   store ptr %2, ptr %entry2, align 8
   %cmp.not = icmp eq ptr %2, null
   %tql_prev = getelementptr inbounds i8, ptr %2, i64 80
-  %tql_prev.sink = select i1 %cmp.not, ptr getelementptr inbounds (%union.MonitorList, ptr @mon_list, i64 0, i32 0, i32 1), ptr %tql_prev
+  %tql_prev.sink = select i1 %cmp.not, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), ptr %tql_prev
   store ptr %entry2, ptr %tql_prev.sink, align 8
   store ptr %mon, ptr @mon_list, align 8
   %tql_prev8 = getelementptr inbounds i8, ptr %mon, i64 80
@@ -1350,7 +1350,7 @@ if.then53:                                        ; preds = %while.body49
   br label %if.end61
 
 if.else58:                                        ; preds = %while.body49
-  store ptr %12, ptr getelementptr inbounds (%union.MonitorList, ptr @mon_list, i64 0, i32 0, i32 1), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), align 8
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else58, %if.then53

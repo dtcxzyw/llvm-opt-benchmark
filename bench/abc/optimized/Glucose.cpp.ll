@@ -342,7 +342,7 @@ define linkonce_odr void @_ZN5Gluco12StringOptionD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco6SolverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco6SolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -363,68 +363,68 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   %12 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 144
-  %14 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_K, i64 0, i32 2), align 8
+  %14 = load double, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 64), align 8
   store double %14, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 152
-  %16 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_R, i64 0, i32 2), align 8
+  %16 = load double, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 64), align 8
   store double %16, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 160
-  %18 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL18opt_size_lbd_queue, i64 0, i32 2), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL18opt_size_lbd_queue, i64 48), align 8
   %19 = sitofp i32 %18 to double
   store double %19, ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 168
-  %21 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL20opt_size_trail_queue, i64 0, i32 2), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL20opt_size_trail_queue, i64 48), align 8
   %22 = sitofp i32 %21 to double
   store double %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 176
-  %24 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL19opt_first_reduce_db, i64 0, i32 2), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19opt_first_reduce_db, i64 48), align 8
   store i32 %24, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 180
-  %26 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL17opt_inc_reduce_db, i64 0, i32 2), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL17opt_inc_reduce_db, i64 48), align 8
   store i32 %26, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 184
-  %28 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL22opt_spec_inc_reduce_db, i64 0, i32 2), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL22opt_spec_inc_reduce_db, i64 48), align 8
   store i32 %28, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 188
-  %30 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL24opt_lb_lbd_frozen_clause, i64 0, i32 2), align 8
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL24opt_lb_lbd_frozen_clause, i64 48), align 8
   store i32 %30, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %0, i64 192
-  %32 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL28opt_lb_size_minimzing_clause, i64 0, i32 2), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL28opt_lb_size_minimzing_clause, i64 48), align 8
   store i32 %32, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 196
-  %34 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL27opt_lb_lbd_minimzing_clause, i64 0, i32 2), align 8
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL27opt_lb_lbd_minimzing_clause, i64 48), align 8
   store i32 %34, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %0, i64 200
-  %36 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 2), align 8
+  %36 = load double, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 64), align 8
   store double %36, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 208
-  %38 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 2), align 8
+  %38 = load double, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 64), align 8
   store double %38, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 216
-  %40 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 2), align 8
+  %40 = load double, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 64), align 8
   store double %40, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 224
-  %42 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 2), align 8
+  %42 = load double, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 64), align 8
   store double %42, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 232
-  %44 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL14opt_ccmin_mode, i64 0, i32 2), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14opt_ccmin_mode, i64 48), align 8
   store i32 %44, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 236
-  %46 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL16opt_phase_saving, i64 0, i32 2), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16opt_phase_saving, i64 48), align 8
   store i32 %46, ptr %45, align 4
   %47 = getelementptr inbounds i8, ptr %0, i64 240
   store i8 0, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 241
-  %49 = load i8, ptr getelementptr inbounds (%"class.Gluco::BoolOption", ptr @_ZL16opt_rnd_init_act, i64 0, i32 1), align 8
+  %49 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16opt_rnd_init_act, i64 40), align 8
   %50 = and i8 %49, 1
   store i8 %50, ptr %48, align 1
   %51 = getelementptr inbounds i8, ptr %0, i64 248
-  %52 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 2), align 8
+  %52 = load double, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 64), align 8
   store double %52, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 264
-  %55 = load i8, ptr getelementptr inbounds (%"class.Gluco::BoolOption", ptr @opt_certified_, i64 0, i32 1), align 8
+  %55 = load i8, ptr getelementptr inbounds (i8, ptr @opt_certified_, i64 40), align 8
   %56 = and i8 %55, 1
   store i8 %56, ptr %54, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 272
@@ -494,7 +494,7 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 -1, i64 16, i1 false)
   store i8 0, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 1148
-  %98 = load i8, ptr getelementptr inbounds (%"class.Gluco::BoolOption", ptr @_ZL15opt_incremental, i64 0, i32 1), align 8
+  %98 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL15opt_incremental, i64 40), align 8
   %99 = and i8 %98, 1
   %100 = zext nneg i8 %99 to i32
   store i32 %100, ptr %97, align 4
@@ -589,7 +589,7 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   br i1 %136, label %137, label %169
 
 137:                                              ; preds = %.loopexit
-  %138 = load ptr, ptr getelementptr inbounds (%"class.Gluco::StringOption", ptr @opt_certified_file_, i64 0, i32 1), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @opt_certified_file_, i64 40), align 8
   %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(5) @.str.62) #27
   %.not = icmp eq i32 %139, 0
   br i1 %.not, label %140, label %167
@@ -1114,7 +1114,7 @@ _ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEED2Ev.exit: ; preds = %_ZN5Gluco3vecIcED
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Gluco6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco6SolverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco6SolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1200
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -11338,16 +11338,16 @@ _ZN5Gluco15ClauseAllocatorD2Ev.exit4:             ; preds = %25, %30
 define void @_ZN5Gluco6Solver5resetEv(ptr noundef nonnull align 8 dereferenceable(1216) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 452
   store i8 1, ptr %2, align 4
-  %3 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_K, i64 0, i32 2), align 8
+  %3 = load double, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 64), align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store double %3, ptr %4, align 8
-  %5 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_R, i64 0, i32 2), align 8
+  %5 = load double, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 64), align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   store double %5, ptr %6, align 8
-  %7 = load i32, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL19opt_first_reduce_db, i64 0, i32 2), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19opt_first_reduce_db, i64 48), align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 %7, ptr %8, align 8
-  %9 = load double, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 2), align 8
+  %9 = load double, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 64), align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 200
   store double %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 352
@@ -11764,7 +11764,7 @@ _ZN5Gluco3vecIiE5clearEb.exit66:                  ; preds = %_ZN5Gluco3vecIiE5cl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco6OptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco6OptionE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -11789,8 +11789,8 @@ define linkonce_odr void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull al
   br label %_ZN5Gluco6Option13getOptionListEv.exit
 
 _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %5, %12, %14
-  %16 = load i32, ptr getelementptr inbounds (%"class.Gluco::vec.8", ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 0, i32 1), align 8
-  %17 = load i32, ptr getelementptr inbounds (%"class.Gluco::vec.8", ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 0, i32 2), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 8), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 12), align 4
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %._ZN5Gluco3vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i
 
@@ -11810,7 +11810,7 @@ _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %5, %12, %14
 26:                                               ; preds = %19
   %27 = load ptr, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, align 8
   %28 = add nsw i32 %23, %16
-  store i32 %28, ptr getelementptr inbounds (%"class.Gluco::vec.8", ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 0, i32 2), align 4
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 12), align 4
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
   %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #30
@@ -11819,7 +11819,7 @@ _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %5, %12, %14
   br i1 %32, label %33, label %._ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge
 
 ._ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge: ; preds = %26
-  %.pre = load i32, ptr getelementptr inbounds (%"class.Gluco::vec.8", ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 0, i32 1), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 8), align 8
   br label %_ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit
 
 33:                                               ; preds = %26
@@ -11838,7 +11838,7 @@ _ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit:      ; preds = %._ZN5Gluco3vecIPNS_
   %39 = phi i32 [ %16, %._ZN5Gluco3vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge ]
   %40 = phi ptr [ %.pre.i, %._ZN5Gluco3vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i ], [ %31, %._ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge ]
   %41 = add nsw i32 %39, 1
-  store i32 %41, ptr getelementptr inbounds (%"class.Gluco::vec.8", ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 0, i32 1), align 8
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 8), align 8
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds ptr, ptr %40, i64 %42
   store ptr %0, ptr %43, align 8
@@ -13470,99 +13470,99 @@ _ZN5Gluco13selectionSortIj11reduceDB_ltEEvPT_iT0_.exit: ; preds = %._crit_edge.i
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Glucose.cpp() #23 section ".text.startup" {
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL15opt_incremental, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10BoolOptionE, i64 0, i32 0, i64 2), ptr @_ZL15opt_incremental, align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::BoolOption", ptr @_ZL15opt_incremental, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco10BoolOptionE, i64 16), ptr @_ZL15opt_incremental, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15opt_incremental, i64 40), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL5opt_K, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL5opt_K, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_K, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_K, i64 0, i32 1, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_K, i64 0, i32 1, i32 3), align 1
-  store double 8.000000e-01, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_K, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL5opt_K, align 8
+  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 57), align 1
+  store double 8.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 64), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL5opt_R, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL5opt_R, align 8
-  store <2 x double> <double 1.000000e+00, double 5.000000e+00>, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_R, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_R, i64 0, i32 1, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_R, i64 0, i32 1, i32 3), align 1
-  store double 1.400000e+00, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL5opt_R, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL5opt_R, align 8
+  store <2 x double> <double 1.000000e+00, double 5.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 57), align 1
+  store double 1.400000e+00, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 64), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL18opt_size_lbd_queue, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL18opt_size_lbd_queue, align 8
-  store i64 9223372032559808522, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL18opt_size_lbd_queue, i64 0, i32 1, i32 0), align 8
-  store i32 50, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL18opt_size_lbd_queue, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL18opt_size_lbd_queue, align 8
+  store i64 9223372032559808522, ptr getelementptr inbounds (i8, ptr @_ZL18opt_size_lbd_queue, i64 40), align 8
+  store i32 50, ptr getelementptr inbounds (i8, ptr @_ZL18opt_size_lbd_queue, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL20opt_size_trail_queue, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL20opt_size_trail_queue, align 8
-  store i64 9223372032559808522, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL20opt_size_trail_queue, i64 0, i32 1, i32 0), align 8
-  store i32 5000, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL20opt_size_trail_queue, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL20opt_size_trail_queue, align 8
+  store i64 9223372032559808522, ptr getelementptr inbounds (i8, ptr @_ZL20opt_size_trail_queue, i64 40), align 8
+  store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZL20opt_size_trail_queue, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_first_reduce_db, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL19opt_first_reduce_db, align 8
-  store i64 9223372032559808512, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL19opt_first_reduce_db, i64 0, i32 1, i32 0), align 8
-  store i32 2000, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL19opt_first_reduce_db, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL19opt_first_reduce_db, align 8
+  store i64 9223372032559808512, ptr getelementptr inbounds (i8, ptr @_ZL19opt_first_reduce_db, i64 40), align 8
+  store i32 2000, ptr getelementptr inbounds (i8, ptr @_ZL19opt_first_reduce_db, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17opt_inc_reduce_db, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL17opt_inc_reduce_db, align 8
-  store i64 9223372032559808512, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL17opt_inc_reduce_db, i64 0, i32 1, i32 0), align 8
-  store i32 300, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL17opt_inc_reduce_db, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL17opt_inc_reduce_db, align 8
+  store i64 9223372032559808512, ptr getelementptr inbounds (i8, ptr @_ZL17opt_inc_reduce_db, i64 40), align 8
+  store i32 300, ptr getelementptr inbounds (i8, ptr @_ZL17opt_inc_reduce_db, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL22opt_spec_inc_reduce_db, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL22opt_spec_inc_reduce_db, align 8
-  store i64 9223372032559808512, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL22opt_spec_inc_reduce_db, i64 0, i32 1, i32 0), align 8
-  store i32 1000, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL22opt_spec_inc_reduce_db, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL22opt_spec_inc_reduce_db, align 8
+  store i64 9223372032559808512, ptr getelementptr inbounds (i8, ptr @_ZL22opt_spec_inc_reduce_db, i64 40), align 8
+  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZL22opt_spec_inc_reduce_db, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL24opt_lb_lbd_frozen_clause, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL24opt_lb_lbd_frozen_clause, align 8
-  store i64 9223372032559808512, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL24opt_lb_lbd_frozen_clause, i64 0, i32 1, i32 0), align 8
-  store i32 30, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL24opt_lb_lbd_frozen_clause, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL24opt_lb_lbd_frozen_clause, align 8
+  store i64 9223372032559808512, ptr getelementptr inbounds (i8, ptr @_ZL24opt_lb_lbd_frozen_clause, i64 40), align 8
+  store i32 30, ptr getelementptr inbounds (i8, ptr @_ZL24opt_lb_lbd_frozen_clause, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL28opt_lb_size_minimzing_clause, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL28opt_lb_size_minimzing_clause, align 8
-  store i64 9223372032559808515, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL28opt_lb_size_minimzing_clause, i64 0, i32 1, i32 0), align 8
-  store i32 30, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL28opt_lb_size_minimzing_clause, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL28opt_lb_size_minimzing_clause, align 8
+  store i64 9223372032559808515, ptr getelementptr inbounds (i8, ptr @_ZL28opt_lb_size_minimzing_clause, i64 40), align 8
+  store i32 30, ptr getelementptr inbounds (i8, ptr @_ZL28opt_lb_size_minimzing_clause, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL27opt_lb_lbd_minimzing_clause, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL27opt_lb_lbd_minimzing_clause, align 8
-  store i64 9223372032559808515, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL27opt_lb_lbd_minimzing_clause, i64 0, i32 1, i32 0), align 8
-  store i32 6, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL27opt_lb_lbd_minimzing_clause, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL27opt_lb_lbd_minimzing_clause, align 8
+  store i64 9223372032559808515, ptr getelementptr inbounds (i8, ptr @_ZL27opt_lb_lbd_minimzing_clause, i64 40), align 8
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZL27opt_lb_lbd_minimzing_clause, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_var_decay, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL13opt_var_decay, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 1, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 1, i32 3), align 1
-  store double 8.000000e-01, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL13opt_var_decay, align 8
+  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 57), align 1
+  store double 8.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 64), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_clause_decay, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_clause_decay, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 1, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 1, i32 3), align 1
-  store double 0x3FEFF7CED916872B, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL16opt_clause_decay, align 8
+  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 57), align 1
+  store double 0x3FEFF7CED916872B, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 64), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_random_var_freq, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL19opt_random_var_freq, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 1, i32 0), align 8
-  store i8 1, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 1, i32 2), align 8
-  store i8 1, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 1, i32 3), align 1
-  store double 0.000000e+00, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL19opt_random_var_freq, align 8
+  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 40), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 56), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 57), align 1
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 64), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL15opt_random_seed, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL15opt_random_seed, align 8
-  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 1, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 1, i32 3), align 1
-  store double 0x4195D9C3F4000000, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL15opt_random_seed, align 8
+  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 57), align 1
+  store double 0x4195D9C3F4000000, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 64), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_ccmin_mode, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL14opt_ccmin_mode, align 8
-  store i64 8589934592, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL14opt_ccmin_mode, i64 0, i32 1, i32 0), align 8
-  store i32 2, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL14opt_ccmin_mode, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL14opt_ccmin_mode, align 8
+  store i64 8589934592, ptr getelementptr inbounds (i8, ptr @_ZL14opt_ccmin_mode, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL14opt_ccmin_mode, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_phase_saving, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_phase_saving, align 8
-  store i64 8589934592, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL16opt_phase_saving, i64 0, i32 1, i32 0), align 8
-  store i32 2, ptr getelementptr inbounds (%"class.Gluco::IntOption", ptr @_ZL16opt_phase_saving, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL16opt_phase_saving, align 8
+  store i64 8589934592, ptr getelementptr inbounds (i8, ptr @_ZL16opt_phase_saving, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL16opt_phase_saving, i64 48), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_rnd_init_act, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10BoolOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_rnd_init_act, align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::BoolOption", ptr @_ZL16opt_rnd_init_act, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco10BoolOptionE, i64 16), ptr @_ZL16opt_rnd_init_act, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_rnd_init_act, i64 40), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_garbage_frac, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_garbage_frac, align 8
-  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 1, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 1, i32 3), align 1
-  store double 2.000000e-01, ptr getelementptr inbounds (%"class.Gluco::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL16opt_garbage_frac, align 8
+  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 57), align 1
+  store double 2.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 64), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @opt_certified_, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.108)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10BoolOptionE, i64 0, i32 0, i64 2), ptr @opt_certified_, align 8
-  store i8 0, ptr getelementptr inbounds (%"class.Gluco::BoolOption", ptr @opt_certified_, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco10BoolOptionE, i64 16), ptr @opt_certified_, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @opt_certified_, i64 40), align 8
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @opt_certified_file_, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12StringOptionE, i64 0, i32 0, i64 2), ptr @opt_certified_file_, align 8
-  store ptr @.str.62, ptr getelementptr inbounds (%"class.Gluco::StringOption", ptr @opt_certified_file_, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12StringOptionE, i64 16), ptr @opt_certified_file_, align 8
+  store ptr @.str.62, ptr getelementptr inbounds (i8, ptr @opt_certified_file_, i64 40), align 8
   ret void
 }
 

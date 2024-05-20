@@ -43,7 +43,7 @@ entry:
   store ptr %call.i, ptr %sig.i, align 8
   %cmp.i = icmp ne ptr %call.i, null
   %0 = load ptr, ptr %data.i, align 8
-  %cmp2.not.i = icmp eq ptr %0, getelementptr inbounds ([418 x i8], ptr @_ZL4kDER, i64 1, i64 0)
+  %cmp2.not.i = icmp eq ptr %0, getelementptr inbounds (i8, ptr @_ZL4kDER, i64 418)
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
   br i1 %or.cond.i, label %if.end.i, label %cleanup14.i
 

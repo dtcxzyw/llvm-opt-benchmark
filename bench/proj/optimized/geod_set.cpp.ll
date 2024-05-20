@@ -167,7 +167,7 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
   %47 = call double @sqrt(double noundef %46) #7
   %48 = fadd double %47, 1.000000e+00
   %49 = fdiv double %45, %48
-  store double %49, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i64 0, i32 1), align 8
+  store double %49, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 8), align 8
   call void @geod_ini()
   %50 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.6)
   %51 = and i64 %50, 4294967295
@@ -176,9 +176,9 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
 
 52:                                               ; preds = %44
   %53 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.7)
-  store i64 %53, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i64 0, i32 3), align 8
+  store i64 %53, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 24), align 8
   %54 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.8)
-  store i64 %54, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i64 0, i32 2), align 8
+  store i64 %54, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 16), align 8
   %55 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.9)
   %56 = and i64 %55, 4294967295
   %.not72 = icmp eq i64 %56, 0
@@ -186,23 +186,23 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
 
 57:                                               ; preds = %52
   %58 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.10)
-  store i64 %58, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i64 0, i32 6), align 8
+  store i64 %58, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
   %59 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.11)
-  store i64 %59, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i64 0, i32 5), align 8
+  store i64 %59, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
   call void @geod_inv()
   call void @geod_pre()
   br label %66
 
 60:                                               ; preds = %52
   %61 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.12)
-  store i64 %61, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i64 0, i32 8), align 8
+  store i64 %61, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
   %62 = and i64 %61, 9223372036854775807
   %.not73 = icmp eq i64 %62, 0
   br i1 %.not73, label %65, label %63
 
 63:                                               ; preds = %60
   %64 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.13)
-  store i64 %64, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i64 0, i32 4), align 8
+  store i64 %64, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
   call void @geod_pre()
   call void @geod_for()
   br label %66
@@ -237,7 +237,7 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
 
 78:                                               ; preds = %74
   %79 = call double @llvm.fabs.f64(double %76)
-  %80 = load double, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i64 0, i32 8), align 8
+  %80 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
   %81 = fdiv double %80, %79
   %82 = fadd double %81, 5.000000e-01
   %83 = fptosi double %82 to i32

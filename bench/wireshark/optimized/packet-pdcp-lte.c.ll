@@ -1608,7 +1608,7 @@ show_pdcp_config.exit:                            ; preds = %235, %236, %239
   %304 = load i32, ptr %303, align 4
   store i64 0, ptr @get_ueid_frame_hash_key.key, align 8
   store i32 %304, ptr @get_ueid_frame_hash_key.key, align 8
-  store i16 %302, ptr getelementptr inbounds (%struct.ueid_frame_t, ptr @get_ueid_frame_hash_key.key, i64 0, i32 1), align 4
+  store i16 %302, ptr getelementptr inbounds (i8, ptr @get_ueid_frame_hash_key.key, i64 4), align 4
   %305 = tail call ptr @wmem_map_lookup(ptr noundef %300, ptr noundef nonnull @get_ueid_frame_hash_key.key) #13
   %.not386 = icmp eq ptr %305, null
   br i1 %.not386, label %359, label %306
@@ -3293,13 +3293,13 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   %26 = zext nneg i16 %25 to i32
   %27 = shl nuw nsw i32 %26, 20
   %28 = or disjoint i32 %27, %22
-  store i32 %28, ptr getelementptr inbounds (%struct.pdcp_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %29 = load i8, ptr %2, align 8
   %30 = and i8 %29, 1
   %31 = zext nneg i8 %30 to i32
   %32 = shl nuw nsw i32 %31, 25
   %33 = or disjoint i32 %32, %28
-  store i32 %33, ptr getelementptr inbounds (%struct.pdcp_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %34 = tail call ptr @wmem_map_lookup(ptr noundef %14, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not101 = icmp eq ptr %34, null
   br i1 %.not101, label %174, label %.sink.split
@@ -3485,13 +3485,13 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   %140 = zext nneg i16 %139 to i32
   %141 = shl nuw nsw i32 %140, 20
   %142 = or disjoint i32 %141, %137
-  store i32 %142, ptr getelementptr inbounds (%struct.pdcp_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %142, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %143 = load i8, ptr %2, align 8
   %144 = and i8 %143, 1
   %145 = zext nneg i8 %144 to i32
   %146 = shl nuw nsw i32 %145, 25
   %147 = or disjoint i32 %146, %142
-  store i32 %147, ptr getelementptr inbounds (%struct.pdcp_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %147, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %148 = tail call ptr @wmem_map_lookup(ptr noundef %132, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not100 = icmp eq ptr %148, null
   br i1 %.not100, label %152, label %149

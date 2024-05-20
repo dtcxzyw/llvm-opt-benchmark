@@ -38,7 +38,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @utrie2_enum_75(ptr noundef nonnull getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i64 0, i32 4), ptr noundef null, ptr noundef nonnull @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %sa)
+  tail call void @utrie2_enum_75(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL21ucase_props_singleton, i64 32), ptr noundef null, ptr noundef nonnull @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %sa)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -68,7 +68,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @ucase_getTrie_75() local_unnamed_addr #3 {
 entry:
-  ret ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i64 0, i32 4)
+  ret ptr getelementptr inbounds (i8, ptr @_ZL21ucase_props_singleton, i64 32)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1271,7 +1271,7 @@ while.body.us:                                    ; preds = %while.cond.preheade
   %div.us = sdiv i32 %add.us, 2
   %mul.us = mul nsw i32 %div.us, 5
   %idx.ext12.us = sext i32 %mul.us to i64
-  %add.ptr13.us = getelementptr inbounds i16, ptr getelementptr inbounds ([370 x i16], ptr @_ZL18ucase_props_unfold, i64 0, i64 5), i64 %idx.ext12.us
+  %add.ptr13.us = getelementptr inbounds i16, ptr getelementptr inbounds (i8, ptr @_ZL18ucase_props_unfold, i64 10), i64 %idx.ext12.us
   br label %do.body.i.us
 
 do.body.i.us:                                     ; preds = %do.cond.i.us, %while.body.us
@@ -1313,7 +1313,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %div = sdiv i32 %add, 2
   %mul = mul nsw i32 %div, 5
   %idx.ext12 = sext i32 %mul to i64
-  %add.ptr13 = getelementptr inbounds i16, ptr getelementptr inbounds ([370 x i16], ptr @_ZL18ucase_props_unfold, i64 0, i64 5), i64 %idx.ext12
+  %add.ptr13 = getelementptr inbounds i16, ptr getelementptr inbounds (i8, ptr @_ZL18ucase_props_unfold, i64 10), i64 %idx.ext12
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %while.body
@@ -1412,7 +1412,7 @@ entry:
   store <4 x i32> <i32 73, i32 5, i32 3, i32 0>, ptr %unfoldRows, align 8
   %rowCpIndex = getelementptr inbounds i8, ptr %this, i64 24
   store i32 3, ptr %rowCpIndex, align 8
-  store ptr getelementptr inbounds ([370 x i16], ptr @_ZL18ucase_props_unfold, i64 0, i64 5), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL18ucase_props_unfold, i64 10), ptr %this, align 8
   ret void
 }
 
@@ -2313,7 +2313,7 @@ cond.false16.i.i:                                 ; preds = %cond.false13.i.i
 cond.false19.i.i:                                 ; preds = %cond.false16.i.i
   %shr20.i.i = lshr i32 %call.i, 11
   %7 = zext nneg i32 %shr20.i.i to i64
-  %gep.i = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %7
+  %gep.i = getelementptr inbounds i16, ptr getelementptr inbounds (i8, ptr @_ZL21ucase_props_trieIndex, i64 4160), i64 %7
   %8 = load i16, ptr %gep.i, align 2
   %conv24.i.i = zext i16 %8 to i32
   %shr25.i.i = lshr i32 %call.i, 5
@@ -2459,7 +2459,7 @@ cond.false16.i.i112:                              ; preds = %cond.false13.i.i110
 cond.false19.i.i114:                              ; preds = %cond.false16.i.i112
   %shr20.i.i115 = lshr i32 %call.i103, 11
   %15 = zext nneg i32 %shr20.i.i115 to i64
-  %gep.i116 = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %15
+  %gep.i116 = getelementptr inbounds i16, ptr getelementptr inbounds (i8, ptr @_ZL21ucase_props_trieIndex, i64 4160), i64 %15
   %16 = load i16, ptr %gep.i116, align 2
   %conv24.i.i117 = zext i16 %16 to i32
   %shr25.i.i118 = lshr i32 %call.i103, 5
@@ -2556,7 +2556,7 @@ cond.false16.i.i165:                              ; preds = %cond.false13.i.i163
 cond.false19.i.i167:                              ; preds = %cond.false16.i.i165
   %shr20.i.i168 = lshr i32 %call.i154, 11
   %23 = zext nneg i32 %shr20.i.i168 to i64
-  %gep.i169 = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %23
+  %gep.i169 = getelementptr inbounds i16, ptr getelementptr inbounds (i8, ptr @_ZL21ucase_props_trieIndex, i64 4160), i64 %23
   %24 = load i16, ptr %gep.i169, align 2
   %conv24.i.i170 = zext i16 %24 to i32
   %shr25.i.i171 = lshr i32 %call.i154, 5
@@ -2781,7 +2781,7 @@ cond.false16.i:                                   ; preds = %cond.false13.i
 cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %call, 11
   %0 = zext nneg i32 %shr20.i to i64
-  %gep = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %0
+  %gep = getelementptr inbounds i16, ptr getelementptr inbounds (i8, ptr @_ZL21ucase_props_trieIndex, i64 4160), i64 %0
   %1 = load i16, ptr %gep, align 2
   %conv24.i = zext i16 %1 to i32
   %shr25.i = lshr i32 %call, 5
@@ -2963,7 +2963,7 @@ cond.false16.i.i:                                 ; preds = %cond.false13.i.i
 cond.false19.i.i:                                 ; preds = %cond.false16.i.i
   %shr20.i.i = lshr i32 %call.i, 11
   %8 = zext nneg i32 %shr20.i.i to i64
-  %gep.i = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %8
+  %gep.i = getelementptr inbounds i16, ptr getelementptr inbounds (i8, ptr @_ZL21ucase_props_trieIndex, i64 4160), i64 %8
   %9 = load i16, ptr %gep.i, align 2
   %conv24.i.i = zext i16 %9 to i32
   %shr25.i.i = lshr i32 %call.i, 5

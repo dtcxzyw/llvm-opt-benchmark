@@ -160,11 +160,11 @@ entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   %next = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %next, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @crypto_clients, i64 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @crypto_clients, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
-  store ptr %next, ptr getelementptr inbounds (%union.anon.0, ptr @crypto_clients, i64 0, i32 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @crypto_clients, i64 8), align 8
   ret ptr %call
 }
 
@@ -188,7 +188,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store ptr %1, ptr getelementptr inbounds (%union.anon.0, ptr @crypto_clients, i64 0, i32 0, i32 1), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @crypto_clients, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -591,7 +591,7 @@ entry:
   %can_be_deleted = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @cryptodev_backend_can_be_deleted, ptr %can_be_deleted, align 8
   store ptr null, ptr @crypto_clients, align 8
-  store ptr @crypto_clients, ptr getelementptr inbounds (%union.anon.0, ptr @crypto_clients, i64 0, i32 0, i32 1), align 8
+  store ptr @crypto_clients, ptr getelementptr inbounds (i8, ptr @crypto_clients, i64 8), align 8
   %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @cryptodev_backend_get_queues, ptr noundef nonnull @cryptodev_backend_set_queues, ptr noundef null, ptr noundef null) #7
   %call2 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @cryptodev_backend_get_bps, ptr noundef nonnull @cryptodev_backend_set_bps, ptr noundef null, ptr noundef null) #7
   %call3 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11, ptr noundef nonnull @cryptodev_backend_get_ops, ptr noundef nonnull @cryptodev_backend_set_ops, ptr noundef null, ptr noundef null) #7

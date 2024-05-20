@@ -61,7 +61,7 @@ define hidden range(i32 -1, 1) i32 @OnChangeBrowscap(ptr nocapture noundef readn
   ]
 
 7:                                                ; preds = %6
-  %8 = load i8, ptr getelementptr inbounds (%struct._zend_browscap_globals, ptr @browscap_globals, i64 0, i32 0, i32 4), align 8
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @browscap_globals, i64 24), align 8
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %10, label %9
 
@@ -71,7 +71,7 @@ define hidden range(i32 -1, 1) i32 @OnChangeBrowscap(ptr nocapture noundef readn
 
 10:                                               ; preds = %9, %7
   %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = tail call ptr @tsrm_realpath(ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds (%struct._zend_browscap_globals, ptr @browscap_globals, i64 0, i32 0, i32 4)) #13
+  %12 = tail call ptr @tsrm_realpath(ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @browscap_globals, i64 24)) #13
   %13 = icmp eq ptr %12, null
   %. = sext i1 %13 to i32
   br label %15
@@ -350,7 +350,7 @@ define internal fastcc range(i32 -1, 1) i32 @browscap_read_file(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_browscap(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds (%struct._zend_browscap_globals, ptr @browscap_globals, i64 0, i32 0, i32 4), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @browscap_globals, i64 24), align 8
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -449,7 +449,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br label %.thread255
 
 .thread232:                                       ; preds = %29, %24, %14, %.thread257
-  %32 = load i8, ptr getelementptr inbounds (%struct._zend_browscap_globals, ptr @browscap_globals, i64 0, i32 0, i32 4), align 8
+  %32 = load i8, ptr getelementptr inbounds (i8, ptr @browscap_globals, i64 24), align 8
   %.not201 = icmp eq i8 %32, 0
   br i1 %.not201, label %41, label %33
 
@@ -459,7 +459,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %35, label %36, label %45
 
 36:                                               ; preds = %33
-  %37 = call fastcc i32 @browscap_read_file(ptr noundef nonnull getelementptr inbounds (%struct._zend_browscap_globals, ptr @browscap_globals, i64 0, i32 0, i32 4), ptr noundef nonnull @browscap_globals, i32 noundef 0)
+  %37 = call fastcc i32 @browscap_read_file(ptr noundef nonnull getelementptr inbounds (i8, ptr @browscap_globals, i64 24), ptr noundef nonnull @browscap_globals, i32 noundef 0)
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %39, label %45
 
@@ -486,7 +486,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %47, label %48, label %63
 
 48:                                               ; preds = %45
-  %49 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 3, i32 1), align 8
+  %49 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 400), align 8
   %50 = icmp eq i8 %49, 7
   br i1 %50, label %56, label %51
 
@@ -498,7 +498,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %55, label %56, label %.thread249
 
 56:                                               ; preds = %48, %51
-  %57 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 3), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
   %58 = call ptr @zend_hash_str_find(ptr noundef %57, ptr noundef nonnull @.str.2, i64 noundef 15) #13
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.thread249, label %61
@@ -1788,7 +1788,7 @@ define internal void @php_browscap_parser_cb(ptr noundef %0, ptr noundef readonl
   br label %43
 
 41:                                               ; preds = %38, %31, %24
-  %42 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @zend_one_char_string, i64 0, i64 49), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 392), align 8
   br label %102
 
 43:                                               ; preds = %._crit_edge195, %34

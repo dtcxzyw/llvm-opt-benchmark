@@ -46,7 +46,7 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7DataMapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV7DataMap, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7DataMap, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -118,7 +118,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9RBDataMapD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV9RBDataMap, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9RBDataMap, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
@@ -166,7 +166,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 define void @_ZN9RBDataMapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.end.i.i:
   %status = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV9RBDataMap, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9RBDataMap, i64 16), ptr %this, align 8
   store i32 0, ptr %status, align 4
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 88) #15
   %new.isnull = icmp ne ptr %call, null
@@ -208,7 +208,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9RBDataMapC2EP15UResourceBundleR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV9RBDataMap, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9RBDataMap, i64 16), ptr %this, align 8
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 88) #15
   %new.isnull = icmp ne ptr %call, null
   tail call void @llvm.assume(i1 %new.isnull)
@@ -326,7 +326,7 @@ for.end:                                          ; preds = %invoke.cont7, %entr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9RBDataMapC2EP15UResourceBundleS1_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %headers, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV9RBDataMap, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9RBDataMap, i64 16), ptr %this, align 8
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 88) #15
   %new.isnull = icmp ne ptr %call, null
   tail call void @llvm.assume(i1 %new.isnull)
@@ -528,7 +528,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %return
@@ -731,7 +731,7 @@ new.notnull:                                      ; preds = %if.end
 invoke.cont:                                      ; preds = %new.notnull, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call5, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -797,7 +797,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   %conv = zext nneg i32 %call3 to i64
   %2 = shl nuw nsw i64 %conv, 2
   %call5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #18
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %stringRes, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %stringRes, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %stringRes, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fBuffer.i.i = getelementptr inbounds i8, ptr %stringRes, i64 10

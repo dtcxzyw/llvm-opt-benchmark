@@ -2750,7 +2750,7 @@ _ZN6xshell3Cmd3arg17h25a2c54d965b41c6E.exit10.i:  ; preds = %_ZN6xshell3Cmd3arg1
   %87 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %81, ptr %87, align 8, !noalias !507
   %88 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds (<{ [6 x i8] }>, ptr @anon.605d912f887e86897ddf3ed14464980a.77, i64 0, i32 0, i64 1), ptr %88, align 8, !noalias !507
+  store ptr getelementptr inbounds (i8, ptr @anon.605d912f887e86897ddf3ed14464980a.77, i64 1), ptr %88, align 8, !noalias !507
   %89 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 5, ptr %89, align 8, !noalias !507
   %90 = icmp ugt i64 %81, 69

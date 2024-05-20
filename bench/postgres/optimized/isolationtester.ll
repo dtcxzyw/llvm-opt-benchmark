@@ -118,12 +118,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 26:                                               ; preds = %22, %20
   %27 = tail call i32 @spec_yyparse() #16
-  %28 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   %wide.trip.count.i = zext nneg i32 %28 to i64
   br label %31
 
@@ -144,12 +144,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %37 = sext i32 %.0.lcssa.i to i64
   %38 = shl nsw i64 %37, 3
   %39 = tail call ptr @pg_malloc(i64 noundef %38) #16
-  %40 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.preheader4.preheader.i, label %._crit_edge20.i
 
 .preheader4.preheader.i:                          ; preds = %._crit_edge.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   br label %.preheader4.i
 
 .preheader4.i:                                    ; preds = %._crit_edge16.i, %.preheader4.preheader.i
@@ -177,7 +177,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %56 = getelementptr ptr, ptr %39, i64 %55
   store ptr %53, ptr %56, align 8
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %57 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   %58 = getelementptr ptr, ptr %57, i64 %indvars.iv65.i
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 32
@@ -187,7 +187,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %63, label %.lr.ph15.i, label %._crit_edge16.loopexit.i, !llvm.loop !7
 
 ._crit_edge16.loopexit.i:                         ; preds = %.lr.ph15.i
-  %.pre101.i = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %.pre101.i = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   br label %._crit_edge16.i
 
 ._crit_edge16.i:                                  ; preds = %._crit_edge16.loopexit.i, %.preheader4.i
@@ -215,7 +215,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %exitcond72.not.i, label %.preheader3.i, label %.lr.ph23.i, !llvm.loop !9
 
 .preheader3.i:                                    ; preds = %69, %._crit_edge20.i
-  %70 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph29.i, label %.preheader2.i
 
@@ -238,14 +238,14 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 .preheader2.i:                                    ; preds = %._crit_edge27.i, %.preheader3.i
-  %82 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 6), align 8
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %.lr.ph44.i, label %._crit_edge45.i
 
 .lr.ph29.i:                                       ; preds = %.preheader3.i, %._crit_edge27.i
   %84 = phi i32 [ %101, %._crit_edge27.i ], [ %70, %.preheader3.i ]
   %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %._crit_edge27.i ], [ 0, %.preheader3.i ]
-  %85 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   %86 = getelementptr ptr, ptr %85, i64 %indvars.iv76.i
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 32
@@ -272,7 +272,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %100, label %93, label %._crit_edge27.loopexit.i, !llvm.loop !10
 
 ._crit_edge27.loopexit.i:                         ; preds = %93
-  %.pre102.i = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %.pre102.i = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   br label %._crit_edge27.i
 
 ._crit_edge27.i:                                  ; preds = %._crit_edge27.loopexit.i, %.lr.ph29.i
@@ -284,7 +284,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .lr.ph44.i:                                       ; preds = %.preheader2.i, %._crit_edge42.i
   %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %._crit_edge42.i ], [ 0, %.preheader2.i ]
-  %104 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 5), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
   %105 = getelementptr ptr, ptr %104, i64 %indvars.iv93.i
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %106, align 8
@@ -436,13 +436,13 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 ._crit_edge42.i:                                  ; preds = %._crit_edge39.i, %.preheader1.i, %.lr.ph44.i
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %182 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 6), align 8
+  %182 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next94.i, %183
   br i1 %184, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !16
 
 ._crit_edge45.i:                                  ; preds = %._crit_edge42.i, %.preheader2.i
-  %185 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 5), align 8
+  %185 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
   %.not.i = icmp ne ptr %185, null
   %186 = icmp sgt i32 %.0.lcssa.i, 0
   %or.cond.i = and i1 %186, %.not.i
@@ -474,9 +474,9 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 check_testspec.exit:                              ; preds = %196, %._crit_edge45.i
   tail call void @free(ptr noundef %39) #16
-  %197 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %197 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %198 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.5, i32 noundef %197) #16
-  %199 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %199 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %200 = add i32 %199, 1
   store i32 %200, ptr @nconns, align 4
   %201 = sext i32 %200 to i64
@@ -494,7 +494,7 @@ check_testspec.exit:                              ; preds = %196, %._crit_edge45
   br i1 %207, label %214, label %208
 
 208:                                              ; preds = %.lr.ph
-  %209 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   %210 = getelementptr ptr, ptr %209, i64 %indvars.iv
   %211 = getelementptr i8, ptr %210, i64 -8
   %212 = load ptr, ptr %211, align 8
@@ -623,18 +623,18 @@ check_testspec.exit:                              ; preds = %196, %._crit_edge45
 286:                                              ; preds = %._crit_edge76
   call void @PQclear(ptr noundef %278) #16
   call void @termPQExpBuffer(ptr noundef nonnull %3) #16
-  %287 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 5), align 8
+  %287 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
   %.not.i48 = icmp eq ptr %287, null
   br i1 %.not.i48, label %300, label %288
 
 288:                                              ; preds = %286
-  %289 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 6), align 8
+  %289 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
   %290 = icmp sgt i32 %289, 0
   br i1 %290, label %.lr.ph.i.i, label %run_testspec.exit
 
 .lr.ph.i.i:                                       ; preds = %288, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %288 ]
-  %291 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 5), align 8
+  %291 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
   %292 = getelementptr ptr, ptr %291, i64 %indvars.iv.i.i
   %293 = load ptr, ptr %292, align 8
   %294 = load i32, ptr %293, align 8
@@ -642,18 +642,18 @@ check_testspec.exit:                              ; preds = %196, %._crit_edge45
   %296 = load ptr, ptr %295, align 8
   call fastcc void @run_permutation(i32 noundef %294, ptr noundef %296)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %297 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 6), align 8
+  %297 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next.i.i, %298
   br i1 %299, label %.lr.ph.i.i, label %run_testspec.exit, !llvm.loop !20
 
 300:                                              ; preds = %286
-  %301 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %301 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %302 = icmp sgt i32 %301, 0
   br i1 %302, label %.lr.ph.i3.i, label %._crit_edge.i.i
 
 .lr.ph.i3.i:                                      ; preds = %300
-  %303 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %303 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   %wide.trip.count.i.i = zext nneg i32 %301 to i64
   br label %304
 
@@ -693,11 +693,11 @@ check_testspec.exit:                              ; preds = %196, %._crit_edge45
   br i1 %exitcond16.not.i.i, label %._crit_edge6.i.i, label %.lr.ph5.i.i, !llvm.loop !22
 
 ._crit_edge6.i.i:                                 ; preds = %.lr.ph5.i.i, %._crit_edge.i.i
-  %318 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %318 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %319 = sext i32 %318 to i64
   %320 = shl nsw i64 %319, 2
   %321 = call ptr @pg_malloc(i64 noundef %320) #16
-  %322 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %322 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %323 = icmp sgt i32 %322, 0
   br i1 %323, label %.lr.ph9.i.i, label %run_all_permutations.exit.i
 
@@ -706,7 +706,7 @@ check_testspec.exit:                              ; preds = %196, %._crit_edge45
   %324 = getelementptr i32, ptr %321, i64 %indvars.iv17.i.i
   store i32 0, ptr %324, align 4
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
-  %325 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %325 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %326 = sext i32 %325 to i64
   %327 = icmp slt i64 %indvars.iv.next18.i.i, %326
   br i1 %327, label %.lr.ph9.i.i, label %run_all_permutations.exit.i, !llvm.loop !23
@@ -875,7 +875,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture nound
   %6 = alloca %struct._PQprintOpt, align 8
   %7 = alloca %struct.timeval, align 8
   %8 = alloca %struct.timeval, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
   %12 = tail call ptr @pg_malloc(i64 noundef %11) #16
@@ -899,7 +899,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture nound
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %19 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.23) #16
-  %20 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 1), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 8), align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph24, label %.preheader4
 
@@ -909,14 +909,14 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture nound
   br label %28
 
 .preheader4:                                      ; preds = %47, %._crit_edge
-  %24 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph26, label %.preheader3
 
 .lr.ph26:                                         ; preds = %.preheader4
   %26 = getelementptr inbounds i8, ptr %5, i64 1
   %27 = getelementptr inbounds i8, ptr %5, i64 8
-  %.pre90 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %.pre90 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   br label %53
 
 28:                                               ; preds = %.lr.ph24, %47
@@ -959,7 +959,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture nound
 47:                                               ; preds = %39, %37
   call void @PQclear(ptr noundef %34) #16
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %48 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 1), align 8
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 8), align 8
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next70, %49
   br i1 %50, label %28, label %.preheader4, !llvm.loop !26
@@ -1028,8 +1028,8 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture nound
 
 81:                                               ; preds = %70, %68
   call void @PQclear(ptr noundef %65) #16
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
-  %.pre91 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
+  %.pre91 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   br label %82
 
 82:                                               ; preds = %._crit_edge101, %81
@@ -1461,14 +1461,14 @@ try_complete_steps.exit175:                       ; preds = %.preheader1, %._cri
   br i1 %.not, label %.preheader, label %297
 
 .preheader:                                       ; preds = %try_complete_steps.exit175
-  %293 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %293 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %294 = icmp sgt i32 %293, 0
   br i1 %294, label %.lr.ph43, label %._crit_edge44
 
 .lr.ph43:                                         ; preds = %.preheader
   %295 = getelementptr inbounds i8, ptr %4, i64 1
   %296 = getelementptr inbounds i8, ptr %4, i64 8
-  %.pre98 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %.pre98 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   br label %300
 
 297:                                              ; preds = %try_complete_steps.exit175
@@ -1531,8 +1531,8 @@ try_complete_steps.exit175:                       ; preds = %.preheader1, %._cri
 
 328:                                              ; preds = %317, %319, %315
   call void @PQclear(ptr noundef %312) #16
-  %.pre97 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
-  %.pre99 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %.pre97 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
+  %.pre99 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   br label %329
 
 329:                                              ; preds = %._crit_edge100, %328
@@ -1544,7 +1544,7 @@ try_complete_steps.exit175:                       ; preds = %.preheader1, %._cri
   br i1 %333, label %300, label %._crit_edge44, !llvm.loop !35
 
 ._crit_edge44:                                    ; preds = %329, %.preheader
-  %334 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 2), align 8
+  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 16), align 8
   %.not137 = icmp eq ptr %334, null
   br i1 %.not137, label %354, label %335
 
@@ -2010,7 +2010,7 @@ step_has_blocker.exit.thread:                     ; preds = %.loopexit, %step_ha
 
 .preheader:                                       ; preds = %._crit_edge, %244
   %229 = phi ptr [ %256, %244 ], [ %228, %._crit_edge ]
-  %230 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %230 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %231 = getelementptr inbounds i8, ptr %229, i64 8
   %232 = load ptr, ptr @conns, align 8
   %smax = call i32 @llvm.smax.i32(i32 %230, i32 0)
@@ -2043,7 +2043,7 @@ step_has_blocker.exit.thread:                     ; preds = %.loopexit, %step_ha
 
 244:                                              ; preds = %.thread, %239
   %.1 = phi ptr [ %9, %.thread ], [ %241, %239 ]
-  %245 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %245 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   %246 = load i32, ptr %13, align 8
   %247 = sext i32 %246 to i64
   %248 = getelementptr ptr, ptr %245, i64 %247
@@ -2123,7 +2123,7 @@ declare void @PQfreemem(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @run_all_permutations_recurse(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
@@ -2137,7 +2137,7 @@ define internal fastcc void @run_all_permutations_recurse(ptr nocapture noundef 
   %.ph = phi i32 [ %.pre4, %.thread ], [ %4, %.lr.ph ]
   %indvars.iv.ph = phi i64 [ %indvars.iv.next6, %.thread ], [ 0, %.lr.ph ]
   %.0281.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph ]
-  %.ph9 = load ptr, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 3), align 8
+  %.ph9 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   %9 = sext i32 %.ph to i64
   br label %10
 
@@ -2177,7 +2177,7 @@ define internal fastcc void @run_all_permutations_recurse(ptr nocapture noundef 
   %32 = load i32, ptr %20, align 4
   %33 = add i32 %32, -1
   store i32 %33, ptr %20, align 4
-  %.pre4 = load i32, ptr getelementptr inbounds (%struct.TestSpec, ptr @parseresult, i64 0, i32 4), align 8
+  %.pre4 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %.pre4 to i64
   %35 = icmp slt i64 %indvars.iv.next6, %34

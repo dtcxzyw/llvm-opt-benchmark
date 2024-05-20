@@ -85,8 +85,8 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 define dso_local void @drm_panel_add(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @panel_lock) #4
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @panel_list, i64 0, i32 1), align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.list_head, ptr @panel_list, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @panel_list, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @panel_list, i64 8), align 8
   store ptr @panel_list, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %4, align 8

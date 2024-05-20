@@ -4180,7 +4180,7 @@ thread-pre-split:                                 ; preds = %173, %.critedge
   store ptr %192, ptr %193, align 8, !noalias !432
   store ptr @anon.1a1f31e4664e8848d60e7ddbe5474640.58, ptr %8, align 8, !noalias !432
   %194 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr getelementptr inbounds (<{ [3 x i8] }>, ptr @anon.1a1f31e4664e8848d60e7ddbe5474640.58, i64 1, i32 0, i64 0), ptr %194, align 8, !noalias !432
+  store ptr getelementptr inbounds (i8, ptr @anon.1a1f31e4664e8848d60e7ddbe5474640.58, i64 3), ptr %194, align 8, !noalias !432
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !435
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hed39db973e645a17E.llvm.14531926216617506853"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9), !noalias !438
   %195 = load i64, ptr %7, align 8, !noalias !435, !noundef !4

@@ -1857,7 +1857,7 @@ _str_replace.exit31:                              ; preds = %35, %29
   br label %39
 
 39:                                               ; preds = %23, %38, %_str_replace.exit31, %_str_replace.exit, %22
-  %40 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1869,7 +1869,7 @@ _str_replace.exit31:                              ; preds = %35, %29
   %44 = load i32, ptr %43, align 4
   %45 = call i32 @client_resp_send(ptr noundef %5, i32 noundef %44)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %47 = zext i32 %46 to i64
   %48 = icmp ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !22

@@ -60,8 +60,8 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dma_resv_des
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_resv_init(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.ww_class, ptr @reservation_ww_class, i64 0, i32 4), align 8
-  tail call void @__mutex_init(ptr noundef %0, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.ww_class, ptr @reservation_ww_class, i64 0, i32 3)) #9
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @reservation_ww_class, i64 16), align 8
+  tail call void @__mutex_init(ptr noundef %0, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @reservation_ww_class, i64 8)) #9
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

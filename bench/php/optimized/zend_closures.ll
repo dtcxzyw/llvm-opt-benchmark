@@ -997,11 +997,11 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   store ptr %60, ptr %1, align 8
   %63 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 776, ptr %63, align 8
-  %64 = icmp eq ptr %33, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %64 = icmp eq ptr %33, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %.critedge.i
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63, i32 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
   br label %zend_create_closure_from_callable.exit.thread
 
 66:                                               ; preds = %.critedge.i
@@ -1045,11 +1045,11 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %68, ptr %84, align 8
-  %85 = icmp eq ptr %33, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %85 = icmp eq ptr %33, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %78
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63, i32 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
   br label %88
 
 87:                                               ; preds = %78
@@ -1240,14 +1240,14 @@ define hidden void @zend_register_closure_ce() local_unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %7, i64 360
   store ptr @closure_handlers, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @closure_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store ptr @zend_closure_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @closure_handlers, i64 0, i32 1), align 8
-  store ptr @zend_closure_get_constructor, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @closure_handlers, i64 0, i32 15), align 8
-  store ptr @zend_closure_get_method, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @closure_handlers, i64 0, i32 14), align 8
-  store ptr @zend_closure_compare, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @closure_handlers, i64 0, i32 23), align 8
-  store ptr @zend_closure_clone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @closure_handlers, i64 0, i32 3), align 8
-  store ptr @zend_closure_get_debug_info, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @closure_handlers, i64 0, i32 19), align 8
-  store ptr @zend_closure_get_closure, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @closure_handlers, i64 0, i32 20), align 8
-  store ptr @zend_closure_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @closure_handlers, i64 0, i32 21), align 8
+  store ptr @zend_closure_free_storage, ptr getelementptr inbounds (i8, ptr @closure_handlers, i64 8), align 8
+  store ptr @zend_closure_get_constructor, ptr getelementptr inbounds (i8, ptr @closure_handlers, i64 120), align 8
+  store ptr @zend_closure_get_method, ptr getelementptr inbounds (i8, ptr @closure_handlers, i64 112), align 8
+  store ptr @zend_closure_compare, ptr getelementptr inbounds (i8, ptr @closure_handlers, i64 184), align 8
+  store ptr @zend_closure_clone, ptr getelementptr inbounds (i8, ptr @closure_handlers, i64 24), align 8
+  store ptr @zend_closure_get_debug_info, ptr getelementptr inbounds (i8, ptr @closure_handlers, i64 152), align 8
+  store ptr @zend_closure_get_closure, ptr getelementptr inbounds (i8, ptr @closure_handlers, i64 160), align 8
+  store ptr @zend_closure_get_gc, ptr getelementptr inbounds (i8, ptr @closure_handlers, i64 168), align 8
   ret void
 }
 
@@ -1637,7 +1637,7 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
   br i1 %.not125, label %71, label %67
 
 67:                                               ; preds = %62
-  %68 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 %65
   %70 = load ptr, ptr %69, align 8
   br label %71
@@ -1942,7 +1942,7 @@ define internal ptr @zend_closure_get_gc(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not15, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %20
   %25 = load ptr, ptr %24, align 8
   br label %26
@@ -2039,7 +2039,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   br i1 %.not225, label %57, label %53
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 %51
   %56 = load ptr, ptr %55, align 8
   br label %57
@@ -2055,7 +2055,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   %61 = ptrtoint ptr %60 to i64
   %62 = and i64 %61, 1
   %.not227 = icmp eq i64 %62, 0
-  %63 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %61
   %.sink247 = select i1 %.not227, ptr %49, ptr %64
   store ptr %59, ptr %.sink247, align 8
@@ -2076,7 +2076,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   br i1 %.not228, label %75, label %71
 
 71:                                               ; preds = %66
-  %72 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
   %74 = load ptr, ptr %73, align 8
   br label %75
@@ -2126,7 +2126,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   %95 = getelementptr inbounds i8, ptr %1, i64 76
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %99 = load ptr, ptr %98, align 8
   %100 = add nsw i64 %97, 7
   %101 = and i64 %100, -8
@@ -2157,7 +2157,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   store ptr %116, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %113, i64 16
   store ptr %98, ptr %118, align 8
-  store ptr %113, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %113, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   br label %119
 
 119:                                              ; preds = %109, %107
@@ -2166,7 +2166,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
   %.not236 = icmp eq i64 %122, 0
-  %123 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 %121
   %.sink250 = select i1 %.not236, ptr %67, ptr %124
   store ptr %.0, ptr %.sink250, align 8
@@ -2371,11 +2371,11 @@ define hidden void @zend_closure_from_frame(ptr noundef %0, ptr nocapture nounde
   br label %.critedge2
 
 .critedge:                                        ; preds = %26, %39
-  %41 = icmp eq ptr %6, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %41 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.critedge
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63, i32 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
   br label %44
 
 43:                                               ; preds = %.critedge
@@ -2415,11 +2415,11 @@ define hidden void @zend_closure_from_frame(ptr noundef %0, ptr nocapture nounde
   br label %59
 
 59:                                               ; preds = %.critedge2, %57
-  %60 = icmp eq ptr %6, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %60 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %59
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63, i32 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
   br label %63
 
 62:                                               ; preds = %59
@@ -2633,7 +2633,7 @@ define internal void @zend_closure_call_magic(ptr nocapture noundef readonly %0,
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %82, ptr %84, align 8
-  %85 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %86 = call ptr @zend_get_called_scope(ptr noundef %85) #13
   %87 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %86, ptr %87, align 8
@@ -2655,7 +2655,7 @@ define hidden void @zend_closure_bind_var(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 %7
   %12 = load ptr, ptr %11, align 8
   br label %13
@@ -2679,7 +2679,7 @@ define hidden void @zend_closure_bind_var_ex(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 %7
   %12 = load ptr, ptr %11, align 8
   br label %13

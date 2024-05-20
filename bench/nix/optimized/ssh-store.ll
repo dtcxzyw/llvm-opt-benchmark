@@ -2170,8 +2170,8 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
           to label %138 unwind label %98
 
 138:                                              ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %139 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTN3nix6FdSinkE, i64 0, i64 1), align 8
-  %140 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTN3nix6FdSinkE, i64 0, i64 2), align 8
+  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3nix6FdSinkE, i64 8), align 8
+  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8
   %141 = getelementptr i8, ptr %139, i64 -48
   %142 = load i64, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %11, i64 %142
@@ -2180,7 +2180,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   store i64 32768, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix6FdSinkE, i64 0, i32 0, i64 6), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6FdSinkE, i64 48), ptr %11, align 8
   %146 = getelementptr inbounds i8, ptr %11, i64 32
   store i32 %137, ptr %146, align 8
   %147 = getelementptr inbounds i8, ptr %11, i64 40
@@ -2356,14 +2356,14 @@ define linkonce_odr void @_ZN3nix8make_refINS_8SSHStore10ConnectionEJEEENS_3refI
   store i32 1, ptr %5, align 8, !noalias !7
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix8SSHStore10ConnectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %4, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix8SSHStore10ConnectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !7
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = getelementptr inbounds i8, ptr %4, i64 32
   %9 = getelementptr inbounds i8, ptr %4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %9, i8 0, i64 176, i1 false), !noalias !7
   %10 = getelementptr inbounds i8, ptr %4, i64 24
-  %11 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTN3nix6FdSinkE, i64 0, i64 1), align 8, !noalias !7
-  %12 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTN3nix6FdSinkE, i64 0, i64 2), align 8, !noalias !7
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3nix6FdSinkE, i64 8), align 8, !noalias !7
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8, !noalias !7
   %13 = getelementptr i8, ptr %11, i64 -48
   %14 = load i64, ptr %13, align 8, !noalias !7
   %15 = getelementptr inbounds i8, ptr %10, i64 %14
@@ -2371,7 +2371,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_8SSHStore10ConnectionEJEEENS_3refI
   store i64 32768, ptr %8, align 8, !noalias !7
   %16 = getelementptr inbounds i8, ptr %4, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !noalias !7
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix6FdSinkE, i64 0, i32 0, i64 6), ptr %10, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6FdSinkE, i64 48), ptr %10, align 8, !noalias !7
   store i32 -1, ptr %9, align 8, !noalias !7
   %17 = getelementptr inbounds i8, ptr %4, i64 64
   store i64 0, ptr %17, align 8, !noalias !7
@@ -2382,7 +2382,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_8SSHStore10ConnectionEJEEENS_3refI
   store i64 32768, ptr %20, align 8, !noalias !7
   %21 = getelementptr inbounds i8, ptr %4, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix8FdSourceE, i64 0, i32 0, i64 2), ptr %19, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8FdSourceE, i64 16), ptr %19, align 8, !noalias !7
   %22 = getelementptr inbounds i8, ptr %4, i64 120
   store i32 -1, ptr %22, align 8, !noalias !7
   %23 = getelementptr inbounds i8, ptr %4, i64 128
@@ -2401,7 +2401,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_8SSHStore10ConnectionEJEEENS_3refI
   store i8 0, ptr %28, align 8, !noalias !7
   %29 = getelementptr inbounds i8, ptr %4, i64 232
   store i64 0, ptr %29, align 8, !noalias !7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix8SSHStore10ConnectionE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStore10ConnectionE, i64 16), ptr %7, align 8, !noalias !7
   %30 = getelementptr inbounds i8, ptr %4, i64 240
   store ptr null, ptr %30, align 8, !noalias !7
   store ptr %4, ptr %3, align 8, !alias.scope !7
@@ -2975,18 +2975,18 @@ define linkonce_odr void @_ZN3nix14SSHStoreConfig3docB5cxx11Ev(ptr dead_on_unwin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix14SSHStoreConfigD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 0, i64 5), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 40), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 104), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 512
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 216), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1688
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 336), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %5) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %4, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %3, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 48)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 32), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 144), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 360
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #22
   %7 = getelementptr inbounds i8, ptr %0, i64 208
@@ -2997,18 +2997,18 @@ define linkonce_odr void @_ZN3nix14SSHStoreConfigD1Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix14SSHStoreConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 0, i64 5), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 40), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 104), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 512
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 216), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1688
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 336), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %5) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %4, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %3, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 48)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 32), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 144), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 360
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #22
   %7 = getelementptr inbounds i8, ptr %0, i64 208
@@ -3024,18 +3024,18 @@ define linkonce_odr void @_ZTv0_n32_N3nix14SSHStoreConfigD1Ev(ptr noundef %0) un
   %3 = getelementptr inbounds i8, ptr %2, i64 -32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 0, i64 5), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 40), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 200
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 104), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 512
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 216), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1688
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 336), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %9) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %8, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %7, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 48)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 32), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 144), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 360
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #22
   %11 = getelementptr inbounds i8, ptr %5, i64 208
@@ -3050,18 +3050,18 @@ define linkonce_odr void @_ZTv0_n32_N3nix14SSHStoreConfigD0Ev(ptr noundef %0) un
   %3 = getelementptr inbounds i8, ptr %2, i64 -32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 0, i64 5), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 40), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 200
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 104), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 512
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 216), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1688
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 336), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %9) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %8, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %7, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 48)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 32), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 144), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 360
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #22
   %11 = getelementptr inbounds i8, ptr %5, i64 208
@@ -3089,18 +3089,18 @@ define linkonce_odr void @_ZTv0_n72_N3nix14SSHStoreConfigD1Ev(ptr noundef %0) un
   %3 = getelementptr inbounds i8, ptr %2, i64 -72
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 0, i64 5), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 40), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 200
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 104), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 512
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 216), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1688
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 336), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %9) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %8, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %7, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 48)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 32), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 144), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 360
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #22
   %11 = getelementptr inbounds i8, ptr %5, i64 208
@@ -3115,18 +3115,18 @@ define linkonce_odr void @_ZTv0_n72_N3nix14SSHStoreConfigD0Ev(ptr noundef %0) un
   %3 = getelementptr inbounds i8, ptr %2, i64 -72
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 0, i64 5), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 40), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 200
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 104), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 512
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 216), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1688
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 336), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %9) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %8, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %7, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 48)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 32), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix14SSHStoreConfigE200_NS_17RemoteStoreConfigE, i64 144), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 360
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #22
   %11 = getelementptr inbounds i8, ptr %5, i64 208
@@ -4099,22 +4099,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr void @_ZN3nix8SSHStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %2 = getelementptr inbounds i8, ptr %0, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %4 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %8) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %6, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #22
   %10 = getelementptr inbounds i8, ptr %0, i64 480
@@ -4127,22 +4127,22 @@ define linkonce_odr void @_ZN3nix8SSHStoreD1Ev(ptr noundef nonnull align 8 deref
 define linkonce_odr void @_ZN3nix8SSHStoreD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %2 = getelementptr inbounds i8, ptr %0, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %4 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %8) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %6, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #22
   %10 = getelementptr inbounds i8, ptr %0, i64 480
@@ -4232,22 +4232,22 @@ define linkonce_odr void @_ZTv0_n64_N3nix8SSHStoreD1Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4264,22 +4264,22 @@ define linkonce_odr void @_ZTv0_n64_N3nix8SSHStoreD0Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4297,22 +4297,22 @@ define linkonce_odr void @_ZTv0_n32_N3nix8SSHStoreD1Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4329,22 +4329,22 @@ define linkonce_odr void @_ZTv0_n32_N3nix8SSHStoreD0Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4362,22 +4362,22 @@ define linkonce_odr void @_ZTv0_n72_N3nix8SSHStoreD1Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4394,22 +4394,22 @@ define linkonce_odr void @_ZTv0_n72_N3nix8SSHStoreD0Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4427,22 +4427,22 @@ define linkonce_odr void @_ZTv0_n56_N3nix8SSHStoreD1Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4459,22 +4459,22 @@ define linkonce_odr void @_ZTv0_n56_N3nix8SSHStoreD0Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4497,22 +4497,22 @@ define linkonce_odr void @_ZTv0_n40_N3nix8SSHStoreD1Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4529,22 +4529,22 @@ define linkonce_odr void @_ZTv0_n40_N3nix8SSHStoreD0Ev(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull @_ZTTN3nix8SSHStoreE) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 2736
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 2768
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 64), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 472
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 128), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 240), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 1960
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE272_NS_14SSHStoreConfigE, i64 360), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 280
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %12) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %10, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 32), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE472_NS_17RemoteStoreConfigE, i64 144), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 632
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 480
@@ -4774,7 +4774,7 @@ define linkonce_odr void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull 
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   store ptr %5, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 568
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 736
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 752
@@ -4817,7 +4817,7 @@ _ZN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: 
   %24 = getelementptr inbounds i8, ptr %0, i64 424
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %24) #22
   %25 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 384
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 400
@@ -4858,7 +4858,7 @@ _ZN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit7:
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #22
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %25) #22
   %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 176
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 192
@@ -4929,7 +4929,7 @@ declare void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i = icmp eq ptr %3, %2
@@ -5421,7 +5421,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(201) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -5472,7 +5472,7 @@ define linkonce_odr void @_ZN3nix7SettingIbED2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(201) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -5517,7 +5517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(201) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -5605,7 +5605,7 @@ define linkonce_odr void @_ZN3nix7SettingIiED2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -5640,9 +5640,9 @@ _ZN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11StoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1176) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11StoreConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11StoreConfigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 936
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1120
   %4 = getelementptr inbounds i8, ptr %0, i64 1136
   %5 = load ptr, ptr %4, align 8
@@ -5710,7 +5710,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -5745,7 +5745,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -6244,7 +6244,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11PathSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(201) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -6289,7 +6289,7 @@ _ZN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6ConfigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -6304,7 +6304,7 @@ define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 derefer
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14AbstractConfigE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -6324,7 +6324,7 @@ _ZN3nix14AbstractConfigD2Ev.exit:                 ; preds = %_ZNSt3mapINSt7__cxx
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix14StoreDirConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3nix14StoreDirConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14StoreDirConfigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 328
@@ -6345,7 +6345,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
   %9 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 272
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 288
@@ -6385,7 +6385,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZN3nix11PathSettingD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #22
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #22
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6ConfigE, i64 16), ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 56
   %25 = getelementptr inbounds i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
@@ -6400,7 +6400,7 @@ _ZN3nix11PathSettingD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %_ZN3nix11PathSettingD2Ev.exit
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14AbstractConfigE, i64 16), ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
@@ -6558,7 +6558,7 @@ define linkonce_odr void @_ZN3nix5Store11unsupportedERKNSt7__cxx1112basic_string
           to label %11 unwind label %29
 
 11:                                               ; preds = %7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
@@ -6593,7 +6593,7 @@ define linkonce_odr void @_ZN3nix5Store11unsupportedERKNSt7__cxx1112basic_string
   store i64 0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 368
   store i8 0, ptr %27, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix11UnsupportedE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11UnsupportedE, i64 16), ptr %6, align 8
   invoke void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN3nix11UnsupportedE, ptr nonnull @_ZN3nix11UnsupportedD2Ev) #23
           to label %43 unwind label %31
 
@@ -6660,7 +6660,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11UnsupportedD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -6702,7 +6702,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11UnsupportedD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -6823,7 +6823,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -6861,7 +6861,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -6927,7 +6927,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERK
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 192
@@ -6990,7 +6990,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEED2Ev(
 
 _ZN5boost8optionalISt6localeED2Ev.exit:           ; preds = %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %7)
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %8
 
@@ -7346,7 +7346,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; pr
 
 143:                                              ; preds = %140
   %144 = zext nneg i32 %.076.ph.lcssa193 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %8, align 8
   %145 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %144, ptr %145, align 8
   %146 = getelementptr inbounds i8, ptr %8, i64 16
@@ -7541,7 +7541,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
           to label %2 unwind label %4
 
@@ -7674,7 +7674,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %2
 
@@ -8334,7 +8334,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit: ; preds = %
   br i1 %.not37, label %29, label %23
 
 23:                                               ; preds = %21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %18, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %5, i64 16
@@ -8805,7 +8805,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost2io6detail22parse_printf_direct
   br i1 %.not.i, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %4, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %12, i64 16
@@ -8875,7 +8875,7 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %30, %33
   %45 = ptrtoint ptr %40 to i64
   %46 = sub i64 %4, %13
   %47 = add i64 %46, %45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %11, align 8
   %48 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %11, i64 16
@@ -9001,7 +9001,7 @@ _ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   %104 = ptrtoint ptr %.sroa.0.0.lcssa.i to i64
   %105 = sub i64 %4, %13
   %106 = add i64 %105, %104
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %10, align 8
   %107 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %106, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %10, i64 16
@@ -9208,7 +9208,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit: ; preds = %159, %
   %199 = ptrtoint ptr %.lcssa to i64
   %200 = sub i64 %4, %13
   %201 = add i64 %200, %199
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %9, align 8
   %202 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %201, ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %9, i64 16
@@ -9347,7 +9347,7 @@ _ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   %268 = ptrtoint ptr %263 to i64
   %269 = sub i64 %4, %13
   %270 = add i64 %269, %268
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %8, align 8
   %271 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %270, ptr %271, align 8
   %272 = getelementptr inbounds i8, ptr %8, i64 16
@@ -9589,7 +9589,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250: ; preds = %325
   %374 = ptrtoint ptr %371 to i64
   %375 = sub i64 %4, %13
   %376 = add i64 %375, %374
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %7, align 8
   %377 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %376, ptr %377, align 8
   %378 = getelementptr inbounds i8, ptr %7, i64 16
@@ -10961,7 +10961,7 @@ define linkonce_odr void @_ZN5boost2io6detail21maybe_throw_exceptionEhmm(i8 noun
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -11045,9 +11045,9 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit: ; preds = %18, %2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -11056,16 +11056,16 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 104), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -11101,14 +11101,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -11134,9 +11134,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io17bad_format_strin
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 104), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io17bad_format_stringEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io17bad_format_stringEE7deleterD2Ev.exit7
@@ -11178,7 +11178,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -11215,7 +11215,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -11250,7 +11250,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -11291,7 +11291,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io17bad_format_string4whatEv(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -11326,7 +11326,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -11381,14 +11381,14 @@ define linkonce_odr void @_ZN5boost2io17bad_format_stringD0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -11407,9 +11407,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 104), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -12632,7 +12632,7 @@ _ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EEC2
           to label %48 unwind label %64
 
 48:                                               ; preds = %43
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 192
@@ -12954,7 +12954,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(224) ptr @_ZN5boost2
 24:                                               ; preds = %20
   %25 = sext i32 %11 to i64
   %26 = sext i32 %13 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io13too_many_argsE, i64 16), ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %25, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 16
@@ -13778,7 +13778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit140
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit140: ; preds = %209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #22
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #22
   %276 = getelementptr inbounds i8, ptr %8, i64 16
   %277 = load ptr, ptr %276, align 8
   %.not.i.i.i.i.i = icmp eq ptr %277, null
@@ -13865,7 +13865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds 
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE12clear_bufferEv.exit163 unwind label %15
 
 _ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE12clear_bufferEv.exit163: ; preds = %.noexc161, %306
-  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #22
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #22
   %311 = getelementptr inbounds i8, ptr %6, i64 16
   %312 = load ptr, ptr %311, align 8
   %.not.i.i.i.i.i164 = icmp eq ptr %312, null
@@ -13917,9 +13917,9 @@ _ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev.exit166: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io13too_many_argsE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -13928,16 +13928,16 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 104), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -13973,14 +13973,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io13too_many_argsE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -14006,9 +14006,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE5
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 104), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io13too_many_argsEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io13too_many_argsEE7deleterD2Ev.exit7
@@ -14050,7 +14050,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -14087,7 +14087,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -14122,7 +14122,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -14163,7 +14163,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io13too_many_args4whatEv(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -14198,7 +14198,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -14242,14 +14242,14 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsD0Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io13too_many_argsE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -14268,9 +14268,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 104), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -14320,18 +14320,18 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %1, ptr %19, align 8
   store ptr %6, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %3, align 8
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), ptr noundef %1)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %3, align 8
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8), ptr noundef %1)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %3, align 8
   ret void
 
 21:                                               ; preds = %16
@@ -14906,7 +14906,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #22
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #22
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -15016,7 +15016,7 @@ declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #22
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #22
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -15068,7 +15068,7 @@ define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #22
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
@@ -15119,7 +15119,7 @@ define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #22
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -16764,7 +16764,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix8SSHStore10ConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix8SSHStore10ConnectionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStore10ConnectionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -16787,7 +16787,7 @@ _ZNSt10unique_ptrIN3nix9SSHMaster10ConnectionESt14default_deleteIS2_EED2Ev.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix8SSHStore10ConnectionD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix8SSHStore10ConnectionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStore10ConnectionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -17125,7 +17125,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3nix8SSHStoreELN9__gnu_cxx12_Lock
   store i32 1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix8SSHStoreESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix8SSHStoreESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   invoke void @_ZN3nix8SSHStoreC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix8SSHStoreESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i
@@ -17401,7 +17401,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit31
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit31: ; preds = %50, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit
-  invoke void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(312) %36, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 13))
+  invoke void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(312) %36, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 104))
           to label %53 unwind label %141
 
 53:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit31
@@ -17466,7 +17466,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit41
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit41: ; preds = %72, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit32
-  invoke void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(776) %58, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15))
+  invoke void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(776) %58, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120))
           to label %75 unwind label %145
 
 75:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit41
@@ -17531,7 +17531,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit51
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit51: ; preds = %94, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit42
-  invoke void @_ZN3nix14SSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 9))
+  invoke void @_ZN3nix14SSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 72))
           to label %97 unwind label %149
 
 97:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit51
@@ -17548,26 +17548,26 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit52: ; preds = %97
   %102 = getelementptr inbounds i8, ptr %0, i64 2768
-  invoke void @_ZN3nix5StoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(264) %102, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23), ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke void @_ZN3nix5StoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(264) %102, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184), ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %103 unwind label %151
 
 103:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit52
   %104 = getelementptr inbounds i8, ptr %0, i64 2736
-  store ptr getelementptr inbounds ({ [11 x ptr], [92 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE2736_NS_7GcStoreE, i64 0, i32 0, i64 7), ptr %104, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [92 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE0_NS_8LogStoreE, i64 0, i32 0, i64 7), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [92 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE0_NS_8LogStoreE, i64 0, i32 1, i64 47), ptr %102, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [92 x ptr], [23 x ptr] }, ptr @_ZTCN3nix8SSHStoreE0_NS_8LogStoreE, i64 0, i32 2, i64 12), ptr %13, align 8
-  invoke void @_ZN3nix11RemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(25) %104, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17), ptr noundef nonnull align 8 dereferenceable(48) %3)
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE2736_NS_7GcStoreE, i64 56), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE0_NS_8LogStoreE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE0_NS_8LogStoreE, i64 464), ptr %102, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix8SSHStoreE0_NS_8LogStoreE, i64 920), ptr %13, align 8
+  invoke void @_ZN3nix11RemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(25) %104, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136), ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %105 unwind label %153
 
 105:                                              ; preds = %103
-  store ptr getelementptr inbounds ({ [20 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [88 x ptr], [92 x ptr] }, ptr @_ZTVN3nix8SSHStoreE, i64 0, i32 1, i64 8), ptr %80, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [88 x ptr], [92 x ptr] }, ptr @_ZTVN3nix8SSHStoreE, i64 0, i32 2, i64 4), ptr %36, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [88 x ptr], [92 x ptr] }, ptr @_ZTVN3nix8SSHStoreE, i64 0, i32 3, i64 12), ptr %13, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [88 x ptr], [92 x ptr] }, ptr @_ZTVN3nix8SSHStoreE, i64 0, i32 4, i64 4), ptr %58, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [88 x ptr], [92 x ptr] }, ptr @_ZTVN3nix8SSHStoreE, i64 0, i32 6, i64 47), ptr %102, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [88 x ptr], [92 x ptr] }, ptr @_ZTVN3nix8SSHStoreE, i64 0, i32 5, i64 47), ptr %104, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [88 x ptr], [92 x ptr] }, ptr @_ZTVN3nix8SSHStoreE, i64 0, i32 0, i64 13), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStoreE, i64 224), ptr %80, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStoreE, i64 288), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStoreE, i64 400), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStoreE, i64 520), ptr %58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStoreE, i64 1616), ptr %102, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStoreE, i64 912), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8SSHStoreE, i64 104), ptr %0, align 8
   %106 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %107 unwind label %155
@@ -17680,27 +17680,27 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 159:                                              ; preds = %157, %155
   %.pn = phi { ptr, i32 } [ %158, %157 ], [ %156, %155 ]
-  call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %104, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 17)) #22
+  call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %104, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 136)) #22
   br label %160
 
 160:                                              ; preds = %159, %153
   %.pn.pn = phi { ptr, i32 } [ %.pn, %159 ], [ %154, %153 ]
-  call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %102, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 23)) #22
+  call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %102, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 184)) #22
   br label %161
 
 161:                                              ; preds = %160, %151
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %160 ], [ %152, %151 ]
-  call void @_ZN3nix14SSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 9)) #22
+  call void @_ZN3nix14SSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 72)) #22
   br label %162
 
 162:                                              ; preds = %161, %149, %147
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %161 ], [ %150, %149 ], [ %148, %147 ]
-  call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %58, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 15)) #22
+  call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %58, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 120)) #22
   br label %163
 
 163:                                              ; preds = %162, %145, %143
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %162 ], [ %146, %145 ], [ %144, %143 ]
-  call void @_ZN3nix17RemoteStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %36, ptr noundef nonnull getelementptr inbounds ([31 x ptr], ptr @_ZTTN3nix8SSHStoreE, i64 0, i64 13)) #22
+  call void @_ZN3nix17RemoteStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %36, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix8SSHStoreE, i64 104)) #22
   br label %164
 
 164:                                              ; preds = %163, %141, %139
@@ -17742,7 +17742,7 @@ define linkonce_odr void @_ZN3nix11StoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx111
   %27 = alloca %"class.std::allocator", align 1
   %28 = alloca %"class.std::set", align 8
   tail call void @_ZN3nix14StoreDirConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11StoreConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11StoreConfigE, i64 16), ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 344
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.43, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -17773,7 +17773,7 @@ define linkonce_odr void @_ZN3nix11StoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx111
   store i32 65536, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %0, i64 488
   store i8 1, ptr %39, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingIiEE, i64 0, i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingIiEE, i64 16), ptr %29, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %29)
           to label %_ZN3nix7SettingIiEC2EPNS_6ConfigERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKSt3setISB_St4lessISB_ESaISB_EEbSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %40
 
@@ -17864,7 +17864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   store i8 0, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %0, i64 634
   store i8 1, ptr %68, align 2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingIbEE, i64 0, i32 0, i64 2), ptr %58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingIbEE, i64 16), ptr %58, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %58)
           to label %_ZN3nix7SettingIbEC2EPNS_6ConfigERKbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKSt3setISB_St4lessISB_ESaISB_EEbSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %69
 
@@ -17955,7 +17955,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   store i32 0, ptr %96, align 4
   %97 = getelementptr inbounds i8, ptr %0, i64 784
   store i8 1, ptr %97, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingIiEE, i64 0, i32 0, i64 2), ptr %87, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingIiEE, i64 16), ptr %87, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %87)
           to label %_ZN3nix7SettingIiEC2EPNS_6ConfigERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKSt3setISB_St4lessISB_ESaISB_EEbSt8optionalINS_19ExperimentalFeatureEE.exit54 unwind label %98
 
@@ -18046,7 +18046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   store i8 0, ptr %125, align 1
   %126 = getelementptr inbounds i8, ptr %0, i64 930
   store i8 1, ptr %126, align 2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingIbEE, i64 0, i32 0, i64 2), ptr %116, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingIbEE, i64 16), ptr %116, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %116)
           to label %_ZN3nix7SettingIbEC2EPNS_6ConfigERKbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKSt3setISB_St4lessISB_ESaISB_EEbSt8optionalINS_19ExperimentalFeatureEE.exit65 unwind label %127
 
@@ -18135,7 +18135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
           to label %.noexc73 unwind label %215
 
 .noexc73:                                         ; preds = %148
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %145, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 16), ptr %145, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %145)
           to label %_ZN3nix7SettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEC2EPNS_6ConfigERKSB_RKS7_SI_SG_bSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %154
 
@@ -18457,7 +18457,7 @@ define linkonce_odr void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__
   store i32 1, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 152
   store i8 1, ptr %33, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingIiEE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingIiEE, i64 16), ptr %19, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %23, ptr noundef nonnull %19)
           to label %_ZN3nix7SettingIiEC2EPNS_6ConfigERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKSt3setISB_St4lessISB_ESaISB_EEbSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %34
 
@@ -18552,7 +18552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZN
   store i32 -1, ptr %65, align 4
   %66 = getelementptr inbounds i8, ptr %0, i64 304
   store i8 1, ptr %66, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingIjEE, i64 0, i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingIjEE, i64 16), ptr %52, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %56, ptr noundef nonnull %52)
           to label %_ZN3nix7SettingIjEC2EPNS_6ConfigERKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKSt3setISB_St4lessISB_ESaISB_EEbSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %67
 
@@ -18754,7 +18754,7 @@ define linkonce_odr void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt
           to label %.noexc unwind label %212
 
 .noexc:                                           ; preds = %42
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %35, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 144
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %49 unwind label %51
@@ -18783,7 +18783,7 @@ define linkonce_odr void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt
 _ZN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_bS9_S9_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE.exit.i: ; preds = %49
   %56 = getelementptr inbounds i8, ptr %0, i64 208
   store i8 1, ptr %56, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %35, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %39, ptr noundef nonnull %35)
           to label %_ZN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNS_6ConfigERKS6_SB_SB_RKSt3setIS6_St4lessIS6_ESaIS6_EEbSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %57
 
@@ -18896,7 +18896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
           to label %.noexc44 unwind label %223
 
 .noexc44:                                         ; preds = %88
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %81, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %81, align 8
   %94 = getelementptr inbounds i8, ptr %0, i64 352
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %95 unwind label %97
@@ -18925,7 +18925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
 _ZN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_bS9_S9_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE.exit.i43: ; preds = %95
   %102 = getelementptr inbounds i8, ptr %0, i64 416
   store i8 1, ptr %102, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %81, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %81, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %85, ptr noundef nonnull %81)
           to label %_ZN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNS_6ConfigERKS6_SB_SB_RKSt3setIS6_St4lessIS6_ESaIS6_EEbSt8optionalINS_19ExperimentalFeatureEE.exit47 unwind label %103
 
@@ -19039,7 +19039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   store i8 0, ptr %140, align 1
   %141 = getelementptr inbounds i8, ptr %0, i64 562
   store i8 1, ptr %141, align 2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingIbEE, i64 0, i32 0, i64 2), ptr %127, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingIbEE, i64 16), ptr %127, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %131, ptr noundef nonnull %127)
           to label %_ZN3nix7SettingIbEC2EPNS_6ConfigERKbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKSt3setISB_St4lessISB_ESaISB_EEbSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %142
 
@@ -19133,7 +19133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
           to label %.noexc72 unwind label %242
 
 .noexc72:                                         ; preds = %167
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %160, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %160, align 8
   %173 = getelementptr inbounds i8, ptr %0, i64 704
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %173, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %174 unwind label %176
@@ -19162,7 +19162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 _ZN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_bS9_S9_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE.exit.i71: ; preds = %174
   %181 = getelementptr inbounds i8, ptr %0, i64 768
   store i8 1, ptr %181, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %160, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %160, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %164, ptr noundef nonnull %160)
           to label %_ZN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNS_6ConfigERKS6_SB_SB_RKSt3setIS6_St4lessIS6_ESaIS6_EEbSt8optionalINS_19ExperimentalFeatureEE.exit75 unwind label %182
 
@@ -19520,7 +19520,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace
           to label %.noexc unwind label %89
 
 .noexc:                                           ; preds = %44
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEE, i64 0, i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEE, i64 16), ptr %29, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %33, ptr noundef nonnull %29)
           to label %_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEC2EPNS_6ConfigERKS9_RKS7_SG_RKSt3setIS7_St4lessIS7_ES8_EbSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %50
 
@@ -19867,7 +19867,7 @@ define linkonce_odr void @_ZN3nix14StoreDirConfigCI2NS_6ConfigEESt3mapINSt7__cxx
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::set", align 8
   tail call void @_ZN3nix6ConfigC2ESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3nix14StoreDirConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14StoreDirConfigE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.53, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -19887,7 +19887,7 @@ define linkonce_odr void @_ZN3nix14StoreDirConfigCI2NS_6ConfigEESt3mapINSt7__cxx
   store ptr %11, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 40
   store i64 0, ptr %14, align 8
-  invoke void @_ZN3nix11PathSettingC1EPNS_6ConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_RKSt3setIS8_St4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(201) %8, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.nix::Settings", ptr @_ZN3nix8settingsE, i64 0, i32 2), ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_ZN3nix11PathSettingC1EPNS_6ConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_RKSt3setIS8_St4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(201) %8, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %15 unwind label %40
 
 15:                                               ; preds = %10
@@ -20085,7 +20085,7 @@ define linkonce_odr void @_ZN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringI
   %8 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %9 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   tail call void @_ZN3nix15AbstractSettingC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 %6)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %11, align 8
@@ -20209,7 +20209,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -20455,7 +20455,7 @@ define linkonce_odr void @_ZN3nix11BaseSettingIjE8overrideERKj(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(201) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -20502,7 +20502,7 @@ _ZN3nix7SettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEC2ERKS9_bRKS7_SE_RKSt3setIS7_St4lessIS7_ES8_ESt8optionalINS_19ExperimentalFeatureEE(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 %6) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3nix15AbstractSettingC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 %6)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 136
   %9 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %8, ptr %9, align 8
@@ -20717,7 +20717,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix14SSHStoreConfigES
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 1, ptr %5, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix14SSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix14SSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -20861,19 +20861,19 @@ define linkonce_odr void @_ZN3nix14SSHStoreConfigCI1NS_6ConfigEESt3mapINSt7__cxx
   %11 = getelementptr inbounds i8, ptr %0, i64 512
   tail call void @_ZN3nix11StoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1176) %11, ptr noundef %1)
   %12 = getelementptr inbounds i8, ptr %0, i64 200
-  invoke void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(312) %12, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 4))
+  invoke void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(312) %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 32))
           to label %13 unwind label %66
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 1688
-  invoke void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(776) %14, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 6))
+  invoke void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(776) %14, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 48))
           to label %15 unwind label %68
 
 15:                                               ; preds = %13
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 0, i64 5), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %12, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTVN3nix14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 40), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 104), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 216), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SSHStoreConfigE, i64 336), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.67, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -20937,7 +20937,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace
           to label %.noexc unwind label %76
 
 .noexc:                                           ; preds = %27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEE, i64 16), ptr %16, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull %16)
           to label %_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEC2EPNS_6ConfigERKS9_RKS7_SG_RKSt3setIS7_St4lessIS7_ES8_EbSt8optionalINS_19ExperimentalFeatureEE.exit unwind label %33
 
@@ -21106,12 +21106,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
 .loopexit:                                        ; preds = %.body, %70
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %.pn.pn.pn, %.body ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
-  call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %14, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 6)) #22
+  call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %14, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 48)) #22
   br label %80
 
 80:                                               ; preds = %.loopexit, %68
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.loopexit ], [ %69, %68 ]
-  call void @_ZN3nix17RemoteStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %12, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix14SSHStoreConfigE, i64 0, i64 4)) #22
+  call void @_ZN3nix17RemoteStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix14SSHStoreConfigE, i64 32)) #22
   br label %81
 
 81:                                               ; preds = %80, %66
@@ -21837,7 +21837,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3nix15MountedSSHStoreELN9__gnu_cx
   store i32 1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15MountedSSHStoreESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15MountedSSHStoreESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   invoke void @_ZN3nix15MountedSSHStoreC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix15MountedSSHStoreESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i
@@ -22119,7 +22119,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit47
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit47: ; preds = %56, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit
-  invoke void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(312) %42, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 23))
+  invoke void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(312) %42, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 184))
           to label %59 unwind label %175
 
 59:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit47
@@ -22184,7 +22184,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit57
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit57: ; preds = %78, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit48
-  invoke void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(776) %64, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25))
+  invoke void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(776) %64, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200))
           to label %81 unwind label %179
 
 81:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit57
@@ -22249,7 +22249,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit67
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit67: ; preds = %100, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit58
-  invoke void @_ZN3nix14SSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(200) %86, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 19))
+  invoke void @_ZN3nix14SSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(200) %86, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 152))
           to label %103 unwind label %183
 
 103:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit67
@@ -22314,7 +22314,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit77
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit77: ; preds = %122, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit68
-  invoke void @_ZN3nix18LocalFSStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(856) %108, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27))
+  invoke void @_ZN3nix18LocalFSStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(856) %108, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216))
           to label %125 unwind label %187
 
 125:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit77
@@ -22379,12 +22379,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit87: ; preds = %143, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit78
   %146 = phi ptr [ %137, %143 ], [ null, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit78 ]
-  store ptr getelementptr inbounds ({ [16 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 0, i32 0, i64 11), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 0, i32 1, i64 8), ptr %86, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 0, i32 2, i64 4), ptr %42, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 0, i32 3, i64 12), ptr %19, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 0, i32 4, i64 4), ptr %64, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 0, i32 5, i64 4), ptr %108, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 88), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 192), ptr %86, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 256), ptr %42, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 368), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 488), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE0_NS_21MountedSSHStoreConfigE, i64 536), ptr %108, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %146)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit88 unwind label %147
 
@@ -22397,39 +22397,39 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit88: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit87
   %150 = getelementptr inbounds i8, ptr %0, i64 3632
-  invoke void @_ZN3nix5StoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(264) %150, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44), ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke void @_ZN3nix5StoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(264) %150, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352), ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %151 unwind label %191
 
 151:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit88
   %152 = getelementptr inbounds i8, ptr %0, i64 3600
-  store ptr getelementptr inbounds ({ [11 x ptr], [92 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE3600_NS_7GcStoreE, i64 0, i32 0, i64 7), ptr %152, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE3600_NS_7GcStoreE, i64 56), ptr %152, align 8
   %153 = getelementptr inbounds i8, ptr %0, i64 3328
-  store ptr getelementptr inbounds ({ [11 x ptr], [92 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE3328_NS_8LogStoreE, i64 0, i32 0, i64 7), ptr %153, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [92 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE3328_NS_8LogStoreE, i64 0, i32 1, i64 47), ptr %150, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [92 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE3328_NS_8LogStoreE, i64 0, i32 2, i64 12), ptr %19, align 8
-  invoke void @_ZN3nix11RemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(25) %152, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38), ptr noundef nonnull align 8 dereferenceable(48) %3)
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE3328_NS_8LogStoreE, i64 56), ptr %153, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE3328_NS_8LogStoreE, i64 464), ptr %150, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE3328_NS_8LogStoreE, i64 920), ptr %19, align 8
+  invoke void @_ZN3nix11RemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(25) %152, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304), ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %154 unwind label %193
 
 154:                                              ; preds = %151
-  invoke void @_ZN3nix8SSHStoreC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29), ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke void @_ZN3nix8SSHStoreC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232), ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %155 unwind label %195
 
 155:                                              ; preds = %154
   %156 = getelementptr inbounds i8, ptr %0, i64 3896
-  invoke void @_ZN3nix12LocalFSStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 52), ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke void @_ZN3nix12LocalFSStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 416), ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %157 unwind label %197
 
 157:                                              ; preds = %155
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 0, i64 18), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 1, i64 8), ptr %86, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 2, i64 4), ptr %42, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 3, i64 12), ptr %19, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 4, i64 4), ptr %64, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 5, i64 4), ptr %108, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 8, i64 47), ptr %150, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 7, i64 47), ptr %152, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 6, i64 16), ptr %153, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr], [23 x ptr], [88 x ptr], [92 x ptr], [26 x ptr] }, ptr @_ZTVN3nix15MountedSSHStoreE, i64 0, i32 9, i64 16), ptr %156, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 144), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 288), ptr %86, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 352), ptr %42, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 464), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 584), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 632), ptr %108, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 1912), ptr %150, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 1208), ptr %152, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 776), ptr %153, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15MountedSSHStoreE, i64 2400), ptr %156, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.72, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %158 unwind label %199
@@ -22559,37 +22559,37 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 202:                                              ; preds = %.loopexit, %197
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit ], [ %198, %197 ]
-  call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   br label %203
 
 203:                                              ; preds = %202, %195
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %202 ], [ %196, %195 ]
-  call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %152, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %152, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   br label %204
 
 204:                                              ; preds = %203, %193
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %203 ], [ %194, %193 ]
-  call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %150, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %150, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   br label %205
 
 205:                                              ; preds = %191, %204, %189
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %190, %189 ], [ %.pn.pn.pn.pn, %204 ], [ %192, %191 ]
-  call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %108, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %108, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   br label %206
 
 206:                                              ; preds = %205, %187, %185
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %205 ], [ %188, %187 ], [ %186, %185 ]
-  call void @_ZN3nix14SSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %86, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 19)) #22
+  call void @_ZN3nix14SSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %86, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 152)) #22
   br label %207
 
 207:                                              ; preds = %206, %183, %181
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %206 ], [ %184, %183 ], [ %182, %181 ]
-  call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %64, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
+  call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %64, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
   br label %208
 
 208:                                              ; preds = %207, %179, %177
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %207 ], [ %180, %179 ], [ %178, %177 ]
-  call void @_ZN3nix17RemoteStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %42, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 23)) #22
+  call void @_ZN3nix17RemoteStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %42, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 184)) #22
   br label %209
 
 209:                                              ; preds = %208, %175, %173
@@ -22759,7 +22759,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
           to label %83 unwind label %203
 
 82:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.nix::Settings", ptr @_ZN3nix8settingsE, i64 0, i32 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 232))
           to label %83 unwind label %203
 
 83:                                               ; preds = %82, %81
@@ -22868,7 +22868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
           to label %123 unwind label %213
 
 122:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.nix::Settings", ptr @_ZN3nix8settingsE, i64 0, i32 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 200))
           to label %123 unwind label %213
 
 123:                                              ; preds = %122, %121
@@ -23352,7 +23352,7 @@ define linkonce_odr void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull al
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   store ptr %5, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 648
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 816
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 832
@@ -23393,7 +23393,7 @@ _ZN3nix11PathSettingD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #22
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #22
   %24 = getelementptr inbounds i8, ptr %0, i64 440
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 608
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 624
@@ -23434,7 +23434,7 @@ _ZN3nix11PathSettingD2Ev.exit7:                   ; preds = %_ZNKSt7__cxx1112bas
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #22
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %24) #22
   %39 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 400
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 416
@@ -23475,7 +23475,7 @@ _ZN3nix11PathSettingD2Ev.exit13:                  ; preds = %_ZNKSt7__cxx1112bas
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #22
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %39) #22
   %54 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 0, i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 184
   %56 = getelementptr inbounds i8, ptr %0, i64 216
   %57 = load i8, ptr %56, align 8
@@ -23582,20 +23582,20 @@ define linkonce_odr i64 @_ZNK3nix21MountedSSHStoreConfig19experimentalFeatureEv(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix21MountedSSHStoreConfigD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112)) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 64), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 128), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 240), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 360), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %7) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %6, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %4, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %5, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 32), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 144), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #22
   %9 = getelementptr inbounds i8, ptr %0, i64 216
@@ -23607,20 +23607,20 @@ define linkonce_odr void @_ZN3nix21MountedSSHStoreConfigD1Ev(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix21MountedSSHStoreConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112)) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 64), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 128), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 240), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 360), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %7) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %6, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %4, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %5, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 32), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 144), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #22
   %9 = getelementptr inbounds i8, ptr %0, i64 216
@@ -23677,20 +23677,20 @@ define linkonce_odr void @_ZTv0_n64_N3nix21MountedSSHStoreConfigD1Ev(ptr noundef
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 64), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 128), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 240), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 360), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %11) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %9, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 32), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 144), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #22
   %13 = getelementptr inbounds i8, ptr %5, i64 216
@@ -23706,20 +23706,20 @@ define linkonce_odr void @_ZTv0_n64_N3nix21MountedSSHStoreConfigD0Ev(ptr noundef
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 64), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 128), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 240), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 360), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %11) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %9, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 32), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 144), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #22
   %13 = getelementptr inbounds i8, ptr %5, i64 216
@@ -23736,20 +23736,20 @@ define linkonce_odr void @_ZTv0_n32_N3nix21MountedSSHStoreConfigD1Ev(ptr noundef
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 64), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 128), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 240), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 360), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %11) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %9, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 32), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 144), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #22
   %13 = getelementptr inbounds i8, ptr %5, i64 216
@@ -23765,20 +23765,20 @@ define linkonce_odr void @_ZTv0_n32_N3nix21MountedSSHStoreConfigD0Ev(ptr noundef
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 64), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 128), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 240), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 360), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %11) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %9, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 32), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 144), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #22
   %13 = getelementptr inbounds i8, ptr %5, i64 216
@@ -23795,20 +23795,20 @@ define linkonce_odr void @_ZTv0_n72_N3nix21MountedSSHStoreConfigD1Ev(ptr noundef
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 64), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 128), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 240), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 360), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %11) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %9, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 32), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 144), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #22
   %13 = getelementptr inbounds i8, ptr %5, i64 216
@@ -23824,20 +23824,20 @@ define linkonce_odr void @_ZTv0_n72_N3nix21MountedSSHStoreConfigD0Ev(ptr noundef
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 64), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 128), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 240), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE8_NS_14SSHStoreConfigE, i64 360), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %11) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %9, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 32), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix21MountedSSHStoreConfigE208_NS_17RemoteStoreConfigE, i64 144), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #22
   %13 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24127,26 +24127,26 @@ declare void @_ZTv0_n40_N3nix12LocalFSStore16getBuildLogExactB5cxx11ERKNS_9Store
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix15MountedSSHStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %4 = getelementptr inbounds i8, ptr %0, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %5 = getelementptr inbounds i8, ptr %0, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %5, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %10) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %8, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %11) #22
   %12 = getelementptr inbounds i8, ptr %0, i64 216
@@ -24158,26 +24158,26 @@ define linkonce_odr void @_ZN3nix15MountedSSHStoreD1Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix15MountedSSHStoreD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %4 = getelementptr inbounds i8, ptr %0, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %5 = getelementptr inbounds i8, ptr %0, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %5, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %10) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %8, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %11) #22
   %12 = getelementptr inbounds i8, ptr %0, i64 216
@@ -24371,26 +24371,26 @@ define linkonce_odr void @_ZTv0_n64_N3nix15MountedSSHStoreD1Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24406,26 +24406,26 @@ define linkonce_odr void @_ZTv0_n64_N3nix15MountedSSHStoreD0Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24442,26 +24442,26 @@ define linkonce_odr void @_ZTv0_n32_N3nix15MountedSSHStoreD1Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24477,26 +24477,26 @@ define linkonce_odr void @_ZTv0_n32_N3nix15MountedSSHStoreD0Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24513,26 +24513,26 @@ define linkonce_odr void @_ZTv0_n72_N3nix15MountedSSHStoreD1Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24548,26 +24548,26 @@ define linkonce_odr void @_ZTv0_n72_N3nix15MountedSSHStoreD0Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24598,26 +24598,26 @@ define linkonce_odr void @_ZTv0_n56_N3nix15MountedSSHStoreD1Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24633,26 +24633,26 @@ define linkonce_odr void @_ZTv0_n56_N3nix15MountedSSHStoreD0Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24707,26 +24707,26 @@ define linkonce_odr void @_ZTv0_n40_N3nix15MountedSSHStoreD1Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24742,26 +24742,26 @@ define linkonce_odr void @_ZTv0_n40_N3nix15MountedSSHStoreD0Ev(ptr noundef %0) u
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
-  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 29)) #22
+  tail call void @_ZN3nix8SSHStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 232)) #22
   %7 = getelementptr inbounds i8, ptr %5, i64 3600
-  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 38)) #22
+  tail call void @_ZN3nix11RemoteStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 304)) #22
   %8 = getelementptr inbounds i8, ptr %5, i64 3632
-  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 44)) #22
+  tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 352)) #22
   %9 = getelementptr inbounds i8, ptr %5, i64 2472
-  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 27)) #22
+  tail call void @_ZN3nix18LocalFSStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 216)) #22
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 0, i64 8), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 64), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 1, i64 4), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 128), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 520
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 2, i64 12), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 240), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 1696
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 0, i32 3, i64 4), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE8_NS_14SSHStoreConfigE, i64 360), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN3nix11BaseSettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #22
-  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds ([58 x ptr], ptr @_ZTTN3nix15MountedSSHStoreE, i64 0, i64 25)) #22
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 0, i64 4), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 0, i32 1, i64 12), ptr %12, align 8
+  tail call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix15MountedSSHStoreE, i64 200)) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 32), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix15MountedSSHStoreE208_NS_17RemoteStoreConfigE, i64 144), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 368
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #22
   %16 = getelementptr inbounds i8, ptr %5, i64 216
@@ -24865,7 +24865,7 @@ declare void @_ZN3nix19OptionalPathSettingC1EPNS_6ConfigERKSt8optionalINSt7__cxx
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix19OptionalPathSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(217) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load i8, ptr %3, align 8
@@ -24930,7 +24930,7 @@ _ZN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(217) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load i8, ptr %3, align 8
@@ -24995,7 +24995,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit4: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(217) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load i8, ptr %3, align 8
@@ -25939,7 +25939,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix21MountedSSHStoreC
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 1, ptr %5, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix21MountedSSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix21MountedSSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -26197,7 +26197,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit19
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit19: ; preds = %50, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit
-  invoke void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(312) %36, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 10))
+  invoke void @_ZN3nix17RemoteStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(312) %36, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 80))
           to label %53 unwind label %128
 
 53:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit19
@@ -26262,7 +26262,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit29
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit29: ; preds = %72, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit20
-  invoke void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(776) %58, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12))
+  invoke void @_ZN3nix20CommonSSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(776) %58, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96))
           to label %75 unwind label %132
 
 75:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit29
@@ -26327,7 +26327,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit39
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit39: ; preds = %94, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit30
-  invoke void @_ZN3nix14SSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 6))
+  invoke void @_ZN3nix14SSHStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 48))
           to label %97 unwind label %136
 
 97:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit39
@@ -26392,7 +26392,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit49
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit49: ; preds = %116, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit40
-  invoke void @_ZN3nix18LocalFSStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(856) %102, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 14))
+  invoke void @_ZN3nix18LocalFSStoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(856) %102, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 112))
           to label %119 unwind label %140
 
 119:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit49
@@ -26408,12 +26408,12 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit50: ; preds = %119
-  store ptr getelementptr inbounds ({ [12 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 0, i32 0, i64 7), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 0, i32 1, i64 8), ptr %80, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 0, i32 2, i64 4), ptr %36, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 0, i32 3, i64 12), ptr %13, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 0, i32 4, i64 4), ptr %58, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [12 x ptr], [6 x ptr], [23 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 0, i32 5, i64 4), ptr %102, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 160), ptr %80, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 224), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 336), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 456), ptr %58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix21MountedSSHStoreConfigE, i64 504), ptr %102, align 8
   ret void
 
 124:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit
@@ -26468,17 +26468,17 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 142:                                              ; preds = %140, %138
   %.pn = phi { ptr, i32 } [ %141, %140 ], [ %139, %138 ]
-  call void @_ZN3nix14SSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 6)) #22
+  call void @_ZN3nix14SSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 48)) #22
   br label %143
 
 143:                                              ; preds = %142, %136, %134
   %.pn.pn = phi { ptr, i32 } [ %.pn, %142 ], [ %137, %136 ], [ %135, %134 ]
-  call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %58, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 12)) #22
+  call void @_ZN3nix20CommonSSHStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %58, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 96)) #22
   br label %144
 
 144:                                              ; preds = %143, %132, %130
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %143 ], [ %133, %132 ], [ %131, %130 ]
-  call void @_ZN3nix17RemoteStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %36, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 0, i64 10)) #22
+  call void @_ZN3nix17RemoteStoreConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %36, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix21MountedSSHStoreConfigE, i64 80)) #22
   br label %145
 
 145:                                              ; preds = %144, %128, %126

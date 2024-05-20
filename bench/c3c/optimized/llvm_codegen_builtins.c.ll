@@ -226,7 +226,7 @@ define dso_local void @llvm_emit_pow_int_builtin(ptr noundef %0, ptr noundef %1,
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @LLVMTypeOf(ptr noundef %19) #8
   store ptr %20, ptr %17, align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 49), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 196), align 4
   %22 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %21, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 2) #8
   %23 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %22, ptr noundef %23) #8
@@ -371,7 +371,7 @@ define dso_local void @llvm_emit_abs_builtin(ptr noundef %0, ptr noundef %1, ptr
   store ptr %10, ptr %4, align 16
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @intrinsic_id, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 16), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 64), align 4
   br label %14
 
 14:                                               ; preds = %.backedge, %.critedge
@@ -1013,7 +1013,7 @@ define dso_local void @llvm_emit_builtin_call(ptr noundef %0, ptr noundef %1, pt
   %199 = load ptr, ptr %198, align 8
   tail call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef %199) #8
   tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #8
-  %200 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 20), align 4
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 80), align 4
   %201 = getelementptr inbounds i8, ptr %0, i64 216
   %202 = getelementptr inbounds i8, ptr %1, i64 16
   %203 = tail call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %200, ptr noundef nonnull %201, i32 noundef 1, ptr noundef nonnull %202, i32 noundef 1) #8
@@ -1030,7 +1030,7 @@ define dso_local void @llvm_emit_builtin_call(ptr noundef %0, ptr noundef %1, pt
   %209 = getelementptr inbounds i8, ptr %1, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = tail call ptr @LLVMTypeOf(ptr noundef %210) #8
-  %212 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 52), align 4
+  %212 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 208), align 4
   %213 = tail call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %212, ptr noundef null, i32 noundef 0, ptr noundef nonnull %209, i32 noundef 1) #8
   %214 = load ptr, ptr %2, align 8
   tail call void @llvm_value_set(ptr noundef %1, ptr noundef %213, ptr noundef %214) #8
@@ -1519,7 +1519,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br label %920
 
 481:                                              ; preds = %3
-  %482 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 40), align 4
+  %482 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 160), align 4
   %483 = getelementptr inbounds i8, ptr %2, i64 40
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr inbounds i8, ptr %17, i64 16
@@ -1561,7 +1561,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br i1 %.not796, label %509, label %507
 
 507:                                              ; preds = %491
-  %508 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %508 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   call void @llvm_attribute_add_call(ptr noundef nonnull %0, ptr noundef %498, i32 noundef %508, i32 noundef 1, i64 noundef %502) #8
   br label %509
 
@@ -1570,7 +1570,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br i1 %.not797, label %512, label %510
 
 510:                                              ; preds = %509
-  %511 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %511 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   call void @llvm_attribute_add_call(ptr noundef nonnull %0, ptr noundef %498, i32 noundef %511, i32 noundef 2, i64 noundef %506) #8
   br label %512
 
@@ -1580,7 +1580,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br label %920
 
 514:                                              ; preds = %3
-  %515 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 41), align 4
+  %515 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 164), align 4
   %516 = getelementptr inbounds i8, ptr %2, i64 40
   %517 = load ptr, ptr %516, align 8
   %518 = getelementptr inbounds i8, ptr %20, i64 16
@@ -1622,7 +1622,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br i1 %.not794, label %542, label %540
 
 540:                                              ; preds = %524
-  %541 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %541 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   call void @llvm_attribute_add_call(ptr noundef nonnull %0, ptr noundef %531, i32 noundef %541, i32 noundef 1, i64 noundef %535) #8
   br label %542
 
@@ -1631,7 +1631,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br i1 %.not795, label %545, label %543
 
 543:                                              ; preds = %542
-  %544 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %544 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   call void @llvm_attribute_add_call(ptr noundef nonnull %0, ptr noundef %531, i32 noundef %544, i32 noundef 2, i64 noundef %539) #8
   br label %545
 
@@ -1669,7 +1669,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   %561 = load ptr, ptr %560, align 8
   %562 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %561, ptr %562, align 16
-  %563 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 42), align 4
+  %563 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 168), align 4
   %564 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %563, ptr noundef nonnull %16, i32 noundef 3, ptr noundef nonnull %15, i32 noundef 4) #8
   %565 = getelementptr inbounds i8, ptr %549, i64 32
   %566 = load ptr, ptr %565, align 8
@@ -1683,7 +1683,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br i1 %.not792, label %575, label %573
 
 573:                                              ; preds = %556
-  %574 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %574 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   call void @llvm_attribute_add_call(ptr noundef nonnull %0, ptr noundef %564, i32 noundef %574, i32 noundef 1, i64 noundef %568) #8
   br label %575
 
@@ -1692,7 +1692,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br i1 %.not793, label %578, label %576
 
 576:                                              ; preds = %575
-  %577 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %577 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   call void @llvm_attribute_add_call(ptr noundef nonnull %0, ptr noundef %564, i32 noundef %577, i32 noundef 2, i64 noundef %572) #8
   br label %578
 
@@ -1702,7 +1702,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br label %920
 
 580:                                              ; preds = %3
-  %581 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 43), align 4
+  %581 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 172), align 4
   %582 = getelementptr inbounds i8, ptr %2, i64 40
   %583 = load ptr, ptr %582, align 8
   %584 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1738,7 +1738,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br i1 %.not791, label %603, label %601
 
 601:                                              ; preds = %590
-  %602 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %602 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   call void @llvm_attribute_add_call(ptr noundef nonnull %0, ptr noundef %596, i32 noundef %602, i32 noundef 1, i64 noundef %600) #8
   br label %603
 
@@ -1748,7 +1748,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br label %920
 
 605:                                              ; preds = %3
-  %606 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 44), align 4
+  %606 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 176), align 4
   %607 = getelementptr inbounds i8, ptr %2, i64 40
   %608 = load ptr, ptr %607, align 8
   %609 = getelementptr inbounds i8, ptr %11, i64 16
@@ -1784,7 +1784,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br i1 %.not, label %628, label %626
 
 626:                                              ; preds = %615
-  %627 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %627 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   call void @llvm_attribute_add_call(ptr noundef nonnull %0, ptr noundef %621, i32 noundef %627, i32 noundef 1, i64 noundef %625) #8
   br label %628
 
@@ -1794,14 +1794,14 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   br label %920
 
 630:                                              ; preds = %3
-  %631 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 51), align 4
+  %631 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 204), align 4
   %632 = tail call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %631, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
   %633 = load ptr, ptr %2, align 8
   tail call void @llvm_value_set(ptr noundef %1, ptr noundef %632, ptr noundef %633) #8
   br label %920
 
 634:                                              ; preds = %3
-  %635 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 68), align 4
+  %635 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 272), align 4
   %636 = tail call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %635, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
   %637 = load ptr, ptr @type_void, align 8
   tail call void @llvm_value_set(ptr noundef %1, ptr noundef %636, ptr noundef %637) #8
@@ -1851,58 +1851,58 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   %663 = getelementptr inbounds i8, ptr %0, i64 216
   %664 = load ptr, ptr %663, align 8
   store ptr %664, ptr %7, align 8
-  %665 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 50), align 4
+  %665 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 200), align 4
   %666 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %665, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 4) #8
   %667 = load ptr, ptr @type_void, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %666, ptr noundef %667) #8
   br label %920
 
 668:                                              ; preds = %3
-  %669 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 88), align 4
+  %669 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 352), align 4
   tail call void @llvm_emit_reduce_int_builtin(ptr noundef %0, i32 noundef %669, ptr noundef %1, ptr noundef nonnull %2)
   br label %920
 
 670:                                              ; preds = %3
-  %671 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 89), align 4
+  %671 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 356), align 4
   tail call void @llvm_emit_reduce_int_builtin(ptr noundef %0, i32 noundef %671, ptr noundef %1, ptr noundef nonnull %2)
   br label %920
 
 672:                                              ; preds = %3
-  %673 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 81), align 4
-  %674 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 83), align 4
-  %675 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 79), align 4
+  %673 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 324), align 4
+  %674 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 332), align 4
+  %675 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 316), align 4
   tail call void @llvm_emit_3_variant_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %673, i32 noundef %674, i32 noundef %675)
   br label %920
 
 676:                                              ; preds = %3
-  %677 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 80), align 4
-  %678 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 82), align 4
-  %679 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 78), align 4
+  %677 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 320), align 4
+  %678 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 328), align 4
+  %679 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 312), align 4
   tail call void @llvm_emit_3_variant_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %677, i32 noundef %678, i32 noundef %679)
   br label %920
 
 680:                                              ; preds = %3
-  %681 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 90), align 4
+  %681 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 360), align 4
   tail call void @llvm_emit_reduce_int_builtin(ptr noundef %0, i32 noundef %681, ptr noundef %1, ptr noundef nonnull %2)
   br label %920
 
 682:                                              ; preds = %3
-  %683 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 84), align 4
+  %683 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 336), align 4
   tail call void @llvm_emit_reduce_int_builtin(ptr noundef %0, i32 noundef %683, ptr noundef %1, ptr noundef nonnull %2)
   br label %920
 
 684:                                              ; preds = %3
-  %685 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 86), align 4
+  %685 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 344), align 4
   tail call void @llvm_emit_reduce_int_builtin(ptr noundef %0, i32 noundef %685, ptr noundef %1, ptr noundef nonnull %2)
   br label %920
 
 686:                                              ; preds = %3
-  %687 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 85), align 4
+  %687 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 340), align 4
   tail call void @llvm_emit_reduce_float_builtin(ptr noundef %0, i32 noundef %687, ptr noundef %1, ptr noundef nonnull %2)
   br label %920
 
 688:                                              ; preds = %3
-  %689 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 87), align 4
+  %689 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 348), align 4
   tail call void @llvm_emit_reduce_float_builtin(ptr noundef %0, i32 noundef %689, ptr noundef %1, ptr noundef nonnull %2)
   br label %920
 
@@ -2046,41 +2046,41 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %710, %714, %718, %7
   br label %920
 
 756:                                              ; preds = %3
-  %757 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 56), align 4
-  %758 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 70), align 4
+  %757 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 224), align 4
+  %758 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 280), align 4
   %759 = getelementptr i8, ptr %2, i64 40
   %.val806 = load ptr, ptr %759, align 8
   tail call fastcc void @llvm_emit_overflow_builtin(ptr noundef %0, ptr noundef %1, ptr %.val806, i32 noundef %757, i32 noundef %758)
   br label %920
 
 760:                                              ; preds = %3
-  %761 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 66), align 4
-  %762 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 76), align 4
+  %761 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 264), align 4
+  %762 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 304), align 4
   %763 = getelementptr i8, ptr %2, i64 40
   %.val807 = load ptr, ptr %763, align 8
   tail call fastcc void @llvm_emit_overflow_builtin(ptr noundef %0, ptr noundef %1, ptr %.val807, i32 noundef %761, i32 noundef %762)
   br label %920
 
 764:                                              ; preds = %3
-  %765 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 63), align 4
-  %766 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 74), align 4
+  %765 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 252), align 4
+  %766 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 296), align 4
   %767 = getelementptr i8, ptr %2, i64 40
   %.val808 = load ptr, ptr %767, align 8
   tail call fastcc void @llvm_emit_overflow_builtin(ptr noundef %0, ptr noundef %1, ptr %.val808, i32 noundef %765, i32 noundef %766)
   br label %920
 
 768:                                              ; preds = %3
-  %769 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 11), align 4
+  %769 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 44), align 4
   tail call void @llvm_emit_int_with_bool_builtin(ptr noundef %0, i32 noundef %769, ptr noundef %1, ptr noundef nonnull %2, i1 zeroext poison)
   br label %920
 
 770:                                              ; preds = %3
-  %771 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 9), align 4
+  %771 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 36), align 4
   tail call void @llvm_emit_int_with_bool_builtin(ptr noundef %0, i32 noundef %771, ptr noundef %1, ptr noundef nonnull %2, i1 zeroext poison)
   br label %920
 
 772:                                              ; preds = %3
-  %773 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 14), align 4
+  %773 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 56), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %773)
   br label %920
 
@@ -2101,7 +2101,7 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %710, %714, %718, %7
   br label %920
 
 778:                                              ; preds = %3
-  %779 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 42), align 8
+  %779 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 184), align 8
   %780 = icmp eq i32 %779, 0
   br i1 %780, label %781, label %787
 
@@ -2116,39 +2116,39 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %710, %714, %718, %7
   br label %920
 
 787:                                              ; preds = %778
-  %788 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 15), align 4
+  %788 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 60), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %788)
   br label %920
 
 789:                                              ; preds = %3
-  %790 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 61), align 4
-  %791 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 72), align 4
-  %792 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 39), align 4
+  %790 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 244), align 4
+  %791 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 288), align 4
+  %792 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 156), align 4
   tail call void @llvm_emit_3_variant_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %790, i32 noundef %791, i32 noundef %792)
   br label %920
 
 793:                                              ; preds = %3
-  %794 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 62), align 4
-  %795 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 73), align 4
-  %796 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 46), align 4
+  %794 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 248), align 4
+  %795 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 292), align 4
+  %796 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 184), align 4
   tail call void @llvm_emit_3_variant_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %794, i32 noundef %795, i32 noundef %796)
   br label %920
 
 797:                                              ; preds = %3
-  %798 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 65), align 4
-  %799 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 75), align 4
+  %798 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 260), align 4
+  %799 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 300), align 4
   tail call void @llvm_emit_3_variant_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %798, i32 noundef %799, i32 noundef 0)
   br label %920
 
 800:                                              ; preds = %3
-  %801 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 57), align 4
-  %802 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 71), align 4
+  %801 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 228), align 4
+  %802 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 284), align 4
   tail call void @llvm_emit_3_variant_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %801, i32 noundef %802, i32 noundef 0)
   br label %920
 
 803:                                              ; preds = %3
-  %804 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 67), align 4
-  %805 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 77), align 4
+  %804 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 268), align 4
+  %805 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 308), align 4
   tail call void @llvm_emit_3_variant_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %804, i32 noundef %805, i32 noundef 0)
   br label %920
 
@@ -2161,114 +2161,114 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %710, %714, %718, %7
   br label %920
 
 808:                                              ; preds = %3
-  %809 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 2), align 4
+  %809 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 8), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %809)
   br label %920
 
 810:                                              ; preds = %3
-  %811 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 3), align 4
+  %811 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 12), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %811)
   br label %920
 
 812:                                              ; preds = %3
-  %813 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 4), align 4
+  %813 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 16), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %813)
   br label %920
 
 814:                                              ; preds = %3
-  %815 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 8), align 4
+  %815 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 32), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %815)
   br label %920
 
 816:                                              ; preds = %3
-  %817 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 7), align 4
+  %817 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 28), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %817)
   br label %920
 
 818:                                              ; preds = %3
-  %819 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 17), align 4
+  %819 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 68), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %819)
   br label %920
 
 820:                                              ; preds = %3
-  %821 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 12), align 4
+  %821 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 48), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %821)
   br label %920
 
 822:                                              ; preds = %3
-  %823 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 13), align 4
+  %823 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 52), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %823)
   br label %920
 
 824:                                              ; preds = %3
-  %825 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 18), align 4
+  %825 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 72), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %825)
   br label %920
 
 826:                                              ; preds = %3
-  %827 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 19), align 4
+  %827 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 76), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %827)
   br label %920
 
 828:                                              ; preds = %3
-  %829 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 21), align 4
+  %829 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 84), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %829)
   br label %920
 
 830:                                              ; preds = %3
-  %831 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 22), align 4
+  %831 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 88), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %831)
   br label %920
 
 832:                                              ; preds = %3
-  %833 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 24), align 4
+  %833 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 96), align 4
   %834 = tail call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %833, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
   %835 = load ptr, ptr %2, align 8
   tail call void @llvm_value_set(ptr noundef %1, ptr noundef %834, ptr noundef %835) #8
   br label %920
 
 836:                                              ; preds = %3
-  %837 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 29), align 4
+  %837 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 116), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %837)
   br label %920
 
 838:                                              ; preds = %3
-  %839 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 30), align 4
+  %839 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 120), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %839)
   br label %920
 
 840:                                              ; preds = %3
-  %841 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 31), align 4
+  %841 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 124), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %841)
   br label %920
 
 842:                                              ; preds = %3
-  %843 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 48), align 4
+  %843 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 192), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %843)
   br label %920
 
 844:                                              ; preds = %3
-  %845 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 47), align 4
+  %845 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 188), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %845)
   br label %920
 
 846:                                              ; preds = %3
-  %847 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 10), align 4
+  %847 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 40), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %847)
   br label %920
 
 848:                                              ; preds = %3
-  %849 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 53), align 4
+  %849 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 212), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %849)
   br label %920
 
 850:                                              ; preds = %3
-  %851 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 54), align 4
+  %851 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 216), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %851)
   br label %920
 
 852:                                              ; preds = %3
-  %853 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 55), align 4
+  %853 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 220), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %853)
   br label %920
 
@@ -2281,14 +2281,14 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %710, %714, %718, %7
   %857 = getelementptr inbounds i8, ptr %35, i64 16
   %858 = load ptr, ptr %857, align 8
   store ptr %858, ptr %37, align 8
-  %859 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 59), align 4
+  %859 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 236), align 4
   %860 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %859, ptr noundef null, i32 noundef 0, ptr noundef nonnull %37, i32 noundef 1) #8
   %861 = load ptr, ptr @type_void, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %860, ptr noundef %861) #8
   br label %920
 
 862:                                              ; preds = %3
-  %863 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %863 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %864 = tail call zeroext i1 @arch_is_wasm(i32 noundef %863) #8
   br i1 %864, label %881, label %865
 
@@ -2317,13 +2317,13 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %710, %714, %718, %7
   br label %920
 
 881:                                              ; preds = %862
-  %882 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 93), align 4
+  %882 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 372), align 4
   %883 = load ptr, ptr %2, align 8
   tail call void @llvm_emit_builtin_args_types3(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %882, ptr noundef %883, ptr noundef null, ptr noundef null)
   br label %920
 
 884:                                              ; preds = %3
-  %885 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %885 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %886 = tail call zeroext i1 @arch_is_wasm(i32 noundef %885) #8
   br i1 %886, label %903, label %887
 
@@ -2352,33 +2352,33 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %710, %714, %718, %7
   br label %920
 
 903:                                              ; preds = %884
-  %904 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 92), align 4
+  %904 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 368), align 4
   %905 = load ptr, ptr %2, align 8
   tail call void @llvm_emit_builtin_args_types3(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %904, ptr noundef %905, ptr noundef null, ptr noundef null)
   br label %920
 
 906:                                              ; preds = %3
-  %907 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 60), align 4
+  %907 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 240), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %907)
   br label %920
 
 908:                                              ; preds = %3
-  %909 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 64), align 4
+  %909 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 256), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %909)
   br label %920
 
 910:                                              ; preds = %3
-  %911 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 69), align 4
+  %911 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 276), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %911)
   br label %920
 
 912:                                              ; preds = %3
-  %913 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 32), align 4
+  %913 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 128), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %913)
   br label %920
 
 914:                                              ; preds = %3
-  %915 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 33), align 4
+  %915 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 132), align 4
   tail call void @llvm_emit_simple_builtin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %915)
   br label %920
 
@@ -2576,7 +2576,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   %.08 = phi i32 [ 0, %.thread ], [ 0, %7 ], [ %9, %13 ]
   %20 = call ptr @LLVMFunctionType(ptr noundef %19, ptr noundef nonnull %4, i32 noundef %.08, i32 noundef 0) #8
   call void @scratch_buffer_clear() #8
-  %21 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %21, label %57 [
     i32 3, label %22
     i32 4, label %22
@@ -2586,7 +2586,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
 
 22:                                               ; preds = %._crit_edge, %._crit_edge
   call void @scratch_buffer_append(ptr noundef nonnull @.str.16) #8
-  %23 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 5), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   %24 = call zeroext i1 @os_is_apple(i32 noundef %23) #8
   br i1 %24, label %25, label %28
 
@@ -2628,7 +2628,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
 
 llvm_syscall_write_regs_to_scratch.exit:          ; preds = %.lr.ph.i48, %.lr.ph.i, %28, %25
   %31 = call ptr @scratch_buffer_to_string() #8
-  %32 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %33 = zext i32 %32 to i64
   %34 = call ptr @LLVMGetInlineAsm(ptr noundef %20, ptr noundef nonnull @.str.26, i64 noundef 9, ptr noundef %31, i64 noundef %33, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   br label %58
@@ -2660,14 +2660,14 @@ llvm_syscall_write_regs_to_scratch.exit60:        ; preds = %.lr.ph.i56
 40:                                               ; preds = %llvm_syscall_write_regs_to_scratch.exit60
   call void @scratch_buffer_append(ptr noundef nonnull @.str.35) #8
   %41 = call ptr @scratch_buffer_to_string() #8
-  %42 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %43 = zext i32 %42 to i64
   %44 = call ptr @LLVMGetInlineAsm(ptr noundef %20, ptr noundef nonnull @.str.36, i64 noundef 77, ptr noundef %41, i64 noundef %43, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   br label %58
 
 45:                                               ; preds = %35, %llvm_syscall_write_regs_to_scratch.exit60
   %46 = call ptr @scratch_buffer_to_string() #8
-  %47 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %48 = zext i32 %47 to i64
   %49 = call ptr @LLVMGetInlineAsm(ptr noundef %20, ptr noundef nonnull @.str.37, i64 noundef 9, ptr noundef %46, i64 noundef %48, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   br label %58
@@ -2694,7 +2694,7 @@ llvm_syscall_write_regs_to_scratch.exit60:        ; preds = %.lr.ph.i56
 llvm_syscall_write_regs_to_scratch.exit68:        ; preds = %.lr.ph.i64, %50
   call void @scratch_buffer_append(ptr noundef nonnull @.str.47) #8
   %53 = call ptr @scratch_buffer_to_string() #8
-  %54 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %55 = zext i32 %54 to i64
   %56 = call ptr @LLVMGetInlineAsm(ptr noundef %20, ptr noundef nonnull @.str.48, i64 noundef 7, ptr noundef %53, i64 noundef %55, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   br label %58
@@ -2926,7 +2926,7 @@ define internal fastcc void @llvm_emit_gather(ptr noundef %0, ptr noundef %1, pt
   store ptr %19, ptr %16, align 16
   %48 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %17, ptr %48, align 8
-  %49 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 23), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 92), align 4
   %50 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
   %51 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %50, ptr noundef %51) #8
@@ -3006,7 +3006,7 @@ define internal fastcc void @llvm_emit_scatter(ptr noundef %0, ptr noundef %1, p
   store ptr %47, ptr %19, align 16
   %48 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %20, ptr %48, align 8
-  %49 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 58), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 232), align 4
   %50 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
   %51 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %50, ptr noundef %51) #8
@@ -3086,7 +3086,7 @@ define internal fastcc void @llvm_emit_masked_store(ptr noundef %0, ptr noundef 
   store ptr %47, ptr %19, align 16
   %48 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %20, ptr %48, align 8
-  %49 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 37), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 148), align 4
   %50 = call ptr @llvm_emit_call_intrinsic(ptr noundef nonnull %0, i32 noundef %49, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
   %51 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %50, ptr noundef %51) #8
@@ -3164,7 +3164,7 @@ define internal fastcc void @llvm_emit_masked_load(ptr noundef %0, ptr noundef %
   store ptr %19, ptr %16, align 16
   %47 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %17, ptr %47, align 8
-  %48 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 36), align 4
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 144), align 4
   %49 = call ptr @llvm_emit_call_intrinsic(ptr noundef nonnull %0, i32 noundef %48, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
   %50 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %49, ptr noundef %50) #8

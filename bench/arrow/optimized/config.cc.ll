@@ -196,7 +196,7 @@ if.end.i107:                                      ; preds = %.noexc.i
           to label %invoke.cont.i110 unwind label %lpad.i109
 
 invoke.cont.i110:                                 ; preds = %if.end.i107
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i108, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.13, i64 0, i64 6)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i108, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 6)) #9
   store ptr null, ptr %__guard.i103, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit112 unwind label %lpad.i109
@@ -251,7 +251,7 @@ if.end.i96:                                       ; preds = %.noexc16.i
           to label %invoke.cont.i99 unwind label %lpad.i98
 
 invoke.cont.i99:                                  ; preds = %if.end.i96
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i97, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.14, i64 0, i64 4)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i97, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 4)) #9
   store ptr null, ptr %__guard.i92, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 4)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit101 unwind label %lpad.i98
@@ -306,7 +306,7 @@ if.end.i85:                                       ; preds = %.noexc25.i
           to label %invoke.cont.i88 unwind label %lpad.i87
 
 invoke.cont.i88:                                  ; preds = %if.end.i85
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i86, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.15, i64 0, i64 3)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i86, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 3)) #9
   store ptr null, ptr %__guard.i81, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 3)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit90 unwind label %lpad.i87
@@ -361,7 +361,7 @@ if.end.i74:                                       ; preds = %.noexc34.i
           to label %invoke.cont.i77 unwind label %lpad.i76
 
 invoke.cont.i77:                                  ; preds = %if.end.i74
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i75, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.16, i64 0, i64 6)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i75, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 6)) #9
   store ptr null, ptr %__guard.i70, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit79 unwind label %lpad.i76
@@ -409,7 +409,7 @@ if.end.i:                                         ; preds = %.noexc42.i
           to label %invoke.cont.i unwind label %lpad.i67
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.17, i64 0, i64 4)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 4)) #9
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 4)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit unwind label %lpad.i67
@@ -484,7 +484,7 @@ if.end.i162:                                      ; preds = %.noexc.i53
           to label %invoke.cont.i165 unwind label %lpad.i164
 
 invoke.cont.i165:                                 ; preds = %if.end.i162
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i163, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.13, i64 0, i64 6)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i163, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 6)) #9
   store ptr null, ptr %__guard.i158, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i64 noundef 6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit167 unwind label %lpad.i164
@@ -539,7 +539,7 @@ if.end.i151:                                      ; preds = %.noexc16.i47
           to label %invoke.cont.i154 unwind label %lpad.i153
 
 invoke.cont.i154:                                 ; preds = %if.end.i151
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i152, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.14, i64 0, i64 4)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i152, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 4)) #9
   store ptr null, ptr %__guard.i147, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i64 noundef 4)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit156 unwind label %lpad.i153
@@ -594,7 +594,7 @@ if.end.i140:                                      ; preds = %.noexc25.i41
           to label %invoke.cont.i143 unwind label %lpad.i142
 
 invoke.cont.i143:                                 ; preds = %if.end.i140
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i141, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.15, i64 0, i64 3)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i141, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 3)) #9
   store ptr null, ptr %__guard.i136, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i64 noundef 3)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit145 unwind label %lpad.i142
@@ -649,7 +649,7 @@ if.end.i129:                                      ; preds = %.noexc34.i35
           to label %invoke.cont.i132 unwind label %lpad.i131
 
 invoke.cont.i132:                                 ; preds = %if.end.i129
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i130, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.16, i64 0, i64 6)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i130, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 6)) #9
   store ptr null, ptr %__guard.i125, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i64 noundef 6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit134 unwind label %lpad.i131
@@ -697,7 +697,7 @@ if.end.i118:                                      ; preds = %.noexc42.i28
           to label %invoke.cont.i121 unwind label %lpad.i120
 
 invoke.cont.i121:                                 ; preds = %if.end.i118
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i119, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.17, i64 0, i64 4)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i119, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 4)) #9
   store ptr null, ptr %__guard.i114, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i64 noundef 4)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit123 unwind label %lpad.i120
@@ -1013,16 +1013,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp25.i)
   store <4 x i32> <i32 15000000, i32 15, i32 0, i32 0>, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, align 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #9
-  %call.i10.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 4))
+  %call.i10.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16))
           to label %call.i.noexc.i unwind label %lpad.i
 
 call.i.noexc.i:                                   ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 4), ptr noundef %call.i10.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16), ptr noundef %call.i10.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i54)
-  %call.i.i55 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 4))
+  %call.i.i55 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16))
           to label %if.end.i57 unwind label %terminate.lpad.i.i56
 
 terminate.lpad.i.i56:                             ; preds = %.noexc.i
@@ -1033,36 +1033,36 @@ terminate.lpad.i.i56:                             ; preds = %.noexc.i
   unreachable
 
 if.end.i57:                                       ; preds = %.noexc.i
-  store ptr getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 4), ptr %__guard.i54, align 8
-  %call4.i58 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 4))
+  store ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16), ptr %__guard.i54, align 8
+  %call4.i58 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16))
           to label %invoke.cont.i60 unwind label %lpad.i59
 
 invoke.cont.i60:                                  ; preds = %if.end.i57
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i58, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str, i64 0, i64 15)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i58, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 15)) #9
   store ptr null, ptr %__guard.i54, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 4), i64 noundef 15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16), i64 noundef 15)
           to label %invoke.cont.i unwind label %lpad.i59
 
 lpad.i59:                                         ; preds = %invoke.cont.i60, %if.end.i57
   %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i54) #9
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 4)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16)) #9
   br label %ehcleanup75.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i54)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #9
-  %call.i15.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 5))
+  %call.i15.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 48))
           to label %call.i.noexc14.i unwind label %lpad2.i
 
 call.i.noexc14.i:                                 ; preds = %invoke.cont.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 5), ptr noundef %call.i15.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 48), ptr noundef %call.i15.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
           to label %.noexc16.i unwind label %lpad2.i
 
 .noexc16.i:                                       ; preds = %call.i.noexc14.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i44)
-  %call.i.i45 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 5))
+  %call.i.i45 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 48))
           to label %if.end.i47 unwind label %terminate.lpad.i.i46
 
 terminate.lpad.i.i46:                             ; preds = %.noexc16.i
@@ -1073,36 +1073,36 @@ terminate.lpad.i.i46:                             ; preds = %.noexc16.i
   unreachable
 
 if.end.i47:                                       ; preds = %.noexc16.i
-  store ptr getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 5), ptr %__guard.i44, align 8
-  %call4.i48 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 5))
+  store ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 48), ptr %__guard.i44, align 8
+  %call4.i48 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 48))
           to label %invoke.cont.i50 unwind label %lpad.i49
 
 invoke.cont.i50:                                  ; preds = %if.end.i47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i48, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.1, i64 0, i64 4)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i48, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 4)) #9
   store ptr null, ptr %__guard.i44, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 5), i64 noundef 4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 48), i64 noundef 4)
           to label %invoke.cont3.i unwind label %lpad.i49
 
 lpad.i49:                                         ; preds = %invoke.cont.i50, %if.end.i47
   %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i44) #9
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 5)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 48)) #9
   br label %ehcleanup70.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i44)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #9
-  %call.i23.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 6))
+  %call.i23.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 80))
           to label %call.i.noexc22.i unwind label %lpad5.i
 
 call.i.noexc22.i:                                 ; preds = %invoke.cont3.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 6), ptr noundef %call.i23.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 80), ptr noundef %call.i23.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
           to label %.noexc24.i unwind label %lpad5.i
 
 .noexc24.i:                                       ; preds = %call.i.noexc22.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i34)
-  %call.i.i35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 6))
+  %call.i.i35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 80))
           to label %if.end.i37 unwind label %terminate.lpad.i.i36
 
 terminate.lpad.i.i36:                             ; preds = %.noexc24.i
@@ -1113,36 +1113,36 @@ terminate.lpad.i.i36:                             ; preds = %.noexc24.i
   unreachable
 
 if.end.i37:                                       ; preds = %.noexc24.i
-  store ptr getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 6), ptr %__guard.i34, align 8
-  %call4.i38 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 6))
+  store ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 80), ptr %__guard.i34, align 8
+  %call4.i38 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 80))
           to label %invoke.cont.i40 unwind label %lpad.i39
 
 invoke.cont.i40:                                  ; preds = %if.end.i37
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i38, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.2, i64 0, i64 8)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i38, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 8)) #9
   store ptr null, ptr %__guard.i34, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 6), i64 noundef 8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 80), i64 noundef 8)
           to label %invoke.cont6.i unwind label %lpad.i39
 
 lpad.i39:                                         ; preds = %invoke.cont.i40, %if.end.i37
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i34) #9
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 6)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 80)) #9
   br label %ehcleanup65.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i34)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #9
-  %call.i31.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 7))
+  %call.i31.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 112))
           to label %call.i.noexc30.i unwind label %lpad8.i
 
 call.i.noexc30.i:                                 ; preds = %invoke.cont6.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 7), ptr noundef %call.i31.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 112), ptr noundef %call.i31.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i)
           to label %.noexc32.i unwind label %lpad8.i
 
 .noexc32.i:                                       ; preds = %call.i.noexc30.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i24)
-  %call.i.i25 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 7))
+  %call.i.i25 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 112))
           to label %if.end.i27 unwind label %terminate.lpad.i.i26
 
 terminate.lpad.i.i26:                             ; preds = %.noexc32.i
@@ -1153,36 +1153,36 @@ terminate.lpad.i.i26:                             ; preds = %.noexc32.i
   unreachable
 
 if.end.i27:                                       ; preds = %.noexc32.i
-  store ptr getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 7), ptr %__guard.i24, align 8
-  %call4.i28 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 7))
+  store ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 112), ptr %__guard.i24, align 8
+  %call4.i28 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 112))
           to label %invoke.cont.i30 unwind label %lpad.i29
 
 invoke.cont.i30:                                  ; preds = %if.end.i27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i28, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.3, i64 0, i64 5)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i28, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 5)) #9
   store ptr null, ptr %__guard.i24, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 7), i64 noundef 5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 112), i64 noundef 5)
           to label %invoke.cont9.i unwind label %lpad.i29
 
 lpad.i29:                                         ; preds = %invoke.cont.i30, %if.end.i27
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i24) #9
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 7)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 112)) #9
   br label %ehcleanup60.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont.i30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i24)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i) #9
-  %call.i39.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 8))
+  %call.i39.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 144))
           to label %call.i.noexc38.i unwind label %lpad11.i
 
 call.i.noexc38.i:                                 ; preds = %invoke.cont9.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 8), ptr noundef %call.i39.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 144), ptr noundef %call.i39.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %.noexc40.i unwind label %lpad11.i
 
 .noexc40.i:                                       ; preds = %call.i.noexc38.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i14)
-  %call.i.i15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 8))
+  %call.i.i15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 144))
           to label %if.end.i17 unwind label %terminate.lpad.i.i16
 
 terminate.lpad.i.i16:                             ; preds = %.noexc40.i
@@ -1193,93 +1193,93 @@ terminate.lpad.i.i16:                             ; preds = %.noexc40.i
   unreachable
 
 if.end.i17:                                       ; preds = %.noexc40.i
-  store ptr getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 8), ptr %__guard.i14, align 8
-  %call4.i18 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 8))
+  store ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 144), ptr %__guard.i14, align 8
+  %call4.i18 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 144))
           to label %invoke.cont.i20 unwind label %lpad.i19
 
 invoke.cont.i20:                                  ; preds = %if.end.i17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i18, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.4, i64 0, i64 6)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i18, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 6)) #9
   store ptr null, ptr %__guard.i14, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 8), i64 noundef 6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 144), i64 noundef 6)
           to label %invoke.cont12.i unwind label %lpad.i19
 
 lpad.i19:                                         ; preds = %invoke.cont.i20, %if.end.i17
   %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i14) #9
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 8)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 144)) #9
   br label %ehcleanup55.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont.i20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i14)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #9
-  %call.i47.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 9))
+  %call.i47.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 176))
           to label %call.i.noexc46.i unwind label %lpad14.i
 
 call.i.noexc46.i:                                 ; preds = %invoke.cont12.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 9), ptr noundef %call.i47.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 176), ptr noundef %call.i47.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i)
           to label %.noexc48.i unwind label %lpad14.i
 
 .noexc48.i:                                       ; preds = %call.i.noexc46.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 9), ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([40 x i8], ptr @.str.5, i64 0, i64 39))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 176), ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 39))
           to label %invoke.cont15.i unwind label %lpad.i45.i
 
 lpad.i45.i:                                       ; preds = %.noexc48.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 9)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 176)) #9
   br label %ehcleanup50.i
 
 invoke.cont15.i:                                  ; preds = %.noexc48.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i) #9
-  %call.i55.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 10))
+  %call.i55.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 208))
           to label %call.i.noexc54.i unwind label %lpad17.i
 
 call.i.noexc54.i:                                 ; preds = %invoke.cont15.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 10), ptr noundef %call.i55.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 208), ptr noundef %call.i55.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i)
           to label %.noexc56.i unwind label %lpad17.i
 
 .noexc56.i:                                       ; preds = %call.i.noexc54.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 10), ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([41 x i8], ptr @.str.6, i64 0, i64 40))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 208), ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 40))
           to label %invoke.cont18.i unwind label %lpad.i53.i
 
 lpad.i53.i:                                       ; preds = %.noexc56.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 10)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 208)) #9
   br label %ehcleanup45.i
 
 invoke.cont18.i:                                  ; preds = %.noexc56.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i) #9
-  %call.i63.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 11))
+  %call.i63.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 240))
           to label %call.i.noexc62.i unwind label %lpad20.i
 
 call.i.noexc62.i:                                 ; preds = %invoke.cont18.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 11), ptr noundef %call.i63.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 240), ptr noundef %call.i63.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i)
           to label %.noexc64.i unwind label %lpad20.i
 
 .noexc64.i:                                       ; preds = %call.i.noexc62.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 11), ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([39 x i8], ptr @.str.7, i64 0, i64 38))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 240), ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 38))
           to label %invoke.cont21.i unwind label %lpad.i61.i
 
 lpad.i61.i:                                       ; preds = %.noexc64.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 11)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 240)) #9
   br label %ehcleanup40.i
 
 invoke.cont21.i:                                  ; preds = %.noexc64.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i) #9
-  %call.i71.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 12))
+  %call.i71.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 272))
           to label %call.i.noexc70.i unwind label %lpad23.i
 
 call.i.noexc70.i:                                 ; preds = %invoke.cont21.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 12), ptr noundef %call.i71.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 272), ptr noundef %call.i71.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i)
           to label %.noexc72.i unwind label %lpad23.i
 
 .noexc72.i:                                       ; preds = %call.i.noexc70.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i4)
-  %call.i.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 12))
+  %call.i.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 272))
           to label %if.end.i7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %.noexc72.i
@@ -1290,36 +1290,36 @@ terminate.lpad.i.i6:                              ; preds = %.noexc72.i
   unreachable
 
 if.end.i7:                                        ; preds = %.noexc72.i
-  store ptr getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 12), ptr %__guard.i4, align 8
-  %call4.i8 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 12))
+  store ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 272), ptr %__guard.i4, align 8
+  %call4.i8 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 272))
           to label %invoke.cont.i10 unwind label %lpad.i9
 
 invoke.cont.i10:                                  ; preds = %if.end.i7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i8, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.8) #9
   store ptr null, ptr %__guard.i4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 12), i64 noundef 0)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 272), i64 noundef 0)
           to label %invoke.cont24.i unwind label %lpad.i9
 
 lpad.i9:                                          ; preds = %invoke.cont.i10, %if.end.i7
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i4) #9
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 12)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 272)) #9
   br label %ehcleanup.i
 
 invoke.cont24.i:                                  ; preds = %invoke.cont.i10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #9
-  %call.i79.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 13))
+  %call.i79.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 304))
           to label %call.i.noexc78.i unwind label %lpad26.i
 
 call.i.noexc78.i:                                 ; preds = %invoke.cont24.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 13), ptr noundef %call.i79.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 304), ptr noundef %call.i79.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i)
           to label %.noexc80.i unwind label %lpad26.i
 
 .noexc80.i:                                       ; preds = %call.i.noexc78.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
-  %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 13))
+  %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 304))
           to label %if.end.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %.noexc80.i
@@ -1330,21 +1330,21 @@ terminate.lpad.i.i:                               ; preds = %.noexc80.i
   unreachable
 
 if.end.i:                                         ; preds = %.noexc80.i
-  store ptr getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 13), ptr %__guard.i, align 8
-  %call4.i = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 13))
+  store ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 304), ptr %__guard.i, align 8
+  %call4.i = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 304))
           to label %invoke.cont.i2 unwind label %lpad.i1
 
 invoke.cont.i2:                                   ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.9, i64 0, i64 7)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 7)) #9
   store ptr null, ptr %__guard.i, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 13), i64 noundef 7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 304), i64 noundef 7)
           to label %__cxx_global_var_init.exit unwind label %lpad.i1
 
 lpad.i1:                                          ; preds = %invoke.cont.i2, %if.end.i
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #9
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 13)) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 304)) #9
   br label %lpad26.body.i
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry
@@ -1400,55 +1400,55 @@ lpad26.i:                                         ; preds = %call.i.noexc78.i, %
 lpad26.body.i:                                    ; preds = %lpad26.i, %lpad.i1
   %eh.lpad-body81.i = phi { ptr, i32 } [ %33, %lpad26.i ], [ %23, %lpad.i1 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 12)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 272)) #9
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad26.body.i, %lpad23.i, %lpad.i9
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body81.i, %lpad26.body.i ], [ %32, %lpad23.i ], [ %20, %lpad.i9 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 11)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 240)) #9
   br label %ehcleanup40.i
 
 ehcleanup40.i:                                    ; preds = %ehcleanup.i, %lpad20.i, %lpad.i61.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %31, %lpad20.i ], [ %17, %lpad.i61.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 10)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 208)) #9
   br label %ehcleanup45.i
 
 ehcleanup45.i:                                    ; preds = %ehcleanup40.i, %lpad17.i, %lpad.i53.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup40.i ], [ %30, %lpad17.i ], [ %16, %lpad.i53.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 9)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 176)) #9
   br label %ehcleanup50.i
 
 ehcleanup50.i:                                    ; preds = %ehcleanup45.i, %lpad14.i, %lpad.i45.i
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup45.i ], [ %29, %lpad14.i ], [ %15, %lpad.i45.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 8)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 144)) #9
   br label %ehcleanup55.i
 
 ehcleanup55.i:                                    ; preds = %ehcleanup50.i, %lpad11.i, %lpad.i19
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %ehcleanup50.i ], [ %28, %lpad11.i ], [ %14, %lpad.i19 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 7)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 112)) #9
   br label %ehcleanup60.i
 
 ehcleanup60.i:                                    ; preds = %ehcleanup55.i, %lpad8.i, %lpad.i29
   %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %ehcleanup55.i ], [ %27, %lpad8.i ], [ %11, %lpad.i29 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 6)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 80)) #9
   br label %ehcleanup65.i
 
 ehcleanup65.i:                                    ; preds = %ehcleanup60.i, %lpad5.i, %lpad.i39
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %ehcleanup60.i ], [ %26, %lpad5.i ], [ %8, %lpad.i39 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 5)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 48)) #9
   br label %ehcleanup70.i
 
 ehcleanup70.i:                                    ; preds = %ehcleanup65.i, %lpad2.i, %lpad.i49
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup65.i ], [ %25, %lpad2.i ], [ %5, %lpad.i49 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::BuildInfo", ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 0, i32 4)) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16)) #9
   br label %ehcleanup75.i
 
 ehcleanup75.i:                                    ; preds = %ehcleanup70.i, %lpad.i, %lpad.i59

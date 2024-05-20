@@ -33,10 +33,10 @@ define noundef ptr @mca_coll_self_comm_query(ptr nocapture noundef readonly %0, 
 10:                                               ; preds = %6
   %11 = load i32, ptr @ompi_coll_self_priority, align 4
   store i32 %11, ptr %1, align 4
-  %12 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_self_module_t_class, i64 0, i32 8), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_self_module_t_class, i64 56), align 8
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #4
   %14 = load i32, ptr @opal_class_init_epoch, align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_self_module_t_class, i64 0, i32 4), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_self_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %14, %15
   br i1 %.not.i, label %17, label %16
 
@@ -52,7 +52,7 @@ define noundef ptr @mca_coll_self_comm_query(ptr nocapture noundef readonly %0, 
   store ptr @mca_coll_self_module_t_class, ptr %13, align 8
   %19 = getelementptr inbounds i8, ptr %13, i64 8
   store volatile i32 1, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_self_module_t_class, i64 0, i32 6), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_self_module_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i = icmp eq ptr %21, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread25, label %.lr.ph.i.i

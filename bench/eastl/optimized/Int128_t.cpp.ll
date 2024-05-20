@@ -3493,7 +3493,7 @@ if.then34:                                        ; preds = %entry
   %cmp.i51 = icmp eq i64 %3, %4
   %mPart1.i52 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %mPart1.i52, align 8
-  %6 = load i64, ptr getelementptr inbounds (%"class.EA::StdC::int128_t", ptr @_ZN2EA4StdC17EASTDC_INT128_MINE, i64 0, i32 0, i32 1), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN2EA4StdC17EASTDC_INT128_MINE, i64 8), align 8
   %cmp3.i = icmp eq i64 %5, %6
   %7 = select i1 %cmp.i51, i1 %cmp3.i, i1 false
   br i1 %7, label %for.body39, label %if.else44

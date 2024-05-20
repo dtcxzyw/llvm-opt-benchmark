@@ -117,7 +117,7 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
   br label %59
 
 43:                                               ; preds = %18, %13, %9
-  %44 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5)) #5, !srcloc !7
+  %44 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (i8, ptr @pcpu_hot, i64 32)) #5, !srcloc !7
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr i8, ptr %45, i64 8
   %47 = getelementptr i8, ptr %45, i64 -16376

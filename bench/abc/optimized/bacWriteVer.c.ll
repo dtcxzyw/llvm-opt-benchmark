@@ -1087,8 +1087,8 @@ Bac_ObjNameStr.exit:                              ; preds = %Bac_ObjName.exit.th
   br i1 %179, label %151, label %.critedge, !llvm.loop !16
 
 180:                                              ; preds = %114
-  store ptr @Bac_BoxCollectRanges.pArray, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 1), align 4
+  store ptr @Bac_BoxCollectRanges.pArray, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   store i32 10, ptr @Bac_BoxCollectRanges.Bits, align 8
   %.not259 = icmp eq i64 %indvars.iv296, 0
   br i1 %.not259, label %.critedge.i219, label %.lr.ph.i222
@@ -1129,13 +1129,13 @@ Bac_BoxBiRange.exit.i:                            ; preds = %.preheader, %.crite
   %.lcssa.i.i = phi i32 [ %indvars.le.i.i, %.critedge.split.loop.exit.i.i ], [ -1, %.preheader ]
   %190 = trunc nuw nsw i64 %indvars.iv.next.i224 to i32
   %191 = sub nsw i32 %190, %.lcssa.i.i
-  %192 = load i32, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 1), align 4
+  %192 = load i32, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %193 = load i32, ptr @Bac_BoxCollectRanges.Bits, align 8
   %194 = icmp eq i32 %192, %193
   br i1 %194, label %195, label %.Vec_IntGrow.exit10_crit_edge.i.i
 
 .Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %Bac_BoxBiRange.exit.i
-  %.pre.i.i = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  %.pre.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   br label %Vec_IntPush.exit.i
 
 195:                                              ; preds = %Bac_BoxBiRange.exit.i
@@ -1143,7 +1143,7 @@ Bac_BoxBiRange.exit.i:                            ; preds = %.preheader, %.crite
   br i1 %196, label %197, label %204
 
 197:                                              ; preds = %195
-  %198 = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   %.not9.i.i.i = icmp eq ptr %198, null
   br i1 %.not9.i.i.i, label %201, label %199
 
@@ -1157,13 +1157,13 @@ Bac_BoxBiRange.exit.i:                            ; preds = %.preheader, %.crite
 
 Vec_IntGrow.exit.i.i:                             ; preds = %201, %199
   %203 = phi ptr [ %200, %199 ], [ %202, %201 ]
-  store ptr %203, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  store ptr %203, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   store i32 16, ptr @Bac_BoxCollectRanges.Bits, align 8
   br label %Vec_IntPush.exit.i
 
 204:                                              ; preds = %195
   %205 = shl nuw nsw i32 %192, 1
-  %206 = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   %.not9.i9.i.i = icmp eq ptr %206, null
   %207 = zext nneg i32 %205 to i64
   %208 = shl nuw nsw i64 %207, 2
@@ -1179,15 +1179,15 @@ Vec_IntGrow.exit.i.i:                             ; preds = %201, %199
 
 213:                                              ; preds = %211, %209
   %214 = phi ptr [ %210, %209 ], [ %212, %211 ]
-  store ptr %214, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  store ptr %214, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   store i32 %205, ptr @Bac_BoxCollectRanges.Bits, align 8
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %213, %Vec_IntGrow.exit.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i
   %215 = phi ptr [ %.pre.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i ], [ %214, %213 ], [ %203, %Vec_IntGrow.exit.i.i ]
-  %216 = load i32, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 1), align 4
+  %216 = load i32, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %217 = add nsw i32 %216, 1
-  store i32 %217, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 1), align 4
+  store i32 %217, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %218 = sext i32 %216 to i64
   %219 = getelementptr inbounds i32, ptr %215, i64 %218
   store i32 %191, ptr %219, align 4
@@ -1243,13 +1243,13 @@ Bac_BoxBoRange.exit.i:                            ; preds = %231, %.critedge.spl
   %.lcssa.i35.i = phi i32 [ %236, %.critedge.split.loop.exit.i37.i ], [ %.val60.i, %231 ]
   %237 = trunc nsw i64 %indvars.iv57.i to i32
   %238 = sub nsw i32 %.lcssa.i35.i, %237
-  %239 = load i32, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 1), align 4
+  %239 = load i32, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %240 = load i32, ptr @Bac_BoxCollectRanges.Bits, align 8
   %241 = icmp eq i32 %239, %240
   br i1 %241, label %242, label %.Vec_IntGrow.exit10_crit_edge.i38.i
 
 .Vec_IntGrow.exit10_crit_edge.i38.i:              ; preds = %Bac_BoxBoRange.exit.i
-  %.pre.i39.i = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  %.pre.i39.i = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   br label %Vec_IntPush.exit43.i
 
 242:                                              ; preds = %Bac_BoxBoRange.exit.i
@@ -1257,7 +1257,7 @@ Bac_BoxBoRange.exit.i:                            ; preds = %231, %.critedge.spl
   br i1 %243, label %244, label %251
 
 244:                                              ; preds = %242
-  %245 = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  %245 = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   %.not9.i.i41.i = icmp eq ptr %245, null
   br i1 %.not9.i.i41.i, label %248, label %246
 
@@ -1271,13 +1271,13 @@ Bac_BoxBoRange.exit.i:                            ; preds = %231, %.critedge.spl
 
 Vec_IntGrow.exit.i42.i:                           ; preds = %248, %246
   %250 = phi ptr [ %247, %246 ], [ %249, %248 ]
-  store ptr %250, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  store ptr %250, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   store i32 16, ptr @Bac_BoxCollectRanges.Bits, align 8
   br label %Vec_IntPush.exit43.i
 
 251:                                              ; preds = %242
   %252 = shl nuw nsw i32 %239, 1
-  %253 = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  %253 = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   %.not9.i9.i40.i = icmp eq ptr %253, null
   %254 = zext nneg i32 %252 to i64
   %255 = shl nuw nsw i64 %254, 2
@@ -1293,15 +1293,15 @@ Vec_IntGrow.exit.i42.i:                           ; preds = %248, %246
 
 260:                                              ; preds = %258, %256
   %261 = phi ptr [ %257, %256 ], [ %259, %258 ]
-  store ptr %261, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  store ptr %261, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   store i32 %252, ptr @Bac_BoxCollectRanges.Bits, align 8
   br label %Vec_IntPush.exit43.i
 
 Vec_IntPush.exit43.i:                             ; preds = %260, %Vec_IntGrow.exit.i42.i, %.Vec_IntGrow.exit10_crit_edge.i38.i
   %262 = phi ptr [ %.pre.i39.i, %.Vec_IntGrow.exit10_crit_edge.i38.i ], [ %261, %260 ], [ %250, %Vec_IntGrow.exit.i42.i ]
-  %263 = load i32, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 1), align 4
+  %263 = load i32, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %264 = add nsw i32 %263, 1
-  store i32 %264, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 1), align 4
+  store i32 %264, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %265 = sext i32 %263 to i64
   %266 = getelementptr inbounds i32, ptr %262, i64 %265
   store i32 %238, ptr %266, align 4
@@ -1395,7 +1395,7 @@ Bac_ObjNameStr.exit243:                           ; preds = %Bac_ObjName.exit234
   br i1 %.not174, label %304, label %343
 
 304:                                              ; preds = %302
-  %Bac_BoxCollectRanges.Bits.val178 = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  %Bac_BoxCollectRanges.Bits.val178 = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   %305 = sext i32 %.0152272 to i64
   %306 = getelementptr inbounds i32, ptr %Bac_BoxCollectRanges.Bits.val178, i64 %305
   %307 = load i32, ptr %306, align 4
@@ -1515,7 +1515,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br i1 %.not172, label %351, label %391
 
 351:                                              ; preds = %349
-  %Bac_BoxCollectRanges.Bits.val = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Bac_BoxCollectRanges.Bits, i64 0, i32 2), align 8
+  %Bac_BoxCollectRanges.Bits.val = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   %352 = sext i32 %.2282 to i64
   %353 = getelementptr inbounds i32, ptr %Bac_BoxCollectRanges.Bits.val, i64 %352
   %354 = load i32, ptr %353, align 4

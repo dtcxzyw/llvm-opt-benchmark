@@ -73,7 +73,7 @@ define dso_local i32 @acpi_ut_init_globals() local_unnamed_addr #0 align 16 {
 
 11:                                               ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) @acpi_gbl_owner_id_mask, i8 0, i64 512, i1 false)
-  store i32 -2147483648, ptr getelementptr inbounds ([128 x i32], ptr @acpi_gbl_owner_id_mask, i64 0, i64 127), align 4
+  store i32 -2147483648, ptr getelementptr inbounds (i8, ptr @acpi_gbl_owner_id_mask, i64 508), align 4
   store i32 0, ptr @acpi_method_count, align 4
   store i32 0, ptr @acpi_sci_count, align 4
   store i32 0, ptr @acpi_gpe_count, align 4
@@ -85,7 +85,7 @@ define dso_local i32 @acpi_ut_init_globals() local_unnamed_addr #0 align 16 {
   store ptr null, ptr @acpi_gbl_global_event_handler, align 8
   store ptr null, ptr @acpi_gbl_sci_handler_list, align 8
   store ptr null, ptr @acpi_gbl_global_notify, align 16
-  store ptr null, ptr getelementptr inbounds ([2 x %struct.acpi_global_notify_handler], ptr @acpi_gbl_global_notify, i64 0, i64 1), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @acpi_gbl_global_notify, i64 16), align 16
   store ptr null, ptr @acpi_gbl_exception_handler, align 8
   store ptr null, ptr @acpi_gbl_init_handler, align 8
   store ptr null, ptr @acpi_gbl_table_handler, align 8
@@ -108,11 +108,11 @@ define dso_local i32 @acpi_ut_init_globals() local_unnamed_addr #0 align 16 {
   store i8 0, ptr @acpi_gbl_events_initialized, align 1
   store i8 1, ptr @acpi_gbl_system_awake_and_running, align 1
   store ptr null, ptr @acpi_gbl_root_node, align 8
-  store i32 1600085852, ptr getelementptr inbounds (%struct.acpi_namespace_node, ptr @acpi_gbl_root_node_struct, i64 0, i32 4), align 4
-  store i8 15, ptr getelementptr inbounds (%struct.acpi_namespace_node, ptr @acpi_gbl_root_node_struct, i64 0, i32 1), align 8
-  store i8 6, ptr getelementptr inbounds (%struct.acpi_namespace_node, ptr @acpi_gbl_root_node_struct, i64 0, i32 2), align 1
+  store i32 1600085852, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_node_struct, i64 12), align 4
+  store i8 15, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_node_struct, i64 8), align 8
+  store i8 6, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_node_struct, i64 9), align 1
   store ptr null, ptr @acpi_gbl_root_node_struct, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.acpi_namespace_node, ptr @acpi_gbl_root_node_struct, i64 0, i32 5), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @acpi_gbl_root_node_struct, i64 16), i8 0, i64 24, i1 false)
   br label %12
 
 12:                                               ; preds = %11, %0

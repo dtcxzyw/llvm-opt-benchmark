@@ -34,14 +34,14 @@ define noundef i32 @ompi_mpi_abort(ptr noundef readonly %0, i32 noundef %1) loca
   store i1 true, ptr @have_been_invoked, align 1
   %7 = load volatile i8, ptr @ompi_rte_initialized, align 1
   %8 = trunc i8 %7 to i1
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %10 = icmp ne ptr %9, null
   %or.cond24.not = select i1 %8, i1 true, i1 %10
   br i1 %or.cond24.not, label %opal_gethostname.exit, label %11
 
 11:                                               ; preds = %6
   %12 = tail call i32 @opal_init_gethostname() #8
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %6, %11

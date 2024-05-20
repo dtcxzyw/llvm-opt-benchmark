@@ -8834,7 +8834,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   br label %.body
 
 207:                                              ; preds = %.noexc, %4
-  %.0.i.i2.i = phi ptr [ %201, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i = phi ptr [ %201, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %4 ]
   %.sroa.4127.0..sroa_idx = getelementptr inbounds i8, ptr %187, i64 32
   %208 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !1382
   %209 = extractelement <2 x i64> %208, i64 0
@@ -9698,7 +9698,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   unreachable
 
 525:                                              ; preds = %.noexc297, %520
-  %.0.i.i2.i.i.i = phi ptr [ %522, %.noexc297 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %520 ]
+  %.0.i.i2.i.i.i = phi ptr [ %522, %.noexc297 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %520 ]
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %150, i64 32
   %526 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !1537
   %527 = extractelement <2 x i64> %526, i64 0
@@ -22786,7 +22786,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   unreachable
 
 1372:                                             ; preds = %.noexc64.i, %._crit_edge.i7
-  %.0.i.i2.i.i = phi ptr [ %1369, %.noexc64.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %._crit_edge.i7 ]
+  %.0.i.i2.i.i = phi ptr [ %1369, %.noexc64.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %._crit_edge.i7 ]
   %.sroa.432.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 32
   %1373 = load <2 x i64>, ptr %.0.i.i2.i.i, align 8, !noalias !4209
   %1374 = extractelement <2 x i64> %1373, i64 0
@@ -25434,7 +25434,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   unreachable
 
 216:                                              ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i.i, %9
-  %.0.i.i2.i.i.i.i = phi ptr [ %213, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %9 ]
+  %.0.i.i2.i.i.i.i = phi ptr [ %213, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %9 ]
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %188, i64 32
   %217 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !4724
   %218 = extractelement <2 x i64> %217, i64 0
@@ -26745,7 +26745,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   unreachable
 
 625:                                              ; preds = %.noexc.i, %616
-  %.0.i.i2.i.i = phi ptr [ %620, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %616 ]
+  %.0.i.i2.i.i = phi ptr [ %620, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %616 ]
   %626 = getelementptr inbounds i8, ptr %193, i64 384
   %627 = getelementptr inbounds i8, ptr %193, i64 392
   %628 = getelementptr inbounds i8, ptr %193, i64 400
@@ -26932,7 +26932,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136), !noalias !4973
   store ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", ptr %136, align 8, !noalias !4973
-  %674 = load atomic i32, ptr getelementptr inbounds (<{ [8 x i8], [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 0, i32 2, i64 0) acquire, align 8, !noalias !4976
+  %674 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 32) acquire, align 8, !noalias !4976
   %675 = icmp eq i32 %674, 4
   br i1 %675, label %679, label %676
 
@@ -26941,7 +26941,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   store ptr %136, ptr %135, align 8, !noalias !4976
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134), !noalias !4976
   store ptr %135, ptr %134, align 8, !noalias !4976
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h71b7735efcd2028dE(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.344)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h71b7735efcd2028dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.344)
           to label %.noexc124.i.i unwind label %677, !noalias !4962
 
 .noexc124.i.i:                                    ; preds = %676
@@ -30493,7 +30493,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i10
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h993f561c0dc5ec20E.exit.i": ; preds = %.noexc134, %1802
-  %.0.i.i2.i.i103 = phi ptr [ %1805, %.noexc134 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1802 ]
+  %.0.i.i2.i.i103 = phi ptr [ %1805, %.noexc134 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %1802 ]
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 32
   %1808 = load <2 x i64>, ptr %.0.i.i2.i.i103, align 8, !noalias !5717
   %1809 = extractelement <2 x i64> %1808, i64 0
@@ -32910,7 +32910,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   unreachable
 
 80:                                               ; preds = %._crit_edge, %.noexc
-  %.0.i.i2.i = phi ptr [ %72, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %._crit_edge ]
+  %.0.i.i2.i = phi ptr [ %72, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %._crit_edge ]
   %81 = getelementptr inbounds i8, ptr %57, i64 24
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 56
   %82 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !6117
@@ -33124,7 +33124,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   unreachable
 
 151:                                              ; preds = %.noexc.i.i, %144
-  %.0.i.i2.i.i.i.i = phi ptr [ %148, %.noexc.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %144 ]
+  %.0.i.i2.i.i.i.i = phi ptr [ %148, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %144 ]
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %44, i64 32
   %152 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !6171
   %153 = extractelement <2 x i64> %152, i64 0
@@ -35010,7 +35010,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN107_$LT$tree_sitter_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [8 x i8], [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 0, i32 2, i64 0) acquire, align 8, !noalias !6629
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 32) acquire, align 8, !noalias !6629
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h44ffa4b81354002bE.exit, label %7
 
@@ -35019,7 +35019,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN107_$LT$tree_sitter_
   store ptr %4, ptr %3, align 8, !noalias !6629
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6629
   store ptr %3, ptr %2, align 8, !noalias !6629
-  call void @_ZN3std10sys_common4once5futex4Once4call17h71b7735efcd2028dE(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.344)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h71b7735efcd2028dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.344)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6629
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6629
   br label %_ZN3std4sync4once4Once9call_once17h44ffa4b81354002bE.exit
@@ -35040,7 +35040,7 @@ define void @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PR
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [8 x i8], [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 0, i32 2, i64 0) acquire, align 8, !noalias !6632
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 32) acquire, align 8, !noalias !6632
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd5c29fc82ba60801E.exit", label %7
 
@@ -35049,7 +35049,7 @@ define void @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PR
   store ptr %4, ptr %3, align 8, !noalias !6632
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6632
   store ptr %3, ptr %2, align 8, !noalias !6632
-  call void @_ZN3std10sys_common4once5futex4Once4call17h71b7735efcd2028dE(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.344)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h71b7735efcd2028dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h6d8ca111f614e40aE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.344)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6632
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6632
   br label %"_ZN107_$LT$tree_sitter_cli..generate..build_tables..item..START_PRODUCTION$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd5c29fc82ba60801E.exit"

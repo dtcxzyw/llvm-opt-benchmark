@@ -82,12 +82,12 @@ sw.epilog.sink.split.sink.split:                  ; preds = %for.body, %sw.bb8
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %for.cond.preheader
   %.sink = phi ptr [ %1, %for.cond.preheader ], [ %.pre, %sw.epilog.sink.split.sink.split ]
-  %6 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %6(ptr noundef %.sink) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb1, %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %7(ptr noundef nonnull %reply) #13
   br label %return
 
@@ -146,7 +146,7 @@ if.then17:                                        ; preds = %if.then16
   %add = add nsw i32 %argc.0, 1
   %conv18 = sext i32 %add to i64
   %mul = shl nsw i64 %conv18, 3
-  %3 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 16), align 8
   %call.i = call ptr %3(ptr noundef %curargv.0, i64 noundef %mul) #13
   %cmp20 = icmp eq ptr %call.i, null
   br i1 %cmp20, label %cleanup, label %if.end23
@@ -624,7 +624,7 @@ if.then311:                                       ; preds = %if.end300, %while.e
   %add312 = add nsw i32 %argc.0, 1
   %conv313 = sext i32 %add312 to i64
   %mul314 = shl nsw i64 %conv313, 3
-  %49 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 2), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 16), align 8
   %call.i133 = call ptr %49(ptr noundef %curargv.0, i64 noundef %mul314) #13
   %cmp316 = icmp eq ptr %call.i133, null
   br i1 %cmp316, label %cleanup, label %if.end319
@@ -942,7 +942,7 @@ for.end:                                          ; preds = %hi_sdslen.exit236, 
   %idxprom373 = sext i32 %pos.0.lcssa to i64
   %arrayidx374 = getelementptr inbounds i8, ptr %call.i179, i64 %idxprom373
   store i8 0, ptr %arrayidx374, align 1
-  %77 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %77(ptr noundef %curargv.2) #13
   store ptr %call.i179, ptr %target, align 8
   br label %return
@@ -973,13 +973,13 @@ while.body379:                                    ; preds = %while.body379.prehe
   br i1 %tobool378.not, label %while.end382, label %while.body379
 
 while.end382:                                     ; preds = %while.body379, %while.cond377.preheader
-  %80 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %80(ptr noundef nonnull %curargv.4) #13
   br label %if.end383
 
 if.end383:                                        ; preds = %while.end382, %cleanup
   call void @hi_sdsfree(ptr noundef %curarg.4) #13
-  %81 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %81(ptr noundef null) #13
   br label %return
 
@@ -1504,7 +1504,7 @@ return:                                           ; preds = %for.end, %entry, %f
 ; Function Attrs: nounwind uwtable
 define void @redisFreeCommand(ptr noundef %cmd) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %0(ptr noundef %cmd) #13
   ret void
 }
@@ -1580,27 +1580,27 @@ if.end6:                                          ; preds = %if.then3, %land.lhs
   tail call void @redisReaderFree(ptr noundef %3) #13
   %tcp = getelementptr inbounds i8, ptr %c, i64 192
   %4 = load ptr, ptr %tcp, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %5(ptr noundef %4) #13
   %source_addr = getelementptr inbounds i8, ptr %c, i64 200
   %6 = load ptr, ptr %source_addr, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %7(ptr noundef %6) #13
   %unix_sock = getelementptr inbounds i8, ptr %c, i64 216
   %8 = load ptr, ptr %unix_sock, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %9(ptr noundef %8) #13
   %connect_timeout = getelementptr inbounds i8, ptr %c, i64 176
   %10 = load ptr, ptr %connect_timeout, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %11(ptr noundef %10) #13
   %command_timeout = getelementptr inbounds i8, ptr %c, i64 184
   %12 = load ptr, ptr %command_timeout, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %13(ptr noundef %12) #13
   %saddr = getelementptr inbounds i8, ptr %c, i64 224
   %14 = load ptr, ptr %saddr, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %15(ptr noundef %14) #13
   %privdata = getelementptr inbounds i8, ptr %c, i64 240
   %16 = load ptr, ptr %privdata, align 8
@@ -1636,7 +1636,7 @@ if.then20:                                        ; preds = %land.lhs.true17
 
 if.end23:                                         ; preds = %if.then20, %land.lhs.true17, %if.end14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %c, i8 -1, i64 272, i1 false)
-  %21 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %21(ptr noundef nonnull %c) #13
   br label %return
 
@@ -1799,7 +1799,7 @@ declare i32 @redisContextSetTimeout(ptr noundef, i64, i64) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @redisConnectWithOptions(ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 272) #13
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -2791,14 +2791,14 @@ if.then7:                                         ; preds = %if.end3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i, align 1
   %2 = load ptr, ptr %cmd, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %3(ptr noundef %2) #13
   br label %return
 
 if.end8:                                          ; preds = %if.end3
   store ptr %call.i10, ptr %obuf.i, align 8
   %4 = load ptr, ptr %cmd, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %5(ptr noundef %4) #13
   br label %return
 
@@ -2855,14 +2855,14 @@ if.then7.i:                                       ; preds = %if.end3.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %2 = load ptr, ptr %cmd.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %3(ptr noundef %2) #13
   br label %redisvAppendCommand.exit
 
 if.end8.i:                                        ; preds = %if.end3.i
   store ptr %call.i10.i, ptr %obuf.i.i, align 8
   %4 = load ptr, ptr %cmd.i, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %5(ptr noundef %4) #13
   br label %redisvAppendCommand.exit
 
@@ -2967,7 +2967,7 @@ if.then7.i:                                       ; preds = %if.end3.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %2 = load ptr, ptr %cmd.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %3(ptr noundef %2) #13
   br label %redisvAppendCommand.exit.thread
 
@@ -2978,7 +2978,7 @@ redisvAppendCommand.exit.thread:                  ; preds = %if.then.i, %if.then
 if.end:                                           ; preds = %if.end3.i
   store ptr %call.i10.i, ptr %obuf.i.i, align 8
   %4 = load ptr, ptr %cmd.i, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %5(ptr noundef %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cmd.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %reply.i)
@@ -3090,7 +3090,7 @@ return:                                           ; preds = %redisAppendCommandA
 define internal ptr @createStringObject(ptr nocapture noundef readonly %task, ptr nocapture noundef readonly %str, i64 noundef %len) #0 {
 entry:
   %0 = load i32, ptr %task, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %1(i64 noundef 1, i64 noundef 64) #13
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end
@@ -3169,7 +3169,7 @@ return:                                           ; preds = %entry, %if.end21, %
 define internal ptr @createArrayObject(ptr nocapture noundef readonly %task, i64 noundef %elements) #0 {
 entry:
   %0 = load i32, ptr %task, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %1(i64 noundef 1, i64 noundef 64) #13
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end
@@ -3189,7 +3189,7 @@ hi_calloc.exit.thread:                            ; preds = %if.then2
   br label %if.then6
 
 hi_calloc.exit:                                   ; preds = %if.then2
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i = tail call ptr %2(i64 noundef %elements, i64 noundef 8) #13
   %element = getelementptr inbounds i8, ptr %call.i.i, i64 56
   store ptr %call.i, ptr %element, align 8
@@ -3228,7 +3228,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @createIntegerObject(ptr nocapture noundef readonly %task, i64 noundef %value) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 64) #13
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end
@@ -3265,7 +3265,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 64) #13
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end3
@@ -3318,7 +3318,7 @@ return:                                           ; preds = %if.end, %if.end9, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @createNilObject(ptr nocapture noundef readonly %task) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 64) #13
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end
@@ -3349,7 +3349,7 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: nounwind uwtable
 define internal ptr @createBoolObject(ptr nocapture noundef readonly %task, i32 noundef %bval) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 64) #13
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end

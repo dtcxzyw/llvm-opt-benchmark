@@ -250,7 +250,7 @@ define dso_local noundef zeroext i1 @drm_scdc_set_scrambling(ptr nocapture nound
   store i16 84, ptr %3, align 8
   %39 = getelementptr inbounds i8, ptr %3, i64 4
   store i16 2, ptr %39, align 4
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %41 = call noalias align 8 dereferenceable_or_null(2) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3264, i64 noundef 2) #9
   %42 = icmp eq ptr %41, null
   br i1 %42, label %51, label %43
@@ -369,7 +369,7 @@ define dso_local noundef zeroext i1 @drm_scdc_set_high_tmds_clock_ratio(ptr noca
   store i16 84, ptr %3, align 8
   %39 = getelementptr inbounds i8, ptr %3, i64 4
   store i16 2, ptr %39, align 4
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %41 = call noalias align 8 dereferenceable_or_null(2) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3264, i64 noundef 2) #9
   %42 = icmp eq ptr %41, null
   br i1 %42, label %50, label %43

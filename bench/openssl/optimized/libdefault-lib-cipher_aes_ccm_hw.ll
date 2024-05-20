@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_aes_hw_ccm(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_ccm, ptr @aesni_ccm
@@ -68,7 +68,7 @@ declare void @aesni_ccm64_decrypt_blocks(ptr noundef, ptr noundef, i64 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ccm_generic_aes_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
   %keylen.tr = trunc i64 %keylen to i32

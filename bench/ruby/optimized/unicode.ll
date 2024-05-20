@@ -1198,7 +1198,7 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
   br i1 %exitcond268.not, label %45, label %.preheader200, !llvm.loop !16
 
 45:                                               ; preds = %._crit_edge221
-  %46 = call i32 %1(i32 noundef 304, ptr noundef nonnull getelementptr inbounds ([59 x %struct.CaseUnfold_12_Type], ptr @CaseUnfold_12_Table, i64 0, i64 58), i32 noundef 2, ptr noundef %2) #6
+  %46 = call i32 %1(i32 noundef 304, ptr noundef nonnull getelementptr inbounds (i8, ptr @CaseUnfold_12_Table, i64 1160), i32 noundef 2, ptr noundef %2) #6
   %.not181 = icmp eq i32 %46, 0
   br i1 %.not181, label %.preheader195, label %.loopexit
 

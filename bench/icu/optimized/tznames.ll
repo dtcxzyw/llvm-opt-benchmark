@@ -54,7 +54,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7521TimeZoneNamesDelegateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 16), ptr %this, align 8
   %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fTZnamesCacheEntry, align 8
   ret void
@@ -64,7 +64,7 @@ entry:
 define void @_ZN6icu_7521TimeZoneNamesDelegateC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos.i = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 16), ptr %this, align 8
   invoke void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L18gTimeZoneNamesLockE)
           to label %invoke.cont unwind label %lpad
 
@@ -414,7 +414,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7521TimeZoneNamesDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 16), ptr %this, align 8
   invoke void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L18gTimeZoneNamesLockE)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -825,7 +825,7 @@ entry:
   br i1 %or.cond, label %if.end5, label %return
 
 if.end5:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %mzID, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %mzID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %mzID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp19 = icmp sgt i32 %numTypes, 0
@@ -894,7 +894,7 @@ return:                                           ; preds = %entry, %for.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513TimeZoneNames19MatchInfoCollectionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513TimeZoneNames19MatchInfoCollectionE, i64 16), ptr %this, align 8
   %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fMatches, align 8
   ret void
@@ -903,7 +903,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513TimeZoneNames19MatchInfoCollectionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513TimeZoneNames19MatchInfoCollectionE, i64 16), ptr %this, align 8
   %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatches, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -943,7 +943,7 @@ if.end:                                           ; preds = %entry
 
 new.notnull:                                      ; preds = %if.end
   %id.i = getelementptr inbounds i8, ptr %call2, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %id.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %id.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   store i32 %nameType, ptr %call2, align 8
@@ -1136,7 +1136,7 @@ if.end:                                           ; preds = %entry
 
 new.notnull:                                      ; preds = %if.end
   %id.i = getelementptr inbounds i8, ptr %call2, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %id.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %id.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   store i32 %nameType, ptr %call2, align 8

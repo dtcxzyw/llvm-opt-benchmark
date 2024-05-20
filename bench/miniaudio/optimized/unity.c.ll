@@ -62110,7 +62110,7 @@ if.end4:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i)
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_wav, i64 0, i32 3), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 24), align 8
   %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %if.end11.thread, label %if.end.i.i
 
@@ -62148,7 +62148,7 @@ if.end11.thread:                                  ; preds = %if.end5.i.i, %if.en
 if.then14:                                        ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i50)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i51)
-  %13 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_flac, i64 0, i32 3), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 24), align 8
   %cmp.i.i52 = icmp eq ptr %13, null
   br i1 %cmp.i.i52, label %ma_decoder_init_flac_from_memory__internal.exit, label %if.end.i.i53
 
@@ -62186,7 +62186,7 @@ ma_decoder_init_flac_from_memory__internal.exit:  ; preds = %if.then14, %if.end.
 if.then19:                                        ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i68)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i69)
-  %18 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_mp3, i64 0, i32 3), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 24), align 8
   %cmp.i.i70 = icmp eq ptr %18, null
   br i1 %cmp.i.i70, label %ma_decoder_init_mp3_from_memory__internal.exit, label %if.end.i.i71
 
@@ -62301,7 +62301,7 @@ ma_decoder_init_custom_from_memory__internal.exit: ; preds = %for.inc.i, %if.the
 if.then34:                                        ; preds = %ma_decoder_init_custom_from_memory__internal.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i103)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i104)
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_wav, i64 0, i32 3), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 24), align 8
   %cmp.i.i105 = icmp eq ptr %31, null
   br i1 %cmp.i.i105, label %if.then38, label %if.end.i.i106
 
@@ -62337,7 +62337,7 @@ if.then38:                                        ; preds = %if.then34, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i104)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i123)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i124)
-  %36 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_flac, i64 0, i32 3), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 24), align 8
   %cmp.i.i125 = icmp eq ptr %36, null
   br i1 %cmp.i.i125, label %if.then42, label %if.end.i.i126
 
@@ -62424,7 +62424,7 @@ entry:
   %pBackend.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i)
-  %0 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_mp3, i64 0, i32 3), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 24), align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %ma_decoder_init_from_memory__internal.exit, label %if.end.i
 
@@ -64710,7 +64710,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
 if.then5:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i)
-  %9 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_wav, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
   %cmp.i.i52 = icmp eq ptr %9, null
   br i1 %cmp.i.i52, label %if.end7.thread, label %if.end.i.i
 
@@ -64748,7 +64748,7 @@ if.end7.thread:                                   ; preds = %if.end5.i.i, %if.en
 if.then10:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i54)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_flac, i64 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
   %cmp.i.i55 = icmp eq ptr %14, null
   br i1 %cmp.i.i55, label %ma_decoder_init_flac_from_file__internal.exit, label %if.end.i.i56
 
@@ -64786,7 +64786,7 @@ ma_decoder_init_flac_from_file__internal.exit:    ; preds = %if.then10, %if.end.
 if.then15:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i71)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i72)
-  %19 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_mp3, i64 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 8), align 8
   %cmp.i.i73 = icmp eq ptr %19, null
   br i1 %cmp.i.i73, label %ma_decoder_init_mp3_from_file__internal.exit, label %if.end.i.i74
 
@@ -64961,7 +64961,7 @@ while.cond.i.i.i130.preheader:                    ; preds = %ma_decoder_init_wav
 if.then30:                                        ; preds = %ma_path_extension_equal.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i109)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i110)
-  %35 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_wav, i64 0, i32 1), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
   %cmp.i.i111 = icmp eq ptr %35, null
   br i1 %cmp.i.i111, label %ma_decoder_init_wav_from_file__internal.exit128.thread, label %if.end.i.i112
 
@@ -65060,7 +65060,7 @@ while.cond.i.i.i180.preheader:                    ; preds = %ma_decoder_init_fla
 if.then37:                                        ; preds = %ma_path_extension_equal.exit158
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i159)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i160)
-  %43 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_flac, i64 0, i32 1), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
   %cmp.i.i161 = icmp eq ptr %43, null
   br i1 %cmp.i.i161, label %ma_decoder_init_flac_from_file__internal.exit178.thread, label %if.end.i.i162
 
@@ -65156,7 +65156,7 @@ ma_path_extension_equal.exit208:                  ; preds = %while.cond.i.i191
 if.then44:                                        ; preds = %ma_path_extension_equal.exit208
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i209)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i210)
-  %51 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_mp3, i64 0, i32 1), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 8), align 8
   %cmp.i.i211 = icmp eq ptr %51, null
   br i1 %cmp.i.i211, label %ma_decoder_init_mp3_from_file__internal.exit228.thread, label %if.end.i.i212
 
@@ -65195,7 +65195,7 @@ ma_decoder_init_mp3_from_file__internal.exit228:  ; preds = %if.end.i.i212
 if.then50:                                        ; preds = %ma_decoder_init_mp3_from_file__internal.exit228.thread, %ma_path_extension_equal.exit208
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i229)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i230)
-  %56 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_wav, i64 0, i32 1), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
   %cmp.i.i231 = icmp eq ptr %56, null
   br i1 %cmp.i.i231, label %if.then54, label %if.end.i.i232
 
@@ -65231,7 +65231,7 @@ if.then54:                                        ; preds = %if.then50, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i230)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i249)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i250)
-  %61 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_flac, i64 0, i32 1), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
   %cmp.i.i251 = icmp eq ptr %61, null
   br i1 %cmp.i.i251, label %if.then58, label %if.end.i.i252
 
@@ -65313,7 +65313,7 @@ entry:
   %pBackend.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i)
-  %0 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_mp3, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 8), align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %ma_decoder_init_from_file__internal.exit, label %if.end.i
 
@@ -65476,7 +65476,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
 if.then5:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i)
-  %9 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_wav, i64 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
   %cmp.i.i52 = icmp eq ptr %9, null
   br i1 %cmp.i.i52, label %if.end7.thread, label %if.end.i.i
 
@@ -65514,7 +65514,7 @@ if.end7.thread:                                   ; preds = %if.end5.i.i, %if.en
 if.then10:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i54)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_flac, i64 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
   %cmp.i.i55 = icmp eq ptr %14, null
   br i1 %cmp.i.i55, label %ma_decoder_init_flac_from_file_w__internal.exit, label %if.end.i.i56
 
@@ -65552,7 +65552,7 @@ ma_decoder_init_flac_from_file_w__internal.exit:  ; preds = %if.then10, %if.end.
 if.then15:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i71)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i72)
-  %19 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_mp3, i64 0, i32 2), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 16), align 8
   %cmp.i.i73 = icmp eq ptr %19, null
   br i1 %cmp.i.i73, label %ma_decoder_init_mp3_from_file_w__internal.exit, label %if.end.i.i74
 
@@ -65672,7 +65672,7 @@ land.lhs.true28:                                  ; preds = %ma_decoder_init_cus
 if.then30:                                        ; preds = %land.lhs.true28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i106)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i107)
-  %32 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_wav, i64 0, i32 2), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
   %cmp.i.i108 = icmp eq ptr %32, null
   br i1 %cmp.i.i108, label %ma_decoder_init_wav_from_file_w__internal.exit125.thread, label %if.end.i.i109
 
@@ -65716,7 +65716,7 @@ land.lhs.true34:                                  ; preds = %ma_decoder_init_wav
 if.then37:                                        ; preds = %land.lhs.true34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i126)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i127)
-  %37 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_flac, i64 0, i32 2), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
   %cmp.i.i128 = icmp eq ptr %37, null
   br i1 %cmp.i.i128, label %ma_decoder_init_flac_from_file_w__internal.exit145.thread, label %if.end.i.i129
 
@@ -65760,7 +65760,7 @@ land.lhs.true41:                                  ; preds = %ma_decoder_init_fla
 if.then44:                                        ; preds = %land.lhs.true41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i146)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i147)
-  %42 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_mp3, i64 0, i32 2), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 16), align 8
   %cmp.i.i148 = icmp eq ptr %42, null
   br i1 %cmp.i.i148, label %ma_decoder_init_mp3_from_file_w__internal.exit165.thread, label %if.end.i.i149
 
@@ -65799,7 +65799,7 @@ ma_decoder_init_mp3_from_file_w__internal.exit165: ; preds = %if.end.i.i149
 if.then50:                                        ; preds = %ma_decoder_init_mp3_from_file_w__internal.exit165.thread, %land.lhs.true41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i166)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i167)
-  %47 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_wav, i64 0, i32 2), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
   %cmp.i.i168 = icmp eq ptr %47, null
   br i1 %cmp.i.i168, label %if.then54, label %if.end.i.i169
 
@@ -65835,7 +65835,7 @@ if.then54:                                        ; preds = %if.then50, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i167)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i186)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i187)
-  %52 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_flac, i64 0, i32 2), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
   %cmp.i.i188 = icmp eq ptr %52, null
   br i1 %cmp.i.i188, label %if.then58, label %if.end.i.i189
 
@@ -65917,7 +65917,7 @@ entry:
   %pBackend.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i)
-  %0 = load ptr, ptr getelementptr inbounds (%struct.ma_decoding_backend_vtable, ptr @g_ma_decoding_backend_vtable_mp3, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 16), align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %ma_decoder_init_from_file_w__internal.exit, label %if.end.i
 
@@ -74961,7 +74961,7 @@ if.end17:                                         ; preds = %if.then11, %if.then
 
 if.end3.i.i75:                                    ; preds = %if.end17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cursor.i.i)
-  %10 = load ptr, ptr getelementptr inbounds (%struct.ma_data_source_vtable, ptr @g_ma_resource_manager_data_stream_vtable, i64 0, i32 3), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_resource_manager_data_stream_vtable, i64 24), align 8
   %cmp4.i.i = icmp eq ptr %10, null
   br i1 %cmp4.i.i, label %if.end7.i, label %if.end6.i.i
 
@@ -104909,7 +104909,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
   %318 = load <4 x float>, ptr %add.ptr8.i.i, align 1
   %add.ptr11.i.i = getelementptr inbounds float, ptr @ma_dr_mp3_L3_antialias.g_aa, i64 %i.0.i.i
   %319 = load <4 x float>, ptr %add.ptr11.i.i, align 16
-  %add.ptr14.i.i = getelementptr inbounds float, ptr getelementptr inbounds ([2 x [8 x float]], ptr @ma_dr_mp3_L3_antialias.g_aa, i64 0, i64 1), i64 %i.0.i.i
+  %add.ptr14.i.i = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @ma_dr_mp3_L3_antialias.g_aa, i64 32), i64 %i.0.i.i
   %320 = load <4 x float>, ptr %add.ptr14.i.i, align 16
   %shufp.i.i = shufflevector <4 x float> %318, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %mul.i41.i.i = fmul <4 x float> %317, %319
@@ -150846,7 +150846,7 @@ for.body71:                                       ; preds = %for.end, %for.body7
   %58 = load <4 x float>, ptr %i.1.sroa.phi, align 1
   %add.ptr82 = getelementptr inbounds float, ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 %i.1
   %59 = load <4 x float>, ptr %add.ptr82, align 16
-  %add.ptr85 = getelementptr inbounds float, ptr getelementptr inbounds ([18 x float], ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 0, i64 9), i64 %i.1
+  %add.ptr85 = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 36), i64 %i.1
   %60 = load <4 x float>, ptr %add.ptr85, align 4
   %add.ptr88 = getelementptr inbounds float, ptr %window, i64 %i.1
   %61 = load <4 x float>, ptr %add.ptr88, align 1

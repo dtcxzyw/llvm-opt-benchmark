@@ -3580,7 +3580,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyXI_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %0, %interp
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -3704,7 +3704,7 @@ if.end.i9.i:                                      ; preds = %if.end.i
   store i64 1, ptr %.compoundliteral.sroa.5.0..sroa_idx.i13.i, align 8
   %.compoundliteral.sroa.6.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %call.i7.i, i64 40
   store ptr @_long_shared, ptr %.compoundliteral.sroa.6.0..sroa_idx.i14.i, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 19), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 168), align 8
   %and.i15.i = and i64 %4, 512
   %tobool.not.i16.i = icmp eq i64 %and.i15.i, 0
   br i1 %tobool.not.i16.i, label %if.end10.i20.i, label %if.then3.i17.i
@@ -3750,7 +3750,7 @@ if.end.i30.i:                                     ; preds = %if.end5.i
   store i64 1, ptr %.compoundliteral.sroa.5.0..sroa_idx.i34.i, align 8
   %.compoundliteral.sroa.6.0..sroa_idx.i35.i = getelementptr inbounds i8, ptr %call.i28.i, i64 40
   store ptr @_bytes_shared, ptr %.compoundliteral.sroa.6.0..sroa_idx.i35.i, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBytes_Type, i64 0, i32 19), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @PyBytes_Type, i64 168), align 8
   %and.i36.i = and i64 %6, 512
   %tobool.not.i37.i = icmp eq i64 %and.i36.i, 0
   br i1 %tobool.not.i37.i, label %if.end10.i41.i, label %if.then3.i38.i
@@ -3796,7 +3796,7 @@ if.end.i51.i:                                     ; preds = %if.end9.i
   store i64 1, ptr %.compoundliteral.sroa.5.0..sroa_idx.i55.i, align 8
   %.compoundliteral.sroa.6.0..sroa_idx.i56.i = getelementptr inbounds i8, ptr %call.i49.i, i64 40
   store ptr @_str_shared, ptr %.compoundliteral.sroa.6.0..sroa_idx.i56.i, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyUnicode_Type, i64 0, i32 19), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @PyUnicode_Type, i64 168), align 8
   %and.i57.i = and i64 %8, 512
   %tobool.not.i58.i = icmp eq i64 %and.i57.i, 0
   br i1 %tobool.not.i58.i, label %if.end10.i62.i, label %if.then3.i59.i
@@ -3842,7 +3842,7 @@ if.end.i72.i:                                     ; preds = %if.end13.i
   store i64 1, ptr %.compoundliteral.sroa.5.0..sroa_idx.i76.i, align 8
   %.compoundliteral.sroa.6.0..sroa_idx.i77.i = getelementptr inbounds i8, ptr %call.i70.i, i64 40
   store ptr @_bool_shared, ptr %.compoundliteral.sroa.6.0..sroa_idx.i77.i, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBool_Type, i64 0, i32 19), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @PyBool_Type, i64 168), align 8
   %and.i78.i = and i64 %10, 512
   %tobool.not.i79.i = icmp eq i64 %and.i78.i, 0
   br i1 %tobool.not.i79.i, label %if.end10.i83.i, label %if.then3.i80.i
@@ -3888,7 +3888,7 @@ if.end.i93.i:                                     ; preds = %if.end17.i
   store i64 1, ptr %.compoundliteral.sroa.5.0..sroa_idx.i97.i, align 8
   %.compoundliteral.sroa.6.0..sroa_idx.i98.i = getelementptr inbounds i8, ptr %call.i91.i, i64 40
   store ptr @_float_shared, ptr %.compoundliteral.sroa.6.0..sroa_idx.i98.i, align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
   %and.i99.i = and i64 %12, 512
   %tobool.not.i100.i = icmp eq i64 %and.i99.i, 0
   br i1 %tobool.not.i100.i, label %if.end10.i104.i, label %if.then3.i101.i
@@ -3934,7 +3934,7 @@ if.end.i114.i:                                    ; preds = %if.end21.i
   store i64 1, ptr %.compoundliteral.sroa.5.0..sroa_idx.i118.i, align 8
   %.compoundliteral.sroa.6.0..sroa_idx.i119.i = getelementptr inbounds i8, ptr %call.i112.i, i64 40
   store ptr @_tuple_shared, ptr %.compoundliteral.sroa.6.0..sroa_idx.i119.i, align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyTuple_Type, i64 0, i32 19), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @PyTuple_Type, i64 168), align 8
   %and.i120.i = and i64 %14, 512
   %tobool.not.i121.i = icmp eq i64 %and.i120.i, 0
   br i1 %tobool.not.i121.i, label %if.end10.i125.i, label %if.then3.i122.i
@@ -4041,7 +4041,7 @@ Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %
   br i1 %cmp.not.i.i, label %_xidregistry_fini.exit, label %while.body.i.i, !llvm.loop !17
 
 _xidregistry_fini.exit:                           ; preds = %Py_XDECREF.exit.i.i, %_fini_not_shareable_error_type.exit, %if.end.i
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %9, %interp
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -4099,7 +4099,7 @@ if.end:                                           ; preds = %Py_XDECREF.exit.i.i
 define hidden void @_PyXI_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @PyExc_BaseException, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct._typeobject, ptr @_PyExc_InterpreterError, i64 0, i32 30), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @_PyExc_InterpreterError, i64 256), align 8
   %call.i = tail call i32 @_PyStaticType_InitBuiltin(ptr noundef %interp, ptr noundef nonnull @_PyExc_InterpreterError) #13
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %init_exceptions.exit
@@ -4801,7 +4801,7 @@ if.else.i:                                        ; preds = %Py_DECREF.exit.i28.
   br i1 %cmp.i37.i, label %_format_TracebackException.exit.i, label %if.end.i38.i
 
 if.end.i38.i:                                     ; preds = %if.else.i
-  %call1.i39.i = call ptr @PyUnicode_Join(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), ptr noundef nonnull %call.i36.i) #13
+  %call1.i39.i = call ptr @PyUnicode_Join(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull %call.i36.i) #13
   %41 = load i64, ptr %call.i36.i, align 8
   %42 = and i64 %41, 2147483648
   %cmp.i16.not.i.i = icmp eq i64 %42, 0

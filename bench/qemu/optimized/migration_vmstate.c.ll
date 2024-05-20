@@ -403,7 +403,7 @@ if.else48:                                        ; preds = %if.end40
   unreachable
 
 if.end49:                                         ; preds = %if.end40.thread
-  %48 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (%struct.VMStateInfo, ptr @vmstate_info_nullptr, i64 0, i32 1), ptr nonnull @.str.7, ptr nonnull @.str.8, i32 44, ptr null)
+  %48 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @vmstate_info_nullptr, i64 8), ptr nonnull @.str.7, ptr nonnull @.str.8, i32 44, ptr null)
   %49 = load ptr, ptr %48, align 8
   %call50 = tail call i32 %49(ptr noundef %f, ptr noundef null, i64 noundef %conv, ptr noundef null) #10
   br label %if.end72
@@ -1527,7 +1527,7 @@ if.else47:                                        ; preds = %if.end39
   unreachable
 
 if.end48:                                         ; preds = %if.end39.thread
-  %49 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (%struct.VMStateInfo, ptr @vmstate_info_nullptr, i64 0, i32 2), ptr nonnull @.str.7, ptr nonnull @.str.8, i32 46, ptr null)
+  %49 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @vmstate_info_nullptr, i64 16), ptr nonnull @.str.7, ptr nonnull @.str.8, i32 46, ptr null)
   %50 = load ptr, ptr %49, align 8
   %call50 = tail call i32 %50(ptr noundef %f, ptr noundef null, i64 noundef %conv49, ptr noundef null, ptr noundef null) #10
   br label %if.end70

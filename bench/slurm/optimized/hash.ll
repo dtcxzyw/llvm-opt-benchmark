@@ -84,7 +84,7 @@ define range(i32 -1, 1) i32 @hash_g_init() local_unnamed_addr #0 {
 
 31:                                               ; preds = %24
   %32 = trunc i32 %18 to i8
-  store i8 %32, ptr getelementptr inbounds ([4 x i8], ptr @hash_id_to_inx, i64 0, i64 2), align 2
+  store i8 %32, ptr getelementptr inbounds (i8, ptr @hash_id_to_inx, i64 2), align 2
   %33 = add nsw i32 %18, 1
   store i32 %33, ptr @g_context_num, align 4
   store i8 0, ptr @hash_id_to_inx, align 4

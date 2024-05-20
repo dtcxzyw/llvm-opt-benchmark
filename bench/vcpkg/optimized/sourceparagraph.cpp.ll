@@ -11977,7 +11977,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK5vcpkg30DependencyOverrideDeseri
 
 13:                                               ; preds = %11, %4, %1
   %14 = load ptr, ptr @_ZZNK5vcpkg30DependencyOverrideDeserializer12valid_fieldsEvE1t, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%"class.std::vector.339", ptr @_ZZNK5vcpkg30DependencyOverrideDeserializer12valid_fieldsEvE1t, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg30DependencyOverrideDeserializer12valid_fieldsEvE1t, i64 8), align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %14 to i64
   %18 = sub i64 %16, %17
@@ -13338,7 +13338,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK5vcpkg20ManifestDeserializer12va
 
 13:                                               ; preds = %11, %4, %1
   %14 = load ptr, ptr @_ZZNK5vcpkg20ManifestDeserializer12valid_fieldsEvE1t, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%"class.std::vector.339", ptr @_ZZNK5vcpkg20ManifestDeserializer12valid_fieldsEvE1t, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg20ManifestDeserializer12valid_fieldsEvE1t, i64 8), align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %14 to i64
   %18 = sub i64 %16, %17

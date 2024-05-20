@@ -74,7 +74,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9FactUnionC2EPK8Variable(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -87,7 +87,7 @@ declare void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9FactUnionC2EPK8Variablei(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   tail call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -683,21 +683,21 @@ define dso_local noundef nonnull ptr @_ZN9FactUnion9make_factEPK8Variablei(ptr n
           to label %4 unwind label %35
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 %1, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 16), align 8
   %.not.i.i = icmp eq ptr %7, %8
   br i1 %.not.i.i, label %12, label %9
 
 9:                                                ; preds = %4
   store ptr %3, ptr %7, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %11, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit
 
 12:                                               ; preds = %4
@@ -750,9 +750,9 @@ _ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
 
 _ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %27, ptr @_ZN4Fact6facts_E, align 8
-  store ptr %32, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   %34 = getelementptr inbounds ptr, ptr %27, i64 %23
-  store ptr %34, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %34, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 16), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit:  ; preds = %9, %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
@@ -784,21 +784,21 @@ define dso_local noundef nonnull ptr @_ZNK9FactUnion5cloneEv(ptr nocapture nound
           to label %7 unwind label %38
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %6, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 16), align 8
   %.not.i.i = icmp eq ptr %10, %11
   br i1 %.not.i.i, label %15, label %12
 
 12:                                               ; preds = %7
   store ptr %2, ptr %10, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %14, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit
 
 15:                                               ; preds = %7
@@ -851,9 +851,9 @@ _ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
 
 _ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %30, ptr @_ZN4Fact6facts_E, align 8
-  store ptr %35, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %35, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   %37 = getelementptr inbounds ptr, ptr %30, i64 %26
-  store ptr %37, ptr getelementptr inbounds (%"class.std::vector.47", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 16), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit:  ; preds = %12, %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
@@ -911,7 +911,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 @_ZNK8Variable12get_field_idEv(ptr noundef nonnull align 8 dereferenceable(200) %.01325)
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %17, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1115,7 +1115,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.01521
   %13 = load ptr, ptr %12, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %4, align 8
   store ptr %13, ptr %8, align 8
   store i32 -2, ptr %9, align 8
   %14 = invoke noundef ptr @_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %4)
@@ -1192,7 +1192,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
 define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8VariableiRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.FactUnion, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 24

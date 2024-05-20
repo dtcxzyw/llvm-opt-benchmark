@@ -491,7 +491,7 @@ if.then:                                          ; preds = %entry
   store ptr @.str.15, ptr %name2.i.i.i.i.i, align 8, !noalias !4
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 11, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i, align 8, !noalias !4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes11ScopeMergerE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes11ScopeMergerE, i64 16), ptr %call.i.i, align 8, !noalias !4
   %mergedMap_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mergedMap_.i.i.i, i8 0, i64 20, i1 false), !noalias !4
   store ptr %call.i.i, ptr %agg.tmp.i, align 8

@@ -101,7 +101,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %46 = call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %45, i32 noundef 3264, i64 noundef 128) #5
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread14, label %48
@@ -232,7 +232,7 @@ define dso_local noundef ptr @drm_gem_duplicate_shadow_plane_state(ptr noundef %
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 328) #5
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
@@ -306,7 +306,7 @@ define dso_local void @drm_gem_reset_shadow_plane(ptr noundef %0) #0 align 16 {
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 328) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
@@ -412,7 +412,7 @@ define dso_local void @drm_gem_simple_kms_reset_shadow_plane(ptr noundef %0) #0 
   br label %8
 
 8:                                                ; preds = %6, %1
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 328) #5
   %11 = icmp eq ptr %10, null
   br i1 %11, label %drm_gem_reset_shadow_plane.exit, label %12
@@ -436,7 +436,7 @@ define dso_local noundef ptr @drm_gem_simple_kms_duplicate_shadow_plane_state(pt
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 328) #5
   %9 = icmp eq ptr %8, null
   br i1 %9, label %14, label %10

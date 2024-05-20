@@ -519,14 +519,14 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 
 146:                                              ; preds = %141
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @vt_spawn_con) #7
-  %147 = load ptr, ptr getelementptr inbounds (%struct.vt_spawn_console, ptr @vt_spawn_con, i64 0, i32 1), align 8
+  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @vt_spawn_con, i64 8), align 8
   tail call void @put_pid(ptr noundef %147) #7
   %148 = getelementptr inbounds i8, ptr %13, i64 1416
   %149 = load ptr, ptr %148, align 8
   %150 = tail call fastcc ptr @get_pid(ptr noundef %149)
-  store ptr %149, ptr getelementptr inbounds (%struct.vt_spawn_console, ptr @vt_spawn_con, i64 0, i32 1), align 8
+  store ptr %149, ptr getelementptr inbounds (i8, ptr @vt_spawn_con, i64 8), align 8
   %151 = trunc nuw i64 %2 to i32
-  store i32 %151, ptr getelementptr inbounds (%struct.vt_spawn_console, ptr @vt_spawn_con, i64 0, i32 2), align 8
+  store i32 %151, ptr getelementptr inbounds (i8, ptr @vt_spawn_con, i64 16), align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @vt_spawn_con) #7
   br label %165
 

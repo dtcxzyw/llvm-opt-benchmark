@@ -695,7 +695,7 @@ define range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_method_handler(ptr n
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
-  %42 = icmp eq ptr %41, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %42 = icmp eq ptr %41, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %40
@@ -1053,7 +1053,7 @@ php_dom_xpath_is_callback_name_valid.exit.i:      ; preds = %189, %188, %183
 
 202:                                              ; preds = %php_dom_xpath_is_callback_name_valid.exit.i
   %203 = load ptr, ptr %192, align 8, !nonnull !4, !noundef !4
-  %204 = icmp eq ptr %203, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %204 = icmp eq ptr %203, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %204, label %205, label %209
 
 205:                                              ; preds = %202
@@ -1221,13 +1221,13 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit: ; preds = %7, %14, %18
   %22 = tail call noalias ptr @_emalloc_64() #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   %23 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
-  %24 = icmp eq ptr %23, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %24 = icmp eq ptr %23, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %20
   %26 = tail call noalias ptr @_emalloc_256() #9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %26, ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63), i64 240, i1 false)
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63, i32 0, i32 3), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %26, ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @executor_globals, i64 1288), i64 240, i1 false)
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
   store ptr %26, ptr %22, align 8
   br label %27
 
@@ -1620,7 +1620,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_dom_xpath_callback_dispatch(ptr
   br label %43
 
 43:                                               ; preds = %37, %42, %16
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not148 = icmp eq ptr %44, null
   br i1 %.not148, label %71, label %134
 

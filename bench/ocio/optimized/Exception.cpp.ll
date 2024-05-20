@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN19OpenColorIO_v2_4dev9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %msg) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %msg)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev9ExceptionE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -33,7 +33,7 @@ declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereference
 define void @_ZN19OpenColorIO_v2_4dev9ExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev9ExceptionE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -65,7 +65,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define void @_ZN19OpenColorIO_v2_4dev20ExceptionMissingFileC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %msg) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %msg)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev20ExceptionMissingFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20ExceptionMissingFileE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -73,7 +73,7 @@ entry:
 define void @_ZN19OpenColorIO_v2_4dev20ExceptionMissingFileC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev20ExceptionMissingFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20ExceptionMissingFileE, i64 16), ptr %this, align 8
   ret void
 }
 

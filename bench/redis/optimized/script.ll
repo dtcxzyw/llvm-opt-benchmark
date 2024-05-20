@@ -145,12 +145,12 @@ if.end:                                           ; preds = %entry
   %call.i.i = tail call i64 %3() #10
   %sub.i.i = sub i64 %call.i.i, %2
   %div.i = udiv i64 %sub.i.i, 1000
-  %4 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 385), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5312), align 8
   %cmp = icmp slt i64 %div.i, %4
   br i1 %cmp, label %return, label %do.body
 
 do.body:                                          ; preds = %if.end
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp8 = icmp sgt i32 %5, 3
   br i1 %cmp8, label %do.end, label %if.end11
 
@@ -249,15 +249,15 @@ cond.end:                                         ; preds = %entry
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 17592186044416
   %tobool4.not = icmp eq i64 %and, 0
-  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool9 = icmp ne ptr %2, null
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 289), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
   %cmp = icmp ne i32 %3, 12
   %or.cond = select i1 %tobool9, i1 %cmp, i1 false
   br i1 %or.cond, label %land.end, label %land.end.thread
 
 land.end:                                         ; preds = %cond.end
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 297), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4672), align 8
   %cmp11 = icmp eq i32 %4, 0
   %call = tail call i32 @mustObeyClient(ptr noundef nonnull %caller) #10
   %and13 = and i64 %script_flags, 16
@@ -275,7 +275,7 @@ if.then:                                          ; preds = %land.end.thread, %l
   %5 = phi i1 [ false, %land.end.thread ], [ %cmp11, %land.end ]
   %and15 = and i64 %script_flags, 8
   %tobool16 = icmp ne i64 %and15, 0
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
   %tobool18 = icmp ne i32 %6, 0
   %or.cond1 = select i1 %tobool16, i1 %tobool18, i1 false
   br i1 %or.cond1, label %if.then19, label %if.end
@@ -300,9 +300,9 @@ if.end25:                                         ; preds = %if.end
   br i1 %tobool27.not, label %if.then28, label %if.end55
 
 if.then28:                                        ; preds = %if.end25
-  %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool29 = icmp eq ptr %7, null
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 298), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
   %tobool31 = icmp eq i32 %8, 0
   %or.cond2.not47 = select i1 %tobool29, i1 true, i1 %tobool31
   %tobool33 = icmp ne i32 %call57, 0
@@ -328,7 +328,7 @@ if.then44:                                        ; preds = %if.then41
   br label %return
 
 if.else:                                          ; preds = %if.then41
-  %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 212), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4068), align 4
   %call45 = tail call ptr @strerror(i32 noundef %9) #10
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %caller, ptr noundef nonnull @.str.15, ptr noundef %call45) #10
   br label %return
@@ -347,15 +347,15 @@ if.end50:                                         ; preds = %if.end47
   br i1 %tobool52.not, label %if.then53, label %if.end55
 
 if.then53:                                        ; preds = %if.end50
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 28), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 320), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %caller, ptr noundef %10) #10
   br label %return
 
 if.end55:                                         ; preds = %if.end50, %if.end25
-  %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 386), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5320), align 8
   %tobool58 = icmp ne i32 %11, 0
   %or.cond5 = select i1 %tobool4.not, i1 %tobool58, i1 false
-  %12 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4808), align 8
   %tobool60 = icmp ne i64 %12, 0
   %or.cond6 = select i1 %or.cond5, i1 %tobool60, i1 false
   %and62 = and i64 %script_flags, 3
@@ -371,7 +371,7 @@ if.else66:                                        ; preds = %land.end
   br i1 %cmp11, label %if.then68, label %if.end70
 
 if.then68:                                        ; preds = %if.else66
-  %13 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 24), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 288), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %caller, ptr noundef %13) #10
   br label %return
 
@@ -516,9 +516,9 @@ cond.end11.i:                                     ; preds = %if.then
   %6 = and i32 %5, -9
   store i32 %6, ptr %flags.i4, align 8
   tail call void @blockingOperationEnds() #10
-  %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool14.i = icmp ne ptr %7, null
-  %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 286), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4592), align 8
   %tobool15.i = icmp ne ptr %8, null
   %or.cond.i = select i1 %tobool14.i, i1 %tobool15.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %exitScriptTimedoutMode.exit
@@ -624,7 +624,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %or.cond, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end6
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 21), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 264), align 8
   tail call void @addReplyErrorObject(ptr noundef %c, ptr noundef %4) #10
   br label %return
 
@@ -635,7 +635,7 @@ if.end13:                                         ; preds = %if.end6
   br i1 %or.cond8, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.end13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 20), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 256), align 8
   tail call void @addReplyErrorObject(ptr noundef %c, ptr noundef %6) #10
   br label %return
 
@@ -733,7 +733,7 @@ scriptVerifyCommandArity.exit:                    ; preds = %entry, %lor.lhs.fal
   br label %error
 
 if.end:                                           ; preds = %lor.lhs.false.i
-  %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 387), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5324), align 4
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end9
 
@@ -750,12 +750,12 @@ if.then7:                                         ; preds = %land.lhs.true
   br label %error
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end
-  %9 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool.not.i36 = icmp eq ptr %9, null
-  %10 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 289), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
   %cmp.i37 = icmp eq i32 %10, 12
   %or.cond.i = select i1 %tobool.not.i36, i1 true, i1 %cmp.i37
-  %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 297), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4672), align 8
   %cmp3.i = icmp eq i32 %11, 1
   %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp3.i
   br i1 %or.cond1.i, label %if.end13, label %if.end5.i
@@ -828,9 +828,9 @@ if.end.i47:                                       ; preds = %if.end17
 
 if.end16.i:                                       ; preds = %if.end.i47
   %call17.i = call i32 @writeCommandsDeniedByDiskError() #10
-  %23 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool18.i = icmp ne ptr %23, null
-  %24 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 298), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
   %tobool20.i = icmp ne i32 %24, 0
   %or.cond.i48 = select i1 %tobool18.i, i1 %tobool20.i, i1 false
   br i1 %or.cond.i48, label %land.lhs.true21.i, label %if.end26.i
@@ -842,7 +842,7 @@ land.lhs.true21.i:                                ; preds = %if.end16.i
   br i1 %tobool23.not.i, label %if.then24.i, label %if.end26.i
 
 if.then24.i:                                      ; preds = %land.lhs.true21.i
-  %26 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 25), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 296), align 8
   %ptr.i50 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %ptr.i50, align 8
   %call25.i = call ptr @sdsdup(ptr noundef %27) #10
@@ -862,7 +862,7 @@ if.end30.i:                                       ; preds = %if.end26.i
   br i1 %tobool32.not.i, label %if.then33.i, label %if.end21
 
 if.then33.i:                                      ; preds = %if.end30.i
-  %28 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 28), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 320), align 8
   %ptr34.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %ptr34.i, align 8
   %call35.i = call ptr @sdsdup(ptr noundef %29) #10
@@ -978,7 +978,7 @@ entry:
   %0 = load i32, ptr %flags, align 8
   %1 = and i32 %0, 64
   %tobool.not = icmp ne i32 %1, 0
-  %2 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4808), align 8
   %tobool1.not = icmp eq i64 %2, 0
   %or.cond4 = select i1 %tobool.not, i1 true, i1 %tobool1.not
   br i1 %or.cond4, label %return, label %land.lhs.true
@@ -994,7 +994,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   %4 = load i32, ptr %flags, align 8
   %5 = and i32 %4, 1
   %tobool7 = icmp eq i32 %5, 0
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 386), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5320), align 8
   %tobool9 = icmp ne i32 %6, 0
   %or.cond = select i1 %tobool7, i1 %tobool9, i1 false
   br i1 %or.cond, label %land.lhs.true10, label %return
@@ -1011,7 +1011,7 @@ land.lhs.true10:                                  ; preds = %land.lhs.true3
   br i1 %tobool13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true10
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 30), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 336), align 8
   %ptr = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %ptr, align 8
   %call15 = tail call ptr @sdsdup(ptr noundef %11) #10
@@ -1028,7 +1028,7 @@ define internal fastcc range(i32 -1, 1) i32 @scriptVerifyClusterState(ptr nocapt
 entry:
   %error_code = alloca i32, align 4
   %hashslot = alloca i32, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 

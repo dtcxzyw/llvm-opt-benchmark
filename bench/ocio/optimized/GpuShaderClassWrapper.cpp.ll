@@ -208,7 +208,7 @@ entry:
 
 _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 16), ptr %call, align 8
   %m_className.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_className.i) #13
   %m_functionName.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -219,14 +219,14 @@ _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_de
 
 _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev21OSLShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
   %call3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 16), ptr %call3, align 8
   %m_functionName.i1 = getelementptr inbounds i8, ptr %call3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i1) #13
   br label %return
 
 _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
   %call6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperE, i64 16), ptr %call6, align 8
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN19OpenColorIO_v2_4dev21OSLShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit
@@ -242,7 +242,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 define hidden void @_ZNK19OpenColorIO_v2_4dev25NullGpuShaderClassWrapper5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperE, i64 16), ptr %call, align 8
   store ptr %call, ptr %agg.result, align 8
   ret void
 }
@@ -255,7 +255,7 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev21OSLShaderClassWrapper5cloneEv(ptr
 _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev21OSLShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 16), ptr %call, align 8
   %m_functionName.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i) #13
   store ptr %call, ptr %agg.result, align 8
@@ -3856,7 +3856,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad4, 
 define hidden void @_ZNK19OpenColorIO_v2_4dev23MetalShaderClassWrapper5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 16), ptr %call, align 8
   %m_className.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_className.i) #13
   %m_functionName.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -4086,7 +4086,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 16), ptr %this, align 8
   %m_functionParameters = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_functionParameters, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -4127,7 +4127,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 16), ptr %this, align 8
   %m_functionParameters.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_functionParameters.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -4177,7 +4177,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21OSLShaderClassWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 16), ptr %this, align 8
   %m_functionName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName) #13
   ret void
@@ -4186,7 +4186,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21OSLShaderClassWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 16), ptr %this, align 8
   %m_functionName.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17

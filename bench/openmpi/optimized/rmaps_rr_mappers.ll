@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %5, i64 80
   %8 = load i16, ptr %7, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %9, 64
   br i1 %or.cond, label %10, label %19
 
@@ -82,7 +82,7 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %1, i64 136
   %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %31 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, i32 noundef %21, ptr noundef %29, ptr noundef %30) #9
   %32 = load i32, ptr @prte_exit_status, align 4
   %33 = icmp eq i32 %32, 0
@@ -156,7 +156,7 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.1175262 = phi i32 [ %.6, %226 ], [ %.0174, %63 ]
   %.0167267.in = getelementptr inbounds i8, ptr %.0168264, i64 120
   %.0167267 = load ptr, ptr %.0167267.in, align 8
-  %65 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %65, 64
   br i1 %or.cond5, label %66, label %74
 
@@ -273,7 +273,7 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %226
 
 122:                                              ; preds = %119
-  %123 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %123 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond7 = icmp ult i32 %123, 64
   br i1 %or.cond7, label %124, label %133
 
@@ -544,7 +544,7 @@ pmix_obj_run_destructors.exit222:                 ; preds = %.lr.ph.i219, %203
   br label %.loopexit
 
 242:                                              ; preds = %._crit_edge
-  %243 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %243 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond9 = icmp ult i32 %243, 64
   br i1 %or.cond9, label %244, label %251
 
@@ -627,7 +627,7 @@ declare ptr @prte_hwloc_base_print_binding(i16 noundef zeroext) local_unnamed_ad
 define range(i32 -43, 1) i32 @prte_rmaps_rr_bynode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %5, i64 80
   %8 = load i16, ptr %7, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %9, 64
   br i1 %or.cond, label %10, label %21
 
@@ -662,7 +662,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bynode(ptr noundef %0, ptr noundef %
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %1, i64 136
   %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %33 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, i32 noundef %23, ptr noundef %31, ptr noundef %32) #9
   %34 = load i32, ptr @prte_exit_status, align 4
   %35 = icmp eq i32 %34, 0
@@ -790,7 +790,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bynode(ptr noundef %0, ptr noundef %
   br label %202
 
 97:                                               ; preds = %94
-  %98 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %98 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %98, 64
   br i1 %or.cond5, label %99, label %109
 
@@ -1061,7 +1061,7 @@ pmix_obj_run_destructors.exit180:                 ; preds = %.lr.ph.i177, %179
   br label %.loopexit
 
 218:                                              ; preds = %._crit_edge
-  %219 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %219 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond7 = icmp ult i32 %219, 64
   br i1 %or.cond7, label %220, label %.backedge
 
@@ -1089,7 +1089,7 @@ pmix_obj_run_destructors.exit180:                 ; preds = %.lr.ph.i177, %179
 define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %5, i64 80
   %8 = load i16, ptr %7, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %9, 64
   br i1 %or.cond, label %10, label %21
 
@@ -1124,7 +1124,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %1, i64 136
   %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %33 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, i32 noundef %23, ptr noundef %31, ptr noundef %32) #9
   %34 = load i32, ptr @prte_exit_status, align 4
   %35 = icmp eq i32 %34, 0
@@ -1206,7 +1206,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
   %.1191297 = phi i32 [ %.4194, %252 ], [ %.0190, %72 ]
   %.0188302.in = getelementptr inbounds i8, ptr %.0189298, i64 120
   %.0188302 = load ptr, ptr %.0188302.in, align 8
-  %74 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %74 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %74, 64
   br i1 %or.cond5, label %75, label %83
 
@@ -1325,7 +1325,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
   br label %252
 
 133:                                              ; preds = %130
-  %134 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond7 = icmp ult i32 %134, 64
   br i1 %or.cond7, label %135, label %144
 
@@ -1704,7 +1704,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define range(i32 -43, 1) i32 @prte_rmaps_rr_byobj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %5, i64 80
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %8, 64
   br i1 %or.cond, label %9, label %21
 
@@ -1740,7 +1740,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_byobj(ptr noundef %0, ptr noundef %1
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %1, i64 136
   %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %33 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, i32 noundef %23, ptr noundef %31, ptr noundef %32) #9
   %34 = load i32, ptr @prte_exit_status, align 4
   %35 = icmp eq i32 %34, 0
@@ -1911,7 +1911,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %104
   br label %294
 
 118:                                              ; preds = %76
-  %119 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %119 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %119, 64
   br i1 %or.cond5, label %120, label %.preheader
 
@@ -1955,7 +1955,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %104
   br i1 %.not367, label %134, label %.critedge
 
 134:                                              ; preds = %.split
-  %135 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %135 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond7 = icmp ult i32 %135, 64
   br i1 %or.cond7, label %136, label %142
 

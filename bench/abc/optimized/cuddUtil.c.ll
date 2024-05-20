@@ -2747,7 +2747,7 @@ define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr nocapture noundef readonly %
   br i1 %exitcond.not.i.i, label %Cudd_Random.exit, label %.preheader, !llvm.loop !28
 
 Cudd_Random.exit:                                 ; preds = %.preheader, %48
-  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %48 ], [ getelementptr inbounds ([64 x i64], ptr @shuffleTable, i64 0, i64 1), %.preheader ]
+  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %48 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
   %61 = phi i64 [ %22, %48 ], [ 1, %.preheader ]
   %62 = phi i64 [ %21, %48 ], [ 477372060, %.preheader ]
   %.pre10.i = load i64, ptr %shuffleSelect.sink.i, align 8
@@ -2837,7 +2837,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @Cudd_Random() l
   br i1 %exitcond.not.i, label %Cudd_Srandom.exit, label %.preheader, !llvm.loop !28
 
 Cudd_Srandom.exit:                                ; preds = %.preheader, %._crit_edge
-  %shuffleSelect.sink = phi ptr [ @shuffleSelect, %._crit_edge ], [ getelementptr inbounds ([64 x i64], ptr @shuffleTable, i64 0, i64 1), %.preheader ]
+  %shuffleSelect.sink = phi ptr [ @shuffleSelect, %._crit_edge ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
   %14 = phi i64 [ %.pre, %._crit_edge ], [ 1, %.preheader ]
   %15 = phi i64 [ %1, %._crit_edge ], [ 477372060, %.preheader ]
   %.pre10 = load i64, ptr %shuffleSelect.sink, align 8
@@ -2983,7 +2983,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr nocapture
   br i1 %exitcond.not.i.i, label %Cudd_Random.exit, label %.preheader, !llvm.loop !28
 
 Cudd_Random.exit:                                 ; preds = %.preheader, %37
-  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %37 ], [ getelementptr inbounds ([64 x i64], ptr @shuffleTable, i64 0, i64 1), %.preheader ]
+  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %37 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
   %50 = phi i64 [ %30, %37 ], [ 1, %.preheader ]
   %51 = phi i64 [ %29, %37 ], [ 477372060, %.preheader ]
   %.pre10.i = load i64, ptr %shuffleSelect.sink.i, align 8
@@ -3499,7 +3499,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %exitcond.not.i.i344.us, label %Cudd_Random.exit345.us, label %.preheader350.us, !llvm.loop !28
 
 Cudd_Random.exit345.us:                           ; preds = %.preheader350.us, %113
-  %shuffleSelect.sink.i330.us = phi ptr [ @shuffleSelect, %113 ], [ getelementptr inbounds ([64 x i64], ptr @shuffleTable, i64 0, i64 1), %.preheader350.us ]
+  %shuffleSelect.sink.i330.us = phi ptr [ @shuffleSelect, %113 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader350.us ]
   %126 = phi i64 [ %105, %113 ], [ 1, %.preheader350.us ]
   %127 = phi i64 [ %104, %113 ], [ 477372060, %.preheader350.us ]
   %.pre10.i331.us = load i64, ptr %shuffleSelect.sink.i330.us, align 8
@@ -3588,7 +3588,7 @@ Cudd_Random.exit345.us:                           ; preds = %.preheader350.us, %
   br i1 %exitcond.not.i.i, label %Cudd_Random.exit, label %.preheader353, !llvm.loop !28
 
 Cudd_Random.exit:                                 ; preds = %.preheader353, %163
-  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %163 ], [ getelementptr inbounds ([64 x i64], ptr @shuffleTable, i64 0, i64 1), %.preheader353 ]
+  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %163 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader353 ]
   %176 = phi i64 [ %155, %163 ], [ 1, %.preheader353 ]
   %177 = phi i64 [ %154, %163 ], [ 477372060, %.preheader353 ]
   %.pre10.i = load i64, ptr %shuffleSelect.sink.i, align 8
@@ -6005,7 +6005,7 @@ define void @Cudd_Srandom(i64 noundef %0) local_unnamed_addr #15 {
 
 17:                                               ; preds = %5
   store i64 %12, ptr @cuddRand, align 8
-  %18 = load i64, ptr getelementptr inbounds ([64 x i64], ptr @shuffleTable, i64 0, i64 1), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @shuffleTable, i64 8), align 8
   store i64 %18, ptr @shuffleSelect, align 8
   ret void
 }

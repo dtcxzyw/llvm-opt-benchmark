@@ -867,8 +867,8 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %prefix7, align 8
   %tobool8.not = icmp eq ptr %3, null
   %spec.select = select i1 %tobool8.not, ptr @.str.5, ptr %1
-  %trace_setup_key.val = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 1), align 8
-  %trace_setup_key.val2 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 2), align 4
+  %trace_setup_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 8), align 8
+  %trace_setup_key.val2 = load i8, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_setup_key.val, 0
   %bf.clear.i = and i8 %trace_setup_key.val2, 1
   %tobool12.not23 = icmp ne i8 %bf.clear.i, 0
@@ -879,8 +879,8 @@ do.body17:                                        ; preds = %if.end
   %call14 = tail call ptr @get_git_dir() #14
   %call15 = tail call fastcc ptr @quote_crnl(ptr noundef %call14)
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 314, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.6, ptr noundef %call15)
-  %trace_setup_key.val3.pre = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 1), align 8
-  %trace_setup_key.val4.pre = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 2), align 4
+  %trace_setup_key.val3.pre = load i32, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 8), align 8
+  %trace_setup_key.val4.pre = load i8, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 12), align 4
   %.pre = and i8 %trace_setup_key.val4.pre, 1
   %4 = icmp eq i32 %trace_setup_key.val3.pre, 0
   %5 = icmp ne i8 %.pre, 0
@@ -891,8 +891,8 @@ do.body25:                                        ; preds = %do.body17
   %call21 = tail call ptr @get_git_common_dir() #14
   %call22 = tail call fastcc ptr @quote_crnl(ptr noundef %call21)
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 315, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.7, ptr noundef %call22)
-  %trace_setup_key.val5.pre = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 1), align 8
-  %trace_setup_key.val6.pre = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 2), align 4
+  %trace_setup_key.val5.pre = load i32, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 8), align 8
+  %trace_setup_key.val6.pre = load i8, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 12), align 4
   %.pre36 = and i8 %trace_setup_key.val6.pre, 1
   %7 = icmp eq i32 %trace_setup_key.val5.pre, 0
   %8 = icmp ne i8 %.pre36, 0
@@ -902,8 +902,8 @@ do.body25:                                        ; preds = %do.body17
 do.body32:                                        ; preds = %do.body25
   %call29 = tail call fastcc ptr @quote_crnl(ptr noundef nonnull %spec.store.select)
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 316, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.8, ptr noundef %call29)
-  %trace_setup_key.val7.pre = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 1), align 8
-  %trace_setup_key.val8.pre = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 2), align 4
+  %trace_setup_key.val7.pre = load i32, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 8), align 8
+  %trace_setup_key.val8.pre = load i8, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 12), align 4
   %.pre37 = and i8 %trace_setup_key.val8.pre, 1
   %10 = icmp eq i32 %trace_setup_key.val7.pre, 0
   %11 = icmp ne i8 %.pre37, 0
@@ -913,8 +913,8 @@ do.body32:                                        ; preds = %do.body25
 do.body39:                                        ; preds = %do.body32
   %call36 = tail call fastcc ptr @quote_crnl(ptr noundef %call2)
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 317, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.9, ptr noundef %call36)
-  %trace_setup_key.val9.pre = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 1), align 8
-  %trace_setup_key.val10.pre = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_setup_key, i64 0, i32 2), align 4
+  %trace_setup_key.val9.pre = load i32, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 8), align 8
+  %trace_setup_key.val10.pre = load i8, ptr getelementptr inbounds (i8, ptr @trace_setup_key, i64 12), align 4
   %.pre38 = and i8 %trace_setup_key.val10.pre, 1
   %13 = icmp eq i32 %trace_setup_key.val9.pre, 0
   %14 = icmp ne i8 %.pre38, 0
@@ -945,8 +945,8 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %while.cond.preheader, label %if.then4.i
 
@@ -985,26 +985,26 @@ sw.default:                                       ; preds = %while.cond
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %sw.default
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 1), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 8), align 8
   %.neg.i = add i64 %3, 1
   %tobool.not.i = icmp eq i64 %2, %.neg.i
   br i1 %tobool.not.i, label %if.then.i, label %strbuf_addch.exit
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %sw.default
   tail call void @strbuf_grow(ptr noundef nonnull @quote_crnl.new_path, i64 noundef 1) #14
-  %.pre.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 1), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 8), align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %4 = phi i64 [ %.pre.i, %if.then.i ], [ %3, %strbuf_avail.exit.i ]
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 16), align 8
+  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 8), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 %1, ptr %arrayidx.i, align 1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 2), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 16), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 8), align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %6, i64 %7
   store i8 0, ptr %arrayidx3.i, align 1
   br label %sw.epilog
@@ -1014,7 +1014,7 @@ sw.epilog:                                        ; preds = %strbuf_addch.exit, 
   br label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @quote_crnl.new_path, i64 16), align 8
   br label %return
 
 return:                                           ; preds = %entry, %while.end
@@ -1037,7 +1037,7 @@ entry:
   br i1 %tobool.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @command_line, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @command_line, i64 8), align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %if.then2, label %if.end4
 
@@ -1046,8 +1046,8 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @command_line, i64 0, i32 1), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @command_line, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @command_line, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @command_line, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -1089,8 +1089,8 @@ declare i32 @atexit(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal void @print_command_performance_atexit() #0 {
 entry:
-  %trace_perf_key.val = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_perf_key, i64 0, i32 1), align 8
-  %trace_perf_key.val1 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_perf_key, i64 0, i32 2), align 4
+  %trace_perf_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8
+  %trace_perf_key.val1 = load i8, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_perf_key.val, 0
   %bf.clear.i = and i8 %trace_perf_key.val1, 1
   %tobool.not2 = icmp ne i8 %bf.clear.i, 0
@@ -1099,7 +1099,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call i64 @getnanotime()
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @command_line, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @command_line, i64 16), align 8
   tail call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 414, i64 noundef %call1, ptr noundef nonnull @.str.26, ptr noundef %0)
   br label %do.end
 

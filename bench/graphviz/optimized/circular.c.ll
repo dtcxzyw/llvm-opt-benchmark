@@ -53,7 +53,7 @@ define void @circularLayout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not.i, label %initGraphAttrs.exit, label %22
 
 22:                                               ; preds = %16
-  store i32 0, ptr getelementptr inbounds (%struct.circ_state, ptr @circularLayout.state, i64 0, i32 2), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @circularLayout.state, i64 20), align 4
   store ptr %20, ptr @initGraphAttrs.rootg, align 8
   %23 = tail call ptr @agattr(ptr noundef %20, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef null) #13
   store ptr %23, ptr @initGraphAttrs.G_mindist, align 8
@@ -68,15 +68,15 @@ initGraphAttrs.exit:                              ; preds = %16, %22
   %27 = tail call ptr @agget(ptr noundef %26, ptr noundef nonnull @.str.2) #13
   store ptr %27, ptr @initGraphAttrs.rootname, align 8
   tail call void @initBlocklist(ptr noundef nonnull @circularLayout.state) #13
-  store i32 1, ptr getelementptr inbounds (%struct.circ_state, ptr @circularLayout.state, i64 0, i32 1), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @circularLayout.state, i64 16), align 8
   %28 = load ptr, ptr @initGraphAttrs.rootg, align 8
   %29 = load ptr, ptr @initGraphAttrs.G_mindist, align 8
   %30 = tail call double @late_double(ptr noundef %28, ptr noundef %29, double noundef 1.000000e+00, double noundef 0.000000e+00) #13
-  store double %30, ptr getelementptr inbounds (%struct.circ_state, ptr @circularLayout.state, i64 0, i32 5), align 8
+  store double %30, ptr getelementptr inbounds (i8, ptr @circularLayout.state, i64 40), align 8
   %31 = load ptr, ptr @initGraphAttrs.N_root, align 8
-  store ptr %31, ptr getelementptr inbounds (%struct.circ_state, ptr @circularLayout.state, i64 0, i32 3), align 8
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @circularLayout.state, i64 24), align 8
   %32 = load ptr, ptr @initGraphAttrs.rootname, align 8
-  store ptr %32, ptr getelementptr inbounds (%struct.circ_state, ptr @circularLayout.state, i64 0, i32 4), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @circularLayout.state, i64 32), align 8
   %33 = tail call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str) #13
   %34 = tail call zeroext i1 @mapbool(ptr noundef %33) #13
   br i1 %34, label %35, label %72
@@ -84,9 +84,9 @@ initGraphAttrs.exit:                              ; preds = %16, %22
 35:                                               ; preds = %initGraphAttrs.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %36 = load i32, ptr getelementptr inbounds (%struct.circ_state, ptr @circularLayout.state, i64 0, i32 2), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @circularLayout.state, i64 20), align 4
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr getelementptr inbounds (%struct.circ_state, ptr @circularLayout.state, i64 0, i32 2), align 4
+  store i32 %37, ptr getelementptr inbounds (i8, ptr @circularLayout.state, i64 20), align 4
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr nonnull poison, i32 noundef %36)
   %38 = getelementptr inbounds i8, ptr %3, i64 31
   %.val.i.i.i.i = load i8, ptr %38, align 1

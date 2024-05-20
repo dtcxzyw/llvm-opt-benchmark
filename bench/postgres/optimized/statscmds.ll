@@ -919,7 +919,7 @@ list_length.exit252.thread:                       ; preds = %315, %list_length.e
   br label %430
 
 430:                                              ; preds = %424, %429, %144
-  %.sink = phi ptr [ getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), %144 ], [ %411, %429 ], [ %411, %424 ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %144 ], [ %411, %429 ], [ %411, %424 ]
   %.sroa.0176.0.in = phi ptr [ @InvalidObjectAddress, %144 ], [ %10, %429 ], [ %10, %424 ]
   %.sroa.3.0.copyload178 = load i32, ptr %.sink, align 4
   %.sroa.0176.0 = load i64, ptr %.sroa.0176.0.in, align 4
@@ -1109,7 +1109,7 @@ define dso_local { i64, i32 } @AlterStatistics(ptr nocapture noundef readonly %0
 41:                                               ; preds = %.sink.split, %37, %32
   %.sroa.026.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.026.sroa.3.0.extract.shift = lshr i64 %.sroa.026.0.copyload, 32
-  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
+  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %42 = and i64 %.sroa.026.0.copyload, 4294967295
   br label %68
 

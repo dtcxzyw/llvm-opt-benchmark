@@ -41,7 +41,7 @@ declare dso_local void @mempool_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @unx_create(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rpc_auth, ptr @unix_auth, i64 0, i32 7), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rpc_auth, ptr @unix_auth, i64 0, i32 7)) #8, !srcloc !5
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @unix_auth, i64 36), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @unix_auth, i64 36)) #8, !srcloc !5
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5, !prof !6
 
@@ -53,7 +53,7 @@ define internal noundef ptr @unx_create(ptr nocapture readnone %0, ptr nocapture
 
 9:                                                ; preds = %5, %2
   %10 = phi i32 [ 2, %2 ], [ 1, %5 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (%struct.rpc_auth, ptr @unix_auth, i64 0, i32 7), i32 noundef %10) #8
+  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (i8, ptr @unix_auth, i64 36), i32 noundef %10) #8
   br label %11
 
 11:                                               ; preds = %9, %5

@@ -4073,7 +4073,7 @@ if.end7.i:                                        ; preds = %if.end.i.thread, %i
   br i1 %cmp.i17.i, label %if.then.i.i, label %if.end.i18.i
 
 if.then.i.i:                                      ; preds = %if.end7.i
-  %_Py_NoneStruct.val.i.i = load ptr, ptr getelementptr inbounds (%struct._object, ptr @_Py_NoneStruct, i64 0, i32 1), align 8
+  %_Py_NoneStruct.val.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_NoneStruct, i64 8), align 8
   %21 = load i32, ptr %_Py_NoneStruct.val.i.i, align 8
   %add.i.i.i.i = add i32 %21, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0

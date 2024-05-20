@@ -87,10 +87,10 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_handle_query_offsets(ptr nocapture noundef readnone %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
   %opaque = getelementptr inbounds i8, ptr %0, i64 624
   %1 = load ptr, ptr %opaque, align 16
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %info = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load ptr, ptr %info, align 8
   %code_offset = getelementptr inbounds i8, ptr %3, i64 88
@@ -121,7 +121,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
   %2 = load i64, ptr %1, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
   %opaque = getelementptr inbounds i8, ptr %3, i64 624
   %4 = load ptr, ptr %opaque, align 16
   %info = getelementptr inbounds i8, ptr %4, i64 48
@@ -143,16 +143,16 @@ if.end10:                                         ; preds = %if.end
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %8, i64 2045)
   %sub = sub i64 %6, %2
   %cmp14 = icmp ult i64 %spec.store.select, %sub
-  %9 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %.str.3..str.4 = select i1 %cmp14, ptr @.str.3, ptr @.str.4
   %spec.store.select.sub = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 %sub)
   %call17 = tail call ptr @g_string_assign(ptr noundef %9, ptr noundef nonnull %.str.3..str.4) #9
-  %10 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %conv = trunc nuw nsw i64 %spec.store.select.sub to i32
   %call20 = tail call ptr @g_byte_array_set_size(ptr noundef %10, i32 noundef %conv) #9
-  %11 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
   %add = add i64 %7, %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %13 = load ptr, ptr %12, align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef %11) #9
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #9
@@ -179,11 +179,11 @@ if.then24:                                        ; preds = %target_memory_rw_de
   br label %return
 
 if.end26:                                         ; preds = %target_memory_rw_debug.exit
-  %15 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %17 = load ptr, ptr %16, align 8
   tail call void @gdb_memtox(ptr noundef %15, ptr noundef %17, i32 noundef %conv) #9
-  %18 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %19 = load ptr, ptr %18, align 8
   %len29 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i64, ptr %len29, align 8
@@ -210,27 +210,27 @@ define dso_local void @gdb_handle_v_file_open(ptr nocapture noundef readonly %pa
 entry:
   %params.val = load ptr, ptr %params, align 8
   %params.val.val = load ptr, ptr %params.val, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %params.val.val) #10
   %div2.i = lshr i64 %call.i, 1
   %conv.i = trunc i64 %div2.i to i32
   tail call void @gdb_hextomem(ptr noundef %0, ptr noundef %params.val.val, i32 noundef %conv.i) #9
-  %1 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %call1.i = tail call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef 1) #9
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %params, align 8
   %arrayidx = getelementptr i8, ptr %4, i64 16
   %5 = load i64, ptr %arrayidx, align 8
   %arrayidx2 = getelementptr i8, ptr %4, i64 32
   %6 = load i64, ptr %arrayidx2, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
   %add.ptr.i = getelementptr i8, ptr %7, i64 10176
   %conv = trunc i64 %5 to i32
   %conv4 = trunc i64 %6 to i32
   %call5 = tail call i32 @do_guest_openat(ptr noundef %add.ptr.i, i32 noundef 0, ptr noundef %3, i32 noundef %conv, i32 noundef %conv4, i1 noundef zeroext false) #9
   %cmp = icmp slt i32 %call5, 0
-  %8 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -264,7 +264,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %call2 = tail call ptr @__errno_location() #11
   %3 = load i32, ptr %call2, align 4
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3) #9
@@ -303,7 +303,7 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %1 to i32
   %call9 = tail call i64 @pread64(i32 noundef %conv, ptr noundef nonnull %call, i64 noundef %cond, i64 noundef %3) #9
   %cmp10 = icmp slt i64 %call9, 0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   br i1 %cmp10, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end
@@ -315,10 +315,10 @@ if.then12:                                        ; preds = %if.end
 
 if.end14:                                         ; preds = %if.end
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %4, ptr noundef nonnull @.str.14, i64 noundef %call9) #9
-  %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %conv.i = trunc i64 %call9 to i32
   tail call void @gdb_memtox(ptr noundef %6, ptr noundef nonnull %call, i32 noundef %conv.i) #9
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %8 = load ptr, ptr %7, align 8
   %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %len.i, align 8
@@ -341,14 +341,14 @@ define dso_local void @gdb_handle_v_file_readlink(ptr nocapture noundef readonly
 entry:
   %params.val = load ptr, ptr %params, align 8
   %params.val.val = load ptr, ptr %params.val, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %params.val.val) #10
   %div2.i = lshr i64 %call.i, 1
   %conv.i = trunc i64 %div2.i to i32
   tail call void @gdb_hextomem(ptr noundef %0, ptr noundef %params.val.val, i32 noundef %conv.i) #9
-  %1 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %call1.i = tail call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef 1) #9
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %3 = load ptr, ptr %2, align 8
   %call1 = tail call noalias dereferenceable_or_null(8192) ptr @g_try_malloc(i64 noundef 8192) #12
   %cmp = icmp eq ptr %call1, null
@@ -361,7 +361,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call3 = tail call i64 @do_guest_readlink(ptr noundef %3, ptr noundef nonnull %call1, i64 noundef 8192) #9
   %cmp4 = icmp slt i64 %call3, 0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   br i1 %cmp4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
@@ -373,10 +373,10 @@ if.then5:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %4, ptr noundef nonnull @.str.14, i64 noundef %call3) #9
-  %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %conv.i2 = trunc i64 %call3 to i32
   tail call void @gdb_memtox(ptr noundef %6, ptr noundef nonnull %call1, i32 noundef %conv.i2) #9
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %8 = load ptr, ptr %7, align 8
   %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %len.i, align 8
@@ -457,7 +457,7 @@ if.end28:                                         ; preds = %if.end20
   %sub = sub i64 %call23, %2
   %spec.select = select i1 %cmp30, i64 %sub, i64 %3
   %length.0 = trunc i64 %spec.select to i32
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %add.ptr = getelementptr i8, ptr %6, i64 %conv24
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %7, ptr noundef nonnull @.str.10, i32 noundef %length.0, ptr noundef %add.ptr) #9
   tail call void @gdb_put_strbuf() #9

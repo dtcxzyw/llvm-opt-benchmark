@@ -1274,7 +1274,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_dummy_method, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_dummy_method, i64 8), align 8
   tail call void %2(ptr noundef nonnull %1) #9
   store ptr null, ptr %ccdata, align 8
   br label %if.end7

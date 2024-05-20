@@ -907,7 +907,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 define noundef double @_ZN6icu_7518CalendarAstronomer10getSunTimeEda(ptr noundef nonnull align 8 dereferenceable(129) %this, double noundef %desired, i8 noundef signext %next) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func = alloca %"class.icu_75::SunTimeAngleFunc", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516SunTimeAngleFuncE, i64 0, i32 0, i64 2), ptr %func, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SunTimeAngleFuncE, i64 16), ptr %func, align 8
   %call = invoke noundef double @_ZN6icu_7518CalendarAstronomer11timeOfAngleERNS0_9AngleFuncEddda(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(8) %func, double noundef %desired, double noundef 0x4076D3E003AB862B, double noundef 6.000000e+04, i8 noundef signext %next)
           to label %invoke.cont unwind label %lpad
 
@@ -1085,7 +1085,7 @@ entry:
   store double %call.i.i, ptr %siderealT0.i.i, align 8
   %moonPositionSet.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %moonPositionSet.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516RiseSetCoordFuncE, i64 0, i32 0, i64 2), ptr %func, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516RiseSetCoordFuncE, i64 16), ptr %func, align 8
   %call6 = invoke noundef double @_ZN6icu_7518CalendarAstronomer9riseOrSetERNS0_9CoordFuncEaddd(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(8) %func, i8 noundef signext %rise, double noundef 0x3F830D3E7EF4BD1B, double noundef 0x3F8441500D4C900D, double noundef 5.000000e+03)
           to label %invoke.cont unwind label %lpad
 
@@ -1428,7 +1428,7 @@ entry:
 define noundef double @_ZN6icu_7518CalendarAstronomer11getMoonTimeEda(ptr noundef nonnull align 8 dereferenceable(129) %this, double noundef %desired, i8 noundef signext %next) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func = alloca %"class.icu_75::MoonTimeAngleFunc", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517MoonTimeAngleFuncE, i64 0, i32 0, i64 2), ptr %func, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517MoonTimeAngleFuncE, i64 16), ptr %func, align 8
   %call = invoke noundef double @_ZN6icu_7518CalendarAstronomer11timeOfAngleERNS0_9AngleFuncEddda(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(8) %func, double noundef %desired, double noundef 0x403D87D4ABCB41D5, double noundef 6.000000e+04, i8 noundef signext %next)
           to label %invoke.cont unwind label %lpad
 
@@ -1449,7 +1449,7 @@ entry:
   %func.i = alloca %"class.icu_75::MoonTimeAngleFunc", align 8
   %0 = load double, ptr %desired, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %func.i)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517MoonTimeAngleFuncE, i64 0, i32 0, i64 2), ptr %func.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517MoonTimeAngleFuncE, i64 16), ptr %func.i, align 8
   %call.i = invoke noundef double @_ZN6icu_7518CalendarAstronomer11timeOfAngleERNS0_9AngleFuncEddda(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(8) %func.i, double noundef %0, double noundef 0x403D87D4ABCB41D5, double noundef 6.000000e+04, i8 noundef signext %next)
           to label %_ZN6icu_7518CalendarAstronomer11getMoonTimeEda.exit unwind label %lpad.i
 
@@ -1483,7 +1483,7 @@ entry:
 define noundef double @_ZN6icu_7518CalendarAstronomer14getMoonRiseSetEa(ptr noundef nonnull align 8 dereferenceable(129) %this, i8 noundef signext %rise) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func = alloca %"class.icu_75::MoonRiseSetCoordFunc", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520MoonRiseSetCoordFuncE, i64 0, i32 0, i64 2), ptr %func, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520MoonRiseSetCoordFuncE, i64 16), ptr %func, align 8
   %call = invoke noundef double @_ZN6icu_7518CalendarAstronomer9riseOrSetERNS0_9CoordFuncEaddd(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(8) %func, i8 noundef signext %rise, double noundef 0x3F830D3E7EF4BD1B, double noundef 0x3F8441500D4C900D, double noundef 6.000000e+04)
           to label %invoke.cont unwind label %lpad
 
@@ -1510,7 +1510,7 @@ declare double @uprv_getNaN_75() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZNK6icu_7518CalendarAstronomer8Ecliptic8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   ret void
@@ -1519,7 +1519,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZNK6icu_7518CalendarAstronomer10Equatorial8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   ret void
@@ -1528,7 +1528,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZNK6icu_7518CalendarAstronomer7Horizon8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   ret void
@@ -1753,7 +1753,7 @@ declare i32 @uhash_iputi_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513CalendarCacheC2EiR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %size, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513CalendarCacheE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513CalendarCacheE, i64 16), ptr %this, align 8
   %call = tail call ptr @uhash_openSize_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, i32 noundef %size, ptr noundef nonnull %status)
   %fTable = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %fTable, align 8
@@ -1769,7 +1769,7 @@ declare signext i8 @uhash_compareLong_75(ptr, ptr) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513CalendarCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513CalendarCacheE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513CalendarCacheE, i64 16), ptr %this, align 8
   %fTable = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTable, align 8
   %cmp.not = icmp eq ptr %0, null

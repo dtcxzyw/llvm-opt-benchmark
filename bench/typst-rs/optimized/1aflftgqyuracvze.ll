@@ -3668,7 +3668,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !631
   store ptr %491, ptr %29, align 8, !noalias !631
   store i64 %492, ptr %117, align 8, !noalias !631
-  store ptr getelementptr inbounds (<{ [5 x i8] }>, ptr @anon.1d2698ec7d846f5132c773229768a489.117, i64 0, i32 0, i64 1), ptr %118, align 8, !noalias !631
+  store ptr getelementptr inbounds (i8, ptr @anon.1d2698ec7d846f5132c773229768a489.117, i64 1), ptr %118, align 8, !noalias !631
   store i64 4, ptr %119, align 8, !noalias !631
   %498 = icmp ugt i64 %492, 68
   br i1 %498, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i

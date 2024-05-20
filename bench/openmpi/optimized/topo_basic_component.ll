@@ -27,7 +27,7 @@ define internal noundef ptr @mca_topo_basic_query(ptr nocapture readnone %0, ptr
 
 7:                                                ; preds = %4
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_module_t_class, i64 0, i32 4), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_base_module_t_class, i64 32), align 8
   %.not = icmp eq i32 %8, %9
   br i1 %.not, label %11, label %10
 
@@ -39,7 +39,7 @@ define internal noundef ptr @mca_topo_basic_query(ptr nocapture readnone %0, ptr
   store ptr @mca_topo_base_module_t_class, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   store volatile i32 1, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_module_t_class, i64 0, i32 6), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_module_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i

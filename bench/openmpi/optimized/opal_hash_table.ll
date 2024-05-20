@@ -1666,10 +1666,10 @@ opal_hash_table_get_value_uint32.exit:            ; preds = %.lr.ph.i
   br label %91
 
 .loopexit:                                        ; preds = %13, %3
-  %24 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 8), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 56), align 8
   %25 = tail call noalias ptr @malloc(i64 noundef %24) #19
   %26 = load i32, ptr @opal_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 4), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not.i18 = icmp eq i32 %26, %27
   br i1 %.not.i18, label %29, label %28
 
@@ -1685,7 +1685,7 @@ opal_hash_table_get_value_uint32.exit:            ; preds = %.lr.ph.i
   store ptr @opal_hash_table_t_class, ptr %25, align 8
   %31 = getelementptr inbounds i8, ptr %25, i64 8
   store volatile i32 1, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 6), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %33 = load ptr, ptr %32, align 8
   %.not6.i.i = icmp eq ptr %33, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread40, label %.lr.ph.i.i

@@ -117,21 +117,21 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %19 = tail call i64 @gtk_widget_get_type() #12
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %19) #10
   tail call void @gtk_widget_set_name(ptr noundef %20, ptr noundef nonnull @.str.9) #10
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !13
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !13
   %22 = getelementptr inbounds i8, ptr %21, i64 424
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = tail call ptr @dt_action_define(ptr noundef %23, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %5, ptr noundef null) #10
   %25 = tail call ptr @dt_action_register(ptr noundef %24, ptr noundef null, ptr noundef nonnull @_lib_navigation_collapse_callback, i32 noundef 78, i32 noundef 5) #10
-  %26 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !37
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !37
   %27 = and i32 %26, 2
   %28 = icmp ne i32 %27, 0
-  %29 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 21), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3208), align 8
   %30 = icmp ne i32 %29, 0
   %31 = select i1 %28, i1 %30, i1 false
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %1
-  %33 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !38
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !38
   %34 = and i32 %33, 1048576
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %37, label %36
@@ -141,18 +141,18 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br label %37
 
 37:                                               ; preds = %36, %32, %1
-  %38 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !39
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !39
   tail call void @dt_control_signal_connect(ptr noundef %38, i32 noundef 21, ptr noundef nonnull @_lib_navigation_control_redraw_callback, ptr noundef nonnull %0) #10
-  %39 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !37
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !37
   %40 = and i32 %39, 2
   %41 = icmp ne i32 %40, 0
-  %42 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 39), align 8
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3280), align 8
   %43 = icmp ne i32 %42, 0
   %44 = select i1 %41, i1 %43, i1 false
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %37
-  %46 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !38
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !38
   %47 = and i32 %46, 1048576
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %50, label %49
@@ -162,16 +162,16 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br label %50
 
 50:                                               ; preds = %49, %45, %37
-  %51 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !39
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !39
   tail call void @dt_control_signal_connect(ptr noundef %51, i32 noundef 39, ptr noundef nonnull @_lib_navigation_control_redraw_callback, ptr noundef nonnull %0) #10
-  %52 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !13
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !13
   %53 = getelementptr inbounds i8, ptr %52, i64 424
   %54 = load ptr, ptr %53, align 8, !tbaa !23
   %55 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #10
   %56 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %54, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %55, i32 noundef -1, ptr noundef nonnull @_zoom_changed, ptr noundef null, ptr noundef nonnull @gui_init.texts) #10
   %57 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !40
-  %58 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !13
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !13
   %59 = getelementptr inbounds i8, ptr %58, i64 424
   %60 = load ptr, ptr %59, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -207,7 +207,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   call void @dt_gui_add_class(ptr noundef %76, ptr noundef nonnull @.str.28) #10
   %77 = load ptr, ptr %69, align 8, !tbaa !43
   call void @gtk_widget_show_all(ptr noundef %77) #10
-  %78 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !44
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !44
   %79 = getelementptr inbounds i8, ptr %78, i64 136
   store ptr %0, ptr %79, align 8, !tbaa !45
   ret void
@@ -242,9 +242,9 @@ define internal noundef i32 @_lib_navigation_draw_callback(ptr noundef %0, ptr n
   %10 = load i32, ptr %9, align 4, !tbaa !50
   %11 = getelementptr inbounds i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !52
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !53
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !53
   %14 = sitofp i32 %10 to double
-  %15 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !54
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %16 = getelementptr inbounds i8, ptr %15, i64 1456
   %17 = load double, ptr %16, align 8, !tbaa !55
   %18 = fmul reassoc nsz arcp contract afn double %17, %14
@@ -253,7 +253,7 @@ define internal noundef i32 @_lib_navigation_draw_callback(ptr noundef %0, ptr n
   %21 = fmul reassoc nsz arcp contract afn double %17, %20
   %22 = fptosi double %21 to i32
   %23 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %19, i32 noundef %22) #10
-  %24 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !54
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %25 = getelementptr inbounds i8, ptr %24, i64 1456
   %26 = load double, ptr %25, align 8, !tbaa !55
   call void @cairo_surface_set_device_scale(ptr noundef %23, double noundef %26, double noundef %26) #10
@@ -361,7 +361,7 @@ define internal noundef i32 @_lib_navigation_draw_callback(ptr noundef %0, ptr n
   call void @cairo_clip_preserve(ptr noundef %27) #10
   call void @cairo_fill_preserve(ptr noundef %27) #10
   call void @cairo_set_source_rgb(ptr noundef %27, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #10
-  %101 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !54
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %102 = getelementptr inbounds i8, ptr %101, i64 1448
   %103 = load double, ptr %102, align 8, !tbaa !88
   call void @cairo_set_line_width(ptr noundef %27, double noundef %103) #10
@@ -431,7 +431,7 @@ define internal i32 @_lib_navigation_button_press_callback(ptr noundef %0, ptr n
   br label %40
 
 25:                                               ; preds = %10, %3
-  %26 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !54
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %27 = load ptr, ptr %26, align 8, !tbaa !91
   %28 = call ptr @dt_ui_center(ptr noundef %27) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
@@ -502,7 +502,7 @@ declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_navigation_collapse_callback(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 10), align 8, !tbaa !44
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !44
   %3 = getelementptr inbounds i8, ptr %2, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !45
   %5 = tail call i32 @dt_lib_is_visible(ptr noundef %4) #10
@@ -522,7 +522,7 @@ define internal void @_lib_navigation_control_redraw_callback(ptr nocapture read
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !53
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !53
   %8 = getelementptr inbounds i8, ptr %7, i64 2616
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -564,7 +564,7 @@ define internal void @_lib_navigation_control_redraw_callback(ptr nocapture read
 30:                                               ; preds = %20
   %31 = fmul reassoc nsz arcp contract afn float %12, 1.000000e+02
   %32 = fpext float %31 to double
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !54
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %34 = getelementptr inbounds i8, ptr %33, i64 1456
   %35 = load double, ptr %34, align 8, !tbaa !55
   %36 = fmul reassoc nsz arcp contract afn double %35, %32
@@ -573,7 +573,7 @@ define internal void @_lib_navigation_control_redraw_callback(ptr nocapture read
 
 38:                                               ; preds = %30, %27, %17, %14
   %39 = phi ptr [ %16, %14 ], [ %19, %17 ], [ %29, %27 ], [ %37, %30 ]
-  %40 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !54
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %41 = getelementptr inbounds i8, ptr %40, i64 120
   %42 = load i32, ptr %41, align 8, !tbaa !96
   %43 = add nsw i32 %42, 1
@@ -592,7 +592,7 @@ define internal void @_lib_navigation_control_redraw_callback(ptr nocapture read
   br label %51
 
 51:                                               ; preds = %48, %38
-  %52 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !54
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %53 = getelementptr inbounds i8, ptr %52, i64 120
   %54 = load i32, ptr %53, align 8, !tbaa !96
   %55 = add nsw i32 %54, -1
@@ -627,12 +627,12 @@ define internal void @_zoom_changed(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %9, label %10, label %47
 
 10:                                               ; preds = %6, %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !53
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !53
   %12 = icmp eq ptr %11, null
   br i1 %12, label %47, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !54
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %15 = getelementptr inbounds i8, ptr %14, i64 1456
   %16 = load double, ptr %15, align 8, !tbaa !55
   %17 = fptrunc double %16 to float
@@ -728,13 +728,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !37
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !37
   %3 = and i32 %2, 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !38
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !38
   %7 = and i32 %6, 1048576
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9
@@ -744,7 +744,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br label %10
 
 10:                                               ; preds = %9, %5, %1
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !39
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !39
   tail call void @dt_control_signal_disconnect(ptr noundef %11, ptr noundef nonnull @_lib_navigation_control_redraw_callback, ptr noundef %0) #10
   %12 = getelementptr inbounds i8, ptr %0, i64 280
   %13 = load ptr, ptr %12, align 8, !tbaa !6
@@ -861,7 +861,7 @@ define internal fastcc void @_lib_navigation_set_position(i32 %0, double noundef
   %11 = sitofp i32 %10 to float
   %12 = add nsw i32 %4, -10
   %13 = sitofp i32 %12 to float
-  %14 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !53
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !53
   %15 = getelementptr inbounds i8, ptr %14, i64 2616
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10

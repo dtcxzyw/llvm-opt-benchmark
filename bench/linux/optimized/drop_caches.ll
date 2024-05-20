@@ -36,7 +36,7 @@ define dso_local i32 @drop_caches_sysctl_handler(ptr noundef %0, i32 noundef %1,
 13:                                               ; preds = %9
   tail call void @lru_add_drain_all() #3
   tail call void @iterate_supers(ptr noundef nonnull @drop_pagecache_sb, ptr noundef null) #3
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 44), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 44)) #3, !srcloc !5
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 352), ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 352)) #3, !srcloc !5
   %.pre = load i32, ptr @sysctl_drop_caches, align 4
   br label %14
 
@@ -48,7 +48,7 @@ define dso_local i32 @drop_caches_sysctl_handler(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %14
   tail call void @drop_slab() #3
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 45), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 45)) #3, !srcloc !5
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 360), ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 360)) #3, !srcloc !5
   br label %19
 
 19:                                               ; preds = %18, %14

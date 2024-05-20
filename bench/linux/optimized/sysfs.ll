@@ -292,7 +292,7 @@ define dso_local i32 @ext4_init_sysfs() local_unnamed_addr #3 section ".init.tex
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 64) #7
   store ptr %6, ptr @ext4_feat, align 8
   %7 = icmp eq ptr %6, null

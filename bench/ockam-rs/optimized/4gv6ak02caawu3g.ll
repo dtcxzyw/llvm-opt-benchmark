@@ -3875,7 +3875,7 @@ define void @_ZN10ockam_core3env11from_string14parse_duration17haef3139f925a7b06
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18)
-  %20 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hddd4fcd1d0e84794E.llvm.15887933665536463318(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [24 x i8], [8 x i8] }>, ptr @_ZN10ockam_core3env11from_string14DURATION_REGEX17h80de059a46ba0c18E, i64 0, i32 2, i64 0), i8 noundef 2)
+  %20 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hddd4fcd1d0e84794E.llvm.15887933665536463318(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN10ockam_core3env11from_string14DURATION_REGEX17h80de059a46ba0c18E, i64 32), i8 noundef 2)
   %.not.i = icmp eq ptr %20, inttoptr (i64 2 to ptr)
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hcf215cf9d2e1368aE.exit", label %21
 
@@ -3974,7 +3974,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.i.i, %.noexc20.i, %.noexc19.i, %.noexc18.i, %.noexc17.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !768
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !768
-  %56 = load ptr, ptr getelementptr inbounds (<{ [8 x i8], [24 x i8], [8 x i8] }>, ptr @_ZN10ockam_core3env11from_string14DURATION_REGEX17h80de059a46ba0c18E, i64 0, i32 1, i64 0), align 8, !alias.scope !769, !noalias !770, !nonnull !16, !align !289, !noundef !16
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ockam_core3env11from_string14DURATION_REGEX17h80de059a46ba0c18E, i64 8), align 8, !alias.scope !769, !noalias !770, !nonnull !16, !align !289, !noundef !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !771)
   %57 = load i64, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, align 8, !range !235, !noalias !774, !noundef !16
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %57 to i1
@@ -3997,7 +3997,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h489b3ed3280cf994E.exit.i.i.i": ; preds = %.noexc21.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i
-  %.0.i.i2.i.i.i.i = phi ptr [ %58, %.noexc21.i ], [ getelementptr inbounds ({ { i64, i64 }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 0, i32 0, i32 1), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i ]
+  %.0.i.i2.i.i.i.i = phi ptr [ %58, %.noexc21.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i ]
   %.0.val.i.i.i.i = load i64, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !780, !noundef !16
   %61 = getelementptr inbounds i8, ptr %56, i64 40
   %62 = load atomic i64, ptr %61 acquire, align 8, !noalias !780
@@ -4118,7 +4118,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   unreachable
 
 103:                                              ; preds = %.noexc.i.i.i, %97
-  %.0.i.i2.i.i13.i.i = phi ptr [ %100, %.noexc.i.i.i ], [ getelementptr inbounds ({ { i64, i64 }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 0, i32 0, i32 1), %97 ]
+  %.0.i.i2.i.i13.i.i = phi ptr [ %100, %.noexc.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 8), %97 ]
   %104 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload.i.i, i64 16
   %105 = getelementptr i8, ptr %.sroa.01.sroa.5.0.copyload.i.i, i64 32
   %106 = load i64, ptr %105, align 8, !noalias !797, !noundef !16

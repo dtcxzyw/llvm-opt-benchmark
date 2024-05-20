@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @vfs_init() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pstrg_base_framework, i64 0, i32 11), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %8
 
@@ -44,7 +44,7 @@ define internal noundef i32 @vfs_init() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @vfs_finalize() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pstrg_base_framework, i64 0, i32 11), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %8
 

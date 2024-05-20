@@ -309,7 +309,7 @@ define dso_local i32 @nfs4_submount(ptr noundef %0, ptr nocapture noundef readno
   %58 = load ptr, ptr %4, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 512
   %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %62 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %61, i32 noundef 3264, i64 noundef 4096) #11
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.thread44, label %64
@@ -809,7 +809,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
 37:                                               ; preds = %33
   %38 = load ptr, ptr %19, align 8
   %39 = tail call ptr @rpc_net_ns(ptr noundef %38) #9
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %41 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3264, i64 noundef 128) #11
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread17, label %43

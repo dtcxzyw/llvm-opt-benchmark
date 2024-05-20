@@ -142,7 +142,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE7reserveEm.exit: ; preds = %entry, %
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp21MakeLeftHandedProcessE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp21MakeLeftHandedProcessE, i64 16), ptr %call, align 8
   %_M_finish.i.i35 = getelementptr inbounds i8, ptr %out, i64 8
   %3 = load ptr, ptr %_M_finish.i.i35, align 8
   %4 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -288,7 +288,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit71: ; preds = %i
   %call4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call4, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call4) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp23FlipWindingOrderProcessE, i64 0, i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp23FlipWindingOrderProcessE, i64 16), ptr %call4, align 8
   %13 = load ptr, ptr %_M_finish.i.i35, align 8
   %14 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i74 = icmp eq ptr %13, %14
@@ -506,7 +506,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit173: ; preds = %
   %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call14, i8 0, i64 64, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call14) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp20EmbedTexturesProcessE, i64 0, i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp20EmbedTexturesProcessE, i64 16), ptr %call14, align 8
   %mRootPath.i = getelementptr inbounds i8, ptr %call14, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mRootPath.i) #16
   %mIOHandler.i = getelementptr inbounds i8, ptr %call14, i64 56
@@ -728,7 +728,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit275: ; preds = %
   %call24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call24, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call24) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp23ComputeUVMappingProcessE, i64 0, i32 0, i64 2), ptr %call24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp23ComputeUVMappingProcessE, i64 16), ptr %call24, align 8
   %43 = load ptr, ptr %_M_finish.i.i35, align 8
   %44 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i278 = icmp eq ptr %43, %44
@@ -946,7 +946,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit377: ; preds = %
   %call34 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call34, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call34) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp16ArmaturePopulateE, i64 0, i32 0, i64 2), ptr %call34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp16ArmaturePopulateE, i64 16), ptr %call34, align 8
   %58 = load ptr, ptr %_M_finish.i.i35, align 8
   %59 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i380 = icmp eq ptr %58, %59
@@ -1091,7 +1091,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit445: ; preds = %
   %call40 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call40, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call40) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp18TriangulateProcessE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp18TriangulateProcessE, i64 16), ptr %call40, align 8
   %68 = load ptr, ptr %_M_finish.i.i35, align 8
   %69 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i448 = icmp eq ptr %68, %69
@@ -1455,7 +1455,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit615: ; preds = %
   %call58 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call58, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call58) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp25FixInfacingNormalsProcessE, i64 0, i32 0, i64 2), ptr %call58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp25FixInfacingNormalsProcessE, i64 16), ptr %call58, align 8
   %93 = load ptr, ptr %_M_finish.i.i35, align 8
   %94 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i618 = icmp eq ptr %93, %94
@@ -1673,7 +1673,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit717: ; preds = %
   %call68 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call68, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call68) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp22DropFaceNormalsProcessE, i64 0, i32 0, i64 2), ptr %call68, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp22DropFaceNormalsProcessE, i64 16), ptr %call68, align 8
   %108 = load ptr, ptr %_M_finish.i.i35, align 8
   %109 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i720 = icmp eq ptr %108, %109
@@ -1745,7 +1745,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit751: ; preds = %
   %call70 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call70, i8 0, i64 32, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call70) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp21GenFaceNormalsProcessE, i64 0, i32 0, i64 2), ptr %call70, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp21GenFaceNormalsProcessE, i64 16), ptr %call70, align 8
   %force_.i = getelementptr inbounds i8, ptr %call70, i64 24
   store i8 0, ptr %force_.i, align 8
   %flippedWindingOrder_.i = getelementptr inbounds i8, ptr %call70, i64 25
@@ -1823,7 +1823,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit785: ; preds = %
   %call72 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call72, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call72) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp25ComputeSpatialSortProcessE, i64 0, i32 0, i64 2), ptr %call72, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp25ComputeSpatialSortProcessE, i64 16), ptr %call72, align 8
   %118 = load ptr, ptr %_M_finish.i.i35, align 8
   %119 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i788 = icmp eq ptr %118, %119
@@ -2041,7 +2041,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit887: ; preds = %
   %call82 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call82, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call82) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp19JoinVerticesProcessE, i64 0, i32 0, i64 2), ptr %call82, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp19JoinVerticesProcessE, i64 16), ptr %call82, align 8
   %133 = load ptr, ptr %_M_finish.i.i35, align 8
   %134 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i890 = icmp eq ptr %133, %134
@@ -2113,7 +2113,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit921: ; preds = %
   %call84 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call84, i8 0, i64 24, i1 false)
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call84) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp25DestroySpatialSortProcessE, i64 0, i32 0, i64 2), ptr %call84, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp25DestroySpatialSortProcessE, i64 16), ptr %call84, align 8
   %138 = load ptr, ptr %_M_finish.i.i35, align 8
   %139 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i924 = icmp eq ptr %138, %139
@@ -2476,7 +2476,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_
 _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit1091: ; preds = %if.then.i.i1061, %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i1087
   %call102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call102) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp23GenBoundingBoxesProcessE, i64 0, i32 0, i64 2), ptr %call102, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp23GenBoundingBoxesProcessE, i64 16), ptr %call102, align 8
   %163 = load ptr, ptr %_M_finish.i.i35, align 8
   %164 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i1094 = icmp eq ptr %163, %164
@@ -2797,7 +2797,7 @@ for.end:                                          ; preds = %for.body, %invoke.c
   %shared = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %shared, align 8
   %call.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEE, i64 16), ptr %call.i, align 8
   %data.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call2, ptr %data.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp6.i)
@@ -3526,7 +3526,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEE, i64 16), ptr %this, align 8
   %data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data, align 8
   %isnull = icmp eq ptr %0, null
@@ -3570,7 +3570,7 @@ delete.end:                                       ; preds = %_ZNSt6vectorISt4pai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEE, i64 16), ptr %this, align 8
   %data.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data.i, align 8
   %isnull.i = icmp eq ptr %0, null

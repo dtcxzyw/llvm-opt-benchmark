@@ -9772,7 +9772,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he141448109b075e5E.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ff71e1dcfa5d490E.exit.i.i.i": ; preds = %.noexc.i, %75
-  %.0.i.i2.i.i.i.i = phi ptr [ %78, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17hc564e09eac16813cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %75 ]
+  %.0.i.i2.i.i.i.i = phi ptr [ %78, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17hc564e09eac16813cE, i64 8), %75 ]
   %.0.val.i.i.i.i = load i64, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !2334, !noundef !4
   %81 = getelementptr inbounds i8, ptr %76, i64 40
   %82 = load atomic i64, ptr %81 acquire, align 8, !noalias !2334
@@ -9825,7 +9825,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he141448109b075e5E.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ff71e1dcfa5d490E.exit.i.i107.i": ; preds = %.noexc16, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h3437bb7dc5324143E.exit.i"
-  %.0.i.i2.i.i.i108.i = phi ptr [ %90, %.noexc16 ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17hc564e09eac16813cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h3437bb7dc5324143E.exit.i" ]
+  %.0.i.i2.i.i.i108.i = phi ptr [ %90, %.noexc16 ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17hc564e09eac16813cE, i64 8), %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h3437bb7dc5324143E.exit.i" ]
   %.0.val.i.i.i109.i = load i64, ptr %.0.i.i2.i.i.i108.i, align 8, !noalias !2353, !noundef !4
   %93 = getelementptr inbounds i8, ptr %88, i64 40
   %94 = load atomic i64, ptr %93 acquire, align 8, !noalias !2353

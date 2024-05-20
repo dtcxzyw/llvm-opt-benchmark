@@ -56,12 +56,12 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %2
-  %20 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %21 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %20) #7
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %19
-  %23 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %24 = tail call ptr @__errno_location() #8
   %25 = load i32, ptr %24, align 4
   %26 = tail call ptr @strerror(i32 noundef %25) #7
@@ -70,18 +70,18 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
 
 27:                                               ; preds = %2
   %28 = call i32 (i32, i32, ...) @fcntl(i32 noundef %17, i32 noundef 7, ptr noundef nonnull %3) #7
-  %29 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %30 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %29) #7
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %27
-  %32 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %32, ptr noundef nonnull @.str.3, i32 noundef %28, i32 noundef %17) #7
   br label %33
 
 33:                                               ; preds = %27, %31
   %.not = icmp eq i32 %28, 0
-  %34 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %35 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %34) #7
   br i1 %.not, label %56, label %36
 
@@ -89,7 +89,7 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
   br i1 %35, label %37, label %42
 
 37:                                               ; preds = %36
-  %38 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %39 = tail call ptr @__errno_location() #8
   %40 = load i32, ptr %39, align 4
   %41 = call ptr @strerror(i32 noundef %40) #7
@@ -97,7 +97,7 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
   br label %42
 
 42:                                               ; preds = %37, %36
-  %43 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %44 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %43) #7
   br i1 %44, label %45, label %._crit_edge
 
@@ -106,7 +106,7 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
   br label %49
 
 45:                                               ; preds = %42
-  %46 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %47 = tail call ptr @__errno_location() #8
   %48 = load i32, ptr %47, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %46, ptr noundef nonnull @.str.5, i32 noundef %28, i32 noundef %48, i32 noundef 95, i32 noundef 22, i32 noundef 38, i32 noundef 13, i32 noundef 11, i32 noundef 9) #7
@@ -121,12 +121,12 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
   ]
 
 51:                                               ; preds = %49, %49
-  %52 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %53 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %52) #7
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %51
-  %55 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %55, ptr noundef nonnull @.str.6) #7
   br label %59
 
@@ -134,7 +134,7 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
   br i1 %35, label %57, label %59
 
 57:                                               ; preds = %56
-  %58 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %58, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #7
   br label %59
 
@@ -145,12 +145,12 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
 
 .critedge:                                        ; preds = %19, %22, %59
   store i32 0, ptr %1, align 4
-  %62 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %63 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %62) #7
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %.critedge
-  %65 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %65, ptr noundef nonnull @.str.8) #7
   br label %66
 

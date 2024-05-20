@@ -621,7 +621,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 define noundef ptr @_ZN17FramebufferObject7buffersEj(i32 noundef %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @_buffers, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_buffers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_buffers, i64 8), align 8
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %.preheader, label %.loopexit
 
@@ -637,16 +637,16 @@ define noundef ptr @_ZN17FramebufferObject7buffersEj(i32 noundef %0) local_unnam
 .lr.ph:                                           ; preds = %.preheader, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %.05 = phi i32 [ %37, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ 0, %.preheader ]
   %8 = add nuw nsw i32 %.05, 36064
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_buffers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_buffers, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_buffers, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_buffers, i64 16), align 8
   %.not.i.i = icmp eq ptr %9, %10
   br i1 %.not.i.i, label %14, label %11
 
 11:                                               ; preds = %.lr.ph
   store i32 %8, ptr %9, align 4
-  %12 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_buffers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_buffers, i64 8), align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 4
-  store ptr %13, ptr getelementptr inbounds (%"class.std::vector", ptr @_buffers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @_buffers, i64 8), align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 14:                                               ; preds = %.lr.ph
@@ -699,9 +699,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %32, %_ZN
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %29, ptr @_buffers, align 8
-  store ptr %34, ptr getelementptr inbounds (%"class.std::vector", ptr @_buffers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %34, ptr getelementptr inbounds (i8, ptr @_buffers, i64 8), align 8
   %36 = getelementptr inbounds i32, ptr %29, i64 %25
-  store ptr %36, ptr getelementptr inbounds (%"class.std::vector", ptr @_buffers, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %36, ptr getelementptr inbounds (i8, ptr @_buffers, i64 16), align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %11, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i

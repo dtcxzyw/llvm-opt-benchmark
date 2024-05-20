@@ -169,7 +169,7 @@ define internal void @_work_delete(ptr noundef %0) #0 {
   br i1 %.not, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %5 = and i64 %4, 512
   %.not1 = icmp eq i64 %5, 0
   br i1 %.not1, label %10, label %6
@@ -294,7 +294,7 @@ define internal noundef ptr @_worker(ptr noundef %0) #0 {
   unreachable
 
 35:                                               ; preds = %31
-  %36 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %37 = and i64 %36, 512
   %.not75 = icmp eq i64 %37, 0
   br i1 %.not75, label %42, label %38
@@ -353,7 +353,7 @@ define internal noundef ptr @_worker(ptr noundef %0) #0 {
   unreachable
 
 64:                                               ; preds = %49
-  %65 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %65 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %66 = and i64 %65, 512
   %.not8.i = icmp eq i64 %66, 0
   br i1 %.not8.i, label %73, label %67
@@ -379,7 +379,7 @@ _worker_delete.exit:                              ; preds = %42, %73
   ret ptr null
 
 74:                                               ; preds = %28
-  %75 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %75 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %76 = and i64 %75, 512
   %.not71 = icmp eq i64 %76, 0
   br i1 %.not71, label %87, label %77
@@ -427,7 +427,7 @@ _worker_delete.exit:                              ; preds = %42, %73
   %99 = load i32, ptr %98, align 8
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 8
-  %101 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %101 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %102 = and i64 %101, 512
   %.not76 = icmp eq i64 %102, 0
   br i1 %.not76, label %117, label %103
@@ -482,7 +482,7 @@ _worker_delete.exit:                              ; preds = %42, %73
   %130 = load i32, ptr %19, align 8
   %131 = add nsw i32 %130, -1
   store i32 %131, ptr %19, align 8
-  %132 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %132 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %133 = and i64 %132, 512
   %.not79 = icmp eq i64 %133, 0
   br i1 %.not79, label %148, label %134
@@ -531,7 +531,7 @@ _worker_delete.exit:                              ; preds = %42, %73
 157:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %27, ptr %2, align 8
-  %158 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %158 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %159 = and i64 %158, 512
   %.not1.i = icmp eq i64 %159, 0
   br i1 %.not1.i, label %_work_delete.exit, label %160
@@ -580,7 +580,7 @@ define void @quiesce_workq(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %9 = and i64 %8, 512
   %.not17 = icmp eq i64 %9, 0
   br i1 %.not17, label %17, label %10
@@ -634,7 +634,7 @@ define void @quiesce_workq(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 32:                                               ; preds = %28
-  %33 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %34 = and i64 %33, 512
   %.not33.i = icmp eq i64 %34, 0
   br i1 %.not33.i, label %42, label %35
@@ -696,7 +696,7 @@ define void @quiesce_workq(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 57:                                               ; preds = %53
-  %58 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %59 = and i64 %58, 512
   %.not41.i = icmp eq i64 %59, 0
   br i1 %.not41.i, label %_wait_work_complete.exit, label %60
@@ -726,7 +726,7 @@ define void @quiesce_workq(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 72:                                               ; preds = %64
-  %73 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %73 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %74 = and i64 %73, 512
   %.not37.i = icmp eq i64 %74, 0
   br i1 %.not37.i, label %79, label %75
@@ -799,7 +799,7 @@ define void @free_workq(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 512
   %.not17.i = icmp eq i64 %10, 0
   br i1 %.not17.i, label %18, label %11
@@ -854,7 +854,7 @@ define void @free_workq(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 32:                                               ; preds = %._crit_edge.i
-  %33 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %34 = and i64 %33, 512
   %.not20.i = icmp eq i64 %34, 0
   br i1 %.not20.i, label %_wait_workers_idle.exit, label %35
@@ -967,7 +967,7 @@ define range(i32 0, 2038) i32 @workq_add_work(ptr noundef %0, ptr noundef %1, pt
 .thread32:                                        ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
-  %32 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %33 = and i64 %32, 512
   %.not1.i = icmp eq i64 %33, 0
   br i1 %.not1.i, label %_work_delete.exit, label %34

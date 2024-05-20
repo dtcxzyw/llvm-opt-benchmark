@@ -2850,11 +2850,11 @@ if.end16:                                         ; preds = %if.end12
   %localsplusnames = getelementptr inbounds i8, ptr %con, i64 72
   store ptr %call, ptr %localsplusnames, align 8
   %localspluskinds = getelementptr inbounds i8, ptr %con, i64 80
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 1), ptr %localspluskinds, align 8
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 12040), ptr %localspluskinds, align 8
   %argcount = getelementptr inbounds i8, ptr %con, i64 88
   store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %argcount, align 8
   %exceptiontable = getelementptr inbounds i8, ptr %con, i64 104
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 1), ptr %exceptiontable, align 8
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 12040), ptr %exceptiontable, align 8
   %call19 = call ptr @_PyCode_New(ptr noundef nonnull %con)
   br label %if.then.i
 
@@ -6052,7 +6052,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyCode_Type, i64 0, i32 35), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyCode_Type, i64 296), align 8
   %cmp2 = icmp ne ptr %0, %1
   %cmp3 = icmp eq ptr %kwargs, null
   %or.cond = or i1 %cmp3, %cmp2

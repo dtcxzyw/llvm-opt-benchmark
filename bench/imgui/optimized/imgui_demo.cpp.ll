@@ -2661,7 +2661,7 @@ if.then3.i:                                       ; preds = %if.end.i44
   br i1 %call4.i, label %if.then5.i, label %if.end48.i
 
 if.then5.i:                                       ; preds = %if.then3.i
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ExampleAppDocuments, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 0, i32 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 8), align 8
   %7 = load i32, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, align 8
   %idx.ext.i.i = sext i32 %7 to i64
   %add.ptr.i.i = getelementptr inbounds %struct.MyDocument, ptr %6, i64 %idx.ext.i.i
@@ -2687,7 +2687,7 @@ for.end.i:                                        ; preds = %for.body.i, %if.the
   br i1 %call10.i, label %if.then11.i, label %if.end26.i
 
 if.then11.i:                                      ; preds = %for.end.i
-  %10 = load ptr, ptr getelementptr inbounds (%struct.ExampleAppDocuments, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 0, i32 0, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 8), align 8
   %11 = load i32, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, align 8
   %idx.ext.i49.i = sext i32 %11 to i64
   %add.ptr.i50.i = getelementptr inbounds %struct.MyDocument, ptr %10, i64 %idx.ext.i49.i
@@ -2725,7 +2725,7 @@ if.end26.i:                                       ; preds = %for.end25.i, %for.e
   br i1 %call28.i, label %if.then29.i, label %if.end42.i
 
 if.then29.i:                                      ; preds = %if.end26.i
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ExampleAppDocuments, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 0, i32 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 8), align 8
   %15 = load i32, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, align 8
   %idx.ext.i51.i = sext i32 %15 to i64
   %add.ptr.i52.i = getelementptr inbounds %struct.MyDocument, ptr %14, i64 %idx.ext.i51.i
@@ -2763,7 +2763,7 @@ if.end49.i:                                       ; preds = %if.end48.i, %if.end
 
 for.body52.i:                                     ; preds = %if.end49.i, %if.end66.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end66.i ], [ 0, %if.end49.i ]
-  %17 = load ptr, ptr getelementptr inbounds (%struct.ExampleAppDocuments, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 0, i32 0, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 8), align 8
   %arrayidx.i.i = getelementptr inbounds %struct.MyDocument, ptr %17, i64 %indvars.iv.i
   %cmp55.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp55.not.i, label %if.end57.i, label %if.then56.i
@@ -2804,7 +2804,7 @@ for.end68.i:                                      ; preds = %if.end66.i, %if.end
   br i1 %call71.i, label %if.then74.i, label %if.end106.i
 
 if.then74.i:                                      ; preds = %for.end68.i
-  %22 = load ptr, ptr getelementptr inbounds (%struct.ExampleAppDocuments, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 0, i32 0, i32 2), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 8), align 8
   %23 = load i32, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, align 8
   %idx.ext.i.i.i = sext i32 %23 to i64
   %add.ptr.i.i.i = getelementptr inbounds %struct.MyDocument, ptr %22, i64 %idx.ext.i.i.i
@@ -2840,7 +2840,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %land.
   br i1 %cmp.not.i.i, label %_ZL32NotifyOfDocumentsClosedElsewhereR19ExampleAppDocuments.exit.i, label %for.body.i.i
 
 _ZL32NotifyOfDocumentsClosedElsewhereR19ExampleAppDocuments.exit.i: ; preds = %if.end.i.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.ExampleAppDocuments, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 0, i32 0, i32 2), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 8), align 8
   %.pre50.i = load i32, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, align 8
   %idx.ext.i55.i = sext i32 %.pre50.i to i64
   %add.ptr.i56.i = getelementptr inbounds %struct.MyDocument, ptr %.pre.i, i64 %idx.ext.i55.i
@@ -2948,7 +2948,7 @@ init.end113.i:                                    ; preds = %init110.i, %init.ch
   br i1 %cmp.i.i, label %if.then115.i, label %for.cond135.preheader.i
 
 if.then115.i:                                     ; preds = %init.end113.i
-  %41 = load ptr, ptr getelementptr inbounds (%struct.ExampleAppDocuments, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 0, i32 0, i32 2), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, i64 8), align 8
   %42 = load i32, ptr @_ZZL23ShowExampleAppDocumentsPbE3app, align 8
   %idx.ext.i61.i = sext i32 %42 to i64
   %add.ptr.i62.i = getelementptr inbounds %struct.MyDocument, ptr %41, i64 %idx.ext.i61.i
@@ -2965,12 +2965,12 @@ for.body123.i:                                    ; preds = %if.then115.i, %for.
 
 if.then126.i:                                     ; preds = %for.body123.i
   store i8 0, ptr %WantClose.i, align 1
-  %45 = load i32, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 1), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 4), align 4
   %cmp.i63.i = icmp eq i32 %43, %45
   br i1 %cmp.i63.i, label %if.then.i67.i, label %if.then126._ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit_crit_edge.i
 
 if.then126._ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit_crit_edge.i: ; preds = %if.then126.i
-  %.pre51.i = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %.pre51.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   br label %_ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit.i
 
 if.then.i67.i:                                    ; preds = %if.then126.i
@@ -2989,7 +2989,7 @@ if.end.i.i.i:                                     ; preds = %cond.true.i.i.i, %i
   %conv.i.i.i = sext i32 %cond7.i.i.i to i64
   %mul.i.i.i = shl nsw i64 %conv.i.i.i, 3
   %call.i.i.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i)
-  %46 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %tobool.not.i2.i.i = icmp eq ptr %46, null
   br i1 %tobool.not.i2.i.i, label %if.end7.i.i.i, label %if.then2.i.i.i
 
@@ -2998,13 +2998,13 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv4.i.i.i = sext i32 %47 to i64
   %mul5.i.i.i = shl nsw i64 %conv4.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i, ptr nonnull align 8 %46, i64 %mul5.i.i.i, i1 false)
-  %48 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %48)
   br label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.then2.i.i.i, %if.end.i.i.i
-  store ptr %call.i.i.i, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
-  store i32 %cond7.i.i.i, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 1), align 4
+  store ptr %call.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
+  store i32 %cond7.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 4), align 4
   %.pre.i68.i = load i32, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, align 8
   br label %_ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit.i
 
@@ -3036,7 +3036,7 @@ for.cond135.preheader.i:                          ; preds = %if.end132.i, %init.
   br i1 %cmp13616.i, label %for.body137.lr.ph.i, label %for.end156.i
 
 for.body137.lr.ph.i:                              ; preds = %for.cond135.preheader.i
-  %55 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %wide.trip.count.i = zext nneg i32 %54 to i64
   br label %for.body137.i
 
@@ -3060,7 +3060,7 @@ for.end146.i:                                     ; preds = %for.body137.i
 
 for.body152.i:                                    ; preds = %for.end146.i, %for.body152.i
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %for.body152.i ], [ 0, %for.end146.i ]
-  %59 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %arrayidx.i73.i = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv45.i
   %60 = load ptr, ptr %arrayidx.i73.i, align 8
   %Open.i74.i = getelementptr inbounds i8, ptr %60, i64 8
@@ -3072,15 +3072,15 @@ for.body152.i:                                    ; preds = %for.end146.i, %for.
   br i1 %exitcond49.not.i, label %for.end156.i, label %for.body152.i, !llvm.loop !8
 
 for.end156.i:                                     ; preds = %for.body152.i, %for.cond135.preheader.i
-  %61 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %tobool.not.i.i = icmp eq ptr %61, null
   br i1 %tobool.not.i.i, label %if.end217.i, label %if.then.i76.i
 
 if.then.i76.i:                                    ; preds = %for.end156.i
-  store i32 0, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 4), align 4
   store i32 0, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %61)
-  store ptr null, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   br label %if.end217.i
 
 if.else.i:                                        ; preds = %for.end146.i
@@ -3110,7 +3110,7 @@ if.then161.i:                                     ; preds = %if.end159.i
   br i1 %or.cond.i, label %for.body170.preheader.i, label %if.end181.i
 
 for.body170.preheader.i:                          ; preds = %if.then161.i
-  %.pre54.i = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %.pre54.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   br label %for.body170.i
 
 for.body170.i:                                    ; preds = %for.inc178.i, %for.body170.preheader.i
@@ -3127,7 +3127,7 @@ for.body170.i:                                    ; preds = %for.inc178.i, %for.
 if.then174.i:                                     ; preds = %for.body170.i
   %67 = load ptr, ptr %65, align 8
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.929, ptr noundef %67)
-  %.pre53.i = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %.pre53.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %.pre55.i = load i32, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, align 8
   br label %for.inc178.i
 
@@ -3160,7 +3160,7 @@ for.body189.preheader.i:                          ; preds = %for.cond187.prehead
 
 for.body189.i:                                    ; preds = %if.end195.i, %for.body189.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %for.body189.preheader.i ], [ %indvars.iv.next36.i, %if.end195.i ]
-  %72 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %arrayidx.i84.i = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv35.i
   %73 = load ptr, ptr %arrayidx.i84.i, align 8
   %Dirty191.i = getelementptr inbounds i8, ptr %73, i64 10
@@ -3170,7 +3170,7 @@ for.body189.i:                                    ; preds = %if.end195.i, %for.b
 
 if.then193.i:                                     ; preds = %for.body189.i
   store i8 0, ptr %Dirty191.i, align 2
-  %.pre56.i = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %.pre56.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %arrayidx.i89.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre56.i, i64 %indvars.iv35.i
   %.pre57.i = load ptr, ptr %arrayidx.i89.phi.trans.insert.i, align 8
   br label %if.end195.i
@@ -3186,15 +3186,15 @@ if.end195.i:                                      ; preds = %if.then193.i, %for.
   br i1 %exitcond39.not.i, label %for.end199.i, label %for.body189.i, !llvm.loop !10
 
 for.end199.i:                                     ; preds = %if.end195.i, %for.cond187.preheader.i
-  %76 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %tobool.not.i92.i = icmp eq ptr %76, null
   br i1 %tobool.not.i92.i, label %_ZN8ImVectorIP10MyDocumentE5clearEv.exit95.i, label %if.then.i93.i
 
 if.then.i93.i:                                    ; preds = %for.end199.i
-  store i32 0, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 4), align 4
   store i32 0, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %76)
-  store ptr null, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   br label %_ZN8ImVectorIP10MyDocumentE5clearEv.exit95.i
 
 _ZN8ImVectorIP10MyDocumentE5clearEv.exit95.i:     ; preds = %if.then.i93.i, %for.end199.i
@@ -3217,7 +3217,7 @@ for.body206.preheader.i:                          ; preds = %for.cond204.prehead
 
 for.body206.i:                                    ; preds = %for.body206.i, %for.body206.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %for.body206.preheader.i ], [ %indvars.iv.next41.i, %for.body206.i ]
-  %78 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %arrayidx.i97.i = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv40.i
   %79 = load ptr, ptr %arrayidx.i97.i, align 8
   %Open.i98.i = getelementptr inbounds i8, ptr %79, i64 8
@@ -3229,15 +3229,15 @@ for.body206.i:                                    ; preds = %for.body206.i, %for
   br i1 %exitcond44.not.i, label %for.end210.i, label %for.body206.i, !llvm.loop !11
 
 for.end210.i:                                     ; preds = %for.body206.i, %for.cond204.preheader.i
-  %80 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %tobool.not.i100.i = icmp eq ptr %80, null
   br i1 %tobool.not.i100.i, label %_ZN8ImVectorIP10MyDocumentE5clearEv.exit103.i, label %if.then.i101.i
 
 if.then.i101.i:                                   ; preds = %for.end210.i
-  store i32 0, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 4), align 4
   store i32 0, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %80)
-  store ptr null, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   br label %_ZN8ImVectorIP10MyDocumentE5clearEv.exit103.i
 
 _ZN8ImVectorIP10MyDocumentE5clearEv.exit103.i:    ; preds = %if.then.i101.i, %for.end210.i
@@ -3250,15 +3250,15 @@ if.end211.i:                                      ; preds = %_ZN8ImVectorIP10MyD
   br i1 %call212.i, label %if.then213.i, label %if.end214.i
 
 if.then213.i:                                     ; preds = %if.end211.i
-  %81 = load ptr, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   %tobool.not.i104.i = icmp eq ptr %81, null
   br i1 %tobool.not.i104.i, label %_ZN8ImVectorIP10MyDocumentE5clearEv.exit107.i, label %if.then.i105.i
 
 if.then.i105.i:                                   ; preds = %if.then213.i
-  store i32 0, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 4), align 4
   store i32 0, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %81)
-  store ptr null, ptr getelementptr inbounds (%struct.ImVector.18, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL23ShowExampleAppDocumentsPbE11close_queue, i64 8), align 8
   br label %_ZN8ImVectorIP10MyDocumentE5clearEv.exit107.i
 
 _ZN8ImVectorIP10MyDocumentE5clearEv.exit107.i:    ; preds = %if.then.i105.i, %if.then213.i
@@ -3911,7 +3911,7 @@ if.end288.i:                                      ; preds = %land.lhs.true285.i,
   br i1 %.b236239.pr.i, label %if.then290.i, label %if.end295.i
 
 if.then290.i:                                     ; preds = %if.end288.i, %if.then287.i, %land.lhs.true.i82
-  %283 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %283 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
   %284 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
   %285 = sext i32 %284 to i64
   %286 = getelementptr %struct.ImVec2, ptr %283, i64 %285
@@ -3975,7 +3975,7 @@ if.then319.i:                                     ; preds = %if.end317.i
 
 if.then321.i:                                     ; preds = %if.then319.i
   %sub323.i = add nsw i32 %.pre.i64, -2
-  %294 = load i32, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
+  %294 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 4), align 4
   %cmp.i.i66 = icmp slt i32 %294, %sub323.i
   br i1 %cmp.i.i66, label %if.then.i.i67, label %_ZN8ImVectorI6ImVec2E6resizeEi.exit.i
 
@@ -3994,7 +3994,7 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i: ; preds = %cond.true.i.i.i69,
   %conv.i.i.i74 = sext i32 %cond7.i.i.i73 to i64
   %mul.i.i.i75 = shl nsw i64 %conv.i.i.i74, 3
   %call.i.i.i76 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i75)
-  %295 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %295 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
   %tobool.not.i4.i.i = icmp eq ptr %295, null
   br i1 %tobool.not.i4.i.i, label %if.end7.i.i.i80, label %if.then2.i.i.i77
 
@@ -4003,13 +4003,13 @@ if.then2.i.i.i77:                                 ; preds = %_ZNK8ImVectorI6ImVe
   %conv4.i.i.i78 = sext i32 %296 to i64
   %mul5.i.i.i79 = shl nsw i64 %conv4.i.i.i78, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i76, ptr nonnull align 4 %295, i64 %mul5.i.i.i79, i1 false)
-  %297 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %297 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %297)
   br label %if.end7.i.i.i80
 
 if.end7.i.i.i80:                                  ; preds = %if.then2.i.i.i77, %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i
-  store ptr %call.i.i.i76, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  store i32 %cond7.i.i.i73, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
+  store ptr %call.i.i.i76, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
+  store i32 %cond7.i.i.i73, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 4), align 4
   br label %_ZN8ImVectorI6ImVec2E6resizeEi.exit.i
 
 _ZN8ImVectorI6ImVec2E6resizeEi.exit.i:            ; preds = %if.end7.i.i.i80, %if.then321.i
@@ -4026,7 +4026,7 @@ if.end324.i:                                      ; preds = %_ZN8ImVectorI6ImVec
 
 if.then327.i:                                     ; preds = %if.end324.i
   %sub329.i = add nsw i32 %.pre16.i, -2
-  %299 = load i32, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
+  %299 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 4), align 4
   %cmp.i292.i = icmp slt i32 %299, %sub329.i
   br i1 %cmp.i292.i, label %if.then.i293.i, label %_ZN8ImVectorI6ImVec2E6resizeEi.exit309.i
 
@@ -4045,7 +4045,7 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i298.i: ; preds = %cond.true.i.i29
   %conv.i.i301.i = sext i32 %cond7.i.i300.i to i64
   %mul.i.i302.i = shl nsw i64 %conv.i.i301.i, 3
   %call.i.i303.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i302.i)
-  %300 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %300 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
   %tobool.not.i4.i304.i = icmp eq ptr %300, null
   br i1 %tobool.not.i4.i304.i, label %if.end7.i.i308.i, label %if.then2.i.i305.i
 
@@ -4054,13 +4054,13 @@ if.then2.i.i305.i:                                ; preds = %_ZNK8ImVectorI6ImVe
   %conv4.i.i306.i = sext i32 %301 to i64
   %mul5.i.i307.i = shl nsw i64 %conv4.i.i306.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i303.i, ptr nonnull align 4 %300, i64 %mul5.i.i307.i, i1 false)
-  %302 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %302 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %302)
   br label %if.end7.i.i308.i
 
 if.end7.i.i308.i:                                 ; preds = %if.then2.i.i305.i, %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i298.i
-  store ptr %call.i.i303.i, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  store i32 %cond7.i.i300.i, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
+  store ptr %call.i.i303.i, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
+  store i32 %cond7.i.i300.i, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 4), align 4
   br label %_ZN8ImVectorI6ImVec2E6resizeEi.exit309.i
 
 _ZN8ImVectorI6ImVec2E6resizeEi.exit309.i:         ; preds = %if.end7.i.i308.i, %if.then327.i
@@ -4074,15 +4074,15 @@ if.end330.i:                                      ; preds = %_ZN8ImVectorI6ImVec
   br i1 %call332.i, label %if.then333.i, label %if.end334.i
 
 if.then333.i:                                     ; preds = %if.end330.i
-  %304 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %304 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
   %tobool.not.i.i65 = icmp eq ptr %304, null
   br i1 %tobool.not.i.i65, label %if.end334.i, label %if.then.i310.i
 
 if.then.i310.i:                                   ; preds = %if.then333.i
-  store i32 0, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 4), align 4
   store i32 0, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %304)
-  store ptr null, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
   br label %if.end334.i
 
 if.end334.i:                                      ; preds = %if.then.i310.i, %if.then333.i, %if.end330.i
@@ -4158,7 +4158,7 @@ if.end372.i:                                      ; preds = %for.body360.i, %for
 
 for.body376.i:                                    ; preds = %if.end372.i, %for.body376.i
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %for.body376.i ], [ 0, %if.end372.i ]
-  %319 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %319 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8
   %arrayidx.i315.i = getelementptr inbounds %struct.ImVec2, ptr %319, i64 %indvars.iv.i62
   %320 = load <2 x float>, ptr %arrayidx.i315.i, align 4
   %321 = fadd <2 x float> %280, %320
@@ -5302,15 +5302,15 @@ init.end.i261:                                    ; preds = %invoke.cont.i284, %
   br i1 %call6.i264, label %if.then7.i280, label %if.end8.i265
 
 if.then7.i280:                                    ; preds = %init.end.i261
-  %422 = load ptr, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 2), align 8
+  %422 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 8), align 8
   %tobool.not.i.i.i281 = icmp eq ptr %422, null
   br i1 %tobool.not.i.i.i281, label %_ZN15ImGuiTextBuffer5clearEv.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then7.i280
-  store i32 0, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 4), align 4
   store i32 0, ptr @_ZZL22ShowExampleAppLongTextPbE3log, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %422)
-  store ptr null, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 8), align 8
   br label %_ZN15ImGuiTextBuffer5clearEv.exit.i
 
 _ZN15ImGuiTextBuffer5clearEv.exit.i:              ; preds = %if.then.i.i.i, %if.then7.i280
@@ -5349,7 +5349,7 @@ if.end14.i:                                       ; preds = %for.end.i279, %if.e
   ]
 
 sw.bb.i:                                          ; preds = %if.end14.i
-  %426 = load ptr, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 2), align 8
+  %426 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 8), align 8
   %tobool.not.i.i274 = icmp eq ptr %426, null
   %spec.select.i11.i = select i1 %tobool.not.i.i274, ptr @_ZN15ImGuiTextBuffer11EmptyStringE, ptr %426
   %427 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE3log, align 8
@@ -10687,10 +10687,10 @@ if.then675:                                       ; preds = %do.end673
   store <2 x float> zeroinitializer, ptr %ref.tmp676, align 8
   %call677 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.503, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsvE9selection, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp676)
   store <2 x float> zeroinitializer, ptr %ref.tmp678, align 8
-  %call679 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.504, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 0, i64 1), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp678)
+  %call679 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.504, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 1), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp678)
   store <2 x float> zeroinitializer, ptr %ref.tmp680, align 8
-  %call681 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.505, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 0, i64 2), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp680)
-  %146 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 0, i64 3), align 1
+  %call681 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.505, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 2), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp680)
+  %146 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 3), align 1
   %tobool682 = trunc i8 %146 to i1
   store <2 x float> zeroinitializer, ptr %ref.tmp683, align 8
   %call684 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.506, i1 noundef zeroext %tobool682, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp683)
@@ -10701,10 +10701,10 @@ if.then685:                                       ; preds = %if.then675
   br i1 %call686, label %if.then687, label %if.end691
 
 if.then687:                                       ; preds = %if.then685
-  %147 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 0, i64 3), align 1
+  %147 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 3), align 1
   %lnot = and i8 %147, 1
   %frombool689 = xor i8 %lnot, 1
-  store i8 %frombool689, ptr getelementptr inbounds ([5 x i8], ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 0, i64 3), align 1
+  store i8 %frombool689, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE9selection, i64 3), align 1
   br label %if.end691
 
 if.end691:                                        ; preds = %if.then685, %if.then687, %if.then675
@@ -10838,12 +10838,12 @@ if.then760:                                       ; preds = %do.end758
   %call763 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.516)
   call void @_ZN5ImGui23SetNextItemAllowOverlapEv()
   store <2 x float> zeroinitializer, ptr %ref.tmp764, align 8
-  %call765 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.517, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @_ZZL21ShowDemoWindowWidgetsvE8selected_0, i64 0, i64 1), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp764)
+  %call765 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.517, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE8selected_0, i64 1), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp764)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %call766 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.518)
   call void @_ZN5ImGui23SetNextItemAllowOverlapEv()
   store <2 x float> zeroinitializer, ptr %ref.tmp767, align 8
-  %call768 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.519, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @_ZZL21ShowDemoWindowWidgetsvE8selected_0, i64 0, i64 2), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp767)
+  %call768 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.519, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE8selected_0, i64 2), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp767)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %call769 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.520)
   call void @_ZN5ImGui7TreePopEv()
@@ -11373,17 +11373,17 @@ init.end:                                         ; preds = %init, %init.check, 
   br i1 %cmp.i, label %if.then1037, label %if.end1039
 
 if.then1037:                                      ; preds = %init.end
-  %210 = load i32, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 1), align 4
+  %210 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 4), align 4
   %cmp.i529 = icmp eq i32 %210, 0
   br i1 %cmp.i529, label %if.end.i.i, label %if.then1037._ZN8ImVectorIcE9push_backERKc.exit_crit_edge
 
 if.then1037._ZN8ImVectorIcE9push_backERKc.exit_crit_edge: ; preds = %if.then1037
-  %.pre900 = load ptr, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 2), align 8
+  %.pre900 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 8), align 8
   br label %_ZN8ImVectorIcE9push_backERKc.exit
 
 if.end.i.i:                                       ; preds = %if.then1037
   %call.i.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 8)
-  %211 = load ptr, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 2), align 8
+  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 8), align 8
   %tobool.not.i2.i = icmp eq ptr %211, null
   br i1 %tobool.not.i2.i, label %if.end7.i.i, label %if.then2.i.i
 
@@ -11391,13 +11391,13 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %212 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, align 8
   %conv4.i.i = sext i32 %212 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %211, i64 %conv4.i.i, i1 false)
-  %213 = load ptr, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 2), align 8
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 8), align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %213)
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i
-  store ptr %call.i.i, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 2), align 8
-  store i32 8, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 1), align 4
+  store ptr %call.i.i, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 8), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 4), align 4
   %.pre.i = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, align 8
   br label %_ZN8ImVectorIcE9push_backERKc.exit
 
@@ -11418,13 +11418,13 @@ if.end1039:                                       ; preds = %_ZN8ImVectorIcE9pus
   store float 0xB810000000000000, ptr %ref.tmp1040, align 4
   %y.i531 = getelementptr inbounds i8, ptr %ref.tmp1040, i64 4
   store float %mul1042, ptr %y.i531, align 4
-  %217 = load ptr, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 2), align 8
+  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 8), align 8
   %218 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, align 8
   %conv.i = sext i32 %218 to i64
   %call2.i = call noundef zeroext i1 @_ZN5ImGui18InputTextMultilineEPKcPcmRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.573, ptr noundef %217, i64 noundef %conv.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp1040, i32 noundef 262144, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsvEN5Funcs16MyResizeCallbackE_0P26ImGuiInputTextCallbackData, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsvE6my_str)
-  %219 = load ptr, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 2), align 8
+  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 8), align 8
   %220 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, align 8
-  %221 = load i32, ptr getelementptr inbounds (%struct.ImVector.12, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 0, i32 1), align 4
+  %221 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE6my_str, i64 4), align 4
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.574, ptr noundef %219, i32 noundef %220, i32 noundef %221)
   call void @_ZN5ImGui7TreePopEv()
   br label %do.body1048
@@ -11685,12 +11685,12 @@ for.body1174:                                     ; preds = %for.body1174.prehea
   %245 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE11next_tab_id, align 4
   %inc1176 = add nsw i32 %245, 1
   store i32 %inc1176, ptr @_ZZL21ShowDemoWindowWidgetsvE11next_tab_id, align 4
-  %246 = load i32, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 0, i32 1), align 4
+  %246 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 4), align 4
   %cmp.i532 = icmp eq i32 %244, %246
   br i1 %cmp.i532, label %if.then.i536, label %for.body1174._ZN8ImVectorIiE9push_backERKi.exit_crit_edge
 
 for.body1174._ZN8ImVectorIiE9push_backERKi.exit_crit_edge: ; preds = %for.body1174
-  %.pre902 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 0, i32 2), align 8
+  %.pre902 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 8), align 8
   br label %_ZN8ImVectorIiE9push_backERKi.exit
 
 if.then.i536:                                     ; preds = %for.body1174
@@ -11709,7 +11709,7 @@ if.end.i.i542:                                    ; preds = %cond.true.i.i539, %
   %conv.i.i545 = sext i32 %cond7.i.i544 to i64
   %mul.i.i = shl nsw i64 %conv.i.i545, 2
   %call.i.i546 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i)
-  %247 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 0, i32 2), align 8
+  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 8), align 8
   %tobool.not.i2.i547 = icmp eq ptr %247, null
   br i1 %tobool.not.i2.i547, label %if.end7.i.i550, label %if.then2.i.i548
 
@@ -11718,13 +11718,13 @@ if.then2.i.i548:                                  ; preds = %if.end.i.i542
   %conv4.i.i549 = sext i32 %248 to i64
   %mul5.i.i = shl nsw i64 %conv4.i.i549, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i546, ptr nonnull align 4 %247, i64 %mul5.i.i, i1 false)
-  %249 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 0, i32 2), align 8
+  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 8), align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %249)
   br label %if.end7.i.i550
 
 if.end7.i.i550:                                   ; preds = %if.then2.i.i548, %if.end.i.i542
-  store ptr %call.i.i546, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 0, i32 2), align 8
-  store i32 %cond7.i.i544, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 0, i32 1), align 4
+  store ptr %call.i.i546, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 8), align 8
+  store i32 %cond7.i.i544, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 4), align 4
   %.pre.i551 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, align 8
   br label %_ZN8ImVectorIiE9push_backERKi.exit
 
@@ -11817,7 +11817,7 @@ if.end1212:                                       ; preds = %if.then1206, %if.th
 for.body1216:                                     ; preds = %if.end1212, %if.end1231
   %n1213.0784 = phi i32 [ %n1213.1, %if.end1231 ], [ 0, %if.end1212 ]
   store i8 1, ptr %open, align 1
-  %259 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 0, i32 2), align 8
+  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 8), align 8
   %idxprom.i553 = sext i32 %n1213.0784 to i64
   %arrayidx.i554 = getelementptr inbounds i32, ptr %259, i64 %idxprom.i553
   %260 = load i32, ptr %arrayidx.i554, align 4
@@ -11836,7 +11836,7 @@ if.end1225:                                       ; preds = %if.then1223, %for.b
   br i1 %tobool1226, label %if.else1229, label %if.then1227
 
 if.then1227:                                      ; preds = %if.end1225
-  %262 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 0, i32 2), align 8
+  %262 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, i64 8), align 8
   %add.ptr = getelementptr inbounds i32, ptr %262, i64 %idxprom.i553
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %263 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE11active_tabs, align 8
@@ -12301,7 +12301,7 @@ if.then1456:                                      ; preds = %if.end1451
   %319 = load float, ptr %z1466, align 8
   %320 = load <2 x float>, ptr %arrayidx1453, align 16
   store <2 x float> %320, ptr @_ZZL21ShowDemoWindowWidgetsvE5color, align 8
-  store float %319, ptr getelementptr inbounds (%struct.ImVec4, ptr @_ZZL21ShowDemoWindowWidgetsvE5color, i64 0, i32 2), align 8
+  store float %319, ptr getelementptr inbounds (i8, ptr @_ZZL21ShowDemoWindowWidgetsvE5color, i64 8), align 8
   br label %if.end1467
 
 if.end1467:                                       ; preds = %if.then1456, %if.end1451
@@ -19745,7 +19745,7 @@ init.end:                                         ; preds = %init, %init.check, 
   br i1 %cmp1311, label %if.then1312, label %if.end1328
 
 if.then1312:                                      ; preds = %init.end
-  %190 = load i32, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 1), align 4
+  %190 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 4), align 4
   %cmp.i = icmp slt i32 %190, 50
   br i1 %cmp.i, label %if.then.i867, label %for.cond.preheader.i
 
@@ -19764,7 +19764,7 @@ _ZNK8ImVectorIN12_GLOBAL__N_16MyItemEE14_grow_capacityEi.exit.i: ; preds = %cond
   %conv.i.i = zext nneg i32 %cond7.i.i to i64
   %mul.i.i868 = mul nuw nsw i64 %conv.i.i, 24
   %call.i.i869 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i868)
-  %191 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 2), align 8
+  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 8), align 8
   %tobool.not.i7.i = icmp eq ptr %191, null
   br i1 %tobool.not.i7.i, label %if.end.i866, label %if.then2.i.i
 
@@ -19773,13 +19773,13 @@ if.then2.i.i:                                     ; preds = %_ZNK8ImVectorIN12_G
   %conv4.i.i = sext i32 %192 to i64
   %mul5.i.i = mul nsw i64 %conv4.i.i, 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i869, ptr nonnull align 8 %191, i64 %mul5.i.i, i1 false)
-  %193 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 2), align 8
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 8), align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %193)
   br label %if.end.i866
 
 if.end.i866:                                      ; preds = %_ZNK8ImVectorIN12_GLOBAL__N_16MyItemEE14_grow_capacityEi.exit.i, %if.then2.i.i
-  store ptr %call.i.i869, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 2), align 8
-  store i32 %cond7.i.i, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 1), align 4
+  store ptr %call.i.i869, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 8), align 8
+  store i32 %cond7.i.i, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 4), align 4
   %.pre = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5items, align 8
   %cmp2.i = icmp slt i32 %.pre, 50
   br i1 %cmp2.i, label %for.cond.preheader.i, label %for.body1317.preheader
@@ -19787,7 +19787,7 @@ if.end.i866:                                      ; preds = %_ZNK8ImVectorIN12_G
 for.cond.preheader.i:                             ; preds = %if.then1312, %if.end.i866
   %194 = phi i32 [ %.pre, %if.end.i866 ], [ 0, %if.then1312 ]
   %195 = sext i32 %194 to i64
-  %196 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 2), align 8
+  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 8), align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
@@ -19806,7 +19806,7 @@ for.body1317:                                     ; preds = %for.body1317.prehea
   %indvars.iv1334 = phi i64 [ 0, %for.body1317.preheader ], [ %indvars.iv.next1335, %for.body1317 ]
   %indvars1337 = trunc i64 %indvars.iv1334 to i32
   %rem1318 = urem i32 %indvars1337, 15
-  %_ZZL20ShowDemoWindowTablesvE5items.val351 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 2), align 8
+  %_ZZL20ShowDemoWindowTablesvE5items.val351 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 8), align 8
   %arrayidx.i870 = getelementptr inbounds %"struct.(anonymous namespace)::MyItem", ptr %_ZZL20ShowDemoWindowTablesvE5items.val351, i64 %indvars.iv1334
   store i32 %indvars1337, ptr %arrayidx.i870, align 8
   %idxprom1321 = zext nneg i32 %rem1318 to i64
@@ -19912,7 +19912,7 @@ if.then1337:                                      ; preds = %if.then1334
   br i1 %tobool1338, label %if.then1339, label %if.end1342
 
 if.then1339:                                      ; preds = %if.then1337
-  %206 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 2), align 8
+  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 8), align 8
   %207 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5items, align 8
   store ptr %call1335, ptr @_ZN12_GLOBAL__N_16MyItem20s_current_sort_specsE, align 8
   %cmp.i899 = icmp sgt i32 %207, 1
@@ -19961,7 +19961,7 @@ for.body1354.preheader:                           ; preds = %while.body1349
 
 for.body1354:                                     ; preds = %for.body1354.preheader, %for.inc1378
   %indvars.iv1338 = phi i64 [ %211, %for.body1354.preheader ], [ %indvars.iv.next1339, %for.inc1378 ]
-  %_ZZL20ShowDemoWindowTablesvE5items.val = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 0, i32 2), align 8
+  %_ZZL20ShowDemoWindowTablesvE5items.val = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items, i64 8), align 8
   %arrayidx.i904 = getelementptr inbounds %"struct.(anonymous namespace)::MyItem", ptr %_ZZL20ShowDemoWindowTablesvE5items.val, i64 %indvars.iv1338
   %212 = load i32, ptr %arrayidx.i904, align 8
   invoke void @_ZN5ImGui6PushIDEi(i32 noundef %212)
@@ -20082,7 +20082,7 @@ init.check1397:                                   ; preds = %if.then1395
 init1399:                                         ; preds = %init.check1397
   %mul1400 = fmul float %call4, 1.200000e+01
   store float 0.000000e+00, ptr @_ZZL20ShowDemoWindowTablesvE16outer_size_value, align 8
-  store float %mul1400, ptr getelementptr inbounds (%struct.ImVec2, ptr @_ZZL20ShowDemoWindowTablesvE16outer_size_value, i64 0, i32 1), align 4
+  store float %mul1400, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE16outer_size_value, i64 4), align 4
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL20ShowDemoWindowTablesvE16outer_size_value) #29
   br label %init.end1403
 
@@ -20474,7 +20474,7 @@ init.end1490:                                     ; preds = %init1487, %init.che
   br i1 %cmp1491.not, label %if.end1517, label %if.then1492
 
 if.then1492:                                      ; preds = %init.end1490
-  %235 = load i32, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 1), align 4
+  %235 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 4), align 4
   %cmp.i998 = icmp slt i32 %235, %234
   br i1 %cmp.i998, label %if.then.i1007, label %if.end.i999
 
@@ -20493,7 +20493,7 @@ _ZNK8ImVectorIN12_GLOBAL__N_16MyItemEE14_grow_capacityEi.exit.i1012: ; preds = %
   %conv.i.i1015 = sext i32 %cond7.i.i1014 to i64
   %mul.i.i1016 = mul nsw i64 %conv.i.i1015, 24
   %call.i.i1017 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i1016)
-  %236 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 2), align 8
+  %236 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 8), align 8
   %tobool.not.i7.i1018 = icmp eq ptr %236, null
   br i1 %tobool.not.i7.i1018, label %if.end7.i.i1022, label %if.then2.i.i1019
 
@@ -20502,13 +20502,13 @@ if.then2.i.i1019:                                 ; preds = %_ZNK8ImVectorIN12_G
   %conv4.i.i1020 = sext i32 %237 to i64
   %mul5.i.i1021 = mul nsw i64 %conv4.i.i1020, 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i1017, ptr nonnull align 8 %236, i64 %mul5.i.i1021, i1 false)
-  %238 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 2), align 8
+  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 8), align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %238)
   br label %if.end7.i.i1022
 
 if.end7.i.i1022:                                  ; preds = %if.then2.i.i1019, %_ZNK8ImVectorIN12_GLOBAL__N_16MyItemEE14_grow_capacityEi.exit.i1012
-  store ptr %call.i.i1017, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 2), align 8
-  store i32 %cond7.i.i1014, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 1), align 4
+  store ptr %call.i.i1017, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 8), align 8
+  store i32 %cond7.i.i1014, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 4), align 4
   %.pre1347 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, align 8
   br label %if.end.i999
 
@@ -20520,7 +20520,7 @@ if.end.i999:                                      ; preds = %if.end7.i.i1022, %i
 for.cond.preheader.i1001:                         ; preds = %if.end.i999
   %240 = sext i32 %239 to i64
   %wide.trip.count.i = sext i32 %234 to i64
-  %241 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 2), align 8
+  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 8), align 8
   br label %for.body.i1002
 
 for.body.i1002:                                   ; preds = %for.body.i1002, %for.cond.preheader.i1001
@@ -20541,7 +20541,7 @@ for.body1497:                                     ; preds = %_ZN8ImVectorIN12_GL
   %indvars.iv1341 = phi i64 [ %indvars.iv.next1342, %for.body1497 ], [ 0, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE6resizeEiRKS1_.exit1023 ]
   %243 = trunc nuw nsw i64 %indvars.iv1341 to i32
   %rem1499 = urem i32 %243, 15
-  %_ZZL20ShowDemoWindowTablesvE5items_0.val352 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 2), align 8
+  %_ZZL20ShowDemoWindowTablesvE5items_0.val352 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 8), align 8
   %arrayidx.i1025 = getelementptr inbounds %"struct.(anonymous namespace)::MyItem", ptr %_ZZL20ShowDemoWindowTablesvE5items_0.val352, i64 %indvars.iv1341
   store i32 %243, ptr %arrayidx.i1025, align 8
   %idxprom1503 = zext nneg i32 %rem1499 to i64
@@ -20629,7 +20629,7 @@ land.lhs.true1554:                                ; preds = %land.lhs.true1548.l
   br i1 %or.cond5, label %_ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit1033, label %if.end1560
 
 _ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit1033: ; preds = %land.lhs.true1554
-  %264 = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 2), align 8
+  %264 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 8), align 8
   store ptr %call1546, ptr @_ZN12_GLOBAL__N_16MyItem20s_current_sort_specsE, align 8
   %conv.i1032 = zext nneg i32 %263 to i64
   call void @qsort(ptr noundef %264, i64 noundef %conv.i1032, i64 noundef 24, ptr noundef nonnull @_ZN12_GLOBAL__N_16MyItem20CompareWithSortSpecsEPKvS2_)
@@ -20703,9 +20703,9 @@ for.body1586.preheader:                           ; preds = %while.body1580
 
 for.body1586:                                     ; preds = %for.body1586.preheader, %for.inc1721
   %indvars.iv1344 = phi i64 [ %271, %for.body1586.preheader ], [ %indvars.iv.next1345, %for.inc1721 ]
-  %_ZZL20ShowDemoWindowTablesvE5items_0.val = load ptr, ptr getelementptr inbounds (%struct.ImVector.14, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 0, i32 2), align 8
+  %_ZZL20ShowDemoWindowTablesvE5items_0.val = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 8), align 8
   %arrayidx.i1035 = getelementptr inbounds %"struct.(anonymous namespace)::MyItem", ptr %_ZZL20ShowDemoWindowTablesvE5items_0.val, i64 %indvars.iv1344
-  %272 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  %272 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   %273 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE9selection, align 8
   %idx.ext.i = sext i32 %273 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %272, i64 %idx.ext.i
@@ -20816,7 +20816,7 @@ if.then1645:                                      ; preds = %invoke.cont1642
   br i1 %cmp.i1036, label %if.then1647, label %if.else1651
 
 if.then1647:                                      ; preds = %if.then1645
-  %284 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  %284 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   %285 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE9selection, align 8
   %idx.ext.i.i = sext i32 %285 to i64
   %add.ptr.i.i = getelementptr inbounds i32, ptr %284, i64 %idx.ext.i.i
@@ -20865,12 +20865,12 @@ _ZN8ImVectorIiE14erase_unsortedEPKi.exit.i:       ; preds = %if.then.i.i1042, %i
 
 if.else1651:                                      ; preds = %if.then1645
   %290 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE9selection, align 8
-  %291 = load i32, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 1), align 4
+  %291 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 4), align 4
   %cmp.i1043 = icmp eq i32 %290, %291
   br i1 %cmp.i1043, label %if.then.i1047, label %if.else1651._ZN8ImVectorIiE9push_backERKi.exit_crit_edge
 
 if.else1651._ZN8ImVectorIiE9push_backERKi.exit_crit_edge: ; preds = %if.else1651
-  %.pre1350 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  %.pre1350 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   br label %_ZN8ImVectorIiE9push_backERKi.exit
 
 if.then.i1047:                                    ; preds = %if.else1651
@@ -20892,7 +20892,7 @@ if.end.i.i:                                       ; preds = %cond.true.i.i1049, 
           to label %call.i.i1056.noexc unwind label %lpad1575.loopexit
 
 call.i.i1056.noexc:                               ; preds = %if.end.i.i
-  %292 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  %292 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   %tobool.not.i2.i = icmp eq ptr %292, null
   br i1 %tobool.not.i2.i, label %if.end7.i.i1060, label %if.then2.i.i1057
 
@@ -20901,13 +20901,13 @@ if.then2.i.i1057:                                 ; preds = %call.i.i1056.noexc
   %conv4.i.i1058 = sext i32 %293 to i64
   %mul5.i.i1059 = shl nsw i64 %conv4.i.i1058, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i10561061, ptr nonnull align 4 %292, i64 %mul5.i.i1059, i1 false)
-  %294 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  %294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef %294)
           to label %if.end7.i.i1060 unwind label %lpad1575.loopexit
 
 if.end7.i.i1060:                                  ; preds = %if.then2.i.i1057, %call.i.i1056.noexc
-  store ptr %call.i.i10561061, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
-  store i32 %cond7.i.i1053, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 1), align 4
+  store ptr %call.i.i10561061, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
+  store i32 %cond7.i.i1053, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 4), align 4
   %.pre.i = load i32, ptr @_ZZL20ShowDemoWindowTablesvE9selection, align 8
   br label %_ZN8ImVectorIiE9push_backERKi.exit
 
@@ -20923,23 +20923,23 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %if.else1651._ZN8ImV
   br label %if.end1665.sink.split
 
 if.else1655:                                      ; preds = %invoke.cont1642
-  %299 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  %299 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   %tobool.not.i = icmp eq ptr %299, null
   br i1 %tobool.not.i, label %invoke.cont1656, label %if.then.i1062
 
 if.then.i1062:                                    ; preds = %if.else1655
-  store i32 0, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 4), align 4
   store i32 0, ptr @_ZZL20ShowDemoWindowTablesvE9selection, align 8
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %299)
           to label %.noexc1064 unwind label %lpad1575.loopexit
 
 .noexc1064:                                       ; preds = %if.then.i1062
-  store ptr null, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   br label %invoke.cont1656
 
 invoke.cont1656:                                  ; preds = %.noexc1064, %if.else1655
   %300 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE9selection, align 8
-  %301 = load i32, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 1), align 4
+  %301 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 4), align 4
   %cmp.i1065 = icmp eq i32 %300, %301
   call void @llvm.assume(i1 %cmp.i1065)
   %add.i1071 = add nsw i32 %300, 1
@@ -20960,7 +20960,7 @@ if.end.i.i1076:                                   ; preds = %cond.true.i.i1073, 
           to label %call.i.i1081.noexc unwind label %lpad1575.loopexit
 
 call.i.i1081.noexc:                               ; preds = %if.end.i.i1076
-  %302 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  %302 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   %tobool.not.i2.i1082 = icmp eq ptr %302, null
   br i1 %tobool.not.i2.i1082, label %if.end7.i.i1086, label %if.then2.i.i1083
 
@@ -20969,13 +20969,13 @@ if.then2.i.i1083:                                 ; preds = %call.i.i1081.noexc
   %conv4.i.i1084 = sext i32 %303 to i64
   %mul5.i.i1085 = shl nsw i64 %conv4.i.i1084, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i10811088, ptr nonnull align 4 %302, i64 %mul5.i.i1085, i1 false)
-  %304 = load ptr, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
+  %304 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef %304)
           to label %if.end7.i.i1086 unwind label %lpad1575.loopexit
 
 if.end7.i.i1086:                                  ; preds = %if.then2.i.i1083, %call.i.i1081.noexc
-  store ptr %call.i.i10811088, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 2), align 8
-  store i32 %cond7.i.i1078, ptr getelementptr inbounds (%struct.ImVector.13, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 0, i32 1), align 4
+  store ptr %call.i.i10811088, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 8), align 8
+  store i32 %cond7.i.i1078, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE9selection, i64 4), align 4
   %.pre.i1087 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE9selection, align 8
   %idxprom.i1067 = sext i32 %.pre.i1087 to i64
   %arrayidx.i1068 = getelementptr inbounds i32, ptr %call.i.i10811088, i64 %idxprom.i1067

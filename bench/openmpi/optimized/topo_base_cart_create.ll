@@ -31,10 +31,10 @@ define i32 @mca_topo_base_cart_create(ptr noundef %0, ptr noundef %1, i32 nounde
   %10 = zext i1 %5 to i8
   %11 = getelementptr inbounds i8, ptr %1, i64 248
   %12 = load ptr, ptr %11, align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 0, i32 8), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 56), align 8
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #8
   %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 0, i32 4), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %15, %16
   br i1 %.not.i.i, label %18, label %17
 
@@ -50,7 +50,7 @@ define i32 @mca_topo_base_cart_create(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr @mca_topo_base_comm_cart_2_2_0_t_class, ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 8
   store volatile i32 1, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 0, i32 6), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i.i = icmp eq ptr %22, null
   br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread110.i, label %.lr.ph.i.i.i

@@ -3493,13 +3493,13 @@ define hidden void @proto_register_camel() local_unnamed_addr #0 {
   tail call void @rose_ctx_init(ptr noundef nonnull @camel_rose_ctx) #8
   %14 = load i32, ptr @proto_camel, align 4
   %15 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1191, ptr noundef nonnull @.str.1192, i32 noundef %14, i32 noundef 7, i32 noundef 2) #8
-  store ptr %15, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @camel_rose_ctx, i64 0, i32 2), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @camel_rose_ctx, i64 16), align 8
   %16 = load i32, ptr @proto_camel, align 4
   %17 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1193, ptr noundef nonnull @.str.1194, i32 noundef %16, i32 noundef 7, i32 noundef 2) #8
-  store ptr %17, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @camel_rose_ctx, i64 0, i32 4), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @camel_rose_ctx, i64 32), align 8
   %18 = load i32, ptr @proto_camel, align 4
   %19 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1195, ptr noundef nonnull @.str.1196, i32 noundef %18, i32 noundef 7, i32 noundef 2) #8
-  store ptr %19, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @camel_rose_ctx, i64 0, i32 6), align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @camel_rose_ctx, i64 48), align 8
   %20 = tail call ptr @wmem_epan_scope() #8
   %21 = tail call i32 @range_convert_str(ptr noundef %20, ptr noundef nonnull @global_ssn_range, ptr noundef nonnull @.str.1197, i32 noundef 254) #8
   %22 = load i32, ptr @proto_camel, align 4

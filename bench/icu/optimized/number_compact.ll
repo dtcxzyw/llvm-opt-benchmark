@@ -568,7 +568,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_756number4impl11CompactDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1375) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl11CompactDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl11CompactDataE, i64 16), ptr %this, align 8
   %patterns = getelementptr inbounds i8, ptr %this, i64 8
   %isEmpty = getelementptr inbounds i8, ptr %this, i64 1374
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1366) %patterns, i8 0, i64 1366, i1 false)
@@ -586,7 +586,7 @@ entry:
   %rb = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
   %resourceKey = alloca %"class.icu_75::CharString", align 8
   %localStatus = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756number4impl11CompactData15CompactDataSinkE, i64 0, i32 0, i64 2), ptr %sink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl11CompactData15CompactDataSinkE, i64 16), ptr %sink, align 8
   %data2.i = getelementptr inbounds i8, ptr %sink, i64 8
   store ptr %this, ptr %data2.i, align 8
   %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
@@ -1182,7 +1182,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 define void @_ZN6icu_756number4impl14CompactHandlerC2E19UNumberCompactStyleRKNS_6LocaleEPKcNS1_11CompactTypeEPKNS_11PluralRulesEPNS1_22MutablePatternModifierEbPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2065) %this, i32 noundef %compactStyle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %nsName, i32 noundef %compactType, ptr noundef %rules, ptr noundef %buildReference, i1 noundef zeroext %safe, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %safe to i8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl14CompactHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14CompactHandlerE, i64 16), ptr %this, align 8
   %rules2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %rules, ptr %rules2, align 8
   %parent3 = getelementptr inbounds i8, ptr %this, i64 16
@@ -1256,9 +1256,9 @@ ehcleanup14:                                      ; preds = %ehcleanup, %lpad4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_756number4impl17ParsedPatternInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 16), ptr %this, align 8
   %pattern = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %pattern, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pattern, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %positive = getelementptr inbounds i8, ptr %this, i64 72
@@ -1555,7 +1555,7 @@ invoke.cont50:                                    ; preds = %invoke.cont49
 if.end56:                                         ; preds = %invoke.cont50
   %patternString57 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %call.i37, ptr %patternString57, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, i32 0, i64 2), ptr %patternInfo, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 16), ptr %patternInfo, align 8
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i.i) #14
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #14
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #14
@@ -1568,7 +1568,7 @@ if.end56:                                         ; preds = %invoke.cont50
   br i1 %cmp30, label %for.body, label %cleanup60, !llvm.loop !9
 
 cleanup:                                          ; preds = %invoke.cont50, %invoke.cont42
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, i32 0, i64 2), ptr %patternInfo, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 16), ptr %patternInfo, align 8
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i.i) #14
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #14
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #14
@@ -1602,7 +1602,7 @@ ehcleanup63:                                      ; preds = %lpad.loopexit, %lpa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl17ParsedPatternInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 16), ptr %this, align 8
   %rounding.i = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i) #14
   %rounding.i1 = getelementptr inbounds i8, ptr %this, i64 128
@@ -1647,7 +1647,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number4impl14CompactHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(2065) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl14CompactHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14CompactHandlerE, i64 16), ptr %this, align 8
   %precomputedModsLength = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i32, ptr %precomputedModsLength, align 8
   %cmp3 = icmp sgt i32 %0, 0
@@ -1683,7 +1683,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
 
 for.end:                                          ; preds = %for.inc, %entry
   %unsafePatternInfo = getelementptr inbounds i8, ptr %this, i64 1616
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, i32 0, i64 2), ptr %unsafePatternInfo, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 16), ptr %unsafePatternInfo, align 8
   %rounding.i.i = getelementptr inbounds i8, ptr %this, i64 1912
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i.i) #14
   %rounding.i1.i = getelementptr inbounds i8, ptr %this, i64 1744

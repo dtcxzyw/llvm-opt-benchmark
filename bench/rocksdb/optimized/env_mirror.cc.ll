@@ -347,7 +347,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb20SequentialFileMirrorE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20SequentialFileMirrorE, i64 16), ptr %call2, align 8
   %a_.i = getelementptr inbounds i8, ptr %call2, i64 8
   %b_.i = getelementptr inbounds i8, ptr %call2, i64 16
   %fname.i = getelementptr inbounds i8, ptr %call2, i64 24
@@ -513,7 +513,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb22RandomAccessFileMirrorE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22RandomAccessFileMirrorE, i64 16), ptr %call2, align 8
   %a_.i = getelementptr inbounds i8, ptr %call2, i64 8
   %b_.i = getelementptr inbounds i8, ptr %call2, i64 16
   %fname.i = getelementptr inbounds i8, ptr %call2, i64 24
@@ -674,7 +674,7 @@ invoke.cont:                                      ; preds = %if.end
   %2 = load i8, ptr %strict_bytes_per_sync.i.i, align 8
   %frombool.i.i = and i8 %2, 1
   store i8 %frombool.i.i, ptr %strict_bytes_per_sync_.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb18WritableFileMirrorE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18WritableFileMirrorE, i64 16), ptr %call2, align 8
   %a_.i = getelementptr inbounds i8, ptr %call2, i64 40
   %b_.i = getelementptr inbounds i8, ptr %call2, i64 48
   %fname.i = getelementptr inbounds i8, ptr %call2, i64 56
@@ -835,7 +835,7 @@ invoke.cont:                                      ; preds = %if.end
   %2 = load i8, ptr %strict_bytes_per_sync.i.i, align 8
   %frombool.i.i = and i8 %2, 1
   store i8 %frombool.i.i, ptr %strict_bytes_per_sync_.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb18WritableFileMirrorE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18WritableFileMirrorE, i64 16), ptr %call2, align 8
   %a_.i = getelementptr inbounds i8, ptr %call2, i64 40
   %b_.i = getelementptr inbounds i8, ptr %call2, i64 48
   %fname.i = getelementptr inbounds i8, ptr %call2, i64 56
@@ -964,7 +964,7 @@ eh.resume:                                        ; preds = %cleanup.action, %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb9EnvMirrorD2Ev(ptr noundef nonnull align 8 dereferenceable(114) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb9EnvMirrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb9EnvMirrorE, i64 16), ptr %this, align 8
   %free_a_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i8, ptr %free_a_, align 8
   %tobool = trunc i8 %0 to i1
@@ -1010,7 +1010,7 @@ if.end9:                                          ; preds = %if.then3, %delete.n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb9EnvMirrorD0Ev(ptr noundef nonnull align 8 dereferenceable(114) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb9EnvMirrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb9EnvMirrorE, i64 16), ptr %this, align 8
   %free_a_.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i8, ptr %free_a_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -2103,7 +2103,7 @@ if.then:                                          ; preds = %invoke.cont5
 invoke.cont9:                                     ; preds = %if.then
   %5 = load ptr, ptr %al, align 8
   %6 = load ptr, ptr %bl, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb9EnvMirror14FileLockMirrorE, i64 0, i32 0, i64 2), ptr %call7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb9EnvMirror14FileLockMirrorE, i64 16), ptr %call7, align 8
   %a_.i = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %5, ptr %a_.i, align 8
   %b_.i = getelementptr inbounds i8, ptr %call7, i64 16
@@ -2693,7 +2693,7 @@ declare void @_ZN7rocksdb14SequentialFileD2Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb20SequentialFileMirrorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb20SequentialFileMirrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20SequentialFileMirrorE, i64 16), ptr %this, align 8
   %fname = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname) #16
   %b_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2731,7 +2731,7 @@ _ZNSt10unique_ptrIN7rocksdb14SequentialFileESt14default_deleteIS1_EED2Ev.exit5: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb20SequentialFileMirrorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb20SequentialFileMirrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20SequentialFileMirrorE, i64 16), ptr %this, align 8
   %fname.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname.i) #16
   %b_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3039,7 +3039,7 @@ declare void @_ZN7rocksdb16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb22RandomAccessFileMirrorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb22RandomAccessFileMirrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22RandomAccessFileMirrorE, i64 16), ptr %this, align 8
   %fname = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname) #16
   %b_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3077,7 +3077,7 @@ _ZNSt10unique_ptrIN7rocksdb16RandomAccessFileESt14default_deleteIS1_EED2Ev.exit5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb22RandomAccessFileMirrorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb22RandomAccessFileMirrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22RandomAccessFileMirrorE, i64 16), ptr %this, align 8
   %fname.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname.i) #16
   %b_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3375,7 +3375,7 @@ declare void @_ZN7rocksdb12WritableFileD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18WritableFileMirrorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb18WritableFileMirrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18WritableFileMirrorE, i64 16), ptr %this, align 8
   %fname = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname) #16
   %b_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -3413,7 +3413,7 @@ _ZNSt10unique_ptrIN7rocksdb12WritableFileESt14default_deleteIS1_EED2Ev.exit5: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18WritableFileMirrorD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb18WritableFileMirrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18WritableFileMirrorE, i64 16), ptr %this, align 8
   %fname.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname.i) #16
   %b_.i = getelementptr inbounds i8, ptr %this, i64 48

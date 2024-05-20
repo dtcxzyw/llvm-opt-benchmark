@@ -81,7 +81,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 define void @_ZN6icu_758TimeUnitC2ENS0_15UTimeUnitFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %timeUnitField) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758TimeUnitE, i64 16), ptr %this, align 8
   %fTimeUnitField = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %timeUnitField, ptr %fTimeUnitField, align 4
   %0 = icmp ult i32 %timeUnitField, 7
@@ -122,7 +122,7 @@ declare void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZN6icu_758TimeUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(19) %other)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758TimeUnitE, i64 16), ptr %this, align 8
   %fTimeUnitField = getelementptr inbounds i8, ptr %this, i64 20
   %fTimeUnitField2 = getelementptr inbounds i8, ptr %other, i64 20
   %0 = load i32, ptr %fTimeUnitField2, align 4

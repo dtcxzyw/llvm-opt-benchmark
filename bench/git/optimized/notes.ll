@@ -1206,9 +1206,9 @@ define dso_local void @load_display_notes(ptr noundef readonly %opt) local_unnam
 entry:
   %load_config_refs = alloca i32, align 4
   store i32 0, ptr %load_config_refs, align 4
-  %bf.load = load i8, ptr getelementptr inbounds (%struct.string_list, ptr @display_notes_refs, i64 0, i32 3), align 8
+  %bf.load = load i8, ptr getelementptr inbounds (i8, ptr @display_notes_refs, i64 24), align 8
   %bf.set = or i8 %bf.load, 1
-  store i8 %bf.set, ptr getelementptr inbounds (%struct.string_list, ptr @display_notes_refs, i64 0, i32 3), align 8
+  store i8 %bf.set, ptr getelementptr inbounds (i8, ptr @display_notes_refs, i64 24), align 8
   %tobool.not = icmp eq ptr %opt, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
@@ -1279,7 +1279,7 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %fo
   br i1 %cmp18, label %for.body, label %if.end19
 
 if.end19:                                         ; preds = %for.body, %land.rhs.lr.ph, %if.then11, %if.end9
-  %9 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @display_notes_refs, i64 0, i32 1), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @display_notes_refs, i64 8), align 8
   %add.i = add i64 %9, 1
   %cmp.i.i = icmp ugt i64 %add.i, 2305843009213693951
   br i1 %cmp.i.i, label %if.then.i.i, label %st_mult.exit.i
@@ -1293,7 +1293,7 @@ st_mult.exit.i:                                   ; preds = %if.end19
   %call1.i = call ptr @xmalloc(i64 noundef %mul.i.i) #16
   %10 = load ptr, ptr @display_notes_refs, align 8
   %tobool.not11.i = icmp ne ptr %10, null
-  %11 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @display_notes_refs, i64 0, i32 1), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @display_notes_refs, i64 8), align 8
   %cmp.i15 = icmp sgt i64 %11, 0
   %or.cond = select i1 %tobool.not11.i, i1 %cmp.i15, i1 false
   br i1 %or.cond, label %for.body.i, label %load_notes_trees.exit
@@ -1309,7 +1309,7 @@ for.body.i:                                       ; preds = %st_mult.exit.i, %fo
   store ptr %call4.i, ptr %arrayidx.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %item.013.i17, i64 16
   %13 = load ptr, ptr @display_notes_refs, align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @display_notes_refs, i64 0, i32 1), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @display_notes_refs, i64 8), align 8
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %14
   %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i.loopexit
@@ -2056,10 +2056,10 @@ while.body.i46.us.us:                             ; preds = %sw.bb45.split.us.sp
   %indvars.iv.next.i52.us.us = add nuw nsw i64 %indvars.iv.i48.us.us, 2
   %arrayidx6.i53.us.us = getelementptr inbounds i8, ptr %call.i44.us.us, i64 %2
   %4 = load i8, ptr %arrayidx6.i53.us.us, align 1
-  %gep.i54.us.us = getelementptr inbounds i8, ptr getelementptr inbounds ([96 x i8], ptr @for_each_note_helper.path, i64 0, i64 1), i64 %indvars.iv7.i47.us.us
+  %gep.i54.us.us = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 1), i64 %indvars.iv7.i47.us.us
   store i8 %4, ptr %gep.i54.us.us, align 1
   %indvars.iv.next8.i55.us.us = add nuw nsw i64 %indvars.iv7.i47.us.us, 3
-  %gep11.i56.us.us = getelementptr inbounds i8, ptr getelementptr inbounds ([96 x i8], ptr @for_each_note_helper.path, i64 0, i64 2), i64 %indvars.iv7.i47.us.us
+  %gep11.i56.us.us = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 2), i64 %indvars.iv7.i47.us.us
   store i8 47, ptr %gep11.i56.us.us, align 1
   %dec.i57.us.us = add i8 %fanout.addr.04.i49.us.us, -1
   %tobool.not.i58.us.us = icmp eq i8 %dec.i57.us.us, 0
@@ -2146,10 +2146,10 @@ while.body.i46.us:                                ; preds = %sw.bb45.split.us.sp
   %indvars.iv.next.i52.us = add nuw nsw i64 %indvars.iv.i48.us, 2
   %arrayidx6.i53.us = getelementptr inbounds i8, ptr %call.i44.us, i64 %14
   %16 = load i8, ptr %arrayidx6.i53.us, align 1
-  %gep.i54.us = getelementptr inbounds i8, ptr getelementptr inbounds ([96 x i8], ptr @for_each_note_helper.path, i64 0, i64 1), i64 %indvars.iv7.i47.us
+  %gep.i54.us = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 1), i64 %indvars.iv7.i47.us
   store i8 %16, ptr %gep.i54.us, align 1
   %indvars.iv.next8.i55.us = add nuw nsw i64 %indvars.iv7.i47.us, 3
-  %gep11.i56.us = getelementptr inbounds i8, ptr getelementptr inbounds ([96 x i8], ptr @for_each_note_helper.path, i64 0, i64 2), i64 %indvars.iv7.i47.us
+  %gep11.i56.us = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 2), i64 %indvars.iv7.i47.us
   store i8 47, ptr %gep11.i56.us, align 1
   %dec.i57.us = add i8 %fanout.addr.04.i49.us, -1
   %tobool.not.i58.us = icmp eq i8 %dec.i57.us, 0
@@ -2250,10 +2250,10 @@ while.body.i:                                     ; preds = %sw.bb4, %while.body
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i39, 2
   %arrayidx6.i = getelementptr inbounds i8, ptr %call.i, i64 %29
   %31 = load i8, ptr %arrayidx6.i, align 1
-  %gep.i = getelementptr inbounds i8, ptr getelementptr inbounds ([96 x i8], ptr @for_each_note_helper.path, i64 0, i64 1), i64 %indvars.iv7.i
+  %gep.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 1), i64 %indvars.iv7.i
   store i8 %31, ptr %gep.i, align 1
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 3
-  %gep11.i = getelementptr inbounds i8, ptr getelementptr inbounds ([96 x i8], ptr @for_each_note_helper.path, i64 0, i64 2), i64 %indvars.iv7.i
+  %gep11.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 2), i64 %indvars.iv7.i
   store i8 47, ptr %gep11.i, align 1
   %dec.i = add i8 %fanout.addr.04.i, -1
   %tobool.not.i42 = icmp eq i8 %dec.i, 0
@@ -2315,10 +2315,10 @@ while.body.i46:                                   ; preds = %sw.bb45.split, %whi
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i48, 2
   %arrayidx6.i53 = getelementptr inbounds i8, ptr %call.i44, i64 %35
   %37 = load i8, ptr %arrayidx6.i53, align 1
-  %gep.i54 = getelementptr inbounds i8, ptr getelementptr inbounds ([96 x i8], ptr @for_each_note_helper.path, i64 0, i64 1), i64 %indvars.iv7.i47
+  %gep.i54 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 1), i64 %indvars.iv7.i47
   store i8 %37, ptr %gep.i54, align 1
   %indvars.iv.next8.i55 = add nuw nsw i64 %indvars.iv7.i47, 3
-  %gep11.i56 = getelementptr inbounds i8, ptr getelementptr inbounds ([96 x i8], ptr @for_each_note_helper.path, i64 0, i64 2), i64 %indvars.iv7.i47
+  %gep11.i56 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 2), i64 %indvars.iv7.i47
   store i8 47, ptr %gep11.i56, align 1
   %dec.i57 = add i8 %fanout.addr.04.i49, -1
   %tobool.not.i58 = icmp eq i8 %dec.i57, 0

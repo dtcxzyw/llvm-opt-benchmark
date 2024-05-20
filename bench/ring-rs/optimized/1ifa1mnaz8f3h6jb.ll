@@ -577,7 +577,7 @@ define internal fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b
 
 23:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %24 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noundef !4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !4
   %25 = and i32 %24, 33554432
   %.not.i = icmp eq i32 %25, 0
   %26 = and i32 %24, 512
@@ -729,7 +729,7 @@ default.unreachable:                              ; preds = %27, %15
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %11), !noalias !90
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(244) %11, i8 0, i64 244, i1 false), !noalias !90
-  %16 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noalias !90, !noundef !4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noalias !90, !noundef !4
   %17 = and i32 %16, 33554432
   %.not.i.i = icmp eq i32 %17, 0
   %18 = and i32 %16, 512
@@ -765,7 +765,7 @@ default.unreachable:                              ; preds = %27, %15
 27:                                               ; preds = %20, %22, %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(244) %13, ptr noundef nonnull align 4 dereferenceable(244) %11, i64 244, i1 false)
   call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %11), !noalias !90
-  %28 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noalias !95, !noundef !4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noalias !95, !noundef !4
   %29 = and i32 %28, 33554432
   %.not.i.i9 = icmp eq i32 %29, 0
   %30 = and i32 %28, 512
@@ -823,7 +823,7 @@ _ZN4ring4aead3aes3Key13encrypt_block17hb516baeef254fb70E.exit: ; preds = %31, %3
   br i1 %.not.i13, label %41, label %36
 
 36:                                               ; preds = %_ZN4ring4aead3aes3Key13encrypt_block17hb516baeef254fb70E.exit
-  %37 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noalias !103, !noundef !4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noalias !103, !noundef !4
   %38 = and i32 %37, 2
   %.not2.i = icmp eq i32 %38, 0
   br i1 %.not2.i, label %41, label %39
@@ -959,7 +959,7 @@ define void @_ZN4ring4aead7aes_gcm12aes_gcm_seal17h973d2aed269bad6eE(ptr noalias
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !118
   store i32 33554432, ptr %.sroa.6.0..sroa_idx.i, align 4, !alias.scope !125, !noalias !123
   %40 = getelementptr inbounds i8, ptr %1, i64 272
-  %41 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noundef !4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !4
   %42 = and i32 %41, 33554432
   %.not.i.i.not = icmp eq i32 %42, 0
   br i1 %.not.i.i.not, label %_ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread, label %44
@@ -1029,7 +1029,7 @@ _ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread: ; preds = %44,
   br i1 %68, label %96, label %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit
 
 69:                                               ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit"
-  %70 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noalias !134, !noundef !4
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noalias !134, !noundef !4
   %71 = and i32 %70, 2
   %.not3.i24 = icmp eq i32 %71, 0
   br i1 %.not3.i24, label %74, label %72
@@ -1076,7 +1076,7 @@ _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds =
   %79 = load <16 x i8>, ptr %13, align 16, !noalias !152
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !145
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.038)
-  %80 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noalias !153, !noundef !4
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noalias !153, !noundef !4
   %81 = and i32 %80, 33554432
   %.not.i.i27 = icmp eq i32 %81, 0
   %82 = and i32 %80, 512
@@ -1253,7 +1253,7 @@ define void @_ZN4ring4aead7aes_gcm12aes_gcm_open17h3238ac7367a98f89E(ptr noalias
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !191
   store i32 33554432, ptr %.sroa.6.0..sroa_idx.i, align 4, !alias.scope !198, !noalias !196
   %39 = getelementptr inbounds i8, ptr %1, i64 272
-  %40 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noundef !4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !4
   %41 = and i32 %40, 33554432
   %.not.i.i.not = icmp eq i32 %41, 0
   br i1 %.not.i.i.not, label %_ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread, label %43
@@ -1379,7 +1379,7 @@ _ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread: ; preds = %43,
   br i1 %.not.i74, label %88, label %83
 
 83:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit"
-  %84 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noalias !221, !noundef !4
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noalias !221, !noundef !4
   %85 = and i32 %84, 2
   %.not3.i75 = icmp eq i32 %85, 0
   br i1 %.not3.i75, label %88, label %86
@@ -2035,7 +2035,7 @@ default.unreachable:                              ; preds = %5
 5:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %4), !noalias !421
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(244) %4, i8 0, i64 244, i1 false), !noalias !421
-  %6 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noalias !421, !noundef !4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noalias !421, !noundef !4
   %7 = and i32 %6, 33554432
   %.not.i.i = icmp eq i32 %7, 0
   %8 = and i32 %6, 512
@@ -2099,7 +2099,7 @@ default.unreachable:                              ; preds = %5
 5:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %4), !noalias !426
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(244) %4, i8 0, i64 244, i1 false), !noalias !426
-  %6 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !noalias !426, !noundef !4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noalias !426, !noundef !4
   %7 = and i32 %6, 33554432
   %.not.i.i = icmp eq i32 %7, 0
   %8 = and i32 %6, 512

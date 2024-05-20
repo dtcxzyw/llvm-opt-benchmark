@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %24
 
@@ -125,7 +125,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noun
   br label %65
 
 55:                                               ; preds = %48
-  %56 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %56, 64
   br i1 %or.cond3, label %57, label %bind_multiple.exit
 
@@ -162,7 +162,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noun
 72:                                               ; preds = %65
   %73 = load i16, ptr %4, align 8
   %74 = icmp ugt i16 %73, 1
-  %75 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %75, 64
   br i1 %74, label %76, label %203
 
@@ -202,7 +202,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noun
   %.052.i = phi ptr [ %95, %90 ], [ %3, %87 ]
   %97 = getelementptr inbounds i8, ptr %.052.i, i64 184
   %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 8), align 8
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 312), align 8
   %100 = getelementptr inbounds i8, ptr %4, i64 96
   %101 = load ptr, ptr %100, align 8
   %102 = tail call i32 @hwloc_bitmap_and(ptr noundef %99, ptr noundef %101, ptr noundef %98) #6
@@ -249,18 +249,18 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %114, %hwloc_get_obj
   %switch.i.i = icmp ult i32 %122, -2
   tail call void @llvm.assume(i1 %switch.i.i)
   %123 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %121, i32 noundef %122, i32 noundef %118) #7
-  %124 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
-  %125 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 8), align 8
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 312), align 8
   %126 = getelementptr inbounds i8, ptr %123, i64 184
   %127 = load ptr, ptr %126, align 8
   %128 = tail call i32 @hwloc_bitmap_and(ptr noundef %124, ptr noundef %125, ptr noundef %127) #6
-  %129 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
   %130 = load ptr, ptr %113, align 8
   %131 = tail call i32 @hwloc_bitmap_and(ptr noundef %129, ptr noundef %129, ptr noundef %130) #6
   %132 = load ptr, ptr %107, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 128
   %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
+  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
   %136 = tail call i32 @hwloc_get_type_depth(ptr noundef %134, i32 noundef %..i) #6
   switch i32 %136, label %137 [
     i32 -1, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i
@@ -318,8 +318,8 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.i:    ; preds = %145, %137, %hwloc_g
   br label %bind_multiple.exit
 
 161:                                              ; preds = %96
-  %162 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
-  %163 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 8), align 8
+  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
+  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 312), align 8
   %164 = getelementptr inbounds i8, ptr %2, i64 184
   %165 = load ptr, ptr %164, align 8
   %166 = tail call i32 @hwloc_bitmap_and(ptr noundef %162, ptr noundef %163, ptr noundef %165) #6
@@ -344,7 +344,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i: ; preds = %hwloc_get_nbobj
   %171 = load ptr, ptr %168, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 128
   %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
+  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
   %175 = tail call i32 @hwloc_get_type_depth(ptr noundef %173, i32 noundef %..i) #6
   %or.cond.i.i = icmp ugt i32 %175, -3
   br i1 %or.cond.i.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %176
@@ -449,13 +449,13 @@ hwloc_get_obj_inside_cpuset_by_type.exit.thread.i: ; preds = %187, %hwloc_get_ob
 228:                                              ; preds = %224
   %229 = getelementptr inbounds i8, ptr %.047.i, i64 184
   %230 = load ptr, ptr %229, align 8
-  %231 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 8), align 8
+  %231 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 312), align 8
   %232 = tail call i32 @hwloc_bitmap_and(ptr noundef %231, ptr noundef nonnull %226, ptr noundef %230) #6
   %233 = getelementptr inbounds i8, ptr %2, i64 240
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 128
   %236 = load ptr, ptr %235, align 8
-  %237 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 8), align 8
+  %237 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 312), align 8
   %238 = getelementptr inbounds i8, ptr %4, i64 84
   %239 = load i32, ptr %238, align 4
   %240 = tail call i32 @hwloc_get_type_depth(ptr noundef %236, i32 noundef %239) #6
@@ -494,7 +494,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit.thread.i: ; preds = %187, %hwloc_get_ob
 hwloc_get_next_obj_inside_cpuset_by_type.exit71.i: ; preds = %292, %.lr.ph.i75
   %252 = phi ptr [ %244, %.lr.ph.i75 ], [ %290, %292 ]
   %.05091.i = phi ptr [ %.019.i.i.i71, %.lr.ph.i75 ], [ %.019.i.i66.i, %292 ]
-  %253 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
+  %253 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
   %254 = load ptr, ptr %250, align 8
   %255 = tail call i32 @hwloc_bitmap_and(ptr noundef %253, ptr noundef %254, ptr noundef %252) #6
   %256 = load i8, ptr %251, align 2
@@ -502,7 +502,7 @@ hwloc_get_next_obj_inside_cpuset_by_type.exit71.i: ; preds = %292, %.lr.ph.i75
   br i1 %257, label %258, label %261
 
 258:                                              ; preds = %hwloc_get_next_obj_inside_cpuset_by_type.exit71.i
-  %259 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
+  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
   %260 = tail call i32 @hwloc_bitmap_weight(ptr noundef %259) #7
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i85
 
@@ -510,7 +510,7 @@ hwloc_get_next_obj_inside_cpuset_by_type.exit71.i: ; preds = %292, %.lr.ph.i75
   %262 = load ptr, ptr %233, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 128
   %264 = load ptr, ptr %263, align 8
-  %265 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
+  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
   %266 = tail call i32 @hwloc_get_type_depth(ptr noundef %264, i32 noundef 2) #6
   switch i32 %266, label %267 [
     i32 -1, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i80
@@ -554,7 +554,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i80: ; preds = %hwloc_get_nbo
   %278 = load ptr, ptr %233, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 128
   %280 = load ptr, ptr %279, align 8
-  %281 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 8), align 8
+  %281 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 312), align 8
   %282 = load i32, ptr %238, align 4
   %283 = tail call i32 @hwloc_get_type_depth(ptr noundef %280, i32 noundef %282) #6
   %or.cond.i62.i = icmp ugt i32 %283, -3
@@ -610,7 +610,7 @@ hwloc_get_next_obj_by_depth.exit.i.i.i:           ; preds = %284
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds i8, ptr %1, i64 456
   %307 = tail call i32 @hwloc_bitmap_list_asprintf(ptr noundef nonnull %306, ptr noundef %305) #6
-  %308 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %308 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %309 = tail call i32 @pmix_output_get_verbosity(i32 noundef %308) #6
   %310 = icmp sgt i32 %309, 4
   br i1 %310, label %311, label %325
@@ -623,7 +623,7 @@ hwloc_get_next_obj_by_depth.exit.i.i.i:           ; preds = %284
   %316 = getelementptr inbounds i8, ptr %315, i64 128
   %317 = load ptr, ptr %316, align 8
   %318 = tail call ptr @prte_hwloc_base_cset2str(ptr noundef %312, i1 noundef zeroext %314, ptr noundef %317) #6
-  %319 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %319 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %320 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #6
   %321 = getelementptr inbounds i8, ptr %1, i64 144
   %322 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull %321) #6
@@ -640,7 +640,7 @@ hwloc_get_next_obj_by_depth.exit.i.i.i:           ; preds = %284
   %328 = load ptr, ptr %233, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 128
   %330 = load ptr, ptr %329, align 8
-  %331 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
+  %331 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
   %332 = tail call i32 @hwloc_get_type_depth(ptr noundef %330, i32 noundef %..i76) #6
   %or.cond.i72.i = icmp ult i32 %332, -2
   tail call void @llvm.assume(i1 %or.cond.i72.i)
@@ -705,7 +705,7 @@ declare ptr @prte_hwloc_base_print_binding(i16 noundef zeroext) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -43, 1) i32 @bind_to_cpuset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %20
 

@@ -339,7 +339,7 @@ do.end:                                           ; preds = %do.body
   br i1 %tobool35.not, label %if.else, label %if.then36
 
 if.then36:                                        ; preds = %do.end
-  %10 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_ping_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %10 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_ping_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i, label %if.then37, label %if.end44
 
@@ -380,12 +380,12 @@ land.rhs52:                                       ; preds = %if.then48
 
 land.end54:                                       ; preds = %land.rhs52, %if.then48
   %18 = phi i1 [ false, %if.then48 ], [ %tobool.not.i, %land.rhs52 ]
-  %19 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_keepalive_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_keepalive_trace, i64 16) monotonic, align 8
   %tobool.i.i.i45 = trunc i8 %19 to i1
   br i1 %tobool.i.i.i45, label %if.then57, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.end54
-  %20 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
   %tobool.i.i.i46 = trunc i8 %20 to i1
   br i1 %tobool.i.i.i46, label %if.then57, label %if.end61
 
@@ -418,7 +418,7 @@ if.then65:                                        ; preds = %if.end61
   br label %if.end72
 
 if.else67:                                        ; preds = %if.else
-  %23 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_ping_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_ping_trace, i64 16) monotonic, align 8
   %tobool.i.i.i47 = trunc i8 %23 to i1
   br i1 %tobool.i.i.i47, label %if.then69, label %if.end72
 
@@ -510,7 +510,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

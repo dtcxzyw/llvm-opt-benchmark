@@ -194,7 +194,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   br i1 %49, label %.lr.ph187, label %.loopexit, !llvm.loop !9
 
 50:                                               ; preds = %._crit_edge
-  %51 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %52 = and i64 %51, 1
   %.not125 = icmp eq i64 %52, 0
   br i1 %.not125, label %58, label %53
@@ -314,7 +314,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
 
 ._crit_edge175:                                   ; preds = %._crit_edge169, %67
   tail call void @qsort(ptr noundef %69, i64 noundef %68, i64 noundef 16, ptr noundef nonnull @_compare_support) #8
-  %115 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %115 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %116 = and i64 %115, 1
   %.not126 = icmp eq i64 %116, 0
   %.pre = tail call i32 @llvm.umax.i32(i32 %40, i32 1)
@@ -536,7 +536,7 @@ part_data_sort_res.exit:                          ; preds = %.loopexit.i, %.loop
   br label %206
 
 206:                                              ; preds = %205, %202
-  %207 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %207 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %208 = and i64 %207, 1
   %.not128 = icmp eq i64 %208, 0
   br i1 %.not128, label %214, label %209
@@ -629,7 +629,7 @@ part_data_destroy_row.exit:                       ; preds = %217, %214
 
 .critedge:                                        ; preds = %199, %.loopexit150, %part_data_destroy_row.exit
   %.0 = phi ptr [ null, %part_data_destroy_row.exit ], [ null, %.loopexit150 ], [ %65, %199 ]
-  %245 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %245 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %246 = and i64 %245, 1
   %.not129 = icmp eq i64 %246, 0
   br i1 %.not129, label %252, label %247

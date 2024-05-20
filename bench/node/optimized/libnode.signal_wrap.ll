@@ -237,13 +237,13 @@ declare void @abort() local_unnamed_addr #4
 define dso_local noundef zeroext i1 @_ZN4node18HasSignalJSHandlerEi(i32 noundef %signum) local_unnamed_addr #3 {
 entry:
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node12_GLOBAL__N_121handled_signals_mutexE) #16
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 16), align 8
   %cmp.not5.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i.i.i, label %_ZNSt3mapIilSt4lessIiESaISt4pairIKilEEE4findERS3_.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
-  %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %entry ]
+  %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 8), %entry ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i32 %1, %signum
@@ -255,7 +255,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKilESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !5
 
 _ZNSt8_Rb_treeIiSt4pairIKilESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 8)
   br i1 %cmp.i.i.i, label %_ZNSt3mapIilSt4lessIiESaISt4pairIKilEEE4findERS3_.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIiSt4pairIKilESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
@@ -625,10 +625,10 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %values_.i = getelementptr inbounds i8, ptr %args, i64 8
   %19 = load ptr, ptr %values_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110SignalWrapE, i64 0, i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110SignalWrapE, i64 16), ptr %call6, align 8
   %handle_.i = getelementptr inbounds i8, ptr %call6, i64 88
   tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %call6, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %handle_.i, i32 noundef 35) #16
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110SignalWrapE, i64 0, i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110SignalWrapE, i64 16), ptr %call6, align 8
   %active_.i = getelementptr inbounds i8, ptr %call6, i64 240
   store i8 0, ptr %active_.i, align 8
   %isolate_data_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 96
@@ -930,7 +930,7 @@ declare i32 @uv_signal_init(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_110SignalWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(241) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %next_.i.i.i, align 8
@@ -948,7 +948,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_110SignalWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(241) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -1760,11 +1760,11 @@ do.body5.i.i:                                     ; preds = %entry
 
 __cxx_global_var_init.1.exit:                     ; preds = %entry
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEED2Ev, ptr nonnull @_ZN4node12_GLOBAL__N_121handled_signals_mutexE, ptr nonnull @__dso_handle) #16
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4node12_GLOBAL__N_115handled_signalsE, i64 40), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIilSt4lessIiESaISt4pairIKilEEED2Ev, ptr nonnull @_ZN4node12_GLOBAL__N_115handled_signalsE, ptr nonnull @__dso_handle) #16
   ret void
 }

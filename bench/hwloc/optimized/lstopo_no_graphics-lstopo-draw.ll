@@ -115,139 +115,139 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @lstopo_palette_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr @lstopo_main_palette, align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 0, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 0, i32 5), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 1), i8 0, i64 32, i1 false)
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 2, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 2, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 3), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 3, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 3, i32 5), align 8
-  store <4 x i32> <i32 210, i32 231, i32 164, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 4), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 4, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 4, i32 5), align 8
-  store <4 x i32> <i32 231, i32 255, i32 181, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 5), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 5, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 5, i32 5), align 8
-  store <4 x i32> <i32 231, i32 255, i32 181, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 6), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 6, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 6, i32 5), align 8
-  store <4 x i32> <i32 190, i32 190, i32 190, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 7), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 7, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 7, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 8), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 8, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 8, i32 5), align 8
-  store <4 x i32> <i32 239, i32 223, i32 222, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 9), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 9, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 9, i32 5), align 8
-  store <4 x i32> <i32 242, i32 232, i32 232, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 10), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 10, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 10, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 11), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 11, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 11, i32 5), align 8
-  store <4 x i32> <i32 190, i32 210, i32 149, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 12), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 12, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 12, i32 5), align 8
-  store <4 x i32> <i32 222, i32 222, i32 222, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 13), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 13, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 13, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 14), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 14, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 14, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 15), align 16
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 15, i32 4, i32 0, i32 0), align 16
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 15, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 16), align 16
-  store i32 255, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 16, i32 1), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 16, i32 2), i8 0, i64 24, i1 false)
-  store i32 255, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 17), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 17, i32 1), i8 0, i64 28, i1 false)
-  store i32 255, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 18), align 16
-  store i32 255, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 18, i32 1), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i64 0, i32 18, i32 2), i8 0, i64 24, i1 false)
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 16), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 24), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 32), i8 0, i64 32, i1 false)
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 64), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 80), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 88), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 96), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 112), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 120), align 8
+  store <4 x i32> <i32 210, i32 231, i32 164, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 128), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 144), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 152), align 8
+  store <4 x i32> <i32 231, i32 255, i32 181, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 160), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 176), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 184), align 8
+  store <4 x i32> <i32 231, i32 255, i32 181, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 192), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 208), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 216), align 8
+  store <4 x i32> <i32 190, i32 190, i32 190, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 224), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 240), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 248), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 256), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 272), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 280), align 8
+  store <4 x i32> <i32 239, i32 223, i32 222, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 288), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 304), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 312), align 8
+  store <4 x i32> <i32 242, i32 232, i32 232, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 320), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 336), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 344), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 352), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 368), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 376), align 8
+  store <4 x i32> <i32 190, i32 210, i32 149, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 384), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 400), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 408), align 8
+  store <4 x i32> <i32 222, i32 222, i32 222, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 416), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 432), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 440), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 448), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 464), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 472), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 480), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 496), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 504), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 512), align 16
+  store i32 255, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 516), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 520), i8 0, i64 24, i1 false)
+  store i32 255, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 544), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 548), i8 0, i64 28, i1 false)
+  store i32 255, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 576), align 16
+  store i32 255, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 580), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 584), i8 0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) @lstopo_grey_palette, ptr noundef nonnull align 16 dereferenceable(608) @lstopo_main_palette, i64 600, i1 false)
-  store <4 x i32> <i32 201, i32 201, i32 201, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 4, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 4, i32 5), align 8
-  store <4 x i32> <i32 222, i32 222, i32 222, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 5, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 5, i32 5), align 8
-  store <4 x i32> <i32 222, i32 222, i32 222, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 6, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 6, i32 5), align 8
-  store <4 x i32> <i32 228, i32 228, i32 228, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 9), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 9, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 9, i32 5), align 8
-  store <4 x i32> <i32 232, i32 232, i32 232, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 10), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 10, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 10, i32 5), align 8
-  store <4 x i32> <i32 182, i32 182, i32 182, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 12), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 12, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 12, i32 5), align 8
-  store <4 x i32> <i32 187, i32 187, i32 187, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 16), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 16, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 16, i32 5), align 8
-  store <4 x i32> <i32 119, i32 119, i32 119, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 17), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 17, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 17, i32 5), align 8
-  store <4 x i32> <i32 153, i32 153, i32 153, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 18), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 18, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i64 0, i32 18, i32 5), align 8
+  store <4 x i32> <i32 201, i32 201, i32 201, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 128), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 144), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 152), align 8
+  store <4 x i32> <i32 222, i32 222, i32 222, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 160), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 184), align 8
+  store <4 x i32> <i32 222, i32 222, i32 222, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 192), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 208), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 216), align 8
+  store <4 x i32> <i32 228, i32 228, i32 228, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 304), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 312), align 8
+  store <4 x i32> <i32 232, i32 232, i32 232, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 320), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 336), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 344), align 8
+  store <4 x i32> <i32 182, i32 182, i32 182, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 384), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 400), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 408), align 8
+  store <4 x i32> <i32 187, i32 187, i32 187, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 512), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 528), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 536), align 8
+  store <4 x i32> <i32 119, i32 119, i32 119, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 560), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 568), align 8
+  store <4 x i32> <i32 153, i32 153, i32 153, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 576), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 592), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_grey_palette, i64 600), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) @lstopo_white_palette, ptr noundef nonnull align 16 dereferenceable(608) @lstopo_main_palette, i64 608, i1 false)
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 2, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 2, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 3), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 3, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 3, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 4, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 4, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 5, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 5, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 6, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 6, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 7), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 7, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 7, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 8), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 8, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 8, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 9), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 9, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 9, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 10), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 10, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 10, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 11), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 11, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 11, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 12), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 12, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 12, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 13), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 13, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 13, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 14), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 14, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 14, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 15), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 15, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 15, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 16), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 16, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 16, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 17), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 17, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 17, i32 5), align 8
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 18), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 18, i32 4, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i64 0, i32 18, i32 5), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 64), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 88), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 96), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 112), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 120), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 128), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 144), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 152), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 160), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 184), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 192), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 208), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 216), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 224), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 240), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 248), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 256), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 272), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 280), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 304), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 312), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 320), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 336), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 344), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 352), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 368), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 376), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 384), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 400), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 408), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 416), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 432), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 440), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 448), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 464), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 472), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 480), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 496), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 504), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 512), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 528), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 536), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 560), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 568), align 8
+  store <4 x i32> <i32 255, i32 255, i32 255, i32 0>, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 576), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 592), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @lstopo_white_palette, i64 600), align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1576
   store ptr @lstopo_main_palette, ptr %2, align 8
   ret void

@@ -1027,7 +1027,7 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25, !noalias !25
   %0 = load i64, ptr %task, align 8, !noalias !25
   store ptr null, ptr %task, align 8, !noalias !25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i64 16), ptr %call.i, align 8, !noalias !25
   %scheduler_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %this, ptr %scheduler_.i.i, align 8, !noalias !25
   %task_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -1162,7 +1162,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
   %tasks_ = getelementptr inbounds i8, ptr %this, i64 40
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler8StopTaskE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !30
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler8StopTaskE, i64 16), ptr %call.i, align 8, !noalias !30
   %scheduler_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %this, ptr %scheduler_.i.i, align 8, !noalias !30
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -1243,8 +1243,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 120), ptr %0, align 8
   %shutdown_callbacks_ = getelementptr inbounds i8, ptr %this, i64 32
   %uv_handle_count_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %shutdown_callbacks_, i8 0, i64 40, i1 false)
@@ -2125,9 +2125,9 @@ _ZN4node22PerIsolatePlatformData26PostNonNestableDelayedTaskESt10unique_ptrIN2v8
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node22PerIsolatePlatformDataD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 120), ptr %add.ptr, align 8
   %flush_tasks_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %flush_tasks_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2807,7 +2807,7 @@ if.end14:                                         ; preds = %for.body, %if.then8
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node12NodePlatformC2EiPN2v817TracingControllerEPNS1_13PageAllocatorE(ptr noundef nonnull align 8 dereferenceable(137) %this, i32 noundef %thread_pool_size, ptr noundef %tracing_controller, ptr noundef %page_allocator) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12NodePlatformE, i64 16), ptr %this, align 8
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %per_isolate_mutex_) #23
   %cmp.not.i = icmp eq i32 %call.i.i, 0
@@ -2837,7 +2837,7 @@ _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
 
 if.else:                                          ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v817TracingControllerE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2v817TracingControllerE, i64 16), ptr %call, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, %if.else
@@ -2863,7 +2863,7 @@ _ZN4node12_GLOBAL__N_123GetActualThreadPoolSizeEi.exit: ; preds = %if.end, %if.t
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !81
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !81
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !81
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !81
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   tail call void @_ZN4node23WorkerThreadsTaskRunnerC2Ei(ptr noundef nonnull align 8 dereferenceable(256) %_M_impl.i.i.i.i.i.i, i32 noundef %.sroa.speculated.i), !noalias !81
   store ptr %_M_impl.i.i.i.i.i.i, ptr %worker_thread_task_runner_, align 8
@@ -2950,7 +2950,7 @@ declare void @_ZN4node20SetTracingControllerEPN2v817TracingControllerE(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node12NodePlatformD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12NodePlatformE, i64 16), ptr %this, align 8
   tail call void @_ZN4node12NodePlatform8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
@@ -3170,7 +3170,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !88
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !88
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !88
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !88
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   tail call void @_ZN4node22PerIsolatePlatformDataC2EPN2v87IsolateEP9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(576) %_M_impl.i.i.i.i.i.i, ptr noundef %isolate, ptr noundef %loop), !noalias !88
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
@@ -5339,7 +5339,7 @@ declare void @uv_cond_broadcast(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i64 16), ptr %this, align 8
   %task_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %task_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -5360,7 +5360,7 @@ _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i64 16), ptr %this, align 8
   %task_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %task_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

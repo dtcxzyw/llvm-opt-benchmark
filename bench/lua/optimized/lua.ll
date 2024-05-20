@@ -332,12 +332,12 @@ createargtable.exit43:                            ; preds = %for.body.i37, %if.t
   tail call void @lua_setglobal(ptr noundef %L, ptr noundef nonnull @.str.10) #8
   %call12.c = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %L, i32 noundef 1) #8
   %call13.c = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %L, i32 noundef 10, i32 noundef 0, i32 noundef 0) #8
-  %call.i44 = tail call ptr @getenv(ptr noundef nonnull getelementptr inbounds ([14 x i8], ptr @.str.11, i64 0, i64 1)) #8
+  %call.i44 = tail call ptr @getenv(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 1)) #8
   %cmp.i = icmp eq ptr %call.i44, null
   br i1 %cmp.i, label %if.end.i, label %if.else.i45
 
 if.end.i:                                         ; preds = %createargtable.exit43
-  %call2.i47 = tail call ptr @getenv(ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.12, i64 0, i64 1)) #8
+  %call2.i47 = tail call ptr @getenv(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 1)) #8
   %cmp3.i = icmp eq ptr %call2.i47, null
   br i1 %cmp3.i, label %if.end22, label %if.else.i45
 

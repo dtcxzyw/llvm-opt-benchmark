@@ -909,14 +909,14 @@ while.end:                                        ; preds = %handle_line.exit, %
   %bf.load = load i8, ptr %opts, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool28 = icmp ne i8 %bf.clear, 0
-  %67 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @srcs, i64 0, i32 1), align 8
+  %67 = load i64, ptr getelementptr inbounds (i8, ptr @srcs, i64 8), align 8
   %tobool29 = icmp ne i64 %67, 0
   %or.cond = select i1 %tobool28, i1 %tobool29, i1 false
   br i1 %or.cond, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %while.end
   call void @strbuf_add(ptr noundef %out, ptr noundef nonnull @.str.20, i64 noundef 6) #14
-  %68 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @srcs, i64 0, i32 1), align 8
+  %68 = load i64, ptr getelementptr inbounds (i8, ptr @srcs, i64 8), align 8
   %cmp43.not.i = icmp eq i64 %68, 0
   br i1 %cmp43.not.i, label %for.end.i, label %for.body.i44
 
@@ -1030,14 +1030,14 @@ if.then33.i:                                      ; preds = %if.end28.tail.i
 
 for.inc.i58:                                      ; preds = %if.then33.i, %if.end28.tail.i, %if.then.i
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i45, 1
-  %88 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @srcs, i64 0, i32 1), align 8
+  %88 = load i64, ptr getelementptr inbounds (i8, ptr @srcs, i64 8), align 8
   %cmp.i60 = icmp ugt i64 %88, %indvars.iv.next.i59
   br i1 %cmp.i60, label %for.body.i44, label %for.end.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.inc.i58, %if.then30
   %89 = load ptr, ptr @suppress_dest_patterns, align 8
   %tobool.not4.i.i = icmp ne ptr %89, null
-  %90 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @suppress_dest_patterns, i64 0, i32 1), align 8
+  %90 = load i64, ptr getelementptr inbounds (i8, ptr @suppress_dest_patterns, i64 8), align 8
   %cmp.i48.i = icmp sgt i64 %90, 0
   %or.cond.i = select i1 %tobool.not4.i.i, i1 %cmp.i48.i, i1 false
   br i1 %or.cond.i, label %for.body.i.i, label %if.then40.i
@@ -1045,7 +1045,7 @@ for.end.i:                                        ; preds = %for.inc.i58, %if.th
 land.rhs.i.i:                                     ; preds = %for.body.i.i
   %incdec.ptr.i.i66 = getelementptr inbounds i8, ptr %item.05.i49.i, i64 16
   %91 = load ptr, ptr @suppress_dest_patterns, align 8
-  %92 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @suppress_dest_patterns, i64 0, i32 1), align 8
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @suppress_dest_patterns, i64 8), align 8
   %add.ptr.i.i = getelementptr inbounds %struct.string_list_item, ptr %91, i64 %92
   %cmp.i.i67 = icmp ult ptr %incdec.ptr.i.i66, %add.ptr.i.i
   br i1 %cmp.i.i67, label %for.body.i.i, label %if.then40.i
@@ -1096,7 +1096,7 @@ fmt_merge_msg_title.exit:                         ; preds = %strbuf_avail.exit.i
   br label %if.end31
 
 if.end31:                                         ; preds = %fmt_merge_msg_title.exit, %while.end
-  %100 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @origins, i64 0, i32 1), align 8
+  %100 = load i64, ptr getelementptr inbounds (i8, ptr @origins, i64 8), align 8
   %tobool32.not = icmp eq i64 %100, 0
   br i1 %tobool32.not, label %if.end34, label %for.body.lr.ph.i69
 
@@ -1261,7 +1261,7 @@ next.i:                                           ; preds = %if.end43.i, %for.bo
   %tag_number.1.i = phi i32 [ %tag_number.048.i, %for.body.i72 ], [ %inc.i, %if.end43.i ]
   call void @free(ptr noundef %call.i75) #14
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i73, 1
-  %128 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @origins, i64 0, i32 1), align 8
+  %128 = load i64, ptr getelementptr inbounds (i8, ptr @origins, i64 8), align 8
   %cmp.i82 = icmp ugt i64 %128, %indvars.iv.next.i81
   br i1 %cmp.i82, label %for.body.i72, label %for.end.i83, !llvm.loop !14
 
@@ -1376,7 +1376,7 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i97, %i
   br label %strbuf_complete_line.exit
 
 strbuf_complete_line.exit:                        ; preds = %if.then36, %land.lhs.true.i.i91, %strbuf_addch.exit.i.i
-  %147 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @origins, i64 0, i32 1), align 8
+  %147 = load i64, ptr getelementptr inbounds (i8, ptr @origins, i64 8), align 8
   %cmp41187.not = icmp eq i64 %147, 0
   br i1 %cmp41187.not, label %for.end, label %for.body.lr.ph
 
@@ -1722,7 +1722,7 @@ shortlog.exit:                                    ; preds = %for.body, %lor.lhs.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %ctx.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %192 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @origins, i64 0, i32 1), align 8
+  %192 = load i64, ptr getelementptr inbounds (i8, ptr @origins, i64 8), align 8
   %cmp41 = icmp ugt i64 %192, %indvars.iv.next
   br i1 %cmp41, label %for.body, label %for.end, !llvm.loop !18
 

@@ -189,14 +189,14 @@ $_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss10IndexIVFPQD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 504
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #14
   %5 = getelementptr inbounds i8, ptr %0, i64 264
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ProductQuantizerE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 448
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
@@ -535,7 +535,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
   %16 = getelementptr inbounds i8, ptr %11, i64 17
   %17 = getelementptr inbounds i8, ptr %11, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEE, i64 16), ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %11, i64 252
   store i32 2, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %11, i64 256
@@ -563,7 +563,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDec
   %28 = getelementptr inbounds i8, ptr %23, i64 17
   %29 = getelementptr inbounds i8, ptr %23, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEE, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %23, i64 252
   store i32 2, ptr %30, align 4
   %31 = getelementptr inbounds i8, ptr %23, i64 256
@@ -603,7 +603,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
   %41 = getelementptr inbounds i8, ptr %36, i64 17
   %42 = getelementptr inbounds i8, ptr %36, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEE, i64 0, i32 0, i64 2), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEE, i64 16), ptr %36, align 8
   %43 = getelementptr inbounds i8, ptr %36, i64 252
   store i32 2, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %36, i64 256
@@ -631,7 +631,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
   %53 = getelementptr inbounds i8, ptr %48, i64 17
   %54 = getelementptr inbounds i8, ptr %48, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEE, i64 0, i32 0, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEE, i64 16), ptr %48, align 8
   %55 = getelementptr inbounds i8, ptr %48, i64 252
   store i32 2, ptr %55, align 4
   %56 = getelementptr inbounds i8, ptr %48, i64 256
@@ -665,7 +665,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDec
   %66 = getelementptr inbounds i8, ptr %61, i64 17
   %67 = getelementptr inbounds i8, ptr %61, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEE, i64 0, i32 0, i64 2), ptr %61, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEE, i64 16), ptr %61, align 8
   %68 = getelementptr inbounds i8, ptr %61, i64 252
   store i32 2, ptr %68, align 4
   %69 = getelementptr inbounds i8, ptr %61, i64 256
@@ -693,7 +693,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDec
   %78 = getelementptr inbounds i8, ptr %73, i64 17
   %79 = getelementptr inbounds i8, ptr %73, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEE, i64 0, i32 0, i64 2), ptr %73, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEE, i64 16), ptr %73, align 8
   %80 = getelementptr inbounds i8, ptr %73, i64 252
   store i32 2, ptr %80, align 4
   %81 = getelementptr inbounds i8, ptr %73, i64 256
@@ -733,7 +733,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
   %92 = getelementptr inbounds i8, ptr %87, i64 17
   %93 = getelementptr inbounds i8, ptr %87, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEE, i64 0, i32 0, i64 2), ptr %87, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEE, i64 16), ptr %87, align 8
   %94 = getelementptr inbounds i8, ptr %87, i64 252
   store i32 2, ptr %94, align 4
   %95 = getelementptr inbounds i8, ptr %87, i64 256
@@ -761,7 +761,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDec
   %104 = getelementptr inbounds i8, ptr %99, i64 17
   %105 = getelementptr inbounds i8, ptr %99, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEE, i64 0, i32 0, i64 2), ptr %99, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEE, i64 16), ptr %99, align 8
   %106 = getelementptr inbounds i8, ptr %99, i64 252
   store i32 2, ptr %106, align 4
   %107 = getelementptr inbounds i8, ptr %99, i64 256
@@ -795,7 +795,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
   %117 = getelementptr inbounds i8, ptr %112, i64 17
   %118 = getelementptr inbounds i8, ptr %112, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEE, i64 0, i32 0, i64 2), ptr %112, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEE, i64 16), ptr %112, align 8
   %119 = getelementptr inbounds i8, ptr %112, i64 252
   store i32 2, ptr %119, align 4
   %120 = getelementptr inbounds i8, ptr %112, i64 256
@@ -823,7 +823,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
   %129 = getelementptr inbounds i8, ptr %124, i64 17
   %130 = getelementptr inbounds i8, ptr %124, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEE, i64 0, i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEE, i64 16), ptr %124, align 8
   %131 = getelementptr inbounds i8, ptr %124, i64 252
   store i32 2, ptr %131, align 4
   %132 = getelementptr inbounds i8, ptr %124, i64 256
@@ -857,7 +857,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDec
   %142 = getelementptr inbounds i8, ptr %137, i64 17
   %143 = getelementptr inbounds i8, ptr %137, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEE, i64 0, i32 0, i64 2), ptr %137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEE, i64 16), ptr %137, align 8
   %144 = getelementptr inbounds i8, ptr %137, i64 252
   store i32 2, ptr %144, align 4
   %145 = getelementptr inbounds i8, ptr %137, i64 256
@@ -885,7 +885,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDec
   %154 = getelementptr inbounds i8, ptr %149, i64 17
   %155 = getelementptr inbounds i8, ptr %149, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEE, i64 0, i32 0, i64 2), ptr %149, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEE, i64 16), ptr %149, align 8
   %156 = getelementptr inbounds i8, ptr %149, i64 252
   store i32 2, ptr %156, align 4
   %157 = getelementptr inbounds i8, ptr %149, i64 256
@@ -1037,9 +1037,9 @@ define linkonce_odr void @_ZThn40_N5faiss10IndexIVFPQD0Ev(ptr noundef %0) unname
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss10IndexIVFPQC2EPNS_5IndexEmmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i64 0, i32 1, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 296), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 264
   invoke void @_ZN5faiss16ProductQuantizerC1Emmm(ptr noundef nonnull align 8 dereferenceable(208) %9, i64 noundef %2, i64 noundef %4, i64 noundef %5)
           to label %10 unwind label %22
@@ -2020,7 +2020,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
@@ -2713,7 +2713,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
 
 21:                                               ; preds = %.thread
   %22 = call ptr @__cxa_allocate_exception(i64 8) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %22, align 8
   call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
   unreachable
 
@@ -4907,9 +4907,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %344 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %344 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %345 = add i64 %344, %.3.lcssa.i.i.i.i
-  store i64 %345, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %345, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -5468,9 +5468,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i68.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i70.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i69.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i68.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %659 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %659 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %660 = add i64 %659, %.3.lcssa.i.i70.i.i
-  store i64 %660, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %660, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -6044,9 +6044,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i150.i.i, %.preheader.i.i144.i.i
   %.3.lcssa.i.i152.i.i = phi i64 [ %.2.lcssa.i.i145.i.i, %.preheader.i.i144.i.i ], [ %.4.i.i151.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i150.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %984 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %984 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %985 = add i64 %984, %.3.lcssa.i.i152.i.i
-  store i64 %985, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %985, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -6648,9 +6648,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i224.i.i, %.preheader.i.i218.i.i
   %.3.lcssa.i.i226.i.i = phi i64 [ %.2.lcssa.i.i219.i.i, %.preheader.i.i218.i.i ], [ %.4.i.i225.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i224.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1337 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1337 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1338 = add i64 %1337, %.3.lcssa.i.i226.i.i
-  store i64 %1338, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1338, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -7214,9 +7214,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i298.i.i, %.preheader.i.i292.i.i
   %.3.lcssa.i.i300.i.i = phi i64 [ %.2.lcssa.i.i293.i.i, %.preheader.i.i292.i.i ], [ %.4.i.i299.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i298.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1657 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1657 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1658 = add i64 %1657, %.3.lcssa.i.i300.i.i
-  store i64 %1658, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1658, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -7780,9 +7780,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i372.i.i, %.preheader.i.i366.i.i
   %.3.lcssa.i.i374.i.i = phi i64 [ %.2.lcssa.i.i367.i.i, %.preheader.i.i366.i.i ], [ %.4.i.i373.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i372.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1977 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1977 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1978 = add i64 %1977, %.3.lcssa.i.i374.i.i
-  store i64 %1978, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1978, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -8333,9 +8333,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i442.i.i, %.preheader.i.i436.i.i
   %.3.lcssa.i.i444.i.i = phi i64 [ %.2.lcssa.i.i437.i.i, %.preheader.i.i436.i.i ], [ %.4.i.i443.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i442.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %2280 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2280 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2281 = add i64 %2280, %.3.lcssa.i.i444.i.i
-  store i64 %2281, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2281, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -11455,9 +11455,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %568 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %568 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %569 = add i64 %568, %.3.lcssa.i.i
-  store i64 %569, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %569, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %3976
@@ -12497,9 +12497,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
   %.3.lcssa.i.i78 = phi i64 [ %.2.lcssa.i.i65, %.preheader.i.i64 ], [ %.4.i.i77, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1128 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1128 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1129 = add i64 %1128, %.3.lcssa.i.i78
-  store i64 %1129, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1129, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %3976
@@ -13554,9 +13554,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
   %.3.lcssa.i.i250 = phi i64 [ %.2.lcssa.i.i241, %.preheader.i.i240 ], [ %.4.i.i249, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1698 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1698 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1699 = add i64 %1698, %.3.lcssa.i.i250
-  store i64 %1699, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1699, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %3976
@@ -14639,9 +14639,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i4
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
   %.3.lcssa.i.i412 = phi i64 [ %.2.lcssa.i.i403, %.preheader.i.i402 ], [ %.4.i.i411, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2296 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2296 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2297 = add i64 %2296, %.3.lcssa.i.i412
-  store i64 %2297, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2297, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %3976
@@ -15686,9 +15686,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
   %.3.lcssa.i.i574 = phi i64 [ %.2.lcssa.i.i565, %.preheader.i.i564 ], [ %.4.i.i573, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2861 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2861 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2862 = add i64 %2861, %.3.lcssa.i.i574
-  store i64 %2862, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2862, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %3976
@@ -16733,9 +16733,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
   %.3.lcssa.i.i736 = phi i64 [ %.2.lcssa.i.i727, %.preheader.i.i726 ], [ %.4.i.i735, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3426 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3426 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3427 = add i64 %3426, %.3.lcssa.i.i736
-  store i64 %3427, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3427, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %3976
@@ -17767,9 +17767,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
   %.3.lcssa.i.i893 = phi i64 [ %.2.lcssa.i.i884, %.preheader.i.i883 ], [ %.4.i.i892, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3974 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3974 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3975 = add i64 %3974, %.3.lcssa.i.i893
-  store i64 %3975, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3975, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -20194,9 +20194,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %344 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %344 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %345 = add i64 %344, %.3.lcssa.i.i.i.i
-  store i64 %345, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %345, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -20755,9 +20755,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i68.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i70.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i69.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i68.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %659 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %659 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %660 = add i64 %659, %.3.lcssa.i.i70.i.i
-  store i64 %660, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %660, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -21331,9 +21331,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i150.i.i, %.preheader.i.i144.i.i
   %.3.lcssa.i.i152.i.i = phi i64 [ %.2.lcssa.i.i145.i.i, %.preheader.i.i144.i.i ], [ %.4.i.i151.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i150.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %984 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %984 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %985 = add i64 %984, %.3.lcssa.i.i152.i.i
-  store i64 %985, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %985, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -21935,9 +21935,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i224.i.i, %.preheader.i.i218.i.i
   %.3.lcssa.i.i226.i.i = phi i64 [ %.2.lcssa.i.i219.i.i, %.preheader.i.i218.i.i ], [ %.4.i.i225.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i224.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1337 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1337 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1338 = add i64 %1337, %.3.lcssa.i.i226.i.i
-  store i64 %1338, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1338, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -22501,9 +22501,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i298.i.i, %.preheader.i.i292.i.i
   %.3.lcssa.i.i300.i.i = phi i64 [ %.2.lcssa.i.i293.i.i, %.preheader.i.i292.i.i ], [ %.4.i.i299.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i298.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1657 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1657 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1658 = add i64 %1657, %.3.lcssa.i.i300.i.i
-  store i64 %1658, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1658, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -23067,9 +23067,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i372.i.i, %.preheader.i.i366.i.i
   %.3.lcssa.i.i374.i.i = phi i64 [ %.2.lcssa.i.i367.i.i, %.preheader.i.i366.i.i ], [ %.4.i.i373.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i372.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1977 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1977 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1978 = add i64 %1977, %.3.lcssa.i.i374.i.i
-  store i64 %1978, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1978, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -23620,9 +23620,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i442.i.i, %.preheader.i.i436.i.i
   %.3.lcssa.i.i444.i.i = phi i64 [ %.2.lcssa.i.i437.i.i, %.preheader.i.i436.i.i ], [ %.4.i.i443.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i442.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %2280 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2280 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2281 = add i64 %2280, %.3.lcssa.i.i444.i.i
-  store i64 %2281, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2281, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -25389,9 +25389,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %568 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %568 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %569 = add i64 %568, %.3.lcssa.i.i
-  store i64 %569, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %569, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %3976
@@ -26431,9 +26431,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
   %.3.lcssa.i.i78 = phi i64 [ %.2.lcssa.i.i65, %.preheader.i.i64 ], [ %.4.i.i77, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1128 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1128 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1129 = add i64 %1128, %.3.lcssa.i.i78
-  store i64 %1129, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1129, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %3976
@@ -27488,9 +27488,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
   %.3.lcssa.i.i250 = phi i64 [ %.2.lcssa.i.i241, %.preheader.i.i240 ], [ %.4.i.i249, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1698 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1698 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1699 = add i64 %1698, %.3.lcssa.i.i250
-  store i64 %1699, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1699, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %3976
@@ -28573,9 +28573,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i4
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
   %.3.lcssa.i.i412 = phi i64 [ %.2.lcssa.i.i403, %.preheader.i.i402 ], [ %.4.i.i411, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2296 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2296 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2297 = add i64 %2296, %.3.lcssa.i.i412
-  store i64 %2297, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2297, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %3976
@@ -29620,9 +29620,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
   %.3.lcssa.i.i574 = phi i64 [ %.2.lcssa.i.i565, %.preheader.i.i564 ], [ %.4.i.i573, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2861 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2861 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2862 = add i64 %2861, %.3.lcssa.i.i574
-  store i64 %2862, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2862, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %3976
@@ -30667,9 +30667,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
   %.3.lcssa.i.i736 = phi i64 [ %.2.lcssa.i.i727, %.preheader.i.i726 ], [ %.4.i.i735, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3426 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3426 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3427 = add i64 %3426, %.3.lcssa.i.i736
-  store i64 %3427, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3427, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %3976
@@ -31701,9 +31701,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
   %.3.lcssa.i.i893 = phi i64 [ %.2.lcssa.i.i884, %.preheader.i.i883 ], [ %.4.i.i892, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3974 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3974 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3975 = add i64 %3974, %.3.lcssa.i.i893
-  store i64 %3975, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3975, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -33846,9 +33846,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %344 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %344 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %345 = add i64 %344, %.3.lcssa.i.i.i.i
-  store i64 %345, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %345, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -34407,9 +34407,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i69.i.i, %.preheader.i.i59.i.i
   %.3.lcssa.i.i71.i.i = phi i64 [ %.2.lcssa.i.i60.i.i, %.preheader.i.i59.i.i ], [ %.4.i.i70.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i69.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %659 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %659 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %660 = add i64 %659, %.3.lcssa.i.i71.i.i
-  store i64 %660, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %660, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -34983,9 +34983,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i151.i.i, %.preheader.i.i145.i.i
   %.3.lcssa.i.i153.i.i = phi i64 [ %.2.lcssa.i.i146.i.i, %.preheader.i.i145.i.i ], [ %.4.i.i152.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i151.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %984 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %984 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %985 = add i64 %984, %.3.lcssa.i.i153.i.i
-  store i64 %985, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %985, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -35587,9 +35587,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i225.i.i, %.preheader.i.i219.i.i
   %.3.lcssa.i.i227.i.i = phi i64 [ %.2.lcssa.i.i220.i.i, %.preheader.i.i219.i.i ], [ %.4.i.i226.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i225.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1337 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1337 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1338 = add i64 %1337, %.3.lcssa.i.i227.i.i
-  store i64 %1338, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1338, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -36153,9 +36153,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i299.i.i, %.preheader.i.i293.i.i
   %.3.lcssa.i.i301.i.i = phi i64 [ %.2.lcssa.i.i294.i.i, %.preheader.i.i293.i.i ], [ %.4.i.i300.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i299.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1657 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1657 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1658 = add i64 %1657, %.3.lcssa.i.i301.i.i
-  store i64 %1658, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1658, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -36719,9 +36719,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i373.i.i, %.preheader.i.i367.i.i
   %.3.lcssa.i.i375.i.i = phi i64 [ %.2.lcssa.i.i368.i.i, %.preheader.i.i367.i.i ], [ %.4.i.i374.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i373.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1977 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1977 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1978 = add i64 %1977, %.3.lcssa.i.i375.i.i
-  store i64 %1978, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1978, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
@@ -37272,9 +37272,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i443.i.i, %.preheader.i.i437.i.i
   %.3.lcssa.i.i445.i.i = phi i64 [ %.2.lcssa.i.i438.i.i, %.preheader.i.i437.i.i ], [ %.4.i.i444.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i443.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %2280 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2280 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2281 = add i64 %2280, %.3.lcssa.i.i445.i.i
-  store i64 %2281, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2281, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -39044,9 +39044,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %568 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %568 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %569 = add i64 %568, %.3.lcssa.i.i
-  store i64 %569, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %569, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %3976
@@ -40086,9 +40086,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
   %.3.lcssa.i.i78 = phi i64 [ %.2.lcssa.i.i65, %.preheader.i.i64 ], [ %.4.i.i77, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1128 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1128 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1129 = add i64 %1128, %.3.lcssa.i.i78
-  store i64 %1129, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1129, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %3976
@@ -41143,9 +41143,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
   %.3.lcssa.i.i250 = phi i64 [ %.2.lcssa.i.i241, %.preheader.i.i240 ], [ %.4.i.i249, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1698 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1698 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1699 = add i64 %1698, %.3.lcssa.i.i250
-  store i64 %1699, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1699, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %3976
@@ -42228,9 +42228,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i4
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
   %.3.lcssa.i.i412 = phi i64 [ %.2.lcssa.i.i403, %.preheader.i.i402 ], [ %.4.i.i411, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2296 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2296 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2297 = add i64 %2296, %.3.lcssa.i.i412
-  store i64 %2297, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2297, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %3976
@@ -43275,9 +43275,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
   %.3.lcssa.i.i574 = phi i64 [ %.2.lcssa.i.i565, %.preheader.i.i564 ], [ %.4.i.i573, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2861 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2861 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2862 = add i64 %2861, %.3.lcssa.i.i574
-  store i64 %2862, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2862, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %3976
@@ -44322,9 +44322,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
   %.3.lcssa.i.i736 = phi i64 [ %.2.lcssa.i.i727, %.preheader.i.i726 ], [ %.4.i.i735, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3426 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3426 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3427 = add i64 %3426, %.3.lcssa.i.i736
-  store i64 %3427, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3427, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %3976
@@ -45356,9 +45356,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
   %.3.lcssa.i.i893 = phi i64 [ %.2.lcssa.i.i884, %.preheader.i.i883 ], [ %.4.i.i892, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3974 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3974 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3975 = add i64 %3974, %.3.lcssa.i.i893
-  store i64 %3975, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3975, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -47496,9 +47496,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %344 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %344 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %345 = add i64 %344, %.3.lcssa.i.i.i.i
-  store i64 %345, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %345, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -48057,9 +48057,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i69.i.i, %.preheader.i.i59.i.i
   %.3.lcssa.i.i71.i.i = phi i64 [ %.2.lcssa.i.i60.i.i, %.preheader.i.i59.i.i ], [ %.4.i.i70.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i69.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %659 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %659 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %660 = add i64 %659, %.3.lcssa.i.i71.i.i
-  store i64 %660, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %660, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -48633,9 +48633,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i151.i.i, %.preheader.i.i145.i.i
   %.3.lcssa.i.i153.i.i = phi i64 [ %.2.lcssa.i.i146.i.i, %.preheader.i.i145.i.i ], [ %.4.i.i152.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i151.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %984 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %984 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %985 = add i64 %984, %.3.lcssa.i.i153.i.i
-  store i64 %985, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %985, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -49237,9 +49237,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i225.i.i, %.preheader.i.i219.i.i
   %.3.lcssa.i.i227.i.i = phi i64 [ %.2.lcssa.i.i220.i.i, %.preheader.i.i219.i.i ], [ %.4.i.i226.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i225.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1337 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1337 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1338 = add i64 %1337, %.3.lcssa.i.i227.i.i
-  store i64 %1338, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1338, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -49803,9 +49803,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i299.i.i, %.preheader.i.i293.i.i
   %.3.lcssa.i.i301.i.i = phi i64 [ %.2.lcssa.i.i294.i.i, %.preheader.i.i293.i.i ], [ %.4.i.i300.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i299.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1657 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1657 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1658 = add i64 %1657, %.3.lcssa.i.i301.i.i
-  store i64 %1658, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1658, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -50369,9 +50369,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i373.i.i, %.preheader.i.i367.i.i
   %.3.lcssa.i.i375.i.i = phi i64 [ %.2.lcssa.i.i368.i.i, %.preheader.i.i367.i.i ], [ %.4.i.i374.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i373.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %1977 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1977 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1978 = add i64 %1977, %.3.lcssa.i.i375.i.i
-  store i64 %1978, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1978, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
@@ -50922,9 +50922,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i443.i.i, %.preheader.i.i437.i.i
   %.3.lcssa.i.i445.i.i = phi i64 [ %.2.lcssa.i.i438.i.i, %.preheader.i.i437.i.i ], [ %.4.i.i444.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i443.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  %2280 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2280 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2281 = add i64 %2280, %.3.lcssa.i.i445.i.i
-  store i64 %2281, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2281, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -52691,9 +52691,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %568 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %568 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %569 = add i64 %568, %.3.lcssa.i.i
-  store i64 %569, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %569, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %3976
@@ -53733,9 +53733,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
   %.3.lcssa.i.i78 = phi i64 [ %.2.lcssa.i.i65, %.preheader.i.i64 ], [ %.4.i.i77, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1128 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1128 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1129 = add i64 %1128, %.3.lcssa.i.i78
-  store i64 %1129, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1129, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %3976
@@ -54790,9 +54790,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
   %.3.lcssa.i.i250 = phi i64 [ %.2.lcssa.i.i241, %.preheader.i.i240 ], [ %.4.i.i249, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1698 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1698 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1699 = add i64 %1698, %.3.lcssa.i.i250
-  store i64 %1699, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1699, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %3976
@@ -55875,9 +55875,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i4
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
   %.3.lcssa.i.i412 = phi i64 [ %.2.lcssa.i.i403, %.preheader.i.i402 ], [ %.4.i.i411, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2296 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2296 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2297 = add i64 %2296, %.3.lcssa.i.i412
-  store i64 %2297, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2297, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %3976
@@ -56922,9 +56922,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
   %.3.lcssa.i.i574 = phi i64 [ %.2.lcssa.i.i565, %.preheader.i.i564 ], [ %.4.i.i573, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2861 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2861 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2862 = add i64 %2861, %.3.lcssa.i.i574
-  store i64 %2862, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2862, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %3976
@@ -57969,9 +57969,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
   %.3.lcssa.i.i736 = phi i64 [ %.2.lcssa.i.i727, %.preheader.i.i726 ], [ %.4.i.i735, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3426 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3426 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3427 = add i64 %3426, %.3.lcssa.i.i736
-  store i64 %3427, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3427, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %3976
@@ -59003,9 +59003,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
   %.3.lcssa.i.i893 = phi i64 [ %.2.lcssa.i.i884, %.preheader.i.i883 ], [ %.4.i.i892, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3974 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3974 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3975 = add i64 %3974, %.3.lcssa.i.i893
-  store i64 %3975, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3975, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -61523,9 +61523,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %376 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %376 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %377 = add i64 %376, %.3.lcssa.i.i.i.i
-  store i64 %377, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %377, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
@@ -62089,9 +62089,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i76.i.i, %.preheader.i.i66.i.i
   %.3.lcssa.i.i78.i.i = phi i64 [ %.2.lcssa.i.i67.i.i, %.preheader.i.i66.i.i ], [ %.4.i.i77.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i76.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %691 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %691 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %692 = add i64 %691, %.3.lcssa.i.i78.i.i
-  store i64 %692, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %692, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
@@ -62670,9 +62670,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i167.i.i, %.preheader.i.i161.i.i
   %.3.lcssa.i.i169.i.i = phi i64 [ %.2.lcssa.i.i162.i.i, %.preheader.i.i161.i.i ], [ %.4.i.i168.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i167.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %1016 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1016 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1017 = add i64 %1016, %.3.lcssa.i.i169.i.i
-  store i64 %1017, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1017, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
@@ -63279,9 +63279,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i256.i.i, %.preheader.i.i250.i.i
   %.3.lcssa.i.i258.i.i = phi i64 [ %.2.lcssa.i.i251.i.i, %.preheader.i.i250.i.i ], [ %.4.i.i257.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i256.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %1369 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1369 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1370 = add i64 %1369, %.3.lcssa.i.i258.i.i
-  store i64 %1370, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1370, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -63850,9 +63850,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i345.i.i, %.preheader.i.i339.i.i
   %.3.lcssa.i.i347.i.i = phi i64 [ %.2.lcssa.i.i340.i.i, %.preheader.i.i339.i.i ], [ %.4.i.i346.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i345.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %1689 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1689 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1690 = add i64 %1689, %.3.lcssa.i.i347.i.i
-  store i64 %1690, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1690, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -64421,9 +64421,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i434.i.i, %.preheader.i.i428.i.i
   %.3.lcssa.i.i436.i.i = phi i64 [ %.2.lcssa.i.i429.i.i, %.preheader.i.i428.i.i ], [ %.4.i.i435.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i434.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %2009 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2009 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2010 = add i64 %2009, %.3.lcssa.i.i436.i.i
-  store i64 %2010, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2010, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
@@ -64979,9 +64979,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i523.i.i, %.preheader.i.i517.i.i
   %.3.lcssa.i.i525.i.i = phi i64 [ %.2.lcssa.i.i518.i.i, %.preheader.i.i517.i.i ], [ %.4.i.i524.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i523.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %2312 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2312 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2313 = add i64 %2312, %.3.lcssa.i.i525.i.i
-  store i64 %2313, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2313, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -67051,9 +67051,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %607 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %607 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %608 = add i64 %607, %.3.lcssa.i.i
-  store i64 %608, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %608, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
@@ -68119,9 +68119,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i81, %.preheader.i.i69
   %.3.lcssa.i.i83 = phi i64 [ %.2.lcssa.i.i70, %.preheader.i.i69 ], [ %.4.i.i82, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i81 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %1178 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1178 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1179 = add i64 %1178, %.3.lcssa.i.i83
-  store i64 %1179, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1179, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
@@ -69202,9 +69202,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i259, %.preheader.i.i251
   %.3.lcssa.i.i261 = phi i64 [ %.2.lcssa.i.i252, %.preheader.i.i251 ], [ %.4.i.i260, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i259 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %1759 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1759 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1760 = add i64 %1759, %.3.lcssa.i.i261
-  store i64 %1760, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1760, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -70313,9 +70313,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i4
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i433, %.preheader.i.i425
   %.3.lcssa.i.i435 = phi i64 [ %.2.lcssa.i.i426, %.preheader.i.i425 ], [ %.4.i.i434, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i433 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %2368 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2368 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2369 = add i64 %2368, %.3.lcssa.i.i435
-  store i64 %2369, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2369, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -71386,9 +71386,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i6
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i607, %.preheader.i.i599
   %.3.lcssa.i.i609 = phi i64 [ %.2.lcssa.i.i600, %.preheader.i.i599 ], [ %.4.i.i608, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i607 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %2944 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2944 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2945 = add i64 %2944, %.3.lcssa.i.i609
-  store i64 %2945, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2945, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
@@ -72459,9 +72459,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i781, %.preheader.i.i773
   %.3.lcssa.i.i783 = phi i64 [ %.2.lcssa.i.i774, %.preheader.i.i773 ], [ %.4.i.i782, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i781 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %3520 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3520 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3521 = add i64 %3520, %.3.lcssa.i.i783
-  store i64 %3521, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3521, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -73519,9 +73519,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i9
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i954, %.preheader.i.i946
   %.3.lcssa.i.i956 = phi i64 [ %.2.lcssa.i.i947, %.preheader.i.i946 ], [ %.4.i.i955, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i954 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %4079 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %4079 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %4080 = add i64 %4079, %.3.lcssa.i.i956
-  store i64 %4080, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %4080, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -76411,9 +76411,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %376 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %376 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %377 = add i64 %376, %.3.lcssa.i.i.i.i
-  store i64 %377, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %377, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
@@ -76977,9 +76977,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i76.i.i, %.preheader.i.i66.i.i
   %.3.lcssa.i.i78.i.i = phi i64 [ %.2.lcssa.i.i67.i.i, %.preheader.i.i66.i.i ], [ %.4.i.i77.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i76.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %691 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %691 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %692 = add i64 %691, %.3.lcssa.i.i78.i.i
-  store i64 %692, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %692, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
@@ -77558,9 +77558,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i167.i.i, %.preheader.i.i161.i.i
   %.3.lcssa.i.i169.i.i = phi i64 [ %.2.lcssa.i.i162.i.i, %.preheader.i.i161.i.i ], [ %.4.i.i168.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i167.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %1016 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1016 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1017 = add i64 %1016, %.3.lcssa.i.i169.i.i
-  store i64 %1017, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1017, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
@@ -78167,9 +78167,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i256.i.i, %.preheader.i.i250.i.i
   %.3.lcssa.i.i258.i.i = phi i64 [ %.2.lcssa.i.i251.i.i, %.preheader.i.i250.i.i ], [ %.4.i.i257.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i256.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %1369 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1369 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1370 = add i64 %1369, %.3.lcssa.i.i258.i.i
-  store i64 %1370, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1370, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -78738,9 +78738,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i345.i.i, %.preheader.i.i339.i.i
   %.3.lcssa.i.i347.i.i = phi i64 [ %.2.lcssa.i.i340.i.i, %.preheader.i.i339.i.i ], [ %.4.i.i346.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i345.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %1689 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1689 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1690 = add i64 %1689, %.3.lcssa.i.i347.i.i
-  store i64 %1690, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1690, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -79309,9 +79309,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i434.i.i, %.preheader.i.i428.i.i
   %.3.lcssa.i.i436.i.i = phi i64 [ %.2.lcssa.i.i429.i.i, %.preheader.i.i428.i.i ], [ %.4.i.i435.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i434.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %2009 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2009 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2010 = add i64 %2009, %.3.lcssa.i.i436.i.i
-  store i64 %2010, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2010, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
@@ -79867,9 +79867,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i523.i.i, %.preheader.i.i517.i.i
   %.3.lcssa.i.i525.i.i = phi i64 [ %.2.lcssa.i.i518.i.i, %.preheader.i.i517.i.i ], [ %.4.i.i524.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i523.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  %2312 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2312 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2313 = add i64 %2312, %.3.lcssa.i.i525.i.i
-  store i64 %2313, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2313, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -81936,9 +81936,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %607 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %607 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %608 = add i64 %607, %.3.lcssa.i.i
-  store i64 %608, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %608, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
@@ -83004,9 +83004,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i81, %.preheader.i.i69
   %.3.lcssa.i.i83 = phi i64 [ %.2.lcssa.i.i70, %.preheader.i.i69 ], [ %.4.i.i82, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i81 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %1178 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1178 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1179 = add i64 %1178, %.3.lcssa.i.i83
-  store i64 %1179, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1179, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
@@ -84087,9 +84087,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i259, %.preheader.i.i251
   %.3.lcssa.i.i261 = phi i64 [ %.2.lcssa.i.i252, %.preheader.i.i251 ], [ %.4.i.i260, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i259 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %1759 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1759 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1760 = add i64 %1759, %.3.lcssa.i.i261
-  store i64 %1760, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1760, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -85198,9 +85198,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i4
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i433, %.preheader.i.i425
   %.3.lcssa.i.i435 = phi i64 [ %.2.lcssa.i.i426, %.preheader.i.i425 ], [ %.4.i.i434, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i433 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %2368 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2368 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2369 = add i64 %2368, %.3.lcssa.i.i435
-  store i64 %2369, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2369, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -86271,9 +86271,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i6
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i607, %.preheader.i.i599
   %.3.lcssa.i.i609 = phi i64 [ %.2.lcssa.i.i600, %.preheader.i.i599 ], [ %.4.i.i608, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i607 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %2944 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2944 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2945 = add i64 %2944, %.3.lcssa.i.i609
-  store i64 %2945, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2945, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
@@ -87344,9 +87344,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i781, %.preheader.i.i773
   %.3.lcssa.i.i783 = phi i64 [ %.2.lcssa.i.i774, %.preheader.i.i773 ], [ %.4.i.i782, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i781 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %3520 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3520 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3521 = add i64 %3520, %.3.lcssa.i.i783
-  store i64 %3521, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3521, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -88404,9 +88404,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i9
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i954, %.preheader.i.i946
   %.3.lcssa.i.i956 = phi i64 [ %.2.lcssa.i.i947, %.preheader.i.i946 ], [ %.4.i.i955, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i954 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %4079 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %4079 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %4080 = add i64 %4079, %.3.lcssa.i.i956
-  store i64 %4080, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %4080, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -90488,9 +90488,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %308 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %308 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %309 = add i64 %308, %.3.lcssa.i.i.i.i
-  store i64 %309, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %309, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -90994,9 +90994,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i68.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i67.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %586 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %586 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %587 = add i64 %586, %.3.lcssa.i.i68.i.i
-  store i64 %587, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %587, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -91515,9 +91515,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
   %.3.lcssa.i.i147.i.i = phi i64 [ %.2.lcssa.i.i142.i.i, %.preheader.i.i141.i.i ], [ %.4.i.i146.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %874 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %874 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %875 = add i64 %874, %.3.lcssa.i.i147.i.i
-  store i64 %875, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %875, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -92063,9 +92063,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
   %.3.lcssa.i.i218.i.i = phi i64 [ %.2.lcssa.i.i213.i.i, %.preheader.i.i212.i.i ], [ %.4.i.i217.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1193 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1193 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1194 = add i64 %1193, %.3.lcssa.i.i218.i.i
-  store i64 %1194, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1194, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -92574,9 +92574,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
   %.3.lcssa.i.i289.i.i = phi i64 [ %.2.lcssa.i.i284.i.i, %.preheader.i.i283.i.i ], [ %.4.i.i288.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1476 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1476 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1477 = add i64 %1476, %.3.lcssa.i.i289.i.i
-  store i64 %1477, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1477, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -93085,9 +93085,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
   %.3.lcssa.i.i360.i.i = phi i64 [ %.2.lcssa.i.i355.i.i, %.preheader.i.i354.i.i ], [ %.4.i.i359.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1759 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1759 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1760 = add i64 %1759, %.3.lcssa.i.i360.i.i
-  store i64 %1760, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1760, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -93583,9 +93583,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
   %.3.lcssa.i.i427.i.i = phi i64 [ %.2.lcssa.i.i422.i.i, %.preheader.i.i421.i.i ], [ %.4.i.i426.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %2025 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2025 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2026 = add i64 %2025, %.3.lcssa.i.i427.i.i
-  store i64 %2026, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2026, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -95290,9 +95290,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %534 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %534 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %535 = add i64 %534, %.3.lcssa.i.i
-  store i64 %535, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %535, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %3723
@@ -96277,9 +96277,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
   %.3.lcssa.i.i74 = phi i64 [ %.2.lcssa.i.i63, %.preheader.i.i62 ], [ %.4.i.i73, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1057 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1057 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1058 = add i64 %1057, %.3.lcssa.i.i74
-  store i64 %1058, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1058, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %3723
@@ -97279,9 +97279,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
   %.3.lcssa.i.i242 = phi i64 [ %.2.lcssa.i.i235, %.preheader.i.i234 ], [ %.4.i.i241, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1590 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1590 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1591 = add i64 %1590, %.3.lcssa.i.i242
-  store i64 %1591, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1591, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %3723
@@ -98308,9 +98308,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i3
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
   %.3.lcssa.i.i400 = phi i64 [ %.2.lcssa.i.i393, %.preheader.i.i392 ], [ %.4.i.i399, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2154 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2154 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2155 = add i64 %2154, %.3.lcssa.i.i400
-  store i64 %2155, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2155, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %3723
@@ -99300,9 +99300,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
   %.3.lcssa.i.i558 = phi i64 [ %.2.lcssa.i.i551, %.preheader.i.i550 ], [ %.4.i.i557, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2682 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2682 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2683 = add i64 %2682, %.3.lcssa.i.i558
-  store i64 %2683, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2683, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %3723
@@ -100292,9 +100292,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
   %.3.lcssa.i.i717 = phi i64 [ %.2.lcssa.i.i710, %.preheader.i.i709 ], [ %.4.i.i716, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3210 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3210 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3211 = add i64 %3210, %.3.lcssa.i.i717
-  store i64 %3211, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3211, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %3723
@@ -101271,9 +101271,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
   %.3.lcssa.i.i870 = phi i64 [ %.2.lcssa.i.i863, %.preheader.i.i862 ], [ %.4.i.i869, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3721 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3721 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3722 = add i64 %3721, %.3.lcssa.i.i870
-  store i64 %3722, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3722, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -103348,9 +103348,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %308 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %308 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %309 = add i64 %308, %.3.lcssa.i.i.i.i
-  store i64 %309, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %309, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -103854,9 +103854,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i68.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i67.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %586 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %586 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %587 = add i64 %586, %.3.lcssa.i.i68.i.i
-  store i64 %587, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %587, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -104375,9 +104375,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
   %.3.lcssa.i.i147.i.i = phi i64 [ %.2.lcssa.i.i142.i.i, %.preheader.i.i141.i.i ], [ %.4.i.i146.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %874 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %874 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %875 = add i64 %874, %.3.lcssa.i.i147.i.i
-  store i64 %875, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %875, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -104923,9 +104923,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
   %.3.lcssa.i.i218.i.i = phi i64 [ %.2.lcssa.i.i213.i.i, %.preheader.i.i212.i.i ], [ %.4.i.i217.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1193 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1193 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1194 = add i64 %1193, %.3.lcssa.i.i218.i.i
-  store i64 %1194, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1194, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -105434,9 +105434,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
   %.3.lcssa.i.i289.i.i = phi i64 [ %.2.lcssa.i.i284.i.i, %.preheader.i.i283.i.i ], [ %.4.i.i288.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1476 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1476 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1477 = add i64 %1476, %.3.lcssa.i.i289.i.i
-  store i64 %1477, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1477, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -105945,9 +105945,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
   %.3.lcssa.i.i360.i.i = phi i64 [ %.2.lcssa.i.i355.i.i, %.preheader.i.i354.i.i ], [ %.4.i.i359.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1759 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1759 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1760 = add i64 %1759, %.3.lcssa.i.i360.i.i
-  store i64 %1760, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1760, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -106443,9 +106443,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
   %.3.lcssa.i.i427.i.i = phi i64 [ %.2.lcssa.i.i422.i.i, %.preheader.i.i421.i.i ], [ %.4.i.i426.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %2025 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2025 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2026 = add i64 %2025, %.3.lcssa.i.i427.i.i
-  store i64 %2026, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2026, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -108147,9 +108147,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %534 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %534 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %535 = add i64 %534, %.3.lcssa.i.i
-  store i64 %535, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %535, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %3723
@@ -109134,9 +109134,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
   %.3.lcssa.i.i74 = phi i64 [ %.2.lcssa.i.i63, %.preheader.i.i62 ], [ %.4.i.i73, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1057 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1057 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1058 = add i64 %1057, %.3.lcssa.i.i74
-  store i64 %1058, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1058, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %3723
@@ -110136,9 +110136,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
   %.3.lcssa.i.i242 = phi i64 [ %.2.lcssa.i.i235, %.preheader.i.i234 ], [ %.4.i.i241, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1590 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1590 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1591 = add i64 %1590, %.3.lcssa.i.i242
-  store i64 %1591, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1591, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %3723
@@ -111165,9 +111165,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i3
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
   %.3.lcssa.i.i400 = phi i64 [ %.2.lcssa.i.i393, %.preheader.i.i392 ], [ %.4.i.i399, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2154 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2154 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2155 = add i64 %2154, %.3.lcssa.i.i400
-  store i64 %2155, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2155, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %3723
@@ -112157,9 +112157,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
   %.3.lcssa.i.i558 = phi i64 [ %.2.lcssa.i.i551, %.preheader.i.i550 ], [ %.4.i.i557, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2682 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2682 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2683 = add i64 %2682, %.3.lcssa.i.i558
-  store i64 %2683, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2683, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %3723
@@ -113149,9 +113149,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
   %.3.lcssa.i.i717 = phi i64 [ %.2.lcssa.i.i710, %.preheader.i.i709 ], [ %.4.i.i716, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3210 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3210 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3211 = add i64 %3210, %.3.lcssa.i.i717
-  store i64 %3211, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3211, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %3723
@@ -114128,9 +114128,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
   %.3.lcssa.i.i870 = phi i64 [ %.2.lcssa.i.i863, %.preheader.i.i862 ], [ %.4.i.i869, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3721 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3721 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3722 = add i64 %3721, %.3.lcssa.i.i870
-  store i64 %3722, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3722, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -116208,9 +116208,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %308 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %308 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %309 = add i64 %308, %.3.lcssa.i.i.i.i
-  store i64 %309, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %309, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -116714,9 +116714,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i68.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i67.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %586 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %586 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %587 = add i64 %586, %.3.lcssa.i.i68.i.i
-  store i64 %587, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %587, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -117235,9 +117235,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
   %.3.lcssa.i.i147.i.i = phi i64 [ %.2.lcssa.i.i142.i.i, %.preheader.i.i141.i.i ], [ %.4.i.i146.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %874 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %874 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %875 = add i64 %874, %.3.lcssa.i.i147.i.i
-  store i64 %875, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %875, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -117783,9 +117783,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
   %.3.lcssa.i.i218.i.i = phi i64 [ %.2.lcssa.i.i213.i.i, %.preheader.i.i212.i.i ], [ %.4.i.i217.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1193 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1193 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1194 = add i64 %1193, %.3.lcssa.i.i218.i.i
-  store i64 %1194, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1194, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -118294,9 +118294,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
   %.3.lcssa.i.i289.i.i = phi i64 [ %.2.lcssa.i.i284.i.i, %.preheader.i.i283.i.i ], [ %.4.i.i288.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1476 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1476 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1477 = add i64 %1476, %.3.lcssa.i.i289.i.i
-  store i64 %1477, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1477, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -118805,9 +118805,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
   %.3.lcssa.i.i360.i.i = phi i64 [ %.2.lcssa.i.i355.i.i, %.preheader.i.i354.i.i ], [ %.4.i.i359.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1759 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1759 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1760 = add i64 %1759, %.3.lcssa.i.i360.i.i
-  store i64 %1760, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1760, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
@@ -119303,9 +119303,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
   %.3.lcssa.i.i427.i.i = phi i64 [ %.2.lcssa.i.i422.i.i, %.preheader.i.i421.i.i ], [ %.4.i.i426.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %2025 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2025 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2026 = add i64 %2025, %.3.lcssa.i.i427.i.i
-  store i64 %2026, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2026, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -121010,9 +121010,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %534 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %534 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %535 = add i64 %534, %.3.lcssa.i.i
-  store i64 %535, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %535, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %3723
@@ -121997,9 +121997,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
   %.3.lcssa.i.i74 = phi i64 [ %.2.lcssa.i.i63, %.preheader.i.i62 ], [ %.4.i.i73, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1057 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1057 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1058 = add i64 %1057, %.3.lcssa.i.i74
-  store i64 %1058, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1058, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %3723
@@ -122999,9 +122999,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
   %.3.lcssa.i.i242 = phi i64 [ %.2.lcssa.i.i235, %.preheader.i.i234 ], [ %.4.i.i241, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1590 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1590 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1591 = add i64 %1590, %.3.lcssa.i.i242
-  store i64 %1591, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1591, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %3723
@@ -124028,9 +124028,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i3
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
   %.3.lcssa.i.i400 = phi i64 [ %.2.lcssa.i.i393, %.preheader.i.i392 ], [ %.4.i.i399, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2154 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2154 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2155 = add i64 %2154, %.3.lcssa.i.i400
-  store i64 %2155, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2155, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %3723
@@ -125020,9 +125020,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
   %.3.lcssa.i.i558 = phi i64 [ %.2.lcssa.i.i551, %.preheader.i.i550 ], [ %.4.i.i557, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2682 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2682 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2683 = add i64 %2682, %.3.lcssa.i.i558
-  store i64 %2683, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2683, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %3723
@@ -126012,9 +126012,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
   %.3.lcssa.i.i717 = phi i64 [ %.2.lcssa.i.i710, %.preheader.i.i709 ], [ %.4.i.i716, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3210 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3210 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3211 = add i64 %3210, %.3.lcssa.i.i717
-  store i64 %3211, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3211, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %3723
@@ -126991,9 +126991,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
   %.3.lcssa.i.i870 = phi i64 [ %.2.lcssa.i.i863, %.preheader.i.i862 ], [ %.4.i.i869, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3721 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3721 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3722 = add i64 %3721, %.3.lcssa.i.i870
-  store i64 %3722, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3722, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -129068,9 +129068,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %308 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %308 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %309 = add i64 %308, %.3.lcssa.i.i.i.i
-  store i64 %309, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %309, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -129574,9 +129574,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i68.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i67.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %586 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %586 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %587 = add i64 %586, %.3.lcssa.i.i68.i.i
-  store i64 %587, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %587, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -130095,9 +130095,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
   %.3.lcssa.i.i147.i.i = phi i64 [ %.2.lcssa.i.i142.i.i, %.preheader.i.i141.i.i ], [ %.4.i.i146.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %874 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %874 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %875 = add i64 %874, %.3.lcssa.i.i147.i.i
-  store i64 %875, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %875, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -130643,9 +130643,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
   %.3.lcssa.i.i218.i.i = phi i64 [ %.2.lcssa.i.i213.i.i, %.preheader.i.i212.i.i ], [ %.4.i.i217.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1193 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1193 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1194 = add i64 %1193, %.3.lcssa.i.i218.i.i
-  store i64 %1194, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1194, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -131154,9 +131154,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
   %.3.lcssa.i.i289.i.i = phi i64 [ %.2.lcssa.i.i284.i.i, %.preheader.i.i283.i.i ], [ %.4.i.i288.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1476 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1476 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1477 = add i64 %1476, %.3.lcssa.i.i289.i.i
-  store i64 %1477, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1477, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -131665,9 +131665,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
   %.3.lcssa.i.i360.i.i = phi i64 [ %.2.lcssa.i.i355.i.i, %.preheader.i.i354.i.i ], [ %.4.i.i359.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %1759 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1759 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1760 = add i64 %1759, %.3.lcssa.i.i360.i.i
-  store i64 %1760, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1760, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
@@ -132163,9 +132163,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
   %.3.lcssa.i.i427.i.i = phi i64 [ %.2.lcssa.i.i422.i.i, %.preheader.i.i421.i.i ], [ %.4.i.i426.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  %2025 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2025 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2026 = add i64 %2025, %.3.lcssa.i.i427.i.i
-  store i64 %2026, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2026, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -133867,9 +133867,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %534 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %534 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %535 = add i64 %534, %.3.lcssa.i.i
-  store i64 %535, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %535, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %3723
@@ -134854,9 +134854,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
   %.3.lcssa.i.i74 = phi i64 [ %.2.lcssa.i.i63, %.preheader.i.i62 ], [ %.4.i.i73, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1057 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1057 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1058 = add i64 %1057, %.3.lcssa.i.i74
-  store i64 %1058, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1058, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %3723
@@ -135856,9 +135856,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
   %.3.lcssa.i.i242 = phi i64 [ %.2.lcssa.i.i235, %.preheader.i.i234 ], [ %.4.i.i241, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %1590 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1590 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1591 = add i64 %1590, %.3.lcssa.i.i242
-  store i64 %1591, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1591, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %3723
@@ -136885,9 +136885,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i3
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
   %.3.lcssa.i.i400 = phi i64 [ %.2.lcssa.i.i393, %.preheader.i.i392 ], [ %.4.i.i399, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2154 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2154 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2155 = add i64 %2154, %.3.lcssa.i.i400
-  store i64 %2155, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2155, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %3723
@@ -137877,9 +137877,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
   %.3.lcssa.i.i558 = phi i64 [ %.2.lcssa.i.i551, %.preheader.i.i550 ], [ %.4.i.i557, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %2682 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2682 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2683 = add i64 %2682, %.3.lcssa.i.i558
-  store i64 %2683, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2683, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %3723
@@ -138869,9 +138869,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
   %.3.lcssa.i.i717 = phi i64 [ %.2.lcssa.i.i710, %.preheader.i.i709 ], [ %.4.i.i716, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3210 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3210 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3211 = add i64 %3210, %.3.lcssa.i.i717
-  store i64 %3211, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3211, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %3723
@@ -139848,9 +139848,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i8
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
   %.3.lcssa.i.i870 = phi i64 [ %.2.lcssa.i.i863, %.preheader.i.i862 ], [ %.4.i.i869, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  %3721 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3721 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3722 = add i64 %3721, %.3.lcssa.i.i870
-  store i64 %3722, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3722, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -142375,9 +142375,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %366 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %366 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %367 = add i64 %366, %.3.lcssa.i.i.i.i
-  store i64 %367, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %367, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
@@ -142943,9 +142943,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i72.i.i, %.preheader.i.i64.i.i
   %.3.lcssa.i.i74.i.i = phi i64 [ %.2.lcssa.i.i65.i.i, %.preheader.i.i64.i.i ], [ %.4.i.i73.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i72.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %670 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %670 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %671 = add i64 %670, %.3.lcssa.i.i74.i.i
-  store i64 %671, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %671, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
@@ -143526,9 +143526,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i160.i.i, %.preheader.i.i156.i.i
   %.3.lcssa.i.i162.i.i = phi i64 [ %.2.lcssa.i.i157.i.i, %.preheader.i.i156.i.i ], [ %.4.i.i161.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i160.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %984 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %984 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %985 = add i64 %984, %.3.lcssa.i.i162.i.i
-  store i64 %985, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %985, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
@@ -144136,9 +144136,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i246.i.i, %.preheader.i.i242.i.i
   %.3.lcssa.i.i248.i.i = phi i64 [ %.2.lcssa.i.i243.i.i, %.preheader.i.i242.i.i ], [ %.4.i.i247.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i246.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %1329 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1329 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1330 = add i64 %1329, %.3.lcssa.i.i248.i.i
-  store i64 %1330, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1330, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -144709,9 +144709,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i332.i.i, %.preheader.i.i328.i.i
   %.3.lcssa.i.i334.i.i = phi i64 [ %.2.lcssa.i.i329.i.i, %.preheader.i.i328.i.i ], [ %.4.i.i333.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i332.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %1638 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1638 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1639 = add i64 %1638, %.3.lcssa.i.i334.i.i
-  store i64 %1639, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1639, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -145282,9 +145282,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i419.i.i, %.preheader.i.i415.i.i
   %.3.lcssa.i.i421.i.i = phi i64 [ %.2.lcssa.i.i416.i.i, %.preheader.i.i415.i.i ], [ %.4.i.i420.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i419.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %1947 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1947 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1948 = add i64 %1947, %.3.lcssa.i.i421.i.i
-  store i64 %1948, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1948, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
@@ -145842,9 +145842,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i505.i.i, %.preheader.i.i501.i.i
   %.3.lcssa.i.i507.i.i = phi i64 [ %.2.lcssa.i.i502.i.i, %.preheader.i.i501.i.i ], [ %.4.i.i506.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i505.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %2239 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2239 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2240 = add i64 %2239, %.3.lcssa.i.i507.i.i
-  store i64 %2240, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2240, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -147884,9 +147884,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %578 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %578 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %579 = add i64 %578, %.3.lcssa.i.i
-  store i64 %579, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %579, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
@@ -148908,9 +148908,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i77, %.preheader.i.i67
   %.3.lcssa.i.i79 = phi i64 [ %.2.lcssa.i.i68, %.preheader.i.i67 ], [ %.4.i.i78, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i77 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %1117 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1117 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1118 = add i64 %1117, %.3.lcssa.i.i79
-  store i64 %1118, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1118, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
@@ -149947,9 +149947,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i251, %.preheader.i.i245
   %.3.lcssa.i.i253 = phi i64 [ %.2.lcssa.i.i246, %.preheader.i.i245 ], [ %.4.i.i252, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i251 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %1666 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1666 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1667 = add i64 %1666, %.3.lcssa.i.i253
-  store i64 %1667, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1667, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -151013,9 +151013,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i4
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i421, %.preheader.i.i415
   %.3.lcssa.i.i423 = phi i64 [ %.2.lcssa.i.i416, %.preheader.i.i415 ], [ %.4.i.i422, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i421 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %2246 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2246 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2247 = add i64 %2246, %.3.lcssa.i.i423
-  store i64 %2247, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2247, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -152042,9 +152042,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i591, %.preheader.i.i585
   %.3.lcssa.i.i593 = phi i64 [ %.2.lcssa.i.i586, %.preheader.i.i585 ], [ %.4.i.i592, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i591 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %2790 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2790 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2791 = add i64 %2790, %.3.lcssa.i.i593
-  store i64 %2791, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2791, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
@@ -153071,9 +153071,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i763, %.preheader.i.i757
   %.3.lcssa.i.i765 = phi i64 [ %.2.lcssa.i.i758, %.preheader.i.i757 ], [ %.4.i.i764, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i763 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %3334 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3334 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3335 = add i64 %3334, %.3.lcssa.i.i765
-  store i64 %3335, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3335, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -154087,9 +154087,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i9
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i932, %.preheader.i.i926
   %.3.lcssa.i.i934 = phi i64 [ %.2.lcssa.i.i927, %.preheader.i.i926 ], [ %.4.i.i933, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i932 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %3861 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3861 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3862 = add i64 %3861, %.3.lcssa.i.i934
-  store i64 %3862, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3862, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -156615,9 +156615,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %366 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %366 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %367 = add i64 %366, %.3.lcssa.i.i.i.i
-  store i64 %367, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %367, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
@@ -157183,9 +157183,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i72.i.i, %.preheader.i.i64.i.i
   %.3.lcssa.i.i74.i.i = phi i64 [ %.2.lcssa.i.i65.i.i, %.preheader.i.i64.i.i ], [ %.4.i.i73.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i72.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %670 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %670 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %671 = add i64 %670, %.3.lcssa.i.i74.i.i
-  store i64 %671, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %671, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
@@ -157766,9 +157766,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i160.i.i, %.preheader.i.i156.i.i
   %.3.lcssa.i.i162.i.i = phi i64 [ %.2.lcssa.i.i157.i.i, %.preheader.i.i156.i.i ], [ %.4.i.i161.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i160.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %984 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %984 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %985 = add i64 %984, %.3.lcssa.i.i162.i.i
-  store i64 %985, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %985, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
@@ -158376,9 +158376,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i246.i.i, %.preheader.i.i242.i.i
   %.3.lcssa.i.i248.i.i = phi i64 [ %.2.lcssa.i.i243.i.i, %.preheader.i.i242.i.i ], [ %.4.i.i247.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i246.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %1329 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1329 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1330 = add i64 %1329, %.3.lcssa.i.i248.i.i
-  store i64 %1330, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1330, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -158949,9 +158949,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i332.i.i, %.preheader.i.i328.i.i
   %.3.lcssa.i.i334.i.i = phi i64 [ %.2.lcssa.i.i329.i.i, %.preheader.i.i328.i.i ], [ %.4.i.i333.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i332.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %1638 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1638 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1639 = add i64 %1638, %.3.lcssa.i.i334.i.i
-  store i64 %1639, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1639, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -159522,9 +159522,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i419.i.i, %.preheader.i.i415.i.i
   %.3.lcssa.i.i421.i.i = phi i64 [ %.2.lcssa.i.i416.i.i, %.preheader.i.i415.i.i ], [ %.4.i.i420.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i419.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %1947 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1947 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1948 = add i64 %1947, %.3.lcssa.i.i421.i.i
-  store i64 %1948, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1948, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
@@ -160082,9 +160082,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i505.i.i, %.preheader.i.i501.i.i
   %.3.lcssa.i.i507.i.i = phi i64 [ %.2.lcssa.i.i502.i.i, %.preheader.i.i501.i.i ], [ %.4.i.i506.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i505.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  %2239 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2239 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2240 = add i64 %2239, %.3.lcssa.i.i507.i.i
-  store i64 %2240, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2240, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -162121,9 +162121,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i:
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %578 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %578 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %579 = add i64 %578, %.3.lcssa.i.i
-  store i64 %579, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %579, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
@@ -163145,9 +163145,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i77, %.preheader.i.i67
   %.3.lcssa.i.i79 = phi i64 [ %.2.lcssa.i.i68, %.preheader.i.i67 ], [ %.4.i.i78, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i77 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %1117 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1117 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1118 = add i64 %1117, %.3.lcssa.i.i79
-  store i64 %1118, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1118, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
@@ -164184,9 +164184,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i2
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i251, %.preheader.i.i245
   %.3.lcssa.i.i253 = phi i64 [ %.2.lcssa.i.i246, %.preheader.i.i245 ], [ %.4.i.i252, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i251 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %1666 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %1666 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %1667 = add i64 %1666, %.3.lcssa.i.i253
-  store i64 %1667, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %1667, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -165250,9 +165250,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i4
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i421, %.preheader.i.i415
   %.3.lcssa.i.i423 = phi i64 [ %.2.lcssa.i.i416, %.preheader.i.i415 ], [ %.4.i.i422, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i421 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %2246 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2246 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2247 = add i64 %2246, %.3.lcssa.i.i423
-  store i64 %2247, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2247, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -166279,9 +166279,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i5
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i591, %.preheader.i.i585
   %.3.lcssa.i.i593 = phi i64 [ %.2.lcssa.i.i586, %.preheader.i.i585 ], [ %.4.i.i592, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i591 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %2790 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %2790 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %2791 = add i64 %2790, %.3.lcssa.i.i593
-  store i64 %2791, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %2791, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
@@ -167308,9 +167308,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i7
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i763, %.preheader.i.i757
   %.3.lcssa.i.i765 = phi i64 [ %.2.lcssa.i.i758, %.preheader.i.i757 ], [ %.4.i.i764, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i763 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %3334 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3334 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3335 = add i64 %3334, %.3.lcssa.i.i765
-  store i64 %3335, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3335, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -168324,9 +168324,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i9
 _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i932, %.preheader.i.i926
   %.3.lcssa.i.i934 = phi i64 [ %.2.lcssa.i.i927, %.preheader.i.i926 ], [ %.4.i.i933, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i932 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  %3861 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  %3861 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   %3862 = add i64 %3861, %.3.lcssa.i.i934
-  store i64 %3862, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i64 0, i32 1), align 8
+  store i64 %3862, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -168349,9 +168349,9 @@ define void @_ZN5faiss15IndexIVFPQStats5resetEv(ptr nocapture noundef nonnull wr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss10IndexIVFPQC2Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0)
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   invoke void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %3)
           to label %4 unwind label %7

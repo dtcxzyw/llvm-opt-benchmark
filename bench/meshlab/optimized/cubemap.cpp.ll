@@ -1905,11 +1905,11 @@ define internal void @_GLOBAL__sub_I_cubemap.cpp() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   store <4 x float> <float -1.000000e+00, float 1.000000e+00, float -1.000000e+00, float -1.000000e+00>, ptr @_ZL13cube_vertices, align 16
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds ([8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 1, i32 0, i64 1), align 16
-  store <4 x float> <float -1.000000e+00, float 1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds ([8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 2, i32 0, i64 2), align 16
-  store <4 x float> <float -1.000000e+00, float 1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds ([8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 4), align 16
-  store <4 x float> <float -1.000000e+00, float 1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds ([8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 5, i32 0, i64 1), align 16
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds ([8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 6, i32 0, i64 2), align 16
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 16), align 16
+  store <4 x float> <float -1.000000e+00, float 1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 32), align 16
+  store <4 x float> <float -1.000000e+00, float 1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 48), align 16
+  store <4 x float> <float -1.000000e+00, float 1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 64), align 16
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 80), align 16
   ret void
 }
 

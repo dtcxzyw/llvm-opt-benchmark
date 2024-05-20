@@ -165,7 +165,7 @@ thread-pre-split:                                 ; preds = %40
 
 65:                                               ; preds = %63
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str) #10
-  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
   br label %328
@@ -613,9 +613,9 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
   %216 = add i64 %spec.select, 28
   %217 = lshr i64 %216, 8
   %218 = trunc i64 %217 to i8
-  store i8 %218, ptr getelementptr inbounds ([29 x i8], ptr @psheader, i64 0, i64 2), align 2
+  store i8 %218, ptr getelementptr inbounds (i8, ptr @psheader, i64 2), align 2
   %219 = trunc i64 %216 to i8
-  store i8 %219, ptr getelementptr inbounds ([29 x i8], ptr @psheader, i64 0, i64 3), align 1
+  store i8 %219, ptr getelementptr inbounds (i8, ptr @psheader, i64 3), align 1
   br label %220
 
 220:                                              ; preds = %211, %php_iptc_put1.exit388

@@ -25,9 +25,9 @@ define hidden range(i32 0, 2) i32 @psa_is_valid_key_id(i32 noundef %0, i32 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i32 @psa_initialize_key_slots() local_unnamed_addr #1 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @global_data, i64 1792), align 8
   %2 = or i8 %1, 1
-  store i8 %2, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
+  store i8 %2, ptr getelementptr inbounds (i8, ptr @global_data, i64 1792), align 8
   ret i32 0
 }
 
@@ -46,9 +46,9 @@ define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #2 {
   br i1 %exitcond.not, label %6, label %1, !llvm.loop !4
 
 6:                                                ; preds = %1
-  %7 = load i8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @global_data, i64 1792), align 8
   %8 = and i8 %7, -2
-  store i8 %8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
+  store i8 %8, ptr getelementptr inbounds (i8, ptr @global_data, i64 1792), align 8
   ret void
 }
 
@@ -56,7 +56,7 @@ declare i32 @psa_wipe_key_slot(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @psa_get_empty_key_slot(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
-  %3 = load i8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @global_data, i64 1792), align 8
   %4 = and i8 %3, 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %psa_lock_key_slot.exit, label %.preheader.preheader
@@ -151,7 +151,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr nocapture nound
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %1, align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @global_data, i64 1792), align 8
   %6 = and i8 %5, 1
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %psa_extend_key_usage_flags.exit, label %7

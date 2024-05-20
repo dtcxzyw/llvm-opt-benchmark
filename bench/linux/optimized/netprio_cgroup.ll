@@ -90,7 +90,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef nonnull ptr @cgrp_css_alloc(ptr nocapture readnone %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 200) #10
   %4 = icmp eq ptr %3, null
   %5 = select i1 %4, ptr inttoptr (i64 -12 to ptr), ptr %3
@@ -112,8 +112,8 @@ define internal noundef i32 @cgrp_css_online(ptr nocapture noundef readonly %0) 
 
 9:                                                ; preds = %7
   tail call void @rtnl_lock() #11
-  %10 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17), align 16
-  %11 = icmp eq ptr %10, getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17)
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 144), align 16
+  %11 = icmp eq ptr %10, getelementptr inbounds (i8, ptr @init_net, i64 144)
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %9
@@ -122,7 +122,7 @@ define internal noundef i32 @cgrp_css_online(ptr nocapture noundef readonly %0) 
 
 14:                                               ; preds = %33
   %15 = load ptr, ptr %18, align 8
-  %16 = icmp eq ptr %15, getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17)
+  %16 = icmp eq ptr %15, getelementptr inbounds (i8, ptr @init_net, i64 144)
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %14, %12
@@ -381,8 +381,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @read_prioidx(ptr nocaptu
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @read_priomap(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   tail call void @__rcu_read_lock() #11
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17), align 16
-  %4 = icmp eq ptr %3, getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17)
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 144), align 16
+  %4 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @init_net, i64 144)
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %2
@@ -418,7 +418,7 @@ define internal noundef i32 @read_priomap(ptr noundef %0, ptr nocapture readnone
   %27 = phi i32 [ %25, %21 ], [ 0, %17 ], [ 0, %7 ]
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %9, i32 noundef %27) #11
   %28 = load volatile ptr, ptr %8, align 8
-  %29 = icmp eq ptr %28, getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17)
+  %29 = icmp eq ptr %28, getelementptr inbounds (i8, ptr @init_net, i64 144)
   br i1 %29, label %.loopexit, label %7, !llvm.loop !15
 
 .loopexit:                                        ; preds = %26, %2

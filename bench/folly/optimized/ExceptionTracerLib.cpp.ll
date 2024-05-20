@@ -129,12 +129,12 @@ init.i:                                           ; preds = %init.check.i
 _ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit: ; preds = %init.i, %init.check.i, %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  store ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !8
   %_M_owns.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i8 0, ptr %_M_owns.i3.i.i.i, align 8, !tbaa !17, !alias.scope !8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #17, !noalias !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i.i) #17, !noalias !8
-  %2 = load atomic i32, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24) acquire, align 8, !noalias !8
+  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 24) acquire, align 8, !noalias !8
   store i32 %2, ptr %state.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !8
   %and.i.i.i.i.i.i.i = and i32 %2, -1312
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i.i, 0
@@ -142,7 +142,7 @@ _ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit: ; preds = %init.i, %in
 
 seqcst_fail50.i.i.i.i.i.i.i.i:                    ; preds = %_ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit
   %and5.i.i.i.i.i.i.i = or disjoint i32 %2, 128
-  %3 = cmpxchg ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), i32 %2, i32 %and5.i.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !8
+  %3 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 24), i32 %2, i32 %and5.i.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !8
   %4 = extractvalue { i32, i1 } %3, 1
   br i1 %4, label %invoke.cont.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i, !prof !21
 
@@ -152,7 +152,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %if.else.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i, %_ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit
-  %call7.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i.i, i32 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i.i), !noalias !8
+  %call7.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i.i, i32 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i.i), !noalias !8
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %seqcst_fail50.i.i.i.i.i.i.i.i
@@ -432,14 +432,14 @@ init.i:                                           ; preds = %init.check.i
 _ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit: ; preds = %init.i, %init.check.i, %init.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  store ptr getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !29
+  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !29
   %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !29
   %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !29
-  %4 = load atomic i32, ptr getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24) monotonic, align 8, !noalias !29
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 24) monotonic, align 8, !noalias !29
   store i32 %4, ptr %state.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !29
   %and.i.i.i.i.i.i = and i32 %4, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -447,7 +447,7 @@ _ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit: ; preds = %init.i
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit
   %add.i.i.i.i.i.i = or disjoint i32 %4, 2048
-  %5 = cmpxchg ptr getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), i32 %4, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !29
+  %5 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 24), i32 %4, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !29
   %6 = extractvalue { i32, i1 } %5, 1
   br i1 %6, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -461,7 +461,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit
-  %call8.i.i.i.i.i.i4 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i4 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
           to label %invoke.cont.i unwind label %terminate.lpad
 
 invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -929,12 +929,12 @@ init.i:                                           ; preds = %init.check.i
 _ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit: ; preds = %init.i, %init.check.i, %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  store ptr getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !48
+  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !48
   %_M_owns.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i8 0, ptr %_M_owns.i3.i.i.i, align 8, !tbaa !17, !alias.scope !48
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #17, !noalias !48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i.i) #17, !noalias !48
-  %2 = load atomic i32, ptr getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24) acquire, align 8, !noalias !48
+  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 24) acquire, align 8, !noalias !48
   store i32 %2, ptr %state.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !48
   %and.i.i.i.i.i.i.i = and i32 %2, -1312
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i.i, 0
@@ -942,7 +942,7 @@ _ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit: ; preds = %init.i
 
 seqcst_fail50.i.i.i.i.i.i.i.i:                    ; preds = %_ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit
   %and5.i.i.i.i.i.i.i = or disjoint i32 %2, 128
-  %3 = cmpxchg ptr getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), i32 %2, i32 %and5.i.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !48
+  %3 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 24), i32 %2, i32 %and5.i.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !48
   %4 = extractvalue { i32, i1 } %3, 1
   br i1 %4, label %invoke.cont.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i, !prof !21
 
@@ -952,7 +952,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %if.else.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i, %_ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit
-  %call7.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i.i, i32 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i.i), !noalias !48
+  %call7.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i.i, i32 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i.i), !noalias !48
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %seqcst_fail50.i.i.i.i.i.i.i.i
@@ -1371,12 +1371,12 @@ init.i:                                           ; preds = %init.check.i
 _ZN5folly16exception_tracer28getRethrowExceptionCallbacksEv.exit: ; preds = %init.i, %init.check.i, %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  store ptr getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !62
+  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !62
   %_M_owns.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i8 0, ptr %_M_owns.i3.i.i.i, align 8, !tbaa !17, !alias.scope !62
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #17, !noalias !62
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i.i) #17, !noalias !62
-  %2 = load atomic i32, ptr getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24) acquire, align 8, !noalias !62
+  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 24) acquire, align 8, !noalias !62
   store i32 %2, ptr %state.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !62
   %and.i.i.i.i.i.i.i = and i32 %2, -1312
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i.i, 0
@@ -1384,7 +1384,7 @@ _ZN5folly16exception_tracer28getRethrowExceptionCallbacksEv.exit: ; preds = %ini
 
 seqcst_fail50.i.i.i.i.i.i.i.i:                    ; preds = %_ZN5folly16exception_tracer28getRethrowExceptionCallbacksEv.exit
   %and5.i.i.i.i.i.i.i = or disjoint i32 %2, 128
-  %3 = cmpxchg ptr getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), i32 %2, i32 %and5.i.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !62
+  %3 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 24), i32 %2, i32 %and5.i.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !62
   %4 = extractvalue { i32, i1 } %3, 1
   br i1 %4, label %invoke.cont.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i, !prof !21
 
@@ -1394,7 +1394,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %if.else.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i, %_ZN5folly16exception_tracer28getRethrowExceptionCallbacksEv.exit
-  %call7.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i.i, i32 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i.i), !noalias !62
+  %call7.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i.i, i32 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i.i), !noalias !62
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %seqcst_fail50.i.i.i.i.i.i.i.i
@@ -1594,14 +1594,14 @@ init.i:                                           ; preds = %init.check.i
 _ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit: ; preds = %init.i, %init.check.i, %init.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  store ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !69
+  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !69
   %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !69
   %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !69
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !69
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !69
-  %4 = load atomic i32, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24) monotonic, align 8, !noalias !69
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 24) monotonic, align 8, !noalias !69
   store i32 %4, ptr %state.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !69
   %and.i.i.i.i.i.i = and i32 %4, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -1609,7 +1609,7 @@ _ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit: ; preds = %init.i, %in
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit
   %add.i.i.i.i.i.i = or disjoint i32 %4, 2048
-  %5 = cmpxchg ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), i32 %4, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !69
+  %5 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 24), i32 %4, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !69
   %6 = extractvalue { i32, i1 } %5, 1
   br i1 %6, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -1623,7 +1623,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit
-  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -1758,7 +1758,7 @@ if.then16:                                        ; preds = %if.end
   br i1 %cmp19.not, label %if.end44, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %13 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.44" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1) acquire, align 8
+  %13 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) acquire, align 8
   %tobool.not.i149 = icmp eq i64 %13, 0
   br i1 %tobool.not.i149, label %if.then.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, !prof !42
 
@@ -1768,7 +1768,7 @@ if.then.i:                                        ; preds = %if.then20
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.then20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i) #17
-  %14 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.44" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0) monotonic, align 8
+  %14 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) monotonic, align 8
   %atomic-temp.0.i.i.i = inttoptr i64 %14 to ptr
   %call1.i = call noundef i32 %atomic-temp.0.i.i.i(ptr noundef nonnull %cpu.i, ptr noundef null, ptr noundef null)
   %15 = load i32, ptr %cpu.i, align 4, !tbaa !18
@@ -2029,14 +2029,14 @@ init.i:                                           ; preds = %init.check.i
 _ZN5folly16exception_tracer22getCxaRethrowCallbacksEv.exit: ; preds = %init.i, %init.check.i, %init.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  store ptr getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !76
+  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !76
   %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !76
   %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !76
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !76
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !76
-  %4 = load atomic i32, ptr getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24) monotonic, align 8, !noalias !76
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 24) monotonic, align 8, !noalias !76
   store i32 %4, ptr %state.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !76
   %and.i.i.i.i.i.i = and i32 %4, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -2044,7 +2044,7 @@ _ZN5folly16exception_tracer22getCxaRethrowCallbacksEv.exit: ; preds = %init.i, %
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly16exception_tracer22getCxaRethrowCallbacksEv.exit
   %add.i.i.i.i.i.i = or disjoint i32 %4, 2048
-  %5 = cmpxchg ptr getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), i32 %4, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !76
+  %5 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 24), i32 %4, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !76
   %6 = extractvalue { i32, i1 } %5, 1
   br i1 %6, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -2058,7 +2058,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly16exception_tracer22getCxaRethrowCallbacksEv.exit
-  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -2153,14 +2153,14 @@ init.i:                                           ; preds = %init.check.i
 _ZN5folly16exception_tracer23getCxaEndCatchCallbacksEv.exit: ; preds = %init.i, %init.check.i, %init.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  store ptr getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !79
+  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !79
   %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !79
   %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !79
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !79
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !79
-  %4 = load atomic i32, ptr getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24) monotonic, align 8, !noalias !79
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 24) monotonic, align 8, !noalias !79
   store i32 %4, ptr %state.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !79
   %and.i.i.i.i.i.i = and i32 %4, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -2168,7 +2168,7 @@ _ZN5folly16exception_tracer23getCxaEndCatchCallbacksEv.exit: ; preds = %init.i, 
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly16exception_tracer23getCxaEndCatchCallbacksEv.exit
   %add.i.i.i.i.i.i = or disjoint i32 %4, 2048
-  %5 = cmpxchg ptr getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), i32 %4, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !79
+  %5 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 24), i32 %4, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !79
   %6 = extractvalue { i32, i1 } %5, 1
   br i1 %6, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -2182,7 +2182,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly16exception_tracer23getCxaEndCatchCallbacksEv.exit
-  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -2283,14 +2283,14 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %if.then.i, %_ZN5f
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  store ptr getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !84
+  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !84
   %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !84
   %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !84
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !84
-  %5 = load atomic i32, ptr getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24) monotonic, align 8, !noalias !84
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 24) monotonic, align 8, !noalias !84
   store i32 %5, ptr %state.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !84
   %and.i.i.i.i.i.i = and i32 %5, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -2298,7 +2298,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %if.then.i, %_ZN5f
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
   %add.i.i.i.i.i.i = or disjoint i32 %5, 2048
-  %6 = cmpxchg ptr getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), i32 %5, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !84
+  %6 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 24), i32 %5, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !84
   %7 = extractvalue { i32, i1 } %6, 1
   br i1 %7, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -2312,7 +2312,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
-  %call8.i.i.i.i.i.i8 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i8 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 24), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
           to label %invoke.cont.i unwind label %lpad
 
 invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i

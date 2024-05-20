@@ -802,7 +802,7 @@ _ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exi
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb1320079b44b90a5E.exit.i": ; preds = %.noexc, %49
-  %.0.i.i2.i.i = phi ptr [ %51, %.noexc ], [ getelementptr inbounds ({ { { { i8, [1 x i8] } } }, i8 }, ptr @_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit5__KEY17h5689eb701fe52d9eE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %49 ]
+  %.0.i.i2.i.i = phi ptr [ %51, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit5__KEY17h5689eb701fe52d9eE, i64 1), %49 ]
   %54 = ptrtoint ptr %.0.i.i2.i.i to i64
   %55 = getelementptr inbounds i8, ptr %1, i64 16
   %56 = load ptr, ptr %55, align 8, !alias.scope !90, !noalias !93, !nonnull !4, !noundef !4
@@ -1212,7 +1212,7 @@ _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.
   br i1 %189, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4f7397d29d2bc2aeE.exit.thread.i", label %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i
 
 _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i: ; preds = %.noexc.i, %185
-  %.0.i.i2.i.i27 = phi ptr [ %188, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %185 ]
+  %.0.i.i2.i.i27 = phi ptr [ %188, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 8), %185 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !219
   %190 = load ptr, ptr %.0.i.i2.i.i27, align 8, !noalias !220, !noundef !4
   store ptr null, ptr %.0.i.i2.i.i27, align 8, !noalias !220

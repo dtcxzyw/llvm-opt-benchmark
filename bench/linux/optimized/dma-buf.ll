@@ -302,7 +302,7 @@ define dso_local ptr @dma_buf_export(ptr nocapture noundef readonly %0) #0 align
   store ptr %73, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %73, i64 8
   store ptr %63, ptr %104, align 8
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.dma_buf_list, ptr @db_list, i64 0, i32 1)) #10
+  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @db_list, i64 16)) #10
   %105 = getelementptr inbounds i8, ptr %73, i64 96
   %106 = load ptr, ptr @db_list, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -311,7 +311,7 @@ define dso_local ptr @dma_buf_export(ptr nocapture noundef readonly %0) #0 align
   %108 = getelementptr inbounds i8, ptr %73, i64 104
   store ptr @db_list, ptr %108, align 8
   store volatile ptr %105, ptr @db_list, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.dma_buf_list, ptr @db_list, i64 0, i32 1)) #10
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @db_list, i64 16)) #10
   br label %114
 
 109:                                              ; preds = %69
@@ -482,7 +482,7 @@ define dso_local ptr @dma_buf_dynamic_attach(ptr noundef %0, ptr noundef %1, ptr
   br label %126
 
 16:                                               ; preds = %11, %9
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %18 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 72) #12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %126, label %20
@@ -1672,9 +1672,9 @@ define internal i32 @dma_buf_init() #5 section ".init.text" align 16 {
   br label %14
 
 6:                                                ; preds = %0
-  tail call void @__mutex_init(ptr noundef nonnull getelementptr inbounds (%struct.dma_buf_list, ptr @db_list, i64 0, i32 1), ptr noundef nonnull @.str.9, ptr noundef nonnull @dma_buf_init.__key) #10
+  tail call void @__mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @db_list, i64 16), ptr noundef nonnull @.str.9, ptr noundef nonnull @dma_buf_init.__key) #10
   store volatile ptr @db_list, ptr @db_list, align 8
-  store volatile ptr @db_list, ptr getelementptr inbounds (%struct.dma_buf_list, ptr @db_list, i64 0, i32 0, i32 1), align 8
+  store volatile ptr @db_list, ptr getelementptr inbounds (i8, ptr @db_list, i64 8), align 8
   %7 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.12, ptr noundef null) #10
   %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
   br i1 %8, label %14, label %9
@@ -2250,7 +2250,7 @@ define internal noundef range(i32 -22, 1) i32 @dma_buf_file_release(ptr nocaptur
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %6
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.dma_buf_list, ptr @db_list, i64 0, i32 1)) #10
+  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @db_list, i64 16)) #10
   %11 = getelementptr inbounds i8, ptr %8, i64 96
   %12 = getelementptr inbounds i8, ptr %8, i64 104
   %13 = load ptr, ptr %12, align 8
@@ -2260,7 +2260,7 @@ define internal noundef range(i32 -22, 1) i32 @dma_buf_file_release(ptr nocaptur
   store volatile ptr %14, ptr %13, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %11, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.dma_buf_list, ptr @db_list, i64 0, i32 1)) #10
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @db_list, i64 16)) #10
   br label %16
 
 16:                                               ; preds = %10, %6, %2
@@ -2673,7 +2673,7 @@ declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @dma_buf_debug_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull getelementptr inbounds (%struct.dma_buf_list, ptr @db_list, i64 0, i32 1)) #10
+  %3 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull getelementptr inbounds (i8, ptr @db_list, i64 16)) #10
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %65
 
@@ -2769,7 +2769,7 @@ define internal i32 @dma_buf_debug_show(ptr noundef %0, ptr nocapture readnone %
 
 .loopexit8:                                       ; preds = %.preheader7, %.loopexit9
   %64 = phi i32 [ 0, %.loopexit9 ], [ %14, %.preheader7 ]
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.dma_buf_list, ptr @db_list, i64 0, i32 1)) #10
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @db_list, i64 16)) #10
   br label %65
 
 65:                                               ; preds = %.loopexit8, %2

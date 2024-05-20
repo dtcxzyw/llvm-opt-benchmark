@@ -553,7 +553,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  store ptr getelementptr inbounds ([2 x i16], ptr @suiteb_curves, i64 0, i64 1), ptr %pgroups, align 8
+  store ptr getelementptr inbounds (i8, ptr @suiteb_curves, i64 2), ptr %pgroups, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -905,7 +905,7 @@ if.else.i:                                        ; preds = %sw.default.i
   br label %tls1_get_supported_groups.exit
 
 tls1_get_supported_groups.exit:                   ; preds = %if.then17, %sw.bb1.i, %sw.bb2.i, %if.then.i, %if.else.i
-  %pref.0 = phi ptr [ %10, %if.then.i ], [ %9, %if.else.i ], [ getelementptr inbounds ([2 x i16], ptr @suiteb_curves, i64 0, i64 1), %sw.bb2.i ], [ @suiteb_curves, %sw.bb1.i ], [ @suiteb_curves, %if.then17 ]
+  %pref.0 = phi ptr [ %10, %if.then.i ], [ %9, %if.else.i ], [ getelementptr inbounds (i8, ptr @suiteb_curves, i64 2), %sw.bb2.i ], [ @suiteb_curves, %sw.bb1.i ], [ @suiteb_curves, %if.then17 ]
   %.sink.i = phi i64 [ %11, %if.then.i ], [ %12, %if.else.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 2, %if.then17 ]
   %peer_supportedgroups.i = getelementptr inbounds i8, ptr %s, i64 2592
   %13 = load ptr, ptr %peer_supportedgroups.i, align 8
@@ -955,7 +955,7 @@ if.else.i61:                                      ; preds = %sw.default.i58
 
 if.end18:                                         ; preds = %if.else.i61, %if.then.i63, %sw.bb2.i54, %sw.bb1.i56, %if.else, %tls1_get_supported_groups.exit
   %pref.1 = phi ptr [ %pref.0, %tls1_get_supported_groups.exit ], [ %15, %if.else ], [ %15, %sw.bb1.i56 ], [ %15, %sw.bb2.i54 ], [ %15, %if.then.i63 ], [ %15, %if.else.i61 ]
-  %supp.1 = phi ptr [ %13, %tls1_get_supported_groups.exit ], [ @suiteb_curves, %if.else ], [ @suiteb_curves, %sw.bb1.i56 ], [ getelementptr inbounds ([2 x i16], ptr @suiteb_curves, i64 0, i64 1), %sw.bb2.i54 ], [ %20, %if.then.i63 ], [ %19, %if.else.i61 ]
+  %supp.1 = phi ptr [ %13, %tls1_get_supported_groups.exit ], [ @suiteb_curves, %if.else ], [ @suiteb_curves, %sw.bb1.i56 ], [ getelementptr inbounds (i8, ptr @suiteb_curves, i64 2), %sw.bb2.i54 ], [ %20, %if.then.i63 ], [ %19, %if.else.i61 ]
   %num_pref.0 = phi i64 [ %.sink.i, %tls1_get_supported_groups.exit ], [ %16, %if.else ], [ %16, %sw.bb1.i56 ], [ %16, %sw.bb2.i54 ], [ %16, %if.then.i63 ], [ %16, %if.else.i61 ]
   %num_supp.0 = phi i64 [ %14, %tls1_get_supported_groups.exit ], [ 2, %if.else ], [ 1, %sw.bb1.i56 ], [ 1, %sw.bb2.i54 ], [ %21, %if.then.i63 ], [ %22, %if.else.i61 ]
   %cmp1987.not = icmp eq i64 %num_pref.0, 0
@@ -1507,7 +1507,7 @@ tls1_get_supported_groups.exit:                   ; preds = %if.then.i, %if.else
 
 for.body.i.preheader:                             ; preds = %if.then30, %sw.bb1.i, %sw.bb2.i, %tls1_get_supported_groups.exit
   %.sink.i42 = phi i64 [ %6, %tls1_get_supported_groups.exit ], [ 2, %if.then30 ], [ 1, %sw.bb1.i ], [ 1, %sw.bb2.i ]
-  %groups.041 = phi ptr [ %groups.0, %tls1_get_supported_groups.exit ], [ @suiteb_curves, %if.then30 ], [ @suiteb_curves, %sw.bb1.i ], [ getelementptr inbounds ([2 x i16], ptr @suiteb_curves, i64 0, i64 1), %sw.bb2.i ]
+  %groups.041 = phi ptr [ %groups.0, %tls1_get_supported_groups.exit ], [ @suiteb_curves, %if.then30 ], [ @suiteb_curves, %sw.bb1.i ], [ getelementptr inbounds (i8, ptr @suiteb_curves, i64 2), %sw.bb2.i ]
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -2153,7 +2153,7 @@ sw.bb1:                                           ; preds = %entry
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  store ptr getelementptr inbounds ([2 x i16], ptr @suiteb_sigalgs, i64 0, i64 1), ptr %psigs, align 8
+  store ptr getelementptr inbounds (i8, ptr @suiteb_sigalgs, i64 2), ptr %psigs, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -3073,7 +3073,7 @@ tls12_get_psigalgs.exit:                          ; preds = %if.then.i, %if.then
 
 for.body.lr.ph:                                   ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %tls12_get_psigalgs.exit
   %retval.0.i29 = phi i64 [ %7, %tls12_get_psigalgs.exit ], [ 2, %entry ], [ 1, %sw.bb1.i ], [ 1, %sw.bb2.i ]
-  %sigalgs.028 = phi ptr [ %sigalgs.0, %tls12_get_psigalgs.exit ], [ @suiteb_sigalgs, %entry ], [ @suiteb_sigalgs, %sw.bb1.i ], [ getelementptr inbounds ([2 x i16], ptr @suiteb_sigalgs, i64 0, i64 1), %sw.bb2.i ]
+  %sigalgs.028 = phi ptr [ %sigalgs.0, %tls12_get_psigalgs.exit ], [ @suiteb_sigalgs, %entry ], [ @suiteb_sigalgs, %sw.bb1.i ], [ getelementptr inbounds (i8, ptr @suiteb_sigalgs, i64 2), %sw.bb2.i ]
   %8 = getelementptr i8, ptr %s, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 1576
@@ -3393,7 +3393,7 @@ if.else13.i:                                      ; preds = %if.else.i
   br label %tls12_get_psigalgs.exit
 
 tls12_get_psigalgs.exit:                          ; preds = %if.then21, %sw.bb1.i, %sw.bb2.i, %if.then.i, %if.then9.i, %if.else13.i
-  %sent_sigs.0 = phi ptr [ %14, %if.else13.i ], [ %11, %if.then9.i ], [ %9, %if.then.i ], [ getelementptr inbounds ([2 x i16], ptr @suiteb_sigalgs, i64 0, i64 1), %sw.bb2.i ], [ @suiteb_sigalgs, %sw.bb1.i ], [ @suiteb_sigalgs, %if.then21 ]
+  %sent_sigs.0 = phi ptr [ %14, %if.else13.i ], [ %11, %if.then9.i ], [ %9, %if.then.i ], [ getelementptr inbounds (i8, ptr @suiteb_sigalgs, i64 2), %sw.bb2.i ], [ @suiteb_sigalgs, %sw.bb1.i ], [ @suiteb_sigalgs, %if.then21 ]
   %retval.0.i = phi i64 [ %15, %if.else13.i ], [ %12, %if.then9.i ], [ %10, %if.then.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 2, %if.then21 ]
   %retval.0.i.fr = freeze i64 %retval.0.i
   %ssl_pkey_num23 = getelementptr inbounds i8, ptr %s, i64 272
@@ -3578,7 +3578,7 @@ if.else13.i.i:                                    ; preds = %if.else.i.i
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else13.i.i, %if.then9.i.i, %if.then.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %if.else12.i, %if.then10.i, %if.then.i
-  %conf.1.i = phi ptr [ %7, %if.then10.i ], [ %5, %if.then.i ], [ %16, %if.else13.i.i ], [ %13, %if.then9.i.i ], [ %11, %if.then.i.i ], [ getelementptr inbounds ([2 x i16], ptr @suiteb_sigalgs, i64 0, i64 1), %sw.bb2.i.i ], [ @suiteb_sigalgs, %sw.bb1.i.i ], [ @suiteb_sigalgs, %if.else12.i ]
+  %conf.1.i = phi ptr [ %7, %if.then10.i ], [ %5, %if.then.i ], [ %16, %if.else13.i.i ], [ %13, %if.then9.i.i ], [ %11, %if.then.i.i ], [ getelementptr inbounds (i8, ptr @suiteb_sigalgs, i64 2), %sw.bb2.i.i ], [ @suiteb_sigalgs, %sw.bb1.i.i ], [ @suiteb_sigalgs, %if.else12.i ]
   %conflen.0.i = phi i64 [ %8, %if.then10.i ], [ %6, %if.then.i ], [ %17, %if.else13.i.i ], [ %14, %if.then9.i.i ], [ %12, %if.then.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb1.i.i ], [ 2, %if.else12.i ]
   %options.i = getelementptr inbounds i8, ptr %s, i64 2352
   %18 = load i64, ptr %options.i, align 8
@@ -7840,7 +7840,7 @@ tls12_get_psigalgs.exit:                          ; preds = %if.then.i107, %if.t
 
 for.body144.lr.ph:                                ; preds = %if.end139, %sw.bb1.i, %sw.bb2.i, %tls12_get_psigalgs.exit
   %retval.0.i103211 = phi i64 [ %73, %tls12_get_psigalgs.exit ], [ 2, %if.end139 ], [ 1, %sw.bb1.i ], [ 1, %sw.bb2.i ]
-  %sent_sigs.0210 = phi ptr [ %sent_sigs.0, %tls12_get_psigalgs.exit ], [ @suiteb_sigalgs, %if.end139 ], [ @suiteb_sigalgs, %sw.bb1.i ], [ getelementptr inbounds ([2 x i16], ptr @suiteb_sigalgs, i64 0, i64 1), %sw.bb2.i ]
+  %sent_sigs.0210 = phi ptr [ %sent_sigs.0, %tls12_get_psigalgs.exit ], [ @suiteb_sigalgs, %if.end139 ], [ @suiteb_sigalgs, %sw.bb1.i ], [ getelementptr inbounds (i8, ptr @suiteb_sigalgs, i64 2), %sw.bb2.i ]
   %sigalg145 = getelementptr inbounds i8, ptr %call132, i64 8
   %sig_idx151 = getelementptr inbounds i8, ptr %call132, i64 24
   %ssl_pkey_num.i.i113 = getelementptr inbounds i8, ptr %s, i64 272

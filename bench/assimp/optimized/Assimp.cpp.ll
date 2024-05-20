@@ -383,7 +383,7 @@ if.then14:                                        ; preds = %if.end
 invoke.cont15:                                    ; preds = %if.then14
   %m_pathStack.i.i = getelementptr inbounds i8, ptr %call16, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp16CIOSystemWrapperE, i64 0, i32 0, i64 2), ptr %call16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp16CIOSystemWrapperE, i64 16), ptr %call16, align 8
   %mFileSystem.i = getelementptr inbounds i8, ptr %call16, i64 32
   store ptr %pFS, ptr %mFileSystem.i, align 8
   invoke void @_ZN6Assimp8Importer12SetIOHandlerEPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %call16)
@@ -770,9 +770,9 @@ _ZNSt7__cxx114listIPN6Assimp9LogStreamESaIS3_EE9push_backERKS3_.exit: ; preds = 
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1, ptr noundef nonnull @_ZN6AssimpL18gPredefinedStreamsB5cxx11E) #43
-  %0 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   %add.i.i.i = add i64 %0, 1
-  store i64 %add.i.i.i, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -803,7 +803,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23LogToCallbackRedirector, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %call, align 8
   %stream.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream.i, ptr noundef nonnull align 8 dereferenceable(16) %stream, i64 16, i1 false)
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI11aiLogStreamPN6Assimp9LogStreamENS1_5mpredESaISt4pairIKS0_S3_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6AssimpL17gActiveLogStreamsE, ptr noundef nonnull align 8 dereferenceable(16) %stream)
@@ -958,7 +958,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger6createEPKcNS_6Logger11LogSeverity
 define noundef i32 @aiDetachLogStream(ptr nocapture noundef readonly %stream) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp21 = alloca %struct.ExceptionSwallower.47, align 1
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 16), align 8
   %cmp.not5.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i.i.i, label %return, label %while.body.lr.ph.i.i.i
 
@@ -970,7 +970,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.lr.ph.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %__x.addr.1.i.i.i, %while.body.i.i.i ]
-  %__y.addr.06.i.i.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %while.body.i.i.i ]
+  %__y.addr.06.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8), %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %while.body.i.i.i ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult ptr %3, %1
@@ -986,7 +986,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeI11aiLogStreamSt4pairIKS0_PN6Assimp9LogStreamEESt10_Select1stIS6_ENS3_5mpredESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, label %while.body.i.i.i, !llvm.loop !6
 
 _ZNSt8_Rb_treeI11aiLogStreamSt4pairIKS0_PN6Assimp9LogStreamEESt10_Select1stIS6_ENS3_5mpredESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS2_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8)
   br i1 %cmp.i.i.i, label %return, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeI11aiLogStreamSt4pairIKS0_PN6Assimp9LogStreamEESt10_Select1stIS6_ENS3_5mpredESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS2_.exit.i.i
@@ -1037,11 +1037,11 @@ delete.notnull:                                   ; preds = %invoke.cont7
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %invoke.cont7, %delete.notnull
-  %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__y.addr.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #43
+  %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__y.addr.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8)) #43
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #41
-  %16 = load i64, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 40), align 8
   %dec.i.i.i = add i64 %16, -1
-  store i64 %dec.i.i.i, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i64 %dec.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 40), align 8
   %cmp.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i, label %if.then18, label %return
 
@@ -1123,8 +1123,8 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br label %try.cont
 
 if.end:                                           ; preds = %invoke.cont
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %cmp.i.not8 = icmp eq ptr %2, getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 24), align 8
+  %cmp.i.not8 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8)
   br i1 %cmp.i.not8, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -1151,11 +1151,11 @@ delete.notnull:                                   ; preds = %invoke.cont6
 
 for.inc:                                          ; preds = %invoke.cont6, %delete.notnull
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.09) #45
-  %cmp.i.not = icmp eq ptr %call.i, getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.not = icmp eq ptr %call.i, getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8)
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 16), align 8
   invoke void @_ZNSt8_Rb_treeI11aiLogStreamSt4pairIKS0_PN6Assimp9LogStreamEESt10_Select1stIS6_ENS3_5mpredESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6AssimpL17gActiveLogStreamsE, ptr noundef %7)
           to label %_ZNSt3mapI11aiLogStreamPN6Assimp9LogStreamENS1_5mpredESaISt4pairIKS0_S3_EEE5clearEv.exit unwind label %terminate.lpad.i.i
 
@@ -1167,10 +1167,10 @@ terminate.lpad.i.i:                               ; preds = %for.end
   unreachable
 
 _ZNSt3mapI11aiLogStreamPN6Assimp9LogStreamENS1_5mpredESaISt4pairIKS0_S3_EEE5clearEv.exit: ; preds = %for.end
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 40), align 8
   invoke void @_ZN6Assimp13DefaultLogger4killEv()
           to label %try.cont unwind label %lpad.loopexit.split-lp
 
@@ -10842,7 +10842,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23LogToCallbackRedirectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23LogToCallbackRedirector, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, align 8
   %user = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %user, align 8
@@ -10873,9 +10873,9 @@ delete.notnull:                                   ; preds = %if.then
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
-  %5 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   %sub.i.i.i = add i64 %5, -1
-  store i64 %sub.i.i.i, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %sub.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.04.i.i.i) #43
   tail call void @_ZdlPv(ptr noundef %__first.sroa.0.04.i.i.i) #41
   br label %if.end
@@ -10887,7 +10887,7 @@ if.end:                                           ; preds = %while.body.i.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23LogToCallbackRedirectorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23LogToCallbackRedirector, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, align 8
   %user.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %user.i, align 8
@@ -10918,9 +10918,9 @@ delete.notnull.i:                                 ; preds = %if.then.i
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.then.i
-  %5 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   %sub.i.i.i.i = add i64 %5, -1
-  store i64 %sub.i.i.i.i, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %sub.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.04.i.i.i.i) #43
   tail call void @_ZdlPv(ptr noundef %__first.sroa.0.04.i.i.i.i) #41
   br label %_ZN23LogToCallbackRedirectorD2Ev.exit
@@ -13293,12 +13293,12 @@ if.then428:                                       ; preds = %if.end424
   %conv431 = trunc nuw i32 %shr180 to i8
   store i8 %conv431, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, align 16
   %conv435 = trunc i32 %call.i2.i to i8
-  store i8 %conv435, ptr getelementptr inbounds ([25 x i8], ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 0, i64 1), align 1
+  store i8 %conv435, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 1), align 1
   %shr437182 = lshr i32 %call1.i4.i, 8
   %conv439 = trunc nuw i32 %shr437182 to i8
-  store i8 %conv439, ptr getelementptr inbounds ([25 x i8], ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 0, i64 2), align 2
+  store i8 %conv439, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 2), align 2
   %conv443 = trunc i32 %call1.i4.i to i8
-  store i8 %conv443, ptr getelementptr inbounds ([25 x i8], ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 0, i64 3), align 1
+  store i8 %conv443, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 3), align 1
   %216 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, ptr %216, align 8
   br label %return
@@ -17304,15 +17304,15 @@ declare float @atan2f(float noundef, float noundef) local_unnamed_addr #30
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_Assimp.cpp() #36 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 40), align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI11aiLogStreamPN6Assimp9LogStreamENS1_5mpredESaISt4pairIKS0_S3_EEED2Ev, ptr nonnull @_ZN6AssimpL17gActiveLogStreamsE, ptr nonnull @__dso_handle) #43
-  store ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 8), align 8
   store ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx114listIPN6Assimp9LogStreamESaIS3_EED2Ev, ptr nonnull @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, ptr nonnull @__dso_handle) #43
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6AssimpL16gLastErrorStringB5cxx11E) #43
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN6AssimpL16gLastErrorStringB5cxx11E, ptr nonnull @__dso_handle) #43

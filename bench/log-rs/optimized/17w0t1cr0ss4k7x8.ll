@@ -60,7 +60,7 @@ define void @_ZN3log13__private_api8log_impl17h23087e5d7148c8b8E(ptr noalias noc
   %25 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h317b95d2c790a928E.llvm.778753998846166598(ptr noundef nonnull @_ZN3log5STATE17ha079c5667def49c9E, i8 noundef 2)
   %.not.i = icmp eq i64 %25, 2
   %26 = load ptr, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, align 8, !nonnull !4, !align !5
-  %27 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr }>, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 0, i32 1), align 8, !nonnull !4, !align !6
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8, !nonnull !4, !align !6
   %.sroa.3.0.i = select i1 %.not.i, ptr %27, ptr @anon.da3fca9e6d1d8035af543c408d9d567e.23.llvm.778753998846166598
   %.sroa.0.0.i = select i1 %.not.i, ptr %26, ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
@@ -111,7 +111,7 @@ define noundef zeroext i1 @_ZN3log13__private_api7enabled17h01fde4dbec3d010cE(i6
   %5 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h317b95d2c790a928E.llvm.778753998846166598(ptr noundef nonnull @_ZN3log5STATE17ha079c5667def49c9E, i8 noundef 2)
   %.not.i = icmp eq i64 %5, 2
   %6 = load ptr, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, align 8, !nonnull !4, !align !5
-  %7 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr }>, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 0, i32 1), align 8, !nonnull !4, !align !6
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8, !nonnull !4, !align !6
   %.sroa.3.0.i = select i1 %.not.i, ptr %7, ptr @anon.da3fca9e6d1d8035af543c408d9d567e.23.llvm.778753998846166598
   %.sroa.0.0.i = select i1 %.not.i, ptr %6, ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)

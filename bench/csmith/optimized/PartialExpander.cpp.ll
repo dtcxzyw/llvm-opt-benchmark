@@ -289,8 +289,8 @@ define dso_local noundef zeroext i1 @_ZN15PartialExpander21init_partial_expander
   %20 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixEOS0_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander8expands_E, ptr noundef nonnull align 4 dereferenceable(4) %10)
   store i8 1, ptr %20, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %21 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not7.i = icmp eq ptr %21, getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 24), align 8
+  %.not7.i = icmp eq ptr %21, getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 8)
   br i1 %.not7.i, label %_ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTypebSt4lessIS1_ESaISt4pairIKS1_bEEERKS8_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
@@ -304,7 +304,7 @@ define dso_local noundef zeroext i1 @_ZN15PartialExpander21init_partial_expander
   %27 = and i8 %25, 1
   store i8 %27, ptr %26, align 1
   %28 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08.i) #13
-  %.not.i = icmp eq ptr %28, getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not.i = icmp eq ptr %28, getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 8)
   br i1 %.not.i, label %_ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTypebSt4lessIS1_ESaISt4pairIKS1_bEEERKS8_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTypebSt4lessIS1_ESaISt4pairIKS1_bEEERKS8_.exit: ; preds = %.lr.ph.i, %19
@@ -657,8 +657,8 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define dso_local void @_ZN15PartialExpander19restore_init_valuesEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not7.i = icmp eq ptr %2, getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 24), align 8
+  %.not7.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 8)
   br i1 %.not7.i, label %_ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTypebSt4lessIS1_ESaISt4pairIKS1_bEEERKS8_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
@@ -672,7 +672,7 @@ define dso_local void @_ZN15PartialExpander19restore_init_valuesEv() local_unnam
   %8 = and i8 %6, 1
   store i8 %8, ptr %7, align 1
   %9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08.i) #13
-  %.not.i = icmp eq ptr %9, getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not.i = icmp eq ptr %9, getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 8)
   br i1 %.not.i, label %_ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTypebSt4lessIS1_ESaISt4pairIKS1_bEEERKS8_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTypebSt4lessIS1_ESaISt4pairIKS1_bEEERKS8_.exit: ; preds = %.lr.ph.i, %0
@@ -1013,17 +1013,17 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define internal void @_GLOBAL__sub_I_PartialExpander.cpp() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander8expands_E, i64 40), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEED2Ev, ptr nonnull @_ZN15PartialExpander8expands_E, ptr nonnull @__dso_handle) #15
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN15PartialExpander15expands_backup_E, i64 40), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEED2Ev, ptr nonnull @_ZN15PartialExpander15expands_backup_E, ptr nonnull @__dso_handle) #15
   ret void
 }

@@ -580,7 +580,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
-  %3 = load volatile ptr, ptr getelementptr inbounds ([50 x %struct.anon], ptr @memory, i64 0, i64 0, i32 1), align 8, !tbaa !18
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @memory, i64 8), align 8, !tbaa !18
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %.thread4, label %.preheader
 

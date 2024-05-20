@@ -946,13 +946,13 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmxL
   br label %61
 
 61:                                               ; preds = %59, %21, %1
-  %62 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZN3gmxL10simdStringB5cxx11ENS_8SimdTypeEE4nameB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3gmxL10simdStringB5cxx11ENS_8SimdTypeEE4nameB5cxx11, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %61, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %62, %61 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZZN3gmxL10simdStringB5cxx11ENS_8SimdTypeEE4nameB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %61 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN3gmxL10simdStringB5cxx11ENS_8SimdTypeEE4nameB5cxx11, i64 8), %61 ]
   %63 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %64 = load i32, ptr %63, align 4
   %65 = icmp slt i32 %64, %0
@@ -964,7 +964,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmxL
   br i1 %.not.i.i.i.i, label %_ZNKSt3mapIN3gmx8SimdTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZNKSt3mapIN3gmx8SimdTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %66 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZZN3gmxL10simdStringB5cxx11ENS_8SimdTypeEE4nameB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %66 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN3gmxL10simdStringB5cxx11ENS_8SimdTypeEE4nameB5cxx11, i64 8)
   br i1 %66, label %.critedge.i, label %67
 
 67:                                               ; preds = %_ZNKSt3mapIN3gmx8SimdTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i

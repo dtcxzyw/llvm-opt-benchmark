@@ -303,7 +303,7 @@ define dso_local range(i32 0, 2) i32 @syscheck() local_unnamed_addr #0 {
 entry:
   %err_msg = alloca ptr, align 8
   store ptr null, ptr %err_msg, align 8
-  %0 = load ptr, ptr getelementptr inbounds ([5 x %struct.check], ptr @checks, i64 0, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @checks, i64 8), align 8
   %tobool.not8 = icmp eq ptr %0, null
   br i1 %tobool.not8, label %while.end, label %while.body
 

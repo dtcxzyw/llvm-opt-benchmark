@@ -193,7 +193,7 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
 
 43:                                               ; preds = %35
   %44 = zext i8 %.132 to i64
-  %gep = getelementptr [13 x i8], ptr @.str, i64 -4, i64 %44
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @.str, i64 -52), i64 %44
   %45 = load i8, ptr %gep, align 1
   br label %46
 
@@ -317,7 +317,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
 
 48:                                               ; preds = %40
   %49 = zext i8 %.132.i to i64
-  %gep.i = getelementptr [13 x i8], ptr @.str, i64 -4, i64 %49
+  %gep.i = getelementptr i8, ptr getelementptr (i8, ptr @.str, i64 -52), i64 %49
   %50 = load i8, ptr %gep.i, align 1
   br label %51
 
@@ -521,7 +521,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
 
 152:                                              ; preds = %144
   %153 = zext i8 %.132.i39 to i64
-  %gep.i40 = getelementptr [13 x i8], ptr @.str, i64 -4, i64 %153
+  %gep.i40 = getelementptr i8, ptr getelementptr (i8, ptr @.str, i64 -52), i64 %153
   %154 = load i8, ptr %gep.i40, align 1
   br label %155
 

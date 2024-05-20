@@ -67,7 +67,7 @@ define internal i32 @cbcmac_create(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br i1 %5, label %6, label %47
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = call noalias align 8 dereferenceable_or_null(600) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 600) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %47, label %10
@@ -220,7 +220,7 @@ define internal i32 @crypto_rfc4309_create(ptr noundef %0, ptr noundef %1) #2 al
   br i1 %5, label %6, label %63
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = call noalias align 8 dereferenceable_or_null(560) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 560) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %63, label %10
@@ -503,7 +503,7 @@ define internal fastcc i32 @crypto_ccm_create_common(ptr noundef %0, ptr noundef
   br i1 %7, label %8, label %91
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %10 = call noalias align 8 dereferenceable_or_null(608) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 608) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %91, label %12

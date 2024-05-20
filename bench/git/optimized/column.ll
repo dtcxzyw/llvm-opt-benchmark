@@ -1120,12 +1120,12 @@ if.then17:                                        ; preds = %land.lhs.true15
 if.end20:                                         ; preds = %if.end, %if.then17, %land.lhs.true15
   %4 = load ptr, ptr @stdout, align 8
   %call21 = tail call i32 @fflush(ptr noundef %4)
-  store i32 -1, ptr getelementptr inbounds ({ %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr }, ptr @column_process, i64 0, i32 7), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @column_process, i64 80), align 8
   %call22 = tail call i32 @dup(i32 noundef 1) #9
-  store i32 %call22, ptr getelementptr inbounds ({ %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr }, ptr @column_process, i64 0, i32 8), align 4
-  %bf.load = load i16, ptr getelementptr inbounds ({ %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr }, ptr @column_process, i64 0, i32 11), align 8
+  store i32 %call22, ptr getelementptr inbounds (i8, ptr @column_process, i64 84), align 4
+  %bf.load = load i16, ptr getelementptr inbounds (i8, ptr @column_process, i64 104), align 8
   %bf.set = or i16 %bf.load, 8
-  store i16 %bf.set, ptr getelementptr inbounds ({ %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr }, ptr @column_process, i64 0, i32 11), align 8
+  store i16 %bf.set, ptr getelementptr inbounds (i8, ptr @column_process, i64 104), align 8
   %call23 = tail call i32 @start_command(ptr noundef nonnull @column_process) #9
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %if.end26, label %return
@@ -1134,9 +1134,9 @@ if.end26:                                         ; preds = %if.end20
   %call27 = tail call i32 @dup(i32 noundef 1) #9
   store i32 %call27, ptr @fd_out, align 4
   %call28 = tail call i32 @close(i32 noundef 1) #9
-  %5 = load i32, ptr getelementptr inbounds ({ %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr }, ptr @column_process, i64 0, i32 7), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @column_process, i64 80), align 8
   %call29 = tail call i32 @dup2(i32 noundef %5, i32 noundef 1) #9
-  %6 = load i32, ptr getelementptr inbounds ({ %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr }, ptr @column_process, i64 0, i32 7), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @column_process, i64 80), align 8
   %call30 = tail call i32 @close(i32 noundef %6) #9
   br label %return
 

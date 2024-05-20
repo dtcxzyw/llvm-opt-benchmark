@@ -50,8 +50,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %call.i.i.i.i.i.i, -1
   %conv.i.i.i.i.i.i = trunc i64 %call.i.i.i.i.i.i to i32
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i32 1, i32 %conv.i.i.i.i.i.i
-  store i32 %retval.0.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 0, i32 1), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 0, i32 1) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, ptr noundef null)
+  store i32 %retval.0.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 8), align 8
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -82,8 +82,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %cond.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i, i64 0, i64 %1
   %retval.0.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i, i64 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %limit.i.i.i.i.i.i)
-  store i64 %retval.0.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.base::LazyInstance.0", ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 0, i32 1), align 8
-  call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance.0", ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 0, i32 1) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, ptr noundef null)
+  store i64 %retval.0.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 8), align 8
+  call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i

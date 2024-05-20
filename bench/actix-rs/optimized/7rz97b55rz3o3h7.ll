@@ -7489,7 +7489,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
   unreachable
 
 51:                                               ; preds = %.noexc.i.i, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i
-  %.0.i.i2.i.i.i = phi ptr [ %48, %.noexc.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i ]
+  %.0.i.i2.i.i.i = phi ptr [ %48, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i ]
   %52 = getelementptr inbounds i8, ptr %4, i64 8
   %53 = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 136
@@ -9556,7 +9556,7 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit101.thread: ; preds = %_ZN4c
   br i1 %447, label %448, label %.thread217.i.i
 
 448:                                              ; preds = %443
-  %449 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN2h26client15bind_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hbde634bbbdfe3104E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1364
+  %449 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN2h26client15bind_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hbde634bbbdfe3104E", i64 16) monotonic, align 8, !noalias !1364
   switch i8 %449, label %450 [
     i8 0, label %.thread217.i.i
     i8 1, label %.thread.i.i
@@ -9988,7 +9988,7 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit101.thread: ; preds = %_ZN4c
   br i1 %589, label %590, label %.thread237.i.i
 
 590:                                              ; preds = %.thread222.thread.i.i
-  %591 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN2h26client15bind_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h28757787f1e75745E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1364
+  %591 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN2h26client15bind_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h28757787f1e75745E", i64 16) monotonic, align 8, !noalias !1364
   switch i8 %591, label %592 [
     i8 0, label %.thread237.i.i
     i8 1, label %.thread234.i.i
@@ -12621,7 +12621,7 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %375
   br i1 %431, label %432, label %.thread217.i.i
 
 432:                                              ; preds = %427
-  %433 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN2h26client15bind_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hbde634bbbdfe3104E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1731
+  %433 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN2h26client15bind_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hbde634bbbdfe3104E", i64 16) monotonic, align 8, !noalias !1731
   switch i8 %433, label %434 [
     i8 0, label %.thread217.i.i
     i8 1, label %.thread.i.i
@@ -13047,7 +13047,7 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %375
   br i1 %568, label %569, label %.thread237.i.i
 
 569:                                              ; preds = %.thread222.thread.i.i
-  %570 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN2h26client15bind_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h28757787f1e75745E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1731
+  %570 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN2h26client15bind_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h28757787f1e75745E", i64 16) monotonic, align 8, !noalias !1731
   switch i8 %570, label %571 [
     i8 0, label %.thread237.i.i
     i8 1, label %.thread234.i.i

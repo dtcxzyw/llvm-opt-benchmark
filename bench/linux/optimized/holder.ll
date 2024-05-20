@@ -91,7 +91,7 @@ define dso_local i32 @bd_link_disk_holder(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %46, label %.thread, label %76
 
 .thread:                                          ; preds = %36, %45
-  %47 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %48 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3520, i64 noundef 32) #4
   %49 = icmp eq ptr %48, null
   br i1 %49, label %80, label %50

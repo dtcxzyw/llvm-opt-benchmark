@@ -80,7 +80,7 @@ $_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518DateFmtBestPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518DateFmtBestPatternE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518DateFmtBestPatternE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPattern) #13
   tail call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #13
@@ -114,10 +114,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7521DateFmtBestPatternKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7521DateFmtBestPatternKeyE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DateFmtBestPatternKeyE, i64 16), ptr %this, align 8
   %fSkeleton = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fSkeleton) #13
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #13
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
@@ -136,7 +136,7 @@ entry:
 define void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6icu_7510DateFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510DateFormatE, i64 16), ptr %this, align 8
   %fCalendar = getelementptr inbounds i8, ptr %this, i64 328
   %fCapitalizationContext = getelementptr inbounds i8, ptr %this, i64 348
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fCalendar, i8 0, i64 20, i1 false)
@@ -155,7 +155,7 @@ declare void @_ZN6icu_756FormatD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZN6icu_7510DateFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(352) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) %this, ptr noundef nonnull align 8 dereferenceable(322) %other)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6icu_7510DateFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510DateFormatE, i64 16), ptr %this, align 8
   %fCalendar = getelementptr inbounds i8, ptr %this, i64 328
   %fNumberFormat = getelementptr inbounds i8, ptr %this, i64 336
   %fBoolFlags = getelementptr inbounds i8, ptr %this, i64 344
@@ -296,7 +296,7 @@ if.end28:                                         ; preds = %if.end24, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7510DateFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6icu_7510DateFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510DateFormatE, i64 16), ptr %this, align 8
   %fCalendar = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load ptr, ptr %fCalendar, align 8
   %isnull = icmp eq ptr %0, null
@@ -672,7 +672,7 @@ declare void @_ZN6icu_7517GregorianCalendarD1Ev(ptr noundef nonnull align 8 dere
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510DateFormat6formatEdRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(352) %this, double noundef %date, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fpos = alloca %"class.icu_75::FieldPosition", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %fpos, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fpos, align 8
   %fField.i = getelementptr inbounds i8, ptr %fpos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds i8, ptr %fpos, i64 12
@@ -763,7 +763,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %pos, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %pos, align 8
   %index.i = getelementptr inbounds i8, ptr %pos, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds i8, ptr %pos, i64 12
@@ -1080,7 +1080,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %return
@@ -1090,7 +1090,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %fCreationStatus.i.i.i.i, align 8
   %fIsPrimary.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 0, i32 0, i64 2), ptr %key, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %key, align 8
   %fLoc.i.i = getelementptr inbounds i8, ptr %key, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %_ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEC2ERKNS_6LocaleE.exit.i unwind label %lpad.i.i
@@ -1110,7 +1110,7 @@ lpad.i.i:                                         ; preds = %if.end
   br label %common.resume.i
 
 _ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEC2ERKNS_6LocaleE.exit.i: ; preds = %if.end
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7521DateFmtBestPatternKeyE, i64 0, i32 0, i64 2), ptr %key, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DateFmtBestPatternKeyE, i64 16), ptr %key, align 8
   %fSkeleton.i = getelementptr inbounds i8, ptr %key, i64 240
   invoke void @_ZN6icu_7524DateTimePatternGenerator17staticGetSkeletonERKNS_13UnicodeStringER10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %fSkeleton.i, ptr noundef nonnull align 8 dereferenceable(64) %skeleton, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %_ZN6icu_7521DateFmtBestPatternKeyC2ERKNS_6LocaleERKNS_13UnicodeStringER10UErrorCode.exit unwind label %lpad.i
@@ -1118,7 +1118,7 @@ _ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEC2ERKNS_6LocaleE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEC2ERKNS_6LocaleE.exit.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 0, i32 0, i64 2), ptr %key, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %key, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i.i) #13
   br label %common.resume.i
 
@@ -1185,7 +1185,7 @@ invoke.cont:                                      ; preds = %if.then8.i.i, %_ZN6
   br i1 %cmp.i9, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %invoke.cont.thread, %invoke.cont
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i11 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i11, align 8
   br label %cleanup
@@ -1816,14 +1816,14 @@ entry:
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 16), ptr %call, align 8
   %fCreationStatus.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %fCreationStatus2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fCreationStatus2.i.i.i.i, align 8
   store i32 %0, ptr %fCreationStatus.i.i.i.i, align 8
   %fIsPrimary.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %call, align 8
   %fLoc.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %fLoc2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i.i)
@@ -1841,7 +1841,7 @@ lpad.i.i:                                         ; preds = %new.notnull
   br label %common.resume.i
 
 _ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEC2ERKS2_.exit.i: ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7521DateFmtBestPatternKeyE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DateFmtBestPatternKeyE, i64 16), ptr %call, align 8
   %fSkeleton.i = getelementptr inbounds i8, ptr %call, i64 240
   %fSkeleton2.i = getelementptr inbounds i8, ptr %this, i64 240
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fSkeleton.i, ptr noundef nonnull align 8 dereferenceable(64) %fSkeleton2.i)
@@ -1850,7 +1850,7 @@ _ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEC2ERKS2_.exit.i: ; preds = %
 lpad.i:                                           ; preds = %_ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEC2ERKS2_.exit.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %call, align 8
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i.i) #13
   br label %common.resume.i
 
@@ -1881,7 +1881,7 @@ new.notnull:                                      ; preds = %if.end
 invoke.cont5:                                     ; preds = %new.notnull
   %softRefCount.i.i = getelementptr inbounds i8, ptr %call3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518DateFmtBestPatternE, i64 0, i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518DateFmtBestPatternE, i64 16), ptr %call3, align 8
   %fPattern.i = getelementptr inbounds i8, ptr %call3, i64 24
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPattern.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
           to label %cleanup.done unwind label %ehcleanup.thread36
@@ -2079,7 +2079,7 @@ declare void @_ZN6icu_7524DateTimePatternGenerator17staticGetSkeletonERKNS_13Uni
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %this, align 8
   %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc) #13
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
@@ -2089,7 +2089,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEED0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #13
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
@@ -2116,14 +2116,14 @@ entry:
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 16), ptr %call, align 8
   %fCreationStatus.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %fCreationStatus2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fCreationStatus2.i.i.i, align 8
   store i32 %0, ptr %fCreationStatus.i.i.i, align 8
   %fIsPrimary.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %call, align 8
   %fLoc.i = getelementptr inbounds i8, ptr %call, i64 16
   %fLoc2.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)

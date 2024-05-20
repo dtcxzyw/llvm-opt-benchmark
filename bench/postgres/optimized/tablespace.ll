@@ -33,7 +33,7 @@ define dso_local void @init_tablespaces() local_unnamed_addr #0 {
   %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 8192, ptr noundef nonnull @.str.2) #7
   %5 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %1) #7
   %6 = call i32 @PQntuples(ptr noundef %5) #7
-  store i32 %6, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %11, label %7
 
@@ -45,9 +45,9 @@ define dso_local void @init_tablespaces() local_unnamed_addr #0 {
 
 11:                                               ; preds = %7, %0
   %storemerge.i = phi ptr [ %10, %7 ], [ null, %0 ]
-  store ptr %storemerge.i, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  store ptr %storemerge.i, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %12 = call i32 @PQfnumber(ptr noundef %5, ptr noundef nonnull @.str.4) #7
-  %13 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %get_tablespace_paths.exit
 
@@ -60,10 +60,10 @@ define dso_local void @init_tablespaces() local_unnamed_addr #0 {
   %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   %18 = call ptr @PQgetvalue(ptr noundef %5, i32 noundef %17, i32 noundef %12) #7
   %19 = call ptr @pg_strdup(ptr noundef %18) #7
-  %20 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %21 = getelementptr ptr, ptr %20, i64 %indvars.iv.i
   store ptr %19, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %23 = getelementptr ptr, ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @stat(ptr noundef %24, ptr noundef nonnull %2) #7
@@ -74,7 +74,7 @@ define dso_local void @init_tablespaces() local_unnamed_addr #0 {
   %27 = tail call ptr @__errno_location() #8
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 2
-  %30 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %31 = getelementptr ptr, ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   br i1 %29, label %33, label %34
@@ -95,7 +95,7 @@ define dso_local void @init_tablespaces() local_unnamed_addr #0 {
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %36
-  %41 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %42 = getelementptr ptr, ptr %41, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8
   call void (i32, ptr, ...) @report_status(i32 noundef 5, ptr noundef nonnull @.str.7, ptr noundef %43) #7
@@ -103,7 +103,7 @@ define dso_local void @init_tablespaces() local_unnamed_addr #0 {
 
 44:                                               ; preds = %40, %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next.i, %46
   br i1 %47, label %16, label %get_tablespace_paths.exit, !llvm.loop !5
@@ -113,18 +113,18 @@ get_tablespace_paths.exit:                        ; preds = %44, %11
   call void @PQfinish(ptr noundef %3) #7
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  %48 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 0, i32 1), align 4
-  %49 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 10, i64 0), i32 noundef %48) #7
-  store ptr %49, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 12), align 8
-  %50 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 0, i32 1), align 4
-  %51 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 10, i64 0), i32 noundef %50) #7
-  store ptr %51, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 12), align 8
-  %52 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 4), align 4
+  %49 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @old_cluster, i64 184), i32 noundef %48) #7
+  store ptr %49, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 256), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 4), align 4
+  %51 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @new_cluster, i64 184), i32 noundef %50) #7
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 256), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %get_tablespace_paths.exit
-  %55 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 12), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 256), align 8
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %51) #9
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %59

@@ -647,7 +647,7 @@ define internal noundef i64 @initialize(i32 noundef %0, ptr noundef %1, i64 noun
   %18 = call i64 @rb_intern2(ptr noundef nonnull @.str.22, i64 noundef 4) #8
   store i64 %18, ptr @initialize.kw, align 16
   %19 = call i64 @rb_intern2(ptr noundef nonnull @.str.23, i64 noundef 8) #8
-  store i64 %19, ptr getelementptr inbounds ([2 x i64], ptr @initialize.kw, i64 0, i64 1), align 8
+  store i64 %19, ptr getelementptr inbounds (i8, ptr @initialize.kw, i64 8), align 8
   %.pre = load i64, ptr %8, align 8
   br label %20
 

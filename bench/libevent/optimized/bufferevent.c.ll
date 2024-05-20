@@ -30,7 +30,7 @@ entry:
   br i1 %tobool.not, label %do.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end4
 
@@ -58,7 +58,7 @@ if.end8:                                          ; preds = %if.then6, %do.end4
   br i1 %tobool17.not, label %do.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.end8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call20 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #7
   br label %do.end23
 
@@ -75,7 +75,7 @@ entry:
   br i1 %tobool.not, label %do.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end4
 
@@ -109,7 +109,7 @@ do.body15:                                        ; preds = %do.end4, %land.lhs.
   br i1 %tobool20.not, label %do.end26, label %if.then21
 
 if.then21:                                        ; preds = %do.body15
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call23 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #7
   br label %do.end26
 
@@ -126,7 +126,7 @@ entry:
   br i1 %tobool.not, label %do.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end4
 
@@ -154,7 +154,7 @@ if.end8:                                          ; preds = %if.then6, %do.end4
   br i1 %tobool17.not, label %do.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.end8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call20 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #7
   br label %do.end23
 
@@ -171,7 +171,7 @@ entry:
   br i1 %tobool.not, label %do.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end4
 
@@ -205,7 +205,7 @@ do.body15:                                        ; preds = %do.end4, %land.lhs.
   br i1 %tobool20.not, label %do.end26, label %if.then21
 
 if.then21:                                        ; preds = %do.body15
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call23 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #7
   br label %do.end26
 
@@ -254,7 +254,7 @@ do.end4.thread.i:                                 ; preds = %if.then4
   br label %if.end8
 
 do.end4.i:                                        ; preds = %if.then4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %3) #7
   %.pr.i = load ptr, ptr %lock.i, align 8
   %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
@@ -265,7 +265,7 @@ do.end4.i:                                        ; preds = %if.then4
   br i1 %tobool10.not.i, label %if.end8, label %if.then11.i
 
 if.then11.i:                                      ; preds = %do.end4.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call13.i = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %.pr.i) #7
   br label %if.end8
 
@@ -300,7 +300,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   br i1 %tobool.not.i.i, label %bufferevent_incref_and_lock_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end8.i
-  %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i.i = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #7
   br label %bufferevent_incref_and_lock_.exit.i
 
@@ -346,7 +346,7 @@ do.end4.thread:                                   ; preds = %entry
   br label %do.end16
 
 do.end4:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock, align 8
   %refcnt = getelementptr inbounds i8, ptr %bufev, i64 444
@@ -357,7 +357,7 @@ do.end4:                                          ; preds = %entry
   br i1 %tobool10.not, label %do.end16, label %if.then11
 
 if.then11:                                        ; preds = %do.end4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call13 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #7
   br label %do.end16
 
@@ -406,7 +406,7 @@ do.end4.thread.i:                                 ; preds = %if.then4
   br label %if.end8
 
 do.end4.i:                                        ; preds = %if.then4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %3) #7
   %.pr.i = load ptr, ptr %lock.i, align 8
   %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
@@ -417,7 +417,7 @@ do.end4.i:                                        ; preds = %if.then4
   br i1 %tobool10.not.i, label %if.end8, label %if.then11.i
 
 if.then11.i:                                      ; preds = %do.end4.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call13.i = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %.pr.i) #7
   br label %if.end8
 
@@ -440,7 +440,7 @@ entry:
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %bufferevent_incref_and_lock_.exit
 
@@ -529,7 +529,7 @@ do.end4.thread.i.i:                               ; preds = %if.then4.i
   br label %bufferevent_trigger_nolock_.exit
 
 do.end4.i.i:                                      ; preds = %if.then4.i
-  %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %10) #7
   %.pr.i.i = load ptr, ptr %lock.i, align 8
   %13 = load i32, ptr %refcnt.i, align 4
@@ -539,7 +539,7 @@ do.end4.i.i:                                      ; preds = %if.then4.i
   br i1 %tobool10.not.i.i, label %bufferevent_trigger_nolock_.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %do.end4.i.i
-  %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call13.i.i = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %.pr.i.i) #7
   br label %bufferevent_trigger_nolock_.exit
 
@@ -563,7 +563,7 @@ entry:
   br i1 %tobool.not, label %do.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end4
 
@@ -593,7 +593,7 @@ do.body1:                                         ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %do.body1
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #7
   br label %return
 
@@ -658,7 +658,7 @@ if.end27:                                         ; preds = %if.then19, %if.then
   br i1 %tobool43.not, label %return, label %if.then44
 
 if.then44:                                        ; preds = %if.end27
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call46 = call i32 %10(i32 noundef 0, ptr noundef nonnull %9) #7
   br label %return
 
@@ -712,7 +712,7 @@ do.end4.thread.i:                                 ; preds = %if.then8
   br label %if.end12
 
 do.end4.i:                                        ; preds = %if.then8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %5) #7
   %.pr.i = load ptr, ptr %lock.i, align 8
   %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
@@ -723,7 +723,7 @@ do.end4.i:                                        ; preds = %if.then8
   br i1 %tobool10.not.i, label %if.end12, label %if.then11.i
 
 if.then11.i:                                      ; preds = %do.end4.i
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call13.i = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %.pr.i) #7
   br label %if.end12
 
@@ -749,7 +749,7 @@ entry:
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %bufferevent_incref_and_lock_.exit
 
@@ -798,7 +798,7 @@ do.end4.thread.i.i:                               ; preds = %if.then8.i
   br label %bufferevent_run_eventcb_.exit
 
 do.end4.i.i:                                      ; preds = %if.then8.i
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i.i = tail call i32 %10(i32 noundef 0, ptr noundef nonnull %8) #7
   %.pr.i.i = load ptr, ptr %lock.i, align 8
   %11 = load i32, ptr %refcnt.i, align 4
@@ -808,7 +808,7 @@ do.end4.i.i:                                      ; preds = %if.then8.i
   br i1 %tobool10.not.i.i, label %bufferevent_run_eventcb_.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %do.end4.i.i
-  %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call13.i.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %.pr.i.i) #7
   br label %bufferevent_run_eventcb_.exit
 
@@ -957,7 +957,7 @@ do.body10.i:                                      ; preds = %do.end3.i
   br i1 %tobool15.not.i, label %bufferevent_get_underlying.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %do.body10.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call18.i = call i32 %4(i32 noundef 0, ptr noundef nonnull %.pre) #7
   br i1 %3, label %.thread, label %5
 
@@ -997,7 +997,7 @@ if.else:                                          ; preds = %5
 if.then15:                                        ; preds = %.thread, %land.lhs.true4, %if.else
   %tobool337 = phi i1 [ %tobool3, %land.lhs.true4 ], [ %tobool3, %if.else ], [ false, %.thread ]
   %8 = phi ptr [ %6, %land.lhs.true4 ], [ %6, %if.else ], [ null, %.thread ]
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 8), align 8
   %tobool16.not = icmp eq ptr %9, null
   br i1 %tobool16.not, label %return, label %cond.end
 
@@ -1066,7 +1066,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -1093,7 +1093,7 @@ if.then6:                                         ; preds = %land.lhs.true
   br i1 %tobool20.not, label %do.end26, label %if.then21
 
 if.then21:                                        ; preds = %if.then6
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call23 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #7
   br label %do.end26
 
@@ -1104,7 +1104,7 @@ do.end26:                                         ; preds = %if.then21, %if.then
   br i1 %tobool32.not, label %if.end40, label %if.then33
 
 if.then33:                                        ; preds = %do.end26
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call35 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #7
   br label %if.end40
 
@@ -1131,7 +1131,7 @@ if.then44:                                        ; preds = %land.lhs.true42
   br i1 %tobool58.not, label %do.end64, label %if.then59
 
 if.then59:                                        ; preds = %if.then44
-  %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call61 = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #7
   br label %do.end64
 
@@ -1142,7 +1142,7 @@ do.end64:                                         ; preds = %if.then59, %if.then
   br i1 %tobool70.not, label %do.end77, label %if.then71
 
 if.then71:                                        ; preds = %do.end64
-  %16 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call73 = tail call i32 %16(i32 noundef 0, ptr noundef nonnull %15) #7
   br label %do.end77
 
@@ -1173,7 +1173,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   br i1 %tobool.not.i.i.i, label %bufferevent_incref_and_lock_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end8.i
-  %23 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i.i.i = tail call i32 %23(i32 noundef 0, ptr noundef nonnull %22) #7
   br label %bufferevent_incref_and_lock_.exit.i.i
 
@@ -1219,7 +1219,7 @@ if.then86:                                        ; preds = %land.lhs.true84
   br i1 %tobool101.not, label %do.end107, label %if.then102
 
 if.then102:                                       ; preds = %if.then86
-  %31 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call104 = tail call i32 %31(i32 noundef 0, ptr noundef nonnull %30) #7
   br label %do.end107
 
@@ -1230,7 +1230,7 @@ do.end107:                                        ; preds = %if.then102, %if.the
   br i1 %tobool113.not, label %if.end121, label %if.then114
 
 if.then114:                                       ; preds = %do.end107
-  %33 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call116 = tail call i32 %33(i32 noundef 0, ptr noundef nonnull %32) #7
   br label %if.end121
 
@@ -1259,7 +1259,7 @@ if.then128:                                       ; preds = %land.lhs.true125
   br i1 %tobool145.not, label %do.end151, label %if.then146
 
 if.then146:                                       ; preds = %if.then128
-  %39 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call148 = tail call i32 %39(i32 noundef 0, ptr noundef nonnull %38) #7
   br label %do.end151
 
@@ -1270,7 +1270,7 @@ do.end151:                                        ; preds = %if.then146, %if.the
   br i1 %tobool157.not, label %if.end165, label %if.then158
 
 if.then158:                                       ; preds = %do.end151
-  %41 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call160 = tail call i32 %41(i32 noundef 0, ptr noundef nonnull %40) #7
   br label %if.end165
 
@@ -1288,7 +1288,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -1358,7 +1358,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   br i1 %tobool.not.i.i.i, label %bufferevent_incref_and_lock_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end8.i
-  %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i.i.i = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #7
   br label %bufferevent_incref_and_lock_.exit.i.i
 
@@ -1455,7 +1455,7 @@ do.end3.thread:                                   ; preds = %entry
   br label %do.end18
 
 do.end3:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pre = load ptr, ptr %lock, align 8
   %readcb4 = getelementptr inbounds i8, ptr %bufev, i64 304
@@ -1470,7 +1470,7 @@ do.end3:                                          ; preds = %entry
   br i1 %tobool12.not, label %do.end18, label %if.then13
 
 if.then13:                                        ; preds = %do.end3
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call15 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pre) #7
   br label %do.end18
 
@@ -1487,7 +1487,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -1537,7 +1537,7 @@ do.body16:                                        ; preds = %if.end12, %if.then1
   br i1 %tobool21.not, label %do.end27, label %if.then22
 
 if.then22:                                        ; preds = %do.body16
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call24 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #7
   br label %do.end27
 
@@ -1653,7 +1653,7 @@ entry:
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %bufferevent_incref_and_lock_.exit
 
@@ -1714,7 +1714,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -1763,7 +1763,7 @@ do.body23:                                        ; preds = %if.end16, %if.then1
   br i1 %tobool28.not, label %do.end34, label %if.then29
 
 if.then29:                                        ; preds = %do.body23
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call31 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #7
   br label %do.end34
 
@@ -1807,7 +1807,7 @@ if.end5:                                          ; preds = %if.then2, %if.end
   br i1 %tobool.not.i, label %do.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end5
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3.i
 
@@ -1855,7 +1855,7 @@ do.body23.i:                                      ; preds = %if.then18.i, %if.en
   br i1 %tobool28.not.i, label %bufferevent_set_timeouts.exit, label %if.then29.i
 
 if.then29.i:                                      ; preds = %do.body23.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call31.i = call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #7
   br label %bufferevent_set_timeouts.exit
 
@@ -1875,7 +1875,7 @@ entry:
   br i1 %tobool.not, label %do.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end4
 
@@ -1899,7 +1899,7 @@ do.end4:                                          ; preds = %if.then, %entry
   br i1 %tobool16.not, label %do.end22, label %if.then17
 
 if.then17:                                        ; preds = %do.end4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call19 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #7
   br label %do.end22
 
@@ -1917,7 +1917,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -1949,7 +1949,7 @@ do.body19:                                        ; preds = %do.end3, %if.then14
   br i1 %tobool24.not, label %do.end30, label %if.then25
 
 if.then25:                                        ; preds = %do.body19
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call27 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #7
   br label %do.end30
 
@@ -1967,7 +1967,7 @@ entry:
   br i1 %tobool.not, label %do.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end4
 
@@ -2026,7 +2026,7 @@ if.then30:                                        ; preds = %if.end22
   br i1 %tobool.not.i, label %do.end4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then30
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #7
   br label %do.end4.i
 
@@ -2065,7 +2065,7 @@ if.then35:                                        ; preds = %if.else
   br i1 %tobool.not.i31, label %do.end4.i34, label %if.then.i32
 
 if.then.i32:                                      ; preds = %if.then35
-  %16 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i33 = tail call i32 %16(i32 noundef 0, ptr noundef nonnull %15) #7
   br label %do.end4.i34
 
@@ -2112,7 +2112,7 @@ if.end45:                                         ; preds = %if.then41, %if.else
   br i1 %tobool.not.i38, label %do.end4.i41, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.end45
-  %25 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i40 = tail call i32 %25(i32 noundef 0, ptr noundef nonnull %24) #7
   br label %do.end4.i41
 
@@ -2146,7 +2146,7 @@ do.body15.i45:                                    ; preds = %if.then12.i52, %lan
 
 do.body48.sink.split:                             ; preds = %do.body15.i45, %do.body15.i, %if.end8.i
   %.sink = phi ptr [ %13, %if.end8.i ], [ %22, %do.body15.i ], [ %31, %do.body15.i45 ]
-  %32 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call23.i48 = tail call i32 %32(i32 noundef 0, ptr noundef nonnull %.sink) #7
   br label %do.body48
 
@@ -2156,7 +2156,7 @@ do.body48:                                        ; preds = %do.body48.sink.spli
   br i1 %tobool53.not, label %do.end59, label %if.then54
 
 if.then54:                                        ; preds = %do.body48
-  %33 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call56 = tail call i32 %33(i32 noundef 0, ptr noundef nonnull %.pr) #7
   br label %do.end59
 
@@ -2182,7 +2182,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i4, label %do.end4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #7
   br label %do.end4.i
 
@@ -2213,7 +2213,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not.i4, label %do.end4.i7, label %if.then.i5
 
 if.then.i5:                                       ; preds = %if.else
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i6 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %1) #7
   br label %do.end4.i7
 
@@ -2247,7 +2247,7 @@ do.body15.i:                                      ; preds = %if.then12.i, %land.
 
 if.end.sink.split:                                ; preds = %do.body15.i, %if.end8.i
   %.sink = phi ptr [ %7, %if.end8.i ], [ %14, %do.body15.i ]
-  %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call23.i = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %.sink) #7
   br label %if.end
 
@@ -2276,7 +2276,7 @@ do.body:                                          ; preds = %entry
   br i1 %tobool.not, label %do.end5, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end5
 
@@ -2312,7 +2312,7 @@ do.body30:                                        ; preds = %entry
   br i1 %tobool35.not, label %do.end41, label %if.then36
 
 if.then36:                                        ; preds = %do.body30
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call38 = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #7
   br label %do.end41
 
@@ -2343,7 +2343,7 @@ do.body51:                                        ; preds = %if.end45, %if.then4
 
 return.sink.split:                                ; preds = %do.body51, %do.body13
   %.sink = phi ptr [ %4, %do.body13 ], [ %9, %do.body51 ]
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call59 = tail call i32 %10(i32 noundef 0, ptr noundef nonnull %.sink) #7
   br label %return
 
@@ -2361,7 +2361,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -2384,7 +2384,7 @@ do.body10:                                        ; preds = %do.end3, %if.then5
   br i1 %tobool15.not, label %do.end21, label %if.then16
 
 if.then16:                                        ; preds = %do.body10
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call18 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #7
   br label %do.end21
 
@@ -2411,7 +2411,7 @@ do.end4.thread:                                   ; preds = %entry
   br label %do.end3.i
 
 do.end4:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
@@ -2420,7 +2420,7 @@ do.end4:                                          ; preds = %entry
   br i1 %tobool.not.i, label %do.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pr) #7
   br label %do.end3.i
 
@@ -2444,7 +2444,7 @@ do.body10.i:                                      ; preds = %if.then5.i, %do.end
   br i1 %tobool15.not.i, label %bufferevent_get_underlying.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %do.body10.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call18.i = call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #7
   br label %bufferevent_get_underlying.exit
 
@@ -2497,7 +2497,7 @@ do.body21:                                        ; preds = %if.end10, %if.end17
   br i1 %tobool26.not, label %do.end32, label %if.then27
 
 if.then27:                                        ; preds = %do.body21
-  %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call29 = call i32 %17(i32 noundef 0, ptr noundef nonnull %16) #7
   br label %do.end32
 
@@ -2511,7 +2511,7 @@ do.end32:                                         ; preds = %if.then27, %do.body
 do.body35:                                        ; preds = %do.end32
   %18 = load ptr, ptr %lock, align 8
   %tobool37 = icmp ne ptr %18, null
-  %19 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 3), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
   %tobool38 = icmp ne ptr %19, null
   %or.cond = select i1 %tobool37, i1 %tobool38, i1 false
   br i1 %or.cond, label %if.then39, label %if.end42
@@ -2537,7 +2537,7 @@ if.then46:                                        ; preds = %if.end42
   br i1 %tobool.not.i27, label %bufferevent_decref.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.then46
-  %23 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i29 = call i32 %23(i32 noundef 0, ptr noundef nonnull %22) #7
   br label %bufferevent_decref.exit
 
@@ -2558,7 +2558,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -2577,7 +2577,7 @@ entry:
   br i1 %tobool.not, label %do.end3.thread.i, label %do.end3
 
 do.end3:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock, align 8
   %tobool.not.i = icmp eq ptr %.pr, null
@@ -2589,7 +2589,7 @@ do.end3.thread.i:                                 ; preds = %entry, %do.end3
   br label %bufferevent_setcb.exit.thread
 
 do.end3.i:                                        ; preds = %do.end3
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pr) #7
   %.pre.i = load ptr, ptr %lock, align 8
   %readcb4.i = getelementptr inbounds i8, ptr %bufev, i64 304
@@ -2603,7 +2603,7 @@ bufferevent_setcb.exit.thread:                    ; preds = %do.end3.thread.i, %
   br label %do.end3.i8
 
 bufferevent_setcb.exit:                           ; preds = %do.end3.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call15.i = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %.pre.i) #7
   %.pre = load ptr, ptr %lock, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
@@ -2612,7 +2612,7 @@ bufferevent_setcb.exit:                           ; preds = %do.end3.i
   br i1 %tobool.not.i6, label %do.end3.i8, label %if.then.i
 
 if.then.i:                                        ; preds = %bufferevent_setcb.exit
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i7 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pre) #7
   br label %do.end3.i8
 
@@ -2634,7 +2634,7 @@ do.body10.i:                                      ; preds = %if.then5.i, %do.end
   br i1 %tobool15.not.i, label %bufferevent_cancel_all_.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %do.body10.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call18.i = call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #7
   br label %bufferevent_cancel_all_.exit
 
@@ -2655,7 +2655,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -2679,7 +2679,7 @@ do.body10:                                        ; preds = %do.end3, %if.then5
   br i1 %tobool15.not, label %do.end21, label %if.then16
 
 if.then16:                                        ; preds = %do.body10
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call18 = call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #7
   br label %do.end21
 
@@ -2702,7 +2702,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -2736,7 +2736,7 @@ do.body18:                                        ; preds = %if.end9, %if.then14
   br i1 %tobool23.not, label %do.end29, label %if.then24
 
 if.then24:                                        ; preds = %do.body18
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call26 = call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #7
   br label %do.end29
 
@@ -2754,7 +2754,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -2808,7 +2808,7 @@ do.body30:                                        ; preds = %if.end21, %if.then2
   br i1 %tobool35.not, label %do.end41, label %if.then36
 
 if.then36:                                        ; preds = %do.body30
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call38 = call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #7
   br label %do.end41
 
@@ -2829,7 +2829,7 @@ entry:
   br i1 %tobool.not, label %do.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end3
 
@@ -2863,7 +2863,7 @@ do.body18:                                        ; preds = %if.end9, %if.then14
   br i1 %tobool23.not, label %do.end29, label %if.then24
 
 if.then24:                                        ; preds = %do.body18
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call26 = call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #7
   br label %do.end29
 
@@ -2888,7 +2888,7 @@ do.end4.thread:                                   ; preds = %entry
   br label %do.end17
 
 do.end4:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock, align 8
   %options5 = getelementptr inbounds i8, ptr %bev, i64 440
@@ -2897,7 +2897,7 @@ do.end4:                                          ; preds = %entry
   br i1 %tobool11.not, label %do.end17, label %if.then12
 
 if.then12:                                        ; preds = %do.end4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call14 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #7
   br label %do.end17
 
@@ -2920,7 +2920,7 @@ do.end3.thread:                                   ; preds = %entry
   br label %do.end15
 
 do.end3:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock, align 8
   %enabled = getelementptr inbounds i8, ptr %bufev, i64 368
@@ -2929,7 +2929,7 @@ do.end3:                                          ; preds = %entry
   br i1 %tobool9.not, label %do.end15, label %if.then10
 
 if.then10:                                        ; preds = %do.end3
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call12 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #7
   br label %do.end15
 
@@ -2968,7 +2968,7 @@ bufferevent_incref_and_lock_.exit.thread:         ; preds = %entry
   br label %do.end3.i
 
 bufferevent_incref_and_lock_.exit:                ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock.i, align 8
   %refcnt.i = getelementptr inbounds i8, ptr %ctx, i64 444
@@ -2979,7 +2979,7 @@ bufferevent_incref_and_lock_.exit:                ; preds = %entry
   br i1 %tobool.not.i5, label %do.end3.i, label %if.then.i6
 
 if.then.i6:                                       ; preds = %bufferevent_incref_and_lock_.exit
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i7 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #7
   br label %do.end3.i
 
@@ -3010,7 +3010,7 @@ do.body19.i:                                      ; preds = %if.then14.i, %do.en
   br i1 %tobool24.not.i, label %bufferevent_disable.exit, label %if.then25.i
 
 if.then25.i:                                      ; preds = %do.body19.i
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call27.i = tail call i32 %10(i32 noundef 0, ptr noundef nonnull %9) #7
   br label %bufferevent_disable.exit
 
@@ -3054,7 +3054,7 @@ do.end4.thread.i.i:                               ; preds = %if.then8.i
   br label %bufferevent_run_eventcb_.exit
 
 do.end4.i.i:                                      ; preds = %if.then8.i
-  %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i.i = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %16) #7
   %.pr.i.i = load ptr, ptr %lock.i, align 8
   %19 = load i32, ptr %refcnt.i16, align 4
@@ -3064,7 +3064,7 @@ do.end4.i.i:                                      ; preds = %if.then8.i
   br i1 %tobool10.not.i.i, label %bufferevent_run_eventcb_.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %do.end4.i.i
-  %20 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call13.i.i = tail call i32 %20(i32 noundef 0, ptr noundef nonnull %.pr.i.i) #7
   br label %bufferevent_run_eventcb_.exit
 
@@ -3095,7 +3095,7 @@ bufferevent_incref_and_lock_.exit.thread:         ; preds = %entry
   br label %do.end3.i
 
 bufferevent_incref_and_lock_.exit:                ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock.i, align 8
   %refcnt.i = getelementptr inbounds i8, ptr %ctx, i64 444
@@ -3106,7 +3106,7 @@ bufferevent_incref_and_lock_.exit:                ; preds = %entry
   br i1 %tobool.not.i5, label %do.end3.i, label %if.then.i6
 
 if.then.i6:                                       ; preds = %bufferevent_incref_and_lock_.exit
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i7 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #7
   br label %do.end3.i
 
@@ -3137,7 +3137,7 @@ do.body19.i:                                      ; preds = %if.then14.i, %do.en
   br i1 %tobool24.not.i, label %bufferevent_disable.exit, label %if.then25.i
 
 if.then25.i:                                      ; preds = %do.body19.i
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call27.i = tail call i32 %10(i32 noundef 0, ptr noundef nonnull %9) #7
   br label %bufferevent_disable.exit
 
@@ -3181,7 +3181,7 @@ do.end4.thread.i.i:                               ; preds = %if.then8.i
   br label %bufferevent_run_eventcb_.exit
 
 do.end4.i.i:                                      ; preds = %if.then8.i
-  %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i.i = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %16) #7
   %.pr.i.i = load ptr, ptr %lock.i, align 8
   %19 = load i32, ptr %refcnt.i16, align 4
@@ -3191,7 +3191,7 @@ do.end4.i.i:                                      ; preds = %if.then8.i
   br i1 %tobool10.not.i.i, label %bufferevent_run_eventcb_.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %do.end4.i.i
-  %20 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call13.i.i = tail call i32 %20(i32 noundef 0, ptr noundef nonnull %.pr.i.i) #7
   br label %bufferevent_run_eventcb_.exit
 
@@ -3400,7 +3400,7 @@ entry:
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %bufferevent_incref_and_lock_.exit
 

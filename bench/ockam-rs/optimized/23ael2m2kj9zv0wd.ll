@@ -209,7 +209,7 @@ default.unreachable22:                            ; preds = %247, %46, %2
   br i1 %61, label %62, label %.thread256.i
 
 62:                                               ; preds = %51
-  %63 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$12stop_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf70c306a40d33c0bE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !12
+  %63 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$12stop_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf70c306a40d33c0bE", i64 16) monotonic, align 8, !noalias !12
   switch i8 %63, label %64 [
     i8 0, label %.thread256.i
     i8 1, label %.thread.i
@@ -4360,7 +4360,7 @@ common.ret:                                       ; preds = %242, %30
   br i1 %280, label %281, label %.thread137
 
 281:                                              ; preds = %278
-  %282 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h67ceec8ad1b19753E", i64 0, i32 1, i64 8) monotonic, align 8
+  %282 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h67ceec8ad1b19753E", i64 16) monotonic, align 8
   switch i8 %282, label %283 [
     i8 0, label %.thread137
     i8 1, label %.thread
@@ -4823,7 +4823,7 @@ default.unreachable112:                           ; preds = %2
   br i1 %49, label %50, label %.thread106
 
 50:                                               ; preds = %47
-  %51 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$8shutdown28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h33912ff7414a883bE", i64 0, i32 1, i64 8) monotonic, align 8
+  %51 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$8shutdown28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h33912ff7414a883bE", i64 16) monotonic, align 8
   switch i8 %51, label %52 [
     i8 0, label %.thread106
     i8 1, label %.thread
@@ -5535,7 +5535,7 @@ common.ret:                                       ; preds = %710, %430, %402, %2
   br i1 %107, label %108, label %.thread554
 
 108:                                              ; preds = %105
-  %109 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h741c4ee1a453dd95E", i64 0, i32 1, i64 8) monotonic, align 8
+  %109 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h741c4ee1a453dd95E", i64 16) monotonic, align 8
   switch i8 %109, label %110 [
     i8 0, label %.thread554
     i8 1, label %.thread
@@ -6503,7 +6503,7 @@ common.ret:                                       ; preds = %710, %430, %402, %2
   br i1 %429, label %432, label %.thread565
 
 432:                                              ; preds = %431
-  %433 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h09011fd390805404E", i64 0, i32 1, i64 8) monotonic, align 8
+  %433 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h09011fd390805404E", i64 16) monotonic, align 8
   switch i8 %433, label %434 [
     i8 0, label %.thread565
     i8 1, label %.thread562
@@ -6924,7 +6924,7 @@ common.ret:                                       ; preds = %710, %430, %402, %2
   br i1 %429, label %567, label %.thread573
 
 567:                                              ; preds = %566
-  %568 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6ca28223c1f0b7f3E", i64 0, i32 1, i64 8) monotonic, align 8
+  %568 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN117_$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6ca28223c1f0b7f3E", i64 16) monotonic, align 8
   switch i8 %568, label %569 [
     i8 0, label %.thread573
     i8 1, label %.thread570

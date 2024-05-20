@@ -134,7 +134,7 @@ declare void @_ZN6icu_7520TransliteratorParserD1Ev(ptr noundef nonnull align 8 d
 define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringES3_15UTransDirectionPNS_13UnicodeFilterER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %direction, ptr noundef %adoptedFilter, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %adoptedFilter)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
   invoke void @_ZN6icu_7523RuleBasedTransliterator10_constructERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %direction, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
@@ -157,7 +157,7 @@ declare void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 derefer
 define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPKNS_23TransliterationRuleDataEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %theData, ptr noundef %adoptedFilter) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %adoptedFilter)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %theData, ptr %fData, align 8
   %isDataOwned = getelementptr inbounds i8, ptr %this, i64 96
@@ -184,7 +184,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPNS_23TransliterationRuleDataEa(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %theData, i8 noundef signext %isDataAdopted) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %theData, ptr %fData, align 8
   %isDataOwned = getelementptr inbounds i8, ptr %this, i64 96
@@ -211,7 +211,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(97) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %other)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 88
   %fData2 = getelementptr inbounds i8, ptr %other, i64 88
   %0 = load ptr, ptr %fData2, align 8
@@ -261,7 +261,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7523RuleBasedTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
   %isDataOwned = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i8, ptr %isDataOwned, align 8
   %tobool.not = icmp eq i8 %0, 0

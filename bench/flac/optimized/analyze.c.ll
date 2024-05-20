@@ -48,10 +48,10 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store i32 -1, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 3), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 4), i8 0, i64 16, i1 false)
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @all_, i64 524280), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @all_, i64 524284), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @all_, i64 524288), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @all_, i64 524296), i8 0, i64 16, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -546,7 +546,7 @@ sw.epilog221:                                     ; preds = %update_stats.exit15
 
 for.body225.preheader:                            ; preds = %sw.epilog221
   %wide.trip.count257 = zext i32 %.pr to i64
-  %.pre266 = load i32, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 3), align 8
+  %.pre266 = load i32, ptr getelementptr inbounds (i8, ptr @all_, i64 524288), align 8
   br label %for.body225
 
 for.body225:                                      ; preds = %for.body225.preheader, %update_stats.exit187
@@ -560,14 +560,14 @@ for.body225:                                      ; preds = %for.body225.prehead
   %conv1.i = uitofp i32 %100 to double
   %mul.i = fmul double %conv.i156, %conv1.i
   %add.i157 = add i32 %98, %100
-  store i32 %add.i157, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 3), align 8
-  %101 = load double, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 4), align 8
+  store i32 %add.i157, ptr getelementptr inbounds (i8, ptr @all_, i64 524288), align 8
+  %101 = load double, ptr getelementptr inbounds (i8, ptr @all_, i64 524296), align 8
   %add2.i158 = fadd double %mul.i, %101
-  store double %add2.i158, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 4), align 8
-  %102 = load double, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 5), align 8
+  store double %add2.i158, ptr getelementptr inbounds (i8, ptr @all_, i64 524296), align 8
+  %102 = load double, ptr getelementptr inbounds (i8, ptr @all_, i64 524304), align 8
   %103 = call double @llvm.fmuladd.f64(double %mul.i, double %conv.i156, double %102)
-  store double %103, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 5), align 8
-  %104 = load i32, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 2), align 4
+  store double %103, ptr getelementptr inbounds (i8, ptr @all_, i64 524304), align 8
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @all_, i64 524284), align 4
   %cmp33.not.i159 = icmp eq i32 %104, 0
   br i1 %cmp33.not.i159, label %for.end.i169, label %for.body.preheader.i160
 
@@ -598,18 +598,18 @@ for.end.i169:                                     ; preds = %for.inc.i166, %for.
   store i32 %99, ptr %arrayidx15.i171, align 8
   %count20.i172 = getelementptr inbounds i8, ptr %arrayidx15.i171, i64 4
   store i32 %100, ptr %count20.i172, align 4
-  %.pre265 = load i32, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 3), align 8
+  %.pre265 = load i32, ptr getelementptr inbounds (i8, ptr @all_, i64 524288), align 8
   br label %find_peak.i173
 
 find_peak.i173:                                   ; preds = %for.end.i169, %if.then.i185
   %107 = phi i32 [ %.pre265, %for.end.i169 ], [ %add.i157, %if.then.i185 ]
-  %nbuckets.sink40.i174 = phi ptr [ getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 2), %for.end.i169 ], [ %count.i186, %if.then.i185 ]
+  %nbuckets.sink40.i174 = phi ptr [ getelementptr inbounds (i8, ptr @all_, i64 524284), %for.end.i169 ], [ %count.i186, %if.then.i185 ]
   %.sink39.i = phi i32 [ 1, %for.end.i169 ], [ %100, %if.then.i185 ]
   %i.1.i175 = phi i32 [ %104, %for.end.i169 ], [ %106, %if.then.i185 ]
   %108 = load i32, ptr %nbuckets.sink40.i174, align 4
   %inc22.i176 = add i32 %108, %.sink39.i
   store i32 %inc22.i176, ptr %nbuckets.sink40.i174, align 4
-  %109 = load i32, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 1), align 8
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @all_, i64 524280), align 8
   %cmp23.i177 = icmp slt i32 %109, 0
   br i1 %cmp23.i177, label %if.then36.i184, label %lor.lhs.false.i178
 
@@ -624,7 +624,7 @@ lor.lhs.false.i178:                               ; preds = %find_peak.i173
   br i1 %cmp34.i183, label %if.then36.i184, label %update_stats.exit187
 
 if.then36.i184:                                   ; preds = %lor.lhs.false.i178, %find_peak.i173
-  store i32 %i.1.i175, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 1), align 8
+  store i32 %i.1.i175, ptr getelementptr inbounds (i8, ptr @all_, i64 524280), align 8
   br label %update_stats.exit187
 
 update_stats.exit187:                             ; preds = %lor.lhs.false.i178, %if.then36.i184
@@ -762,15 +762,15 @@ return:                                           ; preds = %for.end, %if.then
 define dso_local void @flac__analyze_finish(i64 %aopts.coerce) local_unnamed_addr #1 {
 entry:
   %tobool = icmp ugt i64 %aopts.coerce, 4294967295
-  %0 = load i32, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 3), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @all_, i64 524288), align 8
   %cmp = icmp ne i32 %0, 0
   %or.cond = select i1 %tobool, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load double, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 4), align 8
+  %1 = load double, ptr getelementptr inbounds (i8, ptr @all_, i64 524296), align 8
   %conv.i = uitofp i32 %0 to double
-  %2 = load double, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 5), align 8
+  %2 = load double, ptr getelementptr inbounds (i8, ptr @all_, i64 524304), align 8
   %mul.i = fmul double %1, %1
   %div5.i = fdiv double %mul.i, %conv.i
   %sub.i = fsub double %2, %div5.i
@@ -779,10 +779,10 @@ if.then:                                          ; preds = %entry
   %5 = insertelement <2 x double> poison, double %conv.i, i64 0
   %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
   %7 = fdiv <2 x double> %4, %6
-  store <2 x double> %7, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 6), align 8
+  store <2 x double> %7, ptr getelementptr inbounds (i8, ptr @all_, i64 524312), align 8
   %8 = extractelement <2 x double> %7, i64 0
   %call.i = tail call double @sqrt(double noundef %8) #10
-  store double %call.i, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 8), align 8
+  store double %call.i, ptr getelementptr inbounds (i8, ptr @all_, i64 524328), align 8
   tail call fastcc void @dump_stats(ptr noundef nonnull @all_, ptr noundef nonnull @.str.14)
   br label %if.end
 

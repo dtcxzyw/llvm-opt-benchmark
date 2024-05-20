@@ -124,7 +124,7 @@ entry:
   %ec = alloca i32, align 4
   %lpDictionaryCache = alloca %"class.icu_75::LocalPointer", align 8
   tail call void @_ZN6icu_7513BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(479) %this)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 16), ptr %this, align 8
   %fText = getelementptr inbounds i8, ptr %this, i64 480
   store <4 x i32> <i32 878368812, i32 0, i32 0, i32 144>, ptr %fText, align 8
   %chunkNativeLimit = getelementptr inbounds i8, ptr %this, i64 496
@@ -283,7 +283,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 16), ptr %this, align 8
   %fCharIter = getelementptr inbounds i8, ptr %this, i64 688
   %0 = load ptr, ptr %fCharIter, align 8
   %fSCharIter = getelementptr inbounds i8, ptr %this, i64 696
@@ -4027,12 +4027,12 @@ eh.resume.i:                                      ; preds = %lpad6.i, %lpad.i
 _ZN6icu_75L21initLanguageFactoriesER10UErrorCode.exit: ; preds = %new.cont.thread.i, %land.lhs.true.i1, %new.cont11.i, %if.then.i.i, %if.then.i10.i, %if.else.i.i, %delete.notnull.i13.i
   tail call void @ucln_common_registerCleanup_75(i32 noundef 3, ptr noundef nonnull @rbbi_cleanup_75)
   %10 = load i32, ptr %status, align 4
-  store i32 %10, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL31gLanguageBreakFactoriesInitOnce, i64 0, i32 1), align 4
+  store i32 %10, ptr getelementptr inbounds (i8, ptr @_ZL31gLanguageBreakFactoriesInitOnce, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL31gLanguageBreakFactoriesInitOnce)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %11 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL31gLanguageBreakFactoriesInitOnce, i64 0, i32 1), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL31gLanguageBreakFactoriesInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %11, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -4355,7 +4355,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %new.isnull.i, label %_ZN6icu_75L8rbbiInitEv.exit, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then2.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   br label %_ZN6icu_75L8rbbiInitEv.exit

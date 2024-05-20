@@ -442,7 +442,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   unreachable
 
 67:                                               ; preds = %._crit_edge, %.noexc163
-  %.0.i.i2.i = phi ptr [ %63, %.noexc163 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %._crit_edge ]
+  %.0.i.i2.i = phi ptr [ %63, %.noexc163 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %._crit_edge ]
   %.sroa.484.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 32
   %68 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !54
   %69 = extractelement <2 x i64> %68, i64 0

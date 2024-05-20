@@ -2470,7 +2470,7 @@ for.body807.preheader:                            ; preds = %if.end800
 
 for.body807:                                      ; preds = %for.body807.preheader, %for.inc820
   %storemerge11802177 = phi i32 [ %inc821, %for.inc820 ], [ 0, %for.body807.preheader ]
-  %156 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 1), align 8
+  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 8), align 8
   %157 = load ptr, ptr @lengths, align 8
   %idxprom808 = zext nneg i32 %storemerge11802177 to i64
   %arrayidx809 = getelementptr inbounds i32, ptr %157, i64 %idxprom808
@@ -2507,7 +2507,7 @@ for.body830.preheader:                            ; preds = %if.end823
 
 for.body830:                                      ; preds = %for.body830.preheader, %for.inc843
   %storemerge11812179 = phi i32 [ %inc844, %for.inc843 ], [ 0, %for.body830.preheader ]
-  %164 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 2), align 16
+  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 16), align 16
   %165 = load ptr, ptr @lengths, align 8
   %idxprom831 = zext nneg i32 %storemerge11812179 to i64
   %arrayidx832 = getelementptr inbounds i32, ptr %165, i64 %idxprom831
@@ -2544,7 +2544,7 @@ for.body853.preheader:                            ; preds = %if.end846
 
 for.body853:                                      ; preds = %for.body853.preheader, %for.inc866
   %storemerge11822181 = phi i32 [ %inc867, %for.inc866 ], [ 0, %for.body853.preheader ]
-  %172 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 3), align 8
+  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 24), align 8
   %173 = load ptr, ptr @lengths, align 8
   %idxprom854 = zext nneg i32 %storemerge11822181 to i64
   %arrayidx855 = getelementptr inbounds i32, ptr %173, i64 %idxprom854
@@ -2581,7 +2581,7 @@ for.body876.preheader:                            ; preds = %if.end869
 
 for.body876:                                      ; preds = %for.body876.preheader, %for.inc889
   %storemerge11832183 = phi i32 [ %inc890, %for.inc889 ], [ 0, %for.body876.preheader ]
-  %180 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 4), align 16
+  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 32), align 16
   %181 = load ptr, ptr @lengths, align 8
   %idxprom877 = zext nneg i32 %storemerge11832183 to i64
   %arrayidx878 = getelementptr inbounds i32, ptr %181, i64 %idxprom877
@@ -2618,7 +2618,7 @@ for.body899.preheader:                            ; preds = %if.end892
 
 for.body899:                                      ; preds = %for.body899.preheader, %for.inc912
   %storemerge11842185 = phi i32 [ %inc913, %for.inc912 ], [ 0, %for.body899.preheader ]
-  %188 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 6), align 16
+  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 48), align 16
   %189 = load ptr, ptr @lengths, align 8
   %idxprom900 = zext nneg i32 %storemerge11842185 to i64
   %arrayidx901 = getelementptr inbounds i32, ptr %189, i64 %idxprom900
@@ -2655,7 +2655,7 @@ for.body922.preheader:                            ; preds = %if.end915
 
 for.body922:                                      ; preds = %for.body922.preheader, %for.inc935
   %storemerge11852187 = phi i32 [ %inc936, %for.inc935 ], [ 0, %for.body922.preheader ]
-  %196 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 7), align 8
+  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 56), align 8
   %197 = load ptr, ptr @lengths, align 8
   %idxprom923 = zext nneg i32 %storemerge11852187 to i64
   %arrayidx924 = getelementptr inbounds i32, ptr %197, i64 %idxprom923
@@ -2692,7 +2692,7 @@ for.body945.preheader:                            ; preds = %if.end938
 
 for.body945:                                      ; preds = %for.body945.preheader, %for.inc958
   %storemerge11862189 = phi i32 [ %inc959, %for.inc958 ], [ 0, %for.body945.preheader ]
-  %204 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 8), align 16
+  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 64), align 16
   %205 = load ptr, ptr @lengths, align 8
   %idxprom946 = zext nneg i32 %storemerge11862189 to i64
   %arrayidx947 = getelementptr inbounds i32, ptr %205, i64 %idxprom946
@@ -2729,7 +2729,7 @@ for.body968.preheader:                            ; preds = %if.end961
 
 for.body968:                                      ; preds = %for.body968.preheader, %for.inc981
   %storemerge11872191 = phi i32 [ %inc982, %for.inc981 ], [ 0, %for.body968.preheader ]
-  %212 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 5), align 8
+  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 40), align 8
   %213 = load ptr, ptr @lengths, align 8
   %idxprom969 = zext nneg i32 %storemerge11872191 to i64
   %arrayidx970 = getelementptr inbounds i32, ptr %213, i64 %idxprom969
@@ -2772,7 +2772,7 @@ if.end991:                                        ; preds = %if.then987
   %221 = load ptr, ptr @evp_mac_mdname, align 8
   %call995 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call994, ptr noundef nonnull dereferenceable(1) @.str.153, ptr noundef %221) #15
   %222 = load ptr, ptr @evp_hmac_name, align 8
-  store ptr %222, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 9), align 8
+  store ptr %222, ptr getelementptr inbounds (i8, ptr @names, i64 72), align 8
   %223 = load ptr, ptr @evp_mac_mdname, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.154, ptr noundef %223, i64 noundef 0) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
@@ -2792,7 +2792,7 @@ for.body1011.preheader:                           ; preds = %if.end991
 
 for.body1011:                                     ; preds = %for.body1011.preheader, %for.inc1024
   %storemerge11882193 = phi i32 [ %inc1025, %for.inc1024 ], [ 0, %for.body1011.preheader ]
-  %224 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 9), align 8
+  %224 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 72), align 8
   %225 = load ptr, ptr @lengths, align 8
   %idxprom1012 = zext nneg i32 %storemerge11882193 to i64
   %arrayidx1013 = getelementptr inbounds i32, ptr %225, i64 %idxprom1012
@@ -2850,7 +2850,7 @@ for.end1046:                                      ; preds = %for.body1035
 
 for.body1053:                                     ; preds = %for.end1046, %for.body1053
   %storemerge11902196 = phi i32 [ %inc1063, %for.body1053 ], [ 0, %for.end1046 ]
-  %234 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 10), align 16
+  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 80), align 16
   %235 = load ptr, ptr @lengths, align 8
   %idxprom1054 = zext nneg i32 %storemerge11902196 to i64
   %arrayidx1055 = getelementptr inbounds i32, ptr %235, i64 %idxprom1054
@@ -2909,7 +2909,7 @@ for.end1098:                                      ; preds = %for.body1086
 
 for.body1105:                                     ; preds = %for.end1098, %for.body1105
   %storemerge11932200 = phi i32 [ %inc1115, %for.body1105 ], [ 0, %for.end1098 ]
-  %244 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 11), align 8
+  %244 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 88), align 8
   %245 = load ptr, ptr @lengths, align 8
   %idxprom1106 = zext nneg i32 %storemerge11932200 to i64
   %arrayidx1107 = getelementptr inbounds i32, ptr %245, i64 %idxprom1106
@@ -3372,7 +3372,7 @@ for.body1347:                                     ; preds = %if.then1328, %for.c
 
 for.body1360:                                     ; preds = %for.body1360.preheader, %for.inc1373
   %storemerge11972219 = phi i32 [ %inc1374, %for.inc1373 ], [ 0, %for.body1360.preheader ]
-  %335 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 26), align 16
+  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 208), align 16
   %336 = load ptr, ptr @lengths, align 8
   %idxprom1361 = zext nneg i32 %storemerge11972219 to i64
   %arrayidx1362 = getelementptr inbounds i32, ptr %336, i64 %idxprom1361
@@ -3413,7 +3413,7 @@ for.body1383.preheader:                           ; preds = %if.end1376
 
 for.body1383:                                     ; preds = %for.body1383.preheader, %for.body1383
   %storemerge11982221 = phi i32 [ %inc1393, %for.body1383 ], [ 0, %for.body1383.preheader ]
-  %343 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 27), align 8
+  %343 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 216), align 8
   %344 = load ptr, ptr @lengths, align 8
   %idxprom1384 = zext nneg i32 %storemerge11982221 to i64
   %arrayidx1385 = getelementptr inbounds i32, ptr %344, i64 %idxprom1384
@@ -3462,7 +3462,7 @@ if.then1407:                                      ; preds = %land.lhs.true1403
 if.end1408:                                       ; preds = %land.lhs.true1403, %if.then1401
   %353 = phi ptr [ %.pre2806, %land.lhs.true1403 ], [ %351, %if.then1401 ]
   %call1409 = call ptr @EVP_CIPHER_get0_name(ptr noundef %353) #15
-  store ptr %call1409, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 25), align 8
+  store ptr %call1409, ptr getelementptr inbounds (i8, ptr @names, i64 200), align 8
   %354 = load ptr, ptr %evp_cipher, align 8
   %call1410 = call i32 @EVP_CIPHER_get_mode(ptr noundef %354) #15
   %cmp1411 = icmp eq i32 %call1410, 7
@@ -3494,7 +3494,7 @@ for.body1430.preheader:                           ; preds = %if.then1420, %if.th
 
 for.body1430:                                     ; preds = %for.body1430.preheader, %for.end1522
   %storemerge12002225 = phi i32 [ %inc1525, %for.end1522 ], [ 0, %for.body1430.preheader ]
-  %357 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 25), align 8
+  %357 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 200), align 8
   %358 = load ptr, ptr @lengths, align 8
   %idxprom1431 = zext nneg i32 %storemerge12002225 to i64
   %arrayidx1432 = getelementptr inbounds i32, ptr %358, i64 %idxprom1431
@@ -3617,13 +3617,13 @@ if.else1527:                                      ; preds = %if.then1398
   br i1 %cmp1528.not, label %if.end1552, label %for.body1534.preheader
 
 for.body1534.preheader:                           ; preds = %if.else1527
-  store ptr %380, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 25), align 8
+  store ptr %380, ptr getelementptr inbounds (i8, ptr @names, i64 200), align 8
   store i32 0, ptr @testnum, align 4
   br label %for.body1534
 
 for.body1534:                                     ; preds = %for.body1534.preheader, %for.inc1547
   %storemerge11992227 = phi i32 [ %inc1548, %for.inc1547 ], [ 0, %for.body1534.preheader ]
-  %381 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 25), align 8
+  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 200), align 8
   %382 = load ptr, ptr @lengths, align 8
   %idxprom1535 = zext nneg i32 %storemerge11992227 to i64
   %arrayidx1536 = getelementptr inbounds i32, ptr %382, i64 %idxprom1535
@@ -3684,7 +3684,7 @@ if.end1569:                                       ; preds = %if.end1560
   %395 = load ptr, ptr @evp_mac_ciphername, align 8
   %call1573 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call1572, ptr noundef nonnull dereferenceable(1) @.str.166, ptr noundef %395) #15
   %396 = load ptr, ptr @evp_cmac_name, align 8
-  store ptr %396, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 28), align 16
+  store ptr %396, ptr getelementptr inbounds (i8, ptr @names, i64 224), align 16
   %397 = load ptr, ptr @evp_mac_ciphername, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp1575, ptr noundef nonnull @.str.158, ptr noundef %397, i64 noundef 0) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params1556, ptr noundef nonnull align 8 dereferenceable(40) %tmp1575, i64 40, i1 false)
@@ -3705,7 +3705,7 @@ for.body1590.preheader:                           ; preds = %if.end1569
 
 for.body1590:                                     ; preds = %for.body1590.preheader, %for.inc1603
   %storemerge12012229 = phi i32 [ %inc1604, %for.inc1603 ], [ 0, %for.body1590.preheader ]
-  %398 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 28), align 16
+  %398 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 224), align 16
   %399 = load ptr, ptr @lengths, align 8
   %idxprom1591 = zext nneg i32 %storemerge12012229 to i64
   %arrayidx1592 = getelementptr inbounds i32, ptr %399, i64 %idxprom1591
@@ -3756,7 +3756,7 @@ for.body1624.preheader:                           ; preds = %if.then1609
 
 for.body1624:                                     ; preds = %for.body1624.preheader, %for.inc1637
   %storemerge12022231 = phi i32 [ %inc1638, %for.inc1637 ], [ 0, %for.body1624.preheader ]
-  %406 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 29), align 8
+  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 232), align 8
   %407 = load ptr, ptr @lengths, align 8
   %idxprom1625 = zext nneg i32 %storemerge12022231 to i64
   %arrayidx1626 = getelementptr inbounds i32, ptr %407, i64 %idxprom1625
@@ -3807,7 +3807,7 @@ for.body1658.preheader:                           ; preds = %if.then1643
 
 for.body1658:                                     ; preds = %for.body1658.preheader, %for.inc1671
   %storemerge12032233 = phi i32 [ %inc1672, %for.inc1671 ], [ 0, %for.body1658.preheader ]
-  %414 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @names, i64 0, i64 30), align 16
+  %414 = load ptr, ptr getelementptr inbounds (i8, ptr @names, i64 240), align 16
   %415 = load ptr, ptr @lengths, align 8
   %idxprom1659 = zext nneg i32 %storemerge12032233 to i64
   %arrayidx1660 = getelementptr inbounds i32, ptr %415, i64 %idxprom1659
@@ -6835,14 +6835,14 @@ if.then4205:                                      ; preds = %if.end4201
 
 if.then4209:                                      ; preds = %if.end4201, %if.then4205
   %911 = load double, ptr @sm2_results, align 16
-  %912 = load double, ptr getelementptr inbounds ([1 x [2 x double]], ptr @sm2_results, i64 0, i64 0, i64 1), align 8
+  %912 = load double, ptr getelementptr inbounds (i8, ptr @sm2_results, i64 8), align 8
   %call4222 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.306, i32 noundef 0, i32 noundef 256, ptr noundef nonnull @.str.96, double noundef %911, double noundef %912)
   br label %for.end4248
 
 if.else4223:                                      ; preds = %if.then4205
   %913 = load double, ptr @sm2_results, align 16
   %div4233 = fdiv double 1.000000e+00, %913
-  %914 = load double, ptr getelementptr inbounds ([1 x [2 x double]], ptr @sm2_results, i64 0, i64 0, i64 1), align 8
+  %914 = load double, ptr getelementptr inbounds (i8, ptr @sm2_results, i64 8), align 8
   %div4237 = fdiv double 1.000000e+00, %914
   %call4244 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.307, i32 noundef 256, ptr noundef nonnull @.str.96, double noundef %div4233, double noundef %div4237, double noundef %913, double noundef %914)
   br label %for.end4248
@@ -9149,9 +9149,9 @@ if.then.i886:                                     ; preds = %while.end8.i882
 sstrsep.exit894:                                  ; preds = %while.end8.i882, %if.then.i886
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %isdelim.i870)
   %call241 = call double @atof(ptr noundef nonnull %p.53) #16
-  %180 = load double, ptr getelementptr inbounds ([1 x [2 x double]], ptr @sm2_results, i64 0, i64 0, i64 1), align 8
+  %180 = load double, ptr getelementptr inbounds (i8, ptr @sm2_results, i64 8), align 8
   %add245 = fadd double %call241, %180
-  store double %add245, ptr getelementptr inbounds ([1 x [2 x double]], ptr @sm2_results, i64 0, i64 0, i64 1), align 8
+  store double %add245, ptr getelementptr inbounds (i8, ptr @sm2_results, i64 8), align 8
   br label %if.end347
 
 cond.true251:                                     ; preds = %if.else83
@@ -11229,7 +11229,7 @@ if.end100:                                        ; preds = %if.then98, %for.end
   %17 = load i32, ptr %arrayidx46, align 4
   %conv104 = sitofp i32 %17 to double
   %mul = fmul double %div, %conv104
-  %arrayidx106 = getelementptr inbounds [31 x [6 x double]], ptr @results, i64 0, i64 25, i64 %indvars.iv
+  %arrayidx106 = getelementptr inbounds [6 x double], ptr getelementptr inbounds (i8, ptr @results, i64 1200), i64 0, i64 %indvars.iv
   store double %mul, ptr %arrayidx106, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %spec.select
@@ -11263,7 +11263,7 @@ for.end122:                                       ; preds = %for.body116
 for.body128:                                      ; preds = %for.end122, %for.body128
   %indvars.iv100 = phi i64 [ 0, %for.end122 ], [ %indvars.iv.next101, %for.body128 ]
   %24 = load ptr, ptr @stdout, align 8
-  %arrayidx130 = getelementptr inbounds [31 x [6 x double]], ptr @results, i64 0, i64 25, i64 %indvars.iv100
+  %arrayidx130 = getelementptr inbounds [6 x double], ptr getelementptr inbounds (i8, ptr @results, i64 1200), i64 0, i64 %indvars.iv100
   %25 = load double, ptr %arrayidx130, align 8
   %call131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.289, double noundef %25)
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -11300,7 +11300,7 @@ for.end148:                                       ; preds = %for.body142
 
 for.body154:                                      ; preds = %for.end148, %for.inc169
   %indvars.iv90 = phi i64 [ 0, %for.end148 ], [ %indvars.iv.next91, %for.inc169 ]
-  %arrayidx156 = getelementptr inbounds [31 x [6 x double]], ptr @results, i64 0, i64 25, i64 %indvars.iv90
+  %arrayidx156 = getelementptr inbounds [6 x double], ptr getelementptr inbounds (i8, ptr @results, i64 1200), i64 0, i64 %indvars.iv90
   %34 = load double, ptr %arrayidx156, align 8
   %cmp157 = fcmp ogt double %34, 1.000000e+04
   %35 = load ptr, ptr @stdout, align 8

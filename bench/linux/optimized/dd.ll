@@ -116,8 +116,8 @@ define dso_local void @driver_deferred_probe_add(ptr nocapture noundef readonly 
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr @deferred_probe_pending_list, ptr %9, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 176
   store ptr %13, ptr %14, align 8
@@ -183,15 +183,15 @@ define dso_local void @driver_deferred_probe_trigger() local_unnamed_addr #0 ali
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %6, ptr %8, align 8
   store ptr %3, ptr %6, align 8
   store ptr @deferred_probe_active_list, ptr %7, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   br label %9
 
 9:                                                ; preds = %5, %2
@@ -260,15 +260,15 @@ define dso_local void @device_unblock_probing() local_unnamed_addr #0 align 16 {
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %6, ptr %8, align 8
   store ptr %3, ptr %6, align 8
   store ptr @deferred_probe_active_list, ptr %7, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   br label %9
 
 9:                                                ; preds = %5, %2
@@ -382,15 +382,15 @@ define internal noundef i32 @deferred_probe_initcall() #0 align 16 {
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %5, ptr %7, align 8
   store ptr %2, ptr %5, align 8
   store ptr @deferred_probe_active_list, ptr %6, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %4, %0
@@ -406,15 +406,15 @@ define internal noundef i32 @deferred_probe_initcall() #0 align 16 {
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   %17 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %15, ptr %17, align 8
   store ptr %12, ptr %15, align 8
   store ptr @deferred_probe_active_list, ptr %16, align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   br label %18
 
 18:                                               ; preds = %14, %8
@@ -583,15 +583,15 @@ define internal fastcc void @driver_bound(ptr noundef %0) unnamed_addr #0 align 
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   %41 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %39, ptr %41, align 8
   store ptr %36, ptr %39, align 8
   store ptr @deferred_probe_active_list, ptr %40, align 8
-  store ptr %40, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  store ptr %40, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   br label %42
 
 42:                                               ; preds = %38, %35
@@ -955,8 +955,8 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %10
-  %20 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr @deferred_probe_pending_list, ptr %16, align 8
   %21 = getelementptr inbounds i8, ptr %15, i64 176
   store ptr %20, ptr %21, align 8
@@ -1463,15 +1463,15 @@ define internal void @deferred_probe_timeout_work_func(ptr nocapture readnone %0
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %9, align 8
   store ptr %4, ptr %7, align 8
   store ptr @deferred_probe_active_list, ptr %8, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   br label %10
 
 10:                                               ; preds = %6, %3
@@ -1652,8 +1652,8 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %11
-  %21 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  store ptr %17, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr @deferred_probe_pending_list, ptr %17, align 8
   %22 = getelementptr inbounds i8, ptr %16, i64 176
   store ptr %21, ptr %22, align 8
@@ -1816,8 +1816,8 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %10
-  %17 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  store ptr %13, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr @deferred_probe_pending_list, ptr %13, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 176
   store ptr %17, ptr %18, align 8
@@ -1849,15 +1849,15 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   %33 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %31, ptr %33, align 8
   store ptr %28, ptr %31, align 8
   store ptr @deferred_probe_active_list, ptr %32, align 8
-  store ptr %32, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %30, %27

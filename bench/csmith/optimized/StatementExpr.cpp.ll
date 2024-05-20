@@ -220,7 +220,7 @@ _ZN9CGContext18reset_effect_accumERK6Effect.exit: ; preds = %45, %47
           to label %.noexc23 unwind label %61
 
 .noexc23:                                         ; preds = %57
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i64 0, i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementExpr, i64 16), ptr %54, align 8
   %58 = getelementptr inbounds i8, ptr %54, i64 32
   invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(56) %34)
           to label %_ZN13StatementExprC2EP5BlockRK18FunctionInvocation.exit unwind label %59
@@ -294,7 +294,7 @@ declare void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74)) un
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13StatementExprC2EP5BlockRK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 4, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementExpr, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %5 unwind label %6
@@ -323,7 +323,7 @@ define dso_local void @_ZN13StatementExprC2ERKS_(ptr noundef nonnull align 8 der
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementExpr, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -342,7 +342,7 @@ define dso_local void @_ZN13StatementExprC2ERKS_(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13StatementExprD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementExpr, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
@@ -354,7 +354,7 @@ declare void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13StatementExprD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementExpr, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16

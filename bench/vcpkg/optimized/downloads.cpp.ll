@@ -3116,7 +3116,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg18azure_blob_headersB5cxx11Ev() local_un
 
 8:                                                ; preds = %7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %"class.std::__cxx11::basic_string"], ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 0, i64 1), ptr noundef nonnull @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 32), ptr noundef nonnull @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %9 unwind label %.loopexit.loopexit
 
 9:                                                ; preds = %8
@@ -3193,7 +3193,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #6 sect
   br label %2
 
 2:                                                ; preds = %2, %1
-  %3 = phi ptr [ getelementptr inbounds ([2 x %"class.std::__cxx11::basic_string"], ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 1, i64 0), %1 ], [ %4, %2 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 64), %1 ], [ %4, %2 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %5 = icmp eq ptr %4, @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11

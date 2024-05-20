@@ -5634,7 +5634,7 @@ define dso_local ptr @intel_user_framebuffer_create(ptr noundef %0, ptr noundef 
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %9 = call noalias noundef align 8 dereferenceable_or_null(480) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 480) #18
   %10 = icmp eq ptr %9, null
   br i1 %10, label %17, label %11
@@ -5684,7 +5684,7 @@ declare dso_local ptr @intel_fb_bo_lookup_valid_bo(ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @intel_framebuffer_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(480) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 480) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
@@ -5845,7 +5845,7 @@ define internal i32 @intel_user_framebuffer_dirty(ptr noundef readonly %0, ptr n
   br i1 %29, label %30, label %.thread11
 
 30:                                               ; preds = %23
-  %31 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %32 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3264, i64 noundef 32) #18
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %45

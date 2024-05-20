@@ -861,7 +861,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i64 0, i32 0, i64 2), ptr %call, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i64 16), ptr %call, align 16
   %db_iter_.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %db_iter_.i, align 8
   %arena_.i = getelementptr inbounds i8, ptr %call, i64 48
@@ -936,7 +936,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18ArenaWrappedDBIterD2Ev(ptr noundef nonnull align 16 dereferenceable(2544) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i64 16), ptr %this, align 16
   %db_iter_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %db_iter_, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -975,7 +975,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %if.end, %if.then.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18ArenaWrappedDBIterD0Ev(ptr noundef nonnull align 16 dereferenceable(2544) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i64 16), ptr %this, align 16
   %db_iter_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %db_iter_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null

@@ -18,10 +18,10 @@ define hidden noundef i32 @cf_retap_packets(ptr nocapture noundef readnone %0) l
 define hidden void @voip_stat_init_tapinfo() local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) @tapinfo_, i8 0, i64 248, i1 false)
   %1 = tail call ptr @g_queue_new() #4
-  store ptr %1, ptr getelementptr inbounds (%struct._voip_calls_tapinfo, ptr @tapinfo_, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._voip_calls_tapinfo, ptr @tapinfo_, i64 0, i32 39), align 4
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @tapinfo_, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @tapinfo_, i64 236), align 4
   %2 = tail call ptr @sequence_analysis_info_new() #4
-  store ptr %2, ptr getelementptr inbounds (%struct._voip_calls_tapinfo, ptr @tapinfo_, i64 0, i32 12), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @tapinfo_, i64 88), align 8
   store ptr @.str, ptr %2, align 8
   ret void
 }

@@ -185,7 +185,7 @@ define internal noundef zeroext i1 @_msg_readable(ptr nocapture noundef readonly
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
-  %10 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %11 = and i64 %10, 72057594037927936
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %16, label %12
@@ -577,7 +577,7 @@ define internal noundef i32 @_handle_close(ptr nocapture noundef writeonly %0, p
   br label %6
 
 6:                                                ; preds = %2, %5
-  %7 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 72057594037927936
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %13, label %9
@@ -991,7 +991,7 @@ define dso_local void @slurmscriptd_run_power(ptr noundef %0, ptr noundef %1, pt
   store ptr %17, ptr %18, align 8
   %19 = tail call ptr @env_array_create() #11
   store ptr %19, ptr %9, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 168), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1144), align 8
   %21 = call i32 @env_array_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.8, ptr noundef %20) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %24, label %22
@@ -1157,7 +1157,7 @@ define dso_local void @slurmscriptd_run_prepilog(i32 noundef %0, i1 noundef zero
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1287, ptr noundef nonnull @__func__.slurmscriptd_run_prepilog) #11
   %. = select i1 %1, i32 2, i32 5
   %.str.11..str.12 = select i1 %1, ptr @.str.11, ptr @.str.12
-  %8 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 139), align 8
+  %8 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 928), align 8
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1156, ptr noundef nonnull @__func__._init_run_script_msg) #11
   %11 = tail call ptr @env_array_copy(ptr noundef %3) #11
@@ -2253,7 +2253,7 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
   br i1 %.02745, label %12, label %19
 
 12:                                               ; preds = %11
-  %13 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %14 = and i64 %13, 72057594037927936
   %.not44 = icmp eq i64 %14, 0
   br i1 %.not44, label %19, label %15
@@ -2410,7 +2410,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
   ]
 
 24:                                               ; preds = %23
-  %25 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 72057594037927936
   %.not.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i, label %34, label %27
@@ -2467,7 +2467,7 @@ _handle_flush.exit.i:                             ; preds = %46, %45
 47:                                               ; preds = %23
   %48 = getelementptr inbounds i8, ptr %14, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %51 = and i64 %50, 72057594037927936
   %.not.i5.i = icmp eq i64 %51, 0
   br i1 %.not.i5.i, label %_handle_flush_job.exit.i, label %52
@@ -2526,7 +2526,7 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   store ptr %10, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %11, i64 72
   store i8 0, ptr %81, align 8
-  %82 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %83 = and i64 %82, 72057594037927936
   %.not.i6.i = icmp eq i64 %83, 0
   br i1 %.not.i6.i, label %102, label %84
@@ -3012,7 +3012,7 @@ _handle_run_script.exit.i:                        ; preds = %274, %_respond_to_s
   unreachable
 
 _notify_script_done.exit.i.i:                     ; preds = %322, %279
-  %326 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %326 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %327 = and i64 %326, 72057594037927936
   %.not21.i.i = icmp eq i64 %327, 0
   br i1 %.not21.i.i, label %340, label %328
@@ -3133,7 +3133,7 @@ _notify_script_done.exit.i.i:                     ; preds = %322, %279
   %386 = load i64, ptr %385, align 8
   %387 = call ptr @debug_flags2str(i64 noundef %386) #11
   store ptr %387, ptr %2, align 8
-  %388 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %388 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %389 = and i64 %388, 72057594037927936
   %.not.i13.i = icmp eq i64 %389, 0
   br i1 %.not.i13.i, label %_handle_update_debug_flags.exit.i, label %390
@@ -3156,7 +3156,7 @@ _handle_update_debug_flags.exit.i:                ; preds = %393, %390, %383
   call void @slurm_xfree(ptr noundef nonnull %2) #11
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._handle_update_log.config_write_lock) #11
   %398 = load i64, ptr %385, align 8
-  store i64 %398, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  store i64 %398, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %399 = call i64 @time(ptr noundef null) #11
   store i64 %399, ptr @slurm_conf, align 8
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._handle_update_log.config_write_lock) #11
@@ -3170,7 +3170,7 @@ _handle_update_debug_flags.exit.i:                ; preds = %393, %390, %383
   %404 = getelementptr inbounds i8, ptr %402, i64 4
   %405 = load i8, ptr %404, align 4
   %406 = trunc i8 %405 to i1
-  %407 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %407 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %408 = and i64 %407, 72057594037927936
   %.not.i14.i = icmp eq i64 %408, 0
   br i1 %.not.i14.i, label %419, label %409
@@ -3201,7 +3201,7 @@ _handle_update_debug_flags.exit.i:                ; preds = %393, %390, %383
 421:                                              ; preds = %419
   call void @update_log_levels(i32 noundef %403, i32 noundef %403) #11
   %422 = trunc i32 %403 to i16
-  store i16 %422, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 174), align 8
+  store i16 %422, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1192), align 8
   %423 = call i64 @time(ptr noundef null) #11
   store i64 %423, ptr @slurm_conf, align 8
   br label %_handle_update_log.exit.i
@@ -3211,7 +3211,7 @@ _handle_update_log.exit.i:                        ; preds = %421, %420
   br label %_handle_request.exit
 
 424:                                              ; preds = %23
-  %425 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %425 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %426 = and i64 %425, 72057594037927936
   %.not.i15.i = icmp eq i64 %426, 0
   br i1 %.not.i15.i, label %_handle_shutdown.exit.i, label %427
@@ -3674,7 +3674,7 @@ define internal fastcc i32 @_run_script(ptr noundef %0, i32 noundef %1, i32 noun
 
 61:                                               ; preds = %52
   %.not46 = icmp eq i32 %1, 0
-  %62 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %63 = and i64 %62, 72057594037927936
   %.not47 = icmp eq i64 %63, 0
   br i1 %.not46, label %71, label %64

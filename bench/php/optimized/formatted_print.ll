@@ -176,7 +176,7 @@ define hidden void @zif_sprintf(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %22
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %39
@@ -1849,7 +1849,7 @@ php_formatted_print_get_array.exit:               ; preds = %49, %23
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %php_formatted_print_get_array.exit
-  %55 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
   br label %63
@@ -1929,7 +1929,7 @@ define hidden void @zif_printf(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %22
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %39
@@ -2060,7 +2060,7 @@ php_formatted_print_get_array.exit:               ; preds = %49, %23
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %php_formatted_print_get_array.exit
-  %55 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
   br label %63
@@ -2156,7 +2156,7 @@ define hidden void @zif_fprintf(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %41 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %41)
   br label %49
@@ -2308,7 +2308,7 @@ php_formatted_print_get_array.exit:               ; preds = %58, %33
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %php_formatted_print_get_array.exit
-  %64 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %65)
   br label %73

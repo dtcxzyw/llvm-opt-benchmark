@@ -973,7 +973,7 @@ _ZNK11SafeOpFlags9OutputOp1ERSo.exit:             ; preds = %_ZNK11SafeOpFlags10
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN11SafeOpFlags5to_idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 8), align 8
   %3 = load ptr, ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, align 8
   %.not = icmp eq ptr %2, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1006,7 +1006,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6: ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %17 = add nuw i64 %.09, 1
-  %18 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 8), align 8
   %19 = load ptr, ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, align 8
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
@@ -1017,20 +1017,20 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ._crit_edge:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6, %1
   %.lcssa = phi ptr [ %2, %1 ], [ %18, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6 ]
-  %25 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 16), align 8
   %.not.i = icmp eq ptr %.lcssa, %25
   br i1 %.not.i, label %29, label %26
 
 26:                                               ; preds = %._crit_edge
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %27 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 8), align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr %28, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %28, ptr getelementptr inbounds (i8, ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 8), align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 29:                                               ; preds = %._crit_edge
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, ptr %.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11SafeOpFlags13wrapper_namesB5cxx11E, i64 8), align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %26, %29

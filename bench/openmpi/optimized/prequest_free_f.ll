@@ -45,7 +45,7 @@ define void @ompi_request_free_f(ptr nocapture noundef %0, ptr noundef writeonly
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_request_t, ptr @ompi_request_null, i64 0, i32 0, i32 6), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_null, i64 104), align 8
   store i32 %11, ptr %0, align 4
   br label %12
 

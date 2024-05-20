@@ -131,7 +131,7 @@ declare i32 @qemu_chr_fe_write_all(ptr noundef, ptr noundef, i32 noundef) local_
 define dso_local void @gdb_syscall_handling(ptr nocapture noundef readnone %syscall_packet) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @vm_stop(i32 noundef 0) #14
-  %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
   tail call void @qemu_cpu_kick(ptr noundef %0) #14
   ret void
 }
@@ -252,24 +252,24 @@ if.then27:                                        ; preds = %if.end25
 
 if.else30:                                        ; preds = %if.end25
   call void @qemu_chr_fe_deinit(ptr noundef nonnull @gdbserver_system_state, i1 noundef zeroext true) #14
-  %15 = load ptr, ptr getelementptr inbounds (%struct.GDBSystemState, ptr @gdbserver_system_state, i64 0, i32 1), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_system_state, i64 56), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   call void @g_free(ptr noundef %16) #14
-  store ptr null, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else30, %if.then27
   %mon_chr.0 = phi ptr [ %15, %if.else30 ], [ %call29, %if.then27 ]
   %call.i6 = call ptr @object_get_root() #14
   %call1.i = call i32 @object_child_foreach(ptr noundef %call.i6, ptr noundef nonnull @find_cpu_clusters, ptr noundef nonnull @gdbserver_state) #14
-  %17 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %tobool.not.i7 = icmp eq ptr %17, null
   br i1 %tobool.not.i7, label %create_processes.exit, label %if.then.i8
 
 if.then.i8:                                       ; preds = %if.end31
-  %18 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
   %conv.i = sext i32 %18 to i64
   call void @qsort(ptr noundef nonnull %17, i64 noundef %conv.i, i64 noundef 16, ptr noundef nonnull @pid_order) #14
   br label %create_processes.exit
@@ -286,8 +286,8 @@ if.then33:                                        ; preds = %create_processes.ex
 
 if.end35:                                         ; preds = %if.then33, %create_processes.exit
   %cond = zext i1 %tobool32.not to i32
-  store i32 %cond, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
-  store ptr %mon_chr.0, ptr getelementptr inbounds (%struct.GDBSystemState, ptr @gdbserver_system_state, i64 0, i32 1), align 8
+  store i32 %cond, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store ptr %mon_chr.0, ptr getelementptr inbounds (i8, ptr @gdbserver_system_state, i64 56), align 8
   call void @gdb_syscall_reset() #14
   br label %if.then.i.i9
 
@@ -370,10 +370,10 @@ declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gdb_vm_state_change(ptr nocapture readnone %opaque, i1 noundef zeroext %running, i32 noundef %state) #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
   %call = tail call ptr @g_string_new(ptr noundef null) #14
   %call1 = tail call ptr @g_string_new(ptr noundef null) #14
-  %1 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
   %cmp = icmp eq i32 %1, 0
   %or.cond = select i1 %running, i1 true, i1 %cmp
   br i1 %or.cond, label %cleanup, label %if.end
@@ -385,7 +385,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond16, label %cleanup, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %2 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
   %tobool8 = trunc i8 %2 to i1
   br i1 %tobool8, label %if.end10, label %cleanup
 
@@ -468,7 +468,7 @@ sw.epilog30:                                      ; preds = %if.end10, %sw.defau
 cleanup.thread:                                   ; preds = %if.then12, %sw.epilog30
   %11 = load ptr, ptr %call, align 8
   %call33 = tail call i32 @gdb_put_packet(ptr noundef %11) #14
-  store i8 0, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
   tail call void @cpu_single_step(ptr noundef nonnull %0, i32 noundef 0) #14
   br label %if.then.i.i
 
@@ -638,7 +638,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_gdbstub_op_exiting.exit:                    ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %7 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
   %tobool1 = trunc i8 %7 to i1
   br i1 %tobool1, label %if.then2, label %if.end7
 
@@ -646,7 +646,7 @@ if.then2:                                         ; preds = %trace_gdbstub_op_ex
   %conv4 = and i32 %code, 255
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 4, ptr noundef nonnull @.str.9, i32 noundef %conv4) #14
   %call6 = call i32 @gdb_put_packet(ptr noundef nonnull %buf) #14
-  store i8 0, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then2, %trace_gdbstub_op_exiting.exit
@@ -736,7 +736,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_handle_query_qemu_phy_mem_mode(ptr nocapture noundef readnone %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %.b = load i1, ptr @phy_memory_mode, align 4
   %1 = zext i1 %.b to i32
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %1) #14
@@ -797,7 +797,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 do.body:                                          ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %len7 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %len7, align 8
   %cmp = icmp eq i32 %5, 0
@@ -810,10 +810,10 @@ if.else:                                          ; preds = %do.body
 do.end:                                           ; preds = %do.body
   %div = ashr exact i32 %conv, 1
   tail call void @gdb_hextomem(ptr noundef nonnull %4, ptr noundef %2, i32 noundef %div) #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %call13 = call ptr @g_byte_array_append(ptr noundef %6, ptr noundef nonnull %zero, i32 noundef 1) #14
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBSystemState, ptr @gdbserver_system_state, i64 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_system_state, i64 56), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %9 = load ptr, ptr %8, align 8
   %len15 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %len15, align 8
@@ -994,7 +994,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_gdbstub_op_stepping.exit:                   ; preds = %sw.bb27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %13 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 16), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4192), align 8
   tail call void @cpu_single_step(ptr noundef nonnull %cpu.138, i32 noundef %13) #14
   tail call void @cpu_resume(ptr noundef nonnull %cpu.138) #14
   br label %while.end36

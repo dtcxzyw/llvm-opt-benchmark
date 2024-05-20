@@ -137,7 +137,7 @@ $_ZTVN4llvh2cl11OptionValueIbEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -1303,7 +1303,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %Log, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, i32 0, i64 2), ptr %Log, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %Log, align 8
   %OS.i = getelementptr inbounds i8, ptr %Log, i64 40
   store ptr %this, ptr %OS.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %parts, i64 16
@@ -1836,32 +1836,32 @@ declare void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull al
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_GraphWriter.cpp() #12 section ".text.startup" {
 entry:
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 1), align 8
-  %bf.load.i.i.i = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 2), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 8), align 8
+  %bf.load.i.i.i = load i16, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 12), align 4
   %bf.clear.i.i.i = and i16 %bf.load.i.i.i, -4096
-  store i16 %bf.clear.i.i.i, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 2), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 4), i8 0, i64 56, i1 false)
-  store ptr @_ZN4llvh2cl15GeneralCategoryE, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 9), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 10, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 10, i32 0, i32 0, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 10, i32 0, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 10, i32 0, i32 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 11), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
-  store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
-  store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZL14ViewBackground, align 8
-  tail call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZL14ViewBackground) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store i16 %bf.clear.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 12), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 16), i8 0, i64 56, i1 false)
+  store ptr @_ZN4llvh2cl15GeneralCategoryE, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 72), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 112), ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 80), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 112), ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 88), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 96), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 100), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 144), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 152), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 160), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 169), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 168), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL14ViewBackground, align 8
+  tail call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 176), ptr noundef nonnull align 8 dereferenceable(145) @_ZL14ViewBackground) #15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6parserIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 176), align 8
   tail call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZL14ViewBackground, ptr nonnull @.str, i64 15) #15
-  %bf.load.i.i.i.i.i.i = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 2), align 4
+  %bf.load.i.i.i.i.i.i = load i16, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 12), align 4
   %bf.clear.i.i.i.i.i.i = and i16 %bf.load.i.i.i.i.i.i, -97
   %bf.set.i.i.i.i.i.i = or disjoint i16 %bf.clear.i.i.i.i.i.i, 32
-  store i16 %bf.set.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 2), align 4
-  store ptr @.str.1, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 7, i32 0), align 8
-  store i64 64, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL14ViewBackground, i64 0, i32 0, i32 7, i32 1), align 8
+  store i16 %bf.set.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 12), align 4
+  store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 40), align 8
+  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZL14ViewBackground, i64 48), align 8
   tail call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(184) @_ZL14ViewBackground) #15
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL14ViewBackground, ptr nonnull @__dso_handle) #15
   ret void

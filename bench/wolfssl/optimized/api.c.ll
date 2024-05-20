@@ -5793,7 +5793,7 @@ do.body216:                                       ; preds = %if.then203
   br label %do.end393.sink.split
 
 if.then234:                                       ; preds = %if.then203
-  %call239 = call i32 @wc_Sha256Update(ptr noundef nonnull %sha256, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.987, i64 0, i64 1), i32 noundef 2) #22
+  %call239 = call i32 @wc_Sha256Update(ptr noundef nonnull %sha256, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.987, i64 1), i32 noundef 2) #22
   %cmp245 = icmp eq i32 %call239, 0
   br i1 %cmp245, label %if.then266, label %do.body248
 
@@ -7056,7 +7056,7 @@ do.body216:                                       ; preds = %if.then203
   br label %do.end393.sink.split
 
 if.then234:                                       ; preds = %if.then203
-  %call239 = call i32 @wc_Sha512Update(ptr noundef nonnull %sha512, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.987, i64 0, i64 1), i32 noundef 2) #22
+  %call239 = call i32 @wc_Sha512Update(ptr noundef nonnull %sha512, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.987, i64 1), i32 noundef 2) #22
   %cmp245 = icmp eq i32 %call239, 0
   br i1 %cmp245, label %if.then266, label %do.body248
 
@@ -14273,7 +14273,7 @@ if.then258:                                       ; preds = %if.then228
 
 if.then289:                                       ; preds = %if.then258
   %add.ptr = getelementptr inbounds i8, ptr %cipher, i64 24
-  %call295 = call i32 @wc_Chacha_Process(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr, ptr noundef nonnull getelementptr inbounds ([27 x i8], ptr @.str.1328, i64 0, i64 24), i32 noundef 2) #22
+  %call295 = call i32 @wc_Chacha_Process(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1328, i64 24), i32 noundef 2) #22
   %cmp301 = icmp eq i32 %call295, 0
   br i1 %cmp301, label %if.then322, label %do.end417.sink.split
 
@@ -14283,7 +14283,7 @@ if.then322:                                       ; preds = %if.then289
   br i1 %cmp334, label %if.then355, label %do.end417.sink.split
 
 if.then355:                                       ; preds = %if.then322
-  %call362 = call i32 @wc_Chacha_Process(ptr noundef nonnull %dec, ptr noundef nonnull %add.ptr, ptr noundef nonnull getelementptr inbounds ([27 x i8], ptr @.str.1328, i64 0, i64 24), i32 noundef 2) #22
+  %call362 = call i32 @wc_Chacha_Process(ptr noundef nonnull %dec, ptr noundef nonnull %add.ptr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1328, i64 24), i32 noundef 2) #22
   %cmp368 = icmp eq i32 %call362, 0
   br i1 %cmp368, label %if.then389, label %do.end417.sink.split
 
@@ -14388,7 +14388,7 @@ do.body530:                                       ; preds = %if.then516
   br label %do.end735.sink.split
 
 if.then548:                                       ; preds = %if.then516
-  %call553 = call i32 @memcmp(ptr noundef nonnull dereferenceable(128) getelementptr inbounds ([256 x i8], ptr @__const.test_wc_Chacha_Process.expected, i64 0, i64 64), ptr noundef nonnull dereferenceable(128) %cipher, i64 noundef 128) #26
+  %call553 = call i32 @memcmp(ptr noundef nonnull dereferenceable(128) getelementptr inbounds (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 64), ptr noundef nonnull dereferenceable(128) %cipher, i64 noundef 128) #26
   %cmp559 = icmp eq i32 %call553, 0
   br i1 %cmp559, label %if.then580, label %do.body562
 
@@ -14419,7 +14419,7 @@ do.body594:                                       ; preds = %if.then580
   br label %do.end735.sink.split
 
 if.then612:                                       ; preds = %if.then580
-  %call617 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) getelementptr inbounds ([256 x i8], ptr @__const.test_wc_Chacha_Process.expected, i64 0, i64 192), ptr noundef nonnull dereferenceable(32) %cipher, i64 noundef 32) #26
+  %call617 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) getelementptr inbounds (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 192), ptr noundef nonnull dereferenceable(32) %cipher, i64 noundef 32) #26
   %cmp623 = icmp eq i32 %call617, 0
   br i1 %cmp623, label %if.then644, label %do.body626
 
@@ -14450,7 +14450,7 @@ do.body658:                                       ; preds = %if.then644
   br label %do.end735.sink.split
 
 if.then676:                                       ; preds = %if.then644
-  %call681 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) getelementptr inbounds ([256 x i8], ptr @__const.test_wc_Chacha_Process.expected, i64 0, i64 224), ptr noundef nonnull dereferenceable(32) %cipher, i64 noundef 32) #26
+  %call681 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) getelementptr inbounds (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 224), ptr noundef nonnull dereferenceable(32) %cipher, i64 noundef 32) #26
   %cmp687 = icmp eq i32 %call681, 0
   br i1 %cmp687, label %if.then708, label %do.body690
 

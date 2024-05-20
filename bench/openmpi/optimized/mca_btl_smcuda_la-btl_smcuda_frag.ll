@@ -31,11 +31,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @mca_btl_smcuda_frag1_constructor(ptr noundef %0) #0 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 10), align 16
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i64 %2, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 496), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 152
@@ -52,7 +52,7 @@ define internal void @mca_btl_smcuda_frag1_constructor(ptr noundef %0) #0 {
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %13, ptr %14, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 23), align 16
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   store i32 %15, ptr %16, align 8
   %.pre = load i64, ptr %3, align 8
@@ -76,11 +76,11 @@ mca_btl_smcuda_frag_common_constructor.exit:      ; preds = %1, %8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @mca_btl_smcuda_frag2_constructor(ptr noundef %0) #0 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 11), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i64 %2, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 25), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 848), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 152
@@ -97,7 +97,7 @@ define internal void @mca_btl_smcuda_frag2_constructor(ptr noundef %0) #0 {
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %13, ptr %14, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 23), align 16
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   store i32 %15, ptr %16, align 8
   %.pre = load i64, ptr %3, align 8
@@ -124,7 +124,7 @@ define internal void @mca_btl_smcuda_user_constructor(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 26), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1200), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 152
@@ -141,7 +141,7 @@ define internal void @mca_btl_smcuda_user_constructor(ptr noundef %0) #0 {
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %12, ptr %13, align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 23), align 16
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %15 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 %14, ptr %15, align 8
   %.pre = load i64, ptr %2, align 8

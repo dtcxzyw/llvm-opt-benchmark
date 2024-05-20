@@ -6126,7 +6126,7 @@ switch.lookup:
 270:                                              ; preds = %267
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %153), !noalias !845
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %152), !noalias !845
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4b6a974dd666d6b9E.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %152, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.24, ptr noundef nonnull getelementptr inbounds (<{ [2 x i8], [2 x i8] }>, ptr @anon.c564382f77062b0983ee7bf00026c29e.24, i64 1, i32 0, i64 0))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4b6a974dd666d6b9E.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %152, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.c564382f77062b0983ee7bf00026c29e.24, i64 4))
           to label %277 unwind label %.thread247.i.i.i, !noalias !850
 
 271:                                              ; preds = %267
@@ -6981,7 +6981,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
 532:                                              ; preds = %529
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %130), !noalias !944
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %129), !noalias !944
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h6b88de7880f49f1cE.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %129, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.27, ptr noundef nonnull getelementptr inbounds (<{ [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8] }>, ptr @anon.c564382f77062b0983ee7bf00026c29e.27, i64 1, i32 0, i64 0))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h6b88de7880f49f1cE.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %129, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.c564382f77062b0983ee7bf00026c29e.27, i64 12))
           to label %539 unwind label %.thread247.i.i.i164, !noalias !949
 
 533:                                              ; preds = %529
@@ -7832,7 +7832,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
 794:                                              ; preds = %791
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %107), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %106), !noalias !1043
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1a2889693adf0d93E.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %106, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.34, ptr noundef nonnull getelementptr inbounds (<{ [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8] }>, ptr @anon.c564382f77062b0983ee7bf00026c29e.34, i64 1, i32 0, i64 0))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1a2889693adf0d93E.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %106, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.34, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.c564382f77062b0983ee7bf00026c29e.34, i64 16))
           to label %801 unwind label %.thread247.i.i.i408, !noalias !1048
 
 795:                                              ; preds = %791
@@ -8746,7 +8746,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
 1074:                                             ; preds = %1071
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %69), !noalias !1182
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h83e98abf35e6b46bE.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %69, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.24, ptr noundef nonnull getelementptr inbounds (<{ [2 x i8], [2 x i8] }>, ptr @anon.c564382f77062b0983ee7bf00026c29e.24, i64 1, i32 0, i64 0))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h83e98abf35e6b46bE.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %69, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.c564382f77062b0983ee7bf00026c29e.24, i64 4))
           to label %1081 unwind label %.thread247.i.i.i666, !noalias !1187
 
 1075:                                             ; preds = %1071
@@ -9633,7 +9633,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
 1343:                                             ; preds = %1340
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !1287
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h5dafa9150118ba5bE.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %46, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.27, ptr noundef nonnull getelementptr inbounds (<{ [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8] }>, ptr @anon.c564382f77062b0983ee7bf00026c29e.27, i64 1, i32 0, i64 0))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h5dafa9150118ba5bE.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %46, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.c564382f77062b0983ee7bf00026c29e.27, i64 12))
           to label %1350 unwind label %.thread247.i.i.i910, !noalias !1292
 
 1344:                                             ; preds = %1340
@@ -10516,7 +10516,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
 1611:                                             ; preds = %1608
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !1391
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h53d8eafc80ce844eE.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %23, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.34, ptr noundef nonnull getelementptr inbounds (<{ [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8] }>, ptr @anon.c564382f77062b0983ee7bf00026c29e.34, i64 1, i32 0, i64 0))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h53d8eafc80ce844eE.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %23, ptr noundef nonnull @anon.c564382f77062b0983ee7bf00026c29e.34, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.c564382f77062b0983ee7bf00026c29e.34, i64 16))
           to label %1618 unwind label %.thread247.i.i.i1154, !noalias !1396
 
 1612:                                             ; preds = %1608

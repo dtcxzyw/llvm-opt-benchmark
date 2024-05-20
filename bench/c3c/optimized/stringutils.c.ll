@@ -824,13 +824,13 @@ define dso_local ptr @str_copy(ptr nocapture noundef readonly %0, i64 noundef %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @scratch_buffer_clear() local_unnamed_addr #14 {
-  store i32 0, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scratch_buffer_append_len(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %4 = zext i32 %3 to i64
   %5 = add i64 %4, %1
   %6 = icmp ugt i64 %5, 65535
@@ -844,9 +844,9 @@ define dso_local void @scratch_buffer_append_len(ptr nocapture noundef readonly 
   %9 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %0, i64 %1, i1 false)
   %10 = trunc i64 %1 to i32
-  %11 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %12 = add i32 %11, %10
-  store i32 %12, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   ret void
 }
 
@@ -856,7 +856,7 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #15
 ; Function Attrs: nounwind uwtable
 define dso_local void @scratch_buffer_append(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
-  %3 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %4 = zext i32 %3 to i64
   %5 = add i64 %2, %4
   %6 = icmp ugt i64 %5, 65535
@@ -870,9 +870,9 @@ scratch_buffer_append_len.exit:                   ; preds = %1
   %8 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %0, i64 %2, i1 false)
   %9 = trunc i64 %2 to i32
-  %10 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %11 = add i32 %10, %9
-  store i32 %11, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   ret void
 }
 
@@ -886,7 +886,7 @@ define dso_local void @scratch_buffer_append_signed_int(i64 noundef %0) local_un
 define dso_local void @scratch_buffer_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #7 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %4 = sub i32 65536, %3
   %5 = zext i32 %4 to i64
   %6 = zext i32 %3 to i64
@@ -903,16 +903,16 @@ define dso_local void @scratch_buffer_printf(ptr nocapture noundef readonly %0, 
 
 13:                                               ; preds = %1
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %14 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %15 = add i32 %14, %8
-  store i32 %15, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scratch_buffer_append_double(double noundef %0) local_unnamed_addr #7 {
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.3, double noundef %0)
-  %.pr = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %.not4 = icmp eq i32 %.pr, 0
   br i1 %.not4, label %._crit_edge, label %.lr.ph.preheader
 
@@ -933,7 +933,7 @@ define dso_local void @scratch_buffer_append_double(double noundef %0) local_unn
 
 6:                                                ; preds = %.lr.ph, %.lr.ph
   %indvars = trunc i64 %indvars.iv.next to i32
-  store i32 %indvars, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  store i32 %indvars, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %.not = icmp eq i32 %indvars, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
@@ -949,7 +949,7 @@ define dso_local void @scratch_buffer_append_unsigned_int(i64 noundef %0) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scratch_buffer_append_char(i8 noundef signext %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %3 = add i32 %2, 1
   %4 = icmp ugt i32 %3, 65535
   br i1 %4, label %5, label %6
@@ -959,7 +959,7 @@ define dso_local void @scratch_buffer_append_char(i8 noundef signext %0) local_u
   unreachable
 
 6:                                                ; preds = %1
-  store i32 %3, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %7 = zext i32 %2 to i64
   %8 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %7
   store i8 %0, ptr %8, align 1
@@ -968,7 +968,7 @@ define dso_local void @scratch_buffer_append_char(i8 noundef signext %0) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull ptr @scratch_buffer_to_string() local_unnamed_addr #16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %2 = zext i32 %1 to i64
   %3 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %2
   store i8 0, ptr %3, align 1
@@ -977,7 +977,7 @@ define dso_local noundef nonnull ptr @scratch_buffer_to_string() local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @scratch_buffer_copy() local_unnamed_addr #7 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %2 = zext i32 %1 to i64
   %3 = add nuw nsw i64 %2, 1
   %4 = tail call ptr @calloc_string(i64 noundef %3) #21

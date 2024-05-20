@@ -1775,7 +1775,7 @@ call.i.noexc240:                                  ; preds = %if.then151
           to label %.noexc242 unwind label %lpad154
 
 .noexc242:                                        ; preds = %call.i.noexc240
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp152, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.6, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp152, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 11))
           to label %invoke.cont155 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc242
@@ -5762,7 +5762,7 @@ invoke.cont908:                                   ; preds = %land.rhs.i2234
   br i1 %cmp3.i2235, label %if.end936, label %if.else911
 
 if.else911:                                       ; preds = %lor.lhs.false907, %invoke.cont908
-  %279 = load ptr, ptr getelementptr inbounds (%"class.cvc5::internal::WarningC", ptr @_ZN4cvc58internal14WarningChannelE, i64 0, i32 1), align 8
+  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4cvc58internal14WarningChannelE, i64 48), align 8
   %cmp.i2239.not = icmp eq ptr %279, @_ZN4cvc58internal7null_osE
   br i1 %cmp.i2239.not, label %if.end936, label %invoke.cont920
 

@@ -35177,7 +35177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20221:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i20211) #17
   %4860 = getelementptr inbounds i8, ptr %ext_ss, i64 128
   call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %4860) #17
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %4860, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 16), ptr %4860, align 8, !tbaa !26
   %_M_tie.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 344
   store ptr null, ptr %_M_tie.i.i, align 8, !tbaa !754
   %_M_fill.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 352
@@ -35186,9 +35186,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20221:
   store i8 0, ptr %_M_fill_init.i.i, align 1, !tbaa !763
   %_M_streambuf.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 360
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_streambuf.i.i, i8 0, i64 32, i1 false)
-  %4861 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %4861 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %4861, ptr %ext_ss, align 8, !tbaa !26
-  %4862 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %4862 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %4861, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 %vbase.offset.i.i.i
@@ -35201,9 +35201,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20221:
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 %vbase.offset5.i.i.i
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr6.i.i.i, ptr noundef null) #17
   %4863 = getelementptr inbounds i8, ptr %ext_ss, i64 16
-  %4864 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 4), align 8
+  %4864 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 32), align 8
   store ptr %4864, ptr %4863, align 8, !tbaa !26
-  %4865 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 5), align 8
+  %4865 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 40), align 8
   %vbase.offset.ptr.i4.i.i = getelementptr i8, ptr %4864, i64 -24
   %vbase.offset.i5.i.i = load i64, ptr %vbase.offset.ptr.i4.i.i, align 8
   %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %4863, i64 %vbase.offset.i5.i.i
@@ -35213,16 +35213,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20221:
   %vbase.offset5.i9.i.i = load i64, ptr %vbase.offset.ptr4.i8.i.i, align 8
   %add.ptr6.i10.i.i = getelementptr inbounds i8, ptr %4863, i64 %vbase.offset5.i9.i.i
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr6.i10.i.i, ptr noundef null) #17
-  %4866 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
+  %4866 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
   store ptr %4866, ptr %ext_ss, align 8, !tbaa !26
-  %4867 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 6), align 8
+  %4867 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 48), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %4866, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 %vbase.offset.i.i
   store ptr %4867, ptr %add.ptr.i.i, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %ext_ss, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 2, i64 3), ptr %4860, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %4863, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %ext_ss, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 104), ptr %4860, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %4863, align 8, !tbaa !26
   %_M_stringbuf.i = getelementptr inbounds i8, ptr %ext_ss, i64 24
   call void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEC2ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(104) %_M_stringbuf.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6764, i32 noundef 24)
   %vtable.i = load ptr, ptr %ext_ss, align 8, !tbaa !26
@@ -35295,14 +35295,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20235: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp6767) #17
   %4875 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %4875, ptr %ext_ss, align 8, !tbaa !26
-  %4876 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %4876 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i20236 = getelementptr i8, ptr %4875, i64 -24
   %vbase.offset.i.i20237 = load i64, ptr %vbase.offset.ptr.i.i20236, align 8
   %add.ptr.i.i20238 = getelementptr inbounds i8, ptr %ext_ss, i64 %vbase.offset.i.i20237
   store ptr %4876, ptr %add.ptr.i.i20238, align 8, !tbaa !26
-  %4877 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %4877 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %4877, ptr %4863, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i, align 8, !tbaa !26
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 96
   %4878 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !13
   %4879 = getelementptr inbounds i8, ptr %ext_ss, i64 112
@@ -35321,7 +35321,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #17
   store ptr %4861, ptr %ext_ss, align 8, !tbaa !26
@@ -36058,12 +36058,12 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_mt_opengl_loader.cpp() #13 section ".text.startup" {
 entry:
-  store i64 0, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 0, i32 0, i32 4, i32 0), align 8
-  store ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 0, i32 0, i32 5), ptr @GL, align 8, !tbaa !19
-  store i64 1, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 0, i32 0, i32 1), align 8, !tbaa !20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 0, i32 0, i32 4, i32 0), align 8, !tbaa !749
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5768) getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 5768, i1 false)
+  store i64 0, ptr getelementptr inbounds (i8, ptr @GL, i64 32), align 8
+  store ptr getelementptr inbounds (i8, ptr @GL, i64 48), ptr @GL, align 8, !tbaa !19
+  store i64 1, ptr getelementptr inbounds (i8, ptr @GL, i64 8), align 8, !tbaa !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @GL, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @GL, i64 32), align 8, !tbaa !749
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5768) getelementptr inbounds (i8, ptr @GL, i64 40), i8 0, i64 5768, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN16OpenGLProceduresD2Ev, ptr nonnull @GL, ptr nonnull @__dso_handle) #17
   ret void
 }

@@ -144,7 +144,7 @@ define internal noundef i32 @pat_debug_setup(ptr nocapture readnone %0) #2 secti
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pat_cpu_init() local_unnamed_addr #3 align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %2 = and i64 %1, 65536
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %5
@@ -159,7 +159,7 @@ define dso_local void @pat_cpu_init() local_unnamed_addr #3 align 16 {
   %8 = lshr i64 %6, 32
   %9 = trunc nuw i64 %8 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 631, i32 %7, i32 %9) #18, !srcloc !5
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #18
           to label %11 [label %10], !srcloc !6
 
 10:                                               ; preds = %5
@@ -175,7 +175,7 @@ declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @pat_bp_init() local_unnamed_addr #0 section ".init.text" align 16 {
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 16, i32 1, ptr getelementptr (i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), i64 2)) #18
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 16, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 42)) #18
           to label %7 [label %7, label %1], !srcloc !7
 
 1:                                                ; preds = %0
@@ -196,7 +196,7 @@ define dso_local void @pat_bp_init() local_unnamed_addr #0 section ".init.text" 
   %10 = extractvalue { i64, i64 } %8, 1
   %11 = shl i64 %10, 32
   %12 = or i64 %11, %9
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #18
           to label %14 [label %13], !srcloc !6
 
 13:                                               ; preds = %7
@@ -238,14 +238,14 @@ thread-pre-split:                                 ; preds = %1, %3
   br i1 %.pre1, label %42, label %24
 
 24:                                               ; preds = %19, %23
-  %25 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %25 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %24
   %28 = load i8, ptr @boot_cpu_data, align 8
   %29 = icmp eq i8 %28, 6
-  %30 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
   %31 = icmp ult i8 %30, 14
   %32 = select i1 %29, i1 %31, i1 false
   br i1 %32, label %38, label %33
@@ -369,7 +369,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   br label %.loopexit19
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 5), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 40), align 8
   %28 = tail call zeroext i1 %27(i64 noundef %7, i64 noundef %10) #18
   br i1 %28, label %29, label %32
 
@@ -558,7 +558,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   br i1 %104, label %.loopexit19, label %.preheader18, !llvm.loop !27
 
 105:                                              ; preds = %.thread, %54
-  %106 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %107 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %106, i32 noundef 3520, i64 noundef 56) #20
   %108 = icmp eq ptr %107, null
   br i1 %108, label %.loopexit19, label %109
@@ -665,7 +665,7 @@ define dso_local noundef range(i32 -22, 1) i32 @memtype_free(i64 noundef %0, i64
 5:                                                ; preds = %2
   %6 = and i64 %0, 4503599627370495
   %7 = and i64 %1, 4503599627370495
-  %8 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 40), align 8
   %9 = tail call zeroext i1 %8(i64 noundef %6, i64 noundef %7) #18
   br i1 %9, label %.loopexit8, label %10
 
@@ -788,7 +788,7 @@ define dso_local zeroext i1 @pat_pfn_immune_to_uc_mtrr(i64 noundef %0) #3 align 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @lookup_memtype(i64 noundef %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.pagerange_state, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 40), align 8
   %4 = add i64 %0, 4096
   %5 = tail call zeroext i1 %3(i64 noundef %0, i64 noundef %4) #18
   br i1 %5, label %38, label %6
@@ -893,7 +893,7 @@ define dso_local i32 @memtype_reserve_io(i64 noundef %0, i64 noundef %1, ptr noc
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %4, align 4
-  %15 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 5), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 40), align 8
   %16 = call zeroext i1 %15(i64 noundef %0, i64 noundef %1) #18
   br i1 %16, label %26, label %17
 
@@ -1245,7 +1245,7 @@ define internal fastcc i32 @reserve_pfn_range(i64 noundef %0, i64 noundef %1, pt
   br i1 %64, label %65, label %77
 
 65:                                               ; preds = %63
-  %66 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 5), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 40), align 8
   %67 = call zeroext i1 %66(i64 noundef %0, i64 noundef %9) #18
   br i1 %67, label %89, label %68
 
@@ -1730,7 +1730,7 @@ define internal noundef ptr @memtype_seq_start(ptr noundef %0, ptr nocapture nou
 
 6:                                                ; preds = %5, %2
   %7 = phi i64 [ %.pre, %5 ], [ %3, %2 ]
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 56) #20
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
@@ -1763,7 +1763,7 @@ define internal noundef ptr @memtype_seq_next(ptr nocapture readnone %0, ptr nou
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 56) #20
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9

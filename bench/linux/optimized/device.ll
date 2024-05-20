@@ -29,7 +29,7 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_device_new(ptr noundef %0, i
   br i1 %9, label %36, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 48) #5
   %13 = icmp eq ptr %12, null
   br i1 %13, label %36, label %14

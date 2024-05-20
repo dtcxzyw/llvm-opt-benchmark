@@ -36,9 +36,9 @@ define void @_ZN16EditorFileDialogC2ERK11QModelIndexNS_8FileModeEP7QWidgetRK7QSt
   %11 = alloca %class.QString, align 16
   %12 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16EditorFileDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16EditorFileDialog, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16EditorFileDialog, i64 0, i32 1, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16EditorFileDialog, i64 456), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
           to label %16 unwind label %55

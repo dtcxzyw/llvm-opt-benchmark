@@ -300,7 +300,7 @@ cond.end:                                         ; preds = %cond.true, %entry
   %ref.tmp3.sroa.0.0 = phi i32 [ %6, %cond.true ], [ 0, %entry ]
   %ref.tmp3.sroa.5.0 = phi i32 [ %7, %cond.true ], [ 0, %entry ]
   %8 = getelementptr inbounds i8, ptr %vtt, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !11
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %4, align 8, !tbaa !11
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %4, align 8, !tbaa !11
   %10 = getelementptr inbounds i8, ptr %vtt, i64 32
@@ -688,8 +688,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !88
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 536
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !78
-  store ptr getelementptr inbounds inrange(-24, 328) ({ [44 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui15CGUIEnvironmentE0_NS0_15IGUIEnvironmentE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [44 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui15CGUIEnvironmentE0_NS0_15IGUIEnvironmentE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds inrange(-24, 328) (i8, ptr @_ZTCN3irr3gui15CGUIEnvironmentE0_NS0_15IGUIEnvironmentE, i64 24), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr3gui15CGUIEnvironmentE0_NS0_15IGUIEnvironmentE, i64 376), ptr %0, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %tobool.not = icmp eq ptr %driver, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -779,9 +779,9 @@ cond.end:                                         ; preds = %cond.true, %entry
   %Type.i = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %AlignLeft.i, i8 0, i64 24, i1 false)
   store i32 24, ptr %Type.i, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-24, 344) ({ [46 x ptr], [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [46 x ptr], [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 0, i32 2, i64 3), ptr %0, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [46 x ptr], [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 0, i32 1, i64 3), ptr %1, align 8, !tbaa !11
+  store ptr getelementptr inbounds inrange(-24, 344) (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 24), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 704), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 392), ptr %1, align 8, !tbaa !11
   %Fonts = getelementptr inbounds i8, ptr %this, i64 344
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Fonts, i8 0, i64 24, i1 false)
@@ -5409,7 +5409,7 @@ if.end:                                           ; preds = %entry
 if.then7:                                         ; preds = %if.end
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %filename, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
-  %7 = load i64, ptr getelementptr inbounds (%"class.irr::core::string", ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 0, i32 0, i32 1), align 8, !tbaa !10
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 8), align 8, !tbaa !10
   %cmp.i.i.i = icmp eq i64 %6, %7
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.then9
 
@@ -10902,9 +10902,9 @@ _ZNSt12_Vector_baseIN3irr3gui15CGUIEnvironment11SSpriteBankESaIS3_EE13_M_dealloc
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_CGUIEnvironment.cpp() #3 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (%"class.irr::core::string", ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 0, i32 0, i32 2, i32 0), ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, align 8, !tbaa !29
-  store i64 0, ptr getelementptr inbounds (%"class.irr::core::string", ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 0, i32 0, i32 1), align 8, !tbaa !10
-  store i8 0, ptr getelementptr inbounds (%"class.irr::core::string", ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 0, i32 0, i32 2, i32 0), align 8, !tbaa !30
+  store ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 16), ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, align 8, !tbaa !29
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 8), align 8, !tbaa !10
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 16), align 8, !tbaa !30
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, i64 noundef 12, i8 noundef signext 0) #23
   %0 = load ptr, ptr @_ZN3irr3gui15CGUIEnvironment15DefaultFontNameE, align 8, !tbaa !3
   store i8 35, ptr %0, align 1, !tbaa !30

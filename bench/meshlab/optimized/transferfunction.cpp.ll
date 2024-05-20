@@ -1505,7 +1505,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #12 sec
   br label %2
 
 2:                                                ; preds = %_ZN7QStringD2Ev.exit, %1
-  %3 = phi ptr [ getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 1, i64 0), %1 ], [ %4, %_ZN7QStringD2Ev.exit ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 80), %1 ], [ %4, %_ZN7QStringD2Ev.exit ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1693,9 +1693,9 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %17, %_ZN9QtPrivate8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull @.str.4, i32 noundef 11)
-  %24 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 8), align 8
   %25 = load ptr, ptr %10, align 8
-  store ptr %25, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 1), align 8
+  store ptr %25, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 8), align 8
   store ptr %24, ptr %10, align 8
   %26 = load atomic i32, ptr %24 monotonic, align 4
   switch i32 %26, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i7 [
@@ -1721,9 +1721,9 @@ _ZN7QStringaSEPKc.exit11:                         ; preds = %_ZN7QStringaSEPKc.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, ptr noundef nonnull @.str.5, i32 noundef 20)
-  %29 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 3), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 24), align 8
   %30 = load ptr, ptr %9, align 8
-  store ptr %30, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 3), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 24), align 8
   store ptr %29, ptr %9, align 8
   %31 = load atomic i32, ptr %29 monotonic, align 4
   switch i32 %31, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i13 [
@@ -1749,9 +1749,9 @@ _ZN7QStringaSEPKc.exit17:                         ; preds = %_ZN7QStringaSEPKc.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull @.str.6, i32 noundef 3)
-  %34 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 2), align 16
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 16), align 16
   %35 = load ptr, ptr %8, align 8
-  store ptr %35, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 2), align 16
+  store ptr %35, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 16), align 16
   store ptr %34, ptr %8, align 8
   %36 = load atomic i32, ptr %34 monotonic, align 4
   switch i32 %36, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i19 [
@@ -1777,9 +1777,9 @@ _ZN7QStringaSEPKc.exit23:                         ; preds = %_ZN7QStringaSEPKc.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef nonnull @.str.7, i32 noundef 9)
-  %39 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 4), align 16
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 32), align 16
   %40 = load ptr, ptr %7, align 8
-  store ptr %40, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 4), align 16
+  store ptr %40, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 32), align 16
   store ptr %39, ptr %7, align 8
   %41 = load atomic i32, ptr %39 monotonic, align 4
   switch i32 %41, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i25 [
@@ -1805,9 +1805,9 @@ _ZN7QStringaSEPKc.exit29:                         ; preds = %_ZN7QStringaSEPKc.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull @.str.8, i32 noundef 11)
-  %44 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 5), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 40), align 8
   %45 = load ptr, ptr %6, align 8
-  store ptr %45, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 5), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 40), align 8
   store ptr %44, ptr %6, align 8
   %46 = load atomic i32, ptr %44 monotonic, align 4
   switch i32 %46, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i31 [
@@ -1833,9 +1833,9 @@ _ZN7QStringaSEPKc.exit35:                         ; preds = %_ZN7QStringaSEPKc.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull @.str.9, i32 noundef 10)
-  %49 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 6), align 16
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 48), align 16
   %50 = load ptr, ptr %5, align 8
-  store ptr %50, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 6), align 16
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 48), align 16
   store ptr %49, ptr %5, align 8
   %51 = load atomic i32, ptr %49 monotonic, align 4
   switch i32 %51, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i37 [
@@ -1861,9 +1861,9 @@ _ZN7QStringaSEPKc.exit41:                         ; preds = %_ZN7QStringaSEPKc.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull @.str.10, i32 noundef 15)
-  %54 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 8), align 16
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 64), align 16
   %55 = load ptr, ptr %4, align 8
-  store ptr %55, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 8), align 16
+  store ptr %55, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 64), align 16
   store ptr %54, ptr %4, align 8
   %56 = load atomic i32, ptr %54 monotonic, align 4
   switch i32 %56, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i43 [
@@ -1889,9 +1889,9 @@ _ZN7QStringaSEPKc.exit47:                         ; preds = %_ZN7QStringaSEPKc.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull @.str.11, i32 noundef 15)
-  %59 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 9), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 72), align 8
   %60 = load ptr, ptr %3, align 8
-  store ptr %60, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 9), align 8
+  store ptr %60, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 72), align 8
   store ptr %59, ptr %3, align 8
   %61 = load atomic i32, ptr %59 monotonic, align 4
   switch i32 %61, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i49 [
@@ -1917,9 +1917,9 @@ _ZN7QStringaSEPKc.exit53:                         ; preds = %_ZN7QStringaSEPKc.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull @.str.12, i32 noundef 4)
-  %64 = load ptr, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 7), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 56), align 8
   %65 = load ptr, ptr %2, align 8
-  store ptr %65, ptr getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 7), align 8
+  store ptr %65, ptr getelementptr inbounds (i8, ptr @_ZN16TransferFunction10defaultTFsE, i64 56), align 8
   store ptr %64, ptr %2, align 8
   %66 = load atomic i32, ptr %64 monotonic, align 4
   switch i32 %66, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i55 [

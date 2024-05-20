@@ -254,7 +254,7 @@ define dso_local noundef range(i32 -17, 1) i32 @dm_target_init() local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dm_target_exit() local_unnamed_addr #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @_lock) #10
-  %1 = load ptr, ptr getelementptr inbounds (%struct.target_type, ptr @error_target, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @error_target, i64 8), align 8
   br label %2
 
 2:                                                ; preds = %6, %0
@@ -282,13 +282,13 @@ define dso_local void @dm_target_exit() local_unnamed_addr #0 align 16 {
   unreachable
 
 dm_unregister_target.exit:                        ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (%struct.target_type, ptr @error_target, i64 0, i32 26, i32 1), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.target_type, ptr @error_target, i64 0, i32 26, i32 0), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @error_target, i64 224), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @error_target, i64 216), align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %15, ptr %17, align 8
   store volatile ptr %16, ptr %15, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr getelementptr inbounds (%struct.target_type, ptr @error_target, i64 0, i32 26, i32 0), align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr getelementptr inbounds (%struct.target_type, ptr @error_target, i64 0, i32 26, i32 1), align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr getelementptr inbounds (i8, ptr @error_target, i64 216), align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr getelementptr inbounds (i8, ptr @error_target, i64 224), align 8
   tail call void @up_write(ptr noundef nonnull @_lock) #10
   ret void
 }
@@ -314,7 +314,7 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   store i64 0, ptr %4, align 8, !annotation !12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
   store i8 0, ptr %5, align 1, !annotation !12
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 16) #12
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13

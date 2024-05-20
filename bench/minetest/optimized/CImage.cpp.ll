@@ -156,8 +156,8 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !23
   %frombool.i = zext i1 %deleteMemory to i8
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 144), ptr %0, align 8, !tbaa !3
   %Format.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %format, ptr %Format.i, align 8, !tbaa !6
   %Size.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -184,8 +184,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit: ; 
   store i32 %switch.load, ptr %BytesPerPixel.i, align 8, !tbaa !18
   %mul.i = mul i32 %switch.load, %2
   store i32 %mul.i, ptr %Pitch.i, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br i1 %ownForeignMemory, label %if.then, label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread: ; preds = %entry
@@ -193,8 +193,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   %BytesPerPixel.i3 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %BytesPerPixel.i3, align 8, !tbaa !18
   store i32 0, ptr %Pitch.i2, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br i1 %ownForeignMemory, label %if.then, label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 if.then:                                          ; preds = %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
@@ -486,8 +486,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !21
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !23
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 144), ptr %0, align 8, !tbaa !3
   %Format.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %format, ptr %Format.i, align 8, !tbaa !6
   %Size.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -524,8 +524,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 3, ptr %BytesPerPixel.i21, align 8, !tbaa !18
   %mul.i22 = mul i32 %3, 3
   store i32 %mul.i22, ptr %Pitch.i20, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread24: ; preds = %entry
@@ -534,8 +534,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 4, ptr %BytesPerPixel.i27, align 8, !tbaa !18
   %mul.i28 = shl i32 %3, 2
   store i32 %mul.i28, ptr %Pitch.i26, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread30: ; preds = %entry
@@ -544,8 +544,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 4, ptr %BytesPerPixel.i33, align 8, !tbaa !18
   %mul.i34 = shl i32 %3, 2
   store i32 %mul.i34, ptr %Pitch.i32, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread36: ; preds = %entry
@@ -554,8 +554,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 4, ptr %BytesPerPixel.i39, align 8, !tbaa !18
   %mul.i40 = shl i32 %3, 2
   store i32 %mul.i40, ptr %Pitch.i38, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread42: ; preds = %entry
@@ -563,8 +563,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   %BytesPerPixel.i45 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 1, ptr %BytesPerPixel.i45, align 8, !tbaa !18
   store i32 %3, ptr %Pitch.i44, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread48: ; preds = %entry
@@ -573,8 +573,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 4, ptr %BytesPerPixel.i51, align 8, !tbaa !18
   %mul.i52 = shl i32 %3, 2
   store i32 %mul.i52, ptr %Pitch.i50, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread54: ; preds = %entry
@@ -583,8 +583,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 4, ptr %BytesPerPixel.i57, align 8, !tbaa !18
   %mul.i58 = shl i32 %3, 2
   store i32 %mul.i58, ptr %Pitch.i56, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread60: ; preds = %entry
@@ -593,8 +593,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 8, ptr %BytesPerPixel.i63, align 8, !tbaa !18
   %mul.i64 = shl i32 %3, 3
   store i32 %mul.i64, ptr %Pitch.i62, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread66: ; preds = %entry
@@ -603,8 +603,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 4, ptr %BytesPerPixel.i69, align 8, !tbaa !18
   %mul.i70 = shl i32 %3, 2
   store i32 %mul.i70, ptr %Pitch.i68, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread72: ; preds = %entry
@@ -613,8 +613,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 8, ptr %BytesPerPixel.i75, align 8, !tbaa !18
   %mul.i76 = shl i32 %3, 3
   store i32 %mul.i76, ptr %Pitch.i74, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread78: ; preds = %entry
@@ -623,8 +623,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 16, ptr %BytesPerPixel.i81, align 8, !tbaa !18
   %mul.i82 = shl i32 %3, 4
   store i32 %mul.i82, ptr %Pitch.i80, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread1: ; preds = %entry, %entry, %entry, %entry, %entry, %entry
@@ -633,8 +633,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   store i32 2, ptr %BytesPerPixel.i4, align 8, !tbaa !18
   %mul.i5 = shl i32 %3, 1
   store i32 %mul.i5, ptr %Pitch.i3, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   br label %switch.lookup
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit: ; preds = %entry
@@ -642,8 +642,8 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit: ; 
   %BytesPerPixel.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %BytesPerPixel.i, align 8, !tbaa !18
   store i32 0, ptr %Pitch.i, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTVN3irr5video6CImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video6CImageE, i64 144), ptr %0, align 8, !tbaa !3
   %4 = icmp ult i32 %format, 17
   br i1 %4, label %switch.lookup, label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
@@ -2033,9 +2033,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video6CImageD1Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 144), ptr %add.ptr.i.i, align 8, !tbaa !3
   %DeleteMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %DeleteMemory.i.i, align 8, !tbaa !16, !range !68, !noundef !69
   %tobool.not.i.i = icmp eq i8 %0, 0
@@ -2074,9 +2074,9 @@ _ZN3irr5video6CImageD2Ev.exit:                    ; preds = %delete.notnull6.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video6CImageD0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 144), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %DeleteMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %DeleteMemory.i.i.i, align 8, !tbaa !16, !range !68, !noundef !69
   %tobool.not.i.i.i = icmp eq i8 %0, 0
@@ -2120,9 +2120,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 144), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %DeleteMemory.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load i8, ptr %DeleteMemory.i.i.i, align 8, !tbaa !16, !range !68, !noundef !69
   %tobool.not.i.i.i = icmp eq i8 %4, 0
@@ -2165,9 +2165,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 96) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 144), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %DeleteMemory.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load i8, ptr %DeleteMemory.i.i.i.i, align 8, !tbaa !16, !range !68, !noundef !69
   %tobool.not.i.i.i.i = icmp eq i8 %4, 0

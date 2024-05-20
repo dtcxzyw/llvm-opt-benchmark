@@ -431,7 +431,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br i1 %.not905, label %193, label %.thread977
 
 193:                                              ; preds = %191
-  %194 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
+  %194 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
   %195 = zext i16 %194 to i32
   %196 = srem i32 %195, %.0.i
   store i32 %196, ptr %11, align 4
@@ -447,7 +447,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br i1 %.not906, label %217, label %201
 
 201:                                              ; preds = %200
-  %202 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
+  %202 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
   %203 = zext i16 %202 to i32
   %204 = load i32, ptr %12, align 4
   %205 = srem i32 %203, %204
@@ -590,7 +590,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
 
 .lr.ph1071:                                       ; preds = %.lr.ph1071.preheader, %258
   %indvars.iv1274 = phi i64 [ 1, %.lr.ph1071.preheader ], [ %indvars.iv.next1275, %258 ]
-  %259 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %260 = getelementptr inbounds i32, ptr %255, i64 %indvars.iv1274
   %261 = getelementptr inbounds i32, ptr %123, i64 %indvars.iv1274
   %262 = load i32, ptr %261, align 4
@@ -604,7 +604,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br label %.thread982
 
 ._crit_edge1072:                                  ; preds = %258, %._crit_edge1067
-  %265 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %266 = call i32 %265(i64 noundef %219, ptr noundef %220, ptr noundef null) #11
   %.not910 = icmp eq i32 %266, 0
   br i1 %.not910, label %271, label %267
@@ -614,7 +614,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br label %.thread982
 
 268:                                              ; preds = %217
-  %269 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %270 = call i32 %269(ptr noundef nonnull %11, i64 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef %.val963, i32 noundef -111, i32 noundef 4, ptr noundef %1) #11
   %.not907 = icmp eq i32 %270, 0
   br i1 %.not907, label %271, label %.thread1001
@@ -628,7 +628,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   %.0841 = phi ptr [ %255, %._crit_edge1072 ], [ null, %268 ]
   %.2836 = phi i32 [ %.0834.lcssa1473, %._crit_edge1072 ], [ 0, %268 ]
   call void @free(ptr noundef %220) #11
-  %272 = load i32, ptr getelementptr inbounds (%struct.mca_topo_treematch_component_2_2_0_t, ptr @mca_topo_treematch_component, i64 0, i32 1), align 8
+  %272 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_treematch_component, i64 280), align 8
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %274, label %639
 
@@ -809,7 +809,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
 
 370:                                              ; preds = %363, %369
   %indvars.iv1370 = phi i64 [ 1, %363 ], [ %indvars.iv.next1371, %369 ]
-  %371 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %371 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %372 = getelementptr inbounds i32, ptr %365, i64 %indvars.iv1370
   %373 = getelementptr inbounds i32, ptr %.0845, i64 %indvars.iv1370
   %374 = load i32, ptr %373, align 4
@@ -824,7 +824,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br label %972
 
 377:                                              ; preds = %369
-  %378 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %378 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %379 = call i32 %378(i64 noundef %367, ptr noundef %368, ptr noundef null) #11
   %.not927 = icmp eq i32 %379, 0
   br i1 %.not927, label %.lr.ph1157, label %380
@@ -868,7 +868,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
 .lr.ph1169:                                       ; preds = %.lr.ph1169.preheader, %403
   %indvars.iv1383 = phi i64 [ 1, %.lr.ph1169.preheader ], [ %indvars.iv.next1384, %403 ]
   %.07931167 = phi i32 [ %390, %.lr.ph1169.preheader ], [ %405, %403 ]
-  %393 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %393 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %394 = sext i32 %.07931167 to i64
   %395 = getelementptr inbounds i32, ptr %386, i64 %394
   %396 = getelementptr inbounds i32, ptr %365, i64 %indvars.iv1383
@@ -895,7 +895,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br i1 %exitcond1387.not, label %._crit_edge1170, label %.lr.ph1169, !llvm.loop !18
 
 ._crit_edge1170:                                  ; preds = %403
-  %406 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %407 = call i32 %406(i64 noundef %367, ptr noundef %368, ptr noundef null) #11
   %.not928 = icmp eq i32 %407, 0
   br i1 %.not928, label %409, label %408
@@ -919,7 +919,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br i1 %361, label %413, label %423
 
 413:                                              ; preds = %412
-  %414 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %414 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %415 = call i32 %414(ptr noundef nonnull %12, i64 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, i32 noundef -112, i32 noundef 4, ptr noundef %1) #11
   %.not925 = icmp eq i32 %415, 0
   br i1 %.not925, label %417, label %416
@@ -929,7 +929,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br label %.thread982
 
 417:                                              ; preds = %413
-  %418 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %418 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %419 = load i32, ptr %12, align 4
   %420 = sext i32 %419 to i64
   %421 = call i32 %418(ptr noundef %342, i64 noundef %420, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, i32 noundef -113, i32 noundef 4, ptr noundef %1) #11
@@ -1009,7 +1009,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br label %.lr.ph1179
 
 454:                                              ; preds = %453
-  %455 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %455 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %456 = call i32 %455(ptr noundef nonnull %.0796, i64 noundef 101, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, i32 noundef -114, i32 noundef 4, ptr noundef %1) #11
   %.not932 = icmp eq i32 %456, 0
   br i1 %.not932, label %474, label %457
@@ -1025,7 +1025,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
 
 .lr.ph1179:                                       ; preds = %.lr.ph1179.preheader, %458
   %indvars.iv1394 = phi i64 [ 1, %.lr.ph1179.preheader ], [ %indvars.iv.next1395, %458 ]
-  %459 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %459 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %460 = mul nuw nsw i64 %indvars.iv1394, 101
   %461 = getelementptr inbounds i32, ptr %.0796, i64 %460
   %462 = getelementptr inbounds i32, ptr %.0845, i64 %indvars.iv1394
@@ -1042,7 +1042,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   br label %972
 
 ._crit_edge1180:                                  ; preds = %458
-  %468 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %468 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %469 = add nsw i32 %.1833, -1
   %470 = zext nneg i32 %469 to i64
   %471 = call i32 %468(i64 noundef %470, ptr noundef %.0800, ptr noundef null) #11

@@ -3437,7 +3437,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %arrayidx.i.i119 = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %15 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %15, i64 %indvars.iv.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i.i119, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i.i119, align 8
   %m_static.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i119, i64 8
   %m_static2.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 8
   %16 = load i8, ptr %m_static2.i.i.i.i, align 8
@@ -3450,7 +3450,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %m_normal.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i119, i64 24
   %m_normal4.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i.i119, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i.i119, align 8
   %m_node.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i119, i64 40
   %m_node2.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 40
   %18 = load ptr, ptr %m_node2.i.i.i, align 8
@@ -3515,7 +3515,7 @@ invoke.cont24:                                    ; preds = %if.then.i, %_ZN20bt
   store ptr %infoGlobal, ptr %m_infoGlobal.i.i.i, align 8
   %m_normal.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i47, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i47, align 8
   %m_node.i.i = getelementptr inbounds i8, ptr %arrayidx.i47, i64 40
   store ptr %arrayidx.i38, ptr %m_node.i.i, align 8
   %26 = load i32, ptr %m_size.i.i, align 4
@@ -7877,7 +7877,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   %arrayidx11.i.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %18, i64 %indvars.iv.i.i
   %m_static.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx11.i.i, i64 8
   store i8 0, ptr %m_static.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i64 0, i32 0, i64 2), ptr %arrayidx11.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %invoke.cont.i, label %for.body8.i.i, !llvm.loop !82
@@ -7897,7 +7897,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
   %arrayidx.i9.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %19, i64 %indvars.iv.i8.i
   %20 = load ptr, ptr %m_data.i5.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %20, i64 %indvars.iv.i8.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i9.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i9.i, align 8
   %m_static.i.i.i10.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 8
   %m_static2.i.i.i11.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 8
   %21 = load i8, ptr %m_static2.i.i.i11.i, align 8
@@ -7910,7 +7910,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
   %m_normal.i.i.i15.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 24
   %m_normal4.i.i.i16.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i16.i, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i9.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i9.i, align 8
   %m_node.i.i17.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 40
   %m_node2.i.i18.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 40
   %23 = load ptr, ptr %m_node2.i.i18.i, align 8
@@ -8584,7 +8584,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   %arrayidx11.i.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %18, i64 %indvars.iv.i.i
   %m_static.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx11.i.i, i64 8
   store i8 0, ptr %m_static.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx11.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 16), ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %invoke.cont.i, label %for.body8.i.i, !llvm.loop !92
@@ -8604,7 +8604,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
   %arrayidx.i9.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %19, i64 %indvars.iv.i8.i
   %20 = load ptr, ptr %m_data.i5.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %20, i64 %indvars.iv.i8.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i9.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i9.i, align 8
   %m_static.i.i.i10.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 8
   %m_static2.i.i.i11.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 8
   %21 = load i8, ptr %m_static2.i.i.i11.i, align 8
@@ -8617,7 +8617,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
   %m_normal.i.i.i15.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 24
   %m_normal4.i.i.i16.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i16.i, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i9.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 16), ptr %arrayidx.i9.i, align 8
   %m_node.i.i17.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 40
   %m_node2.i.i18.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_node.i.i17.i, ptr noundef nonnull align 8 dereferenceable(56) %m_node2.i.i18.i, i64 56, i1 false)
@@ -8842,7 +8842,7 @@ _ZN20btAlignedObjectArrayI9btHashIntE5clearEv.exit: ; preds = %_ZN20btAlignedObj
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29btDeformableContactProjectionD2Ev(ptr noundef nonnull align 8 dereferenceable(369) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV29btDeformableContactProjection, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactProjection, i64 16), ptr %this, align 8
   %m_nodeAnchorConstraints = getelementptr inbounds i8, ptr %this, i64 336
   invoke void @_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %m_nodeAnchorConstraints)
           to label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEED2Ev.exit unwind label %terminate.lpad.i
@@ -10518,7 +10518,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %retval.0.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %2, i64 %indvars.iv.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_static.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %m_static2.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 8
   %3 = load i8, ptr %m_static2.i.i.i, align 8
@@ -10531,7 +10531,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %m_normal.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %m_normal4.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_node.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %m_node2.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 40
   %5 = load ptr, ptr %m_node2.i.i, align 8
@@ -11578,7 +11578,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   %arrayidx11.i.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %7, i64 %indvars.iv.i.i
   %m_static.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx11.i.i, i64 8
   store i8 0, ptr %m_static.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i64 0, i32 0, i64 2), ptr %arrayidx11.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %invoke.cont.i, label %for.body8.i.i, !llvm.loop !82
@@ -11599,7 +11599,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
   %arrayidx.i9.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %8, i64 %indvars.iv.i8.i
   %9 = load ptr, ptr %m_data.i5.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %9, i64 %indvars.iv.i8.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i9.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i9.i, align 8
   %m_static.i.i.i10.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 8
   %m_static2.i.i.i11.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 8
   %10 = load i8, ptr %m_static2.i.i.i11.i, align 8
@@ -11612,7 +11612,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
   %m_normal.i.i.i15.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 24
   %m_normal4.i.i.i16.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i16.i, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i9.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i9.i, align 8
   %m_node.i.i17.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 40
   %m_node2.i.i18.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 40
   %12 = load ptr, ptr %m_node2.i.i18.i, align 8
@@ -11783,7 +11783,7 @@ entry:
   %0 = load i32, ptr %m_size.i3, align 4
   %m_static.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i8 0, ptr %m_static.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 16), ptr %ref.tmp, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
@@ -12004,7 +12004,7 @@ entry:
   store i8 0, ptr %m_static.i.i.i, align 8
   %m_binding.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   store i8 0, ptr %m_binding.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 16), ptr %ref.tmp, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
@@ -12225,7 +12225,7 @@ entry:
   store i8 0, ptr %m_static.i.i.i, align 8
   %m_binding.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   store i8 0, ptr %m_binding.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 16), ptr %ref.tmp, align 8
   %m_useStrainLimiting.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   store i8 0, ptr %m_useStrainLimiting.i, align 8
   %cmp.i = icmp slt i32 %0, 0
@@ -12472,7 +12472,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   %arrayidx11.i.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %7, i64 %indvars.iv.i.i
   %m_static.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx11.i.i, i64 8
   store i8 0, ptr %m_static.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx11.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 16), ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %invoke.cont.i, label %for.body8.i.i, !llvm.loop !92
@@ -12493,7 +12493,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
   %arrayidx.i9.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %8, i64 %indvars.iv.i8.i
   %9 = load ptr, ptr %m_data.i5.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %9, i64 %indvars.iv.i8.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i9.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i9.i, align 8
   %m_static.i.i.i10.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 8
   %m_static2.i.i.i11.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 8
   %10 = load i8, ptr %m_static2.i.i.i11.i, align 8
@@ -12506,7 +12506,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
   %m_normal.i.i.i15.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 24
   %m_normal4.i.i.i16.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i16.i, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i9.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 16), ptr %arrayidx.i9.i, align 8
   %m_node.i.i17.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 40
   %m_node2.i.i18.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_node.i.i17.i, ptr noundef nonnull align 8 dereferenceable(56) %m_node2.i.i18.i, i64 56, i1 false)
@@ -12559,7 +12559,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %retval.0.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %2, i64 %indvars.iv.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_static.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %m_static2.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 8
   %3 = load i8, ptr %m_static2.i.i.i, align 8
@@ -12572,7 +12572,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %m_normal.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %m_normal4.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 0, i32 0, i64 2), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_node.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %m_node2.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_node.i.i, ptr noundef nonnull align 8 dereferenceable(56) %m_node2.i.i, i64 56, i1 false)

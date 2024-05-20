@@ -133,7 +133,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink314 = phi ptr [ %29, %27 ], [ %31, %30 ]
   store i8 0, ptr %.sink314, align 1
   %32 = getelementptr inbounds i8, ptr %.sink314, i64 14
-  %33 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 8), align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %.0224
   %35 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %28, ptr noundef %34, ptr noundef nonnull %32) #6
   call void @free(ptr noundef %28) #6
@@ -155,7 +155,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink320 = phi ptr [ %38, %36 ], [ %40, %39 ]
   store i8 0, ptr %.sink320, align 1
   %41 = getelementptr inbounds i8, ptr %.sink320, i64 9
-  %42 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 2), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %.0224
   %44 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %37, ptr noundef %43, ptr noundef nonnull %41) #6
   call void @free(ptr noundef %37) #6
@@ -177,7 +177,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink326 = phi ptr [ %47, %45 ], [ %49, %48 ]
   store i8 0, ptr %.sink326, align 1
   %50 = getelementptr inbounds i8, ptr %.sink326, i64 10
-  %51 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 3), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 24), align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 %.0224
   %53 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %46, ptr noundef %52, ptr noundef nonnull %50) #6
   call void @free(ptr noundef %46) #6
@@ -199,7 +199,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink332 = phi ptr [ %56, %54 ], [ %58, %57 ]
   store i8 0, ptr %.sink332, align 1
   %59 = getelementptr inbounds i8, ptr %.sink332, i64 13
-  %60 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 4), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 32), align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %.0224
   %62 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %55, ptr noundef %61, ptr noundef nonnull %59) #6
   call void @free(ptr noundef %55) #6
@@ -221,7 +221,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink338 = phi ptr [ %65, %63 ], [ %67, %66 ]
   store i8 0, ptr %.sink338, align 1
   %68 = getelementptr inbounds i8, ptr %.sink338, i64 14
-  %69 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 5), align 8
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 40), align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 %.0224
   %71 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %64, ptr noundef %70, ptr noundef nonnull %68) #6
   call void @free(ptr noundef %64) #6
@@ -243,7 +243,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink344 = phi ptr [ %74, %72 ], [ %76, %75 ]
   store i8 0, ptr %.sink344, align 1
   %77 = getelementptr inbounds i8, ptr %.sink344, i64 10
-  %78 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 6), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 48), align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 %.0224
   %80 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %73, ptr noundef %79, ptr noundef nonnull %77) #6
   call void @free(ptr noundef %73) #6
@@ -265,7 +265,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink350 = phi ptr [ %83, %81 ], [ %85, %84 ]
   store i8 0, ptr %.sink350, align 1
   %86 = getelementptr inbounds i8, ptr %.sink350, i64 13
-  %87 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 7), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 %.0224
   %89 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %82, ptr noundef %88, ptr noundef nonnull %86) #6
   call void @free(ptr noundef %82) #6
@@ -287,7 +287,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink356 = phi ptr [ %92, %90 ], [ %94, %93 ]
   store i8 0, ptr %.sink356, align 1
   %95 = getelementptr inbounds i8, ptr %.sink356, i64 17
-  %96 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 8), align 8
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 64), align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 %.0224
   %98 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %91, ptr noundef %97, ptr noundef nonnull %95) #6
   call void @free(ptr noundef %91) #6
@@ -309,7 +309,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink362 = phi ptr [ %101, %99 ], [ %103, %102 ]
   store i8 0, ptr %.sink362, align 1
   %104 = getelementptr inbounds i8, ptr %.sink362, i64 16
-  %105 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 9), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 72), align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 %.0224
   %107 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %100, ptr noundef %106, ptr noundef nonnull %104) #6
   call void @free(ptr noundef %100) #6
@@ -331,7 +331,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink368 = phi ptr [ %110, %108 ], [ %112, %111 ]
   store i8 0, ptr %.sink368, align 1
   %113 = getelementptr inbounds i8, ptr %.sink368, i64 9
-  %114 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 10), align 8
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 %.0224
   %116 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %109, ptr noundef %115, ptr noundef nonnull %113) #6
   call void @free(ptr noundef %109) #6
@@ -353,7 +353,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink374 = phi ptr [ %119, %117 ], [ %121, %120 ]
   store i8 0, ptr %.sink374, align 1
   %122 = getelementptr inbounds i8, ptr %.sink374, i64 13
-  %123 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 11), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 88), align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 %.0224
   %125 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %118, ptr noundef %124, ptr noundef nonnull %122) #6
   call void @free(ptr noundef %118) #6
@@ -375,7 +375,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink380 = phi ptr [ %128, %126 ], [ %130, %129 ]
   store i8 0, ptr %.sink380, align 1
   %131 = getelementptr inbounds i8, ptr %.sink380, i64 10
-  %132 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 12), align 8
+  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 96), align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 %.0224
   %134 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %127, ptr noundef %133, ptr noundef nonnull %131) #6
   call void @free(ptr noundef %127) #6
@@ -397,7 +397,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink386 = phi ptr [ %137, %135 ], [ %139, %138 ]
   store i8 0, ptr %.sink386, align 1
   %140 = getelementptr inbounds i8, ptr %.sink386, i64 9
-  %141 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 13), align 8
+  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 104), align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 %.0224
   %143 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %136, ptr noundef %142, ptr noundef nonnull %140) #6
   call void @free(ptr noundef %136) #6
@@ -419,7 +419,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink392 = phi ptr [ %146, %144 ], [ %148, %147 ]
   store i8 0, ptr %.sink392, align 1
   %149 = getelementptr inbounds i8, ptr %.sink392, i64 13
-  %150 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 14), align 8
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 %.0224
   %152 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %145, ptr noundef %151, ptr noundef nonnull %149) #6
   call void @free(ptr noundef %145) #6
@@ -441,7 +441,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink398 = phi ptr [ %155, %153 ], [ %157, %156 ]
   store i8 0, ptr %.sink398, align 1
   %158 = getelementptr inbounds i8, ptr %.sink398, i64 12
-  %159 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 15), align 8
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 %.0224
   %161 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %154, ptr noundef %160, ptr noundef nonnull %158) #6
   call void @free(ptr noundef %154) #6
@@ -466,7 +466,7 @@ define internal fastcc ptr @opal_install_dirs_expand_internal(ptr nocapture noun
   %.sink403 = phi ptr [ %164, %162 ], [ %166, %165 ]
   store i8 0, ptr %.sink403, align 1
   %168 = getelementptr inbounds i8, ptr %.sink403, i64 16
-  %169 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 16), align 8
+  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 128), align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 %.0224
   %171 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %163, ptr noundef %170, ptr noundef nonnull %168) #6
   call void @free(ptr noundef %163) #6

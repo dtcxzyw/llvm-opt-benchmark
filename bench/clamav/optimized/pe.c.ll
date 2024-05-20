@@ -10790,7 +10790,7 @@ define range(i32 0, 27) i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 1, ptr %30, align 4
-  %31 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @hashlen, i64 0, i64 1), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @hashlen, i64 4), align 4
   %32 = sext i32 %31 to i64
   %33 = call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #22
   %34 = getelementptr inbounds i8, ptr %6, i64 8
@@ -10800,7 +10800,7 @@ define range(i32 0, 27) i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i
 35:                                               ; preds = %20
   %36 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 1, ptr %36, align 4
-  %37 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @hashlen, i64 0, i64 2), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @hashlen, i64 8), align 4
   %38 = sext i32 %37 to i64
   %39 = call noalias ptr @calloc(i64 noundef %38, i64 noundef 1) #22
   %40 = getelementptr inbounds i8, ptr %6, i64 16

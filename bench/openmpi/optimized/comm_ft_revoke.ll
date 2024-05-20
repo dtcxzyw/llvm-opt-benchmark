@@ -38,7 +38,7 @@ define internal range(i32 0, 2) i32 @ompi_comm_revoke_local(ptr noundef %0, ptr 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 360
   store i8 0, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 48), align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i1 noundef zeroext false) #2
   %10 = load i8, ptr @opal_uses_threads, align 1
   %11 = trunc i8 %10 to i1
@@ -78,7 +78,7 @@ define i32 @ompi_comm_revoke_internal(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 360
   store i8 0, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 48), align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i1 noundef zeroext false) #2
   %10 = load i8, ptr @opal_uses_threads, align 1
   %11 = trunc i8 %10 to i1

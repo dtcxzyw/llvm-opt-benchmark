@@ -48,7 +48,7 @@ define i32 @mca_base_framework_register(ptr noundef %0, i32 noundef %1) local_un
 
 10:                                               ; preds = %2
   %11 = load i32, ptr @opal_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %11, %12
   br i1 %.not, label %14, label %13
 
@@ -61,7 +61,7 @@ define i32 @mca_base_framework_register(ptr noundef %0, i32 noundef %1) local_un
   store ptr @opal_list_t_class, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 88
   store volatile i32 1, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i = icmp eq ptr %18, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -77,7 +77,7 @@ define i32 @mca_base_framework_register(ptr noundef %0, i32 noundef %1) local_un
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %14
   %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not47 = icmp eq i32 %22, %23
   br i1 %.not47, label %25, label %24
 
@@ -90,7 +90,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %14
   store ptr @opal_list_t_class, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 152
   store volatile i32 1, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i53 = icmp eq ptr %29, null
   br i1 %.not6.i53, label %opal_obj_run_constructors.exit57, label %.lr.ph.i54

@@ -340,14 +340,14 @@ define internal fastcc void @subxact_info_read(i32 noundef %0, i32 noundef %1) u
   %12 = zext i32 %11 to i64
   %13 = call i32 @my_log2(i64 noundef %12) #17
   %14 = shl nuw i32 1, %13
-  store i32 %14, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 1), align 4
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
   %15 = load ptr, ptr @LogicalStreamingContext, align 8
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %17 = zext i32 %14 to i64
   %18 = shl nuw nsw i64 %17, 4
   %19 = call ptr @palloc(i64 noundef %18) #17
-  store ptr %19, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %22, label %20
@@ -389,7 +389,7 @@ define internal fastcc void @subxact_info_write(i32 noundef %0, i32 noundef %1) 
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %cleanup_subxact_info.exit, label %9
 
@@ -398,10 +398,10 @@ define internal fastcc void @subxact_info_write(i32 noundef %0, i32 noundef %1) 
   br label %cleanup_subxact_info.exit
 
 cleanup_subxact_info.exit:                        ; preds = %7, %9
-  store ptr null, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 8), align 8
   store i32 0, ptr @subxact_data, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
   %10 = load ptr, ptr @MyLogicalRepWorker, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
@@ -429,10 +429,10 @@ cleanup_subxact_info.exit:                        ; preds = %7, %9
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 4
   call void @BufFileWrite(ptr noundef %.0, ptr noundef nonnull @subxact_data, i64 noundef 4) #17
-  %28 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
   call void @BufFileWrite(ptr noundef %.0, ptr noundef %28, i64 noundef %27) #17
   call void @BufFileClose(ptr noundef %.0) #17
-  %29 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
   %.not.i7 = icmp eq ptr %29, null
   br i1 %.not.i7, label %cleanup_subxact_info.exit8, label %30
 
@@ -441,10 +441,10 @@ cleanup_subxact_info.exit:                        ; preds = %7, %9
   br label %cleanup_subxact_info.exit8
 
 cleanup_subxact_info.exit8:                       ; preds = %24, %30
-  store ptr null, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 8), align 8
   store i32 0, ptr @subxact_data, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
   br label %31
 
 31:                                               ; preds = %cleanup_subxact_info.exit8, %cleanup_subxact_info.exit
@@ -782,8 +782,8 @@ define dso_local void @apply_dispatch(ptr noundef %0) local_unnamed_addr #0 {
   %38 = getelementptr inbounds i8, ptr %34, i64 16
   %39 = load i32, ptr %38, align 8
   %40 = load i64, ptr %34, align 8
-  store i32 %39, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 %40, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store i32 %39, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 %40, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   store i64 %40, ptr @remote_final_lsn, align 8
   %41 = load ptr, ptr @MySubscription, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
@@ -843,10 +843,10 @@ apply_handle_commit.exit:                         ; preds = %54
   %70 = load i64, ptr %69, align 8
   call void @process_syncing_tables(i64 noundef %70) #17
   call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
   br label %apply_handle_relation.exit
 
@@ -903,7 +903,7 @@ begin_replication_step.exit.i:                    ; preds = %77, %75
   br label %96
 
 96:                                               ; preds = %89, %84
-  store ptr %81, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
+  store ptr %81, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
   %97 = call fastcc ptr @create_edata_for_relation(ptr noundef %81)
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %81, i64 72
@@ -1086,7 +1086,7 @@ finish_edata.exit.i:                              ; preds = %195, %191
   call void @ExecResetTupleTable(ptr noundef %199, i1 noundef zeroext false) #17
   call void @FreeExecutorState(ptr noundef %192) #17
   call void @pfree(ptr noundef nonnull %97) #17
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
   br i1 %88, label %201, label %200
 
 200:                                              ; preds = %finish_edata.exit.i
@@ -1145,7 +1145,7 @@ begin_replication_step.exit.i23:                  ; preds = %208, %206
   br label %.sink.split.i24
 
 215:                                              ; preds = %begin_replication_step.exit.i23
-  store ptr %212, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
+  store ptr %212, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
   call fastcc void @check_relation_updatable(ptr noundef %212)
   %216 = load ptr, ptr @MySubscription, align 8
   %217 = getelementptr inbounds i8, ptr %216, i64 35
@@ -1363,7 +1363,7 @@ finish_edata.exit.i25:                            ; preds = %335, %331
   call void @ExecResetTupleTable(ptr noundef %339, i1 noundef zeroext false) #17
   call void @FreeExecutorState(ptr noundef %332) #17
   call void @pfree(ptr noundef nonnull %228) #17
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
   br i1 %219, label %341, label %340
 
 340:                                              ; preds = %finish_edata.exit.i25
@@ -1422,7 +1422,7 @@ begin_replication_step.exit.i30:                  ; preds = %348, %346
   br label %.sink.split.i31
 
 355:                                              ; preds = %begin_replication_step.exit.i30
-  store ptr %352, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
+  store ptr %352, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
   call fastcc void @check_relation_updatable(ptr noundef %352)
   %356 = load ptr, ptr @MySubscription, align 8
   %357 = getelementptr inbounds i8, ptr %356, i64 35
@@ -1505,7 +1505,7 @@ finish_edata.exit.i33:                            ; preds = %400, %396
   call void @ExecResetTupleTable(ptr noundef %404, i1 noundef zeroext false) #17
   call void @FreeExecutorState(ptr noundef %397) #17
   call void @pfree(ptr noundef nonnull %368) #17
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
   br i1 %359, label %406, label %405
 
 405:                                              ; preds = %finish_edata.exit.i33
@@ -1887,8 +1887,8 @@ am_tablesync_worker.exit.thread.i:                ; preds = %am_tablesync_worker
   unreachable
 
 569:                                              ; preds = %563
-  store i32 %564, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store i32 %564, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %570 = load i8, ptr %20, align 1
   %571 = trunc i8 %570 to i1
   br i1 %571, label %572, label %573
@@ -2174,10 +2174,10 @@ apply_handle_stream_stop.exit:                    ; preds = %654, %670, %get_tra
   %..i46 = select i1 %702, i32 3, i32 1
   call void @pgstat_report_activity(i32 noundef %..i46, ptr noundef null) #17
   store i32 0, ptr @apply_error_callback_arg, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   br label %apply_handle_relation.exit
 
 703:                                              ; preds = %1
@@ -2207,8 +2207,8 @@ apply_handle_stream_stop.exit:                    ; preds = %654, %670, %get_tra
   %716 = icmp eq i32 %713, %715
   %717 = getelementptr inbounds i8, ptr %14, i64 8
   %718 = load i64, ptr %717, align 8
-  store i32 %715, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 %718, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store i32 %715, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 %718, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %719 = load ptr, ptr @MyLogicalRepWorker, align 8
   %720 = getelementptr inbounds i8, ptr %719, i64 16
   %721 = load i8, ptr %720, align 8
@@ -2278,7 +2278,7 @@ begin_replication_step.exit.i.i:                  ; preds = %745, %743
   call fastcc void @subxact_info_read(i32 noundef %750, i32 noundef %713)
   %751 = load i32, ptr @subxact_data, align 8
   %752 = zext i32 %751 to i64
-  %753 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
+  %753 = load ptr, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
   br label %754
 
 754:                                              ; preds = %756, %begin_replication_step.exit.i.i
@@ -2302,10 +2302,10 @@ begin_replication_step.exit.i.i:                  ; preds = %745, %743
   br label %cleanup_subxact_info.exit.i.i
 
 cleanup_subxact_info.exit.i.i:                    ; preds = %762, %761
-  store ptr null, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 8), align 8
   store i32 0, ptr @subxact_data, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
   call void @PopActiveSnapshot() #17
   call void @CommandCounterIncrement() #17
   call void @CommitTransactionCommand() #17
@@ -2320,7 +2320,7 @@ cleanup_subxact_info.exit.i.i:                    ; preds = %762, %761
   %769 = getelementptr inbounds i8, ptr %768, i64 72
   %770 = load ptr, ptr %769, align 8
   %771 = call ptr @BufFileOpenFileSet(ptr noundef %770, ptr noundef nonnull %13, i32 noundef 2, i1 noundef zeroext false) #17
-  %772 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
+  %772 = load ptr, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
   %773 = getelementptr %struct.SubXactInfo, ptr %772, i64 %757
   %774 = getelementptr inbounds i8, ptr %773, i64 4
   %775 = load i32, ptr %774, align 4
@@ -2430,10 +2430,10 @@ get_transaction_apply_action.exit.thread33.i:     ; preds = %am_parallel_apply_w
 
 apply_handle_stream_abort.exit:                   ; preds = %stream_abort_internal.exit.i, %783, %.thread.i, %800, %get_transaction_apply_action.exit.thread30.i, %802, %810, %812
   store i32 0, ptr @apply_error_callback_arg, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %apply_handle_relation.exit
@@ -2456,8 +2456,8 @@ apply_handle_stream_abort.exit:                   ; preds = %stream_abort_intern
 822:                                              ; preds = %817
   %823 = call i32 @logicalrep_read_stream_commit(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
   %824 = load i64, ptr %10, align 8
-  store i32 %823, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 %824, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store i32 %823, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 %824, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %825 = load ptr, ptr @MyLogicalRepWorker, align 8
   %826 = getelementptr inbounds i8, ptr %825, i64 16
   %827 = load i8, ptr %826, align 8
@@ -2571,10 +2571,10 @@ apply_handle_stream_commit.exit:                  ; preds = %836, %845, %852, %g
   call void @process_syncing_tables(i64 noundef %873) #17
   call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
   store i32 0, ptr @apply_error_callback_arg, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %apply_handle_relation.exit
@@ -2605,8 +2605,8 @@ am_tablesync_worker.exit.thread.i58:              ; preds = %am_tablesync_worker
   %885 = getelementptr inbounds i8, ptr %9, i64 24
   %886 = load i32, ptr %885, align 8
   %887 = load i64, ptr %9, align 8
-  store i32 %886, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 %887, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store i32 %886, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 %887, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   store i64 %887, ptr @remote_final_lsn, align 8
   %888 = load ptr, ptr @MySubscription, align 8
   %889 = getelementptr inbounds i8, ptr %888, i64 8
@@ -2702,7 +2702,7 @@ am_parallel_apply_worker.exit.thread.i.i63:       ; preds = %am_parallel_apply_w
   store i64 %924, ptr %933, align 8
   %934 = getelementptr inbounds i8, ptr %932, i64 24
   store i64 %923, ptr %934, align 8
-  %935 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  %935 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   %936 = icmp eq ptr %935, null
   br i1 %936, label %937, label %._crit_edge.i.i.i
 
@@ -2711,7 +2711,7 @@ am_parallel_apply_worker.exit.thread.i.i63:       ; preds = %am_parallel_apply_w
   br label %dlist_push_tail.exit.i.i
 
 937:                                              ; preds = %am_parallel_apply_worker.exit.thread.i.i63
-  store ptr @lsn_mapping, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   br label %dlist_push_tail.exit.i.i
 
 dlist_push_tail.exit.i.i:                         ; preds = %937, %._crit_edge.i.i.i
@@ -2757,10 +2757,10 @@ apply_handle_prepare.exit:                        ; preds = %store_flush_positio
   call fastcc void @clear_subscription_skip_lsn(i64 noundef %953)
   call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
   store i32 0, ptr @apply_error_callback_arg, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %8)
   br label %apply_handle_relation.exit
 
@@ -2771,8 +2771,8 @@ apply_handle_prepare.exit:                        ; preds = %store_flush_positio
   %955 = getelementptr inbounds i8, ptr %6, i64 24
   %956 = load i32, ptr %955, align 8
   %957 = load i64, ptr %6, align 8
-  store i32 %956, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 %957, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store i32 %956, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 %957, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %.not.i.i67 = icmp eq i32 %956, 0
   br i1 %.not.i.i67, label %958, label %TwoPhaseTransactionGid.exit.i
 
@@ -2834,7 +2834,7 @@ am_parallel_apply_worker.exit.thread.i.i69:       ; preds = %am_parallel_apply_w
   store i64 %975, ptr %984, align 8
   %985 = getelementptr inbounds i8, ptr %983, i64 24
   store i64 %974, ptr %985, align 8
-  %986 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  %986 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   %987 = icmp eq ptr %986, null
   br i1 %987, label %988, label %._crit_edge.i.i.i70
 
@@ -2843,7 +2843,7 @@ am_parallel_apply_worker.exit.thread.i.i69:       ; preds = %am_parallel_apply_w
   br label %dlist_push_tail.exit.i.i72
 
 988:                                              ; preds = %am_parallel_apply_worker.exit.thread.i.i69
-  store ptr @lsn_mapping, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   br label %dlist_push_tail.exit.i.i72
 
 dlist_push_tail.exit.i.i72:                       ; preds = %988, %._crit_edge.i.i.i70
@@ -2867,10 +2867,10 @@ apply_handle_commit_prepared.exit:                ; preds = %am_parallel_apply_w
   call fastcc void @clear_subscription_skip_lsn(i64 noundef %994)
   call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
   store i32 0, ptr @apply_error_callback_arg, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7)
   br label %apply_handle_relation.exit
@@ -2883,8 +2883,8 @@ apply_handle_commit_prepared.exit:                ; preds = %am_parallel_apply_w
   %997 = load i32, ptr %996, align 8
   %998 = getelementptr inbounds i8, ptr %4, i64 8
   %999 = load i64, ptr %998, align 8
-  store i32 %997, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 %999, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store i32 %997, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 %999, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %.not.i.i76 = icmp eq i32 %997, 0
   br i1 %.not.i.i76, label %1000, label %TwoPhaseTransactionGid.exit.i77
 
@@ -2957,7 +2957,7 @@ am_parallel_apply_worker.exit.thread.i.i78:       ; preds = %am_parallel_apply_w
   store i64 %1023, ptr %1032, align 8
   %1033 = getelementptr inbounds i8, ptr %1031, i64 24
   store i64 %1022, ptr %1033, align 8
-  %1034 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  %1034 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   %1035 = icmp eq ptr %1034, null
   br i1 %1035, label %1036, label %._crit_edge.i.i.i79
 
@@ -2966,7 +2966,7 @@ am_parallel_apply_worker.exit.thread.i.i78:       ; preds = %am_parallel_apply_w
   br label %dlist_push_tail.exit.i.i81
 
 1036:                                             ; preds = %am_parallel_apply_worker.exit.thread.i.i78
-  store ptr @lsn_mapping, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   br label %dlist_push_tail.exit.i.i81
 
 dlist_push_tail.exit.i.i81:                       ; preds = %1036, %._crit_edge.i.i.i79
@@ -2988,10 +2988,10 @@ apply_handle_rollback_prepared.exit:              ; preds = %am_parallel_apply_w
   call void @process_syncing_tables(i64 noundef %1041) #17
   call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
   store i32 0, ptr @apply_error_callback_arg, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5)
   br label %apply_handle_relation.exit
@@ -3036,8 +3036,8 @@ am_tablesync_worker.exit.thread:                  ; preds = %1047, %am_tablesync
   %1058 = getelementptr inbounds i8, ptr %2, i64 24
   %1059 = load i32, ptr %1058, align 8
   %1060 = load i64, ptr %2, align 8
-  store i32 %1059, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 %1060, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store i32 %1059, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 %1060, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %1061 = load ptr, ptr @MyLogicalRepWorker, align 8
   %1062 = getelementptr inbounds i8, ptr %1061, i64 16
   %1063 = load i8, ptr %1062, align 8
@@ -3192,10 +3192,10 @@ stop_skipping_changes.exit:                       ; preds = %apply_handle_stream
   call fastcc void @clear_subscription_skip_lsn(i64 noundef %1130)
   call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
   store i32 0, ptr @apply_error_callback_arg, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
+  store i64 0, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %apply_handle_relation.exit
@@ -3240,7 +3240,7 @@ am_parallel_apply_worker.exit.thread:             ; preds = %2, %am_parallel_app
   store i64 %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 %0, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %._crit_edge.i
 
@@ -3249,7 +3249,7 @@ am_parallel_apply_worker.exit.thread:             ; preds = %2, %am_parallel_app
   br label %dlist_push_tail.exit
 
 15:                                               ; preds = %am_parallel_apply_worker.exit.thread
-  store ptr @lsn_mapping, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %15
@@ -3920,7 +3920,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.047.i, label %LogicalRepApplyLoop.exit, label %88
 
 88:                                               ; preds = %85
-  %89 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   %90 = icmp eq ptr %89, null
   %91 = icmp eq ptr %89, @lsn_mapping
   %spec.select.i.i = or i1 %90, %91
@@ -4401,31 +4401,31 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
   br i1 %3, label %71, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %31
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %7
   %10 = tail call i32 @set_errcontext_domain(ptr noundef null) #17
-  %11 = load ptr, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 5), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 32), align 8
   %12 = load i32, ptr @apply_error_callback_arg, align 8
   %13 = tail call ptr @logicalrep_message_type(i32 noundef %12) #17
   %14 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.30, ptr noundef %11, ptr noundef %13) #17
   br label %71
 
 15:                                               ; preds = %7
-  %16 = load i64, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %17 = icmp eq i64 %16, 0
   %18 = tail call i32 @set_errcontext_domain(ptr noundef null) #17
-  %19 = load ptr, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 5), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 32), align 8
   %20 = load i32, ptr @apply_error_callback_arg, align 8
   %21 = tail call ptr @logicalrep_message_type(i32 noundef %20) #17
-  %22 = load i32, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
   br i1 %17, label %23, label %25
 
 23:                                               ; preds = %15
@@ -4433,7 +4433,7 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
   br label %71
 
 25:                                               ; preds = %15
-  %26 = load i64, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %27 = lshr i64 %26, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %26 to i32
@@ -4441,15 +4441,15 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
   br label %71
 
 31:                                               ; preds = %4
-  %32 = load i32, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
   %33 = icmp slt i32 %32, 0
-  %34 = load i64, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %35 = icmp eq i64 %34, 0
   %36 = tail call i32 @set_errcontext_domain(ptr noundef null) #17
-  %37 = load ptr, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 5), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 32), align 8
   %38 = load i32, ptr @apply_error_callback_arg, align 8
   %39 = tail call ptr @logicalrep_message_type(i32 noundef %38) #17
-  %40 = load ptr, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 8), align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %40, i64 16
@@ -4457,7 +4457,7 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
   br i1 %33, label %45, label %55
 
 45:                                               ; preds = %31
-  %46 = load i32, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
   br i1 %35, label %47, label %49
 
 47:                                               ; preds = %45
@@ -4465,7 +4465,7 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
   br label %71
 
 49:                                               ; preds = %45
-  %50 = load i64, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %51 = lshr i64 %50, 32
   %52 = trunc nuw i64 %51 to i32
   %53 = trunc i64 %50 to i32
@@ -4475,11 +4475,11 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
 55:                                               ; preds = %31
   %56 = getelementptr inbounds i8, ptr %40, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr ptr, ptr %57, i64 %59
   %61 = load ptr, ptr %60, align 8
-  %62 = load i32, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 3), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 20), align 4
   br i1 %35, label %63, label %65
 
 63:                                               ; preds = %55
@@ -4487,7 +4487,7 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
   br label %71
 
 65:                                               ; preds = %55
-  %66 = load i64, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
+  %66 = load i64, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 24), align 8
   %67 = lshr i64 %66, 32
   %68 = trunc nuw i64 %67 to i32
   %69 = trunc i64 %66 to i32
@@ -4598,7 +4598,7 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 define dso_local void @set_apply_error_context_origin(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ApplyContext, align 8
   %3 = tail call ptr @MemoryContextStrdup(ptr noundef %2, ptr noundef %0) #17
-  store ptr %3, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 5), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 32), align 8
   ret void
 }
 
@@ -4695,7 +4695,7 @@ am_parallel_apply_worker.exit.thread.i:           ; preds = %am_parallel_apply_w
   store i64 %27, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %35, i64 24
   store i64 %26, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %._crit_edge.i.i
 
@@ -4704,7 +4704,7 @@ am_parallel_apply_worker.exit.thread.i:           ; preds = %am_parallel_apply_w
   br label %dlist_push_tail.exit.i
 
 40:                                               ; preds = %am_parallel_apply_worker.exit.thread.i
-  store ptr @lsn_mapping, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   br label %dlist_push_tail.exit.i
 
 dlist_push_tail.exit.i:                           ; preds = %40, %._crit_edge.i.i
@@ -4933,16 +4933,16 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   ]
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
   %27 = load i32, ptr @stream_xid, align 4
   %28 = icmp eq i32 %27, %19
-  %29 = load i32, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 2), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 8), align 8
   %30 = icmp eq i32 %29, %19
   %or.cond.i = select i1 %28, i1 true, i1 %30
   br i1 %or.cond.i, label %subxact_info_add.exit, label %31
 
 31:                                               ; preds = %25
-  store i32 %19, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 2), align 8
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 8), align 8
   %32 = load i32, ptr @subxact_data, align 8
   %invariant.gep.i = getelementptr i8, ptr %26, i64 -16
   %.not.i19 = icmp eq i32 %32, 0
@@ -4965,7 +4965,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   br i1 %38, label %subxact_info_add.exit, label %34
 
 ._crit_edge.thread.i:                             ; preds = %31
-  store i32 128, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 1), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
   %39 = load ptr, ptr @LogicalStreamingContext, align 8
   %40 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %39, ptr @CurrentMemoryContext, align 8
@@ -4974,13 +4974,13 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   br label %49
 
 ._crit_edge.i:                                    ; preds = %34
-  %42 = load i32, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 1), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
   %43 = icmp eq i32 %32, %42
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %._crit_edge.i
   %45 = shl i32 %32, 1
-  store i32 %45, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 1), align 4
+  store i32 %45, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
   %46 = zext i32 %45 to i64
   %47 = shl nuw nsw i64 %46, 4
   %48 = tail call ptr @repalloc(ptr noundef nonnull %26, i64 noundef %47) #17
@@ -5002,7 +5002,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   %59 = load i32, ptr @subxact_data, align 8
   %60 = add i32 %59, 1
   store i32 %60, ptr @subxact_data, align 8
-  store ptr %.0.i20, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i64 0, i32 3), align 8
+  store ptr %.0.i20, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 16), align 8
   br label %subxact_info_add.exit
 
 subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %49
@@ -5272,7 +5272,7 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr nocapture nound
   %34 = load ptr, ptr %2, align 8
   %35 = zext nneg i32 %28 to i64
   %36 = getelementptr %struct.StringInfoData, ptr %34, i64 %35
-  store i32 %28, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
   %37 = load ptr, ptr %17, align 8
   %38 = getelementptr i8, ptr %37, i64 %35
   %39 = load i8, ptr %38, align 1
@@ -5335,7 +5335,7 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr nocapture nound
   %71 = load ptr, ptr %19, align 8
   %72 = getelementptr i8, ptr %71, i64 %indvars.iv
   store i8 %.sink, ptr %72, align 1
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
   br label %78
 
 73:                                               ; preds = %20
@@ -5926,7 +5926,7 @@ slot_getallattrs.exit:                            ; preds = %4, %23
 52:                                               ; preds = %47
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr %struct.StringInfoData, ptr %53, i64 %49
-  store i32 %45, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
+  store i32 %45, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
   %55 = load ptr, ptr %36, align 8
   %56 = getelementptr i8, ptr %55, i64 %49
   %57 = load i8, ptr %56, align 1
@@ -5989,7 +5989,7 @@ slot_getallattrs.exit:                            ; preds = %4, %23
   %89 = load ptr, ptr %30, align 8
   %90 = getelementptr i8, ptr %89, i64 %indvars.iv
   store i8 %.sink, ptr %90, align 1
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 2), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 16), align 8
   br label %91
 
 91:                                               ; preds = %47, %88, %37
@@ -6283,7 +6283,7 @@ define internal fastcc void @send_feedback(i64 noundef %0, i1 noundef zeroext %1
   %8 = load i64, ptr @send_feedback.last_recvpos, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 %0)
   %9 = tail call i64 @GetFlushRecPtr(ptr noundef null) #17
-  %10 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   %.not.i = icmp eq ptr %10, null
   %.not192529.i = icmp eq ptr %10, @lsn_mapping
   %.not1925.i = or i1 %.not.i, %.not192529.i
@@ -6324,7 +6324,7 @@ get_flush_position.exit.thread:                   ; preds = %.lr.ph.i, %.lr.ph.i
   br label %25
 
 select.unfold._crit_edge.loopexit.i:              ; preds = %select.unfold.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @lsn_mapping, i64 0, i32 0, i32 1), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   br label %get_flush_position.exit
 
 get_flush_position.exit:                          ; preds = %7, %select.unfold._crit_edge.loopexit.i
@@ -6606,7 +6606,7 @@ define internal fastcc void @run_apply_worker() unnamed_addr #0 {
   %48 = call ptr %47(ptr noundef nonnull %37, ptr noundef nonnull %3) #17
   %49 = load ptr, ptr @ApplyContext, align 8
   %50 = call ptr @MemoryContextStrdup(ptr noundef %49, ptr noundef nonnull %1) #17
-  store ptr %50, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 5), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @apply_error_callback_arg, i64 32), align 8
   store i8 1, ptr %2, align 8
   %51 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %19, ptr %51, align 8

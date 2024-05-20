@@ -412,7 +412,7 @@ _set_limit.exit:                                  ; preds = %50, %53, %55, %64, 
 
 175:                                              ; preds = %168, %173, %170, %157, %164, %160
   %176 = call i32 @prlimit(i32 noundef %1, i32 noundef 9, ptr noundef null, ptr noundef nonnull %10) #7
-  %177 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 217), align 8
+  %177 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1504), align 8
   %178 = icmp eq i16 %177, 0
   %or.cond4.not42 = select i1 %144, i1 true, i1 %178
   %179 = icmp ne i32 %176, 0

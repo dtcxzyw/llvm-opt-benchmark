@@ -784,8 +784,8 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 38:                                               ; preds = %34, %29
   store i32 %.1, ptr @ii_arr, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 1), i8 0, i64 6, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 5), i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) getelementptr inbounds (i8, ptr @ii_arr, i64 4), i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) getelementptr inbounds (i8, ptr @ii_arr, i64 12), i8 0, i64 44, i1 false)
   switch i32 %.1, label %default.unreachable97 [
     i32 1, label %39
     i32 0, label %526
@@ -803,10 +803,10 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %44) #13
   %46 = or disjoint i32 %.060, 9
   %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #13
-  store i8 %45, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 3), align 8
-  store i8 %47, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 4), align 1
-  store i16 %.058, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 1), align 4
-  store i16 %41, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 2), align 2
+  store i8 %45, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 8), align 8
+  store i8 %47, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 9), align 1
+  store i16 %.058, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 4), align 4
+  store i16 %41, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 6), align 2
   %48 = tail call ptr @wmem_file_scope() #13
   %49 = load i32, ptr @proto_iax2, align 4
   %50 = tail call ptr @p_get_proto_data(ptr noundef %48, ptr noundef nonnull %1, i32 noundef %49, i32 noundef 0) #13
@@ -1013,7 +1013,7 @@ proto_item_set_generated.exit.i:                  ; preds = %131, %128, %123, %1
   br label %163
 
 163:                                              ; preds = %155, %151
-  store i32 %43, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 5), align 4
+  store i32 %43, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 12), align 4
   br label %iax2_add_ts_fields.exit.i
 
 iax2_add_ts_fields.exit.i:                        ; preds = %163, %148
@@ -1029,7 +1029,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %163, %148
   %167 = zext nneg i16 %.058 to i32
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %165, i32 noundef 25, ptr noundef nonnull @.str.483, ptr noundef %166, i32 noundef %167, i32 noundef %43) #13
   %168 = call ptr @val_to_str_ext(i32 noundef %.pre-phi.i, ptr noundef nonnull @iax_frame_types_ext, ptr noundef nonnull @.str.484) #13
-  store ptr %168, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 8), align 8
+  store ptr %168, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 24), align 8
   switch i8 %45, label %520 [
     i8 6, label %169
     i8 12, label %400
@@ -1114,14 +1114,14 @@ dissect_ies.exit.thread.i.i:                      ; preds = %179
   %206 = load ptr, ptr %182, align 8
   %207 = add i32 %.0219.i.i.i, 2
   %208 = call ptr @tvb_format_text(ptr noundef %206, ptr noundef %0, i32 noundef %207, i32 noundef %198) #13
-  store ptr %208, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 10), align 8
+  store ptr %208, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 40), align 8
   br label %225
 
 209:                                              ; preds = %190
   %210 = load ptr, ptr %182, align 8
   %211 = add i32 %.0219.i.i.i, 2
   %212 = call ptr @tvb_format_text(ptr noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef %198) #13
-  store ptr %212, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 9), align 16
+  store ptr %212, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 32), align 16
   br label %225
 
 213:                                              ; preds = %190
@@ -1173,7 +1173,7 @@ dissect_ies.exit.thread.i.i:                      ; preds = %179
 240:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %241 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @hf_iax2_ies, i64 0, i64 31), align 4
+  %241 = load i32, ptr getelementptr inbounds (i8, ptr @hf_iax2_ies, i64 124), align 4
   %242 = add i32 %.0219.i.i.i, 2
   %243 = call ptr @proto_tree_add_item(ptr noundef %235, i32 noundef %241, ptr noundef %0, i32 noundef %242, i32 noundef 4, i32 noundef 0) #13
   %244 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %242) #13
@@ -1488,7 +1488,7 @@ dissect_iax2_command.exit.i:                      ; preds = %390, %386, %dissect
   %.0.i.i = phi i32 [ %175, %169 ], [ %175, %dissect_ies.exit.thread.i.i ], [ %381, %390 ], [ %381, %386 ], [ %381, %dissect_ies.exit.i.i ]
   %393 = zext i8 %47 to i32
   %394 = call ptr @val_to_str_ext(i32 noundef %393, ptr noundef nonnull @iax_iax_subclasses_ext, ptr noundef nonnull @.str.485) #13
-  store ptr %394, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 8), align 8
+  store ptr %394, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 24), align 8
   %395 = icmp ult i8 %47, 38
   br i1 %395, label %396, label %dissect_fullpacket.exit
 
@@ -1496,7 +1496,7 @@ dissect_iax2_command.exit.i:                      ; preds = %390, %386, %dissect
   %397 = zext nneg i8 %47 to i64
   %398 = getelementptr [38 x i32], ptr @tap_iax_voip_state, i64 0, i64 %397
   %399 = load i32, ptr %398, align 4
-  store i32 %399, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 7), align 4
+  store i32 %399, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 20), align 4
   br label %dissect_fullpacket.exit
 
 400:                                              ; preds = %164, %164
@@ -1519,7 +1519,7 @@ dissect_iax2_command.exit.i:                      ; preds = %390, %386, %dissect
   %414 = call ptr @val_to_str_ext(i32 noundef %410, ptr noundef nonnull @iax_cmd_subclasses_ext, ptr noundef nonnull @.str.485) #13
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %413, i32 noundef 25, ptr noundef nonnull @.str.487, ptr noundef %414) #13
   %415 = call ptr @val_to_str_ext(i32 noundef %410, ptr noundef nonnull @iax_cmd_subclasses_ext, ptr noundef nonnull @.str.485) #13
-  store ptr %415, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 8), align 8
+  store ptr %415, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 24), align 8
   %416 = icmp ult i8 %47, 8
   br i1 %416, label %417, label %dissect_fullpacket.exit
 
@@ -1527,7 +1527,7 @@ dissect_iax2_command.exit.i:                      ; preds = %390, %386, %dissect
   %418 = zext nneg i8 %47 to i64
   %419 = getelementptr [8 x i32], ptr @tap_cmd_voip_state, i64 0, i64 %418
   %420 = load i32, ptr %419, align 4
-  store i32 %420, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 7), align 4
+  store i32 %420, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 20), align 4
   br label %dissect_fullpacket.exit
 
 421:                                              ; preds = %164
@@ -1735,7 +1735,7 @@ dissect_fullpacket.exit:                          ; preds = %dissect_iax2_comman
   br label %750
 
 526:                                              ; preds = %38
-  store ptr @.str.480, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 8), align 8
+  store ptr @.str.480, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 24), align 8
   %527 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.060) #13
   %528 = zext i16 %527 to i32
   %529 = tail call fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef nonnull %1, i16 noundef zeroext %.058, i32 noundef 0)
@@ -1805,7 +1805,7 @@ proto_item_set_generated.exit.i66:                ; preds = %541, %538, %533, %5
   br label %566
 
 566:                                              ; preds = %555, %551
-  store i32 %528, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 5), align 4
+  store i32 %528, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 12), align 4
   br label %iax2_add_ts_fields.exit.i67
 
 iax2_add_ts_fields.exit.i67:                      ; preds = %566, %547
@@ -1822,7 +1822,7 @@ dissect_minipacket.exit:                          ; preds = %proto_item_set_gene
   br label %750
 
 570:                                              ; preds = %38
-  store ptr @.str.481, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 8), align 8
+  store ptr @.str.481, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 24), align 8
   %571 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.060) #13
   %572 = and i16 %571, 32767
   %573 = zext nneg i16 %572 to i32
@@ -1895,7 +1895,7 @@ proto_item_set_generated.exit.i70:                ; preds = %586, %583, %578, %5
   br label %613
 
 613:                                              ; preds = %602, %598
-  store i32 %573, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 5), align 4
+  store i32 %573, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 12), align 4
   br label %iax2_add_ts_fields.exit.i72
 
 iax2_add_ts_fields.exit.i72:                      ; preds = %613, %594
@@ -1914,7 +1914,7 @@ dissect_minivideopacket.exit:                     ; preds = %proto_item_set_gene
   br label %750
 
 618:                                              ; preds = %38
-  store ptr @.str.482, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 8), align 8
+  store ptr @.str.482, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 24), align 8
   %619 = or disjoint i32 %.060, 1
   %620 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %619) #13
   %621 = and i8 %620, 1
@@ -2592,7 +2592,7 @@ default.unreachable:                              ; preds = %16
   br label %37
 
 37:                                               ; preds = %29, %12
-  store i32 %5, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 5), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 12), align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %proto_item_set_generated.exit29, label %38
 
@@ -2754,9 +2754,9 @@ define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef %1, ptr
   %38 = tail call i32 @tvb_reported_length(ptr noundef %20) #13
   %39 = load i32, ptr @hf_iax2_payload_data, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %39, ptr noundef %20, i32 noundef 0, i32 noundef -1, i32 noundef 0) #13
-  store i32 %38, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 6), align 16
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 16), align 16
   %41 = tail call ptr @tvb_get_ptr(ptr noundef %20, i32 noundef 0, i32 noundef -1) #13
-  store ptr %41, ptr getelementptr inbounds ([1 x %struct._iax2_info_t], ptr @ii_arr, i64 0, i64 0, i32 11), align 16
+  store ptr %41, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 48), align 16
   %42 = load ptr, ptr %13, align 8
   %.not35 = icmp eq ptr %42, null
   br i1 %.not35, label %211, label %43

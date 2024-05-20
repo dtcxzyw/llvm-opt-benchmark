@@ -2595,7 +2595,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   %len = getelementptr inbounds i8, ptr %out, i64 8
   %output.i = getelementptr inbounds i8, ptr %io, i64 8
   %wrerror.i = getelementptr inbounds i8, ptr %io, i64 16
-  %5 = load i8, ptr getelementptr inbounds ([256 x i8], ptr @sane_ctype, i64 0, i64 32), align 16
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @sane_ctype, i64 32), align 16
   %6 = and i8 %5, 1
   %tobool4.not = icmp eq i8 %6, 0
   br label %while.body
@@ -2740,7 +2740,7 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = zext i32 %marker_size to i64
-  %2 = load i8, ptr getelementptr inbounds ([256 x i8], ptr @sane_ctype, i64 0, i64 32), align 16
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @sane_ctype, i64 32), align 16
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
   %4 = and i8 %2, 1

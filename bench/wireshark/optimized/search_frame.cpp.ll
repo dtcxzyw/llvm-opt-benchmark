@@ -94,9 +94,9 @@ $_ZN14Ui_SearchFrame13retranslateUiEP14AccordionFrame = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11SearchFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11SearchFrame, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11SearchFrame, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11SearchFrame, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11SearchFrame, i64 456), ptr %3, align 8
   %4 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #12
           to label %5 unwind label %12
 
@@ -323,7 +323,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40:    ; preds = %84
   call void @_ZN7QLayout18setContentsMarginsEiiii(ptr noundef nonnull align 8 dereferenceable(28) %90, i32 noundef -1, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %91 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %92 = getelementptr inbounds i8, ptr %91, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %91, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %91, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1048576>, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %91, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %93, align 4
@@ -483,7 +483,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66:    ; preds = %132
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %138, ptr noundef %139, i32 noundef 0, i32 0)
   %140 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %141 = getelementptr inbounds i8, ptr %140, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %140, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %140, align 8
   store <4 x i32> <i32 0, i32 20, i32 10, i32 1507328>, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %140, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %142, align 4
@@ -818,7 +818,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i128:   ; preds = %242
   call void @_ZN7QLayout18setContentsMarginsEiiii(ptr noundef nonnull align 8 dereferenceable(28) %248, i32 noundef -1, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %249 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %250 = getelementptr inbounds i8, ptr %249, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %249, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %249, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1048576>, ptr %250, align 8
   %251 = getelementptr inbounds i8, ptr %249, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %251, align 4
@@ -1038,7 +1038,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170:   ; preds = %310
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %316, ptr noundef %317, i32 noundef 0, i32 0)
   %318 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %319 = getelementptr inbounds i8, ptr %318, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %318, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %318, align 8
   store <4 x i32> <i32 0, i32 20, i32 10, i32 1507328>, ptr %319, align 8
   %320 = getelementptr inbounds i8, ptr %318, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %320, align 4
@@ -1081,7 +1081,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i176:   ; preds = %329
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %335, ptr noundef %336, i32 noundef 0, i32 0)
   %337 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %338 = getelementptr inbounds i8, ptr %337, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %337, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %337, align 8
   store <4 x i32> <i32 0, i32 20, i32 10, i32 1507328>, ptr %338, align 8
   %339 = getelementptr inbounds i8, ptr %337, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %339, align 4
@@ -1662,9 +1662,9 @@ _ZN7QStringD2Ev.exit30:                           ; preds = %522, %_ZN17QArrayDa
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11SearchFrame25applyRecentSearchSettingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 18), align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 19), align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 23), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 72), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 76), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 92), align 4
   %switch.tableidx = add i32 %3, -1
   %4 = icmp ult i32 %switch.tableidx, 3
   %spec.select = select i1 %4, i32 %3, i32 0
@@ -1688,7 +1688,7 @@ switch.lookup:
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 20), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 80), align 8
   %16 = icmp ne i32 %15, 0
   tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %14, i1 noundef zeroext %16)
   %17 = load ptr, ptr %5, align 8
@@ -1698,13 +1698,13 @@ switch.lookup:
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 21), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 84), align 4
   %24 = icmp ne i32 %23, 0
   tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %22, i1 noundef zeroext %24)
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 22), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 88), align 8
   %29 = icmp ne i32 %28, 0
   tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %27, i1 noundef zeroext %29)
   ret void
@@ -2106,9 +2106,9 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11SearchFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11SearchFrame, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11SearchFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11SearchFrame, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11SearchFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3911,7 +3911,7 @@ define void @_ZN11SearchFrame39on_searchInComboBox_currentIndexChangedEi(ptr nou
   br i1 %switch, label %.sink.split, label %3
 
 .sink.split:                                      ; preds = %2
-  store i32 %1, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 18), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @recent, i64 72), align 8
   br label %3
 
 3:                                                ; preds = %2, %.sink.split
@@ -3925,7 +3925,7 @@ define void @_ZN11SearchFrame43on_charEncodingComboBox_currentIndexChangedEi(ptr
   br i1 %switch, label %.sink.split, label %3
 
 .sink.split:                                      ; preds = %2
-  store i32 %1, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 19), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @recent, i64 76), align 4
   br label %3
 
 3:                                                ; preds = %2, %.sink.split
@@ -3935,7 +3935,7 @@ define void @_ZN11SearchFrame43on_charEncodingComboBox_currentIndexChangedEi(ptr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11SearchFrame23on_caseCheckBox_toggledEb(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i32
-  store i32 %3, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 20), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @recent, i64 80), align 8
   %4 = tail call noundef zeroext i1 @_ZN11SearchFrame12regexCompileEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
   ret void
 }
@@ -3947,7 +3947,7 @@ define void @_ZN11SearchFrame41on_searchTypeComboBox_currentIndexChangedEi(ptr n
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %2
-  store i32 %1, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 23), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @recent, i64 92), align 4
   br label %4
 
 4:                                                ; preds = %2, %.sink.split
@@ -4033,14 +4033,14 @@ define void @_ZN11SearchFrame29on_searchLineEdit_textChangedERK7QString(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @_ZN11SearchFrame22on_dirCheckBox_toggledEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i32
-  store i32 %3, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 21), align 4
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @recent, i64 84), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @_ZN11SearchFrame27on_multipleCheckBox_toggledEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i32
-  store i32 %3, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 22), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @recent, i64 88), align 8
   ret void
 }
 

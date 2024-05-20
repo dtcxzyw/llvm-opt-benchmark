@@ -222,11 +222,11 @@ define hidden noundef i32 @zm_startup_xml(i32 %0, i32 noundef %1) #0 {
   store ptr @xml_parser_object_handlers, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @xml_parser_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 520, ptr @xml_parser_object_handlers, align 8
-  store ptr @xml_parser_free_obj, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xml_parser_object_handlers, i64 0, i32 1), align 8
-  store ptr @xml_parser_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xml_parser_object_handlers, i64 0, i32 21), align 8
-  store ptr @xml_parser_get_constructor, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xml_parser_object_handlers, i64 0, i32 15), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xml_parser_object_handlers, i64 0, i32 3), align 8
-  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xml_parser_object_handlers, i64 0, i32 23), align 8
+  store ptr @xml_parser_free_obj, ptr getelementptr inbounds (i8, ptr @xml_parser_object_handlers, i64 8), align 8
+  store ptr @xml_parser_get_gc, ptr getelementptr inbounds (i8, ptr @xml_parser_object_handlers, i64 168), align 8
+  store ptr @xml_parser_get_constructor, ptr getelementptr inbounds (i8, ptr @xml_parser_object_handlers, i64 120), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @xml_parser_object_handlers, i64 24), align 8
+  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds (i8, ptr @xml_parser_object_handlers, i64 184), align 8
   call void @zend_register_long_constant(ptr noundef nonnull @.str.90, i64 noundef 14, i64 noundef 0, i32 noundef 1, i32 noundef %1) #16
   call void @zend_register_long_constant(ptr noundef nonnull @.str.91, i64 noundef 19, i64 noundef 1, i32 noundef 1, i32 noundef %1) #16
   call void @zend_register_long_constant(ptr noundef nonnull @.str.92, i64 noundef 16, i64 noundef 2, i32 noundef 1, i32 noundef %1) #16
@@ -256,8 +256,8 @@ define hidden noundef i32 @zm_startup_xml(i32 %0, i32 noundef %1) #0 {
   call void @zend_register_long_constant(ptr noundef nonnull @.str.116, i64 noundef 21, i64 noundef 5, i32 noundef 1, i32 noundef %1) #16
   call void @zend_register_string_constant(ptr noundef nonnull @.str.117, i64 noundef 12, ptr noundef nonnull @.str.50, i32 noundef 1, i32 noundef %1) #16
   store ptr @php_xml_malloc_wrapper, ptr @php_xml_mem_hdlrs, align 8
-  store ptr @php_xml_realloc_wrapper, ptr getelementptr inbounds (%struct._XML_Memory_Handling_Suite, ptr @php_xml_mem_hdlrs, i64 0, i32 1), align 8
-  store ptr @php_xml_free_wrapper, ptr getelementptr inbounds (%struct._XML_Memory_Handling_Suite, ptr @php_xml_mem_hdlrs, i64 0, i32 2), align 8
+  store ptr @php_xml_realloc_wrapper, ptr getelementptr inbounds (i8, ptr @php_xml_mem_hdlrs, i64 8), align 8
+  store ptr @php_xml_free_wrapper, ptr getelementptr inbounds (i8, ptr @php_xml_mem_hdlrs, i64 16), align 8
   ret i32 0
 }
 
@@ -4672,7 +4672,7 @@ define internal fastcc void @php_xml_parser_create_impl(i32 %.44.val, ptr nounde
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %62
@@ -4738,7 +4738,7 @@ define internal fastcc void @php_xml_parser_create_impl(i32 %.44.val, ptr nounde
 
 37:                                               ; preds = %34, %30
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.121) #16
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %62
@@ -4809,7 +4809,7 @@ define hidden void @zif_xml_set_object(ptr nocapture noundef readonly %0, ptr no
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %1275
@@ -5013,7 +5013,7 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
   br label %113
 
 113:                                              ; preds = %php_xml_check_string_method_arg.exit, %111, %112, %104
-  %114 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %115 = icmp ne ptr %114, null
   call void @llvm.assume(i1 %115)
   br label %1275
@@ -5042,7 +5042,7 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
 
 125:                                              ; preds = %116, %124, %123, %93
   %126 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %127 = icmp eq ptr %126, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %127 = icmp eq ptr %126, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %125
@@ -5267,7 +5267,7 @@ php_xml_check_string_method_arg.exit869:          ; preds = %216
   br label %237
 
 237:                                              ; preds = %php_xml_check_string_method_arg.exit869, %235, %236, %228
-  %238 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %239 = icmp ne ptr %238, null
   call void @llvm.assume(i1 %239)
   br label %1275
@@ -5296,7 +5296,7 @@ php_xml_check_string_method_arg.exit869:          ; preds = %216
 
 249:                                              ; preds = %240, %248, %247, %217
   %250 = load ptr, ptr %144, align 8, !nonnull !4, !noundef !4
-  %251 = icmp eq ptr %250, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %251 = icmp eq ptr %250, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %251, label %252, label %257
 
 252:                                              ; preds = %249
@@ -5521,7 +5521,7 @@ php_xml_check_string_method_arg.exit876:          ; preds = %340
   br label %361
 
 361:                                              ; preds = %php_xml_check_string_method_arg.exit876, %359, %360, %352
-  %362 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %362 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %363 = icmp ne ptr %362, null
   call void @llvm.assume(i1 %363)
   br label %1275
@@ -5550,7 +5550,7 @@ php_xml_check_string_method_arg.exit876:          ; preds = %340
 
 373:                                              ; preds = %364, %372, %371, %341
   %374 = load ptr, ptr %268, align 8, !nonnull !4, !noundef !4
-  %375 = icmp eq ptr %374, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %375 = icmp eq ptr %374, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %375, label %376, label %381
 
 376:                                              ; preds = %373
@@ -5775,7 +5775,7 @@ php_xml_check_string_method_arg.exit883:          ; preds = %464
   br label %485
 
 485:                                              ; preds = %php_xml_check_string_method_arg.exit883, %483, %484, %476
-  %486 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %486 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %487 = icmp ne ptr %486, null
   call void @llvm.assume(i1 %487)
   br label %1275
@@ -5804,7 +5804,7 @@ php_xml_check_string_method_arg.exit883:          ; preds = %464
 
 497:                                              ; preds = %488, %496, %495, %465
   %498 = load ptr, ptr %392, align 8, !nonnull !4, !noundef !4
-  %499 = icmp eq ptr %498, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %499 = icmp eq ptr %498, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %499, label %500, label %505
 
 500:                                              ; preds = %497
@@ -6029,7 +6029,7 @@ php_xml_check_string_method_arg.exit890:          ; preds = %588
   br label %609
 
 609:                                              ; preds = %php_xml_check_string_method_arg.exit890, %607, %608, %600
-  %610 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %610 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %611 = icmp ne ptr %610, null
   call void @llvm.assume(i1 %611)
   br label %1275
@@ -6058,7 +6058,7 @@ php_xml_check_string_method_arg.exit890:          ; preds = %588
 
 621:                                              ; preds = %612, %620, %619, %589
   %622 = load ptr, ptr %516, align 8, !nonnull !4, !noundef !4
-  %623 = icmp eq ptr %622, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %623 = icmp eq ptr %622, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %623, label %624, label %629
 
 624:                                              ; preds = %621
@@ -6283,7 +6283,7 @@ php_xml_check_string_method_arg.exit897:          ; preds = %712
   br label %733
 
 733:                                              ; preds = %php_xml_check_string_method_arg.exit897, %731, %732, %724
-  %734 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %734 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %735 = icmp ne ptr %734, null
   call void @llvm.assume(i1 %735)
   br label %1275
@@ -6312,7 +6312,7 @@ php_xml_check_string_method_arg.exit897:          ; preds = %712
 
 745:                                              ; preds = %736, %744, %743, %713
   %746 = load ptr, ptr %640, align 8, !nonnull !4, !noundef !4
-  %747 = icmp eq ptr %746, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %747 = icmp eq ptr %746, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %747, label %748, label %753
 
 748:                                              ; preds = %745
@@ -6537,7 +6537,7 @@ php_xml_check_string_method_arg.exit904:          ; preds = %836
   br label %857
 
 857:                                              ; preds = %php_xml_check_string_method_arg.exit904, %855, %856, %848
-  %858 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %858 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %859 = icmp ne ptr %858, null
   call void @llvm.assume(i1 %859)
   br label %1275
@@ -6566,7 +6566,7 @@ php_xml_check_string_method_arg.exit904:          ; preds = %836
 
 869:                                              ; preds = %860, %868, %867, %837
   %870 = load ptr, ptr %764, align 8, !nonnull !4, !noundef !4
-  %871 = icmp eq ptr %870, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %871 = icmp eq ptr %870, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %871, label %872, label %877
 
 872:                                              ; preds = %869
@@ -6791,7 +6791,7 @@ php_xml_check_string_method_arg.exit911:          ; preds = %960
   br label %981
 
 981:                                              ; preds = %php_xml_check_string_method_arg.exit911, %979, %980, %972
-  %982 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %982 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %983 = icmp ne ptr %982, null
   call void @llvm.assume(i1 %983)
   br label %1275
@@ -6820,7 +6820,7 @@ php_xml_check_string_method_arg.exit911:          ; preds = %960
 
 993:                                              ; preds = %984, %992, %991, %961
   %994 = load ptr, ptr %888, align 8, !nonnull !4, !noundef !4
-  %995 = icmp eq ptr %994, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %995 = icmp eq ptr %994, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %995, label %996, label %1001
 
 996:                                              ; preds = %993
@@ -7045,7 +7045,7 @@ php_xml_check_string_method_arg.exit918:          ; preds = %1084
   br label %1105
 
 1105:                                             ; preds = %php_xml_check_string_method_arg.exit918, %1103, %1104, %1096
-  %1106 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %1106 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %1107 = icmp ne ptr %1106, null
   call void @llvm.assume(i1 %1107)
   br label %1275
@@ -7074,7 +7074,7 @@ php_xml_check_string_method_arg.exit918:          ; preds = %1084
 
 1117:                                             ; preds = %1108, %1116, %1115, %1085
   %1118 = load ptr, ptr %1012, align 8, !nonnull !4, !noundef !4
-  %1119 = icmp eq ptr %1118, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %1119 = icmp eq ptr %1118, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %1119, label %1120, label %1125
 
 1120:                                             ; preds = %1117
@@ -7299,7 +7299,7 @@ php_xml_check_string_method_arg.exit925:          ; preds = %1208
   br label %1229
 
 1229:                                             ; preds = %php_xml_check_string_method_arg.exit925, %1227, %1228, %1220
-  %1230 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %1230 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %1231 = icmp ne ptr %1230, null
   call void @llvm.assume(i1 %1231)
   br label %1275
@@ -7328,7 +7328,7 @@ php_xml_check_string_method_arg.exit925:          ; preds = %1208
 
 1241:                                             ; preds = %1232, %1240, %1239, %1209
   %1242 = load ptr, ptr %1136, align 8, !nonnull !4, !noundef !4
-  %1243 = icmp eq ptr %1242, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %1243 = icmp eq ptr %1242, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %1243, label %1244, label %1248
 
 1244:                                             ; preds = %1241
@@ -7546,7 +7546,7 @@ define hidden void @zif_xml_set_element_handler(ptr nocapture noundef readonly %
 34:                                               ; preds = %26
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %5) #16
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %7) #16
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %99
@@ -7571,7 +7571,7 @@ define hidden void @zif_xml_set_element_handler(ptr nocapture noundef readonly %
 50:                                               ; preds = %42
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %5) #16
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %7) #16
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
   br label %99
@@ -7595,7 +7595,7 @@ define hidden void @zif_xml_set_element_handler(ptr nocapture noundef readonly %
   br i1 %64, label %68, label %65
 
 65:                                               ; preds = %58
-  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
   br label %99
@@ -7608,7 +7608,7 @@ define hidden void @zif_xml_set_element_handler(ptr nocapture noundef readonly %
   br i1 %72, label %94, label %73
 
 73:                                               ; preds = %68
-  %74 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %75 = icmp ne ptr %74, null
   call void @llvm.assume(i1 %75)
   br label %99
@@ -7621,7 +7621,7 @@ define hidden void @zif_xml_set_element_handler(ptr nocapture noundef readonly %
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %76
-  %82 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %83 = icmp ne ptr %82, null
   call void @llvm.assume(i1 %83)
   br label %99
@@ -7637,14 +7637,14 @@ define hidden void @zif_xml_set_element_handler(ptr nocapture noundef readonly %
 
 88:                                               ; preds = %84
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 2, ptr noundef nonnull @.str.36) #16
-  %89 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %90 = icmp ne ptr %89, null
   call void @llvm.assume(i1 %90)
   br label %99
 
 91:                                               ; preds = %84, %84
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 3, ptr noundef nonnull @.str.36) #16
-  %92 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %93 = icmp ne ptr %92, null
   call void @llvm.assume(i1 %93)
   br label %99
@@ -7754,7 +7754,7 @@ define internal fastcc void @xml_set_handler(ptr noundef %0, ptr nocapture nound
 37:                                               ; preds = %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %38 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %39 = icmp eq ptr %38, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %39 = icmp eq ptr %38, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
@@ -7803,7 +7803,7 @@ define hidden void @zif_xml_set_character_data_handler(ptr nocapture noundef rea
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
@@ -7870,7 +7870,7 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr nocapture no
   br i1 %32, label %47, label %33
 
 33:                                               ; preds = %25
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %47
@@ -7883,14 +7883,14 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr nocapture no
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %47
 
 44:                                               ; preds = %36
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 2, ptr noundef nonnull @.str.36) #16
-  %45 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   call void @llvm.assume(i1 %46)
   br label %47
@@ -7908,7 +7908,7 @@ define hidden void @zif_xml_set_processing_instruction_handler(ptr nocapture nou
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
@@ -7935,7 +7935,7 @@ define hidden void @zif_xml_set_default_handler(ptr nocapture noundef readonly %
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
@@ -7962,7 +7962,7 @@ define hidden void @zif_xml_set_unparsed_entity_decl_handler(ptr nocapture nound
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
@@ -7989,7 +7989,7 @@ define hidden void @zif_xml_set_notation_decl_handler(ptr nocapture noundef read
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
@@ -8016,7 +8016,7 @@ define hidden void @zif_xml_set_external_entity_ref_handler(ptr nocapture nounde
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
@@ -8043,7 +8043,7 @@ define hidden void @zif_xml_set_start_namespace_decl_handler(ptr nocapture nound
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
@@ -8070,7 +8070,7 @@ define hidden void @zif_xml_set_end_namespace_decl_handler(ptr nocapture noundef
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
@@ -8105,7 +8105,7 @@ define hidden void @zif_xml_parse(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %51
@@ -8120,7 +8120,7 @@ define hidden void @zif_xml_parse(ptr nocapture noundef readonly %0, ptr nocaptu
 
 21:                                               ; preds = %15
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.38) #16
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
   br label %51
@@ -8184,7 +8184,7 @@ define hidden void @zif_xml_parse_into_struct(ptr nocapture noundef readonly %0,
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %112
@@ -8247,7 +8247,7 @@ define hidden void @zif_xml_parse_into_struct(ptr nocapture noundef readonly %0,
   br label %47
 
 44:                                               ; preds = %36
-  %45 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   call void @llvm.assume(i1 %46)
   br label %112
@@ -8291,7 +8291,7 @@ define hidden void @zif_xml_parse_into_struct(ptr nocapture noundef readonly %0,
   br label %68
 
 65:                                               ; preds = %57
-  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
   br label %112
@@ -8391,7 +8391,7 @@ define hidden void @zif_xml_get_error_code(ptr nocapture noundef readonly %0, pt
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %20
@@ -8424,7 +8424,7 @@ define hidden void @zif_xml_error_string(ptr nocapture noundef readonly %0, ptr 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %26
@@ -8474,7 +8474,7 @@ define hidden void @zif_xml_get_current_line_number(ptr nocapture noundef readon
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %20
@@ -8508,7 +8508,7 @@ define hidden void @zif_xml_get_current_column_number(ptr nocapture noundef read
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %20
@@ -8542,7 +8542,7 @@ define hidden void @zif_xml_get_current_byte_index(ptr nocapture noundef readonl
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %20
@@ -8576,7 +8576,7 @@ define hidden void @zif_xml_parser_free(ptr nocapture noundef readonly %0, ptr n
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %22
@@ -8617,7 +8617,7 @@ define hidden void @zif_xml_parser_set_option(ptr nocapture noundef readonly %0,
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %95
@@ -8676,7 +8676,7 @@ define hidden void @zif_xml_parser_set_option(ptr nocapture noundef readonly %0,
 
 40:                                               ; preds = %36
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.45) #16
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
   br label %95
@@ -8736,7 +8736,7 @@ define hidden void @zif_xml_parser_set_option(ptr nocapture noundef readonly %0,
   br label %.critedge
 
 72:                                               ; preds = %70
-  %73 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %74 = icmp ne ptr %73, null
   call void @llvm.assume(i1 %74)
   br label %95
@@ -8762,7 +8762,7 @@ define hidden void @zif_xml_parser_set_option(ptr nocapture noundef readonly %0,
 
 85:                                               ; preds = %82
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.47) #16
-  %86 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %87 = icmp ne ptr %86, null
   call void @llvm.assume(i1 %87)
   br label %95
@@ -8775,7 +8775,7 @@ xml_get_encoding.exit:                            ; preds = %78
 
 90:                                               ; preds = %20
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.48) #16
-  %91 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %92 = icmp ne ptr %91, null
   call void @llvm.assume(i1 %92)
   br label %95
@@ -8805,7 +8805,7 @@ define hidden void @zif_xml_parser_get_option(ptr nocapture noundef readonly %0,
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %56
@@ -8883,7 +8883,7 @@ define hidden void @zif_xml_parser_get_option(ptr nocapture noundef readonly %0,
 
 53:                                               ; preds = %13
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.48) #16
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %55 = icmp ne ptr %54, null
   call void @llvm.assume(i1 %55)
   br label %56

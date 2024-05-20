@@ -358,7 +358,7 @@ define internal range(i32 -5, 1) i32 @parse_env(ptr nocapture readnone %0, ptr n
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
 
@@ -613,7 +613,7 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %51, %pmix_cmd_line_
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @detect_proxy(ptr noundef %0) #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %13
 
@@ -639,7 +639,7 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
 14:                                               ; preds = %13
   %15 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str) #12
   %.not10 = icmp eq ptr %15, null
-  %16 = load i32, ptr getelementptr inbounds (%struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i64 0, i32 1), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_prte_component, i64 224), align 8
   %spec.select = select i1 %.not10, i32 0, i32 %16
   br label %24
 
@@ -655,7 +655,7 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
   br label %24
 
 22:                                               ; preds = %17
-  %23 = load i32, ptr getelementptr inbounds (%struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i64 0, i32 1), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_prte_component, i64 224), align 8
   br label %24
 
 24:                                               ; preds = %14, %19, %22
@@ -769,7 +769,7 @@ define internal fastcc i32 @convert_deprecated_cli(ptr noundef %0, i1 noundef ze
   br i1 %.not1019, label %.loopexit, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %2
-  %9 = load i8, ptr getelementptr inbounds (%struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i64 0, i32 2), align 4
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_prte_component, i64 228), align 4
   %10 = trunc i8 %9 to i1
   %not. = xor i1 %1, true
   %11 = select i1 %not., i1 %10, i1 false

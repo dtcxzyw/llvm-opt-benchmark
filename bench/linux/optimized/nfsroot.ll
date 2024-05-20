@@ -104,7 +104,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @root_nfs_data() unnamed_add
   %1 = alloca [30 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %1) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %1, i8 0, i64 30, i1 false), !annotation !5
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(1025) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1025) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %34, label %5

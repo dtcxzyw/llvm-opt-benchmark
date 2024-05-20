@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net9QuicAlarmC2ENS_18QuicArenaScopedPtrINS0_8DelegateEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net9QuicAlarmE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %delegate, align 8
   store ptr %0, ptr %delegate_, align 8
@@ -28,7 +28,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net9QuicAlarmD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net9QuicAlarmE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %delegate_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -2133,7 +2133,7 @@ define hidden i64 @rb_hash_default_value(i64 noundef %0, i64 noundef %1) local_u
   br i1 %8, label %9, label %rb_hash_default_unredefined.exit
 
 9:                                                ; preds = %2
-  %10 = load i16, ptr getelementptr inbounds ([32 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 31), align 2
+  %10 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 62), align 2
   %11 = and i16 %10, 16
   %12 = icmp eq i16 %11, 0
   br i1 %12, label %14, label %24
@@ -2288,7 +2288,7 @@ define dso_local i64 @rb_hash_aref(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %13, label %14, label %rb_hash_default_unredefined.exit.i
 
 14:                                               ; preds = %8
-  %15 = load i16, ptr getelementptr inbounds ([32 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 31), align 2
+  %15 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 62), align 2
   %16 = and i16 %15, 16
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %19, label %29

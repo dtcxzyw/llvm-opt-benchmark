@@ -86,9 +86,9 @@ define noundef i32 @mca_pml_cm_enable(i1 zeroext %0) #0 {
   %5 = add i64 %4, 536
   %6 = load i32, ptr @opal_cache_line_size, align 4
   %7 = sext i32 %6 to i64
-  %8 = load i32, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i64 0, i32 1), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i64 0, i32 2), align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i64 0, i32 3), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 192), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 196), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 200), align 8
   %11 = tail call i32 @opal_free_list_init(ptr noundef nonnull @mca_pml_base_send_requests, i64 noundef %5, i64 noundef %7, ptr noundef nonnull @mca_pml_cm_hvy_send_request_t_class, i64 noundef 0, i64 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %12 = load ptr, ptr @ompi_mtl, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
@@ -96,9 +96,9 @@ define noundef i32 @mca_pml_cm_enable(i1 zeroext %0) #0 {
   %15 = add i64 %14, 536
   %16 = load i32, ptr @opal_cache_line_size, align 4
   %17 = sext i32 %16 to i64
-  %18 = load i32, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i64 0, i32 1), align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i64 0, i32 2), align 4
-  %20 = load i32, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i64 0, i32 3), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 192), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 196), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 200), align 8
   %21 = tail call i32 @opal_free_list_init(ptr noundef nonnull @mca_pml_base_recv_requests, i64 noundef %15, i64 noundef %17, ptr noundef nonnull @mca_pml_cm_hvy_recv_request_t_class, i64 noundef 0, i64 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #8
   ret i32 0
 }
@@ -107,7 +107,7 @@ define noundef i32 @mca_pml_cm_enable(i1 zeroext %0) #0 {
 define i32 @mca_pml_cm_add_comm(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i64 0, i32 0, i32 21), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 168), align 8
   %5 = icmp ugt i32 %3, %4
   br i1 %5, label %12, label %6
 
@@ -674,14 +674,14 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %138, %opal_atomic
 
 opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %138
   %.0.lcssa.i.i.i = phi ptr [ %.08.i.i.i, %138 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %147 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
-  %148 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 4), align 8
+  %147 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
+  %148 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 104), align 8
   %.not.i.i = icmp eq i64 %148, 0
   %or.cond = select i1 %147, i1 true, i1 %.not.i.i
   br i1 %or.cond, label %opal_free_list_return.exit, label %149
 
 149:                                              ; preds = %opal_lifo_push_atomic.exit.i.i
-  %150 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 13, i32 1), align 8
+  %150 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 248), align 8
   %.not.i.i.i = icmp eq i32 %150, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
@@ -694,21 +694,21 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %155 = ptrtoint ptr %9 to i64
   store volatile i64 %155, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 24), align 8
   %156 = load volatile ptr, ptr %153, align 8
-  %157 = icmp ne ptr %156, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
-  %158 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 4), align 8
+  %157 = icmp ne ptr %156, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
+  %158 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 104), align 8
   %.not.i4.i = icmp eq i64 %158, 0
   %or.cond67 = select i1 %157, i1 true, i1 %.not.i4.i
   br i1 %or.cond67, label %opal_free_list_return.exit, label %159
 
 159:                                              ; preds = %151
-  %160 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 13, i32 1), align 8
+  %160 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 248), align 8
   %.not.i.i5.i = icmp eq i32 %160, 0
   br i1 %.not.i.i5.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 opal_free_list_return_mt.exit.sink.split.i:       ; preds = %159, %149
-  %161 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 13, i32 2), align 4
+  %161 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
   %162 = add nsw i32 %161, 1
-  store volatile i32 %162, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 13, i32 2), align 4
+  store volatile i32 %162, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
   br label %opal_free_list_return.exit
 
 163:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
@@ -1823,14 +1823,14 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %220, %opal_atomic
 
 opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %220
   %.0.lcssa.i.i.i = phi ptr [ %.08.i.i.i, %220 ], [ %.0.i.i.i100, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %229 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
-  %230 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 4), align 8
+  %229 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
+  %230 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   %.not.i.i101 = icmp eq i64 %230, 0
   %or.cond = select i1 %229, i1 true, i1 %.not.i.i101
   br i1 %or.cond, label %opal_free_list_return.exit, label %231
 
 231:                                              ; preds = %opal_lifo_push_atomic.exit.i.i
-  %232 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
+  %232 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %.not.i.i.i = icmp eq i32 %232, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
@@ -1843,21 +1843,21 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %237 = ptrtoint ptr %15 to i64
   store volatile i64 %237, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 24), align 8
   %238 = load volatile ptr, ptr %235, align 8
-  %239 = icmp ne ptr %238, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
-  %240 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 4), align 8
+  %239 = icmp ne ptr %238, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
+  %240 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   %.not.i4.i = icmp eq i64 %240, 0
   %or.cond139 = select i1 %239, i1 true, i1 %.not.i4.i
   br i1 %or.cond139, label %opal_free_list_return.exit, label %241
 
 241:                                              ; preds = %233
-  %242 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
+  %242 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %.not.i.i5.i = icmp eq i32 %242, 0
   br i1 %.not.i.i5.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 opal_free_list_return_mt.exit.sink.split.i:       ; preds = %241, %231
-  %243 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  %243 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   %244 = add nsw i32 %243, 1
-  store volatile i32 %244, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  store volatile i32 %244, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   br label %opal_free_list_return.exit
 
 245:                                              ; preds = %126, %123, %132, %opal_thread_swap_ptr.exit.i, %opal_thread_add_fetch_32.exit.i.i, %156, %159
@@ -1868,7 +1868,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %241, %231
 
 249:                                              ; preds = %7
   %250 = load i32, ptr @opal_class_init_epoch, align 4
-  %251 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %251 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %250, %251
   br i1 %.not, label %253, label %252
 
@@ -1880,7 +1880,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %241, %231
   store ptr @opal_convertor_t_class, ptr %12, align 8
   %254 = getelementptr inbounds i8, ptr %12, i64 8
   store volatile i32 1, ptr %254, align 8
-  %255 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %255 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %256 = load ptr, ptr %255, align 8
   %.not6.i102 = icmp eq ptr %256, null
   br i1 %.not6.i102, label %opal_obj_run_constructors.exit, label %.lr.ph.i103
@@ -2556,14 +2556,14 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %139, %opal_atomic
 
 opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %139
   %.0.lcssa.i.i.i = phi ptr [ %.08.i.i.i, %139 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %148 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
-  %149 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 4), align 8
+  %148 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
+  %149 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 104), align 8
   %.not.i.i = icmp eq i64 %149, 0
   %or.cond = select i1 %148, i1 true, i1 %.not.i.i
   br i1 %or.cond, label %opal_free_list_return.exit, label %150
 
 150:                                              ; preds = %opal_lifo_push_atomic.exit.i.i
-  %151 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 13, i32 1), align 8
+  %151 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 248), align 8
   %.not.i.i.i = icmp eq i32 %151, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
@@ -2576,21 +2576,21 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %156 = ptrtoint ptr %10 to i64
   store volatile i64 %156, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 24), align 8
   %157 = load volatile ptr, ptr %154, align 8
-  %158 = icmp ne ptr %157, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
-  %159 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 4), align 8
+  %158 = icmp ne ptr %157, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
+  %159 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 104), align 8
   %.not.i4.i = icmp eq i64 %159, 0
   %or.cond66 = select i1 %158, i1 true, i1 %.not.i4.i
   br i1 %or.cond66, label %opal_free_list_return.exit, label %160
 
 160:                                              ; preds = %152
-  %161 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 13, i32 1), align 8
+  %161 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 248), align 8
   %.not.i.i5.i = icmp eq i32 %161, 0
   br i1 %.not.i.i5.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 opal_free_list_return_mt.exit.sink.split.i:       ; preds = %160, %150
-  %162 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 13, i32 2), align 4
+  %162 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
   %163 = add nsw i32 %162, 1
-  store volatile i32 %163, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 13, i32 2), align 4
+  store volatile i32 %163, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
   br label %opal_free_list_return.exit
 
 164:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
@@ -2651,7 +2651,7 @@ define internal fastcc ptr @opal_free_list_get() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
-  store volatile ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 1, i32 0), ptr %3, align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 16), ptr %3, align 8
   %.0..0..0..0..0..0..0..0.10.i.i = load volatile ptr, ptr %3, align 8
   %8 = load volatile i64, ptr %.0..0..0..0..0..0..0..0.10.i.i, align 16
   fence acquire
@@ -2661,7 +2661,7 @@ define internal fastcc ptr @opal_free_list_get() unnamed_addr #0 {
   store volatile i64 %10, ptr %.sroa.4.i.i, align 8
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i = load volatile i64, ptr %.sroa.4.i.i, align 8
   %11 = inttoptr i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i to ptr
-  %12 = icmp eq ptr %11, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %12 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
   br i1 %12, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %opal_update_counted_pointer.exit.i.i
@@ -2672,7 +2672,7 @@ define internal fastcc ptr @opal_free_list_get() unnamed_addr #0 {
   %15 = load volatile ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
-  store volatile ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 1, i32 0), ptr %2, align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 16), ptr %2, align 8
   %16 = ptrtoint ptr %15 to i64
   store volatile i64 %16, ptr %.sroa.22.i.i.i, align 8
   %17 = add i64 %.sroa.0.018.i.i, 1
@@ -2699,7 +2699,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i = load volatile i64, ptr %.sroa.4.i.i, align 8
   %21 = inttoptr i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i to ptr
-  %22 = icmp eq ptr %21, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %22 = icmp eq ptr %21, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
   br i1 %22, label %.loopexit.i, label %.lr.ph.i.i
 
 opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
@@ -2716,10 +2716,10 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   store ptr null, ptr %4, align 8
-  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 12, i32 1, i32 0, i32 0)) #8
-  %25 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 3), align 16
+  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 184)) #8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 96), align 16
   %26 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @mca_pml_base_recv_requests, i64 noundef %25, ptr noundef nonnull %4) #8
-  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 12, i32 1, i32 0, i32 0)) #8
+  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 184)) #8
   %.pre.i = load ptr, ptr %4, align 8
   br label %opal_free_list_get_mt.exit
 
@@ -2736,7 +2736,7 @@ opal_free_list_get_mt.exit:                       ; preds = %opal_lifo_pop_atomi
   %33 = load volatile ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   store volatile i64 %34, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 24), align 8
-  %35 = icmp eq ptr %31, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %35 = icmp eq ptr %31, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
   br i1 %35, label %37, label %opal_lifo_pop_st.exit.i
 
 opal_lifo_pop_st.exit.i:                          ; preds = %29
@@ -2747,7 +2747,7 @@ opal_lifo_pop_st.exit.i:                          ; preds = %29
 
 37:                                               ; preds = %29
   store ptr null, ptr %1, align 8
-  %38 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 3), align 16
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 96), align 16
   %39 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @mca_pml_base_recv_requests, i64 noundef %38, ptr noundef nonnull %1) #8
   %.pre.i3 = load ptr, ptr %1, align 8
   br label %opal_free_list_get_st.exit
@@ -3078,7 +3078,7 @@ define internal fastcc ptr @opal_free_list_wait() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
-  store volatile ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 1, i32 0), ptr %7, align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 16), ptr %7, align 8
   %.0..0..0..0..0..0..0..0.10.i.i = load volatile ptr, ptr %7, align 8
   %12 = load volatile i64, ptr %.0..0..0..0..0..0..0..0.10.i.i, align 16
   fence acquire
@@ -3088,7 +3088,7 @@ define internal fastcc ptr @opal_free_list_wait() unnamed_addr #0 {
   store volatile i64 %14, ptr %.sroa.4.i.i, align 8
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i = load volatile i64, ptr %.sroa.4.i.i, align 8
   %15 = inttoptr i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i to ptr
-  %16 = icmp eq ptr %15, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %16 = icmp eq ptr %15, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
   br i1 %16, label %.lr.ph.preheader.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %opal_update_counted_pointer.exit.i.i
@@ -3099,7 +3099,7 @@ define internal fastcc ptr @opal_free_list_wait() unnamed_addr #0 {
   %19 = load volatile ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
-  store volatile ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 1, i32 0), ptr %6, align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 16), ptr %6, align 8
   %20 = ptrtoint ptr %19 to i64
   store volatile i64 %20, ptr %.sroa.22.i.i.i, align 8
   %21 = add i64 %.sroa.0.018.i.i, 1
@@ -3126,7 +3126,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i = load volatile i64, ptr %.sroa.4.i.i, align 8
   %25 = inttoptr i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i to ptr
-  %26 = icmp eq ptr %25, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %26 = icmp eq ptr %25, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
   br i1 %26, label %.lr.ph.preheader.i, label %.lr.ph.i.i
 
 opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
@@ -3146,32 +3146,32 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit.i, %.lr.ph.preheader.i
-  %28 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 12, i32 1)) #8
+  %28 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   %.not1.i = icmp eq i32 %28, 0
   br i1 %.not1.i, label %29, label %75
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 1), align 16
-  %31 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 2), align 8
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 80), align 16
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 88), align 8
   %.not18.i = icmp ugt i64 %30, %31
   br i1 %.not18.i, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 3), align 16
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 96), align 16
   %34 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @mca_pml_base_send_requests, i64 noundef %33, ptr noundef nonnull %8) #8
   %.not19.i = icmp eq i32 %34, 0
   br i1 %.not19.i, label %66, label %35
 
 35:                                               ; preds = %32, %29
-  %36 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 4), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   %37 = add i64 %36, 1
-  store i64 %37, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 4), align 8
-  %38 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
+  store i64 %37, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
+  %38 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %39 = add nsw i32 %38, 1
-  store volatile i32 %39, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
+  store volatile i32 %39, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %40 = load i8, ptr @opal_uses_threads, align 1
   %41 = trunc i8 %40 to i1
-  %42 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  %42 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   %.not.i.i = icmp eq i32 %42, 0
   br i1 %41, label %43, label %.preheader1.i.i
 
@@ -3182,77 +3182,77 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   br i1 %.not.i.i, label %.preheader.i.i, label %46
 
 .preheader.i.i:                                   ; preds = %43
-  %44 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  %44 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.lr.ph3.i.i, label %.loopexit.i.i
 
 46:                                               ; preds = %43
-  %47 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
+  %47 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %48 = add nsw i32 %47, -1
-  store volatile i32 %48, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 12, i32 1, i32 0, i32 0)) #8
+  store volatile i32 %48, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   %50 = call i32 @opal_progress() #8
-  %51 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 12, i32 1, i32 0, i32 0)) #8
+  %51 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   br label %opal_condition_wait.exit.i
 
 .lr.ph3.i.i:                                      ; preds = %.preheader.i.i, %.lr.ph3.i.i
-  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 12, i32 1, i32 0, i32 0)) #8
+  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   %53 = call i32 @opal_progress() #8
-  %54 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 12, i32 1, i32 0, i32 0)) #8
-  %55 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  %54 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
+  %55 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %.lr.ph3.i.i, label %.loopexit.i.i, !llvm.loop !14
 
 .lr.ph.i21.i:                                     ; preds = %.preheader1.i.i, %.lr.ph.i21.i
   %57 = call i32 @opal_progress() #8
-  %58 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  %58 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.lr.ph.i21.i, label %.loopexit.i.i, !llvm.loop !15
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i21.i, %.lr.ph3.i.i, %.preheader.i.i, %.preheader1.i.i
-  %60 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  %60 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   %61 = add nsw i32 %60, -1
-  store volatile i32 %61, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
-  %62 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
+  store volatile i32 %61, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
+  %62 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %63 = add nsw i32 %62, -1
-  store volatile i32 %63, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
+  store volatile i32 %63, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   br label %opal_condition_wait.exit.i
 
 opal_condition_wait.exit.i:                       ; preds = %.loopexit.i.i, %46
-  %64 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 4), align 8
+  %64 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   %65 = add i64 %64, -1
-  store i64 %65, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 4), align 8
+  store i64 %65, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   br label %opal_condition_signal.exit.i
 
 66:                                               ; preds = %32
-  %67 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 4), align 8
+  %67 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   switch i64 %67, label %73 [
     i64 0, label %opal_condition_signal.exit.i
     i64 1, label %68
   ]
 
 68:                                               ; preds = %66
-  %69 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
+  %69 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %.not.i22.i = icmp eq i32 %69, 0
   br i1 %.not.i22.i, label %opal_condition_signal.exit.i, label %70
 
 70:                                               ; preds = %68
-  %71 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  %71 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   %72 = add nsw i32 %71, 1
-  store volatile i32 %72, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  store volatile i32 %72, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   br label %opal_condition_signal.exit.i
 
 73:                                               ; preds = %66
-  %74 = load volatile i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 1), align 8
-  store volatile i32 %74, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 13, i32 2), align 4
+  %74 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
+  store volatile i32 %74, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   br label %opal_condition_signal.exit.i
 
 75:                                               ; preds = %.lr.ph.i
-  %76 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 12, i32 1, i32 0, i32 0)) #8
+  %76 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   br label %opal_condition_signal.exit.i
 
 opal_condition_signal.exit.i:                     ; preds = %75, %73, %70, %68, %66, %opal_condition_wait.exit.i
-  %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 12, i32 1, i32 0, i32 0)) #8
+  %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   %78 = load ptr, ptr %8, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %opal_free_list_wait_mt.exit
@@ -3260,7 +3260,7 @@ opal_condition_signal.exit.i:                     ; preds = %75, %73, %70, %68, 
 80:                                               ; preds = %opal_condition_signal.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i24.i)
-  store volatile ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 1, i32 0), ptr %5, align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 16), ptr %5, align 8
   %.0..0..0..0..0..0..0..0.10.i25.i = load volatile ptr, ptr %5, align 8
   %81 = load volatile i64, ptr %.0..0..0..0..0..0..0..0.10.i25.i, align 16
   fence acquire
@@ -3270,7 +3270,7 @@ opal_condition_signal.exit.i:                     ; preds = %75, %73, %70, %68, 
   store volatile i64 %83, ptr %.sroa.4.i24.i, align 8
   %.sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i27.i = load volatile i64, ptr %.sroa.4.i24.i, align 8
   %84 = inttoptr i64 %.sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i27.i to ptr
-  %85 = icmp eq ptr %84, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %85 = icmp eq ptr %84, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
   br i1 %85, label %.loopexit.i, label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %80, %opal_update_counted_pointer.exit.i40.i
@@ -3281,7 +3281,7 @@ opal_condition_signal.exit.i:                     ; preds = %75, %73, %70, %68, 
   %88 = load volatile ptr, ptr %87, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i)
-  store volatile ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 1, i32 0), ptr %4, align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 16), ptr %4, align 8
   %89 = ptrtoint ptr %88 to i64
   store volatile i64 %89, ptr %.sroa.22.i.i23.i, align 8
   %90 = add i64 %.sroa.0.018.i30.i, 1
@@ -3308,7 +3308,7 @@ opal_update_counted_pointer.exit.i40.i:           ; preds = %.lr.ph.i28.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i)
   %.sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8..i44.i = load volatile i64, ptr %.sroa.4.i24.i, align 8
   %94 = inttoptr i64 %.sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8..i44.i to ptr
-  %95 = icmp eq ptr %94, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %95 = icmp eq ptr %94, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
   br i1 %95, label %.loopexit.i, label %.lr.ph.i28.i
 
 96:                                               ; preds = %.lr.ph.i28.i
@@ -3340,7 +3340,7 @@ opal_free_list_wait_mt.exit:                      ; preds = %opal_condition_sign
   %103 = load volatile ptr, ptr %102, align 8
   %104 = ptrtoint ptr %103 to i64
   store volatile i64 %104, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 24), align 8
-  %105 = icmp eq ptr %101, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %105 = icmp eq ptr %101, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
   br i1 %105, label %.lr.ph.preheader.i3, label %opal_lifo_pop.exit.i
 
 opal_lifo_pop.exit.i:                             ; preds = %99
@@ -3354,13 +3354,13 @@ opal_lifo_pop.exit.i:                             ; preds = %99
   br label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %147, %.lr.ph.preheader.i3
-  %107 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 1), align 16
-  %108 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 2), align 8
+  %107 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 80), align 16
+  %108 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 88), align 8
   %.not.i = icmp ugt i64 %107, %108
   br i1 %.not.i, label %109, label %112
 
 109:                                              ; preds = %.lr.ph.i4
-  %110 = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 3), align 16
+  %110 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 96), align 16
   %111 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @mca_pml_base_send_requests, i64 noundef %110, ptr noundef nonnull %3) #8
   %.not6.i = icmp eq i32 %111, 0
   br i1 %.not6.i, label %114, label %112
@@ -3382,7 +3382,7 @@ opal_lifo_pop.exit.i:                             ; preds = %99
 120:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i8.i)
-  store volatile ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 1, i32 0), ptr %2, align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 16), ptr %2, align 8
   %.0..0..0..0..0..0..0..0..0..0.10.i.i10.i = load volatile ptr, ptr %2, align 8
   %121 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0.10.i.i10.i, align 16
   fence acquire
@@ -3392,7 +3392,7 @@ opal_lifo_pop.exit.i:                             ; preds = %99
   store volatile i64 %123, ptr %.sroa.4.i.i8.i, align 8
   %.sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i12.i = load volatile i64, ptr %.sroa.4.i.i8.i, align 8
   %124 = inttoptr i64 %.sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i12.i to ptr
-  %125 = icmp eq ptr %124, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %125 = icmp eq ptr %124, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
   br i1 %125, label %opal_lifo_pop_atomic.exit.i30.i, label %.lr.ph.i.i13.i
 
 .lr.ph.i.i13.i:                                   ; preds = %120, %opal_update_counted_pointer.exit.i.i25.i
@@ -3403,7 +3403,7 @@ opal_lifo_pop.exit.i:                             ; preds = %99
   %128 = load volatile ptr, ptr %127, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i)
-  store volatile ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 1, i32 0), ptr %1, align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 16), ptr %1, align 8
   %129 = ptrtoint ptr %128 to i64
   store volatile i64 %129, ptr %.sroa.22.i.i.i7.i, align 8
   %130 = add i64 %.sroa.0.018.i.i15.i, 1
@@ -3430,7 +3430,7 @@ opal_update_counted_pointer.exit.i.i25.i:         ; preds = %.lr.ph.i.i13.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i)
   %.sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i = load volatile i64, ptr %.sroa.4.i.i8.i, align 8
   %134 = inttoptr i64 %.sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i to ptr
-  %135 = icmp eq ptr %134, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %135 = icmp eq ptr %134, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
   br i1 %135, label %opal_lifo_pop_atomic.exit.i30.i, label %.lr.ph.i.i13.i
 
 136:                                              ; preds = %.lr.ph.i.i13.i
@@ -3454,7 +3454,7 @@ opal_lifo_pop_atomic.exit.i30.i:                  ; preds = %opal_update_counted
   %142 = load volatile ptr, ptr %141, align 8
   %143 = ptrtoint ptr %142 to i64
   store volatile i64 %143, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 24), align 8
-  %144 = icmp eq ptr %140, getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 2, i32 0, i32 0)
+  %144 = icmp eq ptr %140, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
   br i1 %144, label %147, label %145
 
 145:                                              ; preds = %138

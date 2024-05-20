@@ -175,53 +175,53 @@ define dso_local void @_ZN10BookkeeperD2Ev(ptr nocapture nonnull readnone align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN10Bookkeeper14doFinalizationEv() local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN10Bookkeeper17struct_depth_cntsE, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 8), align 8
   %.not.i.i = icmp eq ptr %2, %1
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %3
 
 3:                                                ; preds = %0
-  store ptr %1, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %0, %3
   %4 = load ptr, ptr @_ZN10Bookkeeper15expr_depth_cntsE, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 8), align 8
   %.not.i.i1 = icmp eq ptr %5, %4
   br i1 %.not.i.i1, label %_ZNSt6vectorIiSaIiEE5clearEv.exit2, label %6
 
 6:                                                ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  store ptr %4, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit2
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit2:               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit, %6
   %7 = load ptr, ptr @_ZN10Bookkeeper22dereference_level_cntsE, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 8), align 8
   %.not.i.i3 = icmp eq ptr %8, %7
   br i1 %.not.i.i3, label %_ZNSt6vectorIiSaIiEE5clearEv.exit4, label %9
 
 9:                                                ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit2
-  store ptr %7, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit4
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit4:               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit2, %9
   store i32 0, ptr @_ZN10Bookkeeper17address_taken_cntE, align 4
   %10 = load ptr, ptr @_ZN10Bookkeeper22write_dereference_cntsE, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 8), align 8
   %.not.i.i5 = icmp eq ptr %11, %10
   br i1 %.not.i.i5, label %_ZNSt6vectorIiSaIiEE5clearEv.exit6, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit4
-  store ptr %10, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit6
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit6:               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit4, %12
   %13 = load ptr, ptr @_ZN10Bookkeeper21read_dereference_cntsE, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 8), align 8
   %.not.i.i7 = icmp eq ptr %14, %13
   br i1 %.not.i.i7, label %_ZNSt6vectorIiSaIiEE5clearEv.exit8, label %15
 
 15:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit6
-  store ptr %13, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit8
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit8:               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit6, %15
@@ -242,7 +242,7 @@ define dso_local noundef i32 @_ZN10Bookkeeper24stat_blk_depths_for_stmtEPK9State
 5:                                                ; preds = %1
   %6 = tail call noundef i32 @_ZNK9Statement13get_blk_depthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %7 = add nsw i32 %6, -1
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 8), align 8
   %9 = load ptr, ptr @_ZN10Bookkeeper14blk_depth_cntsE, align 8
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -272,7 +272,7 @@ define dso_local noundef i32 @_ZN10Bookkeeper24stat_blk_depths_for_stmtEPK9State
   br i1 %.not.i.i.i, label %.lr.ph.i.preheader, label %24
 
 24:                                               ; preds = %22
-  store ptr %23, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %23, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 8), align 8
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %24, %22, %20, %18
@@ -567,7 +567,7 @@ _ZN10Bookkeeper15stat_blk_depthsEv.exit:          ; preds = %18, %1
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef %.08.lcssa.i)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %31 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 8), align 8
   %32 = load ptr, ptr @_ZN10Bookkeeper14blk_depth_cntsE, align 8
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
@@ -581,7 +581,7 @@ _ZN10Bookkeeper15stat_blk_depthsEv.exit:          ; preds = %18, %1
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.10)
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %45 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 8), align 8
   %46 = load ptr, ptr @_ZN10Bookkeeper14blk_depth_cntsE, align 8
   %.not10 = icmp eq ptr %45, %46
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -604,7 +604,7 @@ _ZN10Bookkeeper15stat_blk_depthsEv.exit:          ; preds = %18, %1
   %57 = load i32, ptr %56, align 4
   %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %57)
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper14blk_depth_cntsE, i64 8), align 8
   %.pre11 = load ptr, ptr @_ZN10Bookkeeper14blk_depth_cntsE, align 8
   br label %60
 
@@ -709,7 +709,7 @@ define dso_local void @_ZN10Bookkeeper17output_statisticsERSo(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10Bookkeeper30output_struct_union_statisticsERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #6 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 8), align 8
   %3 = load ptr, ptr @_ZN10Bookkeeper17struct_depth_cntsE, align 8
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %3 to i64
@@ -723,7 +723,7 @@ define dso_local void @_ZN10Bookkeeper30output_struct_union_statisticsERSo(ptr n
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.10)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %16 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 8), align 8
   %17 = load ptr, ptr @_ZN10Bookkeeper17struct_depth_cntsE, align 8
   %.not = icmp eq ptr %16, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -739,7 +739,7 @@ define dso_local void @_ZN10Bookkeeper30output_struct_union_statisticsERSo(ptr n
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %23)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %26 = add nuw i64 %.08, 1
-  %27 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper17struct_depth_cntsE, i64 8), align 8
   %28 = load ptr, ptr @_ZN10Bookkeeper17struct_depth_cntsE, align 8
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
@@ -798,7 +798,7 @@ define dso_local void @_ZN10Bookkeeper22output_expr_statisticsERSo(ptr noundef n
   br i1 %24, label %.lr.ph.i, label %_ZN10Bookkeeper16stat_expr_depthsEv.exit, !llvm.loop !12
 
 _ZN10Bookkeeper16stat_expr_depthsEv.exit:         ; preds = %16, %1
-  %25 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 8), align 8
   %26 = load ptr, ptr @_ZN10Bookkeeper15expr_depth_cntsE, align 8
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
@@ -812,7 +812,7 @@ _ZN10Bookkeeper16stat_expr_depthsEv.exit:         ; preds = %16, %1
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.10)
   %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %39 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 8), align 8
   %40 = load ptr, ptr @_ZN10Bookkeeper15expr_depth_cntsE, align 8
   %.not8 = icmp eq ptr %39, %40
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -835,7 +835,7 @@ _ZN10Bookkeeper16stat_expr_depthsEv.exit:         ; preds = %16, %1
   %51 = load i32, ptr %50, align 4
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %51)
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 8), align 8
   %.pre9 = load ptr, ptr @_ZN10Bookkeeper15expr_depth_cntsE, align 8
   br label %54
 
@@ -856,7 +856,7 @@ _ZN10Bookkeeper16stat_expr_depthsEv.exit:         ; preds = %16, %1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10Bookkeeper25output_pointer_statisticsERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #6 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector.31", ptr @_ZN11FactPointTo8all_ptrsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11FactPointTo8all_ptrsE, i64 8), align 8
   %3 = load ptr, ptr @_ZN11FactPointTo8all_ptrsE, align 8
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %3 to i64
@@ -923,7 +923,7 @@ define dso_local void @_ZN10Bookkeeper25output_pointer_statisticsERSo(ptr nounde
   %.159 = phi i32 [ %31, %30 ], [ %.05876, %36 ], [ %.05876, %38 ], [ %.05876, %32 ]
   %.157 = phi i32 [ %.05677, %30 ], [ %37, %36 ], [ %.05677, %38 ], [ %.05677, %32 ]
   %41 = add nuw i64 %.080, 1
-  %42 = load ptr, ptr getelementptr inbounds (%"class.std::vector.31", ptr @_ZN11FactPointTo8all_ptrsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11FactPointTo8all_ptrsE, i64 8), align 8
   %43 = load ptr, ptr @_ZN11FactPointTo8all_ptrsE, align 8
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
@@ -950,7 +950,7 @@ define dso_local void @_ZN10Bookkeeper25output_pointer_statisticsERSo(ptr nounde
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.21)
   %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %52)
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %57 = load ptr, ptr getelementptr inbounds (%"class.std::vector.31", ptr @_ZN11FactPointTo8all_ptrsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11FactPointTo8all_ptrsE, i64 8), align 8
   %58 = load ptr, ptr @_ZN11FactPointTo8all_ptrsE, align 8
   %.not = icmp eq ptr %57, %58
   br i1 %.not, label %239, label %59
@@ -962,7 +962,7 @@ define dso_local void @_ZN10Bookkeeper25output_pointer_statisticsERSo(ptr nounde
   %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.22)
   %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %63, i32 noundef %61)
   %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %66 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 8), align 8
   %67 = load ptr, ptr @_ZN10Bookkeeper21read_dereference_cntsE, align 8
   %.not.i = icmp eq ptr %66, %67
   br i1 %.not.i, label %_Z10calc_totalRKSt6vectorIiSaIiEE.exit, label %.lr.ph.preheader.i
@@ -993,7 +993,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit:           ; preds = %.lr.ph.i, %59
   %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.10)
   %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %82 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 8), align 8
   %83 = load ptr, ptr @_ZN10Bookkeeper21read_dereference_cntsE, align 8
   %84 = ptrtoint ptr %82 to i64
   %85 = ptrtoint ptr %83 to i64
@@ -1012,7 +1012,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit:           ; preds = %.lr.ph.i, %59
   %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %90, i32 noundef %93)
   %95 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %96 = add nuw i64 %.186, 1
-  %97 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper21read_dereference_cntsE, i64 8), align 8
   %98 = load ptr, ptr @_ZN10Bookkeeper21read_dereference_cntsE, align 8
   %99 = ptrtoint ptr %97 to i64
   %100 = ptrtoint ptr %98 to i64
@@ -1022,7 +1022,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit:           ; preds = %.lr.ph.i, %59
   br i1 %103, label %.lr.ph87, label %._crit_edge88, !llvm.loop !16
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %_Z10calc_totalRKSt6vectorIiSaIiEE.exit
-  %104 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 8), align 8
   %105 = load ptr, ptr @_ZN10Bookkeeper22write_dereference_cntsE, align 8
   %.not.i64 = icmp eq ptr %104, %105
   br i1 %.not.i64, label %_Z10calc_totalRKSt6vectorIiSaIiEE.exit72, label %.lr.ph.preheader.i65
@@ -1053,7 +1053,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit72:         ; preds = %.lr.ph.i67, %._crit
   %117 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %118 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.10)
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %120 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 8), align 8
   %121 = load ptr, ptr @_ZN10Bookkeeper22write_dereference_cntsE, align 8
   %122 = ptrtoint ptr %120 to i64
   %123 = ptrtoint ptr %121 to i64
@@ -1072,7 +1072,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit72:         ; preds = %.lr.ph.i67, %._crit
   %132 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %128, i32 noundef %131)
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %134 = add nuw i64 %.289, 1
-  %135 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22write_dereference_cntsE, i64 8), align 8
   %136 = load ptr, ptr @_ZN10Bookkeeper22write_dereference_cntsE, align 8
   %137 = ptrtoint ptr %135 to i64
   %138 = ptrtoint ptr %136 to i64
@@ -1102,14 +1102,14 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit72:         ; preds = %.lr.ph.i67, %._crit
   %159 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull @.str.28)
   %160 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %159, i32 noundef %157)
   %161 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %162 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 8), align 8
   %163 = load ptr, ptr @_ZN10Bookkeeper22dereference_level_cntsE, align 8
   %.not63 = icmp eq ptr %162, %163
   br i1 %.not63, label %.loopexit, label %164
 
 164:                                              ; preds = %._crit_edge91
   %165 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %166 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 8), align 8
   %167 = load ptr, ptr @_ZN10Bookkeeper22dereference_level_cntsE, align 8
   %168 = ptrtoint ptr %166 to i64
   %169 = ptrtoint ptr %167 to i64
@@ -1123,7 +1123,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit72:         ; preds = %.lr.ph.i67, %._crit
   %177 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %176, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %178 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.10)
   %179 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %180 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 8), align 8
   %181 = load ptr, ptr @_ZN10Bookkeeper22dereference_level_cntsE, align 8
   %.not96 = icmp eq ptr %180, %181
   br i1 %.not96, label %.loopexit, label %.lr.ph94
@@ -1139,7 +1139,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit72:         ; preds = %.lr.ph.i67, %._crit
   %188 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %184, i32 noundef %187)
   %189 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %190 = add nuw i64 %.392, 1
-  %191 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper22dereference_level_cntsE, i64 8), align 8
   %192 = load ptr, ptr @_ZN10Bookkeeper22dereference_level_cntsE, align 8
   %193 = ptrtoint ptr %191 to i64
   %194 = ptrtoint ptr %192 to i64
@@ -1167,7 +1167,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit72:         ; preds = %.lr.ph.i67, %._crit
   %213 = getelementptr inbounds i8, ptr %0, i64 %212
   %214 = getelementptr inbounds i8, ptr %213, i64 8
   store i64 3, ptr %214, align 8
-  %215 = load ptr, ptr getelementptr inbounds (%"class.std::vector.31", ptr @_ZN11FactPointTo8all_ptrsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11FactPointTo8all_ptrsE, i64 8), align 8
   %216 = load ptr, ptr @_ZN11FactPointTo8all_ptrsE, align 8
   %217 = ptrtoint ptr %215 to i64
   %218 = ptrtoint ptr %216 to i64
@@ -1179,7 +1179,7 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit72:         ; preds = %.lr.ph.i67, %._crit
   %224 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %223, ptr noundef nonnull @.str.34)
   %225 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %224, double noundef %222)
   %226 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %225, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %227 = load ptr, ptr getelementptr inbounds (%"class.std::vector.31", ptr @_ZN11FactPointTo8all_ptrsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11FactPointTo8all_ptrsE, i64 8), align 8
   %228 = load ptr, ptr @_ZN11FactPointTo8all_ptrsE, align 8
   %229 = ptrtoint ptr %227 to i64
   %230 = ptrtoint ptr %228 to i64
@@ -1399,7 +1399,7 @@ define dso_local void @_ZN10Bookkeeper25stat_expr_depths_for_stmtEPK9Statement(p
           to label %17 unwind label %.loopexit.split-lp.loopexit
 
 17:                                               ; preds = %.lr.ph
-  %18 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 8), align 8
   %19 = load ptr, ptr @_ZN10Bookkeeper15expr_depth_cntsE, align 8
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
@@ -1429,7 +1429,7 @@ define dso_local void @_ZN10Bookkeeper25stat_expr_depths_for_stmtEPK9Statement(p
   br i1 %.not.i.i.i, label %.lr.ph.i.preheader, label %34
 
 34:                                               ; preds = %32
-  store ptr %33, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper15expr_depth_cntsE, i64 8), align 8
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %28, %34, %32, %30
@@ -1991,7 +1991,7 @@ define dso_local void @_ZN10Bookkeeper26record_vars_with_bitfieldsEPK4Type(ptr n
 
 7:                                                ; preds = %5
   %8 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper19vars_with_bitfieldsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper19vars_with_bitfieldsE, i64 8), align 8
   %10 = load ptr, ptr @_ZN10Bookkeeper19vars_with_bitfieldsE, align 8
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
@@ -2021,7 +2021,7 @@ define dso_local void @_ZN10Bookkeeper26record_vars_with_bitfieldsEPK4Type(ptr n
   br i1 %.not.i.i.i, label %.lr.ph.i.preheader, label %25
 
 25:                                               ; preds = %23
-  store ptr %24, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper19vars_with_bitfieldsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %24, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper19vars_with_bitfieldsE, i64 8), align 8
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %25, %23, %21, %19
@@ -2050,7 +2050,7 @@ _Z12incr_counterRSt6vectorIiSaIiEEi.exit:         ; preds = %_Z12incr_counterRSt
   br i1 %33, label %34, label %58
 
 34:                                               ; preds = %_Z12incr_counterRSt6vectorIiSaIiEEi.exit
-  %35 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper24vars_with_full_bitfieldsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper24vars_with_full_bitfieldsE, i64 8), align 8
   %36 = load ptr, ptr @_ZN10Bookkeeper24vars_with_full_bitfieldsE, align 8
   %37 = ptrtoint ptr %35 to i64
   %38 = ptrtoint ptr %36 to i64
@@ -2079,7 +2079,7 @@ _Z12incr_counterRSt6vectorIiSaIiEEi.exit:         ; preds = %_Z12incr_counterRSt
   br i1 %.not.i.i.i11, label %.lr.ph.i8.preheader, label %50
 
 50:                                               ; preds = %48
-  store ptr %49, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN10Bookkeeper24vars_with_full_bitfieldsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %49, ptr getelementptr inbounds (i8, ptr @_ZN10Bookkeeper24vars_with_full_bitfieldsE, i64 8), align 8
   br label %.lr.ph.i8.preheader
 
 .lr.ph.i8.preheader:                              ; preds = %50, %48, %46, %44

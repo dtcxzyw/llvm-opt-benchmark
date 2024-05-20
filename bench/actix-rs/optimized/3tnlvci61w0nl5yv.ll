@@ -2546,7 +2546,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h30506f7421a159e5E.exit.i.i": ; preds = %.noexc, %32
-  %.0.i.i2.i.i.i = phi ptr [ %36, %.noexc ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h234b1ed09bd44f64E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %32 ]
+  %.0.i.i2.i.i.i = phi ptr [ %36, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h234b1ed09bd44f64E, i64 8), %32 ]
   %.0.val.i.i.i = load i64, ptr %.0.i.i2.i.i.i, align 8, !noalias !444, !noundef !9
   %39 = getelementptr inbounds i8, ptr %34, i64 40
   %40 = load atomic i64, ptr %39 acquire, align 8, !noalias !444
@@ -2594,7 +2594,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h30506f7421a159e5E.exit.i.i107": ; preds = %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i.i.i106, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17ha45e60c0ac324eb7E.exit"
-  %.0.i.i2.i.i.i108 = phi ptr [ %49, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i.i.i106 ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h234b1ed09bd44f64E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17ha45e60c0ac324eb7E.exit" ]
+  %.0.i.i2.i.i.i108 = phi ptr [ %49, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i.i.i106 ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h234b1ed09bd44f64E, i64 8), %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17ha45e60c0ac324eb7E.exit" ]
   %.0.val.i.i.i109 = load i64, ptr %.0.i.i2.i.i.i108, align 8, !noalias !461, !noundef !9
   %52 = getelementptr inbounds i8, ptr %47, i64 40
   %53 = load atomic i64, ptr %52 acquire, align 8, !noalias !461
@@ -4993,7 +4993,7 @@ define void @"_ZN116_$LT$actix_web..http..header..content_disposition..Dispositi
   store ptr %17, ptr %18, align 8, !noalias !901
   store ptr @anon.eeefbac79169d39eae1d864976b9ca20.116, ptr %14, align 8, !noalias !901
   %19 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr getelementptr inbounds (<{ [6 x i8] }>, ptr @anon.eeefbac79169d39eae1d864976b9ca20.116, i64 1, i32 0, i64 0), ptr %19, align 8, !noalias !901
+  store ptr getelementptr inbounds (i8, ptr @anon.eeefbac79169d39eae1d864976b9ca20.116, i64 6), ptr %19, align 8, !noalias !901
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !904
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h54b1992f68127621E.llvm.926505738866763462"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !907
   %20 = load i64, ptr %13, align 8, !noalias !904, !noundef !9
@@ -5600,7 +5600,7 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %52
   store ptr %140, ptr %18, align 8, !noalias !1007
   store ptr %162, ptr %125, align 8, !noalias !1007
   store ptr @anon.eeefbac79169d39eae1d864976b9ca20.121, ptr %17, align 8, !noalias !1007
-  store ptr getelementptr inbounds (<{ [8 x i8] }>, ptr @anon.eeefbac79169d39eae1d864976b9ca20.121, i64 1, i32 0, i64 0), ptr %126, align 8, !noalias !1007
+  store ptr getelementptr inbounds (i8, ptr @anon.eeefbac79169d39eae1d864976b9ca20.121, i64 8), ptr %126, align 8, !noalias !1007
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !1010
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h54b1992f68127621E.llvm.926505738866763462"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
           to label %.noexc unwind label %203
@@ -5810,7 +5810,7 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %52
   store ptr %140, ptr %14, align 8, !noalias !1032
   store ptr %229, ptr %116, align 8, !noalias !1032
   store ptr @anon.eeefbac79169d39eae1d864976b9ca20.124, ptr %13, align 8, !noalias !1032
-  store ptr getelementptr inbounds (<{ [4 x i8] }>, ptr @anon.eeefbac79169d39eae1d864976b9ca20.124, i64 1, i32 0, i64 0), ptr %117, align 8, !noalias !1032
+  store ptr getelementptr inbounds (i8, ptr @anon.eeefbac79169d39eae1d864976b9ca20.124, i64 4), ptr %117, align 8, !noalias !1032
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !1035
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h54b1992f68127621E.llvm.926505738866763462"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
           to label %.noexc193 unwind label %362
@@ -6153,7 +6153,7 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %52
   store ptr %140, ptr %6, align 8, !noalias !1096
   store ptr %325, ptr %118, align 8, !noalias !1096
   store ptr @anon.eeefbac79169d39eae1d864976b9ca20.121, ptr %5, align 8, !noalias !1096
-  store ptr getelementptr inbounds (<{ [8 x i8] }>, ptr @anon.eeefbac79169d39eae1d864976b9ca20.121, i64 1, i32 0, i64 0), ptr %119, align 8, !noalias !1096
+  store ptr getelementptr inbounds (i8, ptr @anon.eeefbac79169d39eae1d864976b9ca20.121, i64 8), ptr %119, align 8, !noalias !1096
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1099
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h54b1992f68127621E.llvm.926505738866763462"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
           to label %.noexc225 unwind label %362

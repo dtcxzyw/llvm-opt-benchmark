@@ -730,8 +730,8 @@ define dso_local noundef range(i32 -22, 1) i32 @mbox_controller_register(ptr nou
 50:                                               ; preds = %49, %.loopexit
   tail call void @mutex_lock(ptr noundef nonnull @con_mutex) #5
   %51 = getelementptr inbounds i8, ptr %0, i64 120
-  %52 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @mbox_cons, i64 0, i32 1), align 8
-  store ptr %51, ptr getelementptr inbounds (%struct.list_head, ptr @mbox_cons, i64 0, i32 1), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mbox_cons, i64 8), align 8
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @mbox_cons, i64 8), align 8
   store ptr @mbox_cons, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %52, ptr %53, align 8

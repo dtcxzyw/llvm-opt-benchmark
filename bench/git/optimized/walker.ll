@@ -445,7 +445,7 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %sto
   %call4.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i43) #14
   %call5.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.9, ptr noundef %cond.i.i, ptr noundef %call4.i.i) #13
   %call.i.i11.i = call ptr @null_oid() #14
-  %25 = load i32, ptr getelementptr inbounds (%struct.object_id, ptr @current_commit_oid, i64 0, i32 1), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @current_commit_oid, i64 32), align 4
   %tobool.not.i.i.i.i = icmp eq i32 %25, 0
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -551,7 +551,7 @@ if.end6.i.i.i:                                    ; preds = %while.end.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) @current_commit_oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i.i, i64 32, i1 false)
   %algo.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 36
   %40 = load i32, ptr %algo.i.i.i.i, align 4
-  store i32 %40, ptr getelementptr inbounds (%struct.object_id, ptr @current_commit_oid, i64 0, i32 1), align 4
+  store i32 %40, ptr getelementptr inbounds (i8, ptr @current_commit_oid, i64 32), align 4
   %call10.i.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i.i.i) #14
   call void (ptr, ptr, ...) @walker_say(ptr noundef %walker, ptr noundef nonnull @.str.13, ptr noundef %call10.i.i.i)
   %41 = load ptr, ptr @the_repository, align 8

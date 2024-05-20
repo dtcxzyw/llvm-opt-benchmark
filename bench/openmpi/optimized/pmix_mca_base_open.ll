@@ -105,7 +105,7 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %1
   %22 = add nsw i32 %6, 1
   store i32 %22, ptr @pmix_mca_base_opened, align 4
-  %23 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 15), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
   %24 = tail call noalias ptr @strdup(ptr noundef %23) #8
   store ptr %24, ptr @pmix_mca_base_system_default_path, align 8
   %25 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %2, ptr noundef %24) #8
@@ -316,7 +316,7 @@ parse_verbose.exit:                               ; preds = %.critedge.i, %.crit
 
 117:                                              ; preds = %48
   %118 = load i32, ptr @pmix_class_init_epoch, align 4
-  %119 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 4), align 8
+  %119 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %118, %119
   br i1 %.not.i, label %121, label %120
 
@@ -331,7 +331,7 @@ parse_verbose.exit:                               ; preds = %.critedge.i, %.crit
   store i32 1, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %124, i8 0, i64 64, i1 false)
-  %125 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 6), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %126 = load ptr, ptr %125, align 8
   %.not6.i.i = icmp eq ptr %126, null
   br i1 %.not6.i.i, label %set_defaults.exit, label %.lr.ph.i.i
@@ -362,7 +362,7 @@ set_defaults.exit:                                ; preds = %.lr.ph.i.i, %121
 
 138:                                              ; preds = %132
   %139 = call i32 @pmix_output_reopen(i32 noundef 0, ptr noundef nonnull %4) #8
-  %140 = load i32, ptr getelementptr inbounds ([0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 0, i32 2), align 4
+  %140 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_info, i64 4), align 4
   %141 = icmp sgt i32 %140, 9
   br i1 %141, label %142, label %144
 

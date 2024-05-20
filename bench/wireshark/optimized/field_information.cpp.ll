@@ -36,8 +36,8 @@ $__clang_call_terminate = comdat any
 define void @_ZN16FieldInformationC2EP10field_infoP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i64 0, i32 1, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16FieldInformation, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16FieldInformation, i64 136), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -51,8 +51,8 @@ declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16),
 define void @_ZN16FieldInformationC2EPK9ProtoNodeP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i64 0, i32 1, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16FieldInformation, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16FieldInformation, i64 136), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %1, null

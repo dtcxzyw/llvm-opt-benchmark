@@ -329,7 +329,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_stream(ptr noundef %
 65:                                               ; preds = %134, %63
   %66 = phi ptr [ null, %63 ], [ %69, %134 ]
   %67 = phi i32 [ 0, %63 ], [ %143, %134 ]
-  %68 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %69 = call noalias align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %68, i32 noundef 3520, i64 noundef 368) #15
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.loopexit, label %71
@@ -515,7 +515,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @_snd_pcm_new(ptr noundef %
   br label %13
 
 13:                                               ; preds = %12, %10
-  %14 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(376) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 376) #15
   %16 = icmp eq ptr %15, null
   br i1 %16, label %95, label %17
@@ -836,7 +836,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr nou
 .split26.us:                                      ; preds = %88, %.split.us
   %.us-phi = phi ptr [ %51, %.split.us ], [ %84, %88 ]
   %96 = getelementptr inbounds i8, ptr %.us-phi, i64 320
-  %97 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %98 = tail call noalias align 8 dereferenceable_or_null(816) ptr @kmalloc_trace(ptr noundef %97, i32 noundef 3520, i64 noundef 816) #15
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread, label %100
@@ -1314,7 +1314,7 @@ define internal fastcc void @snd_pcm_proc_info_read(ptr noundef %0, ptr nocaptur
   br i1 %3, label %46, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 288) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %46, label %8
@@ -1850,8 +1850,8 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly %0) #1 align 16 {
 
 .loopexit13:                                      ; preds = %.thread6, %11
   %44 = getelementptr inbounds i8, ptr %5, i64 8
-  %45 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @snd_pcm_devices, i64 0, i32 1), align 8
-  store ptr %44, ptr getelementptr inbounds (%struct.list_head, ptr @snd_pcm_devices, i64 0, i32 1), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @snd_pcm_devices, i64 8), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @snd_pcm_devices, i64 8), align 8
   store ptr @snd_pcm_devices, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %45, ptr %46, align 8

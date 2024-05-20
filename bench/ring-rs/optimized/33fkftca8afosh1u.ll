@@ -858,7 +858,7 @@ _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %6
   call void @ring_core_0_17_8__x25519_sc_mask(ptr noalias noundef nonnull align 1 dereferenceable(32) %4), !noalias !78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %4, i64 32, i1 false), !noalias !82
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !78
-  %15 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 2), align 4, !noundef !12
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 8), align 4, !noundef !12
   %16 = and i32 %15, 524296
   %or.cond.not = icmp eq i32 %16, 524296
   %17 = lshr i32 %15, 8
@@ -908,7 +908,7 @@ _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %5
   br i1 %or.cond, label %17, label %22
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 2), align 4, !noalias !94, !noundef !12
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 8), align 4, !noalias !94, !noundef !12
   %19 = and i32 %18, 524552
   %or.cond3.i = icmp eq i32 %19, 524552
   br i1 %or.cond3.i, label %20, label %.critedge.i

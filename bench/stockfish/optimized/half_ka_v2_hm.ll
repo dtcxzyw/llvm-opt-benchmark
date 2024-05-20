@@ -95,9 +95,9 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21a
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %6, %8
   %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %9, i1 true)
-  %11 = getelementptr inbounds [2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm9OrientTBLE, i64 0, i64 1, i64 %10
+  %11 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm9OrientTBLE, i64 256), i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds [2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11KingBucketsE, i64 0, i64 1, i64 %10
+  %13 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11KingBucketsE, i64 256), i64 0, i64 %10
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %1, i64 128
   br label %16
@@ -112,7 +112,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21a
   %22 = load i32, ptr %21, align 4
   %23 = xor i32 %12, %18
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds [2 x [16 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16PieceSquareIndexE, i64 0, i64 1, i64 %24
+  %25 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16PieceSquareIndexE, i64 64), i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %23, %26
   %28 = add i32 %27, %14
@@ -215,8 +215,8 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22a
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds [2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm9OrientTBLE, i64 0, i64 1, i64 %9
-  %11 = getelementptr inbounds [2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11KingBucketsE, i64 0, i64 1, i64 %9
+  %10 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm9OrientTBLE, i64 256), i64 0, i64 %9
+  %11 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11KingBucketsE, i64 256), i64 0, i64 %9
   %12 = getelementptr inbounds i8, ptr %2, i64 128
   %13 = getelementptr inbounds i8, ptr %1, i64 28
   %14 = getelementptr inbounds i8, ptr %3, i64 128
@@ -235,7 +235,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22a
   %21 = load i32, ptr %10, align 4
   %22 = xor i32 %21, %17
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds [2 x [16 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16PieceSquareIndexE, i64 0, i64 1, i64 %23
+  %24 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16PieceSquareIndexE, i64 64), i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %22, %25
   %27 = load i32, ptr %11, align 4
@@ -259,7 +259,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22a
   %38 = load i32, ptr %10, align 4
   %39 = xor i32 %38, %34
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds [2 x [16 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16PieceSquareIndexE, i64 0, i64 1, i64 %40
+  %41 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16PieceSquareIndexE, i64 64), i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %39, %42
   %44 = load i32, ptr %11, align 4

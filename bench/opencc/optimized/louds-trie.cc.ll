@@ -925,7 +925,7 @@ _ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit: ; preds = %63, %._crit_edge10
 
 86:                                               ; preds = %.lr.ph107
   %87 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %87, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   store ptr @.str.23, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %87, i64 16
@@ -1368,7 +1368,7 @@ _ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %7
 
 .critedge.i:                                      ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, %2
   %13 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.11, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -1473,7 +1473,7 @@ _ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit: ; preds = %2, %1
 
 34:                                               ; preds = %32
   %35 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr @.str.43, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %35, i64 16
@@ -1504,7 +1504,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
 
 44:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr @.str, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %45, i64 16
@@ -1651,7 +1651,7 @@ _ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %7
 
 .critedge.i:                                      ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, %2
   %13 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.11, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -1787,7 +1787,7 @@ _ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit: ; preds = %10, 
 
 51:                                               ; preds = %49
   %52 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   store ptr @.str.43, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %52, i64 16
@@ -1818,7 +1818,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
 
 61:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
   %62 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   store ptr @.str, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 16
@@ -2357,7 +2357,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie14reverse_lookupERNS_5AgentE(ptr
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
@@ -4258,7 +4258,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector9push_backEb(ptr n
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.23, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -4710,7 +4710,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit: ; preds = %81, %
   %.str.2.sink = phi ptr [ @.str.2, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ @.str.44, %86 ]
   %88 = phi <2 x i32> [ <i32 453, i32 8>, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ <i32 19, i32 6>, %86 ]
   %89 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %89, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   store ptr %.str.sink, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %89, i64 16
@@ -5071,7 +5071,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread: ; pred
 
 50:                                               ; preds = %48
   %51 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr @.str.43, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 16
@@ -5102,7 +5102,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
 
 60:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
   %61 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %61, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr @.str, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %61, i64 16
@@ -6676,7 +6676,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie6Config6parse_Ei(ptr noundef n
 
 3:                                                ; preds = %2
   %4 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @.str.6, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -6723,7 +6723,7 @@ _ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit: ; preds = %9, %11
 
 18:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr @.str.6, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 16
@@ -6752,7 +6752,7 @@ _ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit: ; preds = %_ZN6marisa
 
 27:                                               ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
   %28 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr @.str.6, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 16
@@ -6780,7 +6780,7 @@ _ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit: ; preds = %_ZN6marisa8g
 
 36:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
   %37 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr @.str.6, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 16
@@ -6842,7 +6842,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE6shrinkEv(ptr noun
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str.25, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -6980,7 +6980,7 @@ _ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit: ; preds = %7, %2
 
 41:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit
   %42 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %42, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr @.str.23, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 16
@@ -7155,7 +7155,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE4map_ERNS0_2io6Map
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.25, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -7182,7 +7182,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE4map_ERNS0_2io6Map
 
 20:                                               ; preds = %12
   %21 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.25, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 16
@@ -7212,7 +7212,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.25, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
@@ -7241,7 +7241,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
 
 23:                                               ; preds = %13
   %24 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr @.str.25, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 16
@@ -7268,7 +7268,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE4map_ERNS0_2io6Map
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.25, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -7297,7 +7297,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE4map_ERNS0_2io6Map
 
 22:                                               ; preds = %12
   %23 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr @.str.25, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 16
@@ -7379,7 +7379,7 @@ _ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit: ; preds = %4, %2
 
 33:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit
   %34 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr @.str.32, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 16
@@ -7486,7 +7486,7 @@ _ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit: ; preds = %9, %
 
 41:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit
   %42 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %42, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr @.str.23, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 16
@@ -7662,7 +7662,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE5read_ERNS0_2io6Re
 
 6:                                                ; preds = %2
   %7 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.25, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -7737,7 +7737,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit: ; preds = %12, %.preheader.i
 
 42:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit
   %43 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %43, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr @.str.17, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %43, i64 16
@@ -7772,7 +7772,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE5rea
 
 7:                                                ; preds = %2
   %8 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.25, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
@@ -7867,7 +7867,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit: ; preds = %40,
 
 50:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit
   %51 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr @.str.17, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 16
@@ -7900,7 +7900,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE5read_ERNS0_2io6Re
 
 6:                                                ; preds = %2
   %7 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.25, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -7975,7 +7975,7 @@ _ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit: ; preds = %12, %.preheader.i
 
 42:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit
   %43 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %43, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr @.str.17, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %43, i64 16
@@ -8064,7 +8064,7 @@ _ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit: ; preds = %7, %
 
 35:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit
   %36 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %36, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr @.str.32, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 16
@@ -8109,7 +8109,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6
 
 12:                                               ; preds = %2
   %13 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.20, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -8127,7 +8127,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6
 
 20:                                               ; preds = %18
   %21 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.20, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 16
@@ -8166,7 +8166,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6wr
 
 12:                                               ; preds = %2
   %13 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.20, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -8184,7 +8184,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6wr
 
 20:                                               ; preds = %18
   %21 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.20, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 16
@@ -8224,7 +8224,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIjE6write_ERNS0_2io6
 
 12:                                               ; preds = %2
   %13 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.20, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -8242,7 +8242,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIjE6write_ERNS0_2io6
 
 20:                                               ; preds = %18
   %21 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.20, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 16
@@ -9111,7 +9111,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %318, %_ZN6mari
 
 .invoke:                                          ; preds = %316, %373
   %.sink = phi ptr [ %317, %316 ], [ %374, %373 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %.sink, align 8
   %375 = getelementptr inbounds i8, ptr %.sink, i64 8
   store ptr @.str.23, ptr %375, align 8
   %376 = getelementptr inbounds i8, ptr %.sink, i64 16
@@ -9478,7 +9478,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
 
 548:                                              ; preds = %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %549 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %549, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %549, align 8
   %550 = getelementptr inbounds i8, ptr %549, i64 8
   store ptr @.str.23, ptr %550, align 8
   %551 = getelementptr inbounds i8, ptr %549, i64 16
@@ -9727,7 +9727,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204: ; preds = %639, %
   %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %643 = call ptr @__cxa_begin_catch(ptr %.2) #20
   %644 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %644, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %644, align 8
   %645 = getelementptr inbounds i8, ptr %644, i64 8
   store ptr @.str, ptr %645, align 8
   %646 = getelementptr inbounds i8, ptr %644, i64 16
@@ -9849,7 +9849,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIhE6shrinkEv(ptr noun
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str.25, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -14174,7 +14174,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %319, %_ZN6mari
 
 .invoke:                                          ; preds = %317, %374
   %.sink = phi ptr [ %318, %317 ], [ %375, %374 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %.sink, align 8
   %376 = getelementptr inbounds i8, ptr %.sink, i64 8
   store ptr @.str.23, ptr %376, align 8
   %377 = getelementptr inbounds i8, ptr %.sink, i64 16
@@ -14542,7 +14542,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
 
 550:                                              ; preds = %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %551 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %551, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %551, align 8
   %552 = getelementptr inbounds i8, ptr %551, i64 8
   store ptr @.str.23, ptr %552, align 8
   %553 = getelementptr inbounds i8, ptr %551, i64 16
@@ -14791,7 +14791,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit204: ; preds =
   %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %645 = call ptr @__cxa_begin_catch(ptr %.2) #20
   %646 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %646, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %646, align 8
   %647 = getelementptr inbounds i8, ptr %646, i64 8
   store ptr @.str, ptr %647, align 8
   %648 = getelementptr inbounds i8, ptr %646, i64 16
@@ -15422,7 +15422,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.25, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
@@ -15451,7 +15451,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
 
 23:                                               ; preds = %13
   %24 = tail call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr @.str.25, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 16
@@ -15533,7 +15533,7 @@ _ZN6marisa8grimoire6vector6VectorIhE6resizeEm.exit: ; preds = %2, %.preheader.i.
 
 31:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIhE6resizeEm.exit
   %32 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr @.str.17, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 16
@@ -15566,7 +15566,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
 
 7:                                                ; preds = %2
   %8 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.25, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
@@ -15589,7 +15589,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
 
 18:                                               ; preds = %13
   %19 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr @.str.17, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 16
@@ -15628,7 +15628,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIhE6write_ERNS0_2io6
 
 11:                                               ; preds = %2
   %12 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr @.str.20, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 16
@@ -15667,7 +15667,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6w
 
 12:                                               ; preds = %2
   %13 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.20, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -15685,7 +15685,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6w
 
 20:                                               ; preds = %18
   %21 = call ptr @__cxa_allocate_exception(i64 32) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.20, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 16

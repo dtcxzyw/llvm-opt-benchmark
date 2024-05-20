@@ -507,7 +507,7 @@ define void @_ZN15PacketListModelC2EP7QObjectP13_capture_file(ptr noundef nonnul
   %9 = alloca %"class.QMetaObject::Connection", align 8
   %10 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15PacketListModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15PacketListModel, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1047,7 +1047,7 @@ declare void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15PacketListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15PacketListModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15PacketListModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1192,7 +1192,7 @@ define void @_ZNK15PacketListModel5indexEiiRK11QModelIndex(ptr dead_on_unwind no
   %12 = load ptr, ptr %11, align 8
   %.not = icmp ne ptr %12, null
   %or.cond12.not14 = select i1 %or.cond.not17, i1 %.not, i1 false
-  %13 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %.not10 = icmp sgt i32 %13, %3
   %or.cond13 = select i1 %or.cond12.not14, i1 %.not10, i1 false
   br i1 %or.cond13, label %16, label %14
@@ -1420,7 +1420,7 @@ define void @_ZN15PacketListModel5clearEv(ptr noundef nonnull align 8 dereferenc
   br i1 %.not.i.i, label %_Z10qDeleteAllI5QListIP16PacketListRecordEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 _Z10qDeleteAllI5QListIP16PacketListRecordEEvRKT_.exit: ; preds = %14, %1
-  %16 = load ptr, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 4), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 48), align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_ZN16PacketListRecord20invalidateAllRecordsEv.exit, label %18
 
@@ -1446,10 +1446,10 @@ _Z10qDeleteAllI5QListIP16PacketListRecordEEvRKT_.exit: ; preds = %14, %1
   br label %_ZN16PacketListRecord20invalidateAllRecordsEv.exit
 
 _ZN16PacketListRecord20invalidateAllRecordsEv.exit: ; preds = %_Z10qDeleteAllI5QListIP16PacketListRecordEEvRKT_.exit, %.loopexit.i.i.i
-  store ptr null, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 4), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 1), i8 0, i64 16, i1 false)
-  store i64 0, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 3), align 8
-  store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 24), i8 0, i64 16, i1 false)
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 64), align 8
+  store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 8), align 8
   store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr @_ZN16PacketListRecord15col_text_cache_E, align 8
   tail call void @_ZN5QListIP16PacketListRecordE15resize_internalEx(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 0)
   %26 = load i64, ptr %5, align 8
@@ -1562,7 +1562,7 @@ define void @_ZN15PacketListModel26invalidateAllColumnStringsEv(ptr noundef nonn
   %7 = alloca %class.QModelIndex, align 8
   %8 = alloca %class.QModelIndex, align 8
   %9 = alloca %class.QList.4, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 4), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 48), align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZN16PacketListRecord20invalidateAllRecordsEv.exit, label %12
 
@@ -1588,10 +1588,10 @@ define void @_ZN15PacketListModel26invalidateAllColumnStringsEv(ptr noundef nonn
   br label %_ZN16PacketListRecord20invalidateAllRecordsEv.exit
 
 _ZN16PacketListRecord20invalidateAllRecordsEv.exit: ; preds = %1, %.loopexit.i.i.i
-  store ptr null, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 4), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 1), i8 0, i64 16, i1 false)
-  store i64 0, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 3), align 8
-  store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 24), i8 0, i64 16, i1 false)
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 64), align 8
+  store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 8), align 8
   store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr @_ZN16PacketListRecord15col_text_cache_E, align 8
   store i32 -1, ptr %4, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 4
@@ -4279,7 +4279,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %_ZN16PacketListReco
 58:                                               ; preds = %_ZN7QStringC2EPKc.exit
   %59 = load i64, ptr %28, align 8
   %60 = trunc i64 %59 to i32
-  %61 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 98), align 8
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 520), align 8
   %62 = icmp ult i32 %61, %60
   br i1 %62, label %63, label %123
 
@@ -4333,7 +4333,7 @@ _ZN15PacketListModel2trEPKcS1_i.exit54:           ; preds = %_ZN7QStringD2Ev.exi
           to label %80 unwind label %99
 
 80:                                               ; preds = %_ZN15PacketListModel2trEPKcS1_i.exit54
-  %81 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 98), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 520), align 8
   %82 = zext i32 %81 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %82, i32 noundef 0, i32 noundef 10, i16 32)
           to label %_ZNK7QString3argEjii5QChar.exit unwind label %101
@@ -5686,7 +5686,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9SortAbortCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9SortAbort, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9SortAbort, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5780,7 +5780,7 @@ define noundef i32 @_ZNK15PacketListModel8rowCountERK11QModelIndex(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK15PacketListModel11columnCountERK11QModelIndex(ptr nocapture noundef nonnull readnone align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) unnamed_addr #15 align 2 {
-  %3 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   ret i32 %3
 }
 
@@ -5894,7 +5894,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   %49 = getelementptr inbounds i8, ptr %26, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = icmp ne ptr %50, null
-  %52 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
   %53 = icmp ne i32 %52, 0
   %or.cond = select i1 %51, i1 %53, i1 false
   br i1 %or.cond, label %54, label %56
@@ -5910,7 +5910,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   br label %_ZN7QStringD2Ev.exit49
 
 58:                                               ; preds = %46, %42, %54
-  %.0 = phi ptr [ %55, %54 ], [ getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 21), %42 ], [ getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 19), %46 ]
+  %.0 = phi ptr [ %55, %54 ], [ getelementptr inbounds (i8, ptr @prefs, i64 122), %42 ], [ getelementptr inbounds (i8, ptr @prefs, i64 110), %46 ]
   %59 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull %.0)
   %60 = extractvalue { i64, i64 } %59, 0
   store i64 %60, ptr %5, align 8
@@ -5936,7 +5936,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   %70 = getelementptr inbounds i8, ptr %26, i64 40
   %71 = load ptr, ptr %70, align 8
   %72 = icmp ne ptr %71, null
-  %73 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
   %74 = icmp ne i32 %73, 0
   %or.cond3 = select i1 %72, i1 %74, i1 false
   br i1 %or.cond3, label %75, label %77
@@ -5952,7 +5952,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   br label %_ZN7QStringD2Ev.exit49
 
 79:                                               ; preds = %67, %63, %75
-  %.1 = phi ptr [ %76, %75 ], [ getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 20), %63 ], [ getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 18), %67 ]
+  %.1 = phi ptr [ %76, %75 ], [ getelementptr inbounds (i8, ptr @prefs, i64 116), %63 ], [ getelementptr inbounds (i8, ptr @prefs, i64 104), %67 ]
   %80 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull %.1)
   %81 = extractvalue { i64, i64 } %80, 0
   store i64 %81, ptr %6, align 8
@@ -6094,7 +6094,7 @@ define void @_ZNK15PacketListModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_
 
 13:                                               ; preds = %5
   %14 = icmp eq i32 %3, 1
-  %15 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %16 = icmp sgt i32 %15, %2
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %17, label %46

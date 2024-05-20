@@ -12499,7 +12499,7 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h710d621caac76404E.
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -46297,7 +46297,7 @@ define hidden void @_ZN3ide6rename14rename_to_self17h7cdbdbea08c8965bE(ptr noali
 43:                                               ; preds = %41
   %44 = icmp ult i64 %42, 5
   tail call void @llvm.assume(i1 %44)
-  %45 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3ide6rename14rename_to_self10__CALLSITE17h4d45e7e0bb015c39E, i64 0, i32 1, i64 8) monotonic, align 8
+  %45 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3ide6rename14rename_to_self10__CALLSITE17h4d45e7e0bb015c39E, i64 16) monotonic, align 8
   switch i8 %45, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

@@ -92,7 +92,7 @@ declare dso_local void @v9fs_unregister_trans(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @p9_virtio_init() #0 section ".init.text" align 16 {
   store volatile ptr @virtio_chan_list, ptr @virtio_chan_list, align 8
-  store volatile ptr @virtio_chan_list, ptr getelementptr inbounds (%struct.list_head, ptr @virtio_chan_list, i64 0, i32 1), align 8
+  store volatile ptr @virtio_chan_list, ptr getelementptr inbounds (i8, ptr @virtio_chan_list, i64 8), align 8
   tail call void @v9fs_register_trans(ptr noundef nonnull @p9_virtio_trans) #14
   %1 = tail call i32 @register_virtio_driver(ptr noundef nonnull @p9_virtio_drv) #14
   %2 = icmp eq i32 %1, 0
@@ -124,7 +124,7 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
   br label %134
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %14 = tail call noalias align 8 dereferenceable_or_null(4176) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 4176) #16
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
@@ -278,7 +278,7 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
   br i1 %97, label %98, label %125
 
 98:                                               ; preds = %.split9.us
-  %99 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %100 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %99, i32 noundef 3264, i64 noundef 24) #16
   %101 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %100, ptr %101, align 8
@@ -319,8 +319,8 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
   call void %119(ptr noundef %0, i8 noundef zeroext %120) #14
   call void @mutex_lock(ptr noundef nonnull @virtio_9p_lock) #14
   %121 = getelementptr inbounds i8, ptr %14, i64 4160
-  %122 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @virtio_chan_list, i64 0, i32 1), align 8
-  store ptr %121, ptr getelementptr inbounds (%struct.list_head, ptr @virtio_chan_list, i64 0, i32 1), align 8
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @virtio_chan_list, i64 8), align 8
+  store ptr %121, ptr getelementptr inbounds (i8, ptr @virtio_chan_list, i64 8), align 8
   store ptr @virtio_chan_list, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %14, i64 4168
   store ptr %122, ptr %123, align 8

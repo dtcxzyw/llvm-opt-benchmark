@@ -138,7 +138,7 @@ declare dso_local i32 @__SCT__tp_func_nmi_handler(ptr noundef, ptr noundef, i64 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_nmi_handler(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_nmi_handler, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_nmi_handler, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -306,11 +306,11 @@ define internal i32 @nmi_handle(i32 noundef %0, ptr noundef %1) #1 align 16 {
   %16 = load ptr, ptr %10, align 8
   %17 = shl i64 %15, 32
   %18 = ashr exact i64 %17, 32
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_nmi_handler, i64 0, i32 1), i32 2) #15
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_nmi_handler, i64 8), i32 2) #15
           to label %39 [label %19], !srcloc !13
 
 19:                                               ; preds = %.preheader
-  %20 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #15, !srcloc !14
+  %20 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !14
   %21 = zext i32 %20 to i64
   %22 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %21) #15, !srcloc !15
   %23 = icmp ult i8 %22, 2
@@ -319,9 +319,9 @@ define internal i32 @nmi_handle(i32 noundef %0, ptr noundef %1) #1 align 16 {
   br i1 %24, label %39, label %25
 
 25:                                               ; preds = %19
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #15, !srcloc !16
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %26 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_nmi_handler, i64 0, i32 8), align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_nmi_handler, i64 72), align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %32, label %28
 
@@ -333,7 +333,7 @@ define internal i32 @nmi_handle(i32 noundef %0, ptr noundef %1) #1 align 16 {
 
 32:                                               ; preds = %28, %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
-  %33 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #15, !srcloc !19
+  %33 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !19
   %34 = icmp ult i8 %33, 2
   tail call void @llvm.assume(i1 %34)
   %35 = icmp eq i8 %33, 0
@@ -504,7 +504,7 @@ define dso_local void @unregister_nmi_handler(i32 noundef %0, ptr nocapture noun
   br i1 %15, label %16, label %7, !llvm.loop !32
 
 16:                                               ; preds = %11
-  %17 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !33
+  %17 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !33
   %18 = and i32 %17, 15728640
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %23, label %20, !prof !9
@@ -559,7 +559,7 @@ define internal void @pci_serr_error(i8 noundef zeroext %0, ptr noundef %1) #1 a
 
 5:                                                ; preds = %2
   %6 = zext i8 %0 to i32
-  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !39
+  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !39
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %6, i32 noundef %7) #17
   %9 = load i32, ptr @panic_on_unrecovered_nmi, align 4
   %10 = icmp eq i32 %9, 0
@@ -588,7 +588,7 @@ define internal void @io_check_error(i8 noundef zeroext %0, ptr noundef %1) #1 a
 
 5:                                                ; preds = %2
   %6 = zext i8 %0 to i32
-  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !41
+  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !41
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %6, i32 noundef %7) #17
   tail call void @show_regs(ptr noundef %1) #15
   %9 = load i32, ptr @panic_on_io_nmi, align 4
@@ -627,13 +627,13 @@ define internal void @unknown_nmi_error(i8 noundef zeroext %0, ptr noundef %1) #
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.nmi_stats, ptr @nmi_stats, i64 0, i32 1), i32 %3, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.nmi_stats, ptr @nmi_stats, i64 0, i32 1)) #15, !srcloc !43
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @nmi_stats, i64 4), i32 %3, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @nmi_stats, i64 4)) #15, !srcloc !43
   br label %18
 
 6:                                                ; preds = %2
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.nmi_stats, ptr @nmi_stats, i64 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.nmi_stats, ptr @nmi_stats, i64 0, i32 1)) #15, !srcloc !44
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @nmi_stats, i64 4), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @nmi_stats, i64 4)) #15, !srcloc !44
   %7 = zext i8 %0 to i32
-  %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !45
+  %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !45
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, i32 noundef %7, i32 noundef %8) #17
   %10 = load i32, ptr @unknown_nmi_panic, align 4
   %11 = icmp ne i32 %10, 0
@@ -657,7 +657,7 @@ define internal void @unknown_nmi_error(i8 noundef zeroext %0, ptr noundef %1) #
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local void @exc_nmi(ptr noundef %0) local_unnamed_addr #7 section ".noinstr.text" align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @nmi_stats) #16, !srcloc !46
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !47
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !47
   %4 = sext i32 %3 to i64
   %5 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %4) #15, !srcloc !15
   %6 = icmp ult i8 %5, 2
@@ -682,7 +682,7 @@ define dso_local void @exc_nmi(ptr noundef %0) local_unnamed_addr #7 section ".n
   br label %15
 
 15:                                               ; preds = %72, %12
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 11)) #15
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 59)) #15
           to label %16 [label %16, label %20], !srcloc !53
 
 16:                                               ; preds = %15, %15
@@ -755,7 +755,7 @@ define dso_local void @exc_nmi(ptr noundef %0) local_unnamed_addr #7 section ".n
   br i1 %47, label %.preheader.i, label %.loopexit.i, !llvm.loop !67
 
 .loopexit.i:                                      ; preds = %.preheader.i, %40
-  %48 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 7), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 56), align 8
   %49 = tail call zeroext i8 %48() #15
   %50 = icmp ult i8 %49, 64
   br i1 %50, label %56, label %51
@@ -773,7 +773,7 @@ define dso_local void @exc_nmi(ptr noundef %0) local_unnamed_addr #7 section ".n
   br label %55
 
 55:                                               ; preds = %54, %53
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.nmi_stats, ptr @nmi_stats, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.nmi_stats, ptr @nmi_stats, i64 0, i32 2)) #15, !srcloc !68
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @nmi_stats, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @nmi_stats, i64 8)) #15, !srcloc !68
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nmi_reason_lock) #15
   br label %default_do_nmi.exit
 
@@ -787,7 +787,7 @@ define dso_local void @exc_nmi(ptr noundef %0) local_unnamed_addr #7 section ".n
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %57
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.nmi_stats, ptr @nmi_stats, i64 0, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.nmi_stats, ptr @nmi_stats, i64 0, i32 3)) #15, !srcloc !70
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @nmi_stats, i64 12), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @nmi_stats, i64 12)) #15, !srcloc !70
   br label %default_do_nmi.exit
 
 61:                                               ; preds = %57, %56

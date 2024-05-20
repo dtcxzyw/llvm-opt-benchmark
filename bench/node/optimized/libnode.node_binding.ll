@@ -5292,11 +5292,11 @@ do.body5.i.i.i:                                   ; preds = %entry
   unreachable
 
 __cxx_global_var_init.1.exit:                     ; preds = %entry
-  store ptr getelementptr inbounds (%"struct.node::binding::global_handle_map_t", ptr @_ZN4node7bindingL17global_handle_mapE, i64 0, i32 1, i32 0, i32 5), ptr getelementptr inbounds (%"struct.node::binding::global_handle_map_t", ptr @_ZN4node7bindingL17global_handle_mapE, i64 0, i32 1, i32 0, i32 0), align 8
-  store i64 1, ptr getelementptr inbounds (%"struct.node::binding::global_handle_map_t", ptr @_ZN4node7bindingL17global_handle_mapE, i64 0, i32 1, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.node::binding::global_handle_map_t", ptr @_ZN4node7bindingL17global_handle_mapE, i64 0, i32 1, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"struct.node::binding::global_handle_map_t", ptr @_ZN4node7bindingL17global_handle_mapE, i64 0, i32 1, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.node::binding::global_handle_map_t", ptr @_ZN4node7bindingL17global_handle_mapE, i64 0, i32 1, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN4node7bindingL17global_handle_mapE, i64 88), ptr getelementptr inbounds (i8, ptr @_ZN4node7bindingL17global_handle_mapE, i64 40), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN4node7bindingL17global_handle_mapE, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN4node7bindingL17global_handle_mapE, i64 56), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN4node7bindingL17global_handle_mapE, i64 72), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN4node7bindingL17global_handle_mapE, i64 80), i8 0, i64 16, i1 false)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node7binding19global_handle_map_tD2Ev, ptr nonnull @_ZN4node7bindingL17global_handle_mapE, ptr nonnull @__dso_handle) #22
   ret void
 }

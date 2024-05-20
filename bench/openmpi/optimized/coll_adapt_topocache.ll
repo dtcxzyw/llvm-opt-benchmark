@@ -66,10 +66,10 @@ define ptr @ompi_coll_adapt_module_cached_topology(ptr nocapture noundef %0, ptr
   br i1 %.not26, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 22:                                               ; preds = %4
-  %23 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 8), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #5
   %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %25, %26
   br i1 %.not.i, label %28, label %27
 
@@ -85,7 +85,7 @@ define ptr @ompi_coll_adapt_module_cached_topology(ptr nocapture noundef %0, ptr
   store ptr @opal_list_t_class, ptr %24, align 8
   %30 = getelementptr inbounds i8, ptr %24, i64 8
   store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i.i = icmp eq ptr %32, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -165,10 +165,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %28, %2
 
 create_topology.exit:                             ; preds = %.loopexit, %36, %38, %40, %42, %44, %50, %54, %57, %59
   %.023.i = phi ptr [ null, %59 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ null, %.loopexit ], [ %51, %50 ], [ %56, %54 ], [ %58, %57 ]
-  %61 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 0, i32 8), align 8
+  %61 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 56), align 8
   %62 = tail call noalias ptr @malloc(i64 noundef %61) #5
   %63 = load i32, ptr @opal_class_init_epoch, align 4
-  %64 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 0, i32 4), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 32), align 8
   %.not.i27 = icmp eq i32 %63, %64
   br i1 %.not.i27, label %66, label %65
 
@@ -184,7 +184,7 @@ create_topology.exit:                             ; preds = %.loopexit, %36, %38
   store ptr @ompi_coll_adapt_topology_cache_item_t_class, ptr %62, align 8
   %68 = getelementptr inbounds i8, ptr %62, i64 8
   store volatile i32 1, ptr %68, align 8
-  %69 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 0, i32 6), align 8
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 40), align 8
   %70 = load ptr, ptr %69, align 8
   %.not6.i.i29 = icmp eq ptr %70, null
   br i1 %.not6.i.i29, label %opal_obj_new.exit33, label %.lr.ph.i.i30

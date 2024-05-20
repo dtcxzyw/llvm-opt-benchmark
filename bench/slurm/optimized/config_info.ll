@@ -3026,7 +3026,7 @@ define ptr @slurm_ctl_conf_2_key_pairs(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not1150, label %394, label %383
 
 383:                                              ; preds = %331
-  %384 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 58), align 8
+  %384 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 416), align 8
   %385 = icmp eq i32 %382, %384
   br i1 %385, label %386, label %387
 
@@ -5135,7 +5135,7 @@ define range(i32 -1, 1) i32 @slurm_load_slurmd_status(ptr nocapture noundef writ
 
 28:                                               ; preds = %9
   store ptr @.str.326, ptr %4, align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 188), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
   %30 = trunc i32 %29 to i16
   call void @slurm_set_addr(ptr noundef nonnull %2, i16 noundef zeroext %30, ptr noundef nonnull @.str.326) #13
   br label %41
@@ -5154,7 +5154,7 @@ define range(i32 -1, 1) i32 @slurm_load_slurmd_status(ptr nocapture noundef writ
 
 37:                                               ; preds = %35, %31
   %38 = phi ptr [ %36, %35 ], [ %33, %31 ]
-  %39 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 188), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
   %40 = trunc i32 %39 to i16
   call void @slurm_set_addr(ptr noundef nonnull %2, i16 noundef zeroext %40, ptr noundef %38) #13
   call void @slurm_xfree(ptr noundef nonnull %4) #13

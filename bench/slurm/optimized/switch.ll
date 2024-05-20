@@ -72,7 +72,7 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %6
   store i32 0, ptr @switch_context_cnt, align 4
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 203), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1392), align 8
   %.not35 = icmp eq ptr %10, null
   br i1 %.not35, label %.loopexit, label %11
 
@@ -84,7 +84,7 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %11
   %14 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 203), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1392), align 8
   %16 = tail call ptr @xstrdup(ptr noundef %15) #8
   tail call void @list_append(ptr noundef %14, ptr noundef %16) #8
   br label %19
@@ -125,7 +125,7 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %34
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 203), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1392), align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef %33) #10
   unreachable
 

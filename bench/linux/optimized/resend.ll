@@ -158,7 +158,7 @@ define dso_local noundef range(i32 -22, 1) i32 @check_irq_resend(ptr noundef %0,
 
 62:                                               ; preds = %61, %50
   tail call void @_raw_spin_unlock(ptr noundef nonnull @irq_resend_lock) #5
-  %63 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @resend_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @resend_tasklet, i64 0, i32 1)) #5, !srcloc !5
+  %63 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @resend_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @resend_tasklet, i64 8)) #5, !srcloc !5
   %64 = icmp ult i8 %63, 2
   tail call void @llvm.assume(i1 %64)
   %65 = icmp eq i8 %63, 0

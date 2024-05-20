@@ -1744,7 +1744,7 @@ define internal fastcc void @_ZN6uucore8features14backup_control12match_method17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   store ptr @anon.760280bf321f50b9070dd398863d3d36.36, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.760280bf321f50b9070dd398863d3d36.36, i64 1, i32 0), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @anon.760280bf321f50b9070dd398863d3d36.36, i64 128), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %13, ptr %16, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd235860d129234c6E.llvm.16339748825870905331"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11)

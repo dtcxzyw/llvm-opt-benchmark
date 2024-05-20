@@ -8484,7 +8484,7 @@ _ZN9actix_web3web6method17h4b3174a0ea6de33cE.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !1261
   store i8 1, ptr %1, align 8, !noalias !1265
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (<{ [1 x i8], [23 x i8] }>, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.150, i64 0, i32 1, i64 0), i64 7, i1 false), !noalias !1265
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.150, i64 1), i64 7, i1 false), !noalias !1265
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias nocapture noundef nonnull sret({ { { { { { ptr, ptr } }, {} }, {} } }, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1), !noalias !1266
@@ -8503,7 +8503,7 @@ _ZN9actix_web3web6method17h4b3174a0ea6de33cE.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !1267
   store i8 2, ptr %1, align 8, !noalias !1271
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (<{ [1 x i8], [23 x i8] }>, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.151, i64 0, i32 1, i64 0), i64 7, i1 false), !noalias !1271
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.151, i64 1), i64 7, i1 false), !noalias !1271
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias nocapture noundef nonnull sret({ { { { { { ptr, ptr } }, {} }, {} } }, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1), !noalias !1272
@@ -8522,7 +8522,7 @@ _ZN9actix_web3web6method17h4b3174a0ea6de33cE.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !1273
   store i8 3, ptr %1, align 8, !noalias !1277
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (<{ [1 x i8], [23 x i8] }>, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.152, i64 0, i32 1, i64 0), i64 7, i1 false), !noalias !1277
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.152, i64 1), i64 7, i1 false), !noalias !1277
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias nocapture noundef nonnull sret({ { { { { { ptr, ptr } }, {} }, {} } }, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1), !noalias !1278
@@ -8541,7 +8541,7 @@ _ZN9actix_web3web6method17h4b3174a0ea6de33cE.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !1279
   store i8 8, ptr %1, align 8, !noalias !1283
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (<{ [1 x i8], [23 x i8] }>, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.153, i64 0, i32 1, i64 0), i64 7, i1 false), !noalias !1283
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.153, i64 1), i64 7, i1 false), !noalias !1283
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias nocapture noundef nonnull sret({ { { { { { ptr, ptr } }, {} }, {} } }, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1), !noalias !1284
@@ -8560,7 +8560,7 @@ _ZN9actix_web3web6method17h4b3174a0ea6de33cE.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !1285
   store i8 4, ptr %1, align 8, !noalias !1289
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (<{ [1 x i8], [23 x i8] }>, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.154, i64 0, i32 1, i64 0), i64 7, i1 false), !noalias !1289
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.154, i64 1), i64 7, i1 false), !noalias !1289
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias nocapture noundef nonnull sret({ { { { { { ptr, ptr } }, {} }, {} } }, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1), !noalias !1290
@@ -8579,7 +8579,7 @@ _ZN9actix_web3web6method17h4b3174a0ea6de33cE.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !1291
   store i8 5, ptr %1, align 8, !noalias !1295
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (<{ [1 x i8], [23 x i8] }>, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.155, i64 0, i32 1, i64 0), i64 7, i1 false), !noalias !1295
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.155, i64 1), i64 7, i1 false), !noalias !1295
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias nocapture noundef nonnull sret({ { { { { { ptr, ptr } }, {} }, {} } }, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1), !noalias !1296
@@ -8598,7 +8598,7 @@ _ZN9actix_web3web6method17h4b3174a0ea6de33cE.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !1297
   store i8 6, ptr %1, align 8, !noalias !1301
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (<{ [1 x i8], [23 x i8] }>, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.156, i64 0, i32 1, i64 0), i64 7, i1 false), !noalias !1301
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @anon.5e77c1c506aa0ed12307cc52e552df81.156, i64 1), i64 7, i1 false), !noalias !1301
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias nocapture noundef nonnull sret({ { { { { { ptr, ptr } }, {} }, {} } }, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1), !noalias !1302

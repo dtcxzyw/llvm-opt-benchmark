@@ -855,7 +855,7 @@ if.then1:                                         ; preds = %for.body
   unreachable
 
 if.end2:                                          ; preds = %for.cond, %for.cond.preheader, %entry
-  %7 = load i32, ptr getelementptr inbounds (%struct.sigaction, ptr @sigbus_oldact, i64 0, i32 2), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @sigbus_oldact, i64 136), align 8
   %and = and i32 %7, 4
   %tobool3.not = icmp eq i32 %and, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4

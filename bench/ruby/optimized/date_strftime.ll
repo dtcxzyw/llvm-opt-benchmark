@@ -1050,7 +1050,7 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
   %488 = load ptr, ptr %3, align 8
   %489 = call i32 %487(ptr noundef %488) #10
   %490 = icmp slt i32 %489, 12
-  %date_strftime_with_tmx.ampm. = select i1 %490, ptr @date_strftime_with_tmx.ampm, ptr getelementptr inbounds ([2 x [3 x i8]], ptr @date_strftime_with_tmx.ampm, i64 0, i64 1)
+  %date_strftime_with_tmx.ampm. = select i1 %490, ptr @date_strftime_with_tmx.ampm, ptr getelementptr inbounds (i8, ptr @date_strftime_with_tmx.ampm, i64 3)
   br label %.thread1386
 
 491:                                              ; preds = %.preheader1431

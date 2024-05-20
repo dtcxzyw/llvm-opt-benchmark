@@ -183,7 +183,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %17, %36, %49, %_ZNS
   %54 = zext i1 %8 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 16), ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 200
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   %56 = getelementptr inbounds i8, ptr %0, i64 240
@@ -1780,7 +1780,7 @@ declare noundef zeroext i1 @_ZNK17cmGeneratorTarget17IsCFBundleOnAppleEv(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN42cmInstallImportedRuntimeArtifactsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(273) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -1791,7 +1791,7 @@ define linkonce_odr dso_local void @_ZN42cmInstallImportedRuntimeArtifactsGenera
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN42cmInstallImportedRuntimeArtifactsGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(273) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -2005,21 +2005,21 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 define internal void @_GLOBAL__sub_I_cmInstallImportedRuntimeArtifactsGenerator.cxx() #10 section ".text.startup" {
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #16
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, i64 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, i64 0, i32 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, i64 528), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, i64 552), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, i8 0, i64 522, i1 false)
   %2 = tail call noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, ptr noundef nonnull @.str)
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys17RegularExpressionD2Ev, ptr nonnull @_ZN12_GLOBAL__N_126FrameworkRegularExpressionE, ptr nonnull @__dso_handle) #16
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_123BundleRegularExpressionE, i64 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_123BundleRegularExpressionE, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_123BundleRegularExpressionE, i64 0, i32 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_123BundleRegularExpressionE, i64 528), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_123BundleRegularExpressionE, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_123BundleRegularExpressionE, i64 552), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) @_ZN12_GLOBAL__N_123BundleRegularExpressionE, i8 0, i64 522, i1 false)
   %4 = tail call noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) @_ZN12_GLOBAL__N_123BundleRegularExpressionE, ptr noundef nonnull @.str.3)
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys17RegularExpressionD2Ev, ptr nonnull @_ZN12_GLOBAL__N_123BundleRegularExpressionE, ptr nonnull @__dso_handle) #16
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, i64 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, i64 0, i32 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, i64 528), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, i64 552), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, i8 0, i64 522, i1 false)
   %6 = tail call noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, ptr noundef nonnull @.str.5)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys17RegularExpressionD2Ev, ptr nonnull @_ZN12_GLOBAL__N_125CFBundleRegularExpressionE, ptr nonnull @__dso_handle) #16

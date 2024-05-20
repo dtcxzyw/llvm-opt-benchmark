@@ -45581,7 +45581,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016
   unreachable
 
 27:                                               ; preds = %.noexc, %2
-  %.0.i.i2.i = phi ptr [ %24, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i = phi ptr [ %24, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   %28 = load i64, ptr %.0.i.i2.i, align 8, !noalias !7676, !noundef !12
   %29 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 8
   %30 = load i64, ptr %29, align 8, !noalias !7676, !noundef !12
@@ -45777,7 +45777,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016
   unreachable
 
 23:                                               ; preds = %.noexc, %2
-  %.0.i.i2.i = phi ptr [ %20, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i = phi ptr [ %20, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   %24 = load i64, ptr %.0.i.i2.i, align 8, !noalias !7712, !noundef !12
   %25 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 8
   %26 = load i64, ptr %25, align 8, !noalias !7712, !noundef !12
@@ -45964,7 +45964,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016
   unreachable
 
 23:                                               ; preds = %.noexc, %2
-  %.0.i.i2.i = phi ptr [ %20, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i = phi ptr [ %20, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   %24 = load i64, ptr %.0.i.i2.i, align 8, !noalias !7755, !noundef !12
   %25 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 8
   %26 = load i64, ptr %25, align 8, !noalias !7755, !noundef !12
@@ -46148,7 +46148,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016
   unreachable
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h957b5ed74efd7659E.llvm.18016462908235130027.exit": ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h73663208a9d09a1bE.exit", %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i
-  %.0.i.i2.i = phi ptr [ %16, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h73663208a9d09a1bE.exit" ]
+  %.0.i.i2.i = phi ptr [ %16, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h73663208a9d09a1bE.exit" ]
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
@@ -46264,7 +46264,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016
   unreachable
 
 20:                                               ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd57f0fc7cbd4de1cE.exit"
-  %.0.i.i2.i = phi ptr [ %17, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd57f0fc7cbd4de1cE.exit" ]
+  %.0.i.i2.i = phi ptr [ %17, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd57f0fc7cbd4de1cE.exit" ]
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 24
@@ -104211,7 +104211,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.llvm.18016462908235130027.exit": ; preds = %2, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i
-  %.0.i.i2.i = phi ptr [ %14, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i = phi ptr [ %14, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !17329
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
@@ -105443,7 +105443,7 @@ define hidden noundef align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__g
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17hf6a0819303e70704E.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17hf6a0819303e70704E.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -125906,7 +125906,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h6ce1d305d268c909E.llvm.18016462908235130027.exit": ; preds = %0, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit
-  %.0.i.i2 = phi ptr [ %3, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %0 ]
+  %.0.i.i2 = phi ptr [ %3, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18016462908235130027.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %0 ]
   %6 = load i64, ptr %.0.i.i2, align 8, !noalias !22052, !noundef !12
   %7 = getelementptr inbounds i8, ptr %.0.i.i2, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !22052, !noundef !12
@@ -138759,7 +138759,7 @@ default.unreachable10:                            ; preds = %1
 33:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   store ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..ADD_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h955a520fc24c3e11E.llvm.51275720373526900", ptr %31, align 8
-  %34 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..ADD_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h955a520fc24c3e11E.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24654
+  %34 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..ADD_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h955a520fc24c3e11E.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24654
   %35 = icmp eq i32 %34, 4
   br i1 %35, label %"_ZN93_$LT$deltalake_core..kernel..models..fields..ADD_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h4d4675ee60cd424dE.exit", label %36
 
@@ -138768,7 +138768,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %31, ptr %30, align 8, !noalias !24654
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29), !noalias !24654
   store ptr %30, ptr %29, align 8, !noalias !24654
-  call void @_ZN3std10sys_common4once5futex4Once4call17hea3dadc8a144b14eE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..ADD_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h955a520fc24c3e11E.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hea3dadc8a144b14eE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..ADD_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h955a520fc24c3e11E.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29), !noalias !24654
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30), !noalias !24654
   %.pre.i = load ptr, ptr %31, align 8
@@ -138785,7 +138785,7 @@ default.unreachable10:                            ; preds = %1
 40:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..CDC_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ba41a8f122d34c6E.llvm.51275720373526900", ptr %28, align 8
-  %41 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..CDC_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ba41a8f122d34c6E.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24658
+  %41 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..CDC_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ba41a8f122d34c6E.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24658
   %42 = icmp eq i32 %41, 4
   br i1 %42, label %"_ZN93_$LT$deltalake_core..kernel..models..fields..CDC_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h618e11bc7d5b11e7E.exit", label %43
 
@@ -138794,7 +138794,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %28, ptr %27, align 8, !noalias !24658
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26), !noalias !24658
   store ptr %27, ptr %26, align 8, !noalias !24658
-  call void @_ZN3std10sys_common4once5futex4Once4call17he3f083b86849473cE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..CDC_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ba41a8f122d34c6E.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17he3f083b86849473cE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..CDC_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ba41a8f122d34c6E.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26), !noalias !24658
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27), !noalias !24658
   %.pre.i1 = load ptr, ptr %28, align 8
@@ -138811,7 +138811,7 @@ default.unreachable10:                            ; preds = %1
 47:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store ptr @"_ZN101_$LT$deltalake_core..kernel..models..fields..COMMIT_INFO_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha2b295091fbb1155E.llvm.51275720373526900", ptr %25, align 8
-  %48 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN101_$LT$deltalake_core..kernel..models..fields..COMMIT_INFO_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha2b295091fbb1155E.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24662
+  %48 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN101_$LT$deltalake_core..kernel..models..fields..COMMIT_INFO_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha2b295091fbb1155E.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24662
   %49 = icmp eq i32 %48, 4
   br i1 %49, label %"_ZN101_$LT$deltalake_core..kernel..models..fields..COMMIT_INFO_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7d18c0f3f4d15859E.exit", label %50
 
@@ -138820,7 +138820,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %25, ptr %24, align 8, !noalias !24662
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23), !noalias !24662
   store ptr %24, ptr %23, align 8, !noalias !24662
-  call void @_ZN3std10sys_common4once5futex4Once4call17h2941060ddd395463E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN101_$LT$deltalake_core..kernel..models..fields..COMMIT_INFO_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha2b295091fbb1155E.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h2941060ddd395463E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN101_$LT$deltalake_core..kernel..models..fields..COMMIT_INFO_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha2b295091fbb1155E.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23), !noalias !24662
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24), !noalias !24662
   %.pre.i2 = load ptr, ptr %25, align 8
@@ -138837,7 +138837,7 @@ default.unreachable10:                            ; preds = %1
 54:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store ptr @"_ZN105_$LT$deltalake_core..kernel..models..fields..DOMAIN_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5c0305c2e14f77cbE.llvm.51275720373526900", ptr %22, align 8
-  %55 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN105_$LT$deltalake_core..kernel..models..fields..DOMAIN_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5c0305c2e14f77cbE.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24666
+  %55 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN105_$LT$deltalake_core..kernel..models..fields..DOMAIN_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5c0305c2e14f77cbE.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24666
   %56 = icmp eq i32 %55, 4
   br i1 %56, label %"_ZN105_$LT$deltalake_core..kernel..models..fields..DOMAIN_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h012afab24456befcE.exit", label %57
 
@@ -138846,7 +138846,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %22, ptr %21, align 8, !noalias !24666
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20), !noalias !24666
   store ptr %21, ptr %20, align 8, !noalias !24666
-  call void @_ZN3std10sys_common4once5futex4Once4call17haeed82a9805f72fdE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN105_$LT$deltalake_core..kernel..models..fields..DOMAIN_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5c0305c2e14f77cbE.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17haeed82a9805f72fdE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN105_$LT$deltalake_core..kernel..models..fields..DOMAIN_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5c0305c2e14f77cbE.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20), !noalias !24666
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !24666
   %.pre.i3 = load ptr, ptr %22, align 8
@@ -138863,7 +138863,7 @@ default.unreachable10:                            ; preds = %1
 61:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf7ea3f931733b477E.llvm.51275720373526900", ptr %19, align 8
-  %62 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf7ea3f931733b477E.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24670
+  %62 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf7ea3f931733b477E.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24670
   %63 = icmp eq i32 %62, 4
   br i1 %63, label %"_ZN98_$LT$deltalake_core..kernel..models..fields..METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h43c7aa54acc4496aE.exit", label %64
 
@@ -138872,7 +138872,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %19, ptr %18, align 8, !noalias !24670
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !24670
   store ptr %18, ptr %17, align 8, !noalias !24670
-  call void @_ZN3std10sys_common4once5futex4Once4call17h1647a4c4ae39f8dcE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf7ea3f931733b477E.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h1647a4c4ae39f8dcE.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf7ea3f931733b477E.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !24670
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !24670
   %.pre.i4 = load ptr, ptr %19, align 8
@@ -138889,7 +138889,7 @@ default.unreachable10:                            ; preds = %1
 68:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..PROTOCOL_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7550f8a809f7f20fE.llvm.51275720373526900", ptr %16, align 8
-  %69 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..PROTOCOL_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7550f8a809f7f20fE.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24674
+  %69 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..PROTOCOL_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7550f8a809f7f20fE.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24674
   %70 = icmp eq i32 %69, 4
   br i1 %70, label %"_ZN98_$LT$deltalake_core..kernel..models..fields..PROTOCOL_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5e5fa6156520f489E.exit", label %71
 
@@ -138898,7 +138898,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %16, ptr %15, align 8, !noalias !24674
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !24674
   store ptr %15, ptr %14, align 8, !noalias !24674
-  call void @_ZN3std10sys_common4once5futex4Once4call17h26efbf8f274fb372E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..PROTOCOL_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7550f8a809f7f20fE.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h26efbf8f274fb372E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_core..kernel..models..fields..PROTOCOL_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7550f8a809f7f20fE.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !24674
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !24674
   %.pre.i5 = load ptr, ptr %16, align 8
@@ -138915,7 +138915,7 @@ default.unreachable10:                            ; preds = %1
 75:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr @"_ZN96_$LT$deltalake_core..kernel..models..fields..REMOVE_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h04b5181d043d5186E.llvm.51275720373526900", ptr %13, align 8
-  %76 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN96_$LT$deltalake_core..kernel..models..fields..REMOVE_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h04b5181d043d5186E.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24678
+  %76 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN96_$LT$deltalake_core..kernel..models..fields..REMOVE_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h04b5181d043d5186E.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24678
   %77 = icmp eq i32 %76, 4
   br i1 %77, label %"_ZN96_$LT$deltalake_core..kernel..models..fields..REMOVE_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3b13eded11aac122E.exit", label %78
 
@@ -138924,7 +138924,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %13, ptr %12, align 8, !noalias !24678
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !24678
   store ptr %12, ptr %11, align 8, !noalias !24678
-  call void @_ZN3std10sys_common4once5futex4Once4call17h4998566e0cb44fc7E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN96_$LT$deltalake_core..kernel..models..fields..REMOVE_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h04b5181d043d5186E.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h4998566e0cb44fc7E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN96_$LT$deltalake_core..kernel..models..fields..REMOVE_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h04b5181d043d5186E.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !24678
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !24678
   %.pre.i6 = load ptr, ptr %13, align 8
@@ -138941,7 +138941,7 @@ default.unreachable10:                            ; preds = %1
 82:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..TXN_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha97249edb5b0bfd7E.llvm.51275720373526900", ptr %10, align 8
-  %83 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..TXN_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha97249edb5b0bfd7E.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24682
+  %83 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..TXN_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha97249edb5b0bfd7E.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24682
   %84 = icmp eq i32 %83, 4
   br i1 %84, label %"_ZN93_$LT$deltalake_core..kernel..models..fields..TXN_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h62197f29904962a9E.exit", label %85
 
@@ -138950,7 +138950,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %10, ptr %9, align 8, !noalias !24682
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !24682
   store ptr %9, ptr %8, align 8, !noalias !24682
-  call void @_ZN3std10sys_common4once5futex4Once4call17ha78ec60d1fc77182E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..TXN_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha97249edb5b0bfd7E.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17ha78ec60d1fc77182E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN93_$LT$deltalake_core..kernel..models..fields..TXN_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha97249edb5b0bfd7E.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !24682
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !24682
   %.pre.i7 = load ptr, ptr %10, align 8
@@ -138967,7 +138967,7 @@ default.unreachable10:                            ; preds = %1
 89:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @"_ZN109_$LT$deltalake_core..kernel..models..fields..CHECKPOINT_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb065a23dbe50089eE.llvm.51275720373526900", ptr %7, align 8
-  %90 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN109_$LT$deltalake_core..kernel..models..fields..CHECKPOINT_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb065a23dbe50089eE.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24686
+  %90 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN109_$LT$deltalake_core..kernel..models..fields..CHECKPOINT_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb065a23dbe50089eE.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24686
   %91 = icmp eq i32 %90, 4
   br i1 %91, label %"_ZN109_$LT$deltalake_core..kernel..models..fields..CHECKPOINT_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17hcecf67771ee78beeE.exit", label %92
 
@@ -138976,7 +138976,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %7, ptr %6, align 8, !noalias !24686
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !24686
   store ptr %6, ptr %5, align 8, !noalias !24686
-  call void @_ZN3std10sys_common4once5futex4Once4call17hcda9cc401fc1a648E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN109_$LT$deltalake_core..kernel..models..fields..CHECKPOINT_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb065a23dbe50089eE.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hcda9cc401fc1a648E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN109_$LT$deltalake_core..kernel..models..fields..CHECKPOINT_METADATA_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb065a23dbe50089eE.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !24686
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !24686
   %.pre.i8 = load ptr, ptr %7, align 8
@@ -138993,7 +138993,7 @@ default.unreachable10:                            ; preds = %1
 96:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN97_$LT$deltalake_core..kernel..models..fields..SIDECAR_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17had220d45853b53bcE.llvm.51275720373526900", ptr %4, align 8
-  %97 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN97_$LT$deltalake_core..kernel..models..fields..SIDECAR_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17had220d45853b53bcE.llvm.51275720373526900", i64 0, i32 2, i64 0), i8 noundef 2), !noalias !24690
+  %97 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.51275720373526900(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN97_$LT$deltalake_core..kernel..models..fields..SIDECAR_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17had220d45853b53bcE.llvm.51275720373526900", i64 96), i8 noundef 2), !noalias !24690
   %98 = icmp eq i32 %97, 4
   br i1 %98, label %"_ZN97_$LT$deltalake_core..kernel..models..fields..SIDECAR_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h403170ca1d077f9eE.exit", label %99
 
@@ -139002,7 +139002,7 @@ default.unreachable10:                            ; preds = %1
   store ptr %4, ptr %3, align 8, !noalias !24690
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !24690
   store ptr %3, ptr %2, align 8, !noalias !24690
-  call void @_ZN3std10sys_common4once5futex4Once4call17h7c8b6d1a9d1ab605E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [88 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN97_$LT$deltalake_core..kernel..models..fields..SIDECAR_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17had220d45853b53bcE.llvm.51275720373526900", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h7c8b6d1a9d1ab605E.llvm.51275720373526900(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN97_$LT$deltalake_core..kernel..models..fields..SIDECAR_FIELD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17had220d45853b53bcE.llvm.51275720373526900", i64 96), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.451.llvm.51275720373526900)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !24690
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !24690
   %.pre.i9 = load ptr, ptr %4, align 8
@@ -139099,7 +139099,7 @@ define void @_ZN14deltalake_core6kernel6models6Action11commit_info17h08a654f73b7
           to label %34 unwind label %32
 
 "_ZN4core3ptr113drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hc1df8ea0f061a37bE.exit": ; preds = %2, %.noexc.i
-  %.0.i.i7.i = phi ptr [ %13, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i7.i = phi ptr [ %13, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   %24 = load i64, ptr %.0.i.i7.i, align 8, !noalias !24702, !noundef !12
   %25 = add i64 %24, 1
   store i64 %25, ptr %.0.i.i7.i, align 8, !noalias !24702

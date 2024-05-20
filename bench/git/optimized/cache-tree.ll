@@ -769,9 +769,9 @@ if.end10:                                         ; preds = %if.then9, %land.lhs
   tail call void @end_odb_transaction() #14
   %34 = load ptr, ptr @the_repository, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 487, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %34) #14
-  %35 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_perf_key, i64 0, i32 1), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8
   %tobool.not.i13 = icmp eq i32 %35, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_perf_key, i64 0, i32 2), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool15.not20 = icmp ne i8 %bf.clear.i, 0
   %tobool15.not = select i1 %tobool.not.i13, i1 %tobool15.not20, i1 false

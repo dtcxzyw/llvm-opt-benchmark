@@ -1979,7 +1979,7 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
   br i1 %39, label %148, label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %19, %36
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %41 = tail call noalias noundef align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3520, i64 noundef 1024) #20
   %42 = icmp eq ptr %41, null
   br i1 %42, label %148, label %43

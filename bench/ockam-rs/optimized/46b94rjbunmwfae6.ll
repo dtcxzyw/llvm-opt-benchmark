@@ -238,7 +238,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   unreachable
 
 "_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17he78768643dcb53d6E.exit.i.i.i.i.i": ; preds = %.noexc8, %50
-  %.0.i.i2.i.i.i.i.i.i.i = phi ptr [ %53, %.noexc8 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %50 ]
+  %.0.i.i2.i.i.i.i.i.i.i = phi ptr [ %53, %.noexc8 ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 8), %50 ]
   %56 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i.i.i.i, align 8, !noalias !70
   %57 = extractelement <2 x i64> %56, i64 0
   %58 = add i64 %57, 1
@@ -2527,7 +2527,7 @@ define hidden noundef align 8 ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7_
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17haaf953d582f703eeE.exit"
 
 "_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17haaf953d582f703eeE.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [6 x i64] } } }, i8, [7 x i8] }, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -2550,7 +2550,7 @@ _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.212
   br i1 %6, label %22, label %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit.thread
 
 _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit.thread: ; preds = %1, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit
-  %.0.i.i2 = phi ptr [ %5, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit ], [ getelementptr inbounds ({ { { { i64, [6 x i64] } } }, i8, [7 x i8] }, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i2 = phi ptr [ %5, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit ], [ getelementptr inbounds (i8, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 8), %1 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !597
   %7 = load i64, ptr %.0.i.i2, align 8, !noalias !597, !noundef !9
   %8 = icmp ult i64 %7, 9223372036854775807
@@ -2630,7 +2630,7 @@ _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.212
   br label %27
 
 _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit.thread: ; preds = %2, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit
-  %.0.i.i5 = phi ptr [ %7, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit ], [ getelementptr inbounds ({ { { { i64, [6 x i64] } } }, i8, [7 x i8] }, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i5 = phi ptr [ %7, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.2123743330159991533.exit ], [ getelementptr inbounds (i8, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 8), %2 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !616
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !617
   %9 = load i64, ptr %.0.i.i5, align 8, !noalias !617, !noundef !9

@@ -73,8 +73,8 @@ define dso_local void @drm_bridge_add(ptr noundef %0) #0 align 16 {
   tail call void @__mutex_init(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @drm_bridge_add.__key) #5
   tail call void @mutex_lock(ptr noundef nonnull @bridge_lock) #5
   %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @bridge_list, i64 0, i32 1), align 8
-  store ptr %3, ptr getelementptr inbounds (%struct.list_head, ptr @bridge_list, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @bridge_list, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @bridge_list, i64 8), align 8
   store ptr @bridge_list, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %4, ptr %5, align 8
@@ -98,8 +98,8 @@ define dso_local i32 @devm_drm_bridge_add(ptr noundef %0, ptr noundef %1) #0 ali
   tail call void @__mutex_init(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @drm_bridge_add.__key) #5
   tail call void @mutex_lock(ptr noundef nonnull @bridge_lock) #5
   %4 = getelementptr inbounds i8, ptr %1, i64 128
-  %5 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @bridge_list, i64 0, i32 1), align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.list_head, ptr @bridge_list, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @bridge_list, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @bridge_list, i64 8), align 8
   store ptr @bridge_list, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 136
   store ptr %5, ptr %6, align 8
@@ -1006,7 +1006,7 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
 
 30:                                               ; preds = %7
   store i32 1, ptr %4, align 4
-  %31 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %32 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3264, i64 noundef 4) #6
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread16, label %34

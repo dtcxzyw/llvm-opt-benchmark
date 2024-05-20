@@ -22,7 +22,7 @@ define internal void @ompi_osc_rdma_sync_constructor(ptr noundef %0) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   store volatile i64 0, ptr %4, align 64
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -35,7 +35,7 @@ define internal void @ompi_osc_rdma_sync_constructor(ptr noundef %0) #0 {
   store ptr @opal_mutex_t_class, ptr %9, align 64
   %10 = getelementptr inbounds i8, ptr %0, i64 200
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -51,7 +51,7 @@ define internal void @ompi_osc_rdma_sync_constructor(ptr noundef %0) #0 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not9 = icmp eq i32 %16, %17
   br i1 %.not9, label %19, label %18
 
@@ -64,7 +64,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
   store ptr @opal_list_t_class, ptr %20, align 16
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   store volatile i32 1, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i10 = icmp eq ptr %23, null
   br i1 %.not6.i10, label %opal_obj_run_constructors.exit14, label %.lr.ph.i11
@@ -125,10 +125,10 @@ opal_obj_run_destructors.exit6:                   ; preds = %.lr.ph.i3, %opal_ob
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ompi_osc_rdma_sync_allocate(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_osc_rdma_sync_t_class, i64 0, i32 8), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_sync_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #6
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_osc_rdma_sync_t_class, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_sync_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 
@@ -144,7 +144,7 @@ define noundef ptr @ompi_osc_rdma_sync_allocate(ptr noundef %0) local_unnamed_ad
   store ptr @ompi_osc_rdma_sync_t_class, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store volatile i32 1, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_osc_rdma_sync_t_class, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_sync_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread6, label %.lr.ph.i.i

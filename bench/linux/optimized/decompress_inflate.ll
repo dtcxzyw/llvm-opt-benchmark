@@ -60,7 +60,7 @@ define internal fastcc i32 @__gunzip(ptr noundef %0, i64 noundef %1, ptr noundef
 .thread:                                          ; preds = %19, %21
   %25 = phi i64 [ 0, %21 ], [ %1, %19 ]
   %26 = phi ptr [ %22, %21 ], [ %0, %19 ]
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %28 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3264, i64 noundef 96) #8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31

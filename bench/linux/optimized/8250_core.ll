@@ -336,9 +336,9 @@ serial8250_setup_port.exit:                       ; preds = %.preheader2, %20
   %27 = phi i32 [ 0, %5 ], [ %24, %serial8250_setup_port.exit ]
   %28 = load ptr, ptr @base_ops, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @univ8250_port_ops, ptr noundef align 8 dereferenceable(192) %28, i64 192, i1 false)
-  store ptr @univ8250_config_port, ptr getelementptr inbounds (%struct.uart_ops, ptr @univ8250_port_ops, i64 0, i32 21), align 8
-  store ptr @univ8250_request_port, ptr getelementptr inbounds (%struct.uart_ops, ptr @univ8250_port_ops, i64 0, i32 20), align 8
-  store ptr @univ8250_release_port, ptr getelementptr inbounds (%struct.uart_ops, ptr @univ8250_port_ops, i64 0, i32 19), align 8
+  store ptr @univ8250_config_port, ptr getelementptr inbounds (i8, ptr @univ8250_port_ops, i64 168), align 8
+  store ptr @univ8250_request_port, ptr getelementptr inbounds (i8, ptr @univ8250_port_ops, i64 160), align 8
+  store ptr @univ8250_release_port, ptr getelementptr inbounds (i8, ptr @univ8250_port_ops, i64 152), align 8
   %29 = load i32, ptr @share_irqs, align 4
   %30 = icmp eq i32 %29, 0
   %31 = select i1 %30, i64 0, i64 128
@@ -1224,7 +1224,7 @@ define internal i32 @serial8250_init() #2 section ".init.text" align 16 {
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, ptr @.str.10, ptr @.str.9
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %4, ptr noundef nonnull %7) #13
-  store i32 32, ptr getelementptr inbounds (%struct.uart_driver, ptr @serial8250_reg, i64 0, i32 5), align 8
+  store i32 32, ptr getelementptr inbounds (i8, ptr @serial8250_reg, i64 32), align 8
   %9 = tail call i32 @uart_register_driver(ptr noundef nonnull @serial8250_reg) #12
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %34
@@ -1811,7 +1811,7 @@ define internal i32 @univ8250_setup_irq(ptr noundef %0) #5 align 16 {
   br i1 %17, label %.loopexit, label %10, !llvm.loop !18
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %20 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 32) #14
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23

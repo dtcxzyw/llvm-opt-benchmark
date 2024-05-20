@@ -75,7 +75,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !6
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !6
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = tail call ptr @dt_ui_main_window(ptr noundef %9) #9
   %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #9
@@ -92,7 +92,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %20 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %16, ptr %20, align 8, !tbaa !24
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %12) #9
-  %22 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !6
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !6
   %23 = getelementptr inbounds i8, ptr %22, i64 1448
   %24 = load double, ptr %23, align 8, !tbaa !26
   %25 = fmul reassoc nsz arcp contract afn double %24, 5.000000e+02
@@ -716,7 +716,7 @@ define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr nou
   %13 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %12) #9
   tail call void @gtk_dialog_set_default_response(ptr noundef %13, i32 noundef -1) #9
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %7) #9
-  %15 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !6
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !6
   %16 = getelementptr inbounds i8, ptr %15, i64 1448
   %17 = load double, ptr %16, align 8, !tbaa !26
   %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e+02

@@ -96,8 +96,8 @@ if.then67.i.i:                                    ; preds = %do.end.i.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %spec.select.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %call.i.i = tail call ptr @xmemdupz(ptr noundef nonnull %spec.select.i.i, i64 noundef %sub.ptr.sub.i.i) #10
-  %12 = load i64, ptr getelementptr inbounds (%struct.string_list_ty, ptr @variables_set, i64 0, i32 1), align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.string_list_ty, ptr @variables_set, i64 0, i32 2), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @variables_set, i64 8), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @variables_set, i64 16), align 8
   %cmp.not.i.i.i = icmp ult i64 %12, %13
   br i1 %cmp.not.i.i.i, label %entry.if.end_crit_edge.i.i.i, label %if.then.i.i1.i
 
@@ -108,7 +108,7 @@ entry.if.end_crit_edge.i.i.i:                     ; preds = %if.then67.i.i
 if.then.i.i1.i:                                   ; preds = %if.then67.i.i
   %mul.i.i.i = shl i64 %13, 1
   %add.i.i.i = add i64 %mul.i.i.i, 4
-  store i64 %add.i.i.i, ptr getelementptr inbounds (%struct.string_list_ty, ptr @variables_set, i64 0, i32 2), align 8
+  store i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @variables_set, i64 16), align 8
   %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, 2305843009213693951
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %st_mult.exit.i.i.i
 
@@ -121,14 +121,14 @@ st_mult.exit.i.i.i:                               ; preds = %if.then.i.i1.i
   %mul.i.i.i.i = shl nuw i64 %add.i.i.i, 3
   %call4.i.i.i = tail call ptr @xrealloc(ptr noundef %14, i64 noundef %mul.i.i.i.i) #10
   store ptr %call4.i.i.i, ptr @variables_set, align 8
-  %.pre1.i.i.i = load i64, ptr getelementptr inbounds (%struct.string_list_ty, ptr @variables_set, i64 0, i32 1), align 8
+  %.pre1.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @variables_set, i64 8), align 8
   br label %note_variable.exit.i
 
 note_variable.exit.i:                             ; preds = %st_mult.exit.i.i.i, %entry.if.end_crit_edge.i.i.i
   %15 = phi i64 [ %12, %entry.if.end_crit_edge.i.i.i ], [ %.pre1.i.i.i, %st_mult.exit.i.i.i ]
   %16 = phi ptr [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %call4.i.i.i, %st_mult.exit.i.i.i ]
   %inc.i.i.i = add i64 %15, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.string_list_ty, ptr @variables_set, i64 0, i32 1), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @variables_set, i64 8), align 8
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %15
   store ptr %call.i.i, ptr %arrayidx.i.i.i, align 8
   br label %if.end70.i.i
@@ -140,7 +140,7 @@ if.end70.i.i:                                     ; preds = %note_variable.exit.
   br i1 %cmp.not.i.i, label %find_variables.exit.i, label %for.body.i.i, !llvm.loop !7
 
 find_variables.exit.i:                            ; preds = %if.end70.i.i
-  %.pre.i = load i64, ptr getelementptr inbounds (%struct.string_list_ty, ptr @variables_set, i64 0, i32 1), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @variables_set, i64 8), align 8
   %cmp.i.i.i = icmp ugt i64 %.pre.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.cond.i.preheader
 
@@ -318,7 +318,7 @@ if.end55.i:                                       ; preds = %if.then51.i, %if.th
   %41 = phi ptr [ %call54.i, %if.then51.i ], [ %.pre89.i, %if.then48.i ]
   %arrayidx56.i = getelementptr inbounds i8, ptr %41, i64 %40
   store i8 0, ptr %arrayidx56.i, align 1
-  %42 = load i64, ptr getelementptr inbounds (%struct.string_list_ty, ptr @variables_set, i64 0, i32 1), align 8
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @variables_set, i64 8), align 8
   switch i64 %42, label %while.body.lr.ph.i.i [
     i64 0, label %if.else71.i
     i64 1, label %if.end55.if.then11.i_crit_edge.i

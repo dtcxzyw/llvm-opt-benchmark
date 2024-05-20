@@ -572,7 +572,7 @@ invoke.cont27:                                    ; preds = %invoke.cont23
   call void @_ZN7Imf_3_214TypedAttributeINS_11CompressionEED1Ev(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp25) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp29, i8 0, i64 56, i1 false)
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_11ChannelListEEE, i64 0, i32 0, i64 2), ptr %ref.tmp29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_11ChannelListEEE, i64 16), ptr %ref.tmp29, align 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   store i32 0, ptr %5, align 8
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 24
@@ -1135,11 +1135,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i8 0, i64 40, i1 false)
-  store i32 0, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 56), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 64), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 72), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 80), align 8
   store atomic i64 ptrtoint (ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl to i64), ptr @_ZN7Imf_3_212_GLOBAL__N_17s_stashE.0 seq_cst, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Imf_3_212_GLOBAL__N_116CompressionStashD2Ev, ptr nonnull @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, ptr nonnull @__dso_handle) #24
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl) #24
@@ -1388,11 +1388,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i8 0, i64 40, i1 false)
-  store i32 0, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 56), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 64), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 72), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 80), align 8
   store atomic i64 ptrtoint (ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl to i64), ptr @_ZN7Imf_3_212_GLOBAL__N_17s_stashE.0 seq_cst, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Imf_3_212_GLOBAL__N_116CompressionStashD2Ev, ptr nonnull @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, ptr nonnull @__dso_handle) #24
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl) #24
@@ -2414,11 +2414,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i8 0, i64 40, i1 false)
-  store i32 0, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 56), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 64), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 72), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 80), align 8
   store atomic i64 ptrtoint (ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl to i64), ptr @_ZN7Imf_3_212_GLOBAL__N_17s_stashE.0 seq_cst, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Imf_3_212_GLOBAL__N_116CompressionStashD2Ev, ptr nonnull @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, ptr nonnull @__dso_handle) #24
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl) #24
@@ -2470,7 +2470,7 @@ init:                                             ; preds = %init.check
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %init
-  invoke void @exr_get_default_dwa_compression_quality(ptr noundef nonnull getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionRecord", ptr @_ZZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderEE6defrec, i64 0, i32 1))
+  invoke void @exr_get_default_dwa_compression_quality(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderEE6defrec, i64 4))
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %.noexc
@@ -2518,11 +2518,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i8 0, i64 40, i1 false)
-  store i32 0, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"struct.Imf_3_2::(anonymous namespace)::CompressionStash", ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 56), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 64), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 48), ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 72), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, i64 80), align 8
   store atomic i64 ptrtoint (ptr @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl to i64), ptr @_ZN7Imf_3_212_GLOBAL__N_17s_stashE.0 seq_cst, align 8
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7Imf_3_212_GLOBAL__N_116CompressionStashD2Ev, ptr nonnull @_ZZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl, ptr nonnull @__dso_handle) #24
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl) #24
@@ -7055,7 +7055,7 @@ if.end.i:                                         ; preds = %.noexc.i
           to label %invoke.cont.i unwind label %lpad.i25
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([14 x i8], ptr @.str, i64 0, i64 13)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 13)) #24
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7Imf_3_2L13SCANLINEIMAGEB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i25
@@ -7110,7 +7110,7 @@ if.end.i30:                                       ; preds = %.noexc.i7
           to label %invoke.cont.i33 unwind label %lpad.i32
 
 invoke.cont.i33:                                  ; preds = %if.end.i30
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i31, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.3, i64 0, i64 10)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i31, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 10)) #24
   store ptr null, ptr %__guard.i27, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7Imf_3_2L10TILEDIMAGEB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.2.exit unwind label %lpad.i32
@@ -7159,7 +7159,7 @@ if.end.i40:                                       ; preds = %.noexc.i15
           to label %invoke.cont.i43 unwind label %lpad.i42
 
 invoke.cont.i43:                                  ; preds = %if.end.i40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i41, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([13 x i8], ptr @.str.5, i64 0, i64 12)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i41, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 12)) #24
   store ptr null, ptr %__guard.i37, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7Imf_3_2L12DEEPSCANLINEB5cxx11E, i64 noundef 12)
           to label %__cxx_global_var_init.4.exit unwind label %lpad.i42
@@ -7208,7 +7208,7 @@ if.end.i50:                                       ; preds = %.noexc.i23
           to label %invoke.cont.i53 unwind label %lpad.i52
 
 invoke.cont.i53:                                  ; preds = %if.end.i50
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i51, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.7, i64 0, i64 8)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i51, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 8)) #24
   store ptr null, ptr %__guard.i47, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7Imf_3_2L8DEEPTILEB5cxx11E, i64 noundef 8)
           to label %__cxx_global_var_init.6.exit unwind label %lpad.i52

@@ -87,7 +87,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 1) i32 @cred_g_init() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 18), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
   %3 = tail call ptr @xstrstr(ptr noundef %2, ptr noundef nonnull @.str.1) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
@@ -105,13 +105,13 @@ define range(i32 -1, 1) i32 @cred_g_init() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %4, %8, %0
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 85), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 584), align 8
   %12 = tail call ptr @xstrcasestr(ptr noundef %11, ptr noundef nonnull @.str.3) #10
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 85), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 584), align 8
   %15 = tail call ptr @xstrcasestr(ptr noundef %14, ptr noundef nonnull @.str.4) #10
   %.not12 = icmp eq ptr %15, null
   br i1 %.not12, label %16, label %.sink.split
@@ -122,7 +122,7 @@ define range(i32 -1, 1) i32 @cred_g_init() local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %.sink.split, %13
-  %17 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 37), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 280), align 8
   %18 = tail call i32 @xstrncmp(ptr noundef %17, ptr noundef nonnull @.str.5, i64 noundef 5) #10
   %.not13 = icmp eq i32 %18, 0
   br i1 %.not13, label %21, label %19
@@ -185,7 +185,7 @@ define range(i32 -1, 1) i32 @cred_g_init() local_unnamed_addr #0 {
   br i1 %.not18, label %44, label %47
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 37), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 280), align 8
   %46 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, ptr noundef %45) #10
   br label %47
 
@@ -864,7 +864,7 @@ define void @slurm_cred_get_mem(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %.not, label %33, label %41
 
 33:                                               ; preds = %32
-  %34 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %35 = and i64 %34, 8
   %.not43 = icmp eq i64 %35, 0
   br i1 %.not43, label %78, label %36
@@ -933,7 +933,7 @@ thread-pre-split:                                 ; preds = %41, %58
   br label %69
 
 69:                                               ; preds = %65, %67
-  %70 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %70 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %71 = and i64 %70, 8
   %.not46 = icmp eq i64 %71, 0
   br i1 %.not46, label %78, label %72
@@ -1317,7 +1317,7 @@ declare void @packbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @slurm_cred_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_cred_ops_t, ptr @ops, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %4 = tail call ptr %3(ptr noundef %0, i16 noundef zeroext %1) #10
   ret ptr %4
 }
@@ -1397,7 +1397,7 @@ define ptr @create_sbcast_cred(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 17:                                               ; preds = %4, %16, %12
   %.0 = phi i1 [ false, %16 ], [ true, %12 ], [ false, %4 ]
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_cred_ops_t, ptr @ops, i64 0, i32 4), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
   %19 = call ptr %18(ptr noundef nonnull %0, i16 noundef zeroext %3) #10
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %20, label %22
@@ -1525,7 +1525,7 @@ define ptr @unpack_sbcast_cred(ptr noundef %0, ptr noundef readonly %1, i16 noun
 
 12:                                               ; preds = %8, %4, %3
   %.0 = phi i1 [ false, %4 ], [ false, %3 ], [ %.not7, %8 ]
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_cred_ops_t, ptr @ops, i64 0, i32 5), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
   %14 = tail call ptr %13(ptr noundef %0, i1 noundef zeroext %.0, i16 noundef zeroext %2) #10
   ret ptr %14
 }
@@ -1601,7 +1601,7 @@ define ptr @create_net_cred(ptr noundef %0, i16 noundef zeroext %1) local_unname
   br label %8
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_cred_ops_t, ptr @ops, i64 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, i16 noundef zeroext %1) #10
   br label %8
 
@@ -1620,7 +1620,7 @@ define ptr @extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) local_unnam
   br label %8
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_cred_ops_t, ptr @ops, i64 0, i32 3), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, i16 noundef zeroext %1) #10
   br label %8
 

@@ -593,7 +593,7 @@ declare void @glRenderbufferStorageMultisample(i32 noundef, i32 noundef, i32 nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7nanogui7TextureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %2)
           to label %3 unwind label %6
@@ -635,7 +635,7 @@ declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7nanogui7TextureD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %2)
           to label %3 unwind label %5

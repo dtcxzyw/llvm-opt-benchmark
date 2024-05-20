@@ -680,7 +680,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   call void @_efree(ptr noundef %24) #10
   %25 = load ptr, ptr %10, align 8
   call void @_efree(ptr noundef %25) #10
-  %26 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 5), align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 180), align 4
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %34, label %27
 
@@ -1014,7 +1014,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   call void @_efree(ptr noundef %24) #10
   %25 = load ptr, ptr %8, align 8
   call void @_efree(ptr noundef %25) #10
-  %26 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 5), align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 180), align 4
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %34, label %27
 

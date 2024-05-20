@@ -99,7 +99,7 @@ define dso_local ptr @intel_gt_get_buffer_pool(ptr noundef %0, i64 noundef %1, i
 
 .loopexit:                                        ; preds = %39, %3
   tail call void @__rcu_read_unlock() #5
-  %42 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %43 = tail call noalias align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %42, i32 noundef 27840, i64 noundef 216) #7
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread, label %45

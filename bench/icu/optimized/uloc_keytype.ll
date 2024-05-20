@@ -728,7 +728,7 @@ invoke.cont79.i:                                  ; preds = %if.end76.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %uBcpKeyId.i, align 8, !alias.scope !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uBcpKeyId.i, align 8, !alias.scope !4
   store i16 2, ptr %fUnion2.i.i.i, align 8, !alias.scope !4
   store i32 0, ptr %len.i.i, align 4, !noalias !4
   %call.i.i = invoke ptr @ures_getString_75(ptr noundef %call71.i, ptr noundef nonnull %len.i.i, ptr noundef nonnull %sts)
@@ -1008,7 +1008,7 @@ if.end223.i:                                      ; preds = %_ZSt7replaceIPccEvT
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i164.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i165.i)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %uBcpTypeId.i, align 8, !alias.scope !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uBcpTypeId.i, align 8, !alias.scope !11
   store i16 2, ptr %fUnion2.i.i166.i, align 8, !alias.scope !11
   store i32 0, ptr %len.i164.i, align 4, !noalias !11
   %call.i167.i = invoke ptr @ures_getString_75(ptr noundef %call174.i, ptr noundef nonnull %len.i164.i, ptr noundef nonnull %sts)
@@ -1697,12 +1697,12 @@ _ZL22initFromResourceBundleR10UErrorCode.exit:    ; preds = %_ZN6icu_7527LocalUR
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bcpTypeAliasDataEntry.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %toLen366.i)
   %110 = load i32, ptr %sts, align 4
-  store i32 %110, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL21gLocExtKeyMapInitOnce, i64 0, i32 1), align 4
+  store i32 %110, ptr getelementptr inbounds (i8, ptr @_ZL21gLocExtKeyMapInitOnce, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL21gLocExtKeyMapInitOnce)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %111 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL21gLocExtKeyMapInitOnce, i64 0, i32 1), align 4
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL21gLocExtKeyMapInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %111, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

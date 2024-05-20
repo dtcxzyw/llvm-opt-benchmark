@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @adapt_constant_reduce_context_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -36,7 +36,7 @@ define internal void @adapt_constant_reduce_context_construct(ptr noundef %0) #0
   store ptr @opal_list_t_class, ptr %6, align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 584
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -52,7 +52,7 @@ define internal void @adapt_constant_reduce_context_construct(ptr noundef %0) #0
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not9 = icmp eq i32 %13, %14
   br i1 %.not9, label %16, label %15
 
@@ -65,7 +65,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   store ptr @opal_mutex_t_class, ptr %17, align 16
   %18 = getelementptr inbounds i8, ptr %0, i64 520
   store volatile i32 1, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %20 = load ptr, ptr %19, align 8
   %.not6.i11 = icmp eq ptr %20, null
   br i1 %.not6.i11, label %opal_obj_run_constructors.exit15, label %.lr.ph.i12
@@ -81,7 +81,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 opal_obj_run_constructors.exit15:                 ; preds = %.lr.ph.i12, %16
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 4), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not10 = icmp eq i32 %24, %25
   br i1 %.not10, label %27, label %26
 
@@ -94,7 +94,7 @@ opal_obj_run_constructors.exit15:                 ; preds = %.lr.ph.i12, %16
   store ptr @opal_free_list_t_class, ptr %28, align 16
   %29 = getelementptr inbounds i8, ptr %0, i64 168
   store volatile i32 1, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 6), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i16 = icmp eq ptr %31, null
   br i1 %.not6.i16, label %opal_obj_run_constructors.exit20, label %.lr.ph.i17

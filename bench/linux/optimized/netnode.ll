@@ -220,7 +220,7 @@ define dso_local i32 @sel_netnode_sid(ptr noundef %0, i16 noundef zeroext %1, pt
   br label %159
 
 .thread16:                                        ; preds = %93, %76, %.split34, %57, %.split36.us
-  %104 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %105 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %104, i32 noundef 2336, i64 noundef 56) #7
   switch i16 %1, label %115 [
     i16 2, label %106

@@ -237,7 +237,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %.pre105.i = load i32, ptr %.phi.trans.insert.i, align 4
   %.phi.trans.insert106.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre107.i = load i32, ptr %.phi.trans.insert106.i, align 4
-  %62 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL15coordinates1000, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15coordinates1000, i64 8), align 8
   %63 = load ptr, ptr @_ZL15coordinates1000, align 8
   %64 = ptrtoint ptr %62 to i64
   %65 = ptrtoint ptr %63 to i64
@@ -247,7 +247,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %69 = mul nsw i32 %.pre105.i, %.pre.i
   %70 = mul nsw i32 %69, %.pre107.i
   %71 = sext i32 %70 to i64
-  %72 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL15coordinates1000, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15coordinates1000, i64 8), align 8
   %73 = load ptr, ptr @_ZL15coordinates1000, align 8
   %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
@@ -267,7 +267,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
 
 .lr.ph76.split.us.split.us.i:                     ; preds = %.noexc34
   %82 = load ptr, ptr @_ZL15coordinates1000, align 8
-  %83 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL15coordinates1000, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15coordinates1000, i64 8), align 8
   %84 = icmp eq ptr %82, %83
   br i1 %84, label %.preheader.i.preheader, label %.lr.ph66.us.us.i
 
@@ -277,7 +277,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %85 = uitofp nneg i32 %.04073.us.us.i to float
   %86 = fmul float %85, 0x4008DBDF80000000
   %87 = load ptr, ptr @_ZL15coordinates1000, align 8
-  %88 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL15coordinates1000, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15coordinates1000, i64 8), align 8
   %89 = icmp eq ptr %87, %88
   br i1 %89, label %._crit_edge67.split.us.us.us.i, label %.lr.ph60.us.us80.us.i.preheader
 
@@ -291,7 +291,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %91 = uitofp nneg i32 %.04163.us.us81.us.i to float
   %92 = fmul float %91, 0x4008DBDF80000000
   %93 = load ptr, ptr @_ZL15coordinates1000, align 8
-  %94 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL15coordinates1000, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15coordinates1000, i64 8), align 8
   %95 = icmp eq ptr %93, %94
   br i1 %95, label %._crit_edge61.us.us.us.i, label %.lr.ph60.split.us71.us.us.i.preheader
 
@@ -305,7 +305,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %97 = uitofp nneg i32 %.04257.us69.us.us.i to float
   %98 = fmul float %97, 0x4008DBDF80000000
   %99 = load ptr, ptr @_ZL15coordinates1000, align 8
-  %100 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL15coordinates1000, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15coordinates1000, i64 8), align 8
   %.not51.us.us.us.i = icmp eq ptr %99, %100
   br i1 %.not51.us.us.us.i, label %._crit_edge56.us.us.us.i, label %.lr.ph55.us.us.us.preheader.i
 
@@ -1820,9 +1820,9 @@ define internal void @_GLOBAL__sub_I_bench_system.cpp() #12 section ".text.start
   %1 = tail call noalias noundef nonnull dereferenceable(36000) ptr @_Znwm(i64 noundef 36000) #18
   store ptr %1, ptr @_ZL15coordinates1000, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 36000
-  store ptr %2, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL15coordinates1000, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZL15coordinates1000, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36000) %1, ptr noundef nonnull align 4 dereferenceable(36000) @constinit, i64 36000, i1 false)
-  store ptr %2, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL15coordinates1000, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZL15coordinates1000, i64 8), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev, ptr nonnull @_ZL15coordinates1000, ptr nonnull @__dso_handle) #20
   ret void
 }

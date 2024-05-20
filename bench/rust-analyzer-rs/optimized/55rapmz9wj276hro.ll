@@ -7264,7 +7264,7 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h710d621caac76404
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -17505,7 +17505,7 @@ define hidden void @_ZN3ide9doc_links16rewrite_url_link17he0deec70bf471965E(ptr 
   %53 = getelementptr inbounds i8, ptr %23, i64 8
   store i64 %4, ptr %53, align 8, !noalias !4264
   %54 = getelementptr inbounds i8, ptr %23, i64 16
-  store ptr getelementptr inbounds (<{ [5 x i8] }>, ptr @anon.4e853ac6e2b93aa48c41f9391496f769.482, i64 0, i32 0, i64 1), ptr %54, align 8, !noalias !4264
+  store ptr getelementptr inbounds (i8, ptr @anon.4e853ac6e2b93aa48c41f9391496f769.482, i64 1), ptr %54, align 8, !noalias !4264
   %55 = getelementptr inbounds i8, ptr %23, i64 24
   store i64 4, ptr %55, align 8, !noalias !4264
   %56 = icmp ugt i64 %4, 68
@@ -26448,7 +26448,7 @@ select.unfold281.i:                               ; preds = %"_ZN4core5slice29_$
   br i1 %348, label %349, label %.critedge.i
 
 349:                                              ; preds = %346
-  %350 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3ide12expand_macro7_format10__CALLSITE17h3b3eeb2389ea7001E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !6428
+  %350 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3ide12expand_macro7_format10__CALLSITE17h3b3eeb2389ea7001E, i64 16) monotonic, align 8, !noalias !6428
   switch i8 %350, label %351 [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i

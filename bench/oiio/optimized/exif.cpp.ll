@@ -7556,788 +7556,788 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #30
   store i32 270, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, align 16
-  store ptr @.str.3, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 0, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 0, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 0, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 0, i32 4), align 8
-  store i32 274, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 1), align 16
-  store ptr @.str.4, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 1, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 1, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 1, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 1, i32 4), align 8
-  store i32 282, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 2), align 16
-  store ptr @.str.5, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 2, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 2, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 2, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 2, i32 4), align 8
-  store i32 283, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 3), align 16
-  store ptr @.str.6, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 3, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 3, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 3, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 3, i32 4), align 8
-  store i32 296, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 4), align 16
-  store ptr @.str.7, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 4, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 4, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 4, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 4, i32 4), align 8
-  store i32 271, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 5), align 16
-  store ptr @.str.8, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 5, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 5, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 5, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 5, i32 4), align 8
-  store i32 272, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 6), align 16
-  store ptr @.str.9, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 6, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 6, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 6, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 6, i32 4), align 8
-  store i32 305, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 7), align 16
-  store ptr @.str.10, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 7, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 7, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 7, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 7, i32 4), align 8
-  store i32 315, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 8), align 16
-  store ptr @.str.11, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 8, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 8, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 8, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 8, i32 4), align 8
-  store i32 33432, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 9), align 16
-  store ptr @.str.12, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 9, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 9, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 9, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 9, i32 4), align 8
-  store i32 306, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 10), align 16
-  store ptr @.str.13, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 10, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 10, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 10, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 10, i32 4), align 8
-  store i32 269, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 11), align 16
-  store ptr @.str.14, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 11, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 11, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 11, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 11, i32 4), align 8
-  store i32 285, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 12), align 16
-  store ptr @.str.15, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 12, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 12, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 12, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 12, i32 4), align 8
-  store i32 297, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 13), align 16
-  store ptr @.str.16, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 13, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 13, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 13, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 13, i32 4), align 8
-  store i32 316, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 14), align 16
-  store ptr @.str.17, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 14, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 14, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 14, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 14, i32 4), align 8
-  store i32 33302, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 15), align 16
-  store ptr @.str.18, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 15, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 15, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 15, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 15, i32 4), align 8
-  store i32 33303, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 16), align 16
-  store ptr @.str.19, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 16, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 16, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 16, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 16, i32 4), align 8
-  store i32 33304, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 17), align 16
-  store ptr @.str.20, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 17, i32 1), align 8
-  store i32 11, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 17, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 17, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 17, i32 4), align 8
-  store i32 65537, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 18), align 16
-  store ptr @.str.21, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 18, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 18, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 18, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 18, i32 4), align 8
-  store i32 65557, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 19), align 16
-  store ptr @.str.22, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 19, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 19, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 19, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 19, i32 4), align 8
-  store i32 700, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 20), align 16
-  store ptr @.str.23, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 20, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 20, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 20, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([21 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 0, i64 20, i32 4), align 8
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 8), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 20), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 24), align 8
+  store i32 274, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 32), align 16
+  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 48), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 52), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 56), align 8
+  store i32 282, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 64), align 16
+  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 72), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 80), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 84), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 88), align 8
+  store i32 283, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 96), align 16
+  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 104), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 112), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 116), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 120), align 8
+  store i32 296, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 128), align 16
+  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 136), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 144), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 148), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 152), align 8
+  store i32 271, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 160), align 16
+  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 168), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 176), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 180), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 184), align 8
+  store i32 272, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 192), align 16
+  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 200), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 208), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 212), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 216), align 8
+  store i32 305, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 224), align 16
+  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 232), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 240), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 244), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 248), align 8
+  store i32 315, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 256), align 16
+  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 264), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 272), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 276), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 280), align 8
+  store i32 33432, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 288), align 16
+  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 296), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 304), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 308), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 312), align 8
+  store i32 306, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 320), align 16
+  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 328), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 336), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 340), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 344), align 8
+  store i32 269, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 352), align 16
+  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 360), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 368), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 372), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 376), align 8
+  store i32 285, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 384), align 16
+  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 392), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 400), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 404), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 408), align 8
+  store i32 297, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 416), align 16
+  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 424), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 432), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 436), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 440), align 8
+  store i32 316, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 448), align 16
+  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 456), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 464), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 468), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 472), align 8
+  store i32 33302, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 480), align 16
+  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 488), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 496), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 500), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 504), align 8
+  store i32 33303, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 512), align 16
+  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 520), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 528), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 532), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 536), align 8
+  store i32 33304, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 544), align 16
+  store ptr @.str.20, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 552), align 8
+  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 560), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 564), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 568), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 576), align 16
+  store ptr @.str.21, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 584), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 592), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 596), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 600), align 8
+  store i32 65557, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 608), align 16
+  store ptr @.str.22, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 616), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 624), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 628), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 632), align 8
+  store i32 700, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 640), align 16
+  store ptr @.str.23, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 648), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 656), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 660), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 664), align 8
   store i32 256, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, align 16
-  store ptr @.str.26, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 0, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 0, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 0, i32 4), align 8
-  store i32 257, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 1), align 16
-  store ptr @.str.27, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 1, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 1, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 1, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 1, i32 4), align 8
-  store i32 258, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 2), align 16
-  store ptr @.str.28, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 2, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 2, i32 2), i8 0, i64 16, i1 false)
-  store i32 259, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 3), align 16
-  store ptr @.str.29, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 3, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 3, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 3, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 3, i32 4), align 8
-  store i32 262, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 4), align 16
-  store ptr @.str.30, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 4, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 4, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 4, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 4, i32 4), align 8
-  store i32 277, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 5), align 16
-  store ptr @.str.31, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 5, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 5, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 5, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 5, i32 4), align 8
-  store i32 284, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 6), align 16
-  store ptr @.str.32, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 6, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 6, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 6, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 6, i32 4), align 8
-  store i32 530, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 7), align 16
-  store ptr @.str.33, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 7, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 7, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 7, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 7, i32 4), align 8
-  store i32 531, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 8), align 16
-  store ptr @.str.34, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 8, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 8, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 8, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 8, i32 4), align 8
-  store i32 274, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 9), align 16
-  store ptr @.str.4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 9, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 9, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 9, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 9, i32 4), align 8
-  store i32 282, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 10), align 16
-  store ptr @.str.5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 10, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 10, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 10, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 10, i32 4), align 8
-  store i32 283, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 11), align 16
-  store ptr @.str.6, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 11, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 11, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 11, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 11, i32 4), align 8
-  store i32 296, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 12), align 16
-  store ptr @.str.7, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 12, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 12, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 12, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 12, i32 4), align 8
-  store i32 270, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 13), align 16
-  store ptr @.str.3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 13, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 13, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 13, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 13, i32 4), align 8
-  store i32 271, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 14), align 16
-  store ptr @.str.8, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 14, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 14, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 14, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 14, i32 4), align 8
-  store i32 272, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 15), align 16
-  store ptr @.str.9, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 15, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 15, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 15, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 15, i32 4), align 8
-  store i32 305, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 16), align 16
-  store ptr @.str.10, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 16, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 16, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 16, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 16, i32 4), align 8
-  store i32 315, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 17), align 16
-  store ptr @.str.11, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 17, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 17, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 17, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 17, i32 4), align 8
-  store i32 33432, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 18), align 16
-  store ptr @.str.12, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 18, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 18, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 18, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 18, i32 4), align 8
-  store i32 306, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 19), align 16
-  store ptr @.str.13, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 19, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 19, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 19, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 19, i32 4), align 8
-  store i32 34665, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 20), align 16
-  store ptr @.str.35, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 20, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 20, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 20, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 20, i32 4), align 8
-  store i32 40965, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 21), align 16
-  store ptr @.str.36, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 21, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 21, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 21, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 21, i32 4), align 8
-  store i32 34853, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 22), align 16
-  store ptr @.str.37, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 22, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 22, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 22, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 22, i32 4), align 8
-  store i32 33434, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 23), align 16
-  store ptr @.str.38, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 23, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 23, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 23, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 23, i32 4), align 8
-  store i32 33437, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 24), align 16
-  store ptr @.str.39, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 24, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 24, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 24, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 24, i32 4), align 8
-  store i32 34850, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 25), align 16
-  store ptr @.str.40, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 25, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 25, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 25, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 25, i32 4), align 8
-  store i32 34852, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 26), align 16
-  store ptr @.str.41, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 26, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 26, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 26, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 26, i32 4), align 8
-  store i32 34855, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 27), align 16
-  store ptr @.str.42, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 27, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 27, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 27, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 27, i32 4), align 8
-  store i32 34856, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 28), align 16
-  store ptr @.str.43, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 28, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 28, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 28, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 28, i32 4), align 8
-  store i32 36864, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 29), align 16
-  store ptr @.str.44, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 29, i32 1), align 8
-  store i32 7, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 29, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 29, i32 3), align 4
-  store ptr @_ZN18OpenImageIO_v2_6_0L20version4char_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 29, i32 4), align 8
-  store i32 36867, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 30), align 16
-  store ptr @.str.45, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 30, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 30, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 30, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 30, i32 4), align 8
-  store i32 36868, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 31), align 16
-  store ptr @.str.46, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 31, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 31, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 31, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 31, i32 4), align 8
-  store i32 36880, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 32), align 16
-  store ptr @.str.47, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 32, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 32, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 32, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 32, i32 4), align 8
-  store i32 36881, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 33), align 16
-  store ptr @.str.48, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 33, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 33, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 33, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 33, i32 4), align 8
-  store i32 36882, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 34), align 16
-  store ptr @.str.49, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 34, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 34, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 34, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 34, i32 4), align 8
-  store i32 37121, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 35), align 16
-  store ptr @.str.50, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 35, i32 1), align 8
-  store i32 7, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 35, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 35, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 35, i32 4), align 8
-  store i32 37122, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 36), align 16
-  store ptr @.str.51, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 36, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 36, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 36, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 36, i32 4), align 8
-  store i32 37377, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 37), align 16
-  store ptr @.str.52, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 37, i32 1), align 8
-  store i32 10, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 37, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 37, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 37, i32 4), align 8
-  store i32 37378, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 38), align 16
-  store ptr @.str.53, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 38, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 38, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 38, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 38, i32 4), align 8
-  store i32 37379, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 39), align 16
-  store ptr @.str.54, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 39, i32 1), align 8
-  store i32 10, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 39, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 39, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 39, i32 4), align 8
-  store i32 37380, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 40), align 16
-  store ptr @.str.55, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 40, i32 1), align 8
-  store i32 10, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 40, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 40, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 40, i32 4), align 8
-  store i32 37381, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 41), align 16
-  store ptr @.str.56, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 41, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 41, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 41, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 41, i32 4), align 8
-  store i32 37382, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 42), align 16
-  store ptr @.str.57, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 42, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 42, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 42, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 42, i32 4), align 8
-  store i32 37383, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 43), align 16
-  store ptr @.str.58, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 43, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 43, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 43, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 43, i32 4), align 8
-  store i32 37384, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 44), align 16
-  store ptr @.str.59, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 44, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 44, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 44, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 44, i32 4), align 8
-  store i32 37385, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 45), align 16
-  store ptr @.str.60, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 45, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 45, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 45, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 45, i32 4), align 8
-  store i32 37386, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 46), align 16
-  store ptr @.str.61, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 46, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 46, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 46, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 46, i32 4), align 8
-  store i32 37394, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 47), align 16
-  store ptr @.str.62, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 47, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 47, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 47, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 47, i32 4), align 8
-  store i32 37395, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 48), align 16
-  store ptr @.str.63, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 48, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 48, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 48, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 48, i32 4), align 8
-  store i32 37396, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 49), align 16
-  store ptr @.str.64, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 49, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 49, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 49, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 49, i32 4), align 8
-  store i32 37500, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 50), align 16
-  store ptr @.str.65, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 50, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 50, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 50, i32 3), align 4
-  store ptr @_ZN18OpenImageIO_v2_6_0L17makernote_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 50, i32 4), align 8
-  store i32 37510, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 51), align 16
-  store ptr @.str.66, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 51, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 51, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 51, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 51, i32 4), align 8
-  store i32 37520, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 52), align 16
-  store ptr @.str.67, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 52, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 52, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 52, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 52, i32 4), align 8
-  store i32 37521, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 53), align 16
-  store ptr @.str.68, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 53, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 53, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 53, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 53, i32 4), align 8
-  store i32 37522, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 54), align 16
-  store ptr @.str.69, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 54, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 54, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 54, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 54, i32 4), align 8
-  store i32 40960, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 55), align 16
-  store ptr @.str.70, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 55, i32 1), align 8
-  store i32 7, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 55, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 55, i32 3), align 4
-  store ptr @_ZN18OpenImageIO_v2_6_0L20version4char_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 55, i32 4), align 8
-  store i32 40961, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 56), align 16
-  store ptr @.str.71, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 56, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 56, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 56, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 56, i32 4), align 8
-  store i32 40962, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 57), align 16
-  store ptr @.str.72, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 57, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 57, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 57, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 57, i32 4), align 8
-  store i32 40963, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 58), align 16
-  store ptr @.str.73, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 58, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 58, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 58, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 58, i32 4), align 8
-  store i32 40964, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 59), align 16
-  store ptr @.str.74, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 59, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 59, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 59, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 59, i32 4), align 8
-  store i32 41483, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 60), align 16
-  store ptr @.str.75, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 60, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 60, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 60, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 60, i32 4), align 8
-  store i32 41484, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 61), align 16
-  store ptr @.str.76, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 61, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 61, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 61, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 61, i32 4), align 8
-  store i32 41486, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 62), align 16
-  store ptr @.str.77, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 62, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 62, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 62, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 62, i32 4), align 8
-  store i32 41487, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 63), align 16
-  store ptr @.str.78, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 63, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 63, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 63, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 63, i32 4), align 8
-  store i32 41488, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 64), align 16
-  store ptr @.str.79, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 64, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 64, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 64, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 64, i32 4), align 8
-  store i32 41492, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 65), align 16
-  store ptr @.str.80, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 65, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 65, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 65, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 65, i32 4), align 8
-  store i32 41493, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 66), align 16
-  store ptr @.str.81, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 66, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 66, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 66, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 66, i32 4), align 8
-  store i32 41495, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 67), align 16
-  store ptr @.str.82, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 67, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 67, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 67, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 67, i32 4), align 8
-  store i32 41728, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 68), align 16
-  store ptr @.str.83, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 68, i32 1), align 8
-  store i32 7, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 68, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 68, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 68, i32 4), align 8
-  store i32 41729, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 69), align 16
-  store ptr @.str.84, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 69, i32 1), align 8
-  store i32 7, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 69, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 69, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 69, i32 4), align 8
-  store i32 41730, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 70), align 16
-  store ptr @.str.85, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 70, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 70, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 70, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 70, i32 4), align 8
-  store i32 41985, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 71), align 16
-  store ptr @.str.86, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 71, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 71, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 71, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 71, i32 4), align 8
-  store i32 41986, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 72), align 16
-  store ptr @.str.87, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 72, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 72, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 72, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 72, i32 4), align 8
-  store i32 41987, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 73), align 16
-  store ptr @.str.88, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 73, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 73, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 73, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 73, i32 4), align 8
-  store i32 41988, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 74), align 16
-  store ptr @.str.89, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 74, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 74, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 74, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 74, i32 4), align 8
-  store i32 41989, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 75), align 16
-  store ptr @.str.90, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 75, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 75, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 75, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 75, i32 4), align 8
-  store i32 41990, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 76), align 16
-  store ptr @.str.91, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 76, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 76, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 76, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 76, i32 4), align 8
-  store i32 41991, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 77), align 16
-  store ptr @.str.92, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 77, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 77, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 77, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 77, i32 4), align 8
-  store i32 41992, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 78), align 16
-  store ptr @.str.93, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 78, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 78, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 78, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 78, i32 4), align 8
-  store i32 41993, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 79), align 16
-  store ptr @.str.94, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 79, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 79, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 79, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 79, i32 4), align 8
-  store i32 41994, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 80), align 16
-  store ptr @.str.95, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 80, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 80, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 80, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 80, i32 4), align 8
-  store i32 41995, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 81), align 16
-  store ptr @.str.96, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 81, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 81, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 81, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 81, i32 4), align 8
-  store i32 41996, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 82), align 16
-  store ptr @.str.97, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 82, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 82, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 82, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 82, i32 4), align 8
-  store i32 42016, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 83), align 16
-  store ptr @.str.98, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 83, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 83, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 83, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 83, i32 4), align 8
-  store i32 34855, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 84), align 16
-  store ptr @.str.99, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 84, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 84, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 84, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 84, i32 4), align 8
-  store i32 34864, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 85), align 16
-  store ptr @.str.100, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 85, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 85, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 85, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 85, i32 4), align 8
-  store i32 34865, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 86), align 16
-  store ptr @.str.101, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 86, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 86, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 86, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 86, i32 4), align 8
-  store i32 34866, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 87), align 16
-  store ptr @.str.102, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 87, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 87, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 87, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 87, i32 4), align 8
-  store i32 34867, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 88), align 16
-  store ptr @.str.103, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 88, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 88, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 88, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 88, i32 4), align 8
-  store i32 34868, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 89), align 16
-  store ptr @.str.104, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 89, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 89, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 89, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 89, i32 4), align 8
-  store i32 34869, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 90), align 16
-  store ptr @.str.105, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 90, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 90, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 90, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 90, i32 4), align 8
-  store i32 37888, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 91), align 16
-  store ptr @.str.106, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 91, i32 1), align 8
-  store i32 10, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 91, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 91, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 91, i32 4), align 8
-  store i32 37889, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 92), align 16
-  store ptr @.str.107, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 92, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 92, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 92, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 92, i32 4), align 8
-  store i32 37890, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 93), align 16
-  store ptr @.str.108, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 93, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 93, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 93, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 93, i32 4), align 8
-  store i32 37891, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 94), align 16
-  store ptr @.str.109, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 94, i32 1), align 8
-  store i32 10, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 94, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 94, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 94, i32 4), align 8
-  store i32 37892, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 95), align 16
-  store ptr @.str.110, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 95, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 95, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 95, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 95, i32 4), align 8
-  store i32 37893, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 96), align 16
-  store ptr @.str.111, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 96, i32 1), align 8
-  store i32 10, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 96, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 96, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 96, i32 4), align 8
-  store i32 42032, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 97), align 16
-  store ptr @.str.112, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 97, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 97, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 97, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 97, i32 4), align 8
-  store i32 42033, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 98), align 16
-  store ptr @.str.113, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 98, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 98, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 98, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 98, i32 4), align 8
-  store i32 42034, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 99), align 16
-  store ptr @.str.114, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 99, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 99, i32 2), align 16
-  store i32 4, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 99, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 99, i32 4), align 8
-  store i32 42035, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 100), align 16
-  store ptr @.str.115, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 100, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 100, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 100, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 100, i32 4), align 8
-  store i32 42036, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 101), align 16
-  store ptr @.str.116, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 101, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 101, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 101, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 101, i32 4), align 8
-  store i32 42037, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 102), align 16
-  store ptr @.str.117, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 102, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 102, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 102, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 102, i32 4), align 8
-  store i32 42240, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 103), align 16
-  store ptr @.str.118, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 103, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 103, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 103, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([104 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 0, i64 103, i32 4), align 8
+  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 16), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 20), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 24), align 8
+  store i32 257, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 32), align 16
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 48), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 52), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 56), align 8
+  store i32 258, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 64), align 16
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 72), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 80), i8 0, i64 16, i1 false)
+  store i32 259, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 96), align 16
+  store ptr @.str.29, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 104), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 112), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 116), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 120), align 8
+  store i32 262, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 128), align 16
+  store ptr @.str.30, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 144), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 148), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 152), align 8
+  store i32 277, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 160), align 16
+  store ptr @.str.31, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 168), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 176), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 180), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 184), align 8
+  store i32 284, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 192), align 16
+  store ptr @.str.32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 200), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 208), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 212), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 216), align 8
+  store i32 530, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 224), align 16
+  store ptr @.str.33, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 232), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 240), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 244), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 248), align 8
+  store i32 531, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 256), align 16
+  store ptr @.str.34, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 264), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 272), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 276), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 280), align 8
+  store i32 274, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 288), align 16
+  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 296), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 304), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 308), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 312), align 8
+  store i32 282, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 320), align 16
+  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 328), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 336), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 340), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 344), align 8
+  store i32 283, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 352), align 16
+  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 360), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 368), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 372), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 376), align 8
+  store i32 296, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 384), align 16
+  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 392), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 400), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 404), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 408), align 8
+  store i32 270, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 416), align 16
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 424), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 432), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 436), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 440), align 8
+  store i32 271, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 448), align 16
+  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 456), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 464), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 468), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 472), align 8
+  store i32 272, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 480), align 16
+  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 488), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 496), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 500), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 504), align 8
+  store i32 305, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 512), align 16
+  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 520), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 528), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 532), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 536), align 8
+  store i32 315, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 544), align 16
+  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 552), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 560), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 564), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 568), align 8
+  store i32 33432, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 576), align 16
+  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 584), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 592), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 596), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 600), align 8
+  store i32 306, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 608), align 16
+  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 616), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 624), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 628), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 632), align 8
+  store i32 34665, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 640), align 16
+  store ptr @.str.35, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 648), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 656), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 660), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 664), align 8
+  store i32 40965, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 672), align 16
+  store ptr @.str.36, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 680), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 688), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 692), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 696), align 8
+  store i32 34853, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 704), align 16
+  store ptr @.str.37, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 712), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 720), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 724), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 728), align 8
+  store i32 33434, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 736), align 16
+  store ptr @.str.38, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 744), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 752), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 756), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 760), align 8
+  store i32 33437, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 768), align 16
+  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 776), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 784), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 788), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 792), align 8
+  store i32 34850, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 800), align 16
+  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 808), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 816), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 820), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 824), align 8
+  store i32 34852, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 832), align 16
+  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 840), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 848), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 852), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 856), align 8
+  store i32 34855, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 864), align 16
+  store ptr @.str.42, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 872), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 880), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 884), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 888), align 8
+  store i32 34856, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 896), align 16
+  store ptr @.str.43, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 904), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 912), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 916), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 920), align 8
+  store i32 36864, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 928), align 16
+  store ptr @.str.44, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 936), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 944), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 948), align 4
+  store ptr @_ZN18OpenImageIO_v2_6_0L20version4char_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 952), align 8
+  store i32 36867, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 960), align 16
+  store ptr @.str.45, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 968), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 976), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 980), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 984), align 8
+  store i32 36868, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 992), align 16
+  store ptr @.str.46, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1000), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1008), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1012), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1016), align 8
+  store i32 36880, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1024), align 16
+  store ptr @.str.47, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1032), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1040), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1044), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1048), align 8
+  store i32 36881, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1056), align 16
+  store ptr @.str.48, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1064), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1072), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1076), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1080), align 8
+  store i32 36882, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1088), align 16
+  store ptr @.str.49, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1096), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1104), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1108), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1112), align 8
+  store i32 37121, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1120), align 16
+  store ptr @.str.50, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1128), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1136), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1140), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1144), align 8
+  store i32 37122, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1152), align 16
+  store ptr @.str.51, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1160), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1168), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1172), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1176), align 8
+  store i32 37377, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1184), align 16
+  store ptr @.str.52, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1192), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1200), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1204), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1208), align 8
+  store i32 37378, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1216), align 16
+  store ptr @.str.53, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1224), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1232), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1236), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1240), align 8
+  store i32 37379, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1248), align 16
+  store ptr @.str.54, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1256), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1264), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1268), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1272), align 8
+  store i32 37380, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1280), align 16
+  store ptr @.str.55, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1288), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1296), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1300), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1304), align 8
+  store i32 37381, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1312), align 16
+  store ptr @.str.56, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1320), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1328), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1332), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1336), align 8
+  store i32 37382, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1344), align 16
+  store ptr @.str.57, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1352), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1360), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1364), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1368), align 8
+  store i32 37383, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1376), align 16
+  store ptr @.str.58, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1384), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1392), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1396), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1400), align 8
+  store i32 37384, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1408), align 16
+  store ptr @.str.59, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1416), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1424), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1428), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1432), align 8
+  store i32 37385, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1440), align 16
+  store ptr @.str.60, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1448), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1456), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1460), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1464), align 8
+  store i32 37386, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1472), align 16
+  store ptr @.str.61, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1480), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1488), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1492), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1496), align 8
+  store i32 37394, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1504), align 16
+  store ptr @.str.62, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1512), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1520), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1524), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1528), align 8
+  store i32 37395, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1536), align 16
+  store ptr @.str.63, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1544), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1552), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1556), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1560), align 8
+  store i32 37396, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1568), align 16
+  store ptr @.str.64, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1576), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1584), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1588), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1592), align 8
+  store i32 37500, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1600), align 16
+  store ptr @.str.65, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1608), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1616), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1620), align 4
+  store ptr @_ZN18OpenImageIO_v2_6_0L17makernote_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1624), align 8
+  store i32 37510, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1632), align 16
+  store ptr @.str.66, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1640), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1648), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1652), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1656), align 8
+  store i32 37520, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1664), align 16
+  store ptr @.str.67, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1672), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1680), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1684), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1688), align 8
+  store i32 37521, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1696), align 16
+  store ptr @.str.68, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1704), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1712), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1716), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1720), align 8
+  store i32 37522, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1728), align 16
+  store ptr @.str.69, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1736), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1744), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1748), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1752), align 8
+  store i32 40960, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1760), align 16
+  store ptr @.str.70, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1768), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1776), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1780), align 4
+  store ptr @_ZN18OpenImageIO_v2_6_0L20version4char_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1784), align 8
+  store i32 40961, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1792), align 16
+  store ptr @.str.71, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1800), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1808), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1812), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1816), align 8
+  store i32 40962, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1824), align 16
+  store ptr @.str.72, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1832), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1840), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1844), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1848), align 8
+  store i32 40963, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1856), align 16
+  store ptr @.str.73, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1864), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1872), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1876), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1880), align 8
+  store i32 40964, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1888), align 16
+  store ptr @.str.74, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1896), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1904), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1908), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1912), align 8
+  store i32 41483, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1920), align 16
+  store ptr @.str.75, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1928), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1936), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1940), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1944), align 8
+  store i32 41484, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1952), align 16
+  store ptr @.str.76, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1960), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1968), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1972), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1976), align 8
+  store i32 41486, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1984), align 16
+  store ptr @.str.77, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 1992), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2000), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2004), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2008), align 8
+  store i32 41487, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2016), align 16
+  store ptr @.str.78, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2024), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2032), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2036), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2040), align 8
+  store i32 41488, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2048), align 16
+  store ptr @.str.79, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2056), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2064), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2068), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2072), align 8
+  store i32 41492, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2080), align 16
+  store ptr @.str.80, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2088), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2096), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2100), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2104), align 8
+  store i32 41493, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2112), align 16
+  store ptr @.str.81, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2120), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2128), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2132), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2136), align 8
+  store i32 41495, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2144), align 16
+  store ptr @.str.82, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2152), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2160), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2164), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2168), align 8
+  store i32 41728, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2176), align 16
+  store ptr @.str.83, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2184), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2192), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2196), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2200), align 8
+  store i32 41729, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2208), align 16
+  store ptr @.str.84, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2216), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2224), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2228), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2232), align 8
+  store i32 41730, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2240), align 16
+  store ptr @.str.85, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2248), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2256), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2260), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2264), align 8
+  store i32 41985, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2272), align 16
+  store ptr @.str.86, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2280), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2288), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2292), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2296), align 8
+  store i32 41986, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2304), align 16
+  store ptr @.str.87, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2312), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2320), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2324), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2328), align 8
+  store i32 41987, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2336), align 16
+  store ptr @.str.88, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2344), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2352), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2356), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2360), align 8
+  store i32 41988, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2368), align 16
+  store ptr @.str.89, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2376), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2384), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2388), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2392), align 8
+  store i32 41989, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2400), align 16
+  store ptr @.str.90, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2408), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2416), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2420), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2424), align 8
+  store i32 41990, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2432), align 16
+  store ptr @.str.91, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2440), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2448), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2452), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2456), align 8
+  store i32 41991, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2464), align 16
+  store ptr @.str.92, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2472), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2480), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2484), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2488), align 8
+  store i32 41992, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2496), align 16
+  store ptr @.str.93, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2504), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2512), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2516), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2520), align 8
+  store i32 41993, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2528), align 16
+  store ptr @.str.94, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2536), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2544), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2548), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2552), align 8
+  store i32 41994, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2560), align 16
+  store ptr @.str.95, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2568), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2576), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2580), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2584), align 8
+  store i32 41995, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2592), align 16
+  store ptr @.str.96, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2600), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2608), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2612), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2616), align 8
+  store i32 41996, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2624), align 16
+  store ptr @.str.97, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2632), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2640), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2644), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2648), align 8
+  store i32 42016, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2656), align 16
+  store ptr @.str.98, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2664), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2672), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2676), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2680), align 8
+  store i32 34855, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2688), align 16
+  store ptr @.str.99, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2696), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2704), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2708), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2712), align 8
+  store i32 34864, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2720), align 16
+  store ptr @.str.100, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2728), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2736), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2740), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2744), align 8
+  store i32 34865, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2752), align 16
+  store ptr @.str.101, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2760), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2768), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2772), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2776), align 8
+  store i32 34866, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2784), align 16
+  store ptr @.str.102, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2792), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2800), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2804), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2808), align 8
+  store i32 34867, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2816), align 16
+  store ptr @.str.103, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2824), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2832), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2836), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2840), align 8
+  store i32 34868, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2848), align 16
+  store ptr @.str.104, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2856), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2864), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2868), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2872), align 8
+  store i32 34869, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2880), align 16
+  store ptr @.str.105, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2888), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2896), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2900), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2904), align 8
+  store i32 37888, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2912), align 16
+  store ptr @.str.106, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2920), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2928), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2932), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2936), align 8
+  store i32 37889, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2944), align 16
+  store ptr @.str.107, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2952), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2960), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2964), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2968), align 8
+  store i32 37890, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2976), align 16
+  store ptr @.str.108, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2984), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2992), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 2996), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3000), align 8
+  store i32 37891, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3008), align 16
+  store ptr @.str.109, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3016), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3024), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3028), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3032), align 8
+  store i32 37892, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3040), align 16
+  store ptr @.str.110, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3048), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3056), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3060), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3064), align 8
+  store i32 37893, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3072), align 16
+  store ptr @.str.111, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3080), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3088), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3092), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3096), align 8
+  store i32 42032, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3104), align 16
+  store ptr @.str.112, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3112), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3120), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3124), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3128), align 8
+  store i32 42033, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3136), align 16
+  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3144), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3152), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3156), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3160), align 8
+  store i32 42034, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3168), align 16
+  store ptr @.str.114, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3176), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3184), align 16
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3188), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3192), align 8
+  store i32 42035, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3200), align 16
+  store ptr @.str.115, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3208), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3216), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3220), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3224), align 8
+  store i32 42036, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3232), align 16
+  store ptr @.str.116, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3240), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3248), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3252), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3256), align 8
+  store i32 42037, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3264), align 16
+  store ptr @.str.117, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3272), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3280), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3284), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3288), align 8
+  store i32 42240, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3296), align 16
+  store ptr @.str.118, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3304), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3312), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3316), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, i64 3320), align 8
   store i32 0, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, align 16
-  store ptr @.str.121, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 0, i32 2), align 16
-  store i32 4, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 0, i32 3), align 4
-  store ptr @_ZN18OpenImageIO_v2_6_0L21version4uint8_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 0, i32 4), align 8
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 1), align 16
-  store ptr @.str.122, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 1, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 1, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 1, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 1, i32 4), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 2), align 16
-  store ptr @.str.123, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 2, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 2, i32 2), align 16
-  store i32 3, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 2, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 2, i32 4), align 8
-  store i32 3, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 3), align 16
-  store ptr @.str.124, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 3, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 3, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 3, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 3, i32 4), align 8
-  store i32 4, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 4), align 16
-  store ptr @.str.125, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 4, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 4, i32 2), align 16
-  store i32 3, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 4, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 4, i32 4), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 5), align 16
-  store ptr @.str.126, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 5, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 5, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 5, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 5, i32 4), align 8
-  store i32 6, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 6), align 16
-  store ptr @.str.127, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 6, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 6, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 6, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 6, i32 4), align 8
-  store i32 7, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 7), align 16
-  store ptr @.str.128, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 7, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 7, i32 2), align 16
-  store i32 3, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 7, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 7, i32 4), align 8
-  store i32 8, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 8), align 16
-  store ptr @.str.129, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 8, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 8, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 8, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 8, i32 4), align 8
-  store i32 9, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 9), align 16
-  store ptr @.str.130, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 9, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 9, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 9, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 9, i32 4), align 8
-  store i32 10, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 10), align 16
-  store ptr @.str.131, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 10, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 10, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 10, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 10, i32 4), align 8
-  store i32 11, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 11), align 16
-  store ptr @.str.132, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 11, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 11, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 11, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 11, i32 4), align 8
-  store i32 12, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 12), align 16
-  store ptr @.str.133, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 12, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 12, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 12, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 12, i32 4), align 8
-  store i32 13, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 13), align 16
-  store ptr @.str.134, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 13, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 13, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 13, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 13, i32 4), align 8
-  store i32 14, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 14), align 16
-  store ptr @.str.135, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 14, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 14, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 14, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 14, i32 4), align 8
-  store i32 15, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 15), align 16
-  store ptr @.str.136, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 15, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 15, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 15, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 15, i32 4), align 8
-  store i32 16, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 16), align 16
-  store ptr @.str.137, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 16, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 16, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 16, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 16, i32 4), align 8
-  store i32 17, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 17), align 16
-  store ptr @.str.138, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 17, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 17, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 17, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 17, i32 4), align 8
-  store i32 18, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 18), align 16
-  store ptr @.str.139, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 18, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 18, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 18, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 18, i32 4), align 8
-  store i32 19, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 19), align 16
-  store ptr @.str.140, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 19, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 19, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 19, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 19, i32 4), align 8
-  store i32 20, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 20), align 16
-  store ptr @.str.141, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 20, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 20, i32 2), align 16
-  store i32 3, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 20, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 20, i32 4), align 8
-  store i32 21, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 21), align 16
-  store ptr @.str.142, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 21, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 21, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 21, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 21, i32 4), align 8
-  store i32 22, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 22), align 16
-  store ptr @.str.143, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 22, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 22, i32 2), align 16
-  store i32 3, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 22, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 22, i32 4), align 8
-  store i32 23, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 23), align 16
-  store ptr @.str.144, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 23, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 23, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 23, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 23, i32 4), align 8
-  store i32 24, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 24), align 16
-  store ptr @.str.145, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 24, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 24, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 24, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 24, i32 4), align 8
-  store i32 25, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 25), align 16
-  store ptr @.str.146, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 25, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 25, i32 2), align 16
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 25, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 25, i32 4), align 8
-  store i32 26, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 26), align 16
-  store ptr @.str.147, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 26, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 26, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 26, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 26, i32 4), align 8
-  store i32 27, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 27), align 16
-  store ptr @.str.148, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 27, i32 1), align 8
-  store i32 7, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 27, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 27, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 27, i32 4), align 8
-  store i32 28, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 28), align 16
-  store ptr @.str.149, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 28, i32 1), align 8
-  store i32 7, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 28, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 28, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 28, i32 4), align 8
-  store i32 29, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 29), align 16
-  store ptr @.str.150, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 29, i32 1), align 8
-  store i32 2, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 29, i32 2), align 16
-  store i32 0, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 29, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 29, i32 4), align 8
-  store i32 30, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 30), align 16
-  store ptr @.str.151, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 30, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 30, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 30, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 30, i32 4), align 8
-  store i32 31, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 31), align 16
-  store ptr @.str.152, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 31, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 31, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 31, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds ([32 x %"struct.OpenImageIO_v2_6_0::TagInfo"], ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 0, i64 31, i32 4), align 8
+  store ptr @.str.121, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 16), align 16
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 20), align 4
+  store ptr @_ZN18OpenImageIO_v2_6_0L21version4uint8_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 32), align 16
+  store ptr @.str.122, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 48), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 52), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 56), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 64), align 16
+  store ptr @.str.123, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 72), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 80), align 16
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 84), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 88), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 96), align 16
+  store ptr @.str.124, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 104), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 112), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 116), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 120), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 128), align 16
+  store ptr @.str.125, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 136), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 144), align 16
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 148), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 152), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 160), align 16
+  store ptr @.str.126, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 168), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 176), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 180), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 184), align 8
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 192), align 16
+  store ptr @.str.127, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 200), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 208), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 212), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 216), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 224), align 16
+  store ptr @.str.128, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 232), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 240), align 16
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 244), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 248), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 256), align 16
+  store ptr @.str.129, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 264), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 272), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 276), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 280), align 8
+  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 288), align 16
+  store ptr @.str.130, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 296), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 304), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 308), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 312), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 320), align 16
+  store ptr @.str.131, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 328), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 336), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 340), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 344), align 8
+  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 352), align 16
+  store ptr @.str.132, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 360), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 368), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 372), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 376), align 8
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 384), align 16
+  store ptr @.str.133, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 392), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 400), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 404), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 408), align 8
+  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 416), align 16
+  store ptr @.str.134, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 424), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 432), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 436), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 440), align 8
+  store i32 14, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 448), align 16
+  store ptr @.str.135, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 456), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 464), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 468), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 472), align 8
+  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 480), align 16
+  store ptr @.str.136, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 488), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 496), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 500), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 504), align 8
+  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 512), align 16
+  store ptr @.str.137, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 520), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 528), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 532), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 536), align 8
+  store i32 17, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 544), align 16
+  store ptr @.str.138, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 552), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 560), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 564), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 568), align 8
+  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 576), align 16
+  store ptr @.str.139, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 584), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 592), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 596), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 600), align 8
+  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 608), align 16
+  store ptr @.str.140, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 616), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 624), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 628), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 632), align 8
+  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 640), align 16
+  store ptr @.str.141, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 648), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 656), align 16
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 660), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 664), align 8
+  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 672), align 16
+  store ptr @.str.142, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 680), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 688), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 692), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 696), align 8
+  store i32 22, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 704), align 16
+  store ptr @.str.143, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 712), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 720), align 16
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 724), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 728), align 8
+  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 736), align 16
+  store ptr @.str.144, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 744), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 752), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 756), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 760), align 8
+  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 768), align 16
+  store ptr @.str.145, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 776), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 784), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 788), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 792), align 8
+  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 800), align 16
+  store ptr @.str.146, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 808), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 816), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 820), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 824), align 8
+  store i32 26, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 832), align 16
+  store ptr @.str.147, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 840), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 848), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 852), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 856), align 8
+  store i32 27, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 864), align 16
+  store ptr @.str.148, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 872), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 880), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 884), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 888), align 8
+  store i32 28, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 896), align 16
+  store ptr @.str.149, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 904), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 912), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 916), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 920), align 8
+  store i32 29, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 928), align 16
+  store ptr @.str.150, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 936), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 944), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 948), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 952), align 8
+  store i32 30, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 960), align 16
+  store ptr @.str.151, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 968), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 976), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 980), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 984), align 8
+  store i32 31, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 992), align 16
+  store ptr @.str.152, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 1000), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 1008), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 1012), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 1016), align 8
   ret void
 }
 

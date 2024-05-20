@@ -107,7 +107,7 @@ define dso_local i32 @sel_netport_sid(i8 noundef zeroext %0, i16 noundef zeroext
   br i1 %44, label %45, label %75
 
 45:                                               ; preds = %.thread11
-  %46 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %47 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 2336, i64 noundef 40) #6
   %48 = icmp eq ptr %47, null
   br i1 %48, label %74, label %49

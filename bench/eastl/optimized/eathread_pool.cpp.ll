@@ -1396,7 +1396,7 @@ if.else29:                                        ; preds = %while.body
   %retval.sroa.0.0.i = add nsw i64 %add.i.i, %inc.i.i
   store i64 %retval.sroa.0.0.i, ptr %timeoutAbsolute, align 8
   store i64 %retval.sroa.5.0.i, ptr %2, align 8
-  %24 = load i64, ptr getelementptr inbounds (%"struct.EA::Thread::ThreadTime", ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 0, i32 0, i32 1), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 8), align 8
   %cmp.i32 = icmp eq i64 %23, %24
   %25 = load i64, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, align 8
   %cmp3.i = icmp eq i64 %22, %25

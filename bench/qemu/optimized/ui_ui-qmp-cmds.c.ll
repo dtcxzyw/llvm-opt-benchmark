@@ -87,7 +87,7 @@ qemu_using_spice.exit:                            ; preds = %if.then
   br label %if.end20
 
 if.end:                                           ; preds = %if.then
-  %2 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 24), align 8
   %password = getelementptr inbounds i8, ptr %opts, i64 8
   %3 = load ptr, ptr %password, align 8
   %connected = getelementptr inbounds i8, ptr %opts, i64 20
@@ -199,7 +199,7 @@ qemu_using_spice.exit:                            ; preds = %if.then21
   br label %if.end38
 
 if.end24:                                         ; preds = %if.then21
-  %5 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 32), align 8
   %call25 = call i32 %5(i64 noundef %when.1) #8
   br label %if.end34
 
@@ -265,7 +265,7 @@ qemu_using_spice.exit:                            ; preds = %entry
 if.end:                                           ; preds = %entry
   %narrow = and i1 %has_skipauth, %skipauth
   %narrow4 = and i1 %has_tls, %tls
-  %1 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i64 0, i32 5), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 40), align 8
   %conv18 = zext i1 %narrow to i32
   %conv20 = zext i1 %narrow4 to i32
   %call21 = tail call i32 %1(i32 noundef %fd, i32 noundef %conv18, i32 noundef %conv20) #8
@@ -393,7 +393,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %1 = trunc i64 %port to i32
-  %2 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 16), align 8
   %conv = select i1 %has_port, i32 %1, i32 -1
   %3 = trunc i64 %tls_port to i32
   %conv14 = select i1 %has_tls_port, i32 %3, i32 -1

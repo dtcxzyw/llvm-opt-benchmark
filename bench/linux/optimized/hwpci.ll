@@ -46,7 +46,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   %22 = and i64 %21, 512
   %23 = icmp eq i64 %22, 0
   %24 = select i1 %23, i32 2080, i32 3264
-  %25 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %26 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %25, i32 noundef %24, i64 noundef 16) #5
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %34

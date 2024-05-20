@@ -242,7 +242,7 @@ declare void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7b2JointC2EPK10b2JointDef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %def) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7b2Joint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7b2Joint, i64 16), ptr %this, align 8
   %m_userData = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %m_userData, align 8
   %0 = load i32, ptr %def, align 8

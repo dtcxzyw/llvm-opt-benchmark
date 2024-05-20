@@ -3999,7 +3999,7 @@ entry:
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %3, ptr %ref.tmp.sroa.4.0..sroa_idx, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1) #23
-  %call2 = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call2 = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   %4 = extractvalue { i64, i64 } %call2, 0
   store i64 %4, ptr %ref.tmp1, align 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
@@ -4009,7 +4009,7 @@ entry:
   br i1 %call3, label %if.then.critedge, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %call4 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call4 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1) #23
   %not.call4 = xor i1 %call4, true
   br label %return
@@ -4065,7 +4065,7 @@ entry:
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %retval, i64 8
   store i64 %5, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1.i) #23
-  %call2.i = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call2.i = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   %6 = extractvalue { i64, i64 } %call2.i, 0
   store i64 %6, ptr %ref.tmp1.i, align 8
   %7 = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
@@ -4081,7 +4081,7 @@ _ZN6duckdb13TryDecimalAdd9OperationINS_9hugeint_tES2_S2_EEbT_T0_RT1_.exit.thread
   br label %if.then
 
 _ZN6duckdb13TryDecimalAdd9OperationINS_9hugeint_tES2_S2_EEbT_T0_RT1_.exit: ; preds = %entry
-  %call4.i = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call4.i = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %left.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %right.i)
@@ -9317,7 +9317,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bind_data) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !74
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !34, !noalias !74
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 16), ptr %call.i, align 8, !tbaa !34, !noalias !74
   %check_overflow.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %check_overflow.i.i, align 8, !tbaa !77, !noalias !74
   store ptr %call.i, ptr %bind_data, align 8, !tbaa !43, !alias.scope !74
@@ -10667,7 +10667,7 @@ invoke.cont15:                                    ; preds = %_ZN6duckdb11Logical
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 0, i32 0, i64 2), ptr %call.i8283, align 8, !tbaa !34, !noalias !104
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 16), ptr %call.i8283, align 8, !tbaa !34, !noalias !104
   %check_overflow.i.i = getelementptr inbounds i8, ptr %call.i8283, i64 8
   store i8 1, ptr %check_overflow.i.i, align 8, !tbaa !77, !noalias !104
   store ptr %call.i8283, ptr %bind_data, align 8, !tbaa !43, !alias.scope !104
@@ -10758,7 +10758,7 @@ ehcleanup26:                                      ; preds = %ehcleanup25, %lpad,
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %this, align 8, !tbaa !34
   %_M_manager.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %_M_manager.i, align 8, !tbaa !51
   %tobool.not.i = icmp eq ptr %0, null
@@ -11731,7 +11731,7 @@ if.then.i.i.i290:                                 ; preds = %invoke.cont13
           to label %.noexc unwind label %lpad14
 
 .noexc:                                           ; preds = %if.then.i.i.i290
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %10, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %10, align 8, !tbaa !34
   %function.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 176
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i, i8 0, i64 24, i1 false)
@@ -11755,7 +11755,7 @@ invoke.cont15.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 264
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp11, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp11, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %invoke.cont13
@@ -11764,7 +11764,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont13
 
 invoke.cont15:                                    ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp11, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp11, align 8, !tbaa !34
   %tobool.not.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i, label %_ZN6duckdb14ScalarFunctionD2Ev.exit, label %if.then.i.i292
 
@@ -11795,7 +11795,7 @@ if.then.i.i.i297:                                 ; preds = %invoke.cont18
           to label %.noexc312 unwind label %lpad19
 
 .noexc312:                                        ; preds = %if.then.i.i.i297
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %18, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %18, align 8, !tbaa !34
   %function.i.i.i.i.i.i298 = getelementptr inbounds i8, ptr %18, i64 176
   %_M_invoker.i.i.i.i.i.i.i299 = getelementptr inbounds i8, ptr %18, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i298, i8 0, i64 24, i1 false)
@@ -11819,7 +11819,7 @@ invoke.cont20.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %23 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   %incdec.ptr.i.i.i309 = getelementptr inbounds i8, ptr %23, i64 264
   store ptr %incdec.ptr.i.i.i309, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp17, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp17, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit321
 
 if.else.i.i.i310:                                 ; preds = %invoke.cont18
@@ -11828,7 +11828,7 @@ if.else.i.i.i310:                                 ; preds = %invoke.cont18
 
 invoke.cont20:                                    ; preds = %if.else.i.i.i310
   %.pre711 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i301, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp17, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp17, align 8, !tbaa !34
   %tobool.not.i.i316 = icmp eq ptr %.pre711, null
   br i1 %tobool.not.i.i316, label %_ZN6duckdb14ScalarFunctionD2Ev.exit321, label %if.then.i.i317
 
@@ -11894,7 +11894,7 @@ if.then.i.i.i325:                                 ; preds = %invoke.cont37
           to label %.noexc340 unwind label %lpad38
 
 .noexc340:                                        ; preds = %if.then.i.i.i325
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %29, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %29, align 8, !tbaa !34
   %function.i.i.i.i.i.i326 = getelementptr inbounds i8, ptr %29, i64 176
   %_M_invoker.i.i.i.i.i.i.i327 = getelementptr inbounds i8, ptr %29, i64 200
   %_M_invoker2.i.i.i.i.i.i.i328 = getelementptr inbounds i8, ptr %agg.tmp29, i64 200
@@ -11922,7 +11922,7 @@ invoke.cont39.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %34 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i337 = getelementptr inbounds i8, ptr %34, i64 264
   store ptr %incdec.ptr.i.i.i337, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp29, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp29, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit349
 
 if.else.i.i.i338:                                 ; preds = %invoke.cont37
@@ -11933,7 +11933,7 @@ if.else.i.i.i338:                                 ; preds = %invoke.cont37
 invoke.cont39:                                    ; preds = %if.else.i.i.i338
   %_M_manager.i.i343.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp29, i64 192
   %.pre714 = load ptr, ptr %_M_manager.i.i343.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp29, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp29, align 8, !tbaa !34
   %tobool.not.i.i344 = icmp eq ptr %.pre714, null
   br i1 %tobool.not.i.i344, label %_ZN6duckdb14ScalarFunctionD2Ev.exit349, label %if.then.i.i345
 
@@ -11979,7 +11979,7 @@ if.then.i.i.i353:                                 ; preds = %invoke.cont53
           to label %.noexc368 unwind label %lpad54
 
 .noexc368:                                        ; preds = %if.then.i.i.i353
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %37, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %37, align 8, !tbaa !34
   %function.i.i.i.i.i.i354 = getelementptr inbounds i8, ptr %37, i64 176
   %_M_invoker.i.i.i.i.i.i.i355 = getelementptr inbounds i8, ptr %37, i64 200
   %_M_invoker2.i.i.i.i.i.i.i356 = getelementptr inbounds i8, ptr %agg.tmp45, i64 200
@@ -12007,7 +12007,7 @@ invoke.cont55.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %42 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i365 = getelementptr inbounds i8, ptr %42, i64 264
   store ptr %incdec.ptr.i.i.i365, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp45, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp45, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit377
 
 if.else.i.i.i366:                                 ; preds = %invoke.cont53
@@ -12018,7 +12018,7 @@ if.else.i.i.i366:                                 ; preds = %invoke.cont53
 invoke.cont55:                                    ; preds = %if.else.i.i.i366
   %_M_manager.i.i371.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp45, i64 192
   %.pre715 = load ptr, ptr %_M_manager.i.i371.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp45, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp45, align 8, !tbaa !34
   %tobool.not.i.i372 = icmp eq ptr %.pre715, null
   br i1 %tobool.not.i.i372, label %_ZN6duckdb14ScalarFunctionD2Ev.exit377, label %if.then.i.i373
 
@@ -12064,7 +12064,7 @@ if.then.i.i.i381:                                 ; preds = %invoke.cont69
           to label %.noexc396 unwind label %lpad70
 
 .noexc396:                                        ; preds = %if.then.i.i.i381
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %45, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %45, align 8, !tbaa !34
   %function.i.i.i.i.i.i382 = getelementptr inbounds i8, ptr %45, i64 176
   %_M_invoker.i.i.i.i.i.i.i383 = getelementptr inbounds i8, ptr %45, i64 200
   %_M_invoker2.i.i.i.i.i.i.i384 = getelementptr inbounds i8, ptr %agg.tmp61, i64 200
@@ -12092,7 +12092,7 @@ invoke.cont71.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %50 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i393 = getelementptr inbounds i8, ptr %50, i64 264
   store ptr %incdec.ptr.i.i.i393, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp61, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp61, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit405
 
 if.else.i.i.i394:                                 ; preds = %invoke.cont69
@@ -12103,7 +12103,7 @@ if.else.i.i.i394:                                 ; preds = %invoke.cont69
 invoke.cont71:                                    ; preds = %if.else.i.i.i394
   %_M_manager.i.i399.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp61, i64 192
   %.pre716 = load ptr, ptr %_M_manager.i.i399.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp61, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp61, align 8, !tbaa !34
   %tobool.not.i.i400 = icmp eq ptr %.pre716, null
   br i1 %tobool.not.i.i400, label %_ZN6duckdb14ScalarFunctionD2Ev.exit405, label %if.then.i.i401
 
@@ -12149,7 +12149,7 @@ if.then.i.i.i409:                                 ; preds = %invoke.cont85
           to label %.noexc424 unwind label %lpad86
 
 .noexc424:                                        ; preds = %if.then.i.i.i409
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %53, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %53, align 8, !tbaa !34
   %function.i.i.i.i.i.i410 = getelementptr inbounds i8, ptr %53, i64 176
   %_M_invoker.i.i.i.i.i.i.i411 = getelementptr inbounds i8, ptr %53, i64 200
   %_M_invoker2.i.i.i.i.i.i.i412 = getelementptr inbounds i8, ptr %agg.tmp77, i64 200
@@ -12177,7 +12177,7 @@ invoke.cont87.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %58 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i421 = getelementptr inbounds i8, ptr %58, i64 264
   store ptr %incdec.ptr.i.i.i421, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp77, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp77, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit433
 
 if.else.i.i.i422:                                 ; preds = %invoke.cont85
@@ -12188,7 +12188,7 @@ if.else.i.i.i422:                                 ; preds = %invoke.cont85
 invoke.cont87:                                    ; preds = %if.else.i.i.i422
   %_M_manager.i.i427.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp77, i64 192
   %.pre717 = load ptr, ptr %_M_manager.i.i427.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp77, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp77, align 8, !tbaa !34
   %tobool.not.i.i428 = icmp eq ptr %.pre717, null
   br i1 %tobool.not.i.i428, label %_ZN6duckdb14ScalarFunctionD2Ev.exit433, label %if.then.i.i429
 
@@ -12234,7 +12234,7 @@ if.then.i.i.i437:                                 ; preds = %invoke.cont101
           to label %.noexc452 unwind label %lpad102
 
 .noexc452:                                        ; preds = %if.then.i.i.i437
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %61, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %61, align 8, !tbaa !34
   %function.i.i.i.i.i.i438 = getelementptr inbounds i8, ptr %61, i64 176
   %_M_invoker.i.i.i.i.i.i.i439 = getelementptr inbounds i8, ptr %61, i64 200
   %_M_invoker2.i.i.i.i.i.i.i440 = getelementptr inbounds i8, ptr %agg.tmp93, i64 200
@@ -12262,7 +12262,7 @@ invoke.cont103.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %66 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i449 = getelementptr inbounds i8, ptr %66, i64 264
   store ptr %incdec.ptr.i.i.i449, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp93, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp93, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit461
 
 if.else.i.i.i450:                                 ; preds = %invoke.cont101
@@ -12273,7 +12273,7 @@ if.else.i.i.i450:                                 ; preds = %invoke.cont101
 invoke.cont103:                                   ; preds = %if.else.i.i.i450
   %_M_manager.i.i455.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp93, i64 192
   %.pre718 = load ptr, ptr %_M_manager.i.i455.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp93, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp93, align 8, !tbaa !34
   %tobool.not.i.i456 = icmp eq ptr %.pre718, null
   br i1 %tobool.not.i.i456, label %_ZN6duckdb14ScalarFunctionD2Ev.exit461, label %if.then.i.i457
 
@@ -12319,7 +12319,7 @@ if.then.i.i.i465:                                 ; preds = %invoke.cont117
           to label %.noexc480 unwind label %lpad118
 
 .noexc480:                                        ; preds = %if.then.i.i.i465
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %69, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %69, align 8, !tbaa !34
   %function.i.i.i.i.i.i466 = getelementptr inbounds i8, ptr %69, i64 176
   %_M_invoker.i.i.i.i.i.i.i467 = getelementptr inbounds i8, ptr %69, i64 200
   %_M_invoker2.i.i.i.i.i.i.i468 = getelementptr inbounds i8, ptr %agg.tmp109, i64 200
@@ -12347,7 +12347,7 @@ invoke.cont119.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %74 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i477 = getelementptr inbounds i8, ptr %74, i64 264
   store ptr %incdec.ptr.i.i.i477, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp109, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp109, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit489
 
 if.else.i.i.i478:                                 ; preds = %invoke.cont117
@@ -12358,7 +12358,7 @@ if.else.i.i.i478:                                 ; preds = %invoke.cont117
 invoke.cont119:                                   ; preds = %if.else.i.i.i478
   %_M_manager.i.i483.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp109, i64 192
   %.pre719 = load ptr, ptr %_M_manager.i.i483.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp109, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp109, align 8, !tbaa !34
   %tobool.not.i.i484 = icmp eq ptr %.pre719, null
   br i1 %tobool.not.i.i484, label %_ZN6duckdb14ScalarFunctionD2Ev.exit489, label %if.then.i.i485
 
@@ -12404,7 +12404,7 @@ if.then.i.i.i493:                                 ; preds = %invoke.cont133
           to label %.noexc508 unwind label %lpad134
 
 .noexc508:                                        ; preds = %if.then.i.i.i493
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %77, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %77, align 8, !tbaa !34
   %function.i.i.i.i.i.i494 = getelementptr inbounds i8, ptr %77, i64 176
   %_M_invoker.i.i.i.i.i.i.i495 = getelementptr inbounds i8, ptr %77, i64 200
   %_M_invoker2.i.i.i.i.i.i.i496 = getelementptr inbounds i8, ptr %agg.tmp125, i64 200
@@ -12432,7 +12432,7 @@ invoke.cont135.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %82 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i505 = getelementptr inbounds i8, ptr %82, i64 264
   store ptr %incdec.ptr.i.i.i505, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp125, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp125, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit517
 
 if.else.i.i.i506:                                 ; preds = %invoke.cont133
@@ -12443,7 +12443,7 @@ if.else.i.i.i506:                                 ; preds = %invoke.cont133
 invoke.cont135:                                   ; preds = %if.else.i.i.i506
   %_M_manager.i.i511.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp125, i64 192
   %.pre720 = load ptr, ptr %_M_manager.i.i511.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp125, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp125, align 8, !tbaa !34
   %tobool.not.i.i512 = icmp eq ptr %.pre720, null
   br i1 %tobool.not.i.i512, label %_ZN6duckdb14ScalarFunctionD2Ev.exit517, label %if.then.i.i513
 
@@ -12489,7 +12489,7 @@ if.then.i.i.i521:                                 ; preds = %invoke.cont149
           to label %.noexc536 unwind label %lpad150
 
 .noexc536:                                        ; preds = %if.then.i.i.i521
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %85, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %85, align 8, !tbaa !34
   %function.i.i.i.i.i.i522 = getelementptr inbounds i8, ptr %85, i64 176
   %_M_invoker.i.i.i.i.i.i.i523 = getelementptr inbounds i8, ptr %85, i64 200
   %_M_invoker2.i.i.i.i.i.i.i524 = getelementptr inbounds i8, ptr %agg.tmp141, i64 200
@@ -12517,7 +12517,7 @@ invoke.cont151.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %90 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i533 = getelementptr inbounds i8, ptr %90, i64 264
   store ptr %incdec.ptr.i.i.i533, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp141, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp141, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit545
 
 if.else.i.i.i534:                                 ; preds = %invoke.cont149
@@ -12528,7 +12528,7 @@ if.else.i.i.i534:                                 ; preds = %invoke.cont149
 invoke.cont151:                                   ; preds = %if.else.i.i.i534
   %_M_manager.i.i539.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp141, i64 192
   %.pre721 = load ptr, ptr %_M_manager.i.i539.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp141, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp141, align 8, !tbaa !34
   %tobool.not.i.i540 = icmp eq ptr %.pre721, null
   br i1 %tobool.not.i.i540, label %_ZN6duckdb14ScalarFunctionD2Ev.exit545, label %if.then.i.i541
 
@@ -12574,7 +12574,7 @@ if.then.i.i.i549:                                 ; preds = %invoke.cont165
           to label %.noexc564 unwind label %lpad166
 
 .noexc564:                                        ; preds = %if.then.i.i.i549
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %93, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %93, align 8, !tbaa !34
   %function.i.i.i.i.i.i550 = getelementptr inbounds i8, ptr %93, i64 176
   %_M_invoker.i.i.i.i.i.i.i551 = getelementptr inbounds i8, ptr %93, i64 200
   %_M_invoker2.i.i.i.i.i.i.i552 = getelementptr inbounds i8, ptr %agg.tmp157, i64 200
@@ -12602,7 +12602,7 @@ invoke.cont167.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %98 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i561 = getelementptr inbounds i8, ptr %98, i64 264
   store ptr %incdec.ptr.i.i.i561, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp157, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp157, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit573
 
 if.else.i.i.i562:                                 ; preds = %invoke.cont165
@@ -12613,7 +12613,7 @@ if.else.i.i.i562:                                 ; preds = %invoke.cont165
 invoke.cont167:                                   ; preds = %if.else.i.i.i562
   %_M_manager.i.i567.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp157, i64 192
   %.pre722 = load ptr, ptr %_M_manager.i.i567.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp157, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp157, align 8, !tbaa !34
   %tobool.not.i.i568 = icmp eq ptr %.pre722, null
   br i1 %tobool.not.i.i568, label %_ZN6duckdb14ScalarFunctionD2Ev.exit573, label %if.then.i.i569
 
@@ -12659,7 +12659,7 @@ if.then.i.i.i577:                                 ; preds = %invoke.cont181
           to label %.noexc592 unwind label %lpad182
 
 .noexc592:                                        ; preds = %if.then.i.i.i577
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %101, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %101, align 8, !tbaa !34
   %function.i.i.i.i.i.i578 = getelementptr inbounds i8, ptr %101, i64 176
   %_M_invoker.i.i.i.i.i.i.i579 = getelementptr inbounds i8, ptr %101, i64 200
   %_M_invoker2.i.i.i.i.i.i.i580 = getelementptr inbounds i8, ptr %agg.tmp173, i64 200
@@ -12687,7 +12687,7 @@ invoke.cont183.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %106 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i589 = getelementptr inbounds i8, ptr %106, i64 264
   store ptr %incdec.ptr.i.i.i589, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp173, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp173, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit601
 
 if.else.i.i.i590:                                 ; preds = %invoke.cont181
@@ -12698,7 +12698,7 @@ if.else.i.i.i590:                                 ; preds = %invoke.cont181
 invoke.cont183:                                   ; preds = %if.else.i.i.i590
   %_M_manager.i.i595.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp173, i64 192
   %.pre723 = load ptr, ptr %_M_manager.i.i595.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp173, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp173, align 8, !tbaa !34
   %tobool.not.i.i596 = icmp eq ptr %.pre723, null
   br i1 %tobool.not.i.i596, label %_ZN6duckdb14ScalarFunctionD2Ev.exit601, label %if.then.i.i597
 
@@ -12744,7 +12744,7 @@ if.then.i.i.i605:                                 ; preds = %invoke.cont197
           to label %.noexc620 unwind label %lpad198
 
 .noexc620:                                        ; preds = %if.then.i.i.i605
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %109, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %109, align 8, !tbaa !34
   %function.i.i.i.i.i.i606 = getelementptr inbounds i8, ptr %109, i64 176
   %_M_invoker.i.i.i.i.i.i.i607 = getelementptr inbounds i8, ptr %109, i64 200
   %_M_invoker2.i.i.i.i.i.i.i608 = getelementptr inbounds i8, ptr %agg.tmp189, i64 200
@@ -12772,7 +12772,7 @@ invoke.cont199.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %114 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i617 = getelementptr inbounds i8, ptr %114, i64 264
   store ptr %incdec.ptr.i.i.i617, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp189, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp189, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit629
 
 if.else.i.i.i618:                                 ; preds = %invoke.cont197
@@ -12783,7 +12783,7 @@ if.else.i.i.i618:                                 ; preds = %invoke.cont197
 invoke.cont199:                                   ; preds = %if.else.i.i.i618
   %_M_manager.i.i623.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp189, i64 192
   %.pre724 = load ptr, ptr %_M_manager.i.i623.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp189, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp189, align 8, !tbaa !34
   %tobool.not.i.i624 = icmp eq ptr %.pre724, null
   br i1 %tobool.not.i.i624, label %_ZN6duckdb14ScalarFunctionD2Ev.exit629, label %if.then.i.i625
 
@@ -12819,7 +12819,7 @@ if.then.i.i.i633:                                 ; preds = %invoke.cont207
           to label %.noexc648 unwind label %lpad208
 
 .noexc648:                                        ; preds = %if.then.i.i.i633
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %117, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %117, align 8, !tbaa !34
   %function.i.i.i.i.i.i634 = getelementptr inbounds i8, ptr %117, i64 176
   %_M_invoker.i.i.i.i.i.i.i635 = getelementptr inbounds i8, ptr %117, i64 200
   %_M_invoker2.i.i.i.i.i.i.i636 = getelementptr inbounds i8, ptr %agg.tmp205, i64 200
@@ -12847,7 +12847,7 @@ invoke.cont209.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %122 = load ptr, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
   %incdec.ptr.i.i.i645 = getelementptr inbounds i8, ptr %122, i64 264
   store ptr %incdec.ptr.i.i.i645, ptr %_M_finish.i.i.i322, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp205, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp205, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit657
 
 if.else.i.i.i646:                                 ; preds = %invoke.cont207
@@ -12858,7 +12858,7 @@ if.else.i.i.i646:                                 ; preds = %invoke.cont207
 invoke.cont209:                                   ; preds = %if.else.i.i.i646
   %_M_manager.i.i651.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp205, i64 192
   %.pre725 = load ptr, ptr %_M_manager.i.i651.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp205, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp205, align 8, !tbaa !34
   %tobool.not.i.i652 = icmp eq ptr %.pre725, null
   br i1 %tobool.not.i.i652, label %_ZN6duckdb14ScalarFunctionD2Ev.exit657, label %if.then.i.i653
 
@@ -13763,7 +13763,7 @@ entry:
   %ref.tmp39 = alloca %"class.std::function", align 8
   %agg.tmp40 = alloca %"struct.duckdb::LogicalType", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !129
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb21DecimalNegateBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !34, !noalias !129
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb21DecimalNegateBindDataE, i64 16), ptr %call.i, align 8, !tbaa !34, !noalias !129
   %bound_type.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 0, ptr %bound_type.i.i, align 8, !tbaa !132, !noalias !129
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %arguments, i64 noundef 0)
@@ -18381,7 +18381,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bind_data) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !140
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !34, !noalias !140
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 16), ptr %call.i, align 8, !tbaa !34, !noalias !140
   %check_overflow.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %check_overflow.i.i, align 8, !tbaa !77, !noalias !140
   store ptr %call.i, ptr %bind_data, align 8, !tbaa !43, !alias.scope !140
@@ -19643,7 +19643,7 @@ invoke.cont15:                                    ; preds = %_ZN6duckdb11Logical
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 0, i32 0, i64 2), ptr %call.i8283, align 8, !tbaa !34, !noalias !160
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 16), ptr %call.i8283, align 8, !tbaa !34, !noalias !160
   %check_overflow.i.i = getelementptr inbounds i8, ptr %call.i8283, i64 8
   store i8 1, ptr %check_overflow.i.i, align 8, !tbaa !77, !noalias !160
   store ptr %call.i8283, ptr %bind_data, align 8, !tbaa !43, !alias.scope !160
@@ -20351,7 +20351,7 @@ if.then.i.i.i219:                                 ; preds = %invoke.cont13
           to label %.noexc unwind label %lpad14
 
 .noexc:                                           ; preds = %if.then.i.i.i219
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %10, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %10, align 8, !tbaa !34
   %function.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 176
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i, i8 0, i64 24, i1 false)
@@ -20375,7 +20375,7 @@ invoke.cont15.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 264
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp11, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp11, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %invoke.cont13
@@ -20384,7 +20384,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont13
 
 invoke.cont15:                                    ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp11, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp11, align 8, !tbaa !34
   %tobool.not.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i, label %_ZN6duckdb14ScalarFunctionD2Ev.exit, label %if.then.i.i221
 
@@ -20415,7 +20415,7 @@ if.then.i.i.i226:                                 ; preds = %invoke.cont18
           to label %.noexc241 unwind label %lpad19
 
 .noexc241:                                        ; preds = %if.then.i.i.i226
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %18, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %18, align 8, !tbaa !34
   %function.i.i.i.i.i.i227 = getelementptr inbounds i8, ptr %18, i64 176
   %_M_invoker.i.i.i.i.i.i.i228 = getelementptr inbounds i8, ptr %18, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i227, i8 0, i64 24, i1 false)
@@ -20439,7 +20439,7 @@ invoke.cont20.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %23 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   %incdec.ptr.i.i.i238 = getelementptr inbounds i8, ptr %23, i64 264
   store ptr %incdec.ptr.i.i.i238, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp17, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp17, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit250
 
 if.else.i.i.i239:                                 ; preds = %invoke.cont18
@@ -20448,7 +20448,7 @@ if.else.i.i.i239:                                 ; preds = %invoke.cont18
 
 invoke.cont20:                                    ; preds = %if.else.i.i.i239
   %.pre528 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i230, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp17, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp17, align 8, !tbaa !34
   %tobool.not.i.i245 = icmp eq ptr %.pre528, null
   br i1 %tobool.not.i.i245, label %_ZN6duckdb14ScalarFunctionD2Ev.exit250, label %if.then.i.i246
 
@@ -20514,7 +20514,7 @@ if.then.i.i.i254:                                 ; preds = %invoke.cont37
           to label %.noexc269 unwind label %lpad38
 
 .noexc269:                                        ; preds = %if.then.i.i.i254
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %29, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %29, align 8, !tbaa !34
   %function.i.i.i.i.i.i255 = getelementptr inbounds i8, ptr %29, i64 176
   %_M_invoker.i.i.i.i.i.i.i256 = getelementptr inbounds i8, ptr %29, i64 200
   %_M_invoker2.i.i.i.i.i.i.i257 = getelementptr inbounds i8, ptr %agg.tmp29, i64 200
@@ -20542,7 +20542,7 @@ invoke.cont39.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %34 = load ptr, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
   %incdec.ptr.i.i.i266 = getelementptr inbounds i8, ptr %34, i64 264
   store ptr %incdec.ptr.i.i.i266, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp29, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp29, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit278
 
 if.else.i.i.i267:                                 ; preds = %invoke.cont37
@@ -20553,7 +20553,7 @@ if.else.i.i.i267:                                 ; preds = %invoke.cont37
 invoke.cont39:                                    ; preds = %if.else.i.i.i267
   %_M_manager.i.i272.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp29, i64 192
   %.pre531 = load ptr, ptr %_M_manager.i.i272.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp29, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp29, align 8, !tbaa !34
   %tobool.not.i.i273 = icmp eq ptr %.pre531, null
   br i1 %tobool.not.i.i273, label %_ZN6duckdb14ScalarFunctionD2Ev.exit278, label %if.then.i.i274
 
@@ -20599,7 +20599,7 @@ if.then.i.i.i282:                                 ; preds = %invoke.cont53
           to label %.noexc297 unwind label %lpad54
 
 .noexc297:                                        ; preds = %if.then.i.i.i282
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %37, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %37, align 8, !tbaa !34
   %function.i.i.i.i.i.i283 = getelementptr inbounds i8, ptr %37, i64 176
   %_M_invoker.i.i.i.i.i.i.i284 = getelementptr inbounds i8, ptr %37, i64 200
   %_M_invoker2.i.i.i.i.i.i.i285 = getelementptr inbounds i8, ptr %agg.tmp45, i64 200
@@ -20627,7 +20627,7 @@ invoke.cont55.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %42 = load ptr, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
   %incdec.ptr.i.i.i294 = getelementptr inbounds i8, ptr %42, i64 264
   store ptr %incdec.ptr.i.i.i294, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp45, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp45, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit306
 
 if.else.i.i.i295:                                 ; preds = %invoke.cont53
@@ -20638,7 +20638,7 @@ if.else.i.i.i295:                                 ; preds = %invoke.cont53
 invoke.cont55:                                    ; preds = %if.else.i.i.i295
   %_M_manager.i.i300.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp45, i64 192
   %.pre532 = load ptr, ptr %_M_manager.i.i300.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp45, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp45, align 8, !tbaa !34
   %tobool.not.i.i301 = icmp eq ptr %.pre532, null
   br i1 %tobool.not.i.i301, label %_ZN6duckdb14ScalarFunctionD2Ev.exit306, label %if.then.i.i302
 
@@ -20684,7 +20684,7 @@ if.then.i.i.i310:                                 ; preds = %invoke.cont69
           to label %.noexc325 unwind label %lpad70
 
 .noexc325:                                        ; preds = %if.then.i.i.i310
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %45, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %45, align 8, !tbaa !34
   %function.i.i.i.i.i.i311 = getelementptr inbounds i8, ptr %45, i64 176
   %_M_invoker.i.i.i.i.i.i.i312 = getelementptr inbounds i8, ptr %45, i64 200
   %_M_invoker2.i.i.i.i.i.i.i313 = getelementptr inbounds i8, ptr %agg.tmp61, i64 200
@@ -20712,7 +20712,7 @@ invoke.cont71.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %50 = load ptr, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
   %incdec.ptr.i.i.i322 = getelementptr inbounds i8, ptr %50, i64 264
   store ptr %incdec.ptr.i.i.i322, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp61, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp61, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit334
 
 if.else.i.i.i323:                                 ; preds = %invoke.cont69
@@ -20723,7 +20723,7 @@ if.else.i.i.i323:                                 ; preds = %invoke.cont69
 invoke.cont71:                                    ; preds = %if.else.i.i.i323
   %_M_manager.i.i328.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp61, i64 192
   %.pre533 = load ptr, ptr %_M_manager.i.i328.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp61, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp61, align 8, !tbaa !34
   %tobool.not.i.i329 = icmp eq ptr %.pre533, null
   br i1 %tobool.not.i.i329, label %_ZN6duckdb14ScalarFunctionD2Ev.exit334, label %if.then.i.i330
 
@@ -20769,7 +20769,7 @@ if.then.i.i.i338:                                 ; preds = %invoke.cont85
           to label %.noexc353 unwind label %lpad86
 
 .noexc353:                                        ; preds = %if.then.i.i.i338
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %53, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %53, align 8, !tbaa !34
   %function.i.i.i.i.i.i339 = getelementptr inbounds i8, ptr %53, i64 176
   %_M_invoker.i.i.i.i.i.i.i340 = getelementptr inbounds i8, ptr %53, i64 200
   %_M_invoker2.i.i.i.i.i.i.i341 = getelementptr inbounds i8, ptr %agg.tmp77, i64 200
@@ -20797,7 +20797,7 @@ invoke.cont87.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %58 = load ptr, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
   %incdec.ptr.i.i.i350 = getelementptr inbounds i8, ptr %58, i64 264
   store ptr %incdec.ptr.i.i.i350, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp77, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp77, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit362
 
 if.else.i.i.i351:                                 ; preds = %invoke.cont85
@@ -20808,7 +20808,7 @@ if.else.i.i.i351:                                 ; preds = %invoke.cont85
 invoke.cont87:                                    ; preds = %if.else.i.i.i351
   %_M_manager.i.i356.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp77, i64 192
   %.pre534 = load ptr, ptr %_M_manager.i.i356.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp77, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp77, align 8, !tbaa !34
   %tobool.not.i.i357 = icmp eq ptr %.pre534, null
   br i1 %tobool.not.i.i357, label %_ZN6duckdb14ScalarFunctionD2Ev.exit362, label %if.then.i.i358
 
@@ -20854,7 +20854,7 @@ if.then.i.i.i366:                                 ; preds = %invoke.cont101
           to label %.noexc381 unwind label %lpad102
 
 .noexc381:                                        ; preds = %if.then.i.i.i366
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %61, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %61, align 8, !tbaa !34
   %function.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %61, i64 176
   %_M_invoker.i.i.i.i.i.i.i368 = getelementptr inbounds i8, ptr %61, i64 200
   %_M_invoker2.i.i.i.i.i.i.i369 = getelementptr inbounds i8, ptr %agg.tmp93, i64 200
@@ -20882,7 +20882,7 @@ invoke.cont103.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %66 = load ptr, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
   %incdec.ptr.i.i.i378 = getelementptr inbounds i8, ptr %66, i64 264
   store ptr %incdec.ptr.i.i.i378, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp93, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp93, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit390
 
 if.else.i.i.i379:                                 ; preds = %invoke.cont101
@@ -20893,7 +20893,7 @@ if.else.i.i.i379:                                 ; preds = %invoke.cont101
 invoke.cont103:                                   ; preds = %if.else.i.i.i379
   %_M_manager.i.i384.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp93, i64 192
   %.pre535 = load ptr, ptr %_M_manager.i.i384.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp93, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp93, align 8, !tbaa !34
   %tobool.not.i.i385 = icmp eq ptr %.pre535, null
   br i1 %tobool.not.i.i385, label %_ZN6duckdb14ScalarFunctionD2Ev.exit390, label %if.then.i.i386
 
@@ -20939,7 +20939,7 @@ if.then.i.i.i394:                                 ; preds = %invoke.cont117
           to label %.noexc409 unwind label %lpad118
 
 .noexc409:                                        ; preds = %if.then.i.i.i394
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %69, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %69, align 8, !tbaa !34
   %function.i.i.i.i.i.i395 = getelementptr inbounds i8, ptr %69, i64 176
   %_M_invoker.i.i.i.i.i.i.i396 = getelementptr inbounds i8, ptr %69, i64 200
   %_M_invoker2.i.i.i.i.i.i.i397 = getelementptr inbounds i8, ptr %agg.tmp109, i64 200
@@ -20967,7 +20967,7 @@ invoke.cont119.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %74 = load ptr, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
   %incdec.ptr.i.i.i406 = getelementptr inbounds i8, ptr %74, i64 264
   store ptr %incdec.ptr.i.i.i406, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp109, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp109, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit418
 
 if.else.i.i.i407:                                 ; preds = %invoke.cont117
@@ -20978,7 +20978,7 @@ if.else.i.i.i407:                                 ; preds = %invoke.cont117
 invoke.cont119:                                   ; preds = %if.else.i.i.i407
   %_M_manager.i.i412.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp109, i64 192
   %.pre536 = load ptr, ptr %_M_manager.i.i412.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp109, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp109, align 8, !tbaa !34
   %tobool.not.i.i413 = icmp eq ptr %.pre536, null
   br i1 %tobool.not.i.i413, label %_ZN6duckdb14ScalarFunctionD2Ev.exit418, label %if.then.i.i414
 
@@ -21024,7 +21024,7 @@ if.then.i.i.i422:                                 ; preds = %invoke.cont133
           to label %.noexc437 unwind label %lpad134
 
 .noexc437:                                        ; preds = %if.then.i.i.i422
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %77, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %77, align 8, !tbaa !34
   %function.i.i.i.i.i.i423 = getelementptr inbounds i8, ptr %77, i64 176
   %_M_invoker.i.i.i.i.i.i.i424 = getelementptr inbounds i8, ptr %77, i64 200
   %_M_invoker2.i.i.i.i.i.i.i425 = getelementptr inbounds i8, ptr %agg.tmp125, i64 200
@@ -21052,7 +21052,7 @@ invoke.cont135.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %82 = load ptr, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
   %incdec.ptr.i.i.i434 = getelementptr inbounds i8, ptr %82, i64 264
   store ptr %incdec.ptr.i.i.i434, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp125, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp125, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit446
 
 if.else.i.i.i435:                                 ; preds = %invoke.cont133
@@ -21063,7 +21063,7 @@ if.else.i.i.i435:                                 ; preds = %invoke.cont133
 invoke.cont135:                                   ; preds = %if.else.i.i.i435
   %_M_manager.i.i440.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp125, i64 192
   %.pre537 = load ptr, ptr %_M_manager.i.i440.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp125, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp125, align 8, !tbaa !34
   %tobool.not.i.i441 = icmp eq ptr %.pre537, null
   br i1 %tobool.not.i.i441, label %_ZN6duckdb14ScalarFunctionD2Ev.exit446, label %if.then.i.i442
 
@@ -21104,7 +21104,7 @@ if.then.i.i.i450:                                 ; preds = %invoke.cont146
           to label %.noexc465 unwind label %lpad147
 
 .noexc465:                                        ; preds = %if.then.i.i.i450
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %85, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %85, align 8, !tbaa !34
   %function.i.i.i.i.i.i451 = getelementptr inbounds i8, ptr %85, i64 176
   %_M_invoker.i.i.i.i.i.i.i452 = getelementptr inbounds i8, ptr %85, i64 200
   %_M_invoker2.i.i.i.i.i.i.i453 = getelementptr inbounds i8, ptr %agg.tmp141, i64 200
@@ -21132,7 +21132,7 @@ invoke.cont148.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %90 = load ptr, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
   %incdec.ptr.i.i.i462 = getelementptr inbounds i8, ptr %90, i64 264
   store ptr %incdec.ptr.i.i.i462, ptr %_M_finish.i.i.i251, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp141, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp141, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit474
 
 if.else.i.i.i463:                                 ; preds = %invoke.cont146
@@ -21143,7 +21143,7 @@ if.else.i.i.i463:                                 ; preds = %invoke.cont146
 invoke.cont148:                                   ; preds = %if.else.i.i.i463
   %_M_manager.i.i468.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp141, i64 192
   %.pre538 = load ptr, ptr %_M_manager.i.i468.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp141, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp141, align 8, !tbaa !34
   %tobool.not.i.i469 = icmp eq ptr %.pre538, null
   br i1 %tobool.not.i.i469, label %_ZN6duckdb14ScalarFunctionD2Ev.exit474, label %if.then.i.i470
 
@@ -21664,7 +21664,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bind_data) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !163
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !34, !noalias !163
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 16), ptr %call.i, align 8, !tbaa !34, !noalias !163
   %check_overflow.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %check_overflow.i.i, align 8, !tbaa !77, !noalias !163
   store ptr %call.i, ptr %bind_data, align 8, !tbaa !43, !alias.scope !163
@@ -22650,7 +22650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !34
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !3
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -23721,7 +23721,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit394: ; preds = %if.then.i.i.
           to label %.noexc unwind label %lpad54
 
 .noexc:                                           ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit394
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp53, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp53, align 8, !tbaa !34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %function.i, i8 0, i64 32, i1 false)
   %29 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %29, null
@@ -23770,7 +23770,7 @@ if.then.i.i.i401:                                 ; preds = %invoke.cont55
           to label %.noexc402 unwind label %lpad56
 
 .noexc402:                                        ; preds = %if.then.i.i.i401
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %35, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %35, align 8, !tbaa !34
   %function.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 176
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i, i8 0, i64 24, i1 false)
@@ -23794,7 +23794,7 @@ invoke.cont57.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %40 = load ptr, ptr %_M_finish.i.i.i500, align 8, !tbaa !126
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %40, i64 264
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i500, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp53, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp53, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %invoke.cont55
@@ -23803,7 +23803,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont55
 
 invoke.cont57:                                    ; preds = %if.else.i.i.i
   %.pre1008 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp53, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp53, align 8, !tbaa !34
   %tobool.not.i.i = icmp eq ptr %.pre1008, null
   br i1 %tobool.not.i.i, label %_ZN6duckdb14ScalarFunctionD2Ev.exit, label %if.then.i.i404
 
@@ -23820,7 +23820,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i404
 
 _ZN6duckdb14ScalarFunctionD2Ev.exit:              ; preds = %if.then.i.i404, %invoke.cont57, %invoke.cont57.thread
   call void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(170) %agg.tmp53) #23
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %function, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %function, align 8, !tbaa !34
   %43 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i408 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i408, label %_ZN6duckdb14ScalarFunctionD2Ev.exit413, label %if.then.i.i409
@@ -24148,7 +24148,7 @@ if.then.i.i.i434:                                 ; preds = %invoke.cont101
           to label %.noexc449 unwind label %lpad102
 
 .noexc449:                                        ; preds = %if.then.i.i.i434
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %74, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %74, align 8, !tbaa !34
   %function.i.i.i.i.i.i435 = getelementptr inbounds i8, ptr %74, i64 176
   %_M_invoker.i.i.i.i.i.i.i436 = getelementptr inbounds i8, ptr %74, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i435, i8 0, i64 24, i1 false)
@@ -24172,7 +24172,7 @@ invoke.cont103.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %79 = load ptr, ptr %_M_finish.i.i.i500, align 8, !tbaa !126
   %incdec.ptr.i.i.i446 = getelementptr inbounds i8, ptr %79, i64 264
   store ptr %incdec.ptr.i.i.i446, ptr %_M_finish.i.i.i500, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp66, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp66, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit459
 
 if.else.i.i.i447:                                 ; preds = %invoke.cont101
@@ -24181,7 +24181,7 @@ if.else.i.i.i447:                                 ; preds = %invoke.cont101
 
 invoke.cont103:                                   ; preds = %if.else.i.i.i447
   %.pre1007 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i438, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp66, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp66, align 8, !tbaa !34
   %tobool.not.i.i453 = icmp eq ptr %.pre1007, null
   br i1 %tobool.not.i.i453, label %_ZN6duckdb14ScalarFunctionD2Ev.exit459, label %if.then.i.i454
 
@@ -24474,7 +24474,7 @@ if.then.i.i.i503:                                 ; preds = %invoke.cont161
           to label %.noexc518 unwind label %lpad162
 
 .noexc518:                                        ; preds = %if.then.i.i.i503
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %110, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %110, align 8, !tbaa !34
   %function.i.i.i.i.i.i504 = getelementptr inbounds i8, ptr %110, i64 176
   %_M_invoker.i.i.i.i.i.i.i505 = getelementptr inbounds i8, ptr %110, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i504, i8 0, i64 24, i1 false)
@@ -24498,7 +24498,7 @@ invoke.cont163.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %115 = load ptr, ptr %_M_finish.i.i.i500, align 8, !tbaa !126
   %incdec.ptr.i.i.i515 = getelementptr inbounds i8, ptr %115, i64 264
   store ptr %incdec.ptr.i.i.i515, ptr %_M_finish.i.i.i500, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp126, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp126, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit528
 
 if.else.i.i.i516:                                 ; preds = %invoke.cont161
@@ -24507,7 +24507,7 @@ if.else.i.i.i516:                                 ; preds = %invoke.cont161
 
 invoke.cont163:                                   ; preds = %if.else.i.i.i516
   %.pre = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i507, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp126, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp126, align 8, !tbaa !34
   %tobool.not.i.i522 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i522, label %_ZN6duckdb14ScalarFunctionD2Ev.exit528, label %if.then.i.i523
 
@@ -24765,7 +24765,7 @@ if.then.i.i.i564:                                 ; preds = %invoke.cont224
           to label %.noexc579 unwind label %lpad225
 
 .noexc579:                                        ; preds = %if.then.i.i.i564
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %144, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %144, align 8, !tbaa !34
   %function.i.i.i.i.i.i565 = getelementptr inbounds i8, ptr %144, i64 176
   %_M_invoker.i.i.i.i.i.i.i566 = getelementptr inbounds i8, ptr %144, i64 200
   %_M_invoker2.i.i.i.i.i.i.i567 = getelementptr inbounds i8, ptr %agg.tmp193, i64 200
@@ -24793,7 +24793,7 @@ invoke.cont226.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %149 = load ptr, ptr %_M_finish.i.i.i561, align 8, !tbaa !126
   %incdec.ptr.i.i.i576 = getelementptr inbounds i8, ptr %149, i64 264
   store ptr %incdec.ptr.i.i.i576, ptr %_M_finish.i.i.i561, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp193, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp193, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit589
 
 if.else.i.i.i577:                                 ; preds = %invoke.cont224
@@ -24804,7 +24804,7 @@ if.else.i.i.i577:                                 ; preds = %invoke.cont224
 invoke.cont226:                                   ; preds = %if.else.i.i.i577
   %_M_manager.i.i582.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp193, i64 192
   %.pre1011 = load ptr, ptr %_M_manager.i.i582.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp193, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp193, align 8, !tbaa !34
   %tobool.not.i.i583 = icmp eq ptr %.pre1011, null
   br i1 %tobool.not.i.i583, label %_ZN6duckdb14ScalarFunctionD2Ev.exit589, label %if.then.i.i584
 
@@ -24982,7 +24982,7 @@ if.then.i.i.i620:                                 ; preds = %invoke.cont279
           to label %.noexc635 unwind label %lpad280
 
 .noexc635:                                        ; preds = %if.then.i.i.i620
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %170, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %170, align 8, !tbaa !34
   %function.i.i.i.i.i.i621 = getelementptr inbounds i8, ptr %170, i64 176
   %_M_invoker.i.i.i.i.i.i.i622 = getelementptr inbounds i8, ptr %170, i64 200
   %_M_invoker2.i.i.i.i.i.i.i623 = getelementptr inbounds i8, ptr %agg.tmp248, i64 200
@@ -25010,7 +25010,7 @@ invoke.cont281.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %175 = load ptr, ptr %_M_finish.i.i.i561, align 8, !tbaa !126
   %incdec.ptr.i.i.i632 = getelementptr inbounds i8, ptr %175, i64 264
   store ptr %incdec.ptr.i.i.i632, ptr %_M_finish.i.i.i561, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp248, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp248, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit645
 
 if.else.i.i.i633:                                 ; preds = %invoke.cont279
@@ -25021,7 +25021,7 @@ if.else.i.i.i633:                                 ; preds = %invoke.cont279
 invoke.cont281:                                   ; preds = %if.else.i.i.i633
   %_M_manager.i.i638.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp248, i64 192
   %.pre1012 = load ptr, ptr %_M_manager.i.i638.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp248, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp248, align 8, !tbaa !34
   %tobool.not.i.i639 = icmp eq ptr %.pre1012, null
   br i1 %tobool.not.i.i639, label %_ZN6duckdb14ScalarFunctionD2Ev.exit645, label %if.then.i.i640
 
@@ -25851,7 +25851,7 @@ invoke.cont15:                                    ; preds = %_ZN6duckdb11Logical
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 0, i32 0, i64 2), ptr %call.i8283, align 8, !tbaa !34, !noalias !199
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 16), ptr %call.i8283, align 8, !tbaa !34, !noalias !199
   %check_overflow.i.i = getelementptr inbounds i8, ptr %call.i8283, i64 8
   store i8 1, ptr %check_overflow.i.i, align 8, !tbaa !77, !noalias !199
   store ptr %call.i8283, ptr %bind_data, align 8, !tbaa !43, !alias.scope !199
@@ -26649,7 +26649,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont29
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %if.then.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %14, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %14, align 8, !tbaa !34
   %function.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 176
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 200
   %_M_invoker2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 200
@@ -26677,7 +26677,7 @@ invoke.cont31.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %19 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 264
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp4, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp4, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %invoke.cont29
@@ -26688,7 +26688,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont29
 invoke.cont31:                                    ; preds = %if.else.i.i.i
   %_M_manager.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp4, i64 192
   %.pre = load ptr, ptr %_M_manager.i.i.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp4, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp4, align 8, !tbaa !34
   %tobool.not.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i, label %_ZN6duckdb14ScalarFunctionD2Ev.exit, label %if.then.i.i331
 
@@ -26872,7 +26872,7 @@ if.then.i.i.i344:                                 ; preds = %invoke.cont90
           to label %.noexc359 unwind label %lpad91
 
 .noexc359:                                        ; preds = %if.then.i.i.i344
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %39, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %39, align 8, !tbaa !34
   %function.i.i.i.i.i.i345 = getelementptr inbounds i8, ptr %39, i64 176
   %_M_invoker.i.i.i.i.i.i.i346 = getelementptr inbounds i8, ptr %39, i64 200
   %_M_invoker2.i.i.i.i.i.i.i347 = getelementptr inbounds i8, ptr %agg.tmp54, i64 200
@@ -26900,7 +26900,7 @@ invoke.cont92.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %44 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   %incdec.ptr.i.i.i356 = getelementptr inbounds i8, ptr %44, i64 264
   store ptr %incdec.ptr.i.i.i356, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp54, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp54, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit368
 
 if.else.i.i.i357:                                 ; preds = %invoke.cont90
@@ -26911,7 +26911,7 @@ if.else.i.i.i357:                                 ; preds = %invoke.cont90
 invoke.cont92:                                    ; preds = %if.else.i.i.i357
   %_M_manager.i.i362.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp54, i64 192
   %.pre811 = load ptr, ptr %_M_manager.i.i362.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp54, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp54, align 8, !tbaa !34
   %tobool.not.i.i363 = icmp eq ptr %.pre811, null
   br i1 %tobool.not.i.i363, label %_ZN6duckdb14ScalarFunctionD2Ev.exit368, label %if.then.i.i364
 
@@ -27092,7 +27092,7 @@ if.then.i.i.i398:                                 ; preds = %invoke.cont147
           to label %.noexc413 unwind label %lpad148
 
 .noexc413:                                        ; preds = %if.then.i.i.i398
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %65, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %65, align 8, !tbaa !34
   %function.i.i.i.i.i.i399 = getelementptr inbounds i8, ptr %65, i64 176
   %_M_invoker.i.i.i.i.i.i.i400 = getelementptr inbounds i8, ptr %65, i64 200
   %_M_invoker2.i.i.i.i.i.i.i401 = getelementptr inbounds i8, ptr %agg.tmp116, i64 200
@@ -27120,7 +27120,7 @@ invoke.cont149.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %70 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   %incdec.ptr.i.i.i410 = getelementptr inbounds i8, ptr %70, i64 264
   store ptr %incdec.ptr.i.i.i410, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp116, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp116, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit422
 
 if.else.i.i.i411:                                 ; preds = %invoke.cont147
@@ -27131,7 +27131,7 @@ if.else.i.i.i411:                                 ; preds = %invoke.cont147
 invoke.cont149:                                   ; preds = %if.else.i.i.i411
   %_M_manager.i.i416.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp116, i64 192
   %.pre812 = load ptr, ptr %_M_manager.i.i416.phi.trans.insert, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp116, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp116, align 8, !tbaa !34
   %tobool.not.i.i417 = icmp eq ptr %.pre812, null
   br i1 %tobool.not.i.i417, label %_ZN6duckdb14ScalarFunctionD2Ev.exit422, label %if.then.i.i418
 
@@ -27742,7 +27742,7 @@ if.then.i.i.i523:                                 ; preds = %invoke.cont229
           to label %.noexc538 unwind label %lpad230
 
 .noexc538:                                        ; preds = %if.then.i.i.i523
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %141, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %141, align 8, !tbaa !34
   %function.i.i.i.i.i.i524 = getelementptr inbounds i8, ptr %141, i64 176
   %_M_invoker.i.i.i.i.i.i.i525 = getelementptr inbounds i8, ptr %141, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i524, i8 0, i64 24, i1 false)
@@ -27766,7 +27766,7 @@ invoke.cont231.thread:                            ; preds = %if.then.i.i.i.i.i.i
   %146 = load ptr, ptr %_M_finish.i.i.i520, align 8, !tbaa !126
   %incdec.ptr.i.i.i535 = getelementptr inbounds i8, ptr %146, i64 264
   store ptr %incdec.ptr.i.i.i535, ptr %_M_finish.i.i.i520, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp196, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp196, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit547
 
 if.else.i.i.i536:                                 ; preds = %invoke.cont229
@@ -27775,7 +27775,7 @@ if.else.i.i.i536:                                 ; preds = %invoke.cont229
 
 invoke.cont231:                                   ; preds = %if.else.i.i.i536
   %.pre813 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i527, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp196, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp196, align 8, !tbaa !34
   %tobool.not.i.i542 = icmp eq ptr %.pre813, null
   br i1 %tobool.not.i.i542, label %_ZN6duckdb14ScalarFunctionD2Ev.exit547, label %if.then.i.i543
 
@@ -28739,7 +28739,7 @@ if.then.i.i.i118:                                 ; preds = %invoke.cont36
           to label %.noexc unwind label %lpad37
 
 .noexc:                                           ; preds = %if.then.i.i.i118
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %28, align 8, !tbaa !34
   %function.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 176
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %function.i.i.i.i.i.i, i8 0, i64 24, i1 false)
@@ -28763,7 +28763,7 @@ invoke.cont38.thread:                             ; preds = %if.then.i.i.i.i.i.i
   %33 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %33, i64 264
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp14, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp14, align 8, !tbaa !34
   br label %_ZN6duckdb14ScalarFunctionD2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %invoke.cont36
@@ -28772,7 +28772,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont36
 
 invoke.cont38:                                    ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp14, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %agg.tmp14, align 8, !tbaa !34
   %tobool.not.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i, label %_ZN6duckdb14ScalarFunctionD2Ev.exit, label %if.then.i.i120
 
@@ -29730,7 +29730,7 @@ entry:
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %3, ptr %ref.tmp.sroa.4.0..sroa_idx, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1) #23
-  %call2 = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call2 = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   %4 = extractvalue { i64, i64 } %call2, 0
   store i64 %4, ptr %ref.tmp1, align 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
@@ -29740,7 +29740,7 @@ entry:
   br i1 %call3, label %if.then.critedge, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %call4 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call4 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1) #23
   %not.call4 = xor i1 %call4, true
   br label %return
@@ -29790,7 +29790,7 @@ entry:
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %retval, i64 8
   store i64 %5, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1.i) #23
-  %call2.i = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call2.i = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   %6 = extractvalue { i64, i64 } %call2.i, 0
   store i64 %6, ptr %ref.tmp1.i, align 8
   %7 = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
@@ -29806,7 +29806,7 @@ _ZN6duckdb18TryDecimalMultiply9OperationINS_9hugeint_tES2_S2_EEbT_T0_RT1_.exit.t
   br label %if.then
 
 _ZN6duckdb18TryDecimalMultiply9OperationINS_9hugeint_tES2_S2_EEbT_T0_RT1_.exit: ; preds = %entry
-  %call4.i = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call4.i = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %left.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %right.i)
@@ -30422,7 +30422,7 @@ entry:
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %3, ptr %ref.tmp.sroa.4.0..sroa_idx, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1) #23
-  %call2 = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call2 = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   %4 = extractvalue { i64, i64 } %call2, 0
   store i64 %4, ptr %ref.tmp1, align 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
@@ -30432,7 +30432,7 @@ entry:
   br i1 %call3, label %if.then.critedge, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %call4 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call4 = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1) #23
   %not.call4 = xor i1 %call4, true
   br label %return
@@ -30482,7 +30482,7 @@ entry:
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %retval, i64 8
   store i64 %5, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1.i) #23
-  %call2.i = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call2.i = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   %6 = extractvalue { i64, i64 } %call2.i, 0
   store i64 %6, ptr %ref.tmp1.i, align 8
   %7 = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
@@ -30498,7 +30498,7 @@ _ZN6duckdb18TryDecimalSubtract9OperationINS_9hugeint_tES2_S2_EEbT_T0_RT1_.exit.t
   br label %if.then
 
 _ZN6duckdb18TryDecimalSubtract9OperationINS_9hugeint_tES2_S2_EEbT_T0_RT1_.exit: ; preds = %entry
-  %call4.i = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 38))
+  %call4.i = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 608))
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %left.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %right.i)
@@ -30807,7 +30807,7 @@ declare void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 der
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ScalarFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %this, align 8, !tbaa !34
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !51
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -30974,7 +30974,7 @@ for.body:                                         ; preds = %entry, %for.inc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %__cur.020, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %__cur.020, align 8, !tbaa !34
   %function.i.i = getelementptr inbounds i8, ptr %__cur.020, i64 176
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__cur.020, i64 192
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.019, i64 192
@@ -32031,7 +32031,7 @@ declare noundef i64 @_ZNK6duckdb5Value14GetValueUnsafeIlEET_v(ptr noundef nonnul
 define linkonce_odr void @_ZN6duckdb18BaseScalarFunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(170) %this, ptr noundef nonnull align 8 dereferenceable(170) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 16), ptr %this, align 8, !tbaa !34
   %arguments.i = getelementptr inbounds i8, ptr %this, i64 72
   %arguments2.i = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %arguments.i, ptr noundef nonnull align 8 dereferenceable(24) %arguments2.i)
@@ -32080,7 +32080,7 @@ ehcleanup9.i:                                     ; preds = %ehcleanup.i, %lpad.
   br label %common.resume
 
 _ZN6duckdb14SimpleFunctionC2ERKS0_.exit:          ; preds = %invoke.cont5.i
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb18BaseScalarFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb18BaseScalarFunctionE, i64 16), ptr %this, align 8, !tbaa !34
   %return_type = getelementptr inbounds i8, ptr %this, i64 144
   %return_type2 = getelementptr inbounds i8, ptr %0, i64 144
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %return_type, ptr noundef nonnull align 8 dereferenceable(24) %return_type2)
@@ -32108,7 +32108,7 @@ define linkonce_odr void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 
 entry:
   %__dnew.i.i6 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb8FunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN6duckdb8FunctionE, i64 16), ptr %this, align 8, !tbaa !34
   %name = getelementptr inbounds i8, ptr %this, i64 8
   %name2 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -34399,7 +34399,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !237
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !34, !noalias !237
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 16), ptr %call.i, align 8, !tbaa !34, !noalias !237
   %check_overflow.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %check_overflow.i.i, align 8, !tbaa !77, !noalias !237
   store ptr %call.i, ptr %res, align 8, !tbaa !43, !alias.scope !237
@@ -34440,7 +34440,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6duckdb25DecimalArithmeticBindData6E
 entry:
   %other = alloca %"struct.duckdb::DecimalArithmeticBindData", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %other) #23
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb25DecimalArithmeticBindDataE, i64 16), ptr %other, align 8, !tbaa !34
   %check_overflow.i = getelementptr inbounds i8, ptr %other, i64 8
   %check_overflow2.i = getelementptr inbounds i8, ptr %other_p, i64 8
   %0 = load i8, ptr %check_overflow2.i, align 8, !tbaa !77, !range !83, !noundef !84
@@ -35894,7 +35894,7 @@ if.else:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !31, !noalias !263
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !33, !noalias !263
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i.i, align 8, !tbaa !34, !noalias !263
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19.i.i.i.i.i, align 8, !tbaa !34, !noalias !263
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19.i.i.i.i.i, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !268, !noalias !263
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -36895,7 +36895,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !31, !noalias !297
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i13.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !33, !noalias !297
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i.i, align 8, !tbaa !34, !noalias !297
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i13.i.i.i.i.i, align 8, !tbaa !34, !noalias !297
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i13.i.i.i.i.i, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !268, !noalias !297
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -106587,7 +106587,7 @@ _ZNSt12_Vector_baseIN6duckdb14ScalarFunctionESaIS1_EE11_M_allocateEm.exit: ; pre
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN6duckdb14ScalarFunctionESaIS1_EE11_M_allocateEm.exit
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %add.ptr, align 8, !tbaa !34
   %function.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 176
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 200
   %_M_invoker2.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 200
@@ -106735,7 +106735,7 @@ for.body:                                         ; preds = %entry, %for.inc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 0, i32 0, i64 2), ptr %__cur.018, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14ScalarFunctionE, i64 16), ptr %__cur.018, align 8, !tbaa !34
   %function.i.i = getelementptr inbounds i8, ptr %__cur.018, i64 176
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__cur.018, i64 192
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.017, i64 192
@@ -106852,7 +106852,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1307)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !1307
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb21DecimalNegateBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !34, !noalias !1307
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb21DecimalNegateBindDataE, i64 16), ptr %call.i, align 8, !tbaa !34, !noalias !1307
   %bound_type.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 0, ptr %bound_type.i.i, align 8, !tbaa !132, !noalias !1307
   store ptr %call.i, ptr %res, align 8, !tbaa !43, !alias.scope !1307
@@ -106893,7 +106893,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6duckdb21DecimalNegateBindData6Equal
 entry:
   %other = alloca %"struct.duckdb::DecimalNegateBindData", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %other) #23
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb21DecimalNegateBindDataE, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !34
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb21DecimalNegateBindDataE, i64 16), ptr %other, align 8, !tbaa !34
   %bound_type.i = getelementptr inbounds i8, ptr %other, i64 8
   %bound_type2.i = getelementptr inbounds i8, ptr %other_p, i64 8
   %0 = load i8, ptr %bound_type2.i, align 8, !tbaa !132

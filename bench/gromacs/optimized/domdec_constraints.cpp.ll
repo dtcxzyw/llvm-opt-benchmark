@@ -654,7 +654,7 @@ _ZN15InteractionList5clearEv.exit65.thread:       ; preds = %_ZNSt6vectorIiSaIiE
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 144
   %153 = load ptr, ptr %152, align 8
-  %154 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 62, i32 2), align 16
+  %154 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2000), align 16
   %155 = add i32 %154, 1
   %156 = load ptr, ptr %13, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 8
@@ -741,7 +741,7 @@ _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %.lr.ph81, %174
   br i1 %205, label %.lr.ph85, label %._crit_edge90, !llvm.loop !15
 
 ._crit_edge90:                                    ; preds = %._crit_edge86, %.lr.ph89, %142
-  %206 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 64, i32 2), align 16
+  %206 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   %207 = add i32 %206, 1
   %208 = load ptr, ptr %14, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 8
@@ -1538,7 +1538,7 @@ _ZN15InteractionList5clearEv.exit:                ; preds = %77, %82
   br i1 %99, label %.lr.ph98.i, label %_ZL16atoms_to_settlesP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEENS5_IKSt6vectorIiSaIiEEEEiiP15InteractionListPSA_.exit
 
 .lr.ph98.i:                                       ; preds = %93
-  %100 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 64, i32 2), align 16
+  %100 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   %.fr70 = freeze i32 %100
   %101 = getelementptr inbounds i8, ptr %94, i64 288
   %102 = icmp sgt i32 %.fr70, 0

@@ -50,8 +50,8 @@ define void @ompi_file_create_errhandler_f(ptr noundef %0, ptr nocapture noundef
   br label %11
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_file_t, ptr @ompi_mpi_file_null, i64 0, i32 0, i32 6), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_file_t, ptr @ompi_mpi_file_null, i64 0, i32 0, i32 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_file_null, i64 128), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_file_null, i64 136), align 8
   %10 = tail call i32 @ompi_errhandler_invoke(ptr noundef %8, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %9, i32 noundef 17, ptr noundef nonnull @FUNC_NAME) #2
   br label %11
 

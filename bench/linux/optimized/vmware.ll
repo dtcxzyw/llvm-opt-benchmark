@@ -118,7 +118,7 @@ define internal noundef i32 @activate_jump_labels() #1 section ".init.text" alig
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 0, 1073741825) i32 @vmware_platform() #1 section ".init.text" align 16 {
   %1 = alloca [3 x i32], align 4
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %3 = and i64 %2, 2147483648
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %26, label %5
@@ -269,7 +269,7 @@ define internal void @vmware_platform_setup() #1 section ".init.text" align 16 {
 
 29:                                               ; preds = %28, %22
   store i64 %19, ptr @vmware_tsc_khz, align 8
-  store ptr @vmware_get_tsc_khz, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 1), align 8
+  store ptr @vmware_get_tsc_khz, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 8), align 8
   store ptr @vmware_get_tsc_khz, ptr @x86_platform, align 8
   %30 = udiv i32 %11, 1000
   store i32 %30, ptr @lapic_timer_period, align 4
@@ -378,17 +378,17 @@ define internal fastcc void @vmware_paravirt_ops_setup() unnamed_addr #1 section
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @vmware_set_capabilities() unnamed_addr #1 section ".init.text" align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 5), i32 1, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 5)) #10, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 13), i32 1, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 13)) #10, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 6), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 6)) #10, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 14), i32 128, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 14)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 53), i32 1, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 53)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 13), i32 1, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 13)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 54), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 54)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 14), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 14)) #10, !srcloc !20
   %1 = load i64, ptr @vmware_tsc_khz, align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %0
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7)) #10, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 15), i32 128, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 15)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 55), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 55)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 15), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 15)) #10, !srcloc !20
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -399,13 +399,13 @@ define internal fastcc void @vmware_set_capabilities() unnamed_addr #1 section "
   ]
 
 6:                                                ; preds = %4
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26), i32 4, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26)) #10, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 34), i32 4, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 34)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 74), i32 4, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 74)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 34), i32 4, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 34)) #10, !srcloc !20
   br label %8
 
 7:                                                ; preds = %4
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26)) #10, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 34), i32 8, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 34)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 74), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 74)) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 34), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 34)) #10, !srcloc !20
   br label %8
 
 8:                                                ; preds = %7, %6, %4
@@ -424,16 +424,16 @@ define internal fastcc void @vmware_cyc2ns_setup() unnamed_addr #1 section ".ini
   %5 = or i64 %4, %2
   %6 = load i64, ptr @vmware_tsc_khz, align 8
   %7 = trunc i64 %6 to i32
-  tail call void @clocks_calc_mult_shift(ptr noundef nonnull @vmware_cyc2ns, ptr noundef nonnull getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1), i32 noundef %7, i32 noundef 1000000, i32 noundef 0) #10
+  tail call void @clocks_calc_mult_shift(ptr noundef nonnull @vmware_cyc2ns, ptr noundef nonnull getelementptr inbounds (i8, ptr @vmware_cyc2ns, i64 4), i32 noundef %7, i32 noundef 1000000, i32 noundef 0) #10
   %8 = load i32, ptr @vmware_cyc2ns, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @vmware_cyc2ns, i64 4), align 4
   %10 = zext i64 %5 to i128
   %11 = zext i32 %8 to i128
   %12 = mul nuw nsw i128 %10, %11
   %13 = zext nneg i32 %9 to i128
   %14 = lshr i128 %12, %13
   %15 = trunc i128 %14 to i64
-  store i64 %15, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 2), align 8
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @vmware_cyc2ns, i64 8), align 8
   %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i64 noundef %15) #11
   ret void
 }
@@ -449,14 +449,14 @@ define internal i64 @vmware_sched_clock() #6 section ".noinstr.text" align 16 {
   %4 = shl i64 %3, 32
   %5 = or i64 %4, %2
   %6 = load i32, ptr @vmware_cyc2ns, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @vmware_cyc2ns, i64 4), align 4
   %8 = zext i64 %5 to i128
   %9 = zext i32 %6 to i128
   %10 = mul nuw nsw i128 %8, %9
   %11 = zext nneg i32 %7 to i128
   %12 = lshr i128 %10, %11
   %13 = trunc i128 %12 to i64
-  %14 = load i64, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 2), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @vmware_cyc2ns, i64 8), align 8
   %15 = sub i64 %13, %14
   ret i64 %15
 }
@@ -470,7 +470,7 @@ define internal i64 @vmware_steal_clock(i32 noundef %0) #7 align 16 {
   %6 = inttoptr i64 %5 to ptr
   %7 = load volatile i64, ptr %6, align 8
   %8 = load i32, ptr @vmware_cyc2ns, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @vmware_cyc2ns, i64 4), align 4
   %10 = zext i64 %7 to i128
   %11 = zext i32 %8 to i128
   %12 = mul nuw nsw i128 %11, %10
@@ -495,7 +495,7 @@ define internal void @vmware_smp_prepare_boot_cpu() #1 section ".init.text" alig
   br i1 %1, label %2, label %20
 
 2:                                                ; preds = %0
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !22
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
   %4 = sext i32 %3 to i64
   %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -531,7 +531,7 @@ define internal noundef i32 @vmware_cpu_online(i32 %0) #8 align 16 {
   br i1 %2, label %3, label %21
 
 3:                                                ; preds = %1
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !22
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
   %5 = sext i32 %4 to i64
   %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8

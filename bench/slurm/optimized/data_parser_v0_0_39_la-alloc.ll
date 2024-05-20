@@ -55,7 +55,7 @@ define dso_local ptr @alloc_parser_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %4, %14, %12
   %.011 = phi ptr [ %13, %12 ], [ %17, %14 ], [ null, %4 ]
-  %18 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 256
   %.not14 = icmp eq i64 %19, 0
   br i1 %.not14, label %28, label %20
@@ -112,7 +112,7 @@ define dso_local void @free_parser_obj(ptr nocapture noundef readonly %0, ptr no
 
 parser_obj_free_func.exit:                        ; preds = %5, %10
   %.06.i = phi ptr [ %xfree_ptr..i, %10 ], [ null, %5 ]
-  %13 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %14 = and i64 %13, 256
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %23, label %15

@@ -9,35 +9,35 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_irecv_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 56), align 8
   %9 = tail call i32 %8(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #1
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_irecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 64), align 8
   %9 = tail call i32 %8(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #1
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_recv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 9), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 72), align 8
   %9 = tail call i32 %8(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #1
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_imrecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 18), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 144), align 8
   %7 = tail call i32 %6(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_mrecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 19), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 152), align 8
   %7 = tail call i32 %6(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1
   ret i32 %7
 }

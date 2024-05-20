@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4) #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psensor_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %20
 
@@ -79,14 +79,14 @@ define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nocap
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1, i32 1), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 152
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 160
   %19 = load i32, ptr %18, align 8
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i32 noundef %13, ptr noundef %17, i32 noundef %19) #12
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %13, ptr noundef %17, i32 noundef %19) #12
   br label %20
 
 20:                                               ; preds = %12, %7, %5
@@ -95,10 +95,10 @@ define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nocap
   br i1 %.not, label %22, label %147
 
 22:                                               ; preds = %20
-  %23 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @file_tracker_t_class, i64 0, i32 8), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @file_tracker_t_class, i64 56), align 8
   %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #14
   %25 = load i32, ptr @pmix_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @file_tracker_t_class, i64 0, i32 4), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @file_tracker_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %25, %26
   br i1 %.not.i, label %28, label %27
 
@@ -120,7 +120,7 @@ define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nocap
   %34 = getelementptr inbounds i8, ptr %24, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  %35 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @file_tracker_t_class, i64 0, i32 6), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @file_tracker_t_class, i64 40), align 8
   %36 = load ptr, ptr %35, align 8
   %.not6.i.i = icmp eq ptr %36, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -328,7 +328,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %129
 
 143:                                              ; preds = %114, %110, %106
   %144 = getelementptr inbounds i8, ptr %24, i64 296
-  %145 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 1), align 8
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
   %146 = tail call i32 @pmix_event_assign(ptr noundef nonnull %144, ptr noundef %145, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @add_tracker, ptr noundef nonnull %24) #12
   fence release
   tail call void @event_active(ptr noundef nonnull %144, i32 noundef 4, i16 noundef signext 1) #12
@@ -341,10 +341,10 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %129
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @stop(ptr noundef %0, ptr noundef readonly %1) #0 {
-  %3 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @file_caddy_t_class, i64 0, i32 8), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @file_caddy_t_class, i64 56), align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #14
   %5 = load i32, ptr @pmix_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @file_caddy_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @file_caddy_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -366,7 +366,7 @@ define internal noundef i32 @stop(ptr noundef %0, ptr noundef readonly %1) #0 {
   %14 = getelementptr inbounds i8, ptr %4, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %15 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @file_caddy_t_class, i64 0, i32 6), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @file_caddy_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -411,7 +411,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
 
 33:                                               ; preds = %30, %24
   %34 = getelementptr inbounds i8, ptr %4, i64 120
-  %35 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 1), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
   %36 = tail call i32 @pmix_event_assign(ptr noundef nonnull %34, ptr noundef %35, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @del_tracker, ptr noundef nonnull %4) #12
   fence release
   tail call void @event_active(ptr noundef nonnull %34, i32 noundef 4, i16 noundef signext 1) #12
@@ -679,19 +679,19 @@ declare i32 @pmix_event_assign(ptr noundef, ptr noundef, i32 noundef, i16 nounde
 ; Function Attrs: nounwind uwtable
 define internal void @add_tracker(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   fence acquire
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 1, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 472), align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 128
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 120
   store volatile ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 120
-  store ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 1), ptr %7, align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 1, i32 2), align 8
-  %8 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 344), ptr %7, align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 472), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8
   %9 = add i64 %8, 1
-  store volatile i64 %9, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 2), align 8
+  store volatile i64 %9, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 168
-  %11 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
   %12 = tail call i32 @pmix_event_assign(ptr noundef nonnull %10, ptr noundef %11, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @file_sample, ptr noundef %2) #12
   %13 = getelementptr inbounds i8, ptr %2, i64 424
   %14 = tail call i32 @event_add(ptr noundef nonnull %10, ptr noundef nonnull %13) #12
@@ -715,7 +715,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct.pmix_proc, align 4
   fence acquire
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psensor_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %16
 
@@ -727,10 +727,10 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1, i32 1), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
   %14 = getelementptr inbounds i8, ptr %2, i64 448
   %15 = load ptr, ptr %14, align 8
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %6, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i32 noundef %13, ptr noundef %15) #12
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %6, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %13, ptr noundef %15) #12
   br label %16
 
 16:                                               ; preds = %12, %7, %3
@@ -738,7 +738,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @stat(ptr noundef %18, ptr noundef nonnull %4) #12
   %20 = icmp slt i32 %19, 0
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psensor_base_framework, i64 0, i32 11), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %21, 64
   br i1 %20, label %22, label %35
 
@@ -753,9 +753,9 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %23
-  %29 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1, i32 1), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
   %30 = load ptr, ptr %17, align 8
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %21, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i32 noundef %29, ptr noundef %30) #12
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %21, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %29, ptr noundef %30) #12
   br label %31
 
 31:                                               ; preds = %28, %23, %22
@@ -775,14 +775,14 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %36
-  %42 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1, i32 1), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
   %43 = getelementptr inbounds i8, ptr %4, i64 48
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %4, i64 72
   %46 = call ptr @ctime(ptr noundef nonnull %45) #12
   %47 = getelementptr inbounds i8, ptr %4, i64 88
   %48 = call ptr @ctime(ptr noundef nonnull %47) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %21, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i32 noundef %42, i64 noundef %44, ptr noundef %46, ptr noundef %48) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %21, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %42, i64 noundef %44, ptr noundef %46, ptr noundef %48) #12
   br label %49
 
 49:                                               ; preds = %41, %36, %35
@@ -864,7 +864,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %94
 
 94:                                               ; preds = %78, %75, %90, %93, %79, %60, %63
-  %95 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psensor_base_framework, i64 0, i32 11), align 4
+  %95 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %or.cond7 = icmp ult i32 %95, 64
   br i1 %or.cond7, label %96, label %106
 
@@ -876,11 +876,11 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %100, label %101, label %106
 
 101:                                              ; preds = %96
-  %102 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1, i32 1), align 4
+  %102 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
   %103 = load ptr, ptr %17, align 8
   %104 = getelementptr inbounds i8, ptr %2, i64 492
   %105 = load i32, ptr %104, align 4
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %95, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i32 noundef %102, ptr noundef %103, i32 noundef %105) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %95, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %102, ptr noundef %103, i32 noundef %105) #12
   br label %106
 
 106:                                              ; preds = %101, %96, %94
@@ -892,7 +892,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %111, label %112, label %163
 
 112:                                              ; preds = %106
-  %113 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psensor_base_framework, i64 0, i32 11), align 4
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %114 = call i32 @pmix_output_get_verbosity(i32 noundef %113) #12
   %115 = icmp sgt i32 %114, 4
   br i1 %115, label %116, label %125
@@ -918,9 +918,9 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %131 = load ptr, ptr %128, align 8
   %132 = getelementptr inbounds i8, ptr %127, i64 128
   store volatile ptr %131, ptr %132, align 8
-  %133 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 2), align 8
+  %133 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8
   %134 = add i64 %133, -1
-  store volatile i64 %134, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 2), align 8
+  store volatile i64 %134, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8
   %135 = getelementptr inbounds i8, ptr %2, i64 144
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 128
@@ -1060,8 +1060,8 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal void @del_tracker(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   fence acquire
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 1, i32 1), align 8
-  %.not57 = icmp eq ptr %4, getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 1)
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 464), align 8
+  %.not57 = icmp eq ptr %4, getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 344)
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -1103,9 +1103,9 @@ define internal void @del_tracker(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds i8, ptr %.059, i64 128
   store volatile ptr %24, ptr %25, align 8
-  %26 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 2), align 8
+  %26 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8
   %27 = add i64 %26, -1
-  store volatile i64 %27, ptr getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 2), align 8
+  store volatile i64 %27, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8
   %28 = tail call i32 @pthread_mutex_lock(ptr noundef %.03958) #12
   %29 = icmp eq i32 %28, 35
   br i1 %29, label %30, label %32
@@ -1160,7 +1160,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %38
   br label %52
 
 52:                                               ; preds = %49, %51, %14, %17, %32, %7
-  %.not = icmp eq ptr %.059, getelementptr inbounds (%struct.pmix_psensor_file_component_t, ptr @pmix_mca_psensor_file_component, i64 0, i32 1, i32 1)
+  %.not = icmp eq ptr %.059, getelementptr inbounds (i8, ptr @pmix_mca_psensor_file_component, i64 344)
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %52, %3

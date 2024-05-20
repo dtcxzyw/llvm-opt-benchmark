@@ -568,7 +568,7 @@ getRestoreCommand.exit:                           ; preds = %121, %161
   %184 = load i64, ptr %18, align 8
   call fastcc void @digestControlFile(ptr noundef nonnull @ControlFile_target, ptr noundef %183, i64 noundef %184)
   call void @pg_free(ptr noundef %183) #12
-  %185 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 3), align 8
+  %185 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 16), align 8
   %186 = add i32 %185, -1
   %187 = icmp ult i32 %186, 2
   %or.cond9.not = select i1 %.050, i1 true, i1 %187
@@ -678,8 +678,8 @@ ensureCleanShutdown.exit:                         ; preds = %203, %218
   unreachable
 
 231:                                              ; preds = %222
-  %232 = load <4 x i32>, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 1), align 8
-  %233 = load <4 x i32>, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i64 0, i32 1), align 8
+  %232 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 8), align 8
+  %233 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 8), align 8
   %234 = shufflevector <4 x i32> %233, <4 x i32> %232, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %.fr = freeze <4 x i32> %234
   %235 = icmp ne <4 x i32> %.fr, <i32 1300, i32 202402291, i32 1300, i32 202402291>
@@ -693,12 +693,12 @@ ensureCleanShutdown.exit:                         ; preds = %203, %218
   unreachable
 
 238:                                              ; preds = %231
-  %239 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 32), align 4
+  %239 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 252), align 4
   %.not12.i69 = icmp eq i32 %239, 1
   br i1 %.not12.i69, label %244, label %240
 
 240:                                              ; preds = %238
-  %241 = load i8, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 14), align 8
+  %241 = load i8, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 176), align 8
   %242 = trunc i8 %241 to i1
   br i1 %242, label %244, label %243
 
@@ -708,7 +708,7 @@ ensureCleanShutdown.exit:                         ; preds = %203, %218
   unreachable
 
 244:                                              ; preds = %240, %238
-  %245 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 3), align 8
+  %245 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 16), align 8
   %246 = add i32 %245, -3
   %or.cond7.i = icmp ult i32 %246, -2
   br i1 %or.cond7.i, label %247, label %248
@@ -721,7 +721,7 @@ ensureCleanShutdown.exit:                         ; preds = %203, %218
 248:                                              ; preds = %244
   %249 = load ptr, ptr @datadir_source, align 8
   %250 = icmp ne ptr %249, null
-  %251 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i64 0, i32 3), align 8
+  %251 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 16), align 8
   %252 = add i32 %251, -3
   %253 = icmp ult i32 %252, -2
   %or.cond11.i = select i1 %250, i1 %253, i1 false
@@ -733,11 +733,11 @@ ensureCleanShutdown.exit:                         ; preds = %203, %218
   unreachable
 
 sanityChecks.exit:                                ; preds = %248
-  %255 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i64 0, i32 9), align 8
-  %256 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i64 0, i32 6, i32 1), align 8
+  %255 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 144), align 8
+  %256 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 48), align 8
   %257 = call i32 @llvm.umax.i32(i32 %255, i32 %256)
-  %258 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 9), align 8
-  %259 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 6, i32 1), align 8
+  %258 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 144), align 8
+  %259 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 48), align 8
   %260 = call i32 @llvm.umax.i32(i32 %258, i32 %259)
   %261 = icmp eq i32 %260, %257
   br i1 %261, label %.thread, label %262
@@ -828,12 +828,12 @@ sanityChecks.exit:                                ; preds = %248
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.34, i32 noundef %297, i32 noundef %298, i32 noundef %300) #12
   call void @pfree(ptr noundef nonnull %263) #12
   %301 = load ptr, ptr @datadir_target, align 8
-  %302 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 5), align 8
+  %302 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 32), align 8
   %303 = load i32, ptr @targetNentries, align 4
   %304 = add i32 %303, -1
   %305 = load ptr, ptr @restore_command, align 8
   %306 = call i64 @readOneRecord(ptr noundef %301, i64 noundef %302, i32 noundef %304, ptr noundef %305) #12
-  %307 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i64 0, i32 8), align 8
+  %307 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 136), align 8
   %. = call i64 @llvm.umax.i64(i64 %307, i64 %306)
   %308 = icmp ugt i64 %., %.0.i.i
   br i1 %308, label %318, label %309
@@ -1090,10 +1090,10 @@ sanityChecks.exit:                                ; preds = %248
   br label %434
 
 434:                                              ; preds = %433, %430
-  %435 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i64 0, i32 6), align 8
+  %435 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 40), align 8
   %436 = icmp ult i64 %435, %364
-  %437 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i64 0, i32 6, i32 1), align 8
-  %438 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i64 0, i32 5), align 8
+  %437 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 48), align 8
+  %438 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 32), align 8
   %.043.i = call i64 @llvm.umin.i64(i64 %435, i64 %364)
   %.042.i = select i1 %436, i32 %437, i32 %363
   %.0.i = select i1 %436, i64 %438, i64 %362
@@ -1143,15 +1143,15 @@ createBackupLabel.exit.i:                         ; preds = %434
   br i1 %.not51.i, label %475, label %462
 
 462:                                              ; preds = %createBackupLabel.exit.i
-  %463 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i64 0, i32 3), align 8
+  %463 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source_after, i64 16), align 8
   switch i32 %463, label %467 [
     i32 5, label %464
     i32 6, label %468
   ]
 
 464:                                              ; preds = %462
-  %465 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i64 0, i32 8), align 8
-  %466 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i64 0, i32 9), align 8
+  %465 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile_source_after, i64 136), align 8
+  %466 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source_after, i64 144), align 8
   br label %478
 
 467:                                              ; preds = %462
@@ -1163,14 +1163,14 @@ createBackupLabel.exit.i:                         ; preds = %434
   %469 = getelementptr inbounds i8, ptr %361, i64 40
   %470 = load ptr, ptr %469, align 8
   %471 = call i64 %470(ptr noundef nonnull %361) #12
-  %472 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i64 0, i32 6, i32 1), align 8
-  %473 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i64 0, i32 9), align 8
+  %472 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source_after, i64 48), align 8
+  %473 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source_after, i64 144), align 8
   %474 = call i32 @llvm.umax.i32(i32 %472, i32 %473)
   br label %478
 
 475:                                              ; preds = %createBackupLabel.exit.i
-  %476 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i64 0, i32 5), align 8
-  %477 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i64 0, i32 6, i32 1), align 8
+  %476 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile_source_after, i64 32), align 8
+  %477 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source_after, i64 48), align 8
   br label %478
 
 478:                                              ; preds = %475, %468, %464

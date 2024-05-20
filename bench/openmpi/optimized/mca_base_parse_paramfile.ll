@@ -55,10 +55,10 @@ define internal void @save_value(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !4
 
 .critedge:                                        ; preds = %14, %2
-  %16 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_var_file_value_t_class, i64 0, i32 8), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_var_file_value_t_class, i64 56), align 8
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #8
   %18 = load i32, ptr @opal_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_var_file_value_t_class, i64 0, i32 4), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_var_file_value_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %18, %19
   br i1 %.not.i, label %21, label %20
 
@@ -74,7 +74,7 @@ define internal void @save_value(ptr nocapture noundef readonly %0, ptr noundef 
   store ptr @mca_base_var_file_value_t_class, ptr %17, align 8
   %23 = getelementptr inbounds i8, ptr %17, i64 8
   store volatile i32 1, ptr %23, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_var_file_value_t_class, i64 0, i32 6), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_var_file_value_t_class, i64 40), align 8
   %25 = load ptr, ptr %24, align 8
   %.not6.i.i = icmp eq ptr %25, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i

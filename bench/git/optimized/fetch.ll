@@ -1322,7 +1322,7 @@ sw.default585:                                    ; preds = %if.then582
 if.end588:                                        ; preds = %sw.bb583, %if.end580
   %12 = load i32, ptr %negotiate_only, align 4
   %tobool589 = icmp eq i32 %12, 0
-  %13 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @negotiation_tip, i64 0, i32 1), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @negotiation_tip, i64 8), align 8
   %tobool590 = icmp ne i64 %13, 0
   %or.cond = select i1 %tobool589, i1 true, i1 %tobool590
   br i1 %or.cond, label %if.end593, label %if.then591
@@ -1413,7 +1413,7 @@ if.end626:                                        ; preds = %land.lhs.true621, %
   %20 = load ptr, ptr @deepen_since, align 8
   %tobool628 = icmp ne ptr %20, null
   %or.cond1 = select i1 %tobool627, i1 true, i1 %tobool628
-  %21 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @deepen_not, i64 0, i32 1), align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @deepen_not, i64 8), align 8
   %tobool630 = icmp ne i64 %21, 0
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %tobool630
   br i1 %or.cond2, label %if.then631, label %if.end632
@@ -1653,7 +1653,7 @@ if.end710:                                        ; preds = %if.then706
 if.then713:                                       ; preds = %if.end710
   %acked_commits715 = getelementptr inbounds i8, ptr %45, i64 144
   store ptr %acked_commits, ptr %acked_commits715, align 8
-  %46 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @server_options, i64 0, i32 1), align 8
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @server_options, i64 8), align 8
   %tobool719.not = icmp eq i64 %46, 0
   br i1 %tobool719.not, label %if.end721, label %if.then720
 
@@ -1735,7 +1735,7 @@ if.else727:                                       ; preds = %if.end704
   br i1 %tobool728.not, label %if.else737, label %if.then729
 
 if.then729:                                       ; preds = %if.else727
-  %57 = load i32, ptr getelementptr inbounds (%struct.list_objects_filter_options, ptr @filter_options, i64 0, i32 1), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
   %tobool730.not = icmp eq i32 %57, 0
   br i1 %tobool730.not, label %lor.lhs.false731, label %if.then734
 
@@ -1746,7 +1746,7 @@ lor.lhs.false731:                                 ; preds = %if.then729
   br i1 %tobool733.not, label %if.end735, label %if.then734
 
 if.then734:                                       ; preds = %lor.lhs.false731, %if.then729
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.list_objects_filter_options, ptr @filter_options, i64 0, i32 2), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @filter_options, i64 28), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i74 = icmp eq i8 %bf.clear.i, 0
   br i1 %tobool.not.i74, label %if.end.i75, label %if.end735
@@ -1755,7 +1755,7 @@ if.end.i75:                                       ; preds = %if.then734
   %59 = load ptr, ptr @the_repository, align 8
   %call.i76 = call i32 @repo_has_promisor_remote(ptr noundef %59) #17
   %tobool1.i = icmp ne i32 %call.i76, 0
-  %60 = load i32, ptr getelementptr inbounds (%struct.list_objects_filter_options, ptr @filter_options, i64 0, i32 1), align 8
+  %60 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
   %tobool2.i = icmp ne i32 %60, 0
   %or.cond.i = select i1 %tobool1.i, i1 true, i1 %tobool2.i
   br i1 %or.cond.i, label %if.end4.i, label %if.end735
@@ -1916,7 +1916,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.t
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %while.end.i, %for.end.i
-  %77 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @server_options, i64 0, i32 1), align 8
+  %77 = load i64, ptr getelementptr inbounds (i8, ptr @server_options, i64 8), align 8
   %tobool63.not.i = icmp eq i64 %77, 0
   br i1 %tobool63.not.i, label %if.end65.i, label %if.then64.i
 
@@ -2197,7 +2197,7 @@ for.body18.i.i.i:                                 ; preds = %for.cond16.preheade
   br i1 %tobool17.not.i.i.i, label %for.end20.i.i.i, label %for.body18.i.i.i, !llvm.loop !15
 
 for.end20.i.i.i:                                  ; preds = %for.body18.i.i.i, %for.cond16.preheader.i.i.i
-  %120 = load i32, ptr getelementptr inbounds (%struct.refspec, ptr @refmap, i64 0, i32 2), align 4
+  %120 = load i32, ptr getelementptr inbounds (i8, ptr @refmap, i64 12), align 4
   %tobool21.not.i.i.i = icmp eq i32 %120, 0
   %fetch23.i.i.i = getelementptr inbounds i8, ptr %111, i64 112
   %fetch_refspec.0.i.i.i = select i1 %tobool21.not.i.i.i, ptr %fetch23.i.i.i, ptr @refmap
@@ -2219,7 +2219,7 @@ for.body29.i.i.i:                                 ; preds = %for.end20.i.i.i, %f
   br i1 %cmp27.i.i.i, label %for.body29.i.i.i, label %if.end118.i.i.i, !llvm.loop !16
 
 if.else37.i.i.i:                                  ; preds = %if.end.i70.i.i
-  %126 = load i32, ptr getelementptr inbounds (%struct.refspec, ptr @refmap, i64 0, i32 2), align 4
+  %126 = load i32, ptr getelementptr inbounds (i8, ptr @refmap, i64 12), align 4
   %tobool38.not.i.i.i = icmp eq i32 %126, 0
   br i1 %tobool38.not.i.i.i, label %if.else40.i.i.i, label %if.then39.i.i.i
 
@@ -2978,7 +2978,7 @@ if.then126.i.i:                                   ; preds = %if.then124.i.i
   %202 = load ptr, ptr @deepen_since, align 8
   %tobool2.i.i.i = icmp ne ptr %202, null
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 true, i1 %tobool2.i.i.i
-  %203 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @deepen_not, i64 0, i32 1), align 8
+  %203 = load i64, ptr getelementptr inbounds (i8, ptr @deepen_not, i64 8), align 8
   %tobool3.i.i.i = icmp ne i64 %203, 0
   %or.cond6.i.i.i = select i1 %or.cond.i.i.i, i1 true, i1 %tobool3.i.i.i
   br i1 %or.cond6.i.i.i, label %if.then.i117.i.i, label %if.end.i112.i.i
@@ -3299,7 +3299,7 @@ fetch_one.exit:                                   ; preds = %if.end228.i.i, %if.
 
 if.else737:                                       ; preds = %if.else727
   %232 = load i32, ptr %max_jobs, align 4
-  %233 = load i32, ptr getelementptr inbounds (%struct.list_objects_filter_options, ptr @filter_options, i64 0, i32 1), align 8
+  %233 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
   %tobool738.not = icmp eq i32 %233, 0
   br i1 %tobool738.not, label %if.end741, label %if.then739
 
@@ -4038,7 +4038,7 @@ _.exit.i58:                                       ; preds = %if.end3.i.i56, %if.
   br label %if.end10
 
 if.end10:                                         ; preds = %_.exit.i58, %if.end.i52, %if.end6
-  %19 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @deepen_not, i64 0, i32 1), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @deepen_not, i64 8), align 8
   %tobool13 = icmp ne i64 %19, 0
   %or.cond1 = select i1 %tobool7, i1 %tobool13, i1 false
   br i1 %or.cond1, label %if.then14, label %if.end15
@@ -4187,7 +4187,7 @@ _.exit.i118:                                      ; preds = %if.end3.i.i116, %if
   br label %if.end24
 
 if.end24:                                         ; preds = %_.exit.i118, %if.end.i112, %if.end21
-  %35 = load i32, ptr getelementptr inbounds (%struct.list_objects_filter_options, ptr @filter_options, i64 0, i32 1), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
   %tobool25.not = icmp eq i32 %35, 0
   br i1 %tobool25.not, label %if.end28, label %if.then26
 
@@ -4257,7 +4257,7 @@ _.exit.i148:                                      ; preds = %if.end3.i.i146, %if
   br label %if.end28
 
 if.end28:                                         ; preds = %_.exit.i148, %if.end.i142, %if.end24
-  %42 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @negotiation_tip, i64 0, i32 1), align 8
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @negotiation_tip, i64 8), align 8
   %tobool29.not = icmp eq i64 %42, 0
   br i1 %tobool29.not, label %if.end35, label %if.then30
 
@@ -4270,7 +4270,7 @@ if.then30:                                        ; preds = %if.end28
 if.then32:                                        ; preds = %if.then30
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   %call.i155 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #17
-  %44 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @negotiation_tip, i64 0, i32 1), align 8
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @negotiation_tip, i64 8), align 8
   %cmp13.not.i = icmp eq i64 %44, 0
   br i1 %cmp13.not.i, label %add_negotiation_tips.exit, label %for.body.lr.ph.i
 
@@ -4328,7 +4328,7 @@ if.then19.i:                                      ; preds = %if.end12.i
 
 for.inc.i:                                        ; preds = %if.then19.i, %if.end12.i, %if.end11.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @negotiation_tip, i64 0, i32 1), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @negotiation_tip, i64 8), align 8
   %cmp.i157 = icmp ugt i64 %51, %indvars.iv.next.i
   br i1 %cmp.i157, label %for.body.i, label %add_negotiation_tips.exit, !llvm.loop !32
 
@@ -6155,7 +6155,7 @@ lor.lhs.false:                                    ; preds = %if.end3
   br i1 %tobool11.not, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %7 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 2), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 32), align 16
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
   %call16 = call i32 @strncmp(ptr noundef nonnull %6, ptr noundef %7, i64 noundef %call) #19
   %tobool17.not = icmp eq i32 %call16, 0
@@ -6205,7 +6205,7 @@ for.end:                                          ; preds = %for.body30, %if.the
   br label %for.inc64
 
 if.end46:                                         ; preds = %land.lhs.true, %lor.lhs.false
-  %19 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 7), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 112), align 16
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19
   call void @strbuf_add(ptr noundef nonnull %new_dst, ptr noundef %19, i64 noundef %call.i) #17
   %scevgep = getelementptr i8, ptr %5, i64 5
@@ -6685,7 +6685,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq ptr %call, null
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @default_rla, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @default_rla, i64 16), align 8
   %spec.select = select i1 %tobool1.not, ptr %1, ptr %call
   %call4 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.232, ptr noundef %spec.select, ptr noundef %action) #17
   %tobool5.not = icmp eq ptr %transaction, null

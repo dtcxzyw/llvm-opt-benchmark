@@ -245,7 +245,7 @@ define range(i32 -2147483648, 1) i32 @prte_register_params() local_unnamed_addr 
 
 46:                                               ; preds = %43
   %47 = load i32, ptr @pmix_class_init_epoch, align 4
-  %48 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 4), align 8
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 32), align 8
   %.not40 = icmp eq i32 %47, %48
   br i1 %.not40, label %50, label %49
 
@@ -260,7 +260,7 @@ define range(i32 -2147483648, 1) i32 @prte_register_params() local_unnamed_addr 
   store i32 1, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %1, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
-  %54 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 6), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %55 = load ptr, ptr %54, align 8
   %.not6.i = icmp eq ptr %55, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -321,12 +321,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i48, %pmix_o
   unreachable
 
 79:                                               ; preds = %72
-  %80 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 12), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 824), align 8
   %.not45 = icmp eq ptr %80, null
   br i1 %.not45, label %.sink.split, label %.sink.split.sink.split
 
 81:                                               ; preds = %pmix_obj_run_destructors.exit
-  %82 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
+  %82 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
   %83 = zext i8 %82 to i32
   %84 = and i32 %83, 4
   %85 = icmp ne i32 %84, 0
@@ -336,7 +336,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i48, %pmix_o
   br i1 %or.cond5, label %88, label %90
 
 88:                                               ; preds = %81
-  %89 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 12), align 8
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 824), align 8
   %.not44 = icmp eq ptr %89, null
   br i1 %.not44, label %.sink.split, label %.sink.split.sink.split
 
@@ -349,7 +349,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i48, %pmix_o
   br i1 %or.cond7, label %95, label %98
 
 95:                                               ; preds = %90
-  %96 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 12), align 8
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 824), align 8
   %.not43 = icmp eq ptr %96, null
   br i1 %.not43, label %.sink.split, label %.sink.split.sink.split
 
@@ -363,7 +363,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i48, %pmix_o
 .sink.split:                                      ; preds = %.sink.split.sink.split, %95, %88, %79
   %.sink54 = phi ptr [ %71, %79 ], [ %86, %88 ], [ %93, %95 ], [ %.pre52, %.sink.split.sink.split ]
   %97 = call noalias ptr @strdup(ptr noundef %.sink54) #7
-  store ptr %97, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 12), align 8
+  store ptr %97, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 824), align 8
   br label %98
 
 98:                                               ; preds = %.sink.split, %90
@@ -402,7 +402,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i48, %pmix_o
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %110
-  %117 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 7), align 8
+  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
   %118 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull @prte_default_hostfile, ptr noundef nonnull @.str.49, ptr noundef %117) #7
   br label %123
 

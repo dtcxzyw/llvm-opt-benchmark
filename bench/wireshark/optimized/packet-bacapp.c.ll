@@ -4215,7 +4215,7 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %80 = getelementptr inbounds i8, ptr %1, i64 408
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %81, ptr noundef nonnull @.str.2549, i32 noundef %79) #7
-  store ptr %82, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 1), align 8
+  store ptr %82, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 8), align 8
   %83 = load ptr, ptr %80, align 8
   %84 = tail call ptr @val_to_str_const(i32 noundef %77, ptr noundef nonnull @BACnetConfirmedServiceChoice, ptr noundef nonnull @.str.2554) #7
   %85 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %83, ptr noundef %84, ptr noundef nonnull %59, ptr noundef null) #7
@@ -4244,7 +4244,7 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %102 = getelementptr inbounds i8, ptr %1, i64 408
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %103, ptr noundef nonnull @.str.2549, i32 noundef %101) #7
-  store ptr %104, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 1), align 8
+  store ptr %104, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 8), align 8
   %105 = load ptr, ptr %102, align 8
   %106 = tail call ptr @val_to_str_const(i32 noundef %99, ptr noundef nonnull @BACnetConfirmedServiceChoice, ptr noundef nonnull @.str.2554) #7
   %107 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %105, ptr noundef %106, ptr noundef nonnull %56, ptr noundef null) #7
@@ -4275,7 +4275,7 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %119 = getelementptr inbounds i8, ptr %1, i64 408
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %120, ptr noundef nonnull @.str.2549, i32 noundef %118) #7
-  store ptr %121, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 1), align 8
+  store ptr %121, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 8), align 8
   %122 = load ptr, ptr %119, align 8
   %123 = tail call ptr @val_to_str_const(i32 noundef %116, ptr noundef nonnull @BACnetConfirmedServiceChoice, ptr noundef nonnull @.str.2554) #7
   %124 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %57, ptr noundef null) #7
@@ -4292,7 +4292,7 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %132 = getelementptr inbounds i8, ptr %1, i64 408
   %133 = load ptr, ptr %132, align 8
   %134 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %133, ptr noundef nonnull @.str.2549, i32 noundef %131) #7
-  store ptr %134, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 1), align 8
+  store ptr %134, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 8), align 8
   %135 = load ptr, ptr %132, align 8
   %136 = tail call ptr @val_to_str_const(i32 noundef %129, ptr noundef nonnull @BACnetConfirmedServiceChoice, ptr noundef nonnull @.str.2554) #7
   %137 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %135, ptr noundef nonnull %53, ptr noundef %136, ptr noundef null) #7
@@ -4311,7 +4311,7 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %146 = getelementptr inbounds i8, ptr %1, i64 408
   %147 = load ptr, ptr %146, align 8
   %148 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %147, ptr noundef nonnull @.str.2549, i32 noundef %145) #7
-  store ptr %148, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 1), align 8
+  store ptr %148, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 8), align 8
   %149 = load ptr, ptr %146, align 8
   %150 = tail call ptr @val_to_str(i32 noundef %142, ptr noundef nonnull @BACnetRejectReason, ptr noundef nonnull %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i) #7
   %151 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %149, ptr noundef nonnull %54, ptr noundef %150, ptr noundef null) #7
@@ -4330,7 +4330,7 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %160 = getelementptr inbounds i8, ptr %1, i64 408
   %161 = load ptr, ptr %160, align 8
   %162 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %161, ptr noundef nonnull @.str.2549, i32 noundef %159) #7
-  store ptr %162, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 1), align 8
+  store ptr %162, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 8), align 8
   %163 = load ptr, ptr %160, align 8
   %164 = tail call ptr @val_to_str(i32 noundef %156, ptr noundef nonnull @BACnetAbortReason, ptr noundef nonnull %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i155) #7
   %165 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %163, ptr noundef nonnull %55, ptr noundef %164, ptr noundef null) #7
@@ -6867,10 +6867,10 @@ define internal fastcc noundef i32 @fObjectIdentifier(ptr noundef %0, ptr nounde
   %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i32 = select i1 %27, ptr @ASHRAE_Reserved_Fmt, ptr @Vendor_Proprietary_Fmt
   %28 = tail call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @BACnetObjectType, ptr noundef nonnull %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i32) #7
   %29 = tail call noalias ptr @wmem_strdup(ptr noundef %25, ptr noundef %28) #7
-  store ptr %29, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 3), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 24), align 8
   %30 = load ptr, ptr %24, align 8
   %31 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %30, ptr noundef nonnull @.str.2621, i32 noundef %17) #7
-  store ptr %31, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 2), align 8
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 16), align 8
   %32 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %18, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %33 = load i32, ptr @hf_bacapp_objectType, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %33, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0) #7
@@ -10357,10 +10357,10 @@ fTagHeaderTree.exit25.i:                          ; preds = %1127, %1123
   %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i32.i.i = select i1 %1145, ptr @ASHRAE_Reserved_Fmt, ptr @Vendor_Proprietary_Fmt
   %1146 = call ptr @val_to_str(i32 noundef %1144, ptr noundef nonnull @BACnetObjectType, ptr noundef nonnull %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i32.i.i) #7
   %1147 = call noalias ptr @wmem_strdup(ptr noundef %1143, ptr noundef %1146) #7
-  store ptr %1147, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 3), align 8
+  store ptr %1147, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 24), align 8
   %1148 = load ptr, ptr %144, align 8
   %1149 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %1148, ptr noundef nonnull @.str.2621, i32 noundef %1137) #7
-  store ptr %1149, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 2), align 8
+  store ptr %1149, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 16), align 8
   %1150 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %1138, i32 noundef %.0.i.i, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %85)
   %1151 = load i32, ptr @hf_bacapp_objectType, align 4
   %1152 = call ptr @proto_tree_add_item(ptr noundef %1138, i32 noundef %1151, ptr noundef %0, i32 noundef %1130, i32 noundef 4, i32 noundef 0) #7
@@ -11566,10 +11566,10 @@ fTagHeaderTree.exit64.i:                          ; preds = %1674, %1670
   %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i32.i.i939 = select i1 %1692, ptr @ASHRAE_Reserved_Fmt, ptr @Vendor_Proprietary_Fmt
   %1693 = call ptr @val_to_str(i32 noundef %1691, ptr noundef nonnull @BACnetObjectType, ptr noundef nonnull %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i32.i.i939) #7
   %1694 = call noalias ptr @wmem_strdup(ptr noundef %1690, ptr noundef %1693) #7
-  store ptr %1694, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 3), align 8
+  store ptr %1694, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 24), align 8
   %1695 = load ptr, ptr %144, align 8
   %1696 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %1695, ptr noundef nonnull @.str.2621, i32 noundef %1684) #7
-  store ptr %1696, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i64 0, i32 2), align 8
+  store ptr %1696, ptr getelementptr inbounds (i8, ptr @bacinfo, i64 16), align 8
   %1697 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %1685, i32 noundef %.0.i.i929, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %46)
   %1698 = load i32, ptr @hf_bacapp_objectType, align 4
   %1699 = call ptr @proto_tree_add_item(ptr noundef %1685, i32 noundef %1698, ptr noundef %0, i32 noundef %1677, i32 noundef 4, i32 noundef 0) #7

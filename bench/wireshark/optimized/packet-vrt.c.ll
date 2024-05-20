@@ -1538,7 +1538,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_context_cif1(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @hf_vrt_cif, i64 0, i64 1), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @hf_vrt_cif, i64 4), align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #8
   %6 = load i32, ptr @ett_cif1, align 4
   %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #8

@@ -214,7 +214,7 @@ ehcleanup:                                        ; preds = %if.then.i.i30, %_ZN
   resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 16), align 8, !tbaa !4
   %cmp.not9.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not9.i.i.i, label %if.end13, label %while.body.lr.ph.i.i.i
 
@@ -226,7 +226,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end
 
 while.body.i.i.i:                                 ; preds = %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i, %while.body.lr.ph.i.i.i
   %__x.addr.011.i.i.i = phi ptr [ %9, %while.body.lr.ph.i.i.i ], [ %__x.addr.1.i.i.i, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.010.i.i.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.010.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @g_imgCache, i64 8), %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i ]
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 40
   %12 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !19
   %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %10, i64 %12)
@@ -258,7 +258,7 @@ _ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i: ; preds = %if.then.i.i
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video6IImageEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %while.body.i.i.i, !llvm.loop !20
 
 _ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video6IImageEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i
-  %cmp.i.i.i35 = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i.i35 = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (i8, ptr @g_imgCache, i64 8)
   br i1 %cmp.i.i.i35, label %if.end13, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video6IImageEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
@@ -421,12 +421,12 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z20guiScalingCacheClearv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !33
-  %cmp.i.not45 = icmp eq ptr %0, getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 24), align 8, !tbaa !33
+  %cmp.i.not45 = icmp eq ptr %0, getelementptr inbounds (i8, ptr @g_imgCache, i64 8)
   br i1 %cmp.i.not45, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 16), align 8, !tbaa !4
   invoke void @_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video6IImageEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) @g_imgCache, ptr noundef %1)
           to label %_ZNSt3mapIN3irr4core6stringIcEEPNS0_5video6IImageESt4lessIS3_ESaISt4pairIKS3_S6_EEE5clearEv.exit unwind label %terminate.lpad.i.i
 
@@ -438,12 +438,12 @@ terminate.lpad.i.i:                               ; preds = %for.cond.cleanup
   unreachable
 
 _ZNSt3mapIN3irr4core6stringIcEEPNS0_5video6IImageESt4lessIS3_ESaISt4pairIKS3_S6_EEE5clearEv.exit: ; preds = %for.cond.cleanup
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
-  store ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !33
-  store ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8, !tbaa !34
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 1), align 8, !tbaa !35
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !33
-  %cmp.i33.not47 = icmp eq ptr %4, getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  store ptr null, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 16), align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 8), ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 24), align 8, !tbaa !33
+  store ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 8), ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 32), align 8, !tbaa !34
+  store i64 0, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 40), align 8, !tbaa !35
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 24), align 8, !tbaa !33
+  %cmp.i33.not47 = icmp eq ptr %4, getelementptr inbounds (i8, ptr @g_txrCache, i64 8)
   br i1 %cmp.i33.not47, label %for.cond.cleanup17, label %for.body18
 
 for.body:                                         ; preds = %entry, %if.end
@@ -474,11 +474,11 @@ delete.notnull.i:                                 ; preds = %if.then
 
 if.end:                                           ; preds = %delete.notnull.i, %if.then, %for.body
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.046) #20
-  %cmp.i.not = icmp eq ptr %call.i, getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.not = icmp eq ptr %call.i, getelementptr inbounds (i8, ptr @g_imgCache, i64 8)
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup17:                               ; preds = %if.end27, %_ZNSt3mapIN3irr4core6stringIcEEPNS0_5video6IImageESt4lessIS3_ESaISt4pairIKS3_S6_EEE5clearEv.exit
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 16), align 8, !tbaa !4
   invoke void @_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video8ITextureEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) @g_txrCache, ptr noundef %8)
           to label %_ZNSt3mapIN3irr4core6stringIcEEPNS0_5video8ITextureESt4lessIS3_ESaISt4pairIKS3_S6_EEE5clearEv.exit unwind label %terminate.lpad.i.i34
 
@@ -490,10 +490,10 @@ terminate.lpad.i.i34:                             ; preds = %for.cond.cleanup17
   unreachable
 
 _ZNSt3mapIN3irr4core6stringIcEEPNS0_5video8ITextureESt4lessIS3_ESaISt4pairIKS3_S6_EEE5clearEv.exit: ; preds = %for.cond.cleanup17
-  store ptr null, ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
-  store ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !33
-  store ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8, !tbaa !34
-  store i64 0, ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 1), align 8, !tbaa !35
+  store ptr null, ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 16), align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 8), ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 24), align 8, !tbaa !33
+  store ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 8), ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 32), align 8, !tbaa !34
+  store i64 0, ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 40), align 8, !tbaa !35
   ret void
 
 for.body18:                                       ; preds = %_ZNSt3mapIN3irr4core6stringIcEEPNS0_5video6IImageESt4lessIS3_ESaISt4pairIKS3_S6_EEE5clearEv.exit, %if.end27
@@ -532,7 +532,7 @@ _ZN15RenderingEngine16get_video_driverEv.exit:    ; preds = %land.lhs.true.i
 
 if.end27:                                         ; preds = %_ZN15RenderingEngine16get_video_driverEv.exit, %for.body18
   %call.i40 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin19.sroa.0.048) #20
-  %cmp.i33.not = icmp eq ptr %call.i40, getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i33.not = icmp eq ptr %call.i40, getelementptr inbounds (i8, ptr @g_txrCache, i64 8)
   br i1 %cmp.i33.not, label %for.cond.cleanup17, label %for.body18
 }
 
@@ -709,7 +709,7 @@ if.then.i.i.i281:                                 ; preds = %invoke.cont21
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i281, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i283
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16) #18
-  %25 = load ptr, ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 16), align 8, !tbaa !4
   %cmp.not9.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not9.i.i.i, label %if.end33, label %while.body.lr.ph.i.i.i
 
@@ -721,7 +721,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %_ZN3irr4core6string
 
 while.body.i.i.i:                                 ; preds = %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i, %while.body.lr.ph.i.i.i
   %__x.addr.011.i.i.i = phi ptr [ %25, %while.body.lr.ph.i.i.i ], [ %__x.addr.1.i.i.i, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.010.i.i.i = phi ptr [ getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.010.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @g_txrCache, i64 8), %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i ]
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 40
   %28 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !19
   %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %26, i64 %28)
@@ -753,7 +753,7 @@ _ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i: ; preds = %if.then.i.i
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video8ITextureEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %while.body.i.i.i, !llvm.loop !56
 
 _ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video8ITextureEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i
-  %cmp.i.i.i286 = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i.i286 = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (i8, ptr @g_txrCache, i64 8)
   br i1 %cmp.i.i.i286, label %if.end33, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video8ITextureEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
@@ -818,7 +818,7 @@ ehcleanup23:                                      ; preds = %if.then.i.i.i288, %
   br label %ehcleanup200
 
 if.end33:                                         ; preds = %cond.end, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i, %_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video8ITextureEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZN3irr4core6stringIcED2Ev.exit
-  %38 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 16), align 8, !tbaa !4
   %cmp.not9.i.i.i294 = icmp eq ptr %38, null
   br i1 %cmp.not9.i.i.i294, label %if.then49, label %while.body.lr.ph.i.i.i295
 
@@ -829,7 +829,7 @@ while.body.lr.ph.i.i.i295:                        ; preds = %if.end33
 
 while.body.i.i.i297:                              ; preds = %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i307, %while.body.lr.ph.i.i.i295
   %__x.addr.011.i.i.i298 = phi ptr [ %38, %while.body.lr.ph.i.i.i295 ], [ %__x.addr.1.i.i.i313, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i307 ]
-  %__y.addr.010.i.i.i299 = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %while.body.lr.ph.i.i.i295 ], [ %__y.addr.1.i.i.i310, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i307 ]
+  %__y.addr.010.i.i.i299 = phi ptr [ getelementptr inbounds (i8, ptr @g_imgCache, i64 8), %while.body.lr.ph.i.i.i295 ], [ %__y.addr.1.i.i.i310, %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i307 ]
   %_M_string_length.i.i.i.i.i.i.i.i300 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i298, i64 40
   %41 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i300, align 8, !tbaa !19
   %.sroa.speculated.i.i.i.i.i.i.i301 = call i64 @llvm.umin.i64(i64 %39, i64 %41)
@@ -861,7 +861,7 @@ _ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i307: ; preds = %if.then.
   br i1 %cmp.not.i.i.i314, label %_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video6IImageEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %while.body.i.i.i297, !llvm.loop !20
 
 _ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video6IImageEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %_ZNKSt4lessIN3irr4core6stringIcEEEclERKS3_S6_.exit.i.i.i307
-  %cmp.i.i.i315 = icmp eq ptr %__y.addr.1.i.i.i310, getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i.i315 = icmp eq ptr %__y.addr.1.i.i.i310, getelementptr inbounds (i8, ptr @g_imgCache, i64 8)
   br i1 %cmp.i.i.i315, label %if.then49, label %lor.lhs.false.i.i316
 
 lor.lhs.false.i.i316:                             ; preds = %_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video6IImageEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
@@ -3025,17 +3025,17 @@ define internal void @_GLOBAL__sub_I_guiscalingfilter.cpp() #14 section ".text.s
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !tbaa !102
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
-  store ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !33
-  store ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8, !tbaa !34
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @g_imgCache, i64 0, i32 0, i32 0, i32 1, i32 1), align 8, !tbaa !35
+  store i32 0, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 8), align 8, !tbaa !102
+  store ptr null, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 16), align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 8), ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 24), align 8, !tbaa !33
+  store ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 8), ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 32), align 8, !tbaa !34
+  store i64 0, ptr getelementptr inbounds (i8, ptr @g_imgCache, i64 40), align 8, !tbaa !35
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3irr4core6stringIcEEPNS0_5video6IImageESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev, ptr nonnull @g_imgCache, ptr nonnull @__dso_handle) #18
-  store i32 0, ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !tbaa !102
-  store ptr null, ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
-  store ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !33
-  store ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8, !tbaa !34
-  store i64 0, ptr getelementptr inbounds (%"class.std::map.0", ptr @g_txrCache, i64 0, i32 0, i32 0, i32 1, i32 1), align 8, !tbaa !35
+  store i32 0, ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 8), align 8, !tbaa !102
+  store ptr null, ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 16), align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 8), ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 24), align 8, !tbaa !33
+  store ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 8), ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 32), align 8, !tbaa !34
+  store i64 0, ptr getelementptr inbounds (i8, ptr @g_txrCache, i64 40), align 8, !tbaa !35
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3irr4core6stringIcEEPNS0_5video8ITextureESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev, ptr nonnull @g_txrCache, ptr nonnull @__dso_handle) #18
   ret void
 }

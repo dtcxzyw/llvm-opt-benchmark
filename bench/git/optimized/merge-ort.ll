@@ -6464,7 +6464,7 @@ if.end:                                           ; preds = %possible_side_renam
   call void @diffcore_rename_extended(ptr noundef nonnull %diff_opts, ptr noundef nonnull %pool, ptr noundef nonnull %arrayidx2.i, ptr noundef nonnull %arrayidx20, ptr noundef nonnull %arrayidx3, ptr noundef nonnull %arrayidx.i) #18
   %20 = load ptr, ptr %opt, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 3245, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef %20) #18
-  %21 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp10.i38 = icmp sgt i32 %21, 0
   br i1 %cmp10.i38, label %for.body.i40.preheader, label %resolve_diffpair_statuses.exit59
 
@@ -6534,7 +6534,7 @@ if.then32:                                        ; preds = %if.end29
 if.end35:                                         ; preds = %if.then32, %if.end29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14, ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, i64 16, i1 false)
   store i32 2048, ptr %output_format, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   store ptr null, ptr @diff_queued_diff, align 8
   call void @diff_flush(ptr noundef nonnull %diff_opts) #18
   br label %return

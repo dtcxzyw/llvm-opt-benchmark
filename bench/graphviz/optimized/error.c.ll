@@ -20,20 +20,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @setErrorLine(i32 noundef %0) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @setErrorFileLine(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  store ptr %0, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 5), align 8
-  store i32 %1, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @setErrorId(ptr noundef %0) local_unnamed_addr #0 {
-  store ptr %0, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 6), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @_err_info, i64 32), align 8
   ret void
 }
 
@@ -51,13 +51,13 @@ define i32 @getErrorErrors() local_unnamed_addr #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @setTraceLevel(i32 noundef %0) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 4), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @_err_info, i64 16), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 16), align 8
   %6 = icmp sgt i32 %5, %1
   br i1 %6, label %71, label %7
 
@@ -70,7 +70,7 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 6), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_err_info, i64 32), align 8
   %.not28 = icmp eq ptr %11, null
   br i1 %.not28, label %12, label %.sink.split
 
@@ -96,7 +96,7 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
   br i1 %8, label %.preheader, label %28
 
 .preheader:                                       ; preds = %18
-  %19 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 1), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 4), align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -105,7 +105,7 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
   %21 = load ptr, ptr @stderr, align 8
   %22 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %21) #12
   %23 = add nuw nsw i32 %.036, 1
-  %24 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 1), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 4), align 4
   %25 = icmp slt i32 %23, %24
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -124,9 +124,9 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
 31:                                               ; preds = %29
   %32 = load ptr, ptr @stderr, align 8
   %33 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 9, i64 1, ptr %32) #12
-  %34 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 3), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 12), align 4
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 3), align 4
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @_err_info, i64 12), align 4
   br label %43
 
 36:                                               ; preds = %29
@@ -142,12 +142,12 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
   br label %43
 
 43:                                               ; preds = %36, %40, %31
-  %44 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not32 = icmp eq i32 %44, 0
   br i1 %.not32, label %56, label %45
 
 45:                                               ; preds = %43
-  %46 = load ptr, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 5), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
   %.not33 = icmp eq ptr %46, null
   br i1 %.not33, label %52, label %47
 
@@ -159,7 +159,7 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
 49:                                               ; preds = %47
   %50 = load ptr, ptr @stderr, align 8
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.6, ptr noundef nonnull %46) #11
-  %.pre = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %52
 
 52:                                               ; preds = %49, %47, %45

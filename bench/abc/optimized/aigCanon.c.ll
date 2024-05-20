@@ -75,7 +75,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %6
   %16 = getelementptr inbounds i8, ptr %calloc, i64 40
   store ptr %15, ptr %16, align 8
   store i32 12, ptr @Aig_RManStart.Pars, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.Bdc_Par_t_, ptr @Aig_RManStart.Pars, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @Aig_RManStart.Pars, i64 4), align 4
   %17 = tail call ptr @Bdc_ManAlloc(ptr noundef nonnull @Aig_RManStart.Pars) #16
   %18 = getelementptr inbounds i8, ptr %calloc, i64 48
   store ptr %17, ptr %18, align 8

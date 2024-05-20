@@ -39,7 +39,7 @@ define hidden void @zim_DOMEntityReference___construct(ptr nocapture noundef rea
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %32
@@ -52,7 +52,7 @@ define hidden void @zim_DOMEntityReference___construct(ptr nocapture noundef rea
 
 16:                                               ; preds = %13
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef 1) #3
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %32
@@ -65,7 +65,7 @@ define hidden void @zim_DOMEntityReference___construct(ptr nocapture noundef rea
 
 22:                                               ; preds = %19
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #3
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %32

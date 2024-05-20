@@ -1218,7 +1218,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZL21rocksdb_build_git_shaB5cxx11, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([63 x i8], ptr @.str, i64 0, i64 62))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZL21rocksdb_build_git_shaB5cxx11, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 62))
           to label %__cxx_global_var_init.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -1252,7 +1252,7 @@ call.i.noexc.i6:                                  ; preds = %__cxx_global_var_in
           to label %.noexc.i7 unwind label %lpad.i3
 
 .noexc.i7:                                        ; preds = %call.i.noexc.i6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZL21rocksdb_build_git_tagB5cxx11, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([27 x i8], ptr @.str.2, i64 0, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZL21rocksdb_build_git_tagB5cxx11, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 26))
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i8
 
 lpad.i.i8:                                        ; preds = %.noexc.i7
@@ -1280,7 +1280,7 @@ call.i.noexc.i14:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i15 unwind label %lpad.i11
 
 .noexc.i15:                                       ; preds = %call.i.noexc.i14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZL18rocksdb_build_dateB5cxx11, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([39 x i8], ptr @.str.4, i64 0, i64 38))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZL18rocksdb_build_dateB5cxx11, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 38))
           to label %__cxx_global_var_init.3.exit unwind label %lpad.i.i16
 
 lpad.i.i16:                                       ; preds = %.noexc.i15
@@ -1298,12 +1298,12 @@ __cxx_global_var_init.3.exit:                     ; preds = %.noexc.i15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i9) #15
   %8 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZL18rocksdb_build_dateB5cxx11, ptr nonnull @__dso_handle) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i9)
-  store i64 0, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 0, i32 0, i32 4, i32 0), align 8
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 0, i32 0, i32 5), ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 32), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 48), ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, i64 40), i8 0, i64 16, i1 false)
   %9 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFiRN7rocksdb13ObjectLibraryERKS5_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairISA_SD_EEED2Ev, ptr nonnull @_ZN7rocksdb14ObjectRegistry9builtins_B5cxx11E, ptr nonnull @__dso_handle) #15
   ret void
 }

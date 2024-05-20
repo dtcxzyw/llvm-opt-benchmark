@@ -21984,7 +21984,7 @@ declare i32 @SSL_CTX_use_serverinfo(ptr noundef, ptr noundef, i64 noundef) local
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @serverinfo_custom_parse_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef writeonly %parse_arg) #1 {
 entry:
-  %call = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 6230, ptr noundef nonnull @.str.901, ptr noundef nonnull @.str.1151, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @serverinfo_custom_v1, i64 0, i64 4), i64 noundef 3) #23
+  %call = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 6230, ptr noundef nonnull @.str.901, ptr noundef nonnull @.str.1151, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull getelementptr inbounds (i8, ptr @serverinfo_custom_v1, i64 4), i64 noundef 3) #23
   store i32 %call, ptr %parse_arg, align 4
   ret i32 1
 }

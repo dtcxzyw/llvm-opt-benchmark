@@ -45,7 +45,7 @@ define range(i32 -1, 1) i32 @ext_sensors_init() local_unnamed_addr #0 {
   br i1 %.not9, label %6, label %13
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 46), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 344), align 8
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %.sink.split, label %8
 
@@ -56,7 +56,7 @@ define range(i32 -1, 1) i32 @ext_sensors_init() local_unnamed_addr #0 {
   br i1 %.not11, label %10, label %.sink.split
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 46), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 344), align 8
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %11) #6
   br label %.sink.split
 
@@ -256,7 +256,7 @@ define i32 @ext_sensors_g_get_stepstartdata(ptr noundef %0) local_unnamed_addr #
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_ext_sensors_ops, ptr @ops, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %6 = tail call i32 %5(ptr noundef %0) #6
   br label %7
 
@@ -272,7 +272,7 @@ define i32 @ext_sensors_g_get_stependdata(ptr noundef %0) local_unnamed_addr #0 
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_ext_sensors_ops, ptr @ops, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %6 = tail call i32 %5(ptr noundef %0) #6
   br label %7
 
@@ -288,7 +288,7 @@ define noundef i32 @ext_sensors_g_get_config(ptr nocapture noundef writeonly %0)
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_ext_sensors_ops, ptr @ops, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %6 = tail call ptr %5() #6
   store ptr %6, ptr %0, align 8
   br label %7

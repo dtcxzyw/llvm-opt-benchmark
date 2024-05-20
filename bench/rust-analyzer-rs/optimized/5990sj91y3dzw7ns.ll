@@ -1900,7 +1900,7 @@ define void @_ZN8flycheck14FlycheckHandle5spawn17h423205518797f116E(ptr noalias 
   br i1 %35, label %36, label %_ZN8flycheck13FlycheckActor3new17h3748c88055f44e74E.exit
 
 36:                                               ; preds = %33
-  %37 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor3new10__CALLSITE17h9aec127049c3d317E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !391
+  %37 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor3new10__CALLSITE17h9aec127049c3d317E, i64 16) monotonic, align 8, !noalias !391
   switch i8 %37, label %38 [
     i8 0, label %_ZN8flycheck13FlycheckActor3new17h3748c88055f44e74E.exit
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -4031,7 +4031,7 @@ _ZN3std7process7Command11current_dir17h7a15ac82f1872ebdE.exit60.i: ; preds = %.n
   br i1 %537, label %538, label %.critedge
 
 538:                                              ; preds = %535
-  %539 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17hcc53dde2ca8c4de2E, i64 0, i32 1, i64 8) monotonic, align 8
+  %539 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17hcc53dde2ca8c4de2E, i64 16) monotonic, align 8
   switch i8 %539, label %540 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -4190,7 +4190,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %572, label %573, label %.critedge325
 
 573:                                              ; preds = %570
-  %574 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h4166b81587393f0aE, i64 0, i32 1, i64 8) monotonic, align 8
+  %574 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h4166b81587393f0aE, i64 16) monotonic, align 8
   switch i8 %574, label %575 [
     i8 0, label %.critedge325
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit407.thread
@@ -4555,7 +4555,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit432: ; preds = %613
   br i1 %658, label %659, label %.critedge329
 
 659:                                              ; preds = %656
-  %660 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h8b54ec8770a13c68E, i64 0, i32 1, i64 8) monotonic, align 8
+  %660 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h8b54ec8770a13c68E, i64 16) monotonic, align 8
   switch i8 %660, label %661 [
     i8 0, label %.critedge329
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit455.thread
@@ -4658,7 +4658,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit455
   br i1 %682, label %683, label %.critedge333
 
 683:                                              ; preds = %680
-  %684 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h3070d3bb490afce5E, i64 0, i32 1, i64 8) monotonic, align 8
+  %684 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h3070d3bb490afce5E, i64 16) monotonic, align 8
   switch i8 %684, label %685 [
     i8 0, label %.critedge333
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit470.thread
@@ -4847,7 +4847,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit491: ; preds = %711
   br i1 %725, label %726, label %.critedge338
 
 726:                                              ; preds = %723
-  %727 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17hb93d8488ecd34d15E, i64 0, i32 1, i64 8) monotonic, align 8
+  %727 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17hb93d8488ecd34d15E, i64 16) monotonic, align 8
   switch i8 %727, label %728 [
     i8 0, label %.critedge338
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit501.thread
@@ -5008,7 +5008,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit501
   br i1 %759, label %760, label %.critedge342
 
 760:                                              ; preds = %757
-  %761 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h93daf67dcf796433E, i64 0, i32 1, i64 8) monotonic, align 8
+  %761 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h93daf67dcf796433E, i64 16) monotonic, align 8
   switch i8 %761, label %762 [
     i8 0, label %.critedge342
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit513.thread
@@ -5403,7 +5403,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit513
   br i1 %864, label %865, label %.critedge346
 
 865:                                              ; preds = %862
-  %866 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h2191bc116e59fbe1E, i64 0, i32 1, i64 8) monotonic, align 8
+  %866 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor3run10__CALLSITE17h2191bc116e59fbe1E, i64 16) monotonic, align 8
   switch i8 %866, label %867 [
     i8 0, label %.critedge346
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit549.thread
@@ -5617,7 +5617,7 @@ define internal fastcc void @_ZN8flycheck13FlycheckActor20cancel_check_process17
   br i1 %16, label %17, label %.critedge36
 
 17:                                               ; preds = %14
-  %18 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN8flycheck13FlycheckActor20cancel_check_process10__CALLSITE17hdc172d1e3e235193E, i64 0, i32 1, i64 8) monotonic, align 8
+  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8flycheck13FlycheckActor20cancel_check_process10__CALLSITE17hdc172d1e3e235193E, i64 16) monotonic, align 8
   switch i8 %18, label %19 [
     i8 0, label %.critedge36
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

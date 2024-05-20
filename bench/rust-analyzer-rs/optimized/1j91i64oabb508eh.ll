@@ -28717,7 +28717,7 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17hdcef604afe02e13aE.
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -67145,7 +67145,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !15923
   store ptr %1248, ptr %27, align 8, !noalias !15923
   store i64 %1250, ptr %318, align 8, !noalias !15923
-  store ptr getelementptr inbounds (<{ [24 x i8] }>, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.633, i64 0, i32 0, i64 1), ptr %319, align 8, !noalias !15923
+  store ptr getelementptr inbounds (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.633, i64 1), ptr %319, align 8, !noalias !15923
   store i64 23, ptr %320, align 8, !noalias !15923
   %1259 = icmp ugt i64 %1250, 87
   br i1 %1259, label %.lr.ph.i38.i.preheader, label %._crit_edge.i.i
@@ -67235,7 +67235,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   br i1 %1287, label %.lr.ph.i.i, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.i, %1288
-  %.01730.i.i = phi ptr [ %1290, %1288 ], [ getelementptr inbounds (<{ [24 x i8] }>, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.633, i64 0, i32 0, i64 1), %.lr.ph.split.i ]
+  %.01730.i.i = phi ptr [ %1290, %1288 ], [ getelementptr inbounds (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.633, i64 1), %.lr.ph.split.i ]
   %.01829.i.i = phi ptr [ %1289, %1288 ], [ %gep23.i, %.lr.ph.split.i ]
   %.0.copyload.i.i = load i32, ptr %.01829.i.i, align 1, !alias.scope !15928, !noalias !15933
   %.0.copyload11.i.i = load i32, ptr %.01730.i.i, align 1, !alias.scope !15931, !noalias !15936
@@ -76894,7 +76894,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli5parse50_$LT$impl$u20$rust_analyzer..
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN13rust_analyzer3cli5parse50_$LT$impl$u20$rust_analyzer..cli..flags..Parse$GT$3run10__CALLSITE17h5a33fd48199c1899E", i64 0, i32 2, i32 0) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer3cli5parse50_$LT$impl$u20$rust_analyzer..cli..flags..Parse$GT$3run10__CALLSITE17h5a33fd48199c1899E", i64 16) monotonic, align 8
   switch i8 %20, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -85714,7 +85714,7 @@ define hidden noundef zeroext i1 @_ZN13rust_analyzer6reload25should_refresh_for_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, ptr %5, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, i64 1, i32 0), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, i64 64), ptr %35, align 8
   %36 = call fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc5d2f28974935879E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %32)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %36, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit77.thread", label %37
@@ -85739,7 +85739,7 @@ define hidden noundef zeroext i1 @_ZN13rust_analyzer6reload25should_refresh_for_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, ptr %4, align 8
   %45 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, i64 1, i32 0), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, i64 64), ptr %45, align 8
   %46 = call fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0c77dea408daf9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %44)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit77.thread"

@@ -3307,21 +3307,21 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13main_profiler, i8 0, i64 40, i1 false)
-  store i32 0, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !tbaa !36
-  store ptr null, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
-  store ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !37
-  store ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8, !tbaa !38
-  store i64 0, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8, !tbaa !39
-  store i32 0, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !tbaa !36
-  store ptr null, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
-  store ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !37
-  store ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3), align 8, !tbaa !38
-  store i64 0, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1), align 8, !tbaa !39
-  store i32 0, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !tbaa !36
-  store ptr null, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !4
-  store ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !37
-  store ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3), align 8, !tbaa !38
-  store i64 0, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1), align 8, !tbaa !39
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 48), align 8, !tbaa !36
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 56), align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 48), ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 64), align 8, !tbaa !37
+  store ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 48), ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 72), align 8, !tbaa !38
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 80), align 8, !tbaa !39
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 96), align 8, !tbaa !36
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 104), align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 96), ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 112), align 8, !tbaa !37
+  store ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 96), ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 120), align 8, !tbaa !38
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 128), align 8, !tbaa !39
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 144), align 8, !tbaa !36
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 152), align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 144), ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 160), align 8, !tbaa !37
+  store ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 144), ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 168), align 8, !tbaa !38
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 176), align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i) #20
   %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i.i.i) #20
   %1 = load i64, ptr %ts.i.i.i, align 8, !tbaa !40
@@ -3331,7 +3331,7 @@ entry:
   %div.i.i.i = udiv i64 %2, 1000000
   %add.i.i.i = add i64 %div.i.i.i, %mul.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i) #20
-  store i64 %add.i.i.i, ptr getelementptr inbounds (%class.Profiler, ptr @_ZL13main_profiler, i64 0, i32 4), align 8, !tbaa !43
+  store i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL13main_profiler, i64 184), align 8, !tbaa !43
   %3 = call i32 @__cxa_atexit(ptr nonnull @_ZN8ProfilerD2Ev, ptr nonnull @_ZL13main_profiler, ptr nonnull @__dso_handle) #20
   ret void
 }

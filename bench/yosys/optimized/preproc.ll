@@ -950,9 +950,9 @@ _ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys1
   br i1 %.not.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEEC2ISC_vEEv.exit
-  store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 8), align 8
   store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr @_ZN5YosysL11output_codeB5cxx11E, align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %73 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
   %.not8.i.i109 = icmp eq ptr %73, @_ZN5YosysL12input_bufferB5cxx11E
   br i1 %.not8.i.i109, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit113, label %.lr.ph.i.i110
@@ -967,9 +967,9 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.
   br i1 %.not.i.i112, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit113, label %.lr.ph.i.i110, !llvm.loop !6
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit113: ; preds = %.lr.ph.i.i110, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
-  store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 8), align 8
   store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %76 unwind label %.loopexit.split-lp281
@@ -1133,9 +1133,9 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.
 143:                                              ; preds = %.lr.ph.i
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8
   %144 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
-  %145 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %145 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %146 = add i64 %145, -1
-  store i64 %146, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %146, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #21
   %147 = getelementptr inbounds i8, ptr %144, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %147) #21
@@ -1320,9 +1320,9 @@ _ZNK5Yosys12define_map_t4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 201:                                              ; preds = %.lr.ph.i220
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8
   %202 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
-  %203 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %203 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %204 = add i64 %203, -1
-  store i64 %204, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %204, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %202) #21
   %205 = getelementptr inbounds i8, ptr %202, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %205) #21
@@ -1611,9 +1611,9 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %.noexc
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull @_ZN5YosysL11output_codeB5cxx11E) #21
-  %283 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %283 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %284 = add i64 %283, 1
-  store i64 %284, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %284, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   br label %860
 
 285:                                              ; preds = %274
@@ -1976,9 +1976,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   %410 = getelementptr inbounds i8, ptr %408, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %410, ptr noundef nonnull align 8 dereferenceable(32) %55) #21
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %408, ptr noundef nonnull @_ZN5YosysL11output_codeB5cxx11E) #21
-  %411 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %411 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %412 = add i64 %411, 1
-  store i64 %412, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %412, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #21
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit
 
@@ -2140,9 +2140,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %461 = getelementptr inbounds i8, ptr %459, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %461, ptr noundef nonnull align 8 dereferenceable(32) %60) #21
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %459, ptr noundef nonnull @_ZN5YosysL11output_codeB5cxx11E) #21
-  %462 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %462 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %463 = add i64 %462, 1
-  store i64 %463, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %463, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #21
@@ -2226,9 +2226,9 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
 
 487:                                              ; preds = %.noexc196
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %484, ptr noundef nonnull @_ZN5YosysL11output_codeB5cxx11E) #21
-  %488 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %488 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %489 = add i64 %488, 1
-  store i64 %489, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %489, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %490 = load ptr, ptr %98, align 8
   %491 = getelementptr inbounds i8, ptr %490, i64 -32
   %492 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %491)
@@ -2525,9 +2525,9 @@ _ZN5YosysL11skip_spacesB5cxx11Ev.exit.i.i:        ; preds = %533, %535
 555:                                              ; preds = %.lr.ph.i.i.i
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8, !noalias !18
   %556 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8, !noalias !18
-  %557 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  %557 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   %558 = add i64 %557, -1
-  store i64 %558, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  store i64 %558, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %556) #21, !noalias !18
   %559 = getelementptr inbounds i8, ptr %556, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %559) #21, !noalias !18
@@ -2641,9 +2641,9 @@ tailrecurse.backedge.i.i.i:                       ; preds = %.noexc.i.i, %555
 589:                                              ; preds = %.lr.ph.i51.i.i
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8, !noalias !18
   %590 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8, !noalias !18
-  %591 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  %591 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   %592 = add i64 %591, -1
-  store i64 %592, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  store i64 %592, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %590) #21, !noalias !18
   %593 = getelementptr inbounds i8, ptr %590, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %593) #21, !noalias !18
@@ -2737,9 +2737,9 @@ tailrecurse.backedge.i53.i.i:                     ; preds = %.noexc54.i.i, %589
 623:                                              ; preds = %.lr.ph.i56.i.i
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8, !noalias !18
   %624 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8, !noalias !18
-  %625 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  %625 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   %626 = add i64 %625, -1
-  store i64 %626, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  store i64 %626, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %624) #21, !noalias !18
   %627 = getelementptr inbounds i8, ptr %624, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %627) #21, !noalias !18
@@ -2840,9 +2840,9 @@ _ZN5YosysL11skip_spacesB5cxx11Ev.exit34.i.i:      ; preds = %615, %.noexc59.i.i,
 655:                                              ; preds = %.lr.ph.i61.i.i
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8, !noalias !18
   %656 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8, !noalias !18
-  %657 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  %657 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   %658 = add i64 %657, -1
-  store i64 %658, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  store i64 %658, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %656) #21, !noalias !18
   %659 = getelementptr inbounds i8, ptr %656, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %659) #21, !noalias !18
@@ -2929,9 +2929,9 @@ tailrecurse.backedge.i63.i.i:                     ; preds = %.noexc64.i.i, %655
 685:                                              ; preds = %.lr.ph.i66.i.i
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8, !noalias !18
   %686 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8, !noalias !18
-  %687 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  %687 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   %688 = add i64 %687, -1
-  store i64 %688, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !18
+  store i64 %688, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8, !noalias !18
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %686) #21, !noalias !18
   %689 = getelementptr inbounds i8, ptr %686, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %689) #21, !noalias !18
@@ -3603,9 +3603,9 @@ _ZN5YosysL11read_defineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN
   br i1 %.not.i.i210, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit211, label %.lr.ph.i.i208, !llvm.loop !6
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit211: ; preds = %.lr.ph.i.i208, %874
-  store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 8), align 8
   store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr @_ZN5YosysL11output_codeB5cxx11E, align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %878 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
   %.not8.i.i212 = icmp eq ptr %878, @_ZN5YosysL12input_bufferB5cxx11E
   br i1 %.not8.i.i212, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit216, label %.lr.ph.i.i213
@@ -3620,9 +3620,9 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.
   br i1 %.not.i.i215, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit216, label %.lr.ph.i.i213, !llvm.loop !6
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit216: ; preds = %.lr.ph.i.i213, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit211
-  store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 8), align 8
   store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8
   %881 = load ptr, ptr %32, align 8
   %882 = getelementptr inbounds i8, ptr %32, i64 8
@@ -3703,9 +3703,9 @@ define internal fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_string
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %14) #21
-  %20 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %21 = add i64 %20, 1
-  store i64 %21, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %21, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %22 = call noundef i32 @_ZN5Yosys8readsomeERSiPci(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i32 noundef 512)
@@ -3729,9 +3729,9 @@ define internal fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_string
   %30 = getelementptr inbounds i8, ptr %28, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef %14) #21
-  %31 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %32 = add i64 %31, 1
-  store i64 %32, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %32, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
   %33 = call noundef i32 @_ZN5Yosys8readsomeERSiPci(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i32 noundef 512)
@@ -3799,9 +3799,9 @@ define internal fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_string
   %53 = getelementptr inbounds i8, ptr %51, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef %14) #21
-  %54 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %54 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %55 = add i64 %54, 1
-  store i64 %55, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %55, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #21
   ret void
@@ -3923,9 +3923,9 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
 
 18:                                               ; preds = %.noexc
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @_ZN5YosysL11output_codeB5cxx11E) #21
-  %19 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %20 = add i64 %19, 1
-  store i64 %20, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %20, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %21 unwind label %22
@@ -4962,9 +4962,9 @@ define internal fastcc void @_ZN5YosysL11return_charEc(i8 noundef signext %0) un
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %9) #21
-  %13 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %14 = add i64 %13, 1
-  store i64 %14, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %14, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %25
@@ -5719,9 +5719,9 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE10push_frontERKS5_.exit: ; preds = %10
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %11) #21
-  %15 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %16 = add i64 %15, 1
-  store i64 %16, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %16, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   ret void
 }
 
@@ -5750,9 +5750,9 @@ define internal fastcc noundef signext i8 @_ZN5YosysL9next_charEv() unnamed_addr
 8:                                                ; preds = %.lr.ph
   store i64 0, ptr @_ZN5YosysL18input_buffer_charpE, align 8
   %9 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
-  %10 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %11 = add i64 %10, -1
-  store i64 %11, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
@@ -9753,13 +9753,13 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 define internal void @_GLOBAL__sub_I_preproc.cc() #15 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
-  store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 8), align 8
   store ptr @_ZN5YosysL11output_codeB5cxx11E, ptr @_ZN5YosysL11output_codeB5cxx11E, align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL11output_codeB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL11output_codeB5cxx11E, i64 16), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev, ptr nonnull @_ZN5YosysL11output_codeB5cxx11E, ptr nonnull @__dso_handle) #21
-  store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 8), align 8
   store ptr @_ZN5YosysL12input_bufferB5cxx11E, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::__cxx11::list", ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5YosysL12input_bufferB5cxx11E, i64 16), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev, ptr nonnull @_ZN5YosysL12input_bufferB5cxx11E, ptr nonnull @__dso_handle) #21
   ret void
 }

@@ -456,7 +456,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
-  store i64 624, ptr getelementptr inbounds (%"class.std::mersenne_twister_engine", ptr @_ZZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE6engine, i64 0, i32 1), align 8
+  store i64 624, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE6engine, i64 4992), align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE6engine) #13
   br label %init.end.i
 
@@ -472,7 +472,7 @@ init.check2.i:                                    ; preds = %init.end.i
 
 invoke.cont6.i:                                   ; preds = %init.check2.i
   store i32 0, ptr @_ZZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist, align 4
-  store i32 2147483647, ptr getelementptr inbounds (%"class.std::uniform_int_distribution", ptr @_ZZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist, i64 0, i32 0, i32 1), align 4
+  store i32 2147483647, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist, i64 4), align 4
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist) #13
   br label %init.end7.i
 

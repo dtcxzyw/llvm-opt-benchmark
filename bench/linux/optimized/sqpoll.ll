@@ -540,7 +540,7 @@ define dso_local i32 @io_sq_offload_create(ptr noundef %0, ptr nocapture noundef
   br i1 %81, label %.thread12.thread49, label %93
 
 .thread12.thread49:                               ; preds = %61, %.thread12, %26
-  %82 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %83 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %82, i32 noundef 3520, i64 noundef 144) #15
   %84 = icmp eq ptr %83, null
   br i1 %84, label %.thread13, label %85
@@ -768,7 +768,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
 
 29:                                               ; preds = %1
   %30 = call i32 @set_cpus_allowed_ptr(ptr noundef %7, ptr noundef nonnull @__cpu_online_mask) #14
-  %31 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !37
+  %31 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !37
   store i32 %31, ptr %16, align 4
   br label %32
 
@@ -843,14 +843,14 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %77 = call zeroext i1 @get_signal(ptr noundef nonnull %2) #14
   %78 = call i32 @__SCT__cond_resched() #14
   call void @mutex_lock(ptr noundef %33) #14
-  %79 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !38
+  %79 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !38
   store i32 %79, ptr %16, align 4
   br i1 %77, label %262, label %83
 
 80:                                               ; preds = %72
   %81 = call i32 @__SCT__cond_resched() #14
   call void @mutex_lock(ptr noundef %33) #14
-  %82 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !38
+  %82 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !38
   store i32 %82, ptr %16, align 4
   br label %83
 
@@ -1085,7 +1085,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   call void @mutex_unlock(ptr noundef %33) #14
   %214 = call i32 @__SCT__cond_resched() #14
   call void @mutex_lock(ptr noundef %33) #14
-  %215 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !42
+  %215 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !42
   store i32 %215, ptr %16, align 4
   br label %.backedge
 
@@ -1141,7 +1141,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   call void @mutex_unlock(ptr noundef %33) #14
   call void @schedule() #14
   call void @mutex_lock(ptr noundef %33) #14
-  %249 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !45
+  %249 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !45
   store i32 %249, ptr %16, align 4
   br label %.loopexit20
 

@@ -401,7 +401,7 @@ define dso_local i32 @intel_dp_mst_encoder_init(ptr noundef %0, i32 noundef %1) 
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %0, align 8
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %41 = tail call noalias noundef align 8 dereferenceable_or_null(408) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3520, i64 noundef 408) #13
   %42 = icmp eq ptr %41, null
   br i1 %42, label %70, label %43

@@ -1530,7 +1530,7 @@ call.i41.noexc:                                   ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i41.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2018,16 +2018,16 @@ init.check.i:                                     ; preds = %_ZNK8facebook5velox
 
 invoke.cont.i:                                    ; preds = %init.check.i
   store i32 0, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, align 16
-  store i32 2, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 4), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 5), i8 0, i64 5, i1 false)
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIKFbRKNS_7dynamicES5_EE10uninitCallES5_S5_RNS1_4DataE, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 10, i32 1), align 16
-  store ptr null, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 10, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 11), align 16
-  store i8 0, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 12), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 13), i8 0, i64 14, i1 false)
-  store i32 100, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 18), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 19, i32 0, i64 0), i8 0, i64 16, i1 false)
-  store i8 1, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 9), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 4), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 8), i8 0, i64 5, i1 false)
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIKFbRKNS_7dynamicES5_EE10uninitCallES5_S5_RNS1_4DataE, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 64), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 72), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 80), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 81), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 84), i8 0, i64 14, i1 false)
+  store i32 100, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 104), i8 0, i64 16, i1 false)
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 12), align 4
   %48 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly4json18serialization_optsD2Ev, ptr nonnull @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_) #27
   br label %invoke.cont168
@@ -2170,7 +2170,7 @@ call.i115.noexc:                                  ; preds = %if.then213
           to label %.noexc120 unwind label %lpad215
 
 .noexc120:                                        ; preds = %call.i115.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 4))
           to label %invoke.cont216 unwind label %lpad.i118
 
 lpad.i118:                                        ; preds = %.noexc120
@@ -2927,7 +2927,7 @@ call.i40.noexc:                                   ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i40.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3581,16 +3581,16 @@ init.check.i:                                     ; preds = %_ZNK8facebook5velox
 
 invoke.cont.i:                                    ; preds = %init.check.i
   store i32 0, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, align 16
-  store i32 2, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 4), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 5), i8 0, i64 5, i1 false)
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIKFbRKNS_7dynamicES5_EE10uninitCallES5_S5_RNS1_4DataE, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 10, i32 1), align 16
-  store ptr null, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 10, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 11), align 16
-  store i8 0, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 12), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 13), i8 0, i64 14, i1 false)
-  store i32 100, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 18), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 19, i32 0, i64 0), i8 0, i64 16, i1 false)
-  store i8 1, ptr getelementptr inbounds (%"struct.folly::json::serialization_opts", ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 0, i32 9), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 4), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 8), i8 0, i64 5, i1 false)
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIKFbRKNS_7dynamicES5_EE10uninitCallES5_S5_RNS1_4DataE, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 64), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 72), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 80), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 81), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 84), i8 0, i64 14, i1 false)
+  store i32 100, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 104), i8 0, i64 16, i1 false)
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, i64 12), align 4
   %65 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly4json18serialization_optsD2Ev, ptr nonnull @_ZZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox12_GLOBAL__N_17getOptsEvE5opts_) #27
   br label %invoke.cont141
@@ -3721,7 +3721,7 @@ call.i197.noexc:                                  ; preds = %if.then185
           to label %.noexc202 unwind label %lpad187
 
 .noexc202:                                        ; preds = %call.i197.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 4))
           to label %invoke.cont188 unwind label %lpad.i200
 
 lpad.i200:                                        ; preds = %.noexc202
@@ -4075,7 +4075,7 @@ invoke.cont4:                                     ; preds = %if.end.i
   %u_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %u_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %u_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #27
-  %call9 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantObj, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds ([6 x i8], ptr @.str.12, i64 0, i64 5))
+  %call9 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantObj, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds (i8, ptr @.str.12, i64 5))
           to label %invoke.cont8 unwind label %lpad6
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -4123,7 +4123,7 @@ invoke.cont23:                                    ; preds = %invoke.cont19
   %u_.i13 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store ptr null, ptr %u_.i13, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %u_.i13, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #27
-  %call28 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantObj, ptr nonnull @.str.13, ptr nonnull getelementptr inbounds ([12 x i8], ptr @.str.13, i64 0, i64 11))
+  %call28 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantObj, ptr nonnull @.str.13, ptr nonnull getelementptr inbounds (i8, ptr @.str.13, i64 11))
           to label %invoke.cont27 unwind label %lpad25
 
 invoke.cont27:                                    ; preds = %invoke.cont23
@@ -4344,7 +4344,7 @@ invoke.cont7:                                     ; preds = %.noexc
   %u_.i25 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %u_.i25, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %u_.i25, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #27
-  %call12 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds ([5 x i8], ptr @.str.14, i64 0, i64 4))
+  %call12 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds (i8, ptr @.str.14, i64 4))
           to label %invoke.cont11 unwind label %lpad9
 
 invoke.cont11:                                    ; preds = %invoke.cont7
@@ -4352,7 +4352,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #27
-  %call18 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds ([6 x i8], ptr @.str.12, i64 0, i64 5))
+  %call18 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds (i8, ptr @.str.12, i64 5))
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont11
@@ -4714,7 +4714,7 @@ invoke.cont154:                                   ; preds = %if.end
   %u_.i181 = getelementptr inbounds i8, ptr %ref.tmp153, i64 8
   store i32 4, ptr %ref.tmp153, align 8
   store i64 -1, ptr %u_.i181, align 8
-  %call159 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds ([6 x i8], ptr @.str.12, i64 0, i64 5))
+  %call159 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds (i8, ptr @.str.12, i64 5))
           to label %invoke.cont165 unwind label %lpad156
 
 invoke.cont165:                                   ; preds = %invoke.cont154
@@ -4723,7 +4723,7 @@ invoke.cont165:                                   ; preds = %invoke.cont154
   %u_.i185 = getelementptr inbounds i8, ptr %ref.tmp162, i64 8
   store i32 4, ptr %ref.tmp162, align 8
   store i64 %ts.sroa.0.0.copyload, ptr %u_.i185, align 8
-  %call170 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.15, ptr nonnull getelementptr inbounds ([8 x i8], ptr @.str.15, i64 0, i64 7))
+  %call170 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.15, ptr nonnull getelementptr inbounds (i8, ptr @.str.15, i64 7))
           to label %invoke.cont176 unwind label %lpad167
 
 invoke.cont176:                                   ; preds = %invoke.cont165
@@ -4732,7 +4732,7 @@ invoke.cont176:                                   ; preds = %invoke.cont165
   %u_.i189 = getelementptr inbounds i8, ptr %ref.tmp173, i64 8
   store i32 4, ptr %ref.tmp173, align 8
   store i64 %ts.sroa.2.0.copyload, ptr %u_.i189, align 8
-  %call181 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.16, ptr nonnull getelementptr inbounds ([6 x i8], ptr @.str.16, i64 0, i64 5))
+  %call181 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.16, ptr nonnull getelementptr inbounds (i8, ptr @.str.16, i64 5))
           to label %invoke.cont180 unwind label %lpad178
 
 invoke.cont180:                                   ; preds = %invoke.cont176
@@ -4920,12 +4920,12 @@ invoke.cont14:                                    ; preds = %invoke.cont12, %inv
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %u_.i22, align 8
   %chunkMask_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chunkMask_.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %call18 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.17, ptr nonnull getelementptr inbounds ([5 x i8], ptr @.str.17, i64 0, i64 4))
+  %call18 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.17, ptr nonnull getelementptr inbounds (i8, ptr @.str.17, i64 4))
           to label %invoke.cont17 unwind label %lpad15
 
 invoke.cont17:                                    ; preds = %invoke.cont14
   %call19 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %call18, ptr noundef nonnull align 8 dereferenceable(40) %keys) #27
-  %call23 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds ([7 x i8], ptr @.str.18, i64 0, i64 6))
+  %call23 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds (i8, ptr @.str.18, i64 6))
           to label %invoke.cont22 unwind label %lpad15
 
 invoke.cont22:                                    ; preds = %invoke.cont17
@@ -4960,7 +4960,7 @@ entry:
   %deserializeFunc = alloca %"class.std::function.26", align 8
   %value = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::shared_ptr.14", align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.13, ptr nonnull getelementptr inbounds ([12 x i8], ptr @.str.13, i64 0, i64 11))
+  %call.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.13, ptr nonnull getelementptr inbounds (i8, ptr @.str.13, i64 11))
   call void @_ZNK5folly7dynamic6asImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_v(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %call.i)
   %call.i6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
@@ -5093,7 +5093,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZSt20dynamic_po
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
-  %call.i1314 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds ([6 x i8], ptr @.str.12, i64 0, i64 5))
+  %call.i1314 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds (i8, ptr @.str.12, i64 5))
           to label %invoke.cont12 unwind label %lpad10
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -5649,14 +5649,14 @@ entry:
   %result = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp81 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp88 = alloca %"class.std::__cxx11::basic_string", align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds ([5 x i8], ptr @.str.14, i64 0, i64 4))
+  %call.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds (i8, ptr @.str.14, i64 4))
   call void @_ZNK5folly7dynamic6asImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_v(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %call.i)
   %call1 = invoke noundef signext i8 @_ZN8facebook5velox17mapNameToTypeKindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
-  %call.i44 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds ([6 x i8], ptr @.str.12, i64 0, i64 5))
+  %call.i44 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds (i8, ptr @.str.12, i64 5))
   %0 = load i32, ptr %call.i44, align 8
   %cmp.not.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i, label %if.then, label %if.end
@@ -5704,11 +5704,11 @@ sw.bb:                                            ; preds = %if.end
   store ptr %2, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %map, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %call.i4849 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %call.i44, ptr nonnull @.str.17, ptr nonnull getelementptr inbounds ([5 x i8], ptr @.str.17, i64 0, i64 4))
+  %call.i4849 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %call.i44, ptr nonnull @.str.17, ptr nonnull getelementptr inbounds (i8, ptr @.str.17, i64 4))
           to label %invoke.cont8 unwind label %lpad6.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %sw.bb
-  %call.i5354 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %call.i44, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds ([7 x i8], ptr @.str.18, i64 0, i64 6))
+  %call.i5354 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %call.i44, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds (i8, ptr @.str.18, i64 6))
           to label %invoke.cont12 unwind label %lpad6.loopexit.split-lp
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -6666,7 +6666,7 @@ sw.bb131:                                         ; preds = %if.end
   br label %return
 
 sw.bb132:                                         ; preds = %if.end
-  %call.i225 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.15, ptr nonnull getelementptr inbounds ([8 x i8], ptr @.str.15, i64 0, i64 7))
+  %call.i225 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.15, ptr nonnull getelementptr inbounds (i8, ptr @.str.15, i64 7))
   %76 = load i32, ptr %call.i225, align 8
   switch i32 %76, label %sw.default.i.i241 [
     i32 4, label %sw.bb.i.i239
@@ -6706,7 +6706,7 @@ sw.default.i.i241:                                ; preds = %sw.bb132
 
 _ZNK5folly7dynamic5asIntEv.exit242:               ; preds = %sw.bb.i.i239, %sw.bb4.i.i236, %sw.bb7.i.i233, %sw.bb10.i.i226
   %retval.0.i.i232 = phi i64 [ %call2.i.i.i231, %sw.bb10.i.i226 ], [ %conv.i.i.i.i.i235, %sw.bb7.i.i233 ], [ %call6.i.i238, %sw.bb4.i.i236 ], [ %77, %sw.bb.i.i239 ]
-  %call.i246 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.16, ptr nonnull getelementptr inbounds ([6 x i8], ptr @.str.16, i64 0, i64 5))
+  %call.i246 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %variantobj, ptr nonnull @.str.16, ptr nonnull getelementptr inbounds (i8, ptr @.str.16, i64 5))
   %80 = load i32, ptr %call.i246, align 8
   switch i32 %80, label %sw.default.i.i262 [
     i32 4, label %sw.bb.i.i260
@@ -9382,7 +9382,7 @@ entry:
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #31
           to label %invoke.cont unwind label %lpad
 
@@ -9400,7 +9400,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #11 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #26
   unreachable
 }
@@ -9433,8 +9433,8 @@ invoke.cont2:                                     ; preds = %init
   %3 = getelementptr inbounds i8, ptr %call, i64 8
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i8 3, ptr %kind_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8DateTypeE, i64 0, i32 0, i64 2), ptr %call, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8DateTypeE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 160), ptr %3, align 8
   invoke void @_ZNSt10shared_ptrIKN8facebook5velox8DateTypeEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8facebook5velox8DateType3getEvE5kType, ptr noundef nonnull %call)
           to label %invoke.cont3 unwind label %lpad
 
@@ -9511,7 +9511,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EEC2I
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i, align 8
   %_M_ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i.i.i, align 8
   store ptr %call.i.i.i, ptr %_M_refcount.i, align 8
@@ -9784,7 +9784,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.24, ptr nonnull getelementptr inbounds ([5 x i8], ptr @.str.24, i64 0, i64 4))
+  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.24, ptr nonnull getelementptr inbounds (i8, ptr @.str.24, i64 4))
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -9801,7 +9801,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %call14 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds ([5 x i8], ptr @.str.14, i64 0, i64 4))
+  %call14 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds (i8, ptr @.str.14, i64 4))
           to label %invoke.cont13 unwind label %lpad11
 
 invoke.cont13:                                    ; preds = %invoke.cont9
@@ -10643,7 +10643,7 @@ entry:
 define linkonce_odr void @_ZN5folly9TypeErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -11151,7 +11151,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #31
           to label %invoke.cont unwind label %lpad
 
@@ -11169,7 +11169,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessIvEE, ptr nonnull @_ZN5folly17BadExpectedAccessIvED2Ev) #26
   unreachable
 }
@@ -11220,7 +11220,7 @@ entry:
 define linkonce_odr void @_ZN5folly15ConversionErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #5 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15ConversionErrorE, i64 16), ptr %this, align 8
   %code_ = getelementptr inbounds i8, ptr %this, i64 16
   %code_2 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %code_2, align 8
@@ -11243,7 +11243,7 @@ declare void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %args) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.59", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 16), ptr %ref.tmp, align 8
   %error_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i8 %args, ptr %error_.i, align 8
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #31
@@ -11263,7 +11263,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ex) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 16), ptr %exception, align 8
   %error_.i = getelementptr inbounds i8, ptr %exception, i64 8
   %error_2.i = getelementptr inbounds i8, ptr %ex, i64 8
   %0 = load i8, ptr %error_2.i, align 8

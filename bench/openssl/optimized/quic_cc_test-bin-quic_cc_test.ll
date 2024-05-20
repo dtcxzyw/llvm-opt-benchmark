@@ -120,7 +120,7 @@ if.end7:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp8, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp10) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp10, i64 40, i1 false)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 24), align 8
   %call12 = call i32 %1(ptr noundef %call1, ptr noundef nonnull %params) #8
   %cmp13 = icmp ne i32 %call12, 0
   %conv14 = zext i1 %cmp13 to i32
@@ -136,7 +136,7 @@ if.end18:                                         ; preds = %if.end7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp23, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp25) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr22, ptr noundef nonnull align 8 dereferenceable(40) %tmp25, i64 40, i1 false)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 32), align 8
   %call27 = call i32 %2(ptr noundef %call1, ptr noundef nonnull %params) #8
   %cmp28 = icmp ne i32 %call27, 0
   %conv29 = zext i1 %cmp28 to i32
@@ -145,9 +145,9 @@ if.end18:                                         ; preds = %if.end7
   br i1 %tobool31.not, label %if.then95, label %if.end33
 
 if.end33:                                         ; preds = %if.end18
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 16), align 8
   call void %3(ptr noundef %call1) #8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 6), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 48), align 8
   %call34 = call i64 %4(ptr noundef %call1) #8
   %5 = load i64, ptr %mdpl, align 8
   %call35 = call i32 @test_uint64_t_ge(ptr noundef nonnull @.str.2, i32 noundef 373, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %call34, i64 noundef %5) #8
@@ -314,7 +314,7 @@ if.end96:                                         ; preds = %entry, %if.end, %if
   br i1 %cmp97.not, label %if.end100, label %if.then99
 
 if.then99:                                        ; preds = %if.end96
-  %23 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 1), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 8), align 8
   call void %23(ptr noundef nonnull %call1) #8
   br label %if.end100
 
@@ -354,7 +354,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp5, i64 40, i1 false)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 24), align 8
   %call7 = call i32 %1(ptr noundef %call1, ptr noundef nonnull %params) #8
   %cmp = icmp ne i32 %call7, 0
   %conv = zext i1 %cmp to i32
@@ -363,7 +363,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool9.not, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 16), align 8
   call void %2(ptr noundef %call1) #8
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp14, ptr noundef nonnull @.str.5, ptr noundef nonnull %diag_mdpl) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp14, i64 40, i1 false)
@@ -372,7 +372,7 @@ if.end11:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp16, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp18) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr15, ptr noundef nonnull align 8 dereferenceable(40) %tmp18, i64 40, i1 false)
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 32), align 8
   %call20 = call i32 %3(ptr noundef %call1, ptr noundef nonnull %params) #8
   %cmp21 = icmp ne i32 %call20, 0
   %conv22 = zext i1 %cmp21 to i32
@@ -387,14 +387,14 @@ lor.lhs.false:                                    ; preds = %if.end11
   br i1 %tobool26.not, label %err, label %if.end28
 
 if.end28:                                         ; preds = %lor.lhs.false
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 6), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 48), align 8
   %call29 = call i64 %5(ptr noundef %call1) #8
   %call30 = call i32 @test_uint64_t_ge(ptr noundef nonnull @.str.2, i32 noundef 521, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.32, i64 noundef %call29, i64 noundef 1472) #8
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %if.end33
 
 if.end33:                                         ; preds = %if.end28
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 7), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 56), align 8
   %call34 = call i64 %6(ptr noundef %call1) #8
   %cmp.i.not.not.i = icmp eq i64 %call34, 0
   %conv.i = zext i1 %cmp.i.not.not.i to i32
@@ -409,7 +409,7 @@ if.end43:                                         ; preds = %if.end33
   br i1 %tobool45.not, label %err, label %if.end47
 
 if.end47:                                         ; preds = %if.end43
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 64), align 8
   %call48 = call i32 %8(ptr noundef %call1, i64 noundef 1200) #8
   %cmp49 = icmp ne i32 %call48, 0
   %conv50 = zext i1 %cmp49 to i32
@@ -431,7 +431,7 @@ if.end60:                                         ; preds = %if.end54
   store i64 1200, ptr %tx_size, align 8
   %retval.sroa.0.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %9, i64 100000000)
   store i64 %retval.sroa.0.0.i.i, ptr @fake_time.0, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 72), align 8
   %call61 = call i32 %10(ptr noundef %call1, ptr noundef nonnull %ack_info) #8
   %cmp62 = icmp ne i32 %call61, 0
   %conv63 = zext i1 %cmp62 to i32
@@ -460,7 +460,7 @@ if.end81:                                         ; preds = %if.end73
   br i1 %tobool86.not, label %err, label %if.end88
 
 if.end88:                                         ; preds = %if.end81
-  %11 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 12), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 96), align 8
   %call89 = call i32 %11(ptr noundef %call1, i64 noundef 1200) #8
   %cmp90 = icmp ne i32 %call89, 0
   %conv91 = zext i1 %cmp90 to i32
@@ -510,7 +510,7 @@ if.end131:                                        ; preds = %if.end123
   store i64 1200, ptr %tx_size133, align 8
   %retval.sroa.0.0.i.i56 = call i64 @llvm.uadd.sat.i64(i64 %12, i64 100000000)
   store i64 %retval.sroa.0.0.i.i56, ptr @fake_time.0, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 10), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 80), align 8
   %call134 = call i32 %13(ptr noundef %call1, ptr noundef nonnull %loss_info) #8
   %cmp135 = icmp ne i32 %call134, 0
   %conv136 = zext i1 %cmp135 to i32
@@ -528,7 +528,7 @@ if.end140:                                        ; preds = %if.end131
   br i1 %tobool147.not, label %err, label %if.end149
 
 if.end149:                                        ; preds = %if.end140
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 11), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 88), align 8
   %call150 = call i32 %14(ptr noundef %call1, i32 noundef 0) #8
   %cmp151 = icmp ne i32 %call150, 0
   %conv152 = zext i1 %cmp151 to i32
@@ -555,7 +555,7 @@ err:                                              ; preds = %if.end162, %if.end1
   br i1 %cmp169.not, label %if.end172, label %if.then171
 
 if.then171:                                       ; preds = %err
-  %15 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_newreno_method, i64 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 8), align 8
   call void %15(ptr noundef nonnull %call1) #8
   br label %if.end172
 

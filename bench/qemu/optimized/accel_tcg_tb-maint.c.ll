@@ -111,7 +111,7 @@ entry:
   br i1 %tobool, label %while.end, label %if.end4
 
 while.end:                                        ; preds = %entry
-  %1 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 1) monotonic, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @tb_ctx, i64 72) monotonic, align 8
   %tcg_cflags.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %2 = load i32, ptr %tcg_cflags.i, align 16
   %and.i = and i32 %2, 32768
@@ -146,7 +146,7 @@ define internal void @do_tb_flush(ptr nocapture readnone %cpu, i64 %tb_flush_cou
 entry:
   %tb_flush_count.sroa.0.0.extract.trunc = trunc i64 %tb_flush_count.coerce to i32
   tail call void @mmap_lock() #8
-  %0 = load i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 1), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @tb_ctx, i64 72), align 8
   %cmp.not = icmp eq i32 %0, %tb_flush_count.sroa.0.0.extract.trunc
   br i1 %cmp.not, label %if.end, label %if.end9.critedge
 
@@ -172,7 +172,7 @@ if.then8:                                         ; preds = %for.body, %if.end
   tail call void @llvm.assume(i1 %call.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @tb_root, i8 0, i64 16, i1 false)
   tail call void @tcg_region_reset_all() #8
-  %3 = atomicrmw add ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 1), i32 1 seq_cst, align 8
+  %3 = atomicrmw add ptr getelementptr inbounds (i8, ptr @tb_ctx, i64 72), i32 1 seq_cst, align 8
   tail call void @mmap_unlock() #8
   tail call void @qemu_plugin_flush_cb() #8
   br label %if.end9
@@ -462,9 +462,9 @@ for.body.i20:                                     ; preds = %qemu_spin_lock.exit
 tb_jmp_unlink.exit:                               ; preds = %for.body.i20, %qemu_spin_lock.exit.i
   store i64 0, ptr %jmp_list_head.i, align 8
   store atomic i32 0, ptr %jmp_lock release, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 2), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @tb_ctx, i64 76), align 4
   %add = add i32 %27, 1
-  store atomic i32 %add, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 2) monotonic, align 4
+  store atomic i32 %add, ptr getelementptr inbounds (i8, ptr @tb_ctx, i64 76) monotonic, align 4
   br label %do.end23
 
 do.end23:                                         ; preds = %cond.end, %tb_jmp_unlink.exit

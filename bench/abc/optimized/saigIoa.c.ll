@@ -841,13 +841,13 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
   ]
 
 70:                                               ; preds = %65
-  %71 = select i1 %68, ptr getelementptr inbounds ([1000 x i8], ptr @Saig_ManReadToken.Buffer, i64 0, i64 1), ptr inttoptr (i64 1 to ptr)
+  %71 = select i1 %68, ptr getelementptr inbounds (i8, ptr @Saig_ManReadToken.Buffer, i64 1), ptr inttoptr (i64 1 to ptr)
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %72, 111
   br i1 %73, label %78, label %.thread
 
 74:                                               ; preds = %65
-  %75 = select i1 %68, ptr getelementptr inbounds ([1000 x i8], ptr @Saig_ManReadToken.Buffer, i64 0, i64 1), ptr inttoptr (i64 1 to ptr)
+  %75 = select i1 %68, ptr getelementptr inbounds (i8, ptr @Saig_ManReadToken.Buffer, i64 1), ptr inttoptr (i64 1 to ptr)
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 105
   br i1 %77, label %78, label %.thread
@@ -949,7 +949,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   %117 = xor i64 %116, 1
   %118 = inttoptr i64 %117 to ptr
   %.1142 = select i1 %115, ptr %118, ptr %66
-  %119 = load i8, ptr getelementptr inbounds ([1000 x i8], ptr @Saig_ManReadToken.Buffer, i64 0, i64 1), align 1
+  %119 = load i8, ptr getelementptr inbounds (i8, ptr @Saig_ManReadToken.Buffer, i64 1), align 1
   %120 = icmp eq i8 %119, 48
   %121 = ptrtoint ptr %93 to i64
   %122 = xor i64 %121, 1

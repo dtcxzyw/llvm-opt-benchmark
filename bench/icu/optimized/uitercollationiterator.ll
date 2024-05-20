@@ -676,7 +676,7 @@ while.end:                                        ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7525FCDUIterCollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUIterCollationIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUIterCollationIteratorE, i64 16), ptr %this, align 8
   %normalized = getelementptr inbounds i8, ptr %this, i64 424
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #8
   tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(389) %this) #8
@@ -983,7 +983,7 @@ if.end:                                           ; preds = %entry
   %call3 = tail call noundef i32 %2(ptr noundef %1, i32 noundef 1)
   %pos = getelementptr inbounds i8, ptr %this, i64 408
   store i32 %call3, ptr %pos, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %s, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %nfcImpl = getelementptr inbounds i8, ptr %this, i64 416
@@ -1803,7 +1803,7 @@ if.end:                                           ; preds = %entry
   %call3 = tail call noundef i32 %2(ptr noundef %1, i32 noundef 1)
   %pos = getelementptr inbounds i8, ptr %this, i64 408
   store i32 %call3, ptr %pos, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %s, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %nfcImpl = getelementptr inbounds i8, ptr %this, i64 416

@@ -1506,7 +1506,7 @@ _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.
   br i1 %120, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc61f2e9ef3253165E.exit.thread.i", label %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i
 
 _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i: ; preds = %.noexc.i, %117
-  %.0.i.i2.i.i = phi ptr [ %119, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %117 ]
+  %.0.i.i2.i.i = phi ptr [ %119, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 8), %117 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %13), !noalias !164
   %121 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !165, !noundef !4
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !165
@@ -2156,7 +2156,7 @@ _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.
   br i1 %123, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb4212615594d0112E.exit.thread.i", label %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i
 
 _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i: ; preds = %.noexc.i, %120
-  %.0.i.i2.i.i = phi ptr [ %122, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %120 ]
+  %.0.i.i2.i.i = phi ptr [ %122, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 8), %120 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13), !noalias !295
   %124 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !296, !noundef !4
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !296
@@ -2719,7 +2719,7 @@ _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.
   br i1 %104, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h8cac62d87c5ec774E.exit.thread.i", label %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i
 
 _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i: ; preds = %.noexc.i, %101
-  %.0.i.i2.i.i = phi ptr [ %103, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %101 ]
+  %.0.i.i2.i.i = phi ptr [ %103, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 8), %101 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !397
   %105 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !398, !noundef !4
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !398
@@ -5311,7 +5311,7 @@ _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.
   br i1 %85, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h982c20888ef8f45bE.exit.thread.i", label %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i
 
 _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i: ; preds = %.noexc.i, %82
-  %.0.i.i2.i.i = phi ptr [ %84, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %82 ]
+  %.0.i.i2.i.i = phi ptr [ %84, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 8), %82 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14), !noalias !891
   %86 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !892, !noundef !4
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !892
@@ -5896,7 +5896,7 @@ _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.
   br i1 %85, label %.thread.i, label %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i
 
 _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i: ; preds = %.noexc.i, %82
-  %.0.i.i2.i.i = phi ptr [ %84, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %82 ]
+  %.0.i.i2.i.i = phi ptr [ %84, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 8), %82 ]
   %86 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !1004, !noundef !4
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !1004
   %87 = icmp eq ptr %86, null
@@ -6494,7 +6494,7 @@ _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.
   br i1 %86, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7073a54a92ebddefE.exit.thread.i", label %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i
 
 _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.thread.i.i: ; preds = %.noexc.i, %83
-  %.0.i.i2.i.i = phi ptr [ %85, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %83 ]
+  %.0.i.i2.i.i = phi ptr [ %85, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit5__KEY17h9d7b82ebe255881cE, i64 8), %83 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %14), !noalias !1116
   %87 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !1117, !noundef !4
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !1117
@@ -9106,7 +9106,7 @@ _ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exi
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h72a2df0a97f0d903E.exit": ; preds = %9, %_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exit.i
-  %.0.i.i2.i = phi ptr [ %11, %_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exit.i ], [ getelementptr inbounds ({ { { { i8, [1 x i8] } } }, i8 }, ptr @_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit5__KEY17h5689eb701fe52d9eE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %9 ]
+  %.0.i.i2.i = phi ptr [ %11, %_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit5__KEY17h5689eb701fe52d9eE, i64 1), %9 ]
   %14 = ptrtoint ptr %.0.i.i2.i to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
@@ -10741,7 +10741,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.3794
 
 _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15399028824041462682.exit.i: ; preds = %.noexc20, %.noexc19
   %.0.i.i.i = phi i8 [ %54, %.noexc20 ], [ 0, %.noexc19 ]
-  %55 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17he880462d8402345fE.llvm.15399028824041462682(ptr noundef nonnull getelementptr inbounds ({ { { i32 } }, { { i8 } }, { {} }, [3 x i8] }, ptr @_ZN5ctrlc9INIT_LOCK17hacfd50eeb1d20db6E, i64 0, i32 1, i32 0, i32 0), i8 noundef 0)
+  %55 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17he880462d8402345fE.llvm.15399028824041462682(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5ctrlc9INIT_LOCK17hacfd50eeb1d20db6E, i64 4), i8 noundef 0)
           to label %56 unwind label %.thread51
 
 56:                                               ; preds = %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15399028824041462682.exit.i
@@ -10804,7 +10804,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15399028824041462682.exi
 
 73:                                               ; preds = %.noexc.i
   store i32 %.sroa.08.0.extract.trunc.i.i.i, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, align 4, !noalias !1787
-  store i32 %.sroa.49.0.extract.trunc.i.i.i, ptr getelementptr inbounds ({ i32, i32 }, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 0, i32 1), align 4, !noalias !1787
+  store i32 %.sroa.49.0.extract.trunc.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 4), align 4, !noalias !1787
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !1787
   %74 = getelementptr inbounds i8, ptr %34, i64 4
   store i32 2048, ptr %74, align 4, !noalias !1787
@@ -10819,7 +10819,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15399028824041462682.exi
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %.noexc13.i
-  %79 = load i32, ptr getelementptr inbounds ({ i32, i32 }, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 0, i32 1), align 4, !noalias !1787, !noundef !4
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 4), align 4, !noalias !1787, !noundef !4
   %80 = invoke noundef i32 @_ZN3nix6unistd5close17h114740ff7da26d85E(i32 noundef %79)
           to label %.noexc14.i unwind label %.thread64.i, !noalias !1787
 
@@ -10862,7 +10862,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15399028824041462682.exi
 88:                                               ; preds = %.noexc17.i
   %89 = getelementptr inbounds i8, ptr %30, i64 4
   %90 = load i32, ptr %89, align 4, !range !1797, !noalias !1787, !noundef !4
-  %91 = load i32, ptr getelementptr inbounds ({ i32, i32 }, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 0, i32 1), align 4, !noalias !1787, !noundef !4
+  %91 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 4), align 4, !noalias !1787, !noundef !4
   %92 = invoke noundef i32 @_ZN3nix6unistd5close17h114740ff7da26d85E(i32 noundef %91)
           to label %.noexc18.i unwind label %.thread64.i, !noalias !1787
 
@@ -10924,7 +10924,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15399028824041462682.exi
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc0255717ce0e5783E.exit43.i.i": ; preds = %.noexc22.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %29), !noalias !1787
-  %108 = load i32, ptr getelementptr inbounds ({ i32, i32 }, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 0, i32 1), align 4, !noalias !1787, !noundef !4
+  %108 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 4), align 4, !noalias !1787, !noundef !4
   %109 = invoke noundef i32 @_ZN3nix6unistd5close17h114740ff7da26d85E(i32 noundef %108)
           to label %.noexc24.i unwind label %.thread64.i, !noalias !1787
 
@@ -10967,7 +10967,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17hc46dfb620e438475E.exit.thread68.i: ; 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc0255717ce0e5783E.exit40.i.i": ; preds = %.noexc26.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %26), !noalias !1787
-  %121 = load i32, ptr getelementptr inbounds ({ i32, i32 }, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 0, i32 1), align 4, !noalias !1787, !noundef !4
+  %121 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 4), align 4, !noalias !1787, !noundef !4
   %122 = invoke noundef i32 @_ZN3nix6unistd5close17h114740ff7da26d85E(i32 noundef %121)
           to label %.noexc28.i unwind label %.thread64.i, !noalias !1787
 
@@ -11039,7 +11039,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17hc46dfb620e438475E.exit.thread68.i: ; 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc0255717ce0e5783E.exit34.i.i": ; preds = %.noexc34.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %24), !noalias !1787
-  %140 = load i32, ptr getelementptr inbounds ({ i32, i32 }, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 0, i32 1), align 4, !noalias !1787, !noundef !4
+  %140 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 4), align 4, !noalias !1787, !noundef !4
   %141 = invoke noundef i32 @_ZN3nix6unistd5close17h114740ff7da26d85E(i32 noundef %140)
           to label %.noexc36.i unwind label %.thread64.i, !noalias !1787
 
@@ -11100,7 +11100,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17hc46dfb620e438475E.exit.thread68.i: ; 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc0255717ce0e5783E.exit28.i.i": ; preds = %.noexc40.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %20), !noalias !1787
-  %157 = load i32, ptr getelementptr inbounds ({ i32, i32 }, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 0, i32 1), align 4, !noalias !1787, !noundef !4
+  %157 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 4), align 4, !noalias !1787, !noundef !4
   %158 = invoke noundef i32 @_ZN3nix6unistd5close17h114740ff7da26d85E(i32 noundef %157)
           to label %.noexc42.i unwind label %.thread64.i, !noalias !1787
 
@@ -11187,7 +11187,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17hc46dfb620e438475E.exit.thread.i: ; pr
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc0255717ce0e5783E.exit.i.i": ; preds = %.noexc49.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %17), !noalias !1787
-  %178 = load i32, ptr getelementptr inbounds ({ i32, i32 }, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 0, i32 1), align 4, !noalias !1787, !noundef !4
+  %178 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17ha91bf93646113975E, i64 4), align 4, !noalias !1787, !noundef !4
   %179 = invoke noundef i32 @_ZN3nix6unistd5close17h114740ff7da26d85E(i32 noundef %178)
           to label %.noexc51.i unwind label %.thread64.i, !noalias !1787
 
@@ -11391,7 +11391,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.379493074
   br i1 %230, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3794930749485918955.exit.i.i, label %231
 
 231:                                              ; preds = %.noexc28
-  store atomic i8 1, ptr getelementptr inbounds ({ { { i32 } }, { { i8 } }, { {} }, [3 x i8] }, ptr @_ZN5ctrlc9INIT_LOCK17hacfd50eeb1d20db6E, i64 0, i32 1, i32 0, i32 0) monotonic, align 4, !noalias !1898
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc9INIT_LOCK17hacfd50eeb1d20db6E, i64 4) monotonic, align 4, !noalias !1898
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3794930749485918955.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3794930749485918955.exit.i.i: ; preds = %231, %.noexc28, %226, %225
@@ -11437,7 +11437,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.379493074
   br i1 %243, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3794930749485918955.exit.i.i31, label %244
 
 244:                                              ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3794930749485918955.exit.i.i.i30
-  store atomic i8 1, ptr getelementptr inbounds ({ { { i32 } }, { { i8 } }, { {} }, [3 x i8] }, ptr @_ZN5ctrlc9INIT_LOCK17hacfd50eeb1d20db6E, i64 0, i32 1, i32 0, i32 0) monotonic, align 4, !noalias !1904
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc9INIT_LOCK17hacfd50eeb1d20db6E, i64 4) monotonic, align 4, !noalias !1904
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3794930749485918955.exit.i.i31
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3794930749485918955.exit.i.i31: ; preds = %244, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3794930749485918955.exit.i.i.i30, %239, %238

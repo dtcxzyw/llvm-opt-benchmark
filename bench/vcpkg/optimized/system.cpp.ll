@@ -684,7 +684,7 @@ define internal fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv"() unnamed_a
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkg12get_home_dirEvE6s_home, ptr noundef nonnull align 8 dereferenceable(32) %7) #23
-  store i8 1, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 0, i32 1), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 32), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   br label %66
 
@@ -765,7 +765,7 @@ define internal fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv"() unnamed_a
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkg12get_home_dirEvE6s_home, ptr noundef nonnull align 8 dereferenceable(32) %10) #23
-  store i8 1, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 0, i32 1), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 32), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   br label %66
@@ -783,7 +783,7 @@ define internal fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv"() unnamed_a
 
 64:                                               ; preds = %39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkg12get_home_dirEvE6s_home, ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  store i8 0, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 32), align 8
   br label %66
 
 65:                                               ; preds = %62, %60
@@ -899,19 +899,19 @@ define internal fastcc void @_ZN5vcpkgL18get_xdg_cache_homeEv() unnamed_addr #0 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZNS_24get_platform_cache_vcpkgEvE3$_0EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS6_ELi0EEEvEEEES2_EES6_"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.vcpkg::Path", align 8
-  %2 = load i8, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 0, i32 1), align 8
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %0
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkg24get_platform_cache_vcpkgEvE7s_vcpkg, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home)
-  store i8 1, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkg24get_platform_cache_vcpkgEvE7s_vcpkg, i64 0, i32 1), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg24get_platform_cache_vcpkgEvE7s_vcpkg, i64 32), align 8
   br label %6
 
 5:                                                ; preds = %0
   call void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, ptr nonnull @.str.53, i64 5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkg24get_platform_cache_vcpkgEvE7s_vcpkg, ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  store i8 0, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkg24get_platform_cache_vcpkgEvE7s_vcpkg, i64 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg24get_platform_cache_vcpkgEvE7s_vcpkg, i64 32), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   br label %6
 
@@ -949,7 +949,7 @@ define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN5vcpkg27get
 
 12:                                               ; preds = %11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkg27get_user_configuration_homeEvE6result, ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  store i8 0, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkg27get_user_configuration_homeEvE6result, i64 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg27get_user_configuration_homeEvE6result, i64 32), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
@@ -1080,7 +1080,7 @@ define internal fastcc void @"_ZZN5vcpkg24get_program_files_32_bitEvENK3$_0clEv"
 
 _ZN5vcpkg8OptionalINS_4PathEEC2IRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESD_EEiE4typeELi0EEEOSD_.exit: ; preds = %6
   store i8 1, ptr @_ZZN5vcpkg24get_program_files_32_bitEvE16PROGRAMFILES_x86, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkg24get_program_files_32_bitEvE16PROGRAMFILES_x86, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %1) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5vcpkg24get_program_files_32_bitEvE16PROGRAMFILES_x86, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   br label %_ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit
@@ -1132,12 +1132,12 @@ _ZN5vcpkgL17get_program_filesEv.exit:             ; preds = %18, %15, %12
   %22 = load i8, ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, align 8
   %23 = and i8 %22, 1
   store i8 %23, ptr @_ZZN5vcpkg24get_program_files_32_bitEvE16PROGRAMFILES_x86, align 8
-  store i8 0, ptr getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkg24get_program_files_32_bitEvE16PROGRAMFILES_x86, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg24get_program_files_32_bitEvE16PROGRAMFILES_x86, i64 8), align 8
   %24 = trunc i8 %22 to i1
   br i1 %24, label %25, label %_ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit
 
 25:                                               ; preds = %_ZN5vcpkgL17get_program_filesEv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkg24get_program_files_32_bitEvE16PROGRAMFILES_x86, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5vcpkg24get_program_files_32_bitEvE16PROGRAMFILES_x86, i64 8), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, i64 8))
           to label %_ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit unwind label %7
 
 _ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit:       ; preds = %_ZN5vcpkgL17get_program_filesEv.exit, %25, %_ZN5vcpkg8OptionalINS_4PathEEC2IRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESD_EEiE4typeELi0EEEOSD_.exit
@@ -1218,7 +1218,7 @@ define internal fastcc void @"_ZZN5vcpkg34get_program_files_platform_bitnessEvEN
 
 _ZN5vcpkg8OptionalINS_4PathEEC2IRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESD_EEiE4typeELi0EEEOSD_.exit: ; preds = %6
   store i8 1, ptr @_ZZN5vcpkg34get_program_files_platform_bitnessEvE12ProgramW6432, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkg34get_program_files_platform_bitnessEvE12ProgramW6432, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %1) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5vcpkg34get_program_files_platform_bitnessEvE12ProgramW6432, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   br label %_ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit
@@ -1270,12 +1270,12 @@ _ZN5vcpkgL17get_program_filesEv.exit:             ; preds = %18, %15, %12
   %22 = load i8, ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, align 8
   %23 = and i8 %22, 1
   store i8 %23, ptr @_ZZN5vcpkg34get_program_files_platform_bitnessEvE12ProgramW6432, align 8
-  store i8 0, ptr getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkg34get_program_files_platform_bitnessEvE12ProgramW6432, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg34get_program_files_platform_bitnessEvE12ProgramW6432, i64 8), align 8
   %24 = trunc i8 %22 to i1
   br i1 %24, label %25, label %_ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit
 
 25:                                               ; preds = %_ZN5vcpkgL17get_program_filesEv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkg34get_program_files_platform_bitnessEvE12ProgramW6432, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5vcpkg34get_program_files_platform_bitnessEvE12ProgramW6432, i64 8), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, i64 8))
           to label %_ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit unwind label %7
 
 _ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit:       ; preds = %_ZN5vcpkgL17get_program_filesEv.exit, %25, %_ZN5vcpkg8OptionalINS_4PathEEC2IRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESD_EEiE4typeELi0EEEOSD_.exit
@@ -1663,7 +1663,7 @@ define dso_local void @_ZN5vcpkg16get_host_os_nameB5cxx11Ev(ptr dead_on_unwind n
           to label %.noexc1 unwind label %6
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.21, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %4
 
 4:                                                ; preds = %.noexc1
@@ -4911,7 +4911,7 @@ define internal fastcc void @"_ZZN5vcpkgL18get_xdg_cache_homeEvENK3$_0clEv"() un
 
 9:                                                ; preds = %8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  store i8 0, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   br label %34
 
@@ -4962,7 +4962,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
 _ZN5vcpkg12get_home_dirEv.exit:                   ; preds = %15, %18, %21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %26 = load i8, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 0, i32 1), align 8
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 32), align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %29
 
@@ -4971,7 +4971,7 @@ _ZN5vcpkg12get_home_dirEv.exit:                   ; preds = %15, %18, %21
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %28
-  store i8 1, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 0, i32 1), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
   br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.exit"
 
 29:                                               ; preds = %_ZN5vcpkg12get_home_dirEv.exit
@@ -4985,7 +4985,7 @@ _ZN5vcpkg12get_home_dirEv.exit:                   ; preds = %15, %18, %21
 31:                                               ; preds = %.noexc3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  store i8 0, ptr getelementptr inbounds (%"struct.vcpkg::ExpectedT", ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.exit"
@@ -5037,7 +5037,7 @@ define internal fastcc void @"_ZZN5vcpkgL17get_program_filesEvENK3$_0clEv"() unn
 
 _ZN5vcpkg8OptionalINS_4PathEEC2IRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESD_EEiE4typeELi0EEEOSD_.exit: ; preds = %6
   store i8 1, ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %1) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   %.pre = load i8, ptr %2, align 8
@@ -5059,7 +5059,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
 
 12:                                               ; preds = %0
   store i8 0, ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, align 8
-  store i8 0, ptr getelementptr inbounds (%"struct.vcpkg::Optional.13", ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL17get_program_filesEvE12PROGRAMFILES, i64 8), align 8
   br label %13
 
 13:                                               ; preds = %_ZN5vcpkg8OptionalINS_4PathEEC2IRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESD_EEiE4typeELi0EEEOSD_.exit, %12

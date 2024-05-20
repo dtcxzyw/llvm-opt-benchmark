@@ -517,11 +517,11 @@ do.body:                                          ; preds = %if.end, %if.end13
   %frombool = zext i1 %is_datapath to i8
   %next = getelementptr inbounds i8, ptr %nc, i64 16
   store ptr null, ptr %next, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%union.NetClientStateList, ptr @net_clients, i64 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @net_clients, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %nc, i64 24
   store ptr %2, ptr %tql_prev, align 8
   store ptr %nc, ptr %2, align 8
-  store ptr %next, ptr getelementptr inbounds (%union.NetClientStateList, ptr @net_clients, i64 0, i32 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @net_clients, i64 8), align 8
   %call19 = tail call ptr @qemu_new_net_queue(ptr noundef nonnull @qemu_deliver_packet_iov, ptr noundef nonnull %nc) #26
   %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   store ptr %call19, ptr %incoming_queue, align 8
@@ -885,7 +885,7 @@ if.then.i:                                        ; preds = %for.body35
   br label %if.end.i26
 
 if.else.i:                                        ; preds = %for.body35
-  store ptr %23, ptr getelementptr inbounds (%union.NetClientStateList, ptr @net_clients, i64 0, i32 0, i32 1), align 8
+  store ptr %23, ptr getelementptr inbounds (i8, ptr @net_clients, i64 8), align 8
   br label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.else.i, %if.then.i
@@ -933,7 +933,7 @@ if.then.i31:                                      ; preds = %for.body44
   br label %if.end.i34
 
 if.else.i38:                                      ; preds = %for.body44
-  store ptr %29, ptr getelementptr inbounds (%union.NetClientStateList, ptr @net_clients, i64 0, i32 0, i32 1), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @net_clients, i64 8), align 8
   br label %if.end.i34
 
 if.end.i34:                                       ; preds = %if.else.i38, %if.then.i31
@@ -1205,7 +1205,7 @@ if.then.i24:                                      ; preds = %for.body11
   br label %if.end.i25
 
 if.else.i:                                        ; preds = %for.body11
-  store ptr %17, ptr getelementptr inbounds (%union.NetClientStateList, ptr @net_clients, i64 0, i32 0, i32 1), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @net_clients, i64 8), align 8
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.else.i, %if.then.i24
@@ -3206,7 +3206,7 @@ entry:
   %call = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @net_vm_change_state_handler, ptr noundef null) #26
   store ptr %call, ptr @net_change_state_entry, align 8
   store ptr null, ptr @net_clients, align 8
-  store ptr @net_clients, ptr getelementptr inbounds (%union.NetClientStateList, ptr @net_clients, i64 0, i32 0, i32 1), align 8
+  store ptr @net_clients, ptr getelementptr inbounds (i8, ptr @net_clients, i64 8), align 8
   %0 = load ptr, ptr @nd_queue, align 8
   %cmp.not6.i = icmp eq ptr %0, null
   br i1 %cmp.not6.i, label %netdev_init_modern.exit, label %while.body.i
@@ -3220,7 +3220,7 @@ while.body.i:                                     ; preds = %entry, %if.end.i
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  store ptr @nd_queue, ptr getelementptr inbounds (%struct.NetdevQueue, ptr @nd_queue, i64 0, i32 1), align 8
+  store ptr @nd_queue, ptr getelementptr inbounds (i8, ptr @nd_queue, i64 8), align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
@@ -3679,7 +3679,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @netdev_is_modern.dummy_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #26
-  %1 = load ptr, ptr getelementptr inbounds ({ ptr, ptr, i8, %union.anon.3, [1 x %struct.QemuOptDesc] }, ptr @netdev_is_modern.dummy_opts, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @netdev_is_modern.dummy_opts, i64 8), align 8
   %call2 = tail call zeroext i1 @qemu_opts_do_parse(ptr noundef %call, ptr noundef nonnull %optstr, ptr noundef %1, ptr noundef nonnull @error_abort) #26
   %call3 = tail call ptr @qemu_opt_get(ptr noundef %call, ptr noundef nonnull @.str.47) #26
   %call4 = tail call i32 @g_strcmp0(ptr noundef %call3, ptr noundef nonnull @.str.20) #26
@@ -3722,9 +3722,9 @@ entry:
   %call4 = tail call ptr @loc_save(ptr noundef nonnull %loc) #26
   %entry5 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr null, ptr %entry5, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.NetdevQueue, ptr @nd_queue, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @nd_queue, i64 8), align 8
   store ptr %call1, ptr %0, align 8
-  store ptr %entry5, ptr getelementptr inbounds (%struct.NetdevQueue, ptr @nd_queue, i64 0, i32 1), align 8
+  store ptr %entry5, ptr getelementptr inbounds (i8, ptr @nd_queue, i64 8), align 8
   ret void
 }
 

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %codepageData, ptr noundef %codepage) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %cmp.not = icmp eq ptr %codepageData, null
@@ -219,7 +219,7 @@ declare void @_ZN6icu_7511ReplaceableD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %codepageData, i32 noundef %dataLength, ptr noundef %codepage) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %cmp.not = icmp eq ptr %codepageData, null
@@ -242,7 +242,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2EPKciP10UConverterR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %src, i32 noundef %srcLength, ptr noundef %cnv, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %0 = load i32, ptr %errorCode, align 4

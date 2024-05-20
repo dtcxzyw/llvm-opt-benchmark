@@ -222,7 +222,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !34
   store ptr %.sroa.8.251, ptr %4, align 8, !noalias !34
   store i64 %.sroa.10.254, ptr %8, align 8, !noalias !34
-  store ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.d4739f4442136ec9c59c44b5f8840570.23, i64 0, i32 0, i64 1), ptr %9, align 8, !noalias !34
+  store ptr getelementptr inbounds (i8, ptr @anon.d4739f4442136ec9c59c44b5f8840570.23, i64 1), ptr %9, align 8, !noalias !34
   store i64 1, ptr %10, align 8, !noalias !34
   %41 = icmp ugt i64 %.sroa.10.254, 65
   br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.i

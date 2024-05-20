@@ -556,7 +556,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tree_msg_to_srun(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
   %4 = tail call i32 @slurm_open_stream(ptr noundef %3, i1 noundef zeroext true) #7
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %12, label %6
@@ -587,7 +587,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0, ptr noun
   %5 = alloca ptr, align 8
   store i32 %0, ptr %4, align 4
   store ptr null, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
   %7 = tail call i32 @slurm_open_stream(ptr noundef %6, i1 noundef zeroext true) #7
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %99, label %9
@@ -965,7 +965,7 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
   br label %83
 
 30:                                               ; preds = %23
-  %31 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 8), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 48), align 8
   %32 = load i32, ptr %3, align 4
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds i32, ptr %31, i64 %33
@@ -995,9 +995,9 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
   br i1 %or.cond, label %49, label %52
 
 49:                                               ; preds = %44
-  %50 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   store i32 %50, ptr @tasks_to_wait, align 4
-  %51 = load i32, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 3), align 4
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @tree_info, i64 20), align 4
   br label %52
 
 52:                                               ; preds = %49, %44
@@ -1023,7 +1023,7 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
   br i1 %63, label %65, label %69
 
 65:                                               ; preds = %64
-  %66 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 1), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
   %.not20 = icmp eq ptr %66, null
   %..str.23 = select i1 %.not20, ptr @.str.23, ptr %66
   %67 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.22, ptr noundef nonnull %..str.23) #7
@@ -1036,7 +1036,7 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
 
 71:                                               ; preds = %69, %65
   %72 = load i32, ptr @job_info, align 8
-  %73 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   %74 = call i32 @slurm_kill_job_step(i32 noundef %72, i32 noundef %73, i16 noundef zeroext 9, i16 noundef zeroext 0) #7
   br label %77
 
@@ -1180,7 +1180,7 @@ define internal range(i32 -1, 1) i32 @_handle_kvs_fence_resp(i32 %0, ptr noundef
   %.013.ph = phi ptr [ @.str.31, %25 ], [ @.str.34, %.loopexit ]
   %56 = call i32 @send_kvs_fence_resp_to_clients(i32 noundef -1, ptr noundef nonnull %.013.ph) #7
   %57 = load i32, ptr @job_info, align 8
-  %58 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   %59 = call i32 @slurm_kill_job_step(i32 noundef %57, i32 noundef %58, i16 noundef zeroext 9, i16 noundef zeroext 0) #7
   br label %61
 
@@ -1464,7 +1464,7 @@ define internal i32 @_handle_name_publish(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %.not10, label %13, label %21
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
   %.not11 = icmp eq ptr %14, null
   %15 = load ptr, ptr %4, align 8
   %16 = load ptr, ptr %5, align 8
@@ -1523,7 +1523,7 @@ define internal i32 @_handle_name_unpublish(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %10, label %17
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
   %.not9 = icmp eq ptr %11, null
   %12 = load ptr, ptr %4, align 8
   br i1 %.not9, label %15, label %13
@@ -1586,7 +1586,7 @@ define internal i32 @_handle_name_lookup(i32 noundef %0, ptr noundef %1) #0 {
   br label %26
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
   %.not15 = icmp eq ptr %13, null
   %14 = load ptr, ptr %4, align 8
   br i1 %.not15, label %17, label %15

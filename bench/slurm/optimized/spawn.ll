@@ -301,8 +301,8 @@ define void @spawn_req_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @spawn_req_pack(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 18), align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 1), align 4
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 12), align 4
   %5 = tail call ptr @auth_g_create(i32 noundef 0, ptr noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -536,7 +536,7 @@ define range(i32 -1, 1) i32 @spawn_req_unpack(ptr nocapture noundef writeonly %0
   br label %128
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 18), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
   %10 = tail call i32 @auth_g_verify(ptr noundef nonnull %4, ptr noundef %9) #10
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11
@@ -1208,19 +1208,19 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
   br label %19
 
 19:                                               ; preds = %18, %15
-  %20 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 13), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 80), align 8
   %21 = tail call ptr @slurm_env_array_copy(ptr noundef %20) #10
   store ptr %21, ptr %7, align 8
   %22 = load i32, ptr @job_info, align 8
   %23 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %22) #10
-  %24 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 64), align 8
   %25 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %7, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %24) #10
-  %26 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 64), align 8
   %27 = load i32, ptr %0, align 8
   %28 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %26, i32 noundef %27) #10
   %29 = load i32, ptr %0, align 8
   %30 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef %29) #10
-  %31 = load i16, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), align 8
+  %31 = load i16, ptr getelementptr inbounds (i8, ptr @tree_info, i64 32), align 8
   %32 = zext i16 %31 to i32
   %33 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef %32) #10
   %34 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1289,7 +1289,7 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
   %74 = load ptr, ptr %6, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr @.str.21, ptr %75, align 8
-  %76 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 15), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 96), align 8
   %.not.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i, label %89, label %77
 
@@ -1305,7 +1305,7 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
   %84 = getelementptr inbounds i8, ptr %74, i64 16
   store ptr @.str.22, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %74, i64 24
-  %86 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 15), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 96), align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 536
   %88 = load ptr, ptr %87, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %85, ptr noundef nonnull @.str.23, ptr noundef %88) #10
@@ -1714,7 +1714,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   store ptr @.str.21, ptr %290, align 8
   %291 = getelementptr inbounds i8, ptr %289, i64 16
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %291, ptr noundef nonnull @.str.24, i32 noundef %.047.lcssa.i.i) #10
-  %292 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 15), align 8
+  %292 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 96), align 8
   %.not57.i.i = icmp eq ptr %292, null
   br i1 %.not57.i.i, label %306, label %293
 
@@ -1731,7 +1731,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %301 = getelementptr inbounds i8, ptr %300, i64 24
   store ptr @.str.22, ptr %301, align 8
   %302 = getelementptr inbounds i8, ptr %300, i64 32
-  %303 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 15), align 8
+  %303 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 96), align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 536
   %305 = load ptr, ptr %304, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %302, ptr noundef nonnull @.str.23, ptr noundef %305) #10
@@ -1779,15 +1779,15 @@ _exec_srun_multiple.exit.i:                       ; preds = %322, %318, %216
   %326 = load i32, ptr %0, align 8
   store i32 %326, ptr %325, align 8
   %327 = getelementptr inbounds i8, ptr %325, i64 8
-  %328 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), align 8
+  %328 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 64), align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %327, ptr noundef nonnull @.str.10, ptr noundef %328, i32 noundef %326) #10
   %329 = getelementptr inbounds i8, ptr %325, i64 20
   store i32 0, ptr %329, align 4
   %330 = getelementptr inbounds i8, ptr %325, i64 4
   store i32 -1, ptr %330, align 4
   %331 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 647, ptr noundef nonnull @__func__._setup_exec_srun) #10
-  store ptr %331, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
-  %332 = load i16, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), align 8
+  store ptr %331, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
+  %332 = load i16, ptr getelementptr inbounds (i8, ptr @tree_info, i64 32), align 8
   call void @slurm_set_addr(ptr noundef %331, i16 noundef zeroext %332, ptr noundef nonnull @.str.18) #10
   %333 = call i32 @spawn_resp_send_to_srun(ptr noundef nonnull %325)
   call void @spawn_resp_free(ptr noundef nonnull %325)
@@ -1822,7 +1822,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 define void @spawn_job_wait() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 15), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 96), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %4
 

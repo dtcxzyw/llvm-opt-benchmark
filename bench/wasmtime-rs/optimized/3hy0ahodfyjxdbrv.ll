@@ -21638,7 +21638,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 18:                                               ; preds = %2, %.noexc
-  %.0.i.i2.i = phi ptr [ %12, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i = phi ptr [ %12, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   %19 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !5920
   %20 = extractelement <2 x i64> %19, i64 0
   %21 = add i64 %20, 1
@@ -21689,7 +21689,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i15: 
   unreachable
 
 32:                                               ; preds = %22, %.noexc19
-  %.0.i.i2.i17 = phi ptr [ %26, %.noexc19 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %22 ]
+  %.0.i.i2.i17 = phi ptr [ %26, %.noexc19 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %22 ]
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
   %33 = load <2 x i64>, ptr %.0.i.i2.i17, align 8, !noalias !5931
   %34 = extractelement <2 x i64> %33, i64 0
@@ -21724,7 +21724,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i25: 
   unreachable
 
 42:                                               ; preds = %32, %.noexc29
-  %.0.i.i2.i27 = phi ptr [ %37, %.noexc29 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %32 ]
+  %.0.i.i2.i27 = phi ptr [ %37, %.noexc29 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %32 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 24
   %44 = getelementptr inbounds i8, ptr %0, i64 72
   %45 = getelementptr inbounds i8, ptr %0, i64 120
@@ -26326,7 +26326,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %29
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i, %3
-  %.0.i.i2.i.i = phi ptr [ %7, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %3 ]
+  %.0.i.i2.i.i = phi ptr [ %7, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %3 ]
   %9 = load i64, ptr %.0.i.i2.i.i, align 8, !noalias !7024, !noundef !9
   %10 = icmp ult i64 %9, 9223372036854775807
   br i1 %10, label %11, label %20
@@ -27500,7 +27500,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 10:                                               ; preds = %1, %.noexc
-  %.0.i.i2.i = phi ptr [ %5, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i2.i = phi ptr [ %5, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -29031,7 +29031,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
           to label %44 unwind label %42
 
 36:                                               ; preds = %.noexc.i, %18
-  %.0.i.i2.i.i = phi ptr [ %29, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %18 ]
+  %.0.i.i2.i.i = phi ptr [ %29, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %18 ]
   %.sroa.530.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.530, i64 4
   %37 = getelementptr inbounds i8, ptr %0, i64 856
   %.sroa.5.0..sroa_idx23 = getelementptr inbounds i8, ptr %0, i64 864
@@ -31219,7 +31219,7 @@ define void @"_ZN93_$LT$cranelift_codegen..isa..x64..X64Backend$u20$as$u20$crane
   %.sroa.0.0.copyload2.i = load <2 x i8>, ptr %4, align 8, !alias.scope !8075, !noalias !8079
   store ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, ptr %3, align 8, !alias.scope !8070, !noalias !8073
   %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [14 x i8], [2 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8], ptr, [8 x i8], ptr, [13 x i8], [3 x i8] }>, ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, i64 1, i32 0), ptr %5, align 8, !alias.scope !8070, !noalias !8073
+  store ptr getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, i64 3280), ptr %5, align 8, !alias.scope !8070, !noalias !8073
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   store <2 x i8> %.sroa.0.0.copyload2.i, ptr %6, align 8, !alias.scope !8070, !noalias !8073
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9599b0ce11d283ffE.llvm.14502953478370073462"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
@@ -32080,7 +32080,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %30
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i, %4
-  %.0.i.i2.i.i = phi ptr [ %8, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i.i = phi ptr [ %8, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %4 ]
   %10 = load i64, ptr %.0.i.i2.i.i, align 8, !noalias !8247, !noundef !9
   %11 = icmp ult i64 %10, 9223372036854775807
   br i1 %11, label %12, label %21
@@ -34657,7 +34657,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br i1 %7, label %16, label %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %2
-  %.0.i.i6.i = phi ptr [ %6, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %2 ]
+  %.0.i.i6.i = phi ptr [ %6, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %2 ]
   %8 = load i64, ptr %.0.i.i6.i, align 8, !noalias !8645, !noundef !9
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd6fd7d12acc59b43E.exit", label %10
@@ -34766,7 +34766,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %26
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread: ; preds = %1, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit
-  %.0.i.i2 = phi ptr [ %4, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %1 ]
+  %.0.i.i2 = phi ptr [ %4, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %1 ]
   %6 = load i64, ptr %.0.i.i2, align 8, !noalias !8656, !noundef !9
   %7 = icmp ult i64 %6, 9223372036854775807
   br i1 %7, label %8, label %17
@@ -35311,7 +35311,7 @@ _ZN17cranelift_codegen6timing9PASS_TIME7__getit17haa0e113a66222ef9E.exit.i: ; pr
   br label %15
 
 _ZN17cranelift_codegen6timing9PASS_TIME7__getit17haa0e113a66222ef9E.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing9PASS_TIME7__getit17haa0e113a66222ef9E.exit.i, %1
-  %.0.i.i2.i = phi ptr [ %5, %_ZN17cranelift_codegen6timing9PASS_TIME7__getit17haa0e113a66222ef9E.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [808 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing9PASS_TIME7__getit5__KEY17h6f2cb9e525a340cbE, i64 0, i32 1, i64 0), %1 ]
+  %.0.i.i2.i = phi ptr [ %5, %_ZN17cranelift_codegen6timing9PASS_TIME7__getit17haa0e113a66222ef9E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing9PASS_TIME7__getit5__KEY17h6f2cb9e525a340cbE, i64 8), %1 ]
   call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %3), !noalias !8684
   %7 = load i64, ptr %.0.i.i2.i, align 8, !noalias !8685, !noundef !9
   %8 = icmp eq i64 %7, 0
@@ -36077,7 +36077,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %35
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i, %2
-  %.0.i.i2.i.i = phi ptr [ %13, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i.i = phi ptr [ %13, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %2 ]
   %15 = load i64, ptr %.0.i.i2.i.i, align 8, !noalias !8835, !noundef !9
   %16 = icmp ult i64 %15, 9223372036854775807
   br i1 %16, label %17, label %26
@@ -38571,7 +38571,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9366, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -38638,7 +38638,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9389, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -38705,7 +38705,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9412, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -38772,7 +38772,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9435, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -38839,7 +38839,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9458, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -38906,7 +38906,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9481, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -38973,7 +38973,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9504, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39040,7 +39040,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9527, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39107,7 +39107,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9550, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39174,7 +39174,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9573, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39241,7 +39241,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9596, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39308,7 +39308,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9619, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39375,7 +39375,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9642, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39442,7 +39442,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9665, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39509,7 +39509,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9688, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39576,7 +39576,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9711, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39643,7 +39643,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9734, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39710,7 +39710,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9757, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39777,7 +39777,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9780, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39844,7 +39844,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9803, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39911,7 +39911,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9826, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -39978,7 +39978,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9849, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -40045,7 +40045,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9872, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -40112,7 +40112,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9895, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -40179,7 +40179,7 @@ _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789
   br label %25
 
 _ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.thread.i: ; preds = %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %3, %_ZN17cranelift_codegen6timing8PROFILER7__getit17h34b5238340b5cdfcE.llvm.17595789031839490487.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %0 ]
   %5 = load i64, ptr %.0.i.i2.i, align 8, !noalias !9918, !noundef !9
   %6 = icmp ult i64 %5, 9223372036854775807
   br i1 %6, label %7, label %16
@@ -40240,7 +40240,7 @@ define hidden noundef align 8 ptr @_ZN17cranelift_codegen6timing8PROFILER7__geti
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17hdabdc0b6c3992dc5E.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17hdabdc0b6c3992dc5E.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (<{ [8 x i8], [24 x i8], [1 x i8], [7 x i8] }>, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen6timing8PROFILER7__getit5__KEY17h7dd12834d1ac3cb0E, i64 8), %1 ]
   ret ptr %.0.i
 }
 

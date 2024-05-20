@@ -295,7 +295,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
 
 75:                                               ; preds = %50
   %76 = load i64, ptr @loc_empty, align 8
-  %77 = load i64, ptr getelementptr inbounds (%struct._dfilter_loc, ptr @loc_empty, i64 0, i32 1), align 8
+  %77 = load i64, ptr getelementptr inbounds (i8, ptr @loc_empty, i64 8), align 8
   %78 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %76, i64 %77) #5
   %79 = getelementptr i8, ptr %52, i64 -24
   %80 = load ptr, ptr %79, align 8
@@ -305,13 +305,13 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
   %84 = call ptr @stnode_dup(ptr noundef %83) #5
   call void @sttype_oper_set2(ptr noundef %78, i32 noundef 3, ptr noundef %81, ptr noundef %84) #5
   %85 = load i64, ptr @loc_empty, align 8
-  %86 = load i64, ptr getelementptr inbounds (%struct._dfilter_loc, ptr @loc_empty, i64 0, i32 1), align 8
+  %86 = load i64, ptr getelementptr inbounds (i8, ptr @loc_empty, i64 8), align 8
   %87 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %85, i64 %86) #5
   %88 = load ptr, ptr %79, align 8
   %89 = load ptr, ptr %82, align 8
   call void @sttype_oper_set2(ptr noundef %87, i32 noundef 2, ptr noundef %88, ptr noundef %89) #5
   %90 = load i64, ptr @loc_empty, align 8
-  %91 = load i64, ptr getelementptr inbounds (%struct._dfilter_loc, ptr @loc_empty, i64 0, i32 1), align 8
+  %91 = load i64, ptr getelementptr inbounds (i8, ptr @loc_empty, i64 8), align 8
   %92 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %90, i64 %91) #5
   call void @sttype_oper_set1(ptr noundef %92, i32 noundef 1, ptr noundef %87) #5
   %93 = getelementptr i8, ptr %52, i64 -8
@@ -943,7 +943,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %451 = getelementptr i8, ptr %52, i64 -8
   %452 = load ptr, ptr %451, align 8
   %453 = load i64, ptr @loc_empty, align 8
-  %454 = load i64, ptr getelementptr inbounds (%struct._dfilter_loc, ptr @loc_empty, i64 0, i32 1), align 8
+  %454 = load i64, ptr getelementptr inbounds (i8, ptr @loc_empty, i64 8), align 8
   %455 = call ptr @stnode_new(i32 noundef 12, ptr noundef %452, ptr noundef null, i64 %453, i64 %454) #5
   %456 = getelementptr i8, ptr %52, i64 -24
   %457 = load ptr, ptr %456, align 8
@@ -959,7 +959,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
 
 462:                                              ; preds = %50
   %463 = load i64, ptr @loc_empty, align 8
-  %464 = load i64, ptr getelementptr inbounds (%struct._dfilter_loc, ptr @loc_empty, i64 0, i32 1), align 8
+  %464 = load i64, ptr getelementptr inbounds (i8, ptr @loc_empty, i64 8), align 8
   %465 = call ptr @stnode_new(i32 noundef 10, ptr noundef null, ptr noundef null, i64 %463, i64 %464) #5
   %466 = getelementptr i8, ptr %52, i64 -40
   %467 = load ptr, ptr %466, align 8
@@ -1226,7 +1226,7 @@ yy_shift.exit:                                    ; preds = %yyStackOverflow.exi
 
 612:                                              ; preds = %610
   %613 = load i64, ptr @loc_empty, align 8
-  %614 = load i64, ptr getelementptr inbounds (%struct._dfilter_loc, ptr @loc_empty, i64 0, i32 1), align 8
+  %614 = load i64, ptr getelementptr inbounds (i8, ptr @loc_empty, i64 8), align 8
   call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %611, i32 noundef -2, i64 %613, i64 %614, ptr noundef nonnull @.str.3) #5
   br label %yy_syntax_error.exit
 

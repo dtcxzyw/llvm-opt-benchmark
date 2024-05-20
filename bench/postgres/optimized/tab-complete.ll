@@ -1817,7 +1817,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @initialize_readline() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 22), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
   store ptr %1, ptr @rl_readline_name, align 8
   store ptr @psql_completion, ptr @rl_attempted_completion_function, align 8
   store ptr @quote_file_name, ptr @rl_filename_quoting_function, align 8
@@ -7018,7 +7018,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2119, label %2120, label %2127
 
 2120:                                             ; preds = %2118
-  %2121 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2121 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2122 = icmp sgt i32 %2121, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2122, label %2123, label %2125
@@ -7050,7 +7050,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2134, label %2135, label %2142
 
 2135:                                             ; preds = %2133, %2131
-  %2136 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2136 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2137 = icmp sgt i32 %2136, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2137, label %2138, label %2140
@@ -7118,7 +7118,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2165, label %2166, label %2173
 
 2166:                                             ; preds = %2164, %2162
-  %2167 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2167 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2168 = icmp sgt i32 %2167, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2168, label %2169, label %2171
@@ -7150,7 +7150,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2180, label %2181, label %2188
 
 2181:                                             ; preds = %2179, %2177
-  %2182 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2182 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2183 = icmp sgt i32 %2182, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2183, label %2184, label %2186
@@ -7190,7 +7190,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2199, label %2200, label %2207
 
 2200:                                             ; preds = %2198, %2196, %2194, %2192
-  %2201 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2201 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2202 = icmp sgt i32 %2201, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2202, label %2203, label %2205
@@ -7258,7 +7258,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2230, label %2231, label %2238
 
 2231:                                             ; preds = %2229, %2227
-  %2232 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2232 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2233 = icmp sgt i32 %2232, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2233, label %2234, label %2236
@@ -7286,7 +7286,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2243, label %2244, label %2251
 
 2244:                                             ; preds = %2242
-  %2245 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2245 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2246 = icmp sgt i32 %2245, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2246, label %2247, label %2249
@@ -7314,7 +7314,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2256, label %2257, label %2264
 
 2257:                                             ; preds = %2255
-  %2258 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2258 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2259 = icmp sgt i32 %2258, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2259, label %2260, label %2262
@@ -7682,7 +7682,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2409, label %2410, label %2417
 
 2410:                                             ; preds = %2408
-  %2411 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2411 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2412 = icmp sgt i32 %2411, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2412, label %2413, label %2415
@@ -7706,7 +7706,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
   br i1 %2420, label %2421, label %2428
 
 2421:                                             ; preds = %2419
-  %2422 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %2422 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %2423 = icmp sgt i32 %2422, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2423, label %2424, label %2426
@@ -11987,7 +11987,7 @@ define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr
   %5 = load ptr, ptr @completion_charp, align 8
   %6 = load i8, ptr %5, align 1
   %.b18 = load i1, ptr @completion_force_quote, align 1
-  %7 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %8 = tail call ptr @quote_if_needed(ptr noundef %0, ptr noundef nonnull @.str.1700, i8 noundef signext 39, i8 noundef signext %6, i1 noundef zeroext %.b18, i32 noundef %7) #12
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
@@ -12069,7 +12069,7 @@ define internal ptr @dequote_file_name(ptr noundef %0, i32 noundef %1) #0 {
   %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #12
   %10 = load ptr, ptr @completion_charp, align 8
   %11 = load i8, ptr %10, align 1
-  %12 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %13 = tail call ptr @strtokx(ptr noundef nonnull %7, ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef nonnull @.str.1, i8 noundef signext %11, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef %12) #12
   tail call void @free(ptr noundef %7) #12
   br label %19
@@ -12077,7 +12077,7 @@ define internal ptr @dequote_file_name(ptr noundef %0, i32 noundef %1) #0 {
 14:                                               ; preds = %2
   %15 = load ptr, ptr @completion_charp, align 8
   %16 = load i8, ptr %15, align 1
-  %17 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %18 = tail call ptr @strtokx(ptr noundef %0, ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef nonnull @.str.1, i8 noundef signext %16, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef %17) #12
   br label %19
 
@@ -12196,7 +12196,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
 43:                                               ; preds = %42
   %.val = load i8, ptr %0, align 1
   %44 = tail call ptr @pg_strdup(ptr noundef nonnull %30) #12
-  %45 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 43), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
   %46 = icmp eq i32 %45, 3
   br i1 %46, label %58, label %47
 
@@ -12290,7 +12290,7 @@ pg_strdup_keyword_case.exit:                      ; preds = %._crit_edge, %.lr.p
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @complete_from_variables(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = tail call ptr @pg_malloc(i64 noundef 808) #12
-  %6 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 28), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
   %.0.in28 = getelementptr inbounds i8, ptr %6, i64 32
   %.029 = load ptr, ptr %.0.in28, align 8
   %.not30 = icmp eq ptr %.029, null
@@ -12626,7 +12626,7 @@ define internal ptr @complete_from_query(ptr noundef %0, i32 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @complete_from_versioned_schema_query(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr @completion_squery, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   br label %5
 
 5:                                                ; preds = %5, %2
@@ -12738,7 +12738,7 @@ declare zeroext i1 @recognized_connection_string(ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal ptr @complete_from_versioned_query(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr @completion_vquery, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 21), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   br label %5
 
 5:                                                ; preds = %5, %2
@@ -12784,7 +12784,7 @@ define internal ptr @complete_from_const(ptr nocapture noundef readonly %0, i32 
 8:                                                ; preds = %4
   %.val = load i8, ptr %0, align 1
   %9 = tail call ptr @pg_strdup(ptr noundef %5) #12
-  %10 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 43), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %23, label %12
 
@@ -12863,7 +12863,7 @@ declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @pg_strdup_keyword_case(ptr noundef %0, i8 %.0.val) unnamed_addr #0 {
   %2 = tail call ptr @pg_strdup(ptr noundef %0) #12
-  %3 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 43), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
   %4 = icmp eq i32 %3, 3
   br i1 %4, label %16, label %5
 
@@ -13144,7 +13144,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
 25:                                               ; preds = %19
   %.val = load i8, ptr %0, align 1
   %26 = tail call ptr @pg_strdup(ptr noundef nonnull %14) #12
-  %27 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 43), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
   %28 = icmp eq i32 %27, 3
   br i1 %28, label %40, label %29
 
@@ -13277,7 +13277,7 @@ define internal fastcc ptr @_complete_from_query(ptr noundef %0, ptr noundef rea
   br i1 %.not23.i, label %40, label %31
 
 31:                                               ; preds = %29
-  %32 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %33 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.018.i, i32 noundef %32) #12
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph.i, label %.loopexit.i
@@ -14249,7 +14249,7 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %7 = add i64 %6, 1
-  %8 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %9 = tail call i32 @pg_encoding_max_length(i32 noundef %8) #12
   %10 = tail call ptr @pg_malloc(i64 noundef %7) #12
   store i8 0, ptr %4, align 1
@@ -14411,7 +14411,7 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noun
   br i1 %.not62, label %.thread, label %68
 
 68:                                               ; preds = %67
-  %69 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %70 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.05676, i32 noundef %69) #12
   store i8 %49, ptr %.05079, align 1
   %.15171 = getelementptr i8, ptr %.05079, i64 1

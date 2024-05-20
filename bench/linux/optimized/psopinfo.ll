@@ -35,7 +35,7 @@ define dso_local nonnull ptr @acpi_ps_get_opcode_info(i16 noundef zeroext %0) lo
   br label %14
 
 14:                                               ; preds = %6, %3, %1
-  %15 = phi ptr [ getelementptr inbounds ([131 x %struct.acpi_opcode_info], ptr @acpi_gbl_aml_op_info, i64 0, i64 107), %1 ], [ getelementptr inbounds ([131 x %struct.acpi_opcode_info], ptr @acpi_gbl_aml_op_info, i64 0, i64 107), %3 ], [ %13, %6 ]
+  %15 = phi ptr [ getelementptr inbounds (i8, ptr @acpi_gbl_aml_op_info, i64 1712), %1 ], [ getelementptr inbounds (i8, ptr @acpi_gbl_aml_op_info, i64 1712), %3 ], [ %13, %6 ]
   ret ptr %15
 }
 

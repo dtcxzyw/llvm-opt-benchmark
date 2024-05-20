@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @php_startup_ticks() local_unnamed_addr #0 {
-  tail call void @zend_llist_init(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 38), i64 noundef 16, ptr noundef null, i8 noundef zeroext 1) #3
+  tail call void @zend_llist_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 288), i64 noundef 16, ptr noundef null, i8 noundef zeroext 1) #3
   ret i32 0
 }
 
@@ -29,7 +29,7 @@ declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @php_deactivate_ticks() local_unnamed_addr #0 {
-  tail call void @zend_llist_clean(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 38)) #3
+  tail call void @zend_llist_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 288)) #3
   ret void
 }
 
@@ -50,7 +50,7 @@ define void @php_add_tick_function(ptr noundef %0, ptr noundef %1) local_unnamed
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
-  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 38), ptr noundef nonnull %3) #3
+  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 288), ptr noundef nonnull %3) #3
   ret void
 }
 
@@ -62,7 +62,7 @@ define void @php_remove_tick_function(ptr noundef %0, ptr noundef %1) local_unna
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
-  call void @zend_llist_del_element(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 38), ptr noundef nonnull %3, ptr noundef nonnull @php_compare_tick_functions) #3
+  call void @zend_llist_del_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 288), ptr noundef nonnull %3, ptr noundef nonnull @php_compare_tick_functions) #3
   ret void
 }
 
@@ -93,7 +93,7 @@ define internal range(i32 0, 2) i32 @php_compare_tick_functions(ptr nocapture no
 define hidden void @php_run_ticks(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  call void @zend_llist_apply_with_argument(ptr noundef nonnull getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 38), ptr noundef nonnull @php_tick_iterator, ptr noundef nonnull %2) #3
+  call void @zend_llist_apply_with_argument(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 288), ptr noundef nonnull @php_tick_iterator, ptr noundef nonnull %2) #3
   ret void
 }
 

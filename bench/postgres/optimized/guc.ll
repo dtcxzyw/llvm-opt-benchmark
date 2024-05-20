@@ -1011,7 +1011,7 @@ define internal fastcc void @set_guc_source(ptr noundef %0, i32 noundef %1) unna
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %0, i64 88
-  %9 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %._crit_edge.i
 
@@ -1020,7 +1020,7 @@ define internal fastcc void @set_guc_source(ptr noundef %0, i32 noundef %1) unna
   br label %dlist_push_tail.exit
 
 11:                                               ; preds = %7
-  store ptr @guc_nondef_list, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  store ptr @guc_nondef_list, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %11
@@ -2620,7 +2620,7 @@ declare void @SetDataDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResetAllOptions() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %.not = icmp eq ptr %1, null
   %.not79127142 = icmp eq ptr %1, @guc_nondef_list
   %.not79127 = or i1 %.not, %.not79127142
@@ -3186,7 +3186,7 @@ set_extra_field.exit:                             ; preds = %285, %281, %244, %2
   br i1 %.not.i120, label %set_guc_source.exit, label %294
 
 294:                                              ; preds = %293
-  %295 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  %295 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %296 = icmp eq ptr %295, null
   br i1 %296, label %297, label %._crit_edge.i.i
 
@@ -3195,7 +3195,7 @@ set_extra_field.exit:                             ; preds = %285, %281, %244, %2
   br label %dlist_push_tail.exit.i
 
 297:                                              ; preds = %294
-  store ptr @guc_nondef_list, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  store ptr @guc_nondef_list, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   br label %dlist_push_tail.exit.i
 
 dlist_push_tail.exit.i:                           ; preds = %297, %._crit_edge.i.i
@@ -4500,7 +4500,7 @@ set_extra_field.exit249:                          ; preds = %413, %417, %set_ext
   br i1 %.not.i250, label %set_guc_source.exit, label %424
 
 424:                                              ; preds = %423
-  %425 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  %425 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %426 = icmp eq ptr %425, null
   br i1 %426, label %427, label %._crit_edge.i.i
 
@@ -4509,7 +4509,7 @@ set_extra_field.exit249:                          ; preds = %413, %417, %set_ext
   br label %dlist_push_tail.exit.i
 
 427:                                              ; preds = %424
-  store ptr @guc_nondef_list, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  store ptr @guc_nondef_list, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   br label %dlist_push_tail.exit.i
 
 dlist_push_tail.exit.i:                           ; preds = %427, %._crit_edge.i.i
@@ -9248,7 +9248,7 @@ define dso_local ptr @get_explain_guc_options(ptr nocapture noundef %0) local_un
   %3 = tail call i64 @hash_get_num_entries(ptr noundef %2) #28
   %4 = shl i64 %3, 3
   %5 = tail call ptr @palloc(i64 noundef %4) #28
-  %6 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %.not = icmp eq ptr %6, null
   %.not384447 = icmp eq ptr %6, @guc_nondef_list
   %.not3844 = or i1 %.not, %.not384447
@@ -9706,7 +9706,7 @@ define internal fastcc void @convert_real_from_base_unit(double noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @EstimateGUCStateSpace() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %.not = icmp eq ptr %1, null
   %.not81626 = icmp eq ptr %1, @guc_nondef_list
   %.not816 = or i1 %.not, %.not81626
@@ -9870,7 +9870,7 @@ define dso_local void @SerializeGUCState(i64 noundef %0, ptr noundef %1) local_u
   store ptr %5, ptr %3, align 8
   %6 = add i64 %0, -8
   store i64 %6, ptr %4, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %.not = icmp eq ptr %7, null
   %.not91931 = icmp eq ptr %7, @guc_nondef_list
   %.not919 = or i1 %.not, %.not91931
@@ -10092,7 +10092,7 @@ select.unfold._crit_edge:                         ; preds = %serialize_variable.
 define dso_local void @RestoreGUCState(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ErrorContextCallback, align 8
   %3 = alloca [2 x ptr], align 16
-  %4 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @guc_nondef_list, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %.not = icmp eq ptr %4, null
   %.not70153170 = icmp eq ptr %4, @guc_nondef_list
   %.not70153 = or i1 %.not, %.not70153170

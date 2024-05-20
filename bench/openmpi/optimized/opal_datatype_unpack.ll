@@ -37,7 +37,7 @@ define range(i32 0, 2) i32 @opal_unpack_homogeneous_contig(ptr noundef %0, ptr n
   %16 = getelementptr inbounds i8, ptr %10, i64 28
   %17 = load i16, ptr %16, align 4
   %18 = sext i16 %17 to i32
-  %19 = load i16, ptr getelementptr inbounds (%struct.opal_datatype_t, ptr @opal_datatype_uint1, i64 0, i32 2), align 2
+  %19 = load i16, ptr getelementptr inbounds (i8, ptr @opal_datatype_uint1, i64 18), align 2
   %20 = zext i16 %19 to i32
   %.not = icmp eq i32 %18, %20
   br i1 %.not, label %30, label %21
@@ -944,7 +944,7 @@ define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr 
   %57 = load ptr, ptr %4, align 8
   %58 = load i64, ptr %16, align 8
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds (%struct.opal_accelerator_base_component_t, ptr @opal_accelerator_base_selected_component, i64 0, i32 0, i32 11), ptr noundef nonnull dereferenceable(5) @.str, i64 5)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds (i8, ptr @opal_accelerator_base_selected_component, i64 84), ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %.preheader, label %60
 

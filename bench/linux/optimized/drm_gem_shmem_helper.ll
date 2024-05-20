@@ -95,7 +95,7 @@ define internal fastcc ptr @__drm_gem_shmem_create(ptr noundef %0, i64 noundef %
   br i1 %13, label %49, label %18
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %16 = tail call noalias noundef align 8 dereferenceable_or_null(408) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 408) #6
   %17 = icmp eq ptr %16, null
   br i1 %17, label %49, label %18

@@ -323,7 +323,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %55 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %34, ptr %55, align 8, !noalias !35
   %56 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds (<{ [9 x i8] }>, ptr @anon.64514d084979a521c31c5d7bced7d225.46, i64 0, i32 0, i64 1), ptr %56, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @anon.64514d084979a521c31c5d7bced7d225.46, i64 1), ptr %56, align 8, !noalias !35
   %57 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 8, ptr %57, align 8, !noalias !35
   %58 = icmp ugt i64 %34, 72

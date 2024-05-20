@@ -714,7 +714,7 @@ if.end4:                                          ; preds = %if.end
   %tp_basicsize = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load i64, ptr %tp_basicsize, align 8
   %conv = trunc i64 %0 to i32
-  store i32 %conv, ptr getelementptr inbounds (%struct.PyType_Spec, ptr @MinimalType_spec, i64 0, i32 1), align 8
+  store i32 %conv, ptr getelementptr inbounds (i8, ptr @MinimalType_spec, i64 8), align 8
   %call5 = tail call ptr @PyType_FromSpecWithBases(ptr noundef nonnull @MinimalType_spec, ptr noundef nonnull %call1) #7
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %if.then.i, label %if.end9
@@ -1904,7 +1904,7 @@ declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @heap_ctype_metaclass_custom_tp_new(ptr noundef %tp, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 37), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 312), align 8
   %call = tail call ptr %0(ptr noundef %tp, ptr noundef %args, ptr noundef %kwargs) #7
   ret ptr %call
 }

@@ -49579,7 +49579,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h5170e2c7
   %3 = alloca ptr, align 8
   %4 = alloca { { i64 }, { { { i64, ptr, {} }, i64 } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11597)
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 0, i32 1, i64 0) acquire, align 8, !noalias !11597
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 24) acquire, align 8, !noalias !11597
   %.not.i.i = icmp eq i32 %5, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc8fa4b71765aa45fE.exit.i", label %6
 
@@ -49642,10 +49642,10 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h5170e2c7
 "_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h204275c506242183E.exit.i": ; preds = %"_ZN68_$LT$chalk_ir..VariableKind$LT$I$GT$$u20$as$u20$core..hash..Hash$GT$4hash17he259798644b1b5a0E.llvm.6150282900714191917.exit.i.i.i.i", %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc8fa4b71765aa45fE.exit.i"
   %.0.i = phi i64 [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc8fa4b71765aa45fE.exit.i" ], [ %31, %"_ZN68_$LT$chalk_ir..VariableKind$LT$I$GT$$u20$as$u20$core..hash..Hash$GT$4hash17he259798644b1b5a0E.llvm.6150282900714191917.exit.i.i.i.i" ]
   %33 = shl i64 %.0.i, 7
-  %34 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 0, i32 0, i64 16), align 8, !noalias !11597, !noundef !10
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 16), align 8, !noalias !11597, !noundef !10
   %35 = and i64 %34, 63
   %36 = lshr i64 %33, %35
-  %37 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 0, i32 0, i64 8), align 8, !noalias !11597, !noundef !10
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 8), align 8, !noalias !11597, !noundef !10
   %38 = icmp ult i64 %36, %37
   br i1 %38, label %39, label %44, !prof !2992
 
@@ -50547,7 +50547,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h894d7fbc59ee02e1E.llvm.10169251571672223956"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11783)
-  %2 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 0, i32 1, i64 0) acquire, align 8, !noalias !11783
+  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 24) acquire, align 8, !noalias !11783
   %.not.i.i = icmp eq i32 %2, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5da19ec8cd2b6042E.exit.i", label %3
 
@@ -50608,10 +50608,10 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h894d7fbc
 "_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h383e23fc2d4a10a5E.exit.i": ; preds = %.sink.split.i.i.i, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5da19ec8cd2b6042E.exit.i"
   %.0.i = phi i64 [ %6, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5da19ec8cd2b6042E.exit.i" ], [ %8, %.sink.split.i.i.i ]
   %36 = shl i64 %.0.i, 7
-  %37 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 0, i32 0, i64 16), align 8, !noalias !11783, !noundef !10
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 16), align 8, !noalias !11783, !noundef !10
   %38 = and i64 %37, 63
   %39 = lshr i64 %36, %38
-  %40 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 0, i32 0, i64 8), align 8, !noalias !11783, !noundef !10
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 8), align 8, !noalias !11783, !noundef !10
   %41 = icmp ult i64 %39, %40
   br i1 %41, label %42, label %47, !prof !2992
 
@@ -51581,7 +51581,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17ha63d5561
   %3 = alloca ptr, align 8
   %4 = alloca { { i64 }, { { { i64, ptr, {} }, i64 } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11958)
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !11958
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 24) acquire, align 8, !noalias !11958
   %.not.i.i = icmp eq i32 %5, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2d99cfc81202af76E.exit.i", label %6
 
@@ -51649,10 +51649,10 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17ha63d5561
 "_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha34d3c6e745560b3E.exit.i": ; preds = %"_ZN68_$LT$chalk_ir..WithKind$LT$I$C$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h19875c4ee898099aE.llvm.6150282900714191917.exit.i.i.i.i", %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2d99cfc81202af76E.exit.i"
   %.0.i = phi i64 [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2d99cfc81202af76E.exit.i" ], [ %36, %"_ZN68_$LT$chalk_ir..WithKind$LT$I$C$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h19875c4ee898099aE.llvm.6150282900714191917.exit.i.i.i.i" ]
   %38 = shl i64 %.0.i, 7
-  %39 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 0, i32 0, i64 16), align 8, !noalias !11958, !noundef !10
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 16), align 8, !noalias !11958, !noundef !10
   %40 = and i64 %39, 63
   %41 = lshr i64 %38, %40
-  %42 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 0, i32 0, i64 8), align 8, !noalias !11958, !noundef !10
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 8), align 8, !noalias !11958, !noundef !10
   %43 = icmp ult i64 %41, %42
   br i1 %43, label %44, label %49, !prof !2992
 
@@ -52122,7 +52122,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17hb23d45dd
   %4 = alloca i64, align 8
   %5 = alloca { { i64 }, { { { i64, ptr, {} }, i64 } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12108)
-  %6 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !12108
+  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 24) acquire, align 8, !noalias !12108
   %.not.i.i = icmp eq i32 %6, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h046c10af8b2a42c0E.exit.i", label %7
 
@@ -52177,10 +52177,10 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17hb23d45dd
   %23 = phi i64 [ %.pre.i, %"_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h67912acba8efc2ddE.exit.loopexit.i" ], [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h046c10af8b2a42c0E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !12108
   %24 = shl i64 %23, 7
-  %25 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 0, i32 0, i64 16), align 8, !noalias !12108, !noundef !10
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 16), align 8, !noalias !12108, !noundef !10
   %26 = and i64 %25, 63
   %27 = lshr i64 %24, %26
-  %28 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 0, i32 0, i64 8), align 8, !noalias !12108, !noundef !10
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 8), align 8, !noalias !12108, !noundef !10
   %29 = icmp ult i64 %27, %28
   br i1 %29, label %30, label %35, !prof !2992
 
@@ -53023,7 +53023,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17hf8335c26
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca { { i64 }, { { { i8, [31 x i8] }, i16, [3 x i16] } } }, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !12319
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 24) acquire, align 8, !noalias !12319
   %.not.i.i = icmp eq i32 %5, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hb62845743e734f4bE.exit.i", label %6
 
@@ -53038,10 +53038,10 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17hf8335c26
   %7 = load i64, ptr %3, align 8, !noalias !12319, !noundef !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !12319
   %8 = shl i64 %7, 7
-  %9 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 0, i32 0, i64 16), align 8, !noalias !12319, !noundef !10
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 16), align 8, !noalias !12319, !noundef !10
   %10 = and i64 %9, 63
   %11 = lshr i64 %8, %10
-  %12 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 0, i32 0, i64 8), align 8, !noalias !12319, !noundef !10
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 8), align 8, !noalias !12319, !noundef !10
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %14, label %19, !prof !2992
 
@@ -53392,7 +53392,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h033be4619dae4b6dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN133_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..ConstData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h13e8123ec51ed641E", i64 0, i32 1, i64 0) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN133_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..ConstData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h13e8123ec51ed641E", i64 24) acquire, align 8
   %.not.i = icmp eq i32 %3, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5ac6fc92e3d289e5E.exit", label %4
 
@@ -53495,10 +53495,10 @@ default.unreachable:                              ; preds = %"_ZN3std4sync9once_
   %63 = phi i64 [ %27, %16 ], [ %34, %28 ], [ %45, %35 ], [ %53, %46 ], [ %.pre, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %64 = shl i64 %63, 7
-  %65 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN133_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..ConstData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h13e8123ec51ed641E", i64 0, i32 0, i64 16), align 8, !noundef !10
+  %65 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN133_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..ConstData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h13e8123ec51ed641E", i64 16), align 8, !noundef !10
   %66 = and i64 %65, 63
   %67 = lshr i64 %64, %66
-  %68 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN133_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..ConstData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h13e8123ec51ed641E", i64 0, i32 0, i64 8), align 8, !noundef !10
+  %68 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN133_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..ConstData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h13e8123ec51ed641E", i64 8), align 8, !noundef !10
   %69 = icmp ult i64 %67, %68
   br i1 %69, label %70, label %77, !prof !2992
 
@@ -53526,7 +53526,7 @@ default.unreachable:                              ; preds = %"_ZN3std4sync9once_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h5aa80656f28e092aE"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, ptr, {} }, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h4dc3fb2786662d21E", i64 0, i32 1, i64 0) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h4dc3fb2786662d21E", i64 24) acquire, align 8
   %.not.i = icmp eq i32 %3, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h15331cc8fc2ac986E.exit", label %4
 
@@ -53577,10 +53577,10 @@ define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h5aa
   %.0 = phi i64 [ %11, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h15331cc8fc2ac986E.exit" ], [ %28, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !12424
   %31 = shl i64 %.0, 7
-  %32 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h4dc3fb2786662d21E", i64 0, i32 0, i64 16), align 8, !noundef !10
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h4dc3fb2786662d21E", i64 16), align 8, !noundef !10
   %33 = and i64 %32, 63
   %34 = lshr i64 %31, %33
-  %35 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h4dc3fb2786662d21E", i64 0, i32 0, i64 8), align 8, !noundef !10
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h4dc3fb2786662d21E", i64 8), align 8, !noundef !10
   %36 = icmp ult i64 %34, %35
   br i1 %36, label %37, label %44, !prof !2992
 
@@ -53608,7 +53608,7 @@ define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h5aa
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h83406cab442472baE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN160_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..ProgramClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h07c9f55271f0e44bE", i64 0, i32 1, i64 0) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN160_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..ProgramClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h07c9f55271f0e44bE", i64 24) acquire, align 8
   %.not.i = icmp eq i32 %3, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hd9c0c2627926c2f1E.exit", label %4
 
@@ -53674,10 +53674,10 @@ define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h834
   %29 = phi i64 [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hd9c0c2627926c2f1E.exit" ], [ %27, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %30 = shl i64 %29, 7
-  %31 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN160_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..ProgramClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h07c9f55271f0e44bE", i64 0, i32 0, i64 16), align 8, !noundef !10
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN160_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..ProgramClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h07c9f55271f0e44bE", i64 16), align 8, !noundef !10
   %32 = and i64 %31, 63
   %33 = lshr i64 %30, %32
-  %34 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN160_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..ProgramClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h07c9f55271f0e44bE", i64 0, i32 0, i64 8), align 8, !noundef !10
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN160_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..ProgramClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h07c9f55271f0e44bE", i64 8), align 8, !noundef !10
   %35 = icmp ult i64 %33, %34
   br i1 %35, label %36, label %43, !prof !2992
 
@@ -53709,7 +53709,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h039bee553438541bE
   %4 = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12480)
-  %6 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 0, i32 1, i64 0) acquire, align 8, !noalias !12480
+  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 24) acquire, align 8, !noalias !12480
   %.not.i.i = icmp eq i32 %6, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5da19ec8cd2b6042E.exit.i", label %7
 
@@ -53770,10 +53770,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h039bee553438541bE
 "_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h383e23fc2d4a10a5E.exit.i": ; preds = %.sink.split.i.i.i, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5da19ec8cd2b6042E.exit.i"
   %.0.i = phi i64 [ %10, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5da19ec8cd2b6042E.exit.i" ], [ %12, %.sink.split.i.i.i ]
   %40 = shl i64 %.0.i, 7
-  %41 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 0, i32 0, i64 16), align 8, !noalias !12480, !noundef !10
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 16), align 8, !noalias !12480, !noundef !10
   %42 = and i64 %41, 63
   %43 = lshr i64 %40, %42
-  %44 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 0, i32 0, i64 8), align 8, !noalias !12480, !noundef !10
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN136_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hdb5e34c8160fbf1dE", i64 8), align 8, !noalias !12480, !noundef !10
   %45 = icmp ult i64 %43, %44
   br i1 %45, label %46, label %51, !prof !2992
 
@@ -54351,7 +54351,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h1550114e8f3d1131E
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12606)
-  %6 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !12606
+  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 24) acquire, align 8, !noalias !12606
   %.not.i.i = icmp eq i32 %6, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2d99cfc81202af76E.exit.i", label %7
 
@@ -54419,10 +54419,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h1550114e8f3d1131E
 "_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha34d3c6e745560b3E.exit.i": ; preds = %"_ZN68_$LT$chalk_ir..WithKind$LT$I$C$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h19875c4ee898099aE.llvm.6150282900714191917.exit.i.i.i.i", %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2d99cfc81202af76E.exit.i"
   %.0.i = phi i64 [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2d99cfc81202af76E.exit.i" ], [ %37, %"_ZN68_$LT$chalk_ir..WithKind$LT$I$C$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h19875c4ee898099aE.llvm.6150282900714191917.exit.i.i.i.i" ]
   %39 = shl i64 %.0.i, 7
-  %40 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 0, i32 0, i64 16), align 8, !noalias !12606, !noundef !10
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 16), align 8, !noalias !12606, !noundef !10
   %41 = and i64 %40, 63
   %42 = lshr i64 %39, %41
-  %43 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 0, i32 0, i64 8), align 8, !noalias !12606, !noundef !10
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN181_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h787bb3001b63e8d4E", i64 8), align 8, !noalias !12606, !noundef !10
   %44 = icmp ult i64 %42, %43
   br i1 %44, label %45, label %50, !prof !2992
 
@@ -56517,7 +56517,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h79d93418912b7294E
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !13210
+  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 24) acquire, align 8, !noalias !13210
   %.not.i.i = icmp eq i32 %9, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hb62845743e734f4bE.exit.i", label %10
 
@@ -56532,10 +56532,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h79d93418912b7294E
   %11 = load i64, ptr %6, align 8, !noalias !13210, !noundef !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !13210
   %12 = shl i64 %11, 7
-  %13 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 0, i32 0, i64 16), align 8, !noalias !13210, !noundef !10
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 16), align 8, !noalias !13210, !noundef !10
   %14 = and i64 %13, 63
   %15 = lshr i64 %12, %14
-  %16 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 0, i32 0, i64 8), align 8, !noalias !13210, !noundef !10
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17he604893323e5a585E", i64 8), align 8, !noalias !13210, !noundef !10
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %18, label %23, !prof !2992
 
@@ -58029,7 +58029,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h7f9a9020a1da2859E
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13487)
-  %6 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 0, i32 1, i64 0) acquire, align 8, !noalias !13487
+  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 24) acquire, align 8, !noalias !13487
   %.not.i.i = icmp eq i32 %6, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc8fa4b71765aa45fE.exit.i", label %7
 
@@ -58092,10 +58092,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h7f9a9020a1da2859E
 "_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h204275c506242183E.exit.i": ; preds = %"_ZN68_$LT$chalk_ir..VariableKind$LT$I$GT$$u20$as$u20$core..hash..Hash$GT$4hash17he259798644b1b5a0E.llvm.6150282900714191917.exit.i.i.i.i", %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc8fa4b71765aa45fE.exit.i"
   %.0.i = phi i64 [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc8fa4b71765aa45fE.exit.i" ], [ %32, %"_ZN68_$LT$chalk_ir..VariableKind$LT$I$GT$$u20$as$u20$core..hash..Hash$GT$4hash17he259798644b1b5a0E.llvm.6150282900714191917.exit.i.i.i.i" ]
   %34 = shl i64 %.0.i, 7
-  %35 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 0, i32 0, i64 16), align 8, !noalias !13487, !noundef !10
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 16), align 8, !noalias !13487, !noundef !10
   %36 = and i64 %35, 63
   %37 = lshr i64 %34, %36
-  %38 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 0, i32 0, i64 8), align 8, !noalias !13487, !noundef !10
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN159_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17hd209b06da1c41f3aE", i64 8), align 8, !noalias !13487, !noundef !10
   %39 = icmp ult i64 %37, %38
   br i1 %39, label %40, label %45, !prof !2992
 
@@ -58679,7 +58679,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h8d3fe3696215053aE
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13643)
-  %8 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !13643
+  %8 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 24) acquire, align 8, !noalias !13643
   %.not.i.i = icmp eq i32 %8, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h046c10af8b2a42c0E.exit.i", label %9
 
@@ -58731,10 +58731,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h8d3fe3696215053aE
   %25 = phi i64 [ %.pre.i, %"_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h67912acba8efc2ddE.exit.loopexit.i" ], [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h046c10af8b2a42c0E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !13643
   %26 = shl i64 %25, 7
-  %27 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 0, i32 0, i64 16), align 8, !noalias !13643, !noundef !10
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 16), align 8, !noalias !13643, !noundef !10
   %28 = and i64 %27, 63
   %29 = lshr i64 %26, %28
-  %30 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 0, i32 0, i64 8), align 8, !noalias !13643, !noundef !10
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN183_$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h71172b1020d669d4E", i64 8), align 8, !noalias !13643, !noundef !10
   %31 = icmp ult i64 %29, %30
   br i1 %31, label %32, label %37, !prof !2992
 

@@ -90,7 +90,7 @@ define dso_local void @init_IRQ() local_unnamed_addr #0 section ".init.text" ali
   br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %0
-  %19 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #4, !srcloc !9
+  %19 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #4, !srcloc !9
   %20 = tail call i32 @irq_init_percpu_irqstack(i32 noundef %19) #3
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %23, label %22, !prof !10
@@ -101,7 +101,7 @@ define dso_local void @init_IRQ() local_unnamed_addr #0 section ".init.text" ali
   unreachable
 
 23:                                               ; preds = %.loopexit
-  %24 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 2, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 56), align 8
   tail call void %24() #3
   ret void
 }
@@ -114,7 +114,7 @@ declare dso_local i32 @irq_init_percpu_irqstack(i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @native_init_IRQ() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 48), align 8
   tail call void %1() #3
   tail call void @idt_setup_apic_and_irq_gates() #3
   tail call void @lapic_assign_system_vectors() #3

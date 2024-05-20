@@ -235,7 +235,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_self_refresh_helper_init(ptr
   br label %31
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 144) #6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %31, label %10

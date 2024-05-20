@@ -355,7 +355,7 @@ define i32 @serializer_g_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   store ptr %31, ptr %32, align 8
   store i32 -1430618063, ptr %29, align 8
   tail call void @list_append(ptr noundef %25, ptr noundef nonnull %29) #10
-  %33 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %34 = and i64 %33, 256
   %.not10.i = icmp eq i64 %34, 0
   br i1 %.not10.i, label %45, label %35

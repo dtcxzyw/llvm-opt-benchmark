@@ -85,7 +85,7 @@ define noundef i32 @opal_pmix_base_exchange(ptr noundef %0, ptr noundef %1, i32 
 11:                                               ; preds = %3
   %12 = call i32 @PMIx_Info_load(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef null, i16 noundef zeroext 1) #12
   %13 = icmp sgt i32 %2, 0
-  %. = select i1 %13, ptr %4, ptr getelementptr inbounds (%struct.opal_pmix_base_t, ptr @opal_pmix_base, i64 0, i32 1)
+  %. = select i1 %13, ptr %4, ptr getelementptr inbounds (i8, ptr @opal_pmix_base, i64 8)
   %14 = call i32 @PMIx_Info_load(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %., i16 noundef zeroext 6) #12
   %15 = call i32 @PMIx_Lookup(ptr noundef %1, i64 noundef 1, ptr noundef nonnull %5, i64 noundef 2) #12
   call void @PMIx_Info_destruct(ptr noundef nonnull %5) #12
@@ -242,7 +242,7 @@ define void @opal_pmix_setup_nspace_tracker() local_unnamed_addr #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %0
-  store i8 1, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 2), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 268), align 4
   br label %199
 
 5:                                                ; preds = %0
@@ -333,7 +333,7 @@ check_pmix_param.exit.i:                          ; preds = %27, %.loopexit110.i
 
 45:                                               ; preds = %43
   %46 = load i32, ptr @opal_class_init_epoch, align 4
-  %47 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not56.i = icmp eq i32 %46, %47
   br i1 %.not56.i, label %49, label %48
 
@@ -345,7 +345,7 @@ check_pmix_param.exit.i:                          ; preds = %27, %.loopexit110.i
   store ptr @opal_list_t_class, ptr %2, align 8
   %50 = getelementptr inbounds i8, ptr %2, i64 8
   store volatile i32 1, ptr %50, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %52 = load ptr, ptr %51, align 8
   %.not6.i.i = icmp eq ptr %52, null
   br i1 %.not6.i.i, label %opal_obj_run_constructors.exit.i, label %.lr.ph.i63.i
@@ -520,7 +520,7 @@ opal_obj_run_destructors.exit83.i:                ; preds = %.lr.ph.i80.i, %opal
 133:                                              ; preds = %opal_obj_run_destructors.exit83.i
   %134 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %132, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef null) #12
   %135 = load i32, ptr @opal_class_init_epoch, align 4
-  %136 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %136 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not60.i = icmp eq i32 %135, %136
   br i1 %.not60.i, label %138, label %137
 
@@ -532,7 +532,7 @@ opal_obj_run_destructors.exit83.i:                ; preds = %.lr.ph.i80.i, %opal
   store ptr @opal_list_t_class, ptr %2, align 8
   %139 = getelementptr inbounds i8, ptr %2, i64 8
   store volatile i32 1, ptr %139, align 8
-  %140 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %141 = load ptr, ptr %140, align 8
   %.not6.i84.i = icmp eq ptr %141, null
   br i1 %.not6.i84.i, label %opal_obj_run_constructors.exit88.i, label %.lr.ph.i85.i
@@ -663,7 +663,7 @@ translate_params.exit:                            ; preds = %.lr.ph.i99.i, %opal
 
 199:                                              ; preds = %translate_params.exit, %4
   %200 = load i32, ptr @opal_class_init_epoch, align 4
-  %201 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %201 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not1 = icmp eq i32 %200, %201
   br i1 %.not1, label %203, label %202
 
@@ -673,8 +673,8 @@ translate_params.exit:                            ; preds = %.lr.ph.i99.i, %opal
 
 203:                                              ; preds = %202, %199
   store ptr @opal_list_t_class, ptr @localnspaces, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 0, i32 1), align 8
-  %204 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 8), align 8
+  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %205 = load ptr, ptr %204, align 8
   %.not6.i = icmp eq ptr %205, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i2
@@ -699,20 +699,20 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @opal_pmix_finalize_nspace_tracker() local_unnamed_addr #0 {
-  %1 = load volatile i32, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 0, i32 1), align 8
+  %1 = load volatile i32, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 8), align 8
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %.preheader, label %opal_list_remove_first.exit.thread
 
 .preheader:                                       ; preds = %0
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 2), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 56), align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %opal_list_remove_first.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %33
-  %5 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 2), align 8
+  %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 56), align 8
   %6 = add i64 %5, -1
-  store volatile i64 %6, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 2), align 8
-  %7 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 1), align 8
+  store volatile i64 %6, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 56), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 32), align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load volatile ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
@@ -720,7 +720,7 @@ define void @opal_pmix_finalize_nspace_tracker() local_unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   store volatile ptr %9, ptr %12, align 8
   %13 = load volatile ptr, ptr %10, align 8
-  store volatile ptr %13, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 1), align 8
+  store volatile ptr %13, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 32), align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 8
   %15 = load i8, ptr @opal_uses_threads, align 1
   %16 = trunc i8 %15 to i1
@@ -765,7 +765,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
   br label %33
 
 33:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %34 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 2), align 8
+  %34 = load volatile i64, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 56), align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %opal_list_remove_first.exit.thread, label %.lr.ph, !llvm.loop !13
 
@@ -796,8 +796,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @opal_pmix_convert_jobid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @PMIx_Load_nspace(ptr noundef %0, ptr noundef null) #12
-  %.09 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 1), align 8
-  %.not10 = icmp eq ptr %.09, getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1)
+  %.09 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 32), align 8
+  %.not10 = icmp eq ptr %.09, getelementptr inbounds (i8, ptr @localnspaces, i64 16)
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %8
@@ -815,7 +815,7 @@ define range(i32 -13, 1) i32 @opal_pmix_convert_jobid(ptr noundef %0, i32 nounde
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %.011, i64 16
   %.0 = load volatile ptr, ptr %9, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @localnspaces, i64 16)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %8, %2, %6
@@ -840,8 +840,8 @@ define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr nound
   br i1 %5, label %63, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.04554 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 1), align 8
-  %.not5055 = icmp eq ptr %.04554, getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1)
+  %.04554 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 32), align 8
+  %.not5055 = icmp eq ptr %.04554, getelementptr inbounds (i8, ptr @localnspaces, i64 16)
   br i1 %.not5055, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %12
@@ -862,7 +862,7 @@ define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr nound
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds i8, ptr %.04556, i64 16
   %.045 = load volatile ptr, ptr %13, align 8
-  %.not50 = icmp eq ptr %.045, getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1)
+  %.not50 = icmp eq ptr %.045, getelementptr inbounds (i8, ptr @localnspaces, i64 16)
   br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %12, %.preheader
@@ -925,10 +925,10 @@ define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr nound
   br label %40
 
 40:                                               ; preds = %39, %35
-  %41 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_nptr_t_class, i64 0, i32 8), align 8
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @opal_nptr_t_class, i64 56), align 8
   %42 = tail call noalias ptr @malloc(i64 noundef %41) #14
   %43 = load i32, ptr @opal_class_init_epoch, align 4
-  %44 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_nptr_t_class, i64 0, i32 4), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @opal_nptr_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %43, %44
   br i1 %.not.i, label %46, label %45
 
@@ -944,7 +944,7 @@ define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr nound
   store ptr @opal_nptr_t_class, ptr %42, align 8
   %48 = getelementptr inbounds i8, ptr %42, i64 8
   store volatile i32 1, ptr %48, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_nptr_t_class, i64 0, i32 6), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_nptr_t_class, i64 40), align 8
   %50 = load ptr, ptr %49, align 8
   %.not6.i.i = icmp eq ptr %50, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -963,18 +963,18 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %46, %4
   store i32 %38, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %42, i64 40
   tail call void @PMIx_Load_nspace(ptr noundef nonnull %55, ptr noundef nonnull %1) #12
-  %56 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 2), align 8
+  %56 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 40), align 8
   %57 = getelementptr inbounds i8, ptr %42, i64 24
   store volatile ptr %56, ptr %57, align 8
-  %58 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 2), align 8
+  %58 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 40), align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   store volatile ptr %42, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %42, i64 16
-  store volatile ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1), ptr %60, align 8
-  store volatile ptr %42, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 2), align 8
-  %61 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 2), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @localnspaces, i64 16), ptr %60, align 8
+  store volatile ptr %42, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 40), align 8
+  %61 = load volatile i64, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 56), align 8
   %62 = add i64 %61, 1
-  store volatile i64 %62, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 2), align 8
+  store volatile i64 %62, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 56), align 8
   br label %63
 
 63:                                               ; preds = %8, %9, %4, %opal_obj_new.exit
@@ -1266,7 +1266,7 @@ define i32 @opal_pmix_register_cleanup(ptr noundef %0, i1 noundef zeroext %1, i1
   %7 = alloca %struct.pmix_proc, align 4
   %8 = alloca [256 x i8], align 16
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %9, %10
   br i1 %.not, label %12, label %11
 
@@ -1278,7 +1278,7 @@ define i32 @opal_pmix_register_cleanup(ptr noundef %0, i1 noundef zeroext %1, i1
   store ptr @opal_mutex_t_class, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %15, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -1334,8 +1334,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   %38 = getelementptr inbounds i8, ptr %37, i64 40
   %39 = load i32, ptr %38, align 8
   call void @PMIx_Load_nspace(ptr noundef nonnull %8, ptr noundef null) #12
-  %.09.i = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 1), align 8
-  %.not10.i = icmp eq ptr %.09.i, getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1)
+  %.09.i = load volatile ptr, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 32), align 8
+  %.not10.i = icmp eq ptr %.09.i, getelementptr inbounds (i8, ptr @localnspaces, i64 16)
   br i1 %.not10.i, label %.loopexit, label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %36, %43
@@ -1348,7 +1348,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 43:                                               ; preds = %.lr.ph.i28
   %44 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %.0.i = load volatile ptr, ptr %44, align 8
-  %.not.i29 = icmp eq ptr %.0.i, getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1)
+  %.not.i29 = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @localnspaces, i64 16)
   br i1 %.not.i29, label %.loopexit, label %.lr.ph.i28, !llvm.loop !14
 
 45:                                               ; preds = %.lr.ph.i28

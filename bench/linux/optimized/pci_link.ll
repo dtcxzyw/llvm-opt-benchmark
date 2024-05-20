@@ -790,7 +790,7 @@ define internal fastcc i32 @acpi_pci_link_set(ptr nocapture noundef %0, i32 noun
   %12 = and i64 %11, 512
   %13 = icmp eq i64 %12, 0
   %14 = select i1 %13, i32 2336, i32 3520
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %16 = call noalias align 8 dereferenceable_or_null(137) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %14, i64 noundef 137) #16
   %17 = icmp eq ptr %16, null
   br i1 %17, label %83, label %18
@@ -1150,7 +1150,7 @@ define internal void @irqrouter_resume() #2 align 16 {
 define internal noundef range(i32 -12, 2) i32 @acpi_pci_link_add(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 104) #16
   %7 = icmp eq ptr %6, null
   br i1 %7, label %33, label %8
@@ -1186,8 +1186,8 @@ define internal noundef range(i32 -12, 2) i32 @acpi_pci_link_add(ptr noundef %0,
   br label %29
 
 29:                                               ; preds = %27, %8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_link_list, i64 0, i32 1), align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_link_list, i64 0, i32 1), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_link_list, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @acpi_link_list, i64 8), align 8
   store ptr @acpi_link_list, ptr %6, align 8
   %31 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %30, ptr %31, align 8

@@ -142,7 +142,7 @@ define internal range(i32 -30, 2) i32 @_warc_rdhdr(ptr noundef %0, ptr noundef %
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.04860.i.i = phi ptr [ %.048.i.i, %.lr.ph.i.i ], [ %.04855.i.i, %.lr.ph.preheader.i.i ]
-  %.04759.i.i = phi ptr [ %.047.i.i, %.lr.ph.i.i ], [ getelementptr inbounds ([5 x i8], ptr @_warc_find_eoh._marker, i64 0, i64 1), %.lr.ph.preheader.i.i ]
+  %.04759.i.i = phi ptr [ %.047.i.i, %.lr.ph.i.i ], [ getelementptr inbounds (i8, ptr @_warc_find_eoh._marker, i64 1), %.lr.ph.preheader.i.i ]
   %.058.i.i = phi i32 [ %38, %.lr.ph.i.i ], [ 1, %.lr.ph.preheader.i.i ]
   %.04457.i.i = phi i32 [ %36, %.lr.ph.i.i ], [ %30, %.lr.ph.preheader.i.i ]
   %.04556.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ %30, %.lr.ph.preheader.i.i ]
@@ -157,7 +157,7 @@ define internal range(i32 -30, 2) i32 @_warc_rdhdr(ptr noundef %0, ptr noundef %
   %.047.i.i = getelementptr inbounds i8, ptr %.04759.i.i, i64 1
   %.048.i.i = getelementptr inbounds i8, ptr %.04860.i.i, i64 1
   %39 = icmp ult ptr %.048.i.i, %24
-  %40 = icmp ult ptr %.047.i.i, getelementptr inbounds ([5 x i8], ptr @_warc_find_eoh._marker, i64 0, i64 4)
+  %40 = icmp ult ptr %.047.i.i, getelementptr inbounds (i8, ptr @_warc_find_eoh._marker, i64 4)
   %41 = select i1 %39, i1 %40, i1 false
   br i1 %41, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !5
 
@@ -253,7 +253,7 @@ _warc_find_eoh.exit.thread:                       ; preds = %27, %23, %_warc_fin
 
 .lr.ph.i.i93:                                     ; preds = %.lr.ph.i.i93, %.lr.ph.preheader.i.i92
   %.04860.i.i94 = phi ptr [ %.048.i.i100, %.lr.ph.i.i93 ], [ %.04855.i.i91, %.lr.ph.preheader.i.i92 ]
-  %.04759.i.i95 = phi ptr [ %.047.i.i99, %.lr.ph.i.i93 ], [ getelementptr inbounds ([18 x i8], ptr @_warc_rdlen._key, i64 0, i64 1), %.lr.ph.preheader.i.i92 ]
+  %.04759.i.i95 = phi ptr [ %.047.i.i99, %.lr.ph.i.i93 ], [ getelementptr inbounds (i8, ptr @_warc_rdlen._key, i64 1), %.lr.ph.preheader.i.i92 ]
   %.058.i.i96 = phi i32 [ %85, %.lr.ph.i.i93 ], [ 1, %.lr.ph.preheader.i.i92 ]
   %.04457.i.i97 = phi i32 [ %83, %.lr.ph.i.i93 ], [ %77, %.lr.ph.preheader.i.i92 ]
   %.04556.i.i98 = phi i32 [ %80, %.lr.ph.i.i93 ], [ %77, %.lr.ph.preheader.i.i92 ]
@@ -268,7 +268,7 @@ _warc_find_eoh.exit.thread:                       ; preds = %27, %23, %_warc_fin
   %.047.i.i99 = getelementptr inbounds i8, ptr %.04759.i.i95, i64 1
   %.048.i.i100 = getelementptr inbounds i8, ptr %.04860.i.i94, i64 1
   %86 = icmp ult ptr %.048.i.i100, %spec.select.i265
-  %87 = icmp ult ptr %.047.i.i99, getelementptr inbounds ([18 x i8], ptr @_warc_rdlen._key, i64 0, i64 17)
+  %87 = icmp ult ptr %.047.i.i99, getelementptr inbounds (i8, ptr @_warc_rdlen._key, i64 17)
   %88 = select i1 %86, i1 %87, i1 false
   br i1 %88, label %.lr.ph.i.i93, label %._crit_edge.loopexit.i.i101, !llvm.loop !5
 
@@ -444,7 +444,7 @@ _warc_rdlen.exit:                                 ; preds = %141
 
 .lr.ph.i.i113:                                    ; preds = %.lr.ph.i.i113, %.lr.ph.preheader.i.i112
   %.04860.i.i114 = phi ptr [ %.048.i.i120, %.lr.ph.i.i113 ], [ %.04855.i.i110, %.lr.ph.preheader.i.i112 ]
-  %.04759.i.i115 = phi ptr [ %.047.i.i119, %.lr.ph.i.i113 ], [ getelementptr inbounds ([13 x i8], ptr @_warc_rdrtm._key, i64 0, i64 1), %.lr.ph.preheader.i.i112 ]
+  %.04759.i.i115 = phi ptr [ %.047.i.i119, %.lr.ph.i.i113 ], [ getelementptr inbounds (i8, ptr @_warc_rdrtm._key, i64 1), %.lr.ph.preheader.i.i112 ]
   %.058.i.i116 = phi i32 [ %161, %.lr.ph.i.i113 ], [ 1, %.lr.ph.preheader.i.i112 ]
   %.04457.i.i117 = phi i32 [ %159, %.lr.ph.i.i113 ], [ %153, %.lr.ph.preheader.i.i112 ]
   %.04556.i.i118 = phi i32 [ %156, %.lr.ph.i.i113 ], [ %153, %.lr.ph.preheader.i.i112 ]
@@ -459,7 +459,7 @@ _warc_rdlen.exit:                                 ; preds = %141
   %.047.i.i119 = getelementptr inbounds i8, ptr %.04759.i.i115, i64 1
   %.048.i.i120 = getelementptr inbounds i8, ptr %.04860.i.i114, i64 1
   %162 = icmp ult ptr %.048.i.i120, %spec.select.i265
-  %163 = icmp ult ptr %.047.i.i119, getelementptr inbounds ([13 x i8], ptr @_warc_rdrtm._key, i64 0, i64 12)
+  %163 = icmp ult ptr %.047.i.i119, getelementptr inbounds (i8, ptr @_warc_rdrtm._key, i64 12)
   %164 = select i1 %162, i1 %163, i1 false
   br i1 %164, label %.lr.ph.i.i113, label %._crit_edge.loopexit.i.i121, !llvm.loop !5
 
@@ -608,7 +608,7 @@ _warc_rdrtm.exit:                                 ; preds = %_warc_find_eol.exit
 
 .lr.ph.i.i144:                                    ; preds = %.lr.ph.i.i144, %.lr.ph.preheader.i.i143
   %.04860.i.i145 = phi ptr [ %.048.i.i151, %.lr.ph.i.i144 ], [ %.04855.i.i141, %.lr.ph.preheader.i.i143 ]
-  %.04759.i.i146 = phi ptr [ %.047.i.i150, %.lr.ph.i.i144 ], [ getelementptr inbounds ([13 x i8], ptr @_warc_rdtyp._key, i64 0, i64 1), %.lr.ph.preheader.i.i143 ]
+  %.04759.i.i146 = phi ptr [ %.047.i.i150, %.lr.ph.i.i144 ], [ getelementptr inbounds (i8, ptr @_warc_rdtyp._key, i64 1), %.lr.ph.preheader.i.i143 ]
   %.058.i.i147 = phi i32 [ %229, %.lr.ph.i.i144 ], [ 1, %.lr.ph.preheader.i.i143 ]
   %.04457.i.i148 = phi i32 [ %227, %.lr.ph.i.i144 ], [ %221, %.lr.ph.preheader.i.i143 ]
   %.04556.i.i149 = phi i32 [ %224, %.lr.ph.i.i144 ], [ %221, %.lr.ph.preheader.i.i143 ]
@@ -623,7 +623,7 @@ _warc_rdrtm.exit:                                 ; preds = %_warc_find_eol.exit
   %.047.i.i150 = getelementptr inbounds i8, ptr %.04759.i.i146, i64 1
   %.048.i.i151 = getelementptr inbounds i8, ptr %.04860.i.i145, i64 1
   %230 = icmp ult ptr %.048.i.i151, %spec.select.i265
-  %231 = icmp ult ptr %.047.i.i150, getelementptr inbounds ([13 x i8], ptr @_warc_rdtyp._key, i64 0, i64 12)
+  %231 = icmp ult ptr %.047.i.i150, getelementptr inbounds (i8, ptr @_warc_rdtyp._key, i64 12)
   %232 = select i1 %230, i1 %231, i1 false
   br i1 %232, label %.lr.ph.i.i144, label %._crit_edge.loopexit.i.i152, !llvm.loop !5
 
@@ -786,7 +786,7 @@ _warc_find_eol.exit.i178:                         ; preds = %.lr.ph.preheader.i.
 
 .lr.ph.i.i183:                                    ; preds = %.lr.ph.i.i183, %.lr.ph.preheader.i.i182
   %.04860.i.i184 = phi ptr [ %.048.i.i190, %.lr.ph.i.i183 ], [ %.04855.i.i181, %.lr.ph.preheader.i.i182 ]
-  %.04759.i.i185 = phi ptr [ %.047.i.i189, %.lr.ph.i.i183 ], [ getelementptr inbounds ([19 x i8], ptr @_warc_rduri._key, i64 0, i64 1), %.lr.ph.preheader.i.i182 ]
+  %.04759.i.i185 = phi ptr [ %.047.i.i189, %.lr.ph.i.i183 ], [ getelementptr inbounds (i8, ptr @_warc_rduri._key, i64 1), %.lr.ph.preheader.i.i182 ]
   %.058.i.i186 = phi i32 [ %299, %.lr.ph.i.i183 ], [ 1, %.lr.ph.preheader.i.i182 ]
   %.04457.i.i187 = phi i32 [ %297, %.lr.ph.i.i183 ], [ %291, %.lr.ph.preheader.i.i182 ]
   %.04556.i.i188 = phi i32 [ %294, %.lr.ph.i.i183 ], [ %291, %.lr.ph.preheader.i.i182 ]
@@ -801,7 +801,7 @@ _warc_find_eol.exit.i178:                         ; preds = %.lr.ph.preheader.i.
   %.047.i.i189 = getelementptr inbounds i8, ptr %.04759.i.i185, i64 1
   %.048.i.i190 = getelementptr inbounds i8, ptr %.04860.i.i184, i64 1
   %300 = icmp ult ptr %.048.i.i190, %spec.select.i265
-  %301 = icmp ult ptr %.047.i.i189, getelementptr inbounds ([19 x i8], ptr @_warc_rduri._key, i64 0, i64 18)
+  %301 = icmp ult ptr %.047.i.i189, getelementptr inbounds (i8, ptr @_warc_rduri._key, i64 18)
   %302 = select i1 %300, i1 %301, i1 false
   br i1 %302, label %.lr.ph.i.i183, label %._crit_edge.loopexit.i.i191, !llvm.loop !5
 
@@ -948,7 +948,7 @@ _warc_find_eol.exit.i218:                         ; preds = %.lr.ph.preheader.i.
 
 .lr.ph.i49.i:                                     ; preds = %.lr.ph.i49.i, %.lr.ph.preheader.i48.i
   %.04860.i50.i = phi ptr [ %.048.i56.i, %.lr.ph.i49.i ], [ %.04855.i45.i, %.lr.ph.preheader.i48.i ]
-  %.04759.i51.i = phi ptr [ %.047.i55.i, %.lr.ph.i49.i ], [ getelementptr inbounds ([4 x i8], ptr @.str.12, i64 0, i64 1), %.lr.ph.preheader.i48.i ]
+  %.04759.i51.i = phi ptr [ %.047.i55.i, %.lr.ph.i49.i ], [ getelementptr inbounds (i8, ptr @.str.12, i64 1), %.lr.ph.preheader.i48.i ]
   %.058.i52.i = phi i32 [ %363, %.lr.ph.i49.i ], [ 1, %.lr.ph.preheader.i48.i ]
   %.04457.i53.i = phi i32 [ %361, %.lr.ph.i49.i ], [ %355, %.lr.ph.preheader.i48.i ]
   %.04556.i54.i = phi i32 [ %358, %.lr.ph.i49.i ], [ %355, %.lr.ph.preheader.i48.i ]
@@ -963,7 +963,7 @@ _warc_find_eol.exit.i218:                         ; preds = %.lr.ph.preheader.i.
   %.047.i55.i = getelementptr inbounds i8, ptr %.04759.i51.i, i64 1
   %.048.i56.i = getelementptr inbounds i8, ptr %.04860.i50.i, i64 1
   %364 = icmp ult ptr %.048.i56.i, %349
-  %365 = icmp ult ptr %.047.i55.i, getelementptr inbounds ([4 x i8], ptr @.str.12, i64 0, i64 3)
+  %365 = icmp ult ptr %.047.i55.i, getelementptr inbounds (i8, ptr @.str.12, i64 3)
   %366 = select i1 %364, i1 %365, i1 false
   br i1 %366, label %.lr.ph.i49.i, label %._crit_edge.loopexit.i57.i, !llvm.loop !5
 
@@ -1115,7 +1115,7 @@ _warc_rduri.exit:                                 ; preds = %400, %402, %393
 
 .lr.ph.i.i224:                                    ; preds = %.lr.ph.i.i224, %.lr.ph.preheader.i.i223
   %.04860.i.i225 = phi ptr [ %.048.i.i231, %.lr.ph.i.i224 ], [ %.04855.i.i221, %.lr.ph.preheader.i.i223 ]
-  %.04759.i.i226 = phi ptr [ %.047.i.i230, %.lr.ph.i.i224 ], [ getelementptr inbounds ([17 x i8], ptr @_warc_rdmtm._key, i64 0, i64 1), %.lr.ph.preheader.i.i223 ]
+  %.04759.i.i226 = phi ptr [ %.047.i.i230, %.lr.ph.i.i224 ], [ getelementptr inbounds (i8, ptr @_warc_rdmtm._key, i64 1), %.lr.ph.preheader.i.i223 ]
   %.058.i.i227 = phi i32 [ %439, %.lr.ph.i.i224 ], [ 1, %.lr.ph.preheader.i.i223 ]
   %.04457.i.i228 = phi i32 [ %437, %.lr.ph.i.i224 ], [ %431, %.lr.ph.preheader.i.i223 ]
   %.04556.i.i229 = phi i32 [ %434, %.lr.ph.i.i224 ], [ %431, %.lr.ph.preheader.i.i223 ]
@@ -1130,7 +1130,7 @@ _warc_rduri.exit:                                 ; preds = %400, %402, %393
   %.047.i.i230 = getelementptr inbounds i8, ptr %.04759.i.i226, i64 1
   %.048.i.i231 = getelementptr inbounds i8, ptr %.04860.i.i225, i64 1
   %440 = icmp ult ptr %.048.i.i231, %spec.select.i265
-  %441 = icmp ult ptr %.047.i.i230, getelementptr inbounds ([17 x i8], ptr @_warc_rdmtm._key, i64 0, i64 16)
+  %441 = icmp ult ptr %.047.i.i230, getelementptr inbounds (i8, ptr @_warc_rdmtm._key, i64 16)
   %442 = select i1 %440, i1 %441, i1 false
   br i1 %442, label %.lr.ph.i.i224, label %._crit_edge.loopexit.i.i232, !llvm.loop !5
 

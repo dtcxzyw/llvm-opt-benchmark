@@ -93,7 +93,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, i8 0, i64 16, i1 false)
   %m_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %node, ptr %m_node.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %this, align 8
   %m_rsb = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %rsb, ptr %m_rsb, align 8
   %m_dt = getelementptr inbounds i8, ptr %this, i64 56
@@ -292,7 +292,7 @@ declare { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalCom
 define dso_local void @_ZN41btReducedDeformableRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef %rsb, ptr noundef nonnull align 8 dereferenceable(848) %c, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   tail call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(848) %c, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_rsb = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %rsb, ptr %m_rsb, align 8
   %m_dt = getelementptr inbounds i8, ptr %this, i64 128
@@ -978,7 +978,7 @@ invoke.cont:
   %ref.tmp36 = alloca %class.btMatrix3x3, align 4
   %ref.tmp44 = alloca %class.btMatrix3x3, align 8
   tail call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(848) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_rsb.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %rsb, ptr %m_rsb.i, align 8
   %m_dt.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -1021,7 +1021,7 @@ invoke.cont:
   %m_collideMultibody.i = getelementptr inbounds i8, ptr %this, i64 97
   %frombool22.i = zext i1 %cmp.i to i8
   store i8 %frombool22.i, ptr %m_collideMultibody.i, align 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %this, align 8
   %m_node = getelementptr inbounds i8, ptr %this, i64 440
   %m_node2 = getelementptr inbounds i8, ptr %contact, i64 848
   %9 = load ptr, ptr %m_node2, align 8
@@ -1753,7 +1753,7 @@ define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintC2EP23b
 entry:
   %frombool = zext i1 %useStrainLimiting to i8
   tail call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(848) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_rsb.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %rsb, ptr %m_rsb.i, align 8
   %m_dt.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -1796,7 +1796,7 @@ entry:
   %m_collideMultibody.i = getelementptr inbounds i8, ptr %this, i64 97
   %frombool22.i = zext i1 %cmp.i to i8
   store i8 %frombool22.i, ptr %m_collideMultibody.i, align 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV45btReducedDeformableFaceRigidContactConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV45btReducedDeformableFaceRigidContactConstraint, i64 16), ptr %this, align 8
   %m_face = getelementptr inbounds i8, ptr %this, i64 440
   %m_face2 = getelementptr inbounds i8, ptr %contact, i64 848
   %9 = load ptr, ptr %m_face2, align 8

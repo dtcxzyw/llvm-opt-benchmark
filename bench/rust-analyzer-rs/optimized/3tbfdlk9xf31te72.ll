@@ -10198,7 +10198,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd9153d98594ab0a9E.exit.i.i.i.i: ; preds
   %40 = extractvalue { ptr, i64 } %38, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !3294
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !3294
-  store ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8] }>, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 1, i32 0), ptr %4, align 8, !noalias !3294
+  store ptr getelementptr inbounds (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %4, align 8, !noalias !3294
   %41 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h4b95028fb42199c3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef %40)
           to label %.noexc7.i.i.i.i.i unwind label %.loopexit.i.i
 
@@ -10446,7 +10446,7 @@ common.resume.i.i.i.i:                            ; preds = %62, %56, %38, %32, 
   %52 = extractvalue { ptr, i64 } %50, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !3366
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !3366
-  store ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8], ptr, [10 x i8], [6 x i8] }>, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 1, i32 0), ptr %6, align 8, !noalias !3366
+  store ptr getelementptr inbounds (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %6, align 8, !noalias !3366
   %53 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h4b95028fb42199c3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %52)
           to label %.noexc7.i.i.i.i.i unwind label %.loopexit.i.i
 

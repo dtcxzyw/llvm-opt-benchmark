@@ -1368,8 +1368,8 @@ thread-pre-split:                                 ; preds = %37
   %.val.i22 = phi i32 [ %.val.i22.pr, %thread-pre-split ], [ %.val, %16 ]
   %.0 = phi i32 [ %17, %thread-pre-split ], [ 0, %16 ]
   %17 = add i32 %.0, 1
-  %18 = load ptr, ptr getelementptr inbounds (%struct.JsonSemAction, ptr @nullSemAction, i64 0, i32 7), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.JsonSemAction, ptr @nullSemAction, i64 0, i32 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @nullSemAction, i64 56), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @nullSemAction, i64 64), align 8
   %20 = icmp eq i32 %.val.i22, 11
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %24, label %21

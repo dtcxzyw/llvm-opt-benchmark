@@ -283,7 +283,7 @@ epoll_apply_changes.exit:                         ; preds = %for.body.i, %if.end
   br i1 %tobool.not, label %do.end8, label %if.then4
 
 if.then4:                                         ; preds = %epoll_apply_changes.exit
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call6 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #5
   br label %do.end8
 
@@ -299,7 +299,7 @@ do.end8:                                          ; preds = %if.then4, %epoll_ap
   br i1 %tobool14.not, label %do.end20, label %if.then15
 
 if.then15:                                        ; preds = %do.end8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call17 = call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #5
   br label %do.end20
 

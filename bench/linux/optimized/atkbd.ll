@@ -168,7 +168,7 @@ declare dso_local i32 @ps2_interrupt(ptr noundef, i8 noundef zeroext, i32 nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @atkbd_connect(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca [1 x i8], align 1
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(1592) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 1592) #18
   %6 = tail call ptr @input_allocate_device() #17
   %7 = icmp ne ptr %5, null

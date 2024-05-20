@@ -133,7 +133,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %17 = load ptr, ptr %16, align 8
   %18 = call noalias ptr @opal_basename(ptr noundef %17) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %19 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 14), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
   %20 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.65, ptr noundef %19, ptr noundef nonnull @.str.66, ptr noundef %18) #16
   %21 = load ptr, ptr %4, align 8
   %22 = icmp eq ptr %21, null

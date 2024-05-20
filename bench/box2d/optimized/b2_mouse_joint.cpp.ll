@@ -29,7 +29,7 @@ $_Z5b2LogPKcz = comdat any
 define void @_ZN12b2MouseJointC2EPK15b2MouseJointDef(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %def) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   tail call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %def)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12b2MouseJoint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12b2MouseJoint, i64 16), ptr %this, align 8
   %target = getelementptr inbounds i8, ptr %def, i64 36
   %m_targetA2 = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i64, ptr %target, align 4

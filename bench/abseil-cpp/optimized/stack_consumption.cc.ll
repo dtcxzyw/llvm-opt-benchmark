@@ -42,7 +42,7 @@ entry:
   br i1 %cmp.not, label %do.body1, label %do.end4
 
 do.body1:                                         ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 118, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 118, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
 do.end4:                                          ; preds = %entry
@@ -57,7 +57,7 @@ do.end4:                                          ; preds = %entry
   br i1 %cmp7.not, label %do.end16, label %do.body10
 
 do.body10:                                        ; preds = %do.end4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 129, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 129, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   unreachable
 
 do.end16:                                         ; preds = %do.end4
@@ -72,7 +72,7 @@ do.end16:                                         ; preds = %do.end4
   br i1 %cmp20.not, label %do.end29, label %do.body23
 
 do.body23:                                        ; preds = %do.end16
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 140, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 140, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   unreachable
 
 do.end29:                                         ; preds = %do.end16
@@ -82,7 +82,7 @@ do.end29:                                         ; preds = %do.end16
   br i1 %cmp33.not, label %do.body43, label %do.body36
 
 do.body36:                                        ; preds = %do.end29
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 144, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 144, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7)
   unreachable
 
 do.body43:                                        ; preds = %do.end29
@@ -92,7 +92,7 @@ do.body43:                                        ; preds = %do.end29
   br i1 %cmp46.not, label %do.end55, label %do.body49
 
 do.body49:                                        ; preds = %do.body43
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 150, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 150, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   unreachable
 
 do.end55:                                         ; preds = %do.body43
@@ -103,7 +103,7 @@ do.end55:                                         ; preds = %do.body43
   br i1 %cmp59.not, label %for.body.i, label %do.body62
 
 do.body62:                                        ; preds = %do.end55
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 153, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 153, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   unreachable
 
 for.body.i:                                       ; preds = %do.end55, %if.end9.i
@@ -118,7 +118,7 @@ do.body.i:                                        ; preds = %for.body.i
   br i1 %cmp2.i, label %do.body5.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit
 
 do.body5.i:                                       ; preds = %do.body.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 98, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 98, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18)
   unreachable
 
 if.end9.i:                                        ; preds = %for.body.i
@@ -128,7 +128,7 @@ if.end9.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %do.body10.i, !llvm.loop !5
 
 do.body10.i:                                      ; preds = %if.end9.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 104, ptr noundef nonnull @.str.19)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 104, ptr noundef nonnull @.str.19)
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit: ; preds = %do.body.i
@@ -138,7 +138,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit: ; pred
   br i1 %cmp73.not, label %for.body.i9, label %do.body76
 
 do.body76:                                        ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 157, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 157, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10)
   unreachable
 
 for.body.i9:                                      ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit, %if.end9.i16
@@ -153,7 +153,7 @@ do.body.i13:                                      ; preds = %for.body.i9
   br i1 %cmp2.i14, label %do.body5.i15, label %_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit21
 
 do.body5.i15:                                     ; preds = %do.body.i13
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 98, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 98, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18)
   unreachable
 
 if.end9.i16:                                      ; preds = %for.body.i9
@@ -163,7 +163,7 @@ if.end9.i16:                                      ; preds = %for.body.i9
   br i1 %cmp.i19, label %for.body.i9, label %do.body10.i20, !llvm.loop !5
 
 do.body10.i20:                                    ; preds = %if.end9.i16
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 104, ptr noundef nonnull @.str.19)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 104, ptr noundef nonnull @.str.19)
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit21: ; preds = %do.body.i13
@@ -193,7 +193,7 @@ do.body94:                                        ; preds = %_ZN4absl18debugging
   br i1 %cmp96.not, label %do.body106, label %do.body99
 
 do.body99:                                        ; preds = %do.body94
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 171, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 171, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5)
   unreachable
 
 do.body106:                                       ; preds = %do.body94
@@ -202,7 +202,7 @@ do.body106:                                       ; preds = %do.body94
   br i1 %cmp108.not, label %do.body118, label %do.body111
 
 do.body111:                                       ; preds = %do.body106
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 173, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 173, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7)
   unreachable
 
 do.body118:                                       ; preds = %do.body106
@@ -211,7 +211,7 @@ do.body118:                                       ; preds = %do.body106
   br i1 %cmp120.not, label %do.body130, label %do.body123
 
 do.body123:                                       ; preds = %do.body118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 175, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 175, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7)
   unreachable
 
 do.body130:                                       ; preds = %do.body118
@@ -220,7 +220,7 @@ do.body130:                                       ; preds = %do.body118
   br i1 %cmp132.not, label %return, label %do.body135
 
 do.body135:                                       ; preds = %do.body130
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([144 x i8], ptr @.str, i64 0, i64 123), i32 noundef 177, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 123), i32 noundef 177, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   unreachable
 
 return:                                           ; preds = %do.body130

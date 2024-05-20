@@ -60,7 +60,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibC4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneLibCE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneLibCE, i64 16), ptr %call, align 8
   %local_.i = getelementptr inbounds i8, ptr %call, i64 8
   %call.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.2) #12
   %cmp.i.i = icmp eq i32 %call.i.i, 0
@@ -208,7 +208,7 @@ invoke.cont:                                      ; preds = %init.check
   %3 = extractvalue { i64, i64 } %call5, 0
   store i64 %3, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, align 8
   %4 = extractvalue { i64, i64 } %call5, 1
-  store i64 %4, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 1), align 8
+  store i64 %4, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #12
   br label %init.end
 
@@ -227,7 +227,7 @@ invoke.cont16:                                    ; preds = %init.check7
   %7 = extractvalue { i64, i64 } %call18, 0
   store i64 %7, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
   %8 = extractvalue { i64, i64 } %call18, 1
-  store i64 %8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 1), align 8
+  store i64 %8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #12
   br label %init.end19
 
@@ -244,7 +244,7 @@ lor.rhs.i:                                        ; preds = %init.end19
 land.rhs.i:                                       ; preds = %lor.rhs.i
   %m.i.i27 = getelementptr inbounds i8, ptr %cs, i64 8
   %11 = load i8, ptr %m.i.i27, align 8
-  %12 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 1), align 8
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 8), align 8
   %cmp7.i = icmp slt i8 %11, %12
   br i1 %cmp7.i, label %cond.end36, label %lor.rhs8.i
 
@@ -255,7 +255,7 @@ lor.rhs8.i:                                       ; preds = %land.rhs.i
 land.rhs12.i:                                     ; preds = %lor.rhs8.i
   %d.i.i28 = getelementptr inbounds i8, ptr %cs, i64 9
   %13 = load i8, ptr %d.i.i28, align 1
-  %14 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 2), align 1
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 9), align 1
   %cmp15.i = icmp slt i8 %13, %14
   br i1 %cmp15.i, label %cond.end36, label %lor.rhs16.i
 
@@ -266,7 +266,7 @@ lor.rhs16.i:                                      ; preds = %land.rhs12.i
 land.rhs20.i:                                     ; preds = %lor.rhs16.i
   %hh.i.i29 = getelementptr inbounds i8, ptr %cs, i64 10
   %15 = load i8, ptr %hh.i.i29, align 2
-  %16 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 3), align 2
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 10), align 2
   %cmp23.i = icmp slt i8 %15, %16
   br i1 %cmp23.i, label %cond.end36, label %lor.rhs24.i
 
@@ -277,7 +277,7 @@ lor.rhs24.i:                                      ; preds = %land.rhs20.i
 land.rhs28.i:                                     ; preds = %lor.rhs24.i
   %mm.i.i30 = getelementptr inbounds i8, ptr %cs, i64 11
   %17 = load i8, ptr %mm.i.i30, align 1
-  %18 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 4), align 1
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 11), align 1
   %cmp31.i = icmp slt i8 %17, %18
   br i1 %cmp31.i, label %cond.end36, label %lor.rhs32.i
 
@@ -288,7 +288,7 @@ lor.rhs32.i:                                      ; preds = %land.rhs28.i
 _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %lor.rhs32.i
   %ss.i.i31 = getelementptr inbounds i8, ptr %cs, i64 12
   %19 = load i8, ptr %ss.i.i31, align 4
-  %20 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 5), align 4
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 12), align 4
   %cmp39.i = icmp slt i8 %19, %20
   br i1 %cmp39.i, label %cond.end36, label %cond.false
 
@@ -302,7 +302,7 @@ lor.rhs.i.i:                                      ; preds = %cond.false
   br i1 %cmp4.i.i, label %land.rhs.i.i, label %cond.false29
 
 land.rhs.i.i:                                     ; preds = %lor.rhs.i.i
-  %22 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 1), align 8
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 8), align 8
   %m.i21.i.i = getelementptr inbounds i8, ptr %cs, i64 8
   %23 = load i8, ptr %m.i21.i.i, align 8
   %cmp7.i.i = icmp slt i8 %22, %23
@@ -313,7 +313,7 @@ lor.rhs8.i.i:                                     ; preds = %land.rhs.i.i
   br i1 %cmp11.i.i, label %land.rhs12.i.i, label %cond.false29
 
 land.rhs12.i.i:                                   ; preds = %lor.rhs8.i.i
-  %24 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 2), align 1
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 9), align 1
   %d.i28.i.i = getelementptr inbounds i8, ptr %cs, i64 9
   %25 = load i8, ptr %d.i28.i.i, align 1
   %cmp15.i.i = icmp slt i8 %24, %25
@@ -324,7 +324,7 @@ lor.rhs16.i.i:                                    ; preds = %land.rhs12.i.i
   br i1 %cmp19.i.i, label %land.rhs20.i.i, label %cond.false29
 
 land.rhs20.i.i:                                   ; preds = %lor.rhs16.i.i
-  %26 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 3), align 2
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 10), align 2
   %hh.i35.i.i = getelementptr inbounds i8, ptr %cs, i64 10
   %27 = load i8, ptr %hh.i35.i.i, align 2
   %cmp23.i.i = icmp slt i8 %26, %27
@@ -335,7 +335,7 @@ lor.rhs24.i.i:                                    ; preds = %land.rhs20.i.i
   br i1 %cmp27.i.i, label %land.rhs28.i.i, label %cond.false29
 
 land.rhs28.i.i:                                   ; preds = %lor.rhs24.i.i
-  %28 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 4), align 1
+  %28 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 11), align 1
   %mm.i42.i.i = getelementptr inbounds i8, ptr %cs, i64 11
   %29 = load i8, ptr %mm.i42.i.i, align 1
   %cmp31.i.i = icmp slt i8 %28, %29
@@ -346,7 +346,7 @@ lor.rhs32.i.i:                                    ; preds = %land.rhs28.i.i
   br i1 %cmp35.i.i, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, label %cond.false29
 
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %lor.rhs32.i.i
-  %30 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 5), align 4
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 12), align 4
   %ss.i49.i.i = getelementptr inbounds i8, ptr %cs, i64 12
   %31 = load i8, ptr %ss.i49.i.i, align 4
   %cmp39.i.i = icmp slt i8 %30, %31
@@ -828,7 +828,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibCC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneLibCE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneLibCE, i64 16), ptr %this, align 8
   %local_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.2) #12
   %cmp.i = icmp eq i32 %call.i, 0

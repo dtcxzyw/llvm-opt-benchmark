@@ -504,12 +504,12 @@ define hidden noundef i32 @zm_startup_xmlreader(i32 %0, i32 %1) #0 {
   %67 = alloca %struct.zend_type, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @xmlreader_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 32, ptr @xmlreader_object_handlers, align 8
-  store ptr @xmlreader_objects_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xmlreader_object_handlers, i64 0, i32 1), align 8
-  store ptr @xmlreader_read_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xmlreader_object_handlers, i64 0, i32 4), align 8
-  store ptr @xmlreader_write_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xmlreader_object_handlers, i64 0, i32 5), align 8
-  store ptr @xmlreader_get_property_ptr_ptr, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xmlreader_object_handlers, i64 0, i32 8), align 8
-  store ptr @xmlreader_get_method, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xmlreader_object_handlers, i64 0, i32 14), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @xmlreader_object_handlers, i64 0, i32 3), align 8
+  store ptr @xmlreader_objects_free_storage, ptr getelementptr inbounds (i8, ptr @xmlreader_object_handlers, i64 8), align 8
+  store ptr @xmlreader_read_property, ptr getelementptr inbounds (i8, ptr @xmlreader_object_handlers, i64 32), align 8
+  store ptr @xmlreader_write_property, ptr getelementptr inbounds (i8, ptr @xmlreader_object_handlers, i64 40), align 8
+  store ptr @xmlreader_get_property_ptr_ptr, ptr getelementptr inbounds (i8, ptr @xmlreader_object_handlers, i64 64), align 8
+  store ptr @xmlreader_get_method, ptr getelementptr inbounds (i8, ptr @xmlreader_object_handlers, i64 112), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @xmlreader_object_handlers, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
@@ -2047,9 +2047,9 @@ register_class_XMLReader.exit:                    ; preds = %720, %732, %739, %7
   call void @llvm.assume(i1 %.not)
   %745 = load ptr, ptr %744, align 8, !nonnull !4, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) @xmlreader_open_fn, ptr noundef nonnull align 1 dereferenceable(152) %745, i64 152, i1 false)
-  %746 = load i32, ptr getelementptr inbounds (%struct._zend_internal_function, ptr @xmlreader_open_fn, i64 0, i32 2), align 4
+  %746 = load i32, ptr getelementptr inbounds (i8, ptr @xmlreader_open_fn, i64 4), align 4
   %747 = and i32 %746, -17
-  store i32 %747, ptr getelementptr inbounds (%struct._zend_internal_function, ptr @xmlreader_open_fn, i64 0, i32 2), align 4
+  store i32 %747, ptr getelementptr inbounds (i8, ptr @xmlreader_open_fn, i64 4), align 4
   %748 = load ptr, ptr @xmlreader_class_entry, align 8
   %749 = getelementptr inbounds i8, ptr %748, i64 64
   %750 = call ptr @zend_hash_str_find(ptr noundef nonnull %749, ptr noundef nonnull @.str.30, i64 noundef 3) #11
@@ -2057,9 +2057,9 @@ register_class_XMLReader.exit:                    ; preds = %720, %732, %739, %7
   call void @llvm.assume(i1 %.not16)
   %751 = load ptr, ptr %750, align 8, !nonnull !4, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) @xmlreader_xml_fn, ptr noundef nonnull align 1 dereferenceable(152) %751, i64 152, i1 false)
-  %752 = load i32, ptr getelementptr inbounds (%struct._zend_internal_function, ptr @xmlreader_xml_fn, i64 0, i32 2), align 4
+  %752 = load i32, ptr getelementptr inbounds (i8, ptr @xmlreader_xml_fn, i64 4), align 4
   %753 = and i32 %752, -17
-  store i32 %753, ptr getelementptr inbounds (%struct._zend_internal_function, ptr @xmlreader_xml_fn, i64 0, i32 2), align 4
+  store i32 %753, ptr getelementptr inbounds (i8, ptr @xmlreader_xml_fn, i64 4), align 4
   %754 = load ptr, ptr @zend_post_startup_cb, align 8
   store ptr %754, ptr @prev_zend_post_startup_cb, align 8
   store ptr @xmlreader_fixup_temporaries, ptr @zend_post_startup_cb, align 8
@@ -2690,7 +2690,7 @@ define hidden void @zim_XMLReader_close(ptr nocapture noundef readonly %0, ptr n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %22
@@ -2759,7 +2759,7 @@ define hidden void @zim_XMLReader_getAttribute(ptr nocapture noundef readonly %0
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %php_xmlreader_string_arg.exit
@@ -2771,7 +2771,7 @@ define hidden void @zim_XMLReader_getAttribute(ptr nocapture noundef readonly %0
 
 15:                                               ; preds = %13
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %php_xmlreader_string_arg.exit
@@ -2835,7 +2835,7 @@ define hidden void @zim_XMLReader_getAttributeNo(ptr nocapture noundef readonly 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %.thread
@@ -2905,7 +2905,7 @@ define hidden void @zim_XMLReader_getAttributeNs(ptr nocapture noundef readonly 
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %.thread
@@ -2917,7 +2917,7 @@ define hidden void @zim_XMLReader_getAttributeNs(ptr nocapture noundef readonly 
 
 18:                                               ; preds = %15
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %.thread
@@ -2929,7 +2929,7 @@ define hidden void @zim_XMLReader_getAttributeNs(ptr nocapture noundef readonly 
 
 24:                                               ; preds = %21
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.9) #11
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %.thread
@@ -2989,7 +2989,7 @@ define hidden void @zim_XMLReader_getParserProperty(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %30
@@ -3004,7 +3004,7 @@ define hidden void @zim_XMLReader_getParserProperty(ptr nocapture noundef readon
 
 16:                                               ; preds = %11
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10) #11
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %30
@@ -3018,7 +3018,7 @@ define hidden void @zim_XMLReader_getParserProperty(ptr nocapture noundef readon
 
 24:                                               ; preds = %19
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.11) #11
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %30
@@ -3045,7 +3045,7 @@ define hidden void @zim_XMLReader_isValid(ptr nocapture noundef readonly %0, ptr
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %php_xmlreader_no_arg.exit
@@ -3094,7 +3094,7 @@ define hidden void @zim_XMLReader_lookupNamespace(ptr nocapture noundef readonly
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %php_xmlreader_string_arg.exit
@@ -3106,7 +3106,7 @@ define hidden void @zim_XMLReader_lookupNamespace(ptr nocapture noundef readonly
 
 15:                                               ; preds = %13
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %php_xmlreader_string_arg.exit
@@ -3173,7 +3173,7 @@ define hidden void @zim_XMLReader_moveToAttribute(ptr nocapture noundef readonly
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %31
@@ -3185,7 +3185,7 @@ define hidden void @zim_XMLReader_moveToAttribute(ptr nocapture noundef readonly
 
 16:                                               ; preds = %13
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %31
@@ -3229,7 +3229,7 @@ define hidden void @zim_XMLReader_moveToAttributeNo(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %25
@@ -3281,7 +3281,7 @@ define hidden void @zim_XMLReader_moveToAttributeNs(ptr nocapture noundef readon
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %40
@@ -3293,7 +3293,7 @@ define hidden void @zim_XMLReader_moveToAttributeNs(ptr nocapture noundef readon
 
 18:                                               ; preds = %15
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %40
@@ -3305,7 +3305,7 @@ define hidden void @zim_XMLReader_moveToAttributeNs(ptr nocapture noundef readon
 
 24:                                               ; preds = %21
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.9) #11
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %40
@@ -3349,7 +3349,7 @@ define hidden void @zim_XMLReader_moveToElement(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %php_xmlreader_no_arg.exit
@@ -3392,7 +3392,7 @@ define hidden void @zim_XMLReader_moveToFirstAttribute(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %php_xmlreader_no_arg.exit
@@ -3435,7 +3435,7 @@ define hidden void @zim_XMLReader_moveToNextAttribute(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %php_xmlreader_no_arg.exit
@@ -3478,7 +3478,7 @@ define hidden void @zim_XMLReader_read(ptr nocapture noundef readonly %0, ptr no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %23
@@ -3493,7 +3493,7 @@ define hidden void @zim_XMLReader_read(ptr nocapture noundef readonly %0, ptr no
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.13) #11
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %23
@@ -3534,7 +3534,7 @@ define hidden void @zim_XMLReader_next(ptr nocapture noundef readonly %0, ptr no
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %43
@@ -3627,7 +3627,7 @@ define hidden void @zim_XMLReader_open(ptr nocapture noundef readonly %0, ptr no
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %78
@@ -3681,7 +3681,7 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
 
 34:                                               ; preds = %xmlreader_free_resources.exit
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %78
@@ -3791,7 +3791,7 @@ define hidden void @zim_XMLReader_readInnerXml(ptr nocapture noundef readonly %0
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %php_xmlreader_no_arg_string.exit
@@ -3854,7 +3854,7 @@ define hidden void @zim_XMLReader_readOuterXml(ptr nocapture noundef readonly %0
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %php_xmlreader_no_arg_string.exit
@@ -3917,7 +3917,7 @@ define hidden void @zim_XMLReader_readString(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %php_xmlreader_no_arg_string.exit
@@ -3984,7 +3984,7 @@ define hidden void @zim_XMLReader_setSchema(ptr nocapture noundef readonly %0, p
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %53
@@ -3999,7 +3999,7 @@ define hidden void @zim_XMLReader_setSchema(ptr nocapture noundef readonly %0, p
 
 18:                                               ; preds = %13
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %53
@@ -4051,7 +4051,7 @@ define hidden void @zim_XMLReader_setSchema(ptr nocapture noundef readonly %0, p
 
 50:                                               ; preds = %21
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.20) #11
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
   br label %53
@@ -4073,7 +4073,7 @@ define hidden void @zim_XMLReader_setParserProperty(ptr nocapture noundef readon
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %33
@@ -4088,7 +4088,7 @@ define hidden void @zim_XMLReader_setParserProperty(ptr nocapture noundef readon
 
 17:                                               ; preds = %12
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10) #11
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %33
@@ -4105,7 +4105,7 @@ define hidden void @zim_XMLReader_setParserProperty(ptr nocapture noundef readon
 
 28:                                               ; preds = %20
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.11) #11
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %33
@@ -4141,7 +4141,7 @@ define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr nocapture noun
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %72
@@ -4156,7 +4156,7 @@ define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr nocapture noun
 
 20:                                               ; preds = %15
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %72
@@ -4265,7 +4265,7 @@ _xmlreader_get_relaxNG.exit:                      ; preds = %36
 
 69:                                               ; preds = %23
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.20) #11
-  %70 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %72
@@ -4299,7 +4299,7 @@ define hidden void @zim_XMLReader_XML(ptr nocapture noundef readonly %0, ptr nou
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %112
@@ -4353,7 +4353,7 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
 
 34:                                               ; preds = %xmlreader_free_resources.exit
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %112
@@ -4533,7 +4533,7 @@ define hidden void @zim_XMLReader_expand(ptr nocapture noundef readonly %0, ptr 
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %55
@@ -4609,7 +4609,7 @@ define hidden void @zim_XMLReader_expand(ptr nocapture noundef readonly %0, ptr 
 
 52:                                               ; preds = %36
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.28) #11
-  %53 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %54 = icmp ne ptr %53, null
   call void @llvm.assume(i1 %54)
   br label %55
@@ -4671,12 +4671,12 @@ define internal i32 @xmlreader_fixup_temporaries() #0 {
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %0
-  %3 = load i32, ptr getelementptr inbounds (%struct._zend_internal_function, ptr @xmlreader_open_fn, i64 0, i32 12), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @xmlreader_open_fn, i64 72), align 8
   %4 = add i32 %3, 1
-  store i32 %4, ptr getelementptr inbounds (%struct._zend_internal_function, ptr @xmlreader_open_fn, i64 0, i32 12), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct._zend_internal_function, ptr @xmlreader_xml_fn, i64 0, i32 12), align 8
+  store i32 %4, ptr getelementptr inbounds (i8, ptr @xmlreader_open_fn, i64 72), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @xmlreader_xml_fn, i64 72), align 8
   %6 = add i32 %5, 1
-  store i32 %6, ptr getelementptr inbounds (%struct._zend_internal_function, ptr @xmlreader_xml_fn, i64 0, i32 12), align 8
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @xmlreader_xml_fn, i64 72), align 8
   br label %7
 
 7:                                                ; preds = %2, %0

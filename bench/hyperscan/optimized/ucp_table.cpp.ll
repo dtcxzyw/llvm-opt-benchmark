@@ -6810,7 +6810,7 @@ do.end42:                                         ; preds = %invoke.cont35, %for
   %uc_begin.143 = phi ptr [ %uc_begin.2.lcssa, %for.inc ], [ %uc_begin.046, %invoke.cont35 ]
   %b.042 = phi i32 [ %inc, %for.inc ], [ %8, %invoke.cont35 ]
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %uc_begin.143 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 ptrtoint (ptr getelementptr inbounds ([2254 x %"struct.ue2::unicase"], ptr @_ZN3ue2L16ucp_caseless_defE, i64 1, i64 0, i32 0) to i64), %sub.ptr.rhs.cast.i.i.i.i
+  %sub.ptr.sub.i.i.i.i = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032) to i64), %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %cmp28.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   br i1 %cmp28.i.i, label %while.body.i.i, label %invoke.cont44
@@ -6832,7 +6832,7 @@ while.body.i.i:                                   ; preds = %do.end42, %while.bo
 
 invoke.cont44:                                    ; preds = %while.body.i.i, %do.end42
   %__first.addr.0.lcssa.i.i = phi ptr [ %uc_begin.143, %do.end42 ], [ %12, %while.body.i.i ]
-  %cmp46 = icmp eq ptr %__first.addr.0.lcssa.i.i, getelementptr inbounds ([2254 x %"struct.ue2::unicase"], ptr @_ZN3ue2L16ucp_caseless_defE, i64 1, i64 0, i32 0)
+  %cmp46 = icmp eq ptr %__first.addr.0.lcssa.i.i, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %cmp46, label %cleanup, label %land.rhs53
 
 lpad:                                             ; preds = %call.i10.i.noexc, %_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE11upper_boundERKS4_.exit.i, %call5.i.i.i.i.i.i.i.i.i.noexc, %if.then5.i
@@ -6962,11 +6962,11 @@ call4.i.i.noexc:                                  ; preds = %call.i10.i.noexc
 invoke.cont61:                                    ; preds = %do.end59, %call.i.i.noexc, %call4.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
   %incdec.ptr = getelementptr inbounds i8, ptr %uc_begin.240, i64 8
-  %cmp52.not = icmp eq ptr %incdec.ptr, getelementptr inbounds ([2254 x %"struct.ue2::unicase"], ptr @_ZN3ue2L16ucp_caseless_defE, i64 1, i64 0, i32 0)
+  %cmp52.not = icmp eq ptr %incdec.ptr, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %cmp52.not, label %for.inc, label %land.rhs53, !llvm.loop !146
 
 for.inc:                                          ; preds = %land.rhs53, %invoke.cont61
-  %uc_begin.2.lcssa = phi ptr [ %uc_begin.240, %land.rhs53 ], [ getelementptr inbounds ([2254 x %"struct.ue2::unicase"], ptr @_ZN3ue2L16ucp_caseless_defE, i64 1, i64 0, i32 0), %invoke.cont61 ]
+  %uc_begin.2.lcssa = phi ptr [ %uc_begin.240, %land.rhs53 ], [ getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032), %invoke.cont61 ]
   %inc = add nuw i32 %b.042, 1
   %exitcond.not = icmp eq i32 %b.042, %9
   br i1 %exitcond.not, label %for.inc62, label %do.end42, !llvm.loop !147
@@ -7015,7 +7015,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %en
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit, !llvm.loop !143
 
 _ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit: ; preds = %while.body.i.i
-  %cmp.not = icmp eq ptr %3, getelementptr inbounds ([2254 x %"struct.ue2::unicase"], ptr @_ZN3ue2L16ucp_caseless_defE, i64 1, i64 0, i32 0)
+  %cmp.not = icmp eq ptr %3, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit
@@ -7365,7 +7365,7 @@ invoke.cont.i.i:                                  ; preds = %init.check.i.i
   %5 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i = add i32 %5, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %5, ptr getelementptr inbounds (%"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #12
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
 
@@ -7419,7 +7419,7 @@ invoke.cont.i.i20:                                ; preds = %init.check.i.i18
   %10 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i21 = add i32 %10, 1
   store i32 %inc.i.i.i.i.i21, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %10, ptr getelementptr inbounds (%"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1), align 4
+  store i32 %10, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #12
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i15
 

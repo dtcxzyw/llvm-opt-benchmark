@@ -170,7 +170,7 @@ create_subdir.exit.thread:                        ; preds = %16, %9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @snd_info_create_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 152) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
@@ -957,7 +957,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_info_entry_open(ptr nocapture
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 32) #14
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -1320,7 +1320,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_info_text_entry_open(ptr noca
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 32) #14
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread.sink.split, label %18
@@ -1328,7 +1328,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_info_text_entry_open(ptr noca
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %4, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %21 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 32) #14
   store ptr %21, ptr %16, align 8
   %22 = icmp eq ptr %21, null
@@ -1412,7 +1412,7 @@ define internal noundef i64 @snd_info_text_entry_write(ptr nocapture noundef rea
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %28 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 32) #14
   store ptr %28, ptr %23, align 8
   %29 = icmp eq ptr %28, null
@@ -1570,7 +1570,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @snd_info_version_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #4 align 16 {
   %3 = load ptr, ptr %1, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (%struct.uts_namespace, ptr @init_uts_ns, i64 0, i32 0, i32 2)) #13
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 130)) #13
   ret void
 }
 

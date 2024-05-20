@@ -286,7 +286,7 @@ lpad:                                             ; preds = %if.then.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !4
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -580,14 +580,14 @@ define dso_local void @_ZN18GUIBackgroundImageC1EPN3irr3gui15IGUIEnvironmentEPNS
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 384
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 392
   store ptr null, ptr %DebugName.i, align 8, !tbaa !68
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 400
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !60
-  tail call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT18GUIBackgroundImage, i64 0, i64 1), i32 noundef 23, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle)
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !4
+  tail call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT18GUIBackgroundImage, i64 8), i32 noundef 23, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle)
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV18GUIBackgroundImage, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV18GUIBackgroundImage, i64 336), ptr %0, align 8, !tbaa !4
   %m_name = getelementptr inbounds i8, ptr %this, i64 312
   %1 = getelementptr inbounds i8, ptr %this, i64 328
   store ptr %1, ptr %m_name, align 8, !tbaa !7
@@ -647,7 +647,7 @@ invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i, %
 lpad2:                                            ; preds = %if.then.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT18GUIBackgroundImage, i64 0, i64 1)) #20
+  call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT18GUIBackgroundImage, i64 8)) #20
   resume { ptr, i32 } %9
 }
 
@@ -2079,9 +2079,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18GUIBackgroundImageD1Ev(ptr noundef nonnull align 8 dereferenceable(380) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV18GUIBackgroundImage, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 384
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV18GUIBackgroundImage, i64 336), ptr %add.ptr.i, align 8, !tbaa !4
   %m_name.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %m_name.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 328
@@ -2100,16 +2100,16 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN18GUIBackgroundImageD2Ev.exit
 
 _ZN18GUIBackgroundImageD2Ev.exit:                 ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT18GUIBackgroundImage, i64 0, i64 1)) #20
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT18GUIBackgroundImage, i64 8)) #20
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18GUIBackgroundImageD0Ev(ptr noundef nonnull align 8 dereferenceable(380) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV18GUIBackgroundImage, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 384
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV18GUIBackgroundImage, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !4
   %m_name.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %m_name.i.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 328
@@ -2128,7 +2128,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN18GUIBackgroundImageD1Ev.exit
 
 _ZN18GUIBackgroundImageD1Ev.exit:                 ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT18GUIBackgroundImage, i64 0, i64 1)) #20
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT18GUIBackgroundImage, i64 8)) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -2140,9 +2140,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV18GUIBackgroundImage, i64 24), ptr %3, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 384
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV18GUIBackgroundImage, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !4
   %m_name.i.i = getelementptr inbounds i8, ptr %3, i64 312
   %4 = load ptr, ptr %m_name.i.i, align 8, !tbaa !11
   %5 = getelementptr inbounds i8, ptr %3, i64 328
@@ -2161,7 +2161,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN18GUIBackgroundImageD1Ev.exit
 
 _ZN18GUIBackgroundImageD1Ev.exit:                 ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT18GUIBackgroundImage, i64 0, i64 1)) #20
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT18GUIBackgroundImage, i64 8)) #20
   ret void
 }
 
@@ -2172,9 +2172,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV18GUIBackgroundImage, i64 24), ptr %3, align 8, !tbaa !4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 384
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV18GUIBackgroundImage, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !4
   %m_name.i.i.i = getelementptr inbounds i8, ptr %3, i64 312
   %4 = load ptr, ptr %m_name.i.i.i, align 8, !tbaa !11
   %5 = getelementptr inbounds i8, ptr %3, i64 328
@@ -2193,7 +2193,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   br label %_ZN18GUIBackgroundImageD0Ev.exit
 
 _ZN18GUIBackgroundImageD0Ev.exit:                 ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT18GUIBackgroundImage, i64 0, i64 1)) #20
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT18GUIBackgroundImage, i64 8)) #20
   tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   ret void
 }

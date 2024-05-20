@@ -372,7 +372,7 @@ if.end134:                                        ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_graft_file.err, i64 24, i1 false)
-  %9 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 5), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 80), align 16
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   call void @strbuf_add(ptr noundef nonnull %ref.i, ptr noundef %9, i64 noundef %call.i.i) #15
   %len.i = getelementptr inbounds i8, ptr %ref.i, i64 8
@@ -1566,7 +1566,7 @@ declare ptr @type_name(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @check_ref_valid(ptr noundef %object, ptr noundef %prev, ptr noundef %ref, i32 noundef %force) unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 5), align 16
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 80), align 16
   %len2.i = getelementptr inbounds i8, ptr %ref, i64 8
   store i64 0, ptr %len2.i, align 8
   %buf.i = getelementptr inbounds i8, ptr %ref, i64 16

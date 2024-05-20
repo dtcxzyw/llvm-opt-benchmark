@@ -1425,7 +1425,7 @@ define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1,
 
 .thread:                                          ; preds = %4, %39
   tail call void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %3)
-  %41 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !46
+  %41 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !46
   %42 = add i32 %3, -1
   %43 = sext i32 %42 to i64
   %44 = getelementptr i32, ptr %2, i64 %43

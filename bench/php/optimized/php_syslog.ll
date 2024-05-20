@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @php_syslog_str(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.smart_string, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %4 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 75), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 600), align 8
   %5 = icmp eq i64 %4, 3
   br i1 %5, label %11, label %.preheader
 
@@ -86,7 +86,7 @@ define void @php_syslog_str(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 31:                                               ; preds = %13
   %32 = icmp slt i8 %15, 0
-  %33 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 75), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 600), align 8
   %34 = icmp ne i64 %33, 2
   %or.cond4 = select i1 %32, i1 %34, i1 false
   br i1 %or.cond4, label %35, label %48
@@ -279,7 +279,7 @@ declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @php_openlog(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @openlog(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
-  store i8 1, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 72), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @core_globals, i64 581), align 1
   ret void
 }
 
@@ -288,7 +288,7 @@ declare void @openlog(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define void @php_closelog() local_unnamed_addr #0 {
   tail call void @closelog() #6
-  store i8 0, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 72), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 581), align 1
   ret void
 }
 
@@ -297,16 +297,16 @@ declare void @closelog() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @php_syslog(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 72), align 1
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 581), align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 74), align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 73), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 592), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 584), align 8
   %9 = trunc i64 %8 to i32
   tail call void @openlog(ptr noundef %7, i32 noundef 0, i32 noundef %9) #6
-  store i8 1, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 72), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @core_globals, i64 581), align 1
   br label %10
 
 10:                                               ; preds = %6, %2

@@ -101,7 +101,7 @@ define void @_ZN9grpc_core19GrpcLbRequestCreateESt17basic_string_viewIcSt11char_
 entry:
   %ptr.i.i = alloca ptr, align 8
   %buf_length.i = alloca i64, align 8
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__lb__v1__LoadBalanceRequest_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__LoadBalanceRequest_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %0 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -148,7 +148,7 @@ grpc_lb_v1_LoadBalanceRequest_initial_request.exit.i: ; preds = %grpc_lb_v1_Load
   br i1 %cmp.i, label %if.then.i, label %grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit
 
 if.then.i:                                        ; preds = %grpc_lb_v1_LoadBalanceRequest_initial_request.exit.i, %grpc_lb_v1_LoadBalanceRequest_new.exit
-  %6 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__lb__v1__InitialLoadBalanceRequest_msg_init, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__InitialLoadBalanceRequest_msg_init, i64 16), align 8
   %conv.i.i.i4 = zext i16 %6 to i64
   %add.i.i.i5 = add nuw nsw i64 %conv.i.i.i4, 8
   %sub.i.i.i6 = add nuw nsw i64 %conv.i.i.i4, 23
@@ -205,7 +205,7 @@ entry:
   %ptr.i.i = alloca ptr, align 8
   %buf_length.i = alloca i64, align 8
   %field.i = alloca %struct.upb_MiniTableField, align 4
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__lb__v1__LoadBalanceRequest_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__LoadBalanceRequest_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %0 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -252,7 +252,7 @@ grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i: ; preds = %grpc_lb_v1_LoadBal
   br i1 %cmp.i, label %if.then.i, label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
 
 if.then.i:                                        ; preds = %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, %grpc_lb_v1_LoadBalanceRequest_new.exit
-  %6 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__lb__v1__ClientStats_msg_init, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__ClientStats_msg_init, i64 16), align 8
   %conv.i.i.i22 = zext i16 %6 to i64
   %add.i.i.i23 = add nuw nsw i64 %conv.i.i.i22, 8
   %sub.i.i.i24 = add nuw nsw i64 %conv.i.i.i22, 23
@@ -297,7 +297,7 @@ grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit: ; preds = %grpc_lb_v1_L
   br i1 %cmp.i40, label %if.then.i42, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit
 
 if.then.i42:                                      ; preds = %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
-  %12 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Timestamp_msg_init, i64 0, i32 2), align 8
+  %12 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
   %conv.i.i.i43 = zext i16 %12 to i64
   %add.i.i.i44 = add nuw nsw i64 %conv.i.i.i43, 8
   %sub.i.i.i45 = add nuw nsw i64 %conv.i.i.i43, 23
@@ -392,7 +392,7 @@ _upb_array_reserve.exit.i.i:                      ; preds = %lor.lhs.false.i
 
 if.end.i:                                         ; preds = %_upb_array_reserve.exit.i.i, %lor.lhs.false.i
   store i64 %add.i, ptr %size.i, align 8
-  %24 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__lb__v1__ClientStatsPerToken_msg_init, i64 0, i32 2), align 8
+  %24 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__ClientStatsPerToken_msg_init, i64 16), align 8
   %conv.i.i.i67 = zext i16 %24 to i64
   %add.i.i.i68 = add nuw nsw i64 %conv.i.i.i67, 8
   %sub.i.i.i69 = add nuw nsw i64 %conv.i.i.i67, 23
@@ -506,7 +506,7 @@ entry:
   %2 = load i64, ptr %data6, align 8
   %conv = and i64 %2, 255
   %cond11 = select i1 %tobool.not, i64 %conv, i64 %2
-  %3 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__lb__v1__LoadBalanceResponse_msg_init, i64 0, i32 2), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__LoadBalanceResponse_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %3 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23

@@ -115,7 +115,7 @@ define internal noundef ptr @proc_self_get_link(ptr noundef readnone %0, ptr noc
 13:                                               ; preds = %3
   %14 = icmp eq ptr %0, null
   %15 = select i1 %14, i32 2080, i32 3264
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %17 = tail call noalias align 8 dereferenceable_or_null(11) ptr @kmalloc_trace(ptr noundef %16, i32 noundef %15, i64 noundef 11) #9
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21, !prof !6

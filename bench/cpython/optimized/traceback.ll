@@ -1129,7 +1129,7 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end
   br i1 %tobool3.i.not, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %PyObject_TypeCheck.exit
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrame_Type, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrame_Type, i64 24), align 8
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %5, ptr noundef %.pre) #10
   br label %exit
 
@@ -1721,7 +1721,7 @@ if.end9:                                          ; preds = %if.then2, %PyUnicod
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
-  %call14 = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %call10, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 526), ptr noundef nonnull @.str.28, ptr noundef nonnull %filename, ptr noundef nonnull @.str.29) #10
+  %call14 = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %call10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 53920), ptr noundef nonnull @.str.28, ptr noundef nonnull %filename, ptr noundef nonnull @.str.29) #10
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %if.then16, label %if.end21
 
@@ -1744,7 +1744,7 @@ if.end.i133:                                      ; preds = %if.then16
   %call6.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tail.0.i) #11
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %21 = load ptr, ptr %20, align 8
-  %call8.i = tail call ptr @_PySys_GetAttr(ptr noundef %21, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 541)) #10
+  %call8.i = tail call ptr @_PySys_GetAttr(ptr noundef %21, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 54680)) #10
   %cmp9.i = icmp eq ptr %call8.i, null
   br i1 %cmp9.i, label %Py_XDECREF.exit.i, label %lor.lhs.false.i
 
@@ -1759,7 +1759,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i133
 
 if.end13.i:                                       ; preds = %lor.lhs.false.i
   %call14.i = tail call i64 @PyList_Size(ptr noundef nonnull %call8.i) #10
-  %call15.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %call10, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 526)) #10
+  %call15.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %call10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 53920)) #10
   %cmp1647.i = icmp sgt i64 %call14.i, 0
   br i1 %cmp1647.i, label %for.body.i, label %finally.i
 
@@ -2018,7 +2018,7 @@ Py_DECREF.exit193:                                ; preds = %Py_DECREF.exit202, 
 
 if.end34:                                         ; preds = %if.end29
   %cond = select i1 %cmp27, ptr @.str.30, ptr %call26
-  %call35 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %call10, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 6), ptr noundef nonnull @.str.28, ptr noundef nonnull %binary.0, ptr noundef nonnull %cond) #10
+  %call35 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %call10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26056), ptr noundef nonnull @.str.28, ptr noundef nonnull %binary.0, ptr noundef nonnull %cond) #10
   %49 = load i64, ptr %call10, align 8
   %50 = and i64 %49, 2147483648
   %cmp.i250.not = icmp eq i64 %50, 0
@@ -2043,7 +2043,7 @@ if.then37:                                        ; preds = %Py_DECREF.exit184
   call void @PyErr_Clear() #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %binary.0, ptr %self.addr.i, align 8
-  %call.i139 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 266), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #10
+  %call.i139 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %51 = load i64, ptr %binary.0, align 8
   %52 = and i64 %51, 2147483648
@@ -2144,7 +2144,7 @@ for.end:                                          ; preds = %for.cond, %Py_DECRE
   %lineobj.1 = phi ptr [ null, %if.then45 ], [ null, %Py_DECREF.exit157 ], [ %call43, %for.cond ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i146)
   store ptr %call35, ptr %self.addr.i146, align 8
-  %call.i147 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 266), ptr noundef nonnull %self.addr.i146, i64 noundef -9223372036854775807, ptr noundef null) #10
+  %call.i147 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %self.addr.i146, i64 noundef -9223372036854775807, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i146)
   %tobool48.not = icmp eq ptr %call.i147, null
   br i1 %tobool48.not, label %if.else50, label %if.then49

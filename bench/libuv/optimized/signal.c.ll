@@ -32,13 +32,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %cmp1.not = icmp eq i32 %1, -1
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call3 = tail call i32 @uv__close(i32 noundef %1) #10
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -888,7 +888,7 @@ if.end9.i:                                        ; preds = %if.end.i22
   %idxprom.i.i = sext i32 %74 to i64
   %arrayidx.i.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
-  %arrayidx2.i.i = getelementptr inbounds %struct.uv__sigactions_t, ptr @uv__sigactions, i64 0, i32 1, i64 %idxprom.i.i
+  %arrayidx2.i.i = getelementptr inbounds [128 x i8], ptr getelementptr inbounds (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i
   store i8 1, ptr %arrayidx2.i.i, align 1
   br label %uv__signal_register_handler.exit
 
@@ -903,7 +903,7 @@ if.end13:                                         ; preds = %if.else, %uv__signa
   br label %do.body.i.i24
 
 do.body.i.i24:                                    ; preds = %land.rhs.i.i25, %if.end13
-  %81 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i = call i64 @write(i32 noundef %81, ptr noundef nonnull %data.i.i, i64 noundef 1) #10
   %82 = and i64 %call.i.i, 2147483648
   %cmp.not.not.i.not.i = icmp eq i64 %82, 0
@@ -1151,7 +1151,7 @@ if.then12.thread76:                               ; preds = %if.end.i23
   %idxprom.i.i = sext i32 %signum to i64
   %arrayidx.i.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
-  %arrayidx2.i.i = getelementptr inbounds %struct.uv__sigactions_t, ptr @uv__sigactions, i64 0, i32 1, i64 %idxprom.i.i
+  %arrayidx2.i.i = getelementptr inbounds [128 x i8], ptr getelementptr inbounds (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i
   store i8 1, ptr %arrayidx2.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa_old.i)
@@ -1202,7 +1202,7 @@ if.then12.thread.thread:                          ; preds = %if.end.i31
   %idxprom.i.i40 = sext i32 %signum to i64
   %arrayidx.i.i41 = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i41, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i26, i64 152, i1 false)
-  %arrayidx2.i.i42 = getelementptr inbounds %struct.uv__sigactions_t, ptr @uv__sigactions, i64 0, i32 1, i64 %idxprom.i.i40
+  %arrayidx2.i.i42 = getelementptr inbounds [128 x i8], ptr getelementptr inbounds (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i40
   store i8 1, ptr %arrayidx2.i.i42, align 1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i25)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa_old.i26)
@@ -1236,7 +1236,7 @@ if.then15:                                        ; preds = %if.then12.thread, %
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.then15
-  %8 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i = call i64 @write(i32 noundef %8, ptr noundef nonnull %data.i.i, i64 noundef 1) #10
   %9 = and i64 %call.i.i, 2147483648
   %cmp.not.not.i.not.i = icmp eq i64 %9, 0
@@ -1617,7 +1617,7 @@ uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %if.else.i, %uv__sig
   br label %do.body.i.i54
 
 do.body.i.i54:                                    ; preds = %land.rhs.i.i57, %uv__signal_tree_s_RB_INSERT.exit
-  %45 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i55 = call i64 @write(i32 noundef %45, ptr noundef nonnull %data.i.i53, i64 noundef 1) #10
   %46 = and i64 %call.i.i55, 2147483648
   %cmp.not.not.i.not.i56 = icmp eq i64 %46, 0
@@ -1705,13 +1705,13 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %1 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %cmp1.not.i = icmp eq i32 %1, -1
   br i1 %cmp1.not.i, label %uv__signal_cleanup.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call i32 @uv__close(i32 noundef %1) #10
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   br label %uv__signal_cleanup.exit
 
 uv__signal_cleanup.exit:                          ; preds = %if.end.i, %if.then2.i
@@ -1729,7 +1729,7 @@ if.end:                                           ; preds = %uv__signal_cleanup.
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
-  %2 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i1 = call i64 @write(i32 noundef %2, ptr noundef nonnull %data.i, i64 noundef 1) #10
   %3 = and i64 %call.i1, 2147483648
   %cmp.not.not.i.not = icmp eq i64 %3, 0
@@ -2146,7 +2146,7 @@ for.end:                                          ; preds = %uv__signal_tree_s_R
   br label %do.body.i14
 
 do.body.i14:                                      ; preds = %land.rhs.i18, %for.end
-  %22 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i15 = call i64 @write(i32 noundef %22, ptr noundef nonnull %data.i13, i64 noundef 1) #10
   %23 = and i64 %call.i15, 2147483648
   %cmp.not.not.i16.not = icmp eq i64 %23, 0

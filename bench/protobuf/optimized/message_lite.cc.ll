@@ -839,7 +839,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([51 x i8], ptr @.str, i64 0, i64 50))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 50))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1083,7 +1083,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite13MergeFromImplEPNS0_
 entry:
   %zcis = alloca %"class.google::protobuf::ZeroCopyCodedInputStream", align 8
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i64 0, i32 0, i64 2), ptr %zcis, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i64 16), ptr %zcis, align 8
   %cis_.i = getelementptr inbounds i8, ptr %zcis, i64 8
   store ptr %input, ptr %cis_.i, align 8
   %recursion_budget_.i = getelementptr inbounds i8, ptr %input, i64 52

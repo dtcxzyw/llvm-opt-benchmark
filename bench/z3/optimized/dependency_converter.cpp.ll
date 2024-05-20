@@ -152,7 +152,7 @@ _ZN27concat_dependency_converterC2EP20dependency_converterS1_.exit: ; preds = %i
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27concat_dependency_converter, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27concat_dependency_converter, i64 16), ptr %call, align 8
   %m_dc1.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %mc1, ptr %m_dc1.i, align 8
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %mc1, i64 8
@@ -180,7 +180,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25unit_dependency_converter, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25unit_dependency_converter, i64 16), ptr %call, align 8
   %m_dep.i = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %d, align 8
   store ptr %0, ptr %m_dep.i, align 8
@@ -225,7 +225,7 @@ define linkonce_odr hidden void @_ZN25goal_dependency_converterC2EjPKP4goal(ptr 
 entry:
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25goal_dependency_converter, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25goal_dependency_converter, i64 16), ptr %this, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %goals, align 8
   %1 = load ptr, ptr %0, align 8
@@ -378,7 +378,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27concat_dependency_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27concat_dependency_converter, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27concat_dependency_converter, i64 16), ptr %this, align 8
   %m_dc2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_dc2, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -441,7 +441,7 @@ _ZN3refI20dependency_converterED2Ev.exit9:        ; preds = %_ZN3refI20dependenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27concat_dependency_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27concat_dependency_converter, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27concat_dependency_converter, i64 16), ptr %this, align 8
   %m_dc2.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_dc2.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -701,7 +701,7 @@ entry:
   %call7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(84) %translator)
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27concat_dependency_converter, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27concat_dependency_converter, i64 16), ptr %call, align 8
   %m_dc1.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3, ptr %m_dc1.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %call3, null
@@ -926,7 +926,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i24, 
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #11
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #14
@@ -1041,7 +1041,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #14
@@ -1119,7 +1119,7 @@ invoke.cont4:                                     ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #11
   ret void
@@ -1247,7 +1247,7 @@ declare void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25unit_dependency_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25unit_dependency_converter, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25unit_dependency_converter, i64 16), ptr %this, align 8
   %m_dep = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_dep, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -1284,7 +1284,7 @@ _ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25unit_dependency_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25unit_dependency_converter, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25unit_dependency_converter, i64 16), ptr %this, align 8
   %m_dep.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_dep.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1393,7 +1393,7 @@ invoke.cont5:                                     ; preds = %_ZN11ast_manager7in
 invoke.cont7:                                     ; preds = %invoke.cont5
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %call8, i64 8
   store i32 0, ptr %m_ref_count.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25unit_dependency_converter, i64 0, i32 0, i64 2), ptr %call8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25unit_dependency_converter, i64 16), ptr %call8, align 8
   %m_dep.i = getelementptr inbounds i8, ptr %call8, i64 16
   store ptr %call2, ptr %m_dep.i, align 8
   %m_manager.i.i = getelementptr inbounds i8, ptr %call8, i64 24
@@ -1557,7 +1557,7 @@ _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EED2Ev.exit: ; preds =
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25goal_dependency_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25goal_dependency_converter, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25goal_dependency_converter, i64 16), ptr %this, align 8
   %m_goals = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_goals, align 8
   %m_pos.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

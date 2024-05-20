@@ -57,7 +57,7 @@ $_ZTV17b3TypedConstraint = comdat any
 define dso_local void @_ZN23b3Generic6DofConstraintC2EiiRK11b3TransformS2_bPK15b3RigidBodyData(ptr noundef nonnull align 16 dereferenceable(824) %this, i32 noundef %rbA, i32 noundef %rbB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %frameInA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %frameInB, i1 noundef zeroext %useLinearReferenceFrameA, ptr nocapture noundef readonly %bodies) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   tail call void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr noundef nonnull align 16 dereferenceable(64) %this, i32 noundef 6, i32 noundef %rbA, i32 noundef %rbB)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV23b3Generic6DofConstraint, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23b3Generic6DofConstraint, i64 16), ptr %this, align 16
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_frameInA, ptr noundef nonnull align 16 dereferenceable(16) %frameInA, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %frameInA, i64 16
@@ -3636,14 +3636,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23b3Generic6DofConstraintD2Ev(ptr noundef nonnull align 16 dereferenceable(824) %this) unnamed_addr #15 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17b3TypedConstraint, i64 16), ptr %this, align 16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23b3Generic6DofConstraintD0Ev(ptr noundef nonnull align 16 dereferenceable(824) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17b3TypedConstraint, i64 16), ptr %this, align 16
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN23b3Generic6DofConstraintdlEPv.exit unwind label %terminate.lpad.i
 
@@ -3673,7 +3673,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17b3TypedConstraintD2Ev(ptr noundef nonnull align 16 dereferenceable(64) %this) unnamed_addr #15 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17b3TypedConstraint, i64 16), ptr %this, align 16
   ret void
 }
 

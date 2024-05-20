@@ -32,20 +32,20 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_get_sle
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_reset() #0 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38), align 1
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %2 = and i32 %1, 1024
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %17, label %4
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 39, i32 4), align 1
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 120), align 1
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %4
-  %8 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 39), align 1
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 116), align 1
   %9 = icmp eq i8 %8, 1
-  %10 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 40), align 1
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 128), align 1
   br i1 %9, label %11, label %14
 
 11:                                               ; preds = %7
@@ -55,7 +55,7 @@ define dso_local i32 @acpi_reset() #0 align 16 {
 
 14:                                               ; preds = %7
   %15 = zext i8 %10 to i64
-  %16 = tail call i32 @acpi_hw_write(i64 noundef %15, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 39)) #4
+  %16 = tail call i32 @acpi_hw_write(i64 noundef %15, ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 116)) #4
   br label %17
 
 17:                                               ; preds = %14, %11, %4, %0
@@ -223,7 +223,7 @@ define dso_local noundef i32 @acpi_get_sleep_type_data(i8 noundef zeroext %0, pt
   %12 = and i64 %11, 512
   %13 = icmp eq i64 %12, 0
   %14 = select i1 %13, i32 2336, i32 3520
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %16 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %14, i64 noundef 88) #5
   %17 = icmp eq ptr %16, null
   br i1 %17, label %77, label %18

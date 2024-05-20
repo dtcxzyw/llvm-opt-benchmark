@@ -31,7 +31,7 @@ define dso_local ptr @job_features_list2feature_sets(ptr noundef %0, ptr noundef
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4
-  %7 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 140737488355328
   %9 = icmp ne i64 %8, 0
   %not. = xor i1 %2, true
@@ -49,7 +49,7 @@ define dso_local ptr @job_features_list2feature_sets(ptr noundef %0, ptr noundef
   br i1 %10, label %17, label %24
 
 17:                                               ; preds = %3
-  %18 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 140737488355328
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %24, label %20
@@ -318,7 +318,7 @@ define internal noundef i32 @_evaluate_job_feature(ptr noundef %0, ptr nocapture
   br label %112
 
 112:                                              ; preds = %108, %110
-  %113 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %113 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %114 = and i64 %113, 140737488355328
   %.not85 = icmp eq i64 %114, 0
   br i1 %.not85, label %123, label %115
@@ -447,7 +447,7 @@ define internal fastcc void @_distribute_lists(ptr nocapture noundef %0, ptr nou
   %18 = load ptr, ptr %0, align 8
   %19 = call i32 @list_for_each(ptr noundef %18, ptr noundef nonnull @job_features_set2str, ptr noundef nonnull %5) #4
   %20 = call i32 @list_for_each(ptr noundef %1, ptr noundef nonnull @job_features_set2str, ptr noundef nonnull %6) #4
-  %21 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %22 = and i64 %21, 140737488355328
   %.not14 = icmp eq i64 %22, 0
   br i1 %.not14, label %29, label %23
@@ -576,7 +576,7 @@ define internal noundef i32 @_distribute_one_list(ptr noundef %0, ptr nocapture 
   %33 = load ptr, ptr %30, align 8
   store ptr %33, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %34 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %35 = and i64 %34, 140737488355328
   %.not = icmp eq i64 %35, 0
   br i1 %.not, label %40, label %36

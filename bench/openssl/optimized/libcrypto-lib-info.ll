@@ -63,7 +63,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb7
   br label %return
 
 return:                                           ; preds = %sw.bb7, %entry, %sw.epilog, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ %0, %sw.bb6 ], [ @OPENSSL_info.list_sep, %sw.bb5 ], [ @.str.4, %sw.bb4 ], [ @.str.3, %sw.bb3 ], [ @.str.2, %sw.bb2 ], [ @.str.1, %sw.bb1 ], [ @.str, %entry ], [ getelementptr inbounds ([128 x i8], ptr @ossl_cpu_info_str, i64 0, i64 9), %sw.bb7 ]
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %0, %sw.bb6 ], [ @OPENSSL_info.list_sep, %sw.bb5 ], [ @.str.4, %sw.bb4 ], [ @.str.3, %sw.bb3 ], [ @.str.2, %sw.bb2 ], [ @.str.1, %sw.bb1 ], [ @.str, %entry ], [ getelementptr inbounds (i8, ptr @ossl_cpu_info_str, i64 9), %sw.bb7 ]
   ret ptr %retval.0
 }
 
@@ -73,7 +73,7 @@ declare i32 @CRYPTO_THREAD_run_once(ptr noundef, ptr noundef) local_unnamed_addr
 define internal void @init_info_strings_ossl_() #0 {
 entry:
   %0 = load i64, ptr @OPENSSL_ia32cap_P, align 4
-  %1 = load i64, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4
   %call.i = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull @ossl_cpu_info_str, i64 noundef 128, ptr noundef nonnull @.str.5, i64 noundef %0, i64 noundef %1) #4
   %call6.i = tail call ptr @getenv(ptr noundef nonnull @.str.6) #4
   %cmp.not.i = icmp eq ptr %call6.i, null

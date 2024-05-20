@@ -156398,13 +156398,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_TraceBuilder_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -156485,13 +156485,13 @@ _ZN3nix32ErrorTraceTest_TraceBuilder_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_TraceBuilder_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -156577,13 +156577,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_TraceBuilder_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -156674,13 +156674,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_NestedThrows_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -156761,13 +156761,13 @@ _ZN3nix32ErrorTraceTest_NestedThrows_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_NestedThrows_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -156853,13 +156853,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_NestedThrows_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -156950,13 +156950,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ErrorTraceTest_genericClosure_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -157037,13 +157037,13 @@ _ZN3nix34ErrorTraceTest_genericClosure_TestD2Ev.exit: ; preds = %1, %22, %35, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ErrorTraceTest_genericClosure_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -157129,13 +157129,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD1E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_genericClosure_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -157226,13 +157226,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ErrorTraceTest_replaceStrings_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -157313,13 +157313,13 @@ _ZN3nix34ErrorTraceTest_replaceStrings_TestD2Ev.exit: ; preds = %1, %22, %35, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ErrorTraceTest_replaceStrings_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -157405,13 +157405,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD1E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_replaceStrings_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -157502,13 +157502,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_scopedImport_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -157589,13 +157589,13 @@ _ZN3nix32ErrorTraceTest_scopedImport_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_scopedImport_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -157681,13 +157681,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_scopedImport_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -157778,13 +157778,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_import_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -157865,13 +157865,13 @@ _ZN3nix26ErrorTraceTest_import_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_import_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -157957,13 +157957,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_import_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -158054,13 +158054,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_typeOf_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -158141,13 +158141,13 @@ _ZN3nix26ErrorTraceTest_typeOf_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_typeOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -158233,13 +158233,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_typeOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -158330,13 +158330,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_isNull_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -158417,13 +158417,13 @@ _ZN3nix26ErrorTraceTest_isNull_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_isNull_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -158509,13 +158509,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -158606,13 +158606,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_isFunction_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -158693,13 +158693,13 @@ _ZN3nix30ErrorTraceTest_isFunction_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_isFunction_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -158785,13 +158785,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_isFunction_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -158882,13 +158882,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_isInt_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -158969,13 +158969,13 @@ _ZN3nix25ErrorTraceTest_isInt_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_isInt_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -159061,13 +159061,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_isInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -159158,13 +159158,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_isFloat_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -159245,13 +159245,13 @@ _ZN3nix27ErrorTraceTest_isFloat_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_isFloat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -159337,13 +159337,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -159434,13 +159434,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_isString_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -159521,13 +159521,13 @@ _ZN3nix28ErrorTraceTest_isString_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_isString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -159613,13 +159613,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_isString_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -159710,13 +159710,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_isBool_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -159797,13 +159797,13 @@ _ZN3nix26ErrorTraceTest_isBool_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_isBool_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -159889,13 +159889,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -159986,13 +159986,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_isPath_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -160073,13 +160073,13 @@ _ZN3nix26ErrorTraceTest_isPath_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_isPath_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -160165,13 +160165,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -160262,13 +160262,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_break_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -160349,13 +160349,13 @@ _ZN3nix25ErrorTraceTest_break_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_break_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -160441,13 +160441,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_break_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -160538,13 +160538,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_abort_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -160625,13 +160625,13 @@ _ZN3nix25ErrorTraceTest_abort_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_abort_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -160717,13 +160717,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_abort_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -160814,13 +160814,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_throw_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -160901,13 +160901,13 @@ _ZN3nix25ErrorTraceTest_throw_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_throw_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -160993,13 +160993,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_throw_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -161090,13 +161090,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix35ErrorTraceTest_addErrorContext_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -161177,13 +161177,13 @@ _ZN3nix35ErrorTraceTest_addErrorContext_TestD2Ev.exit: ; preds = %1, %22, %35, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix35ErrorTraceTest_addErrorContext_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -161269,13 +161269,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD1
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_addErrorContext_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -161366,13 +161366,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_ceil_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -161453,13 +161453,13 @@ _ZN3nix24ErrorTraceTest_ceil_TestD2Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_ceil_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -161545,13 +161545,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD1Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_ceil_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -161642,13 +161642,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD0Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_floor_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -161729,13 +161729,13 @@ _ZN3nix25ErrorTraceTest_floor_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_floor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -161821,13 +161821,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_floor_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -161918,13 +161918,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_tryEval_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -162005,13 +162005,13 @@ _ZN3nix27ErrorTraceTest_tryEval_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_tryEval_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -162097,13 +162097,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_tryEval_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -162194,13 +162194,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_getEnv_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -162281,13 +162281,13 @@ _ZN3nix26ErrorTraceTest_getEnv_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_getEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -162373,13 +162373,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_getEnv_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -162470,13 +162470,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_seq_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -162557,13 +162557,13 @@ _ZN3nix23ErrorTraceTest_seq_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_seq_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -162649,13 +162649,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_seq_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -162746,13 +162746,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_deepSeq_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -162833,13 +162833,13 @@ _ZN3nix27ErrorTraceTest_deepSeq_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_deepSeq_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -162925,13 +162925,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_deepSeq_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -163022,13 +163022,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_trace_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -163109,13 +163109,13 @@ _ZN3nix25ErrorTraceTest_trace_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_trace_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -163201,13 +163201,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_trace_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -163298,13 +163298,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ErrorTraceTest_placeholder_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -163385,13 +163385,13 @@ _ZN3nix31ErrorTraceTest_placeholder_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ErrorTraceTest_placeholder_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -163477,13 +163477,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_placeholder_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -163574,13 +163574,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_toPath_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -163661,13 +163661,13 @@ _ZN3nix26ErrorTraceTest_toPath_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_toPath_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -163753,13 +163753,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -163850,13 +163850,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_storePath_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -163937,13 +163937,13 @@ _ZN3nix29ErrorTraceTest_storePath_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_storePath_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -164029,13 +164029,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_storePath_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -164126,13 +164126,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_pathExists_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -164213,13 +164213,13 @@ _ZN3nix30ErrorTraceTest_pathExists_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_pathExists_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -164305,13 +164305,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_pathExists_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -164402,13 +164402,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_baseNameOf_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -164489,13 +164489,13 @@ _ZN3nix30ErrorTraceTest_baseNameOf_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_baseNameOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -164581,13 +164581,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_baseNameOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -164678,13 +164678,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_dirOf_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -164765,13 +164765,13 @@ _ZN3nix25ErrorTraceTest_dirOf_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_dirOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -164857,13 +164857,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_dirOf_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -164954,13 +164954,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_readFile_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -165041,13 +165041,13 @@ _ZN3nix28ErrorTraceTest_readFile_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_readFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -165133,13 +165133,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_readFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -165230,13 +165230,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_findFile_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -165317,13 +165317,13 @@ _ZN3nix28ErrorTraceTest_findFile_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_findFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -165409,13 +165409,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_findFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -165506,13 +165506,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_hashFile_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -165593,13 +165593,13 @@ _ZN3nix28ErrorTraceTest_hashFile_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_hashFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -165685,13 +165685,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_hashFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -165782,13 +165782,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_readDir_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -165869,13 +165869,13 @@ _ZN3nix27ErrorTraceTest_readDir_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_readDir_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -165961,13 +165961,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_readDir_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -166058,13 +166058,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_toXML_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -166145,13 +166145,13 @@ _ZN3nix25ErrorTraceTest_toXML_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_toXML_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -166237,13 +166237,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_toXML_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -166334,13 +166334,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_toJSON_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -166421,13 +166421,13 @@ _ZN3nix26ErrorTraceTest_toJSON_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_toJSON_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -166513,13 +166513,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toJSON_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -166610,13 +166610,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_fromJSON_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -166697,13 +166697,13 @@ _ZN3nix28ErrorTraceTest_fromJSON_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_fromJSON_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -166789,13 +166789,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_fromJSON_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -166886,13 +166886,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_toFile_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -166973,13 +166973,13 @@ _ZN3nix26ErrorTraceTest_toFile_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_toFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -167065,13 +167065,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_toFile_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -167162,13 +167162,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_filterSource_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -167249,13 +167249,13 @@ _ZN3nix32ErrorTraceTest_filterSource_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_filterSource_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -167341,13 +167341,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_filterSource_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -167438,13 +167438,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_path_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -167525,13 +167525,13 @@ _ZN3nix24ErrorTraceTest_path_TestD2Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_path_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -167617,13 +167617,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD1Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_path_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -167714,13 +167714,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD0Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_attrNames_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -167801,13 +167801,13 @@ _ZN3nix29ErrorTraceTest_attrNames_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_attrNames_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -167893,13 +167893,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_attrNames_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -167990,13 +167990,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_attrValues_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -168077,13 +168077,13 @@ _ZN3nix30ErrorTraceTest_attrValues_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_attrValues_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -168169,13 +168169,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_attrValues_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -168266,13 +168266,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_getAttr_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -168353,13 +168353,13 @@ _ZN3nix27ErrorTraceTest_getAttr_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_getAttr_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -168445,13 +168445,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_getAttr_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -168542,13 +168542,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix36ErrorTraceTest_unsafeGetAttrPos_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -168629,13 +168629,13 @@ _ZN3nix36ErrorTraceTest_unsafeGetAttrPos_TestD2Ev.exit: ; preds = %1, %22, %35, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix36ErrorTraceTest_unsafeGetAttrPos_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -168721,13 +168721,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -168818,13 +168818,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_hasAttr_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -168905,13 +168905,13 @@ _ZN3nix27ErrorTraceTest_hasAttr_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_hasAttr_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -168997,13 +168997,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_hasAttr_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -169094,13 +169094,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_isAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -169181,13 +169181,13 @@ _ZN3nix27ErrorTraceTest_isAttrs_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_isAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -169273,13 +169273,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_isAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -169370,13 +169370,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ErrorTraceTest_removeAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -169457,13 +169457,13 @@ _ZN3nix31ErrorTraceTest_removeAttrs_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ErrorTraceTest_removeAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -169549,13 +169549,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_removeAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -169646,13 +169646,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ErrorTraceTest_listToAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -169733,13 +169733,13 @@ _ZN3nix31ErrorTraceTest_listToAttrs_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ErrorTraceTest_listToAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -169825,13 +169825,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_listToAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -169922,13 +169922,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ErrorTraceTest_intersectAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -170009,13 +170009,13 @@ _ZN3nix34ErrorTraceTest_intersectAttrs_TestD2Ev.exit: ; preds = %1, %22, %35, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ErrorTraceTest_intersectAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -170101,13 +170101,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD1E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ErrorTraceTest_intersectAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -170198,13 +170198,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_catAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -170285,13 +170285,13 @@ _ZN3nix28ErrorTraceTest_catAttrs_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_catAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -170377,13 +170377,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_catAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -170474,13 +170474,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_functionArgs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -170561,13 +170561,13 @@ _ZN3nix32ErrorTraceTest_functionArgs_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_functionArgs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -170653,13 +170653,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_functionArgs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -170750,13 +170750,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_mapAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -170837,13 +170837,13 @@ _ZN3nix28ErrorTraceTest_mapAttrs_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_mapAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -170929,13 +170929,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_mapAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -171026,13 +171026,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -171113,13 +171113,13 @@ _ZN3nix32ErrorTraceTest_zipAttrsWith_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_zipAttrsWith_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -171205,13 +171205,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_zipAttrsWith_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -171302,13 +171302,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_isList_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -171389,13 +171389,13 @@ _ZN3nix26ErrorTraceTest_isList_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_isList_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -171481,13 +171481,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_isList_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -171578,13 +171578,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_elemAt_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -171665,13 +171665,13 @@ _ZN3nix26ErrorTraceTest_elemAt_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_elemAt_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -171757,13 +171757,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_elemAt_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -171854,13 +171854,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_head_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -171941,13 +171941,13 @@ _ZN3nix24ErrorTraceTest_head_TestD2Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_head_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -172033,13 +172033,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD1Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_head_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -172130,13 +172130,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD0Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_tail_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -172217,13 +172217,13 @@ _ZN3nix24ErrorTraceTest_tail_TestD2Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_tail_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -172309,13 +172309,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD1Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_tail_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -172406,13 +172406,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD0Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_map_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -172493,13 +172493,13 @@ _ZN3nix23ErrorTraceTest_map_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_map_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -172585,13 +172585,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_map_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -172682,13 +172682,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_filter_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -172769,13 +172769,13 @@ _ZN3nix26ErrorTraceTest_filter_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_filter_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -172861,13 +172861,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_filter_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -172958,13 +172958,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_elem_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -173045,13 +173045,13 @@ _ZN3nix24ErrorTraceTest_elem_TestD2Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_elem_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -173137,13 +173137,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD1Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_elem_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -173234,13 +173234,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD0Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ErrorTraceTest_concatLists_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -173321,13 +173321,13 @@ _ZN3nix31ErrorTraceTest_concatLists_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ErrorTraceTest_concatLists_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -173413,13 +173413,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ErrorTraceTest_concatLists_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -173510,13 +173510,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_length_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -173597,13 +173597,13 @@ _ZN3nix26ErrorTraceTest_length_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_length_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -173689,13 +173689,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_length_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -173786,13 +173786,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_foldlPrime_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -173873,13 +173873,13 @@ _ZN3nix30ErrorTraceTest_foldlPrime_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_foldlPrime_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -173965,13 +173965,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_foldlPrime_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -174062,13 +174062,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_any_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -174149,13 +174149,13 @@ _ZN3nix23ErrorTraceTest_any_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_any_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -174241,13 +174241,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_any_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -174338,13 +174338,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_all_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -174425,13 +174425,13 @@ _ZN3nix23ErrorTraceTest_all_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_all_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -174517,13 +174517,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_all_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -174614,13 +174614,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_genList_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -174701,13 +174701,13 @@ _ZN3nix27ErrorTraceTest_genList_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_genList_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -174793,13 +174793,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_genList_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -174890,13 +174890,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_sort_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -174977,13 +174977,13 @@ _ZN3nix24ErrorTraceTest_sort_TestD2Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix24ErrorTraceTest_sort_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -175069,13 +175069,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD1Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix24ErrorTraceTest_sort_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -175166,13 +175166,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD0Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_partition_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -175253,13 +175253,13 @@ _ZN3nix29ErrorTraceTest_partition_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_partition_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -175345,13 +175345,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_partition_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -175442,13 +175442,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_groupBy_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -175529,13 +175529,13 @@ _ZN3nix27ErrorTraceTest_groupBy_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ErrorTraceTest_groupBy_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -175621,13 +175621,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27ErrorTraceTest_groupBy_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -175718,13 +175718,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_concatMap_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -175805,13 +175805,13 @@ _ZN3nix29ErrorTraceTest_concatMap_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_concatMap_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -175897,13 +175897,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_concatMap_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -175994,13 +175994,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_add_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -176081,13 +176081,13 @@ _ZN3nix23ErrorTraceTest_add_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_add_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -176173,13 +176173,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_add_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -176270,13 +176270,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_sub_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -176357,13 +176357,13 @@ _ZN3nix23ErrorTraceTest_sub_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_sub_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -176449,13 +176449,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_sub_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -176546,13 +176546,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_mul_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -176633,13 +176633,13 @@ _ZN3nix23ErrorTraceTest_mul_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_mul_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -176725,13 +176725,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_mul_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -176822,13 +176822,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_div_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -176909,13 +176909,13 @@ _ZN3nix23ErrorTraceTest_div_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23ErrorTraceTest_div_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -177001,13 +177001,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23ErrorTraceTest_div_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -177098,13 +177098,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_bitAnd_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -177185,13 +177185,13 @@ _ZN3nix26ErrorTraceTest_bitAnd_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_bitAnd_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -177277,13 +177277,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitAnd_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -177374,13 +177374,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_bitOr_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -177461,13 +177461,13 @@ _ZN3nix25ErrorTraceTest_bitOr_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_bitOr_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -177553,13 +177553,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_bitOr_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -177650,13 +177650,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_bitXor_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -177737,13 +177737,13 @@ _ZN3nix26ErrorTraceTest_bitXor_TestD2Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26ErrorTraceTest_bitXor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -177829,13 +177829,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26ErrorTraceTest_bitXor_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -177926,13 +177926,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_lessThan_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -178013,13 +178013,13 @@ _ZN3nix28ErrorTraceTest_lessThan_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_lessThan_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -178105,13 +178105,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_lessThan_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -178202,13 +178202,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_toString_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -178289,13 +178289,13 @@ _ZN3nix28ErrorTraceTest_toString_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ErrorTraceTest_toString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -178381,13 +178381,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ErrorTraceTest_toString_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -178478,13 +178478,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_substring_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -178565,13 +178565,13 @@ _ZN3nix29ErrorTraceTest_substring_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ErrorTraceTest_substring_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -178657,13 +178657,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ErrorTraceTest_substring_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -178754,13 +178754,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_stringLength_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -178841,13 +178841,13 @@ _ZN3nix32ErrorTraceTest_stringLength_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_stringLength_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -178933,13 +178933,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_stringLength_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -179030,13 +179030,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_hashString_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -179117,13 +179117,13 @@ _ZN3nix30ErrorTraceTest_hashString_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ErrorTraceTest_hashString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -179209,13 +179209,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ErrorTraceTest_hashString_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -179306,13 +179306,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_match_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -179393,13 +179393,13 @@ _ZN3nix25ErrorTraceTest_match_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_match_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -179485,13 +179485,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_match_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -179582,13 +179582,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_split_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -179669,13 +179669,13 @@ _ZN3nix25ErrorTraceTest_split_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25ErrorTraceTest_split_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -179761,13 +179761,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25ErrorTraceTest_split_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -179858,13 +179858,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix36ErrorTraceTest_concatStringsSep_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -179945,13 +179945,13 @@ _ZN3nix36ErrorTraceTest_concatStringsSep_TestD2Ev.exit: ; preds = %1, %22, %35, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix36ErrorTraceTest_concatStringsSep_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -180037,13 +180037,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ErrorTraceTest_concatStringsSep_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -180134,13 +180134,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_parseDrvName_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -180221,13 +180221,13 @@ _ZN3nix32ErrorTraceTest_parseDrvName_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_parseDrvName_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -180313,13 +180313,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_parseDrvName_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -180410,13 +180410,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix35ErrorTraceTest_compareVersions_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -180497,13 +180497,13 @@ _ZN3nix35ErrorTraceTest_compareVersions_TestD2Ev.exit: ; preds = %1, %22, %35, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix35ErrorTraceTest_compareVersions_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -180589,13 +180589,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD1
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix35ErrorTraceTest_compareVersions_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -180686,13 +180686,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_splitVersion_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -180773,13 +180773,13 @@ _ZN3nix32ErrorTraceTest_splitVersion_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_splitVersion_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -180865,13 +180865,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_splitVersion_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -180962,13 +180962,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_traceVerbose_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -181049,13 +181049,13 @@ _ZN3nix32ErrorTraceTest_traceVerbose_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_traceVerbose_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -181141,13 +181141,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32ErrorTraceTest_traceVerbose_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -181360,7 +181360,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_TraceBuilder_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_TraceBuilder_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -181370,8 +181370,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_TraceBuilder_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_TraceBuilder_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_TraceBuilder_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_TraceBuilder_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -183261,7 +183261,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERK
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 192
@@ -183324,7 +183324,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEED2Ev(
 
 _ZN5boost8optionalISt6localeED2Ev.exit:           ; preds = %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %7)
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %8
 
@@ -183680,7 +183680,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; pr
 
 143:                                              ; preds = %140
   %144 = zext nneg i32 %.076.ph.lcssa193 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %8, align 8
   %145 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %144, ptr %145, align 8
   %146 = getelementptr inbounds i8, ptr %8, i64 16
@@ -183875,7 +183875,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
           to label %2 unwind label %4
 
@@ -184008,7 +184008,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %2
 
@@ -184668,7 +184668,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit: ; preds = %
   br i1 %.not37, label %29, label %23
 
 23:                                               ; preds = %21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %18, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %5, i64 16
@@ -185139,7 +185139,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost2io6detail22parse_printf_direct
   br i1 %.not.i, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %4, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %12, i64 16
@@ -185209,7 +185209,7 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %30, %33
   %45 = ptrtoint ptr %40 to i64
   %46 = sub i64 %4, %13
   %47 = add i64 %46, %45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %11, align 8
   %48 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %11, i64 16
@@ -185335,7 +185335,7 @@ _ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   %104 = ptrtoint ptr %.sroa.0.0.lcssa.i to i64
   %105 = sub i64 %4, %13
   %106 = add i64 %105, %104
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %10, align 8
   %107 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %106, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %10, i64 16
@@ -185542,7 +185542,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit: ; preds = %159, %
   %199 = ptrtoint ptr %.lcssa to i64
   %200 = sub i64 %4, %13
   %201 = add i64 %200, %199
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %9, align 8
   %202 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %201, ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %9, i64 16
@@ -185681,7 +185681,7 @@ _ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   %268 = ptrtoint ptr %263 to i64
   %269 = sub i64 %4, %13
   %270 = add i64 %269, %268
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %8, align 8
   %271 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %270, ptr %271, align 8
   %272 = getelementptr inbounds i8, ptr %8, i64 16
@@ -185923,7 +185923,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250: ; preds = %325
   %374 = ptrtoint ptr %371 to i64
   %375 = sub i64 %4, %13
   %376 = add i64 %375, %374
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %7, align 8
   %377 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %376, ptr %377, align 8
   %378 = getelementptr inbounds i8, ptr %7, i64 16
@@ -187054,7 +187054,7 @@ define linkonce_odr void @_ZN5boost2io6detail21maybe_throw_exceptionEhmm(i8 noun
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -187140,9 +187140,9 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -187151,9 +187151,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 104), ptr %6, align 8
   ret void
 }
 
@@ -187162,7 +187162,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -187200,14 +187200,14 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -187233,9 +187233,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io17bad_format_strin
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 104), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io17bad_format_stringEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io17bad_format_stringEE7deleterD2Ev.exit7
@@ -187277,7 +187277,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -187314,7 +187314,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -187349,7 +187349,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -187390,7 +187390,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io17bad_format_string4whatEv(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -187425,7 +187425,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -187483,14 +187483,14 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io17bad_format_stringE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -187509,9 +187509,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 104), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -188734,7 +188734,7 @@ _ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EEC2
           to label %48 unwind label %64
 
 48:                                               ; preds = %43
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 192
@@ -189056,7 +189056,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(224) ptr @_ZN5boost2
 24:                                               ; preds = %20
   %25 = sext i32 %11 to i64
   %26 = sext i32 %13 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io13too_many_argsE, i64 16), ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %25, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 16
@@ -189880,7 +189880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit140
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit140: ; preds = %209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #24
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #24
   %276 = getelementptr inbounds i8, ptr %8, i64 16
   %277 = load ptr, ptr %276, align 8
   %.not.i.i.i.i.i = icmp eq ptr %277, null
@@ -189967,7 +189967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds 
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE12clear_bufferEv.exit163 unwind label %15
 
 _ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE12clear_bufferEv.exit163: ; preds = %.noexc161, %306
-  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #24
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #24
   %311 = getelementptr inbounds i8, ptr %6, i64 16
   %312 = load ptr, ptr %311, align 8
   %.not.i.i.i.i.i164 = icmp eq ptr %312, null
@@ -190019,9 +190019,9 @@ _ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev.exit166: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io13too_many_argsE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -190030,16 +190030,16 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 104), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -190075,14 +190075,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io13too_many_argsE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -190108,9 +190108,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE5
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 104), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io13too_many_argsEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io13too_many_argsEE7deleterD2Ev.exit7
@@ -190152,7 +190152,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -190189,7 +190189,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -190224,7 +190224,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -190265,7 +190265,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io13too_many_args4whatEv(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -190300,7 +190300,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -190344,14 +190344,14 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsD0Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io13too_many_argsE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -190370,9 +190370,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 104), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -190422,18 +190422,18 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %1, ptr %19, align 8
   store ptr %6, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %3, align 8
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), ptr noundef %1)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %3, align 8
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8), ptr noundef %1)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %3, align 8
   ret void
 
 21:                                               ; preds = %16
@@ -191008,7 +191008,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #24
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #24
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -191118,7 +191118,7 @@ declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #24
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #24
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -191170,7 +191170,7 @@ define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #24
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
@@ -191221,7 +191221,7 @@ define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #24
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 8)) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -191377,7 +191377,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_NestedThrows_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_NestedThrows_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191387,8 +191387,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_NestedThrows_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_NestedThrows_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_NestedThrows_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_NestedThrows_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191421,7 +191421,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_genericClosure_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ErrorTraceTest_genericClosure_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191431,8 +191431,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_genericClosure_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_genericClosure_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ErrorTraceTest_genericClosure_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ErrorTraceTest_genericClosure_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191572,7 +191572,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_replaceStrings_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ErrorTraceTest_replaceStrings_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191582,8 +191582,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_replaceStrings_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_replaceStrings_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ErrorTraceTest_replaceStrings_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ErrorTraceTest_replaceStrings_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191616,7 +191616,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_scopedImport_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_scopedImport_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191626,8 +191626,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_scopedImport_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_scopedImport_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_scopedImport_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_scopedImport_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191660,7 +191660,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_import_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_import_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191670,8 +191670,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_import_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_import_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_import_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_import_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191704,7 +191704,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_typeOf_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_typeOf_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191714,8 +191714,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_typeOf_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_typeOf_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_typeOf_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_typeOf_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191748,7 +191748,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isNull_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_isNull_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191758,8 +191758,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isNull_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isNull_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_isNull_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_isNull_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191792,7 +191792,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_isFunction_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ErrorTraceTest_isFunction_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191802,8 +191802,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_isFunction_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_isFunction_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_isFunction_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_isFunction_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191836,7 +191836,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_isInt_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_isInt_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191846,8 +191846,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_isInt_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_isInt_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_isInt_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_isInt_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191880,7 +191880,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_isFloat_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_isFloat_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191890,8 +191890,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isFloat_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isFloat_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_isFloat_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_isFloat_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191924,7 +191924,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_isString_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_isString_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191934,8 +191934,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_isString_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_isString_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_isString_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_isString_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -191968,7 +191968,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isBool_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_isBool_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -191978,8 +191978,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isBool_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isBool_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_isBool_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_isBool_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192012,7 +192012,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isPath_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_isPath_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192022,8 +192022,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isPath_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isPath_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_isPath_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_isPath_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192056,7 +192056,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_break_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_break_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192066,8 +192066,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_break_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_break_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_break_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_break_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192100,7 +192100,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_abort_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_abort_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192110,8 +192110,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_abort_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_abort_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_abort_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_abort_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192144,7 +192144,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_throw_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_throw_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192154,8 +192154,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_throw_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_throw_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_throw_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_throw_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192188,7 +192188,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix35ErrorTraceTest_addErrorContext_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ErrorTraceTest_addErrorContext_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192198,8 +192198,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_addErrorContext_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_addErrorContext_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ErrorTraceTest_addErrorContext_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ErrorTraceTest_addErrorContext_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192232,7 +192232,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_ceil_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix24ErrorTraceTest_ceil_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192242,8 +192242,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_ceil_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_ceil_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_ceil_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_ceil_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192276,7 +192276,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_floor_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_floor_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192286,8 +192286,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_floor_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_floor_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_floor_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_floor_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192320,7 +192320,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_tryEval_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_tryEval_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192330,8 +192330,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_tryEval_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_tryEval_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_tryEval_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_tryEval_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192364,7 +192364,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_getEnv_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_getEnv_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192374,8 +192374,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_getEnv_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_getEnv_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_getEnv_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_getEnv_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192408,7 +192408,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_seq_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23ErrorTraceTest_seq_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192418,8 +192418,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_seq_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_seq_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_seq_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_seq_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192452,7 +192452,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_deepSeq_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_deepSeq_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192462,8 +192462,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_deepSeq_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_deepSeq_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_deepSeq_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_deepSeq_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192496,7 +192496,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_trace_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_trace_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192506,8 +192506,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_trace_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_trace_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_trace_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_trace_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192540,7 +192540,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_placeholder_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ErrorTraceTest_placeholder_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192550,8 +192550,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_placeholder_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_placeholder_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ErrorTraceTest_placeholder_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ErrorTraceTest_placeholder_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192584,7 +192584,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toPath_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_toPath_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192594,8 +192594,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toPath_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toPath_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_toPath_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_toPath_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192628,7 +192628,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_storePath_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ErrorTraceTest_storePath_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192638,8 +192638,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_storePath_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_storePath_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_storePath_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_storePath_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192672,7 +192672,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_pathExists_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ErrorTraceTest_pathExists_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192682,8 +192682,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_pathExists_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_pathExists_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_pathExists_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_pathExists_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192716,7 +192716,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_baseNameOf_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ErrorTraceTest_baseNameOf_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192726,8 +192726,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_baseNameOf_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_baseNameOf_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_baseNameOf_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_baseNameOf_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192760,7 +192760,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_dirOf_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_dirOf_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192770,8 +192770,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_dirOf_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_dirOf_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_dirOf_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_dirOf_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192804,7 +192804,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_readFile_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_readFile_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192814,8 +192814,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_readFile_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_readFile_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_readFile_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_readFile_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192848,7 +192848,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_findFile_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_findFile_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192858,8 +192858,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_findFile_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_findFile_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_findFile_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_findFile_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192892,7 +192892,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_hashFile_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_hashFile_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192902,8 +192902,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_hashFile_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_hashFile_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_hashFile_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_hashFile_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192936,7 +192936,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_readDir_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_readDir_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192946,8 +192946,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_readDir_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_readDir_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_readDir_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_readDir_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -192980,7 +192980,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_toXML_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_toXML_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -192990,8 +192990,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_toXML_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_toXML_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_toXML_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_toXML_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193024,7 +193024,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toJSON_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_toJSON_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193034,8 +193034,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toJSON_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toJSON_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_toJSON_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_toJSON_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193068,7 +193068,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_fromJSON_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_fromJSON_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193078,8 +193078,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_fromJSON_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_fromJSON_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_fromJSON_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_fromJSON_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193112,7 +193112,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toFile_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_toFile_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193122,8 +193122,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toFile_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toFile_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_toFile_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_toFile_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193156,7 +193156,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_filterSource_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_filterSource_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193166,8 +193166,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_filterSource_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_filterSource_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_filterSource_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_filterSource_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193200,7 +193200,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_path_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix24ErrorTraceTest_path_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193210,8 +193210,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_path_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_path_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_path_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_path_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193244,7 +193244,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_attrNames_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ErrorTraceTest_attrNames_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193254,8 +193254,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_attrNames_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_attrNames_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_attrNames_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_attrNames_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193288,7 +193288,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_attrValues_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ErrorTraceTest_attrValues_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193298,8 +193298,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_attrValues_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_attrValues_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_attrValues_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_attrValues_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193332,7 +193332,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_getAttr_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_getAttr_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193342,8 +193342,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_getAttr_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_getAttr_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_getAttr_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_getAttr_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193376,7 +193376,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193386,8 +193386,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193420,7 +193420,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_hasAttr_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_hasAttr_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193430,8 +193430,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_hasAttr_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_hasAttr_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_hasAttr_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_hasAttr_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193464,7 +193464,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_isAttrs_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_isAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193474,8 +193474,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isAttrs_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isAttrs_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_isAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_isAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193508,7 +193508,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_removeAttrs_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ErrorTraceTest_removeAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193518,8 +193518,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_removeAttrs_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_removeAttrs_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ErrorTraceTest_removeAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ErrorTraceTest_removeAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193552,7 +193552,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_listToAttrs_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ErrorTraceTest_listToAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193562,8 +193562,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_listToAttrs_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_listToAttrs_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ErrorTraceTest_listToAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ErrorTraceTest_listToAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193596,7 +193596,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_intersectAttrs_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ErrorTraceTest_intersectAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193606,8 +193606,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_intersectAttrs_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_intersectAttrs_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ErrorTraceTest_intersectAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ErrorTraceTest_intersectAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193640,7 +193640,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_catAttrs_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_catAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193650,8 +193650,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_catAttrs_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_catAttrs_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_catAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_catAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193684,7 +193684,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_functionArgs_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_functionArgs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193694,8 +193694,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_functionArgs_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_functionArgs_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_functionArgs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_functionArgs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193728,7 +193728,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_mapAttrs_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_mapAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193738,8 +193738,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_mapAttrs_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_mapAttrs_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_mapAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_mapAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193772,7 +193772,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_zipAttrsWith_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_zipAttrsWith_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193782,8 +193782,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_zipAttrsWith_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_zipAttrsWith_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_zipAttrsWith_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_zipAttrsWith_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193816,7 +193816,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isList_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_isList_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193826,8 +193826,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isList_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isList_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_isList_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_isList_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193860,7 +193860,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_elemAt_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_elemAt_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193870,8 +193870,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_elemAt_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_elemAt_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_elemAt_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_elemAt_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193904,7 +193904,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_head_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix24ErrorTraceTest_head_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193914,8 +193914,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_head_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_head_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_head_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_head_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193948,7 +193948,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_tail_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix24ErrorTraceTest_tail_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -193958,8 +193958,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_tail_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_tail_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_tail_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_tail_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -193992,7 +193992,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_map_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23ErrorTraceTest_map_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194002,8 +194002,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_map_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_map_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_map_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_map_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194036,7 +194036,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_filter_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_filter_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194046,8 +194046,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_filter_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_filter_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_filter_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_filter_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194080,7 +194080,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_elem_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix24ErrorTraceTest_elem_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194090,8 +194090,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_elem_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_elem_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_elem_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_elem_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194124,7 +194124,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_concatLists_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ErrorTraceTest_concatLists_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194134,8 +194134,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_concatLists_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_concatLists_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ErrorTraceTest_concatLists_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ErrorTraceTest_concatLists_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194168,7 +194168,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_length_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_length_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194178,8 +194178,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_length_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_length_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_length_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_length_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194212,7 +194212,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_foldlPrime_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ErrorTraceTest_foldlPrime_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194222,8 +194222,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_foldlPrime_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_foldlPrime_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_foldlPrime_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_foldlPrime_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194256,7 +194256,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_any_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23ErrorTraceTest_any_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194266,8 +194266,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_any_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_any_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_any_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_any_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194300,7 +194300,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_all_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23ErrorTraceTest_all_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194310,8 +194310,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_all_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_all_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_all_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_all_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194344,7 +194344,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_genList_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_genList_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194354,8 +194354,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_genList_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_genList_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_genList_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_genList_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194388,7 +194388,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_sort_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix24ErrorTraceTest_sort_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194398,8 +194398,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_sort_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_sort_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_sort_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24ErrorTraceTest_sort_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194432,7 +194432,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_partition_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ErrorTraceTest_partition_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194442,8 +194442,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_partition_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_partition_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_partition_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_partition_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194476,7 +194476,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_groupBy_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27ErrorTraceTest_groupBy_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194486,8 +194486,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_groupBy_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_groupBy_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_groupBy_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ErrorTraceTest_groupBy_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194520,7 +194520,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_concatMap_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ErrorTraceTest_concatMap_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194530,8 +194530,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_concatMap_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_concatMap_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_concatMap_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_concatMap_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194564,7 +194564,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_add_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23ErrorTraceTest_add_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194574,8 +194574,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_add_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_add_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_add_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_add_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194608,7 +194608,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_sub_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23ErrorTraceTest_sub_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194618,8 +194618,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_sub_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_sub_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_sub_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_sub_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194652,7 +194652,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_mul_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23ErrorTraceTest_mul_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194662,8 +194662,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_mul_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_mul_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_mul_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_mul_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194696,7 +194696,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_div_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23ErrorTraceTest_div_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194706,8 +194706,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_div_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_div_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_div_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23ErrorTraceTest_div_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194740,7 +194740,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_bitAnd_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_bitAnd_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194750,8 +194750,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitAnd_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitAnd_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_bitAnd_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_bitAnd_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194784,7 +194784,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_bitOr_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_bitOr_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194794,8 +194794,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_bitOr_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_bitOr_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_bitOr_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_bitOr_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194828,7 +194828,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_bitXor_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26ErrorTraceTest_bitXor_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194838,8 +194838,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitXor_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitXor_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_bitXor_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ErrorTraceTest_bitXor_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194872,7 +194872,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_lessThan_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_lessThan_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194882,8 +194882,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_lessThan_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_lessThan_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_lessThan_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_lessThan_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194916,7 +194916,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_toString_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ErrorTraceTest_toString_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194926,8 +194926,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_toString_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_toString_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_toString_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ErrorTraceTest_toString_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -194960,7 +194960,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_substring_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ErrorTraceTest_substring_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -194970,8 +194970,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_substring_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_substring_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_substring_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ErrorTraceTest_substring_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195004,7 +195004,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_stringLength_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_stringLength_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195014,8 +195014,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_stringLength_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_stringLength_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_stringLength_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_stringLength_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195048,7 +195048,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_hashString_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ErrorTraceTest_hashString_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195058,8 +195058,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_hashString_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_hashString_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_hashString_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ErrorTraceTest_hashString_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195092,7 +195092,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_match_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_match_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195102,8 +195102,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_match_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_match_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_match_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_match_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195136,7 +195136,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_split_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25ErrorTraceTest_split_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195146,8 +195146,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_split_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_split_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_split_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25ErrorTraceTest_split_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195180,7 +195180,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix36ErrorTraceTest_concatStringsSep_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ErrorTraceTest_concatStringsSep_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195190,8 +195190,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_concatStringsSep_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_concatStringsSep_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ErrorTraceTest_concatStringsSep_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ErrorTraceTest_concatStringsSep_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195224,7 +195224,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_parseDrvName_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_parseDrvName_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195234,8 +195234,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_parseDrvName_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_parseDrvName_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_parseDrvName_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_parseDrvName_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195268,7 +195268,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix35ErrorTraceTest_compareVersions_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ErrorTraceTest_compareVersions_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195278,8 +195278,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_compareVersions_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_compareVersions_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ErrorTraceTest_compareVersions_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ErrorTraceTest_compareVersions_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195312,7 +195312,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_splitVersion_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_splitVersion_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195322,8 +195322,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_splitVersion_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_splitVersion_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_splitVersion_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_splitVersion_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195356,7 +195356,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_traceVerbose_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ErrorTraceTest_traceVerbose_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -195366,8 +195366,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_traceVerbose_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_traceVerbose_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_traceVerbose_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ErrorTraceTest_traceVerbose_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -195396,10 +195396,10 @@ define linkonce_odr void @_ZN3nix11LibExprTest14SetUpTestSuiteEv() #4 comdat ali
   store ptr %1, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 0, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i64 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nix12evalSettingsE, i64 248), align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (%"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i64 0, i32 2), ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (i8, ptr @_ZN3nix12evalSettingsE, i64 248), ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_.exit unwind label %16
 
 _ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_.exit: ; preds = %0
@@ -195501,7 +195501,7 @@ define linkonce_odr void @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEEC2IJA6_cEEERN
           to label %6 unwind label %29
 
 6:                                                ; preds = %3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -195537,7 +195537,7 @@ define linkonce_odr void @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEEC2IJA6_cEEERN
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 368
   store i8 0, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9EvalErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9EvalErrorE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 376
   store ptr %1, ptr %22, align 8
   %23 = load ptr, ptr %4, align 8
@@ -195574,7 +195574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9EvalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -195612,7 +195612,7 @@ _ZN3nix5ErrorD2Ev.exit:                           ; preds = %1, %_ZNSt22_Optiona
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9EvalErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -195668,7 +195668,7 @@ define linkonce_odr noundef ptr @_ZNK3nix9BaseError4whatEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -195706,7 +195706,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9BaseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -196816,7 +196816,7 @@ define internal void @_GLOBAL__sub_I_error_traces.cc() #12 section ".text.startu
           to label %280 unwind label %299
 
 280:                                              ; preds = %278
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_TraceBuilder_TestEEE, i64 0, i32 0, i64 2), ptr %279, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_TraceBuilder_TestEEE, i64 16), ptr %279, align 8
   %281 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, ptr noundef nonnull %268, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %275, ptr noundef %277, ptr noundef nonnull %279)
           to label %282 unwind label %299
 
@@ -196915,7 +196915,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %310 unwind label %329
 
 310:                                              ; preds = %308
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_NestedThrows_TestEEE, i64 0, i32 0, i64 2), ptr %309, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_NestedThrows_TestEEE, i64 16), ptr %309, align 8
   %311 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef null, ptr noundef nonnull %265, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %305, ptr noundef %307, ptr noundef nonnull %309)
           to label %312 unwind label %329
 
@@ -197008,7 +197008,7 @@ __cxx_global_var_init.29.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %340 unwind label %359
 
 340:                                              ; preds = %338
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_genericClosure_TestEEE, i64 0, i32 0, i64 2), ptr %339, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_genericClosure_TestEEE, i64 16), ptr %339, align 8
   %341 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef null, ptr noundef nonnull %262, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %335, ptr noundef %337, ptr noundef nonnull %339)
           to label %342 unwind label %359
 
@@ -197101,7 +197101,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %370 unwind label %389
 
 370:                                              ; preds = %368
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_replaceStrings_TestEEE, i64 0, i32 0, i64 2), ptr %369, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_replaceStrings_TestEEE, i64 16), ptr %369, align 8
   %371 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.133, ptr noundef null, ptr noundef null, ptr noundef nonnull %259, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %365, ptr noundef %367, ptr noundef nonnull %369)
           to label %372 unwind label %389
 
@@ -197194,7 +197194,7 @@ __cxx_global_var_init.132.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %400 unwind label %419
 
 400:                                              ; preds = %398
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_scopedImport_TestEEE, i64 0, i32 0, i64 2), ptr %399, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_scopedImport_TestEEE, i64 16), ptr %399, align 8
   %401 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.192, ptr noundef null, ptr noundef null, ptr noundef nonnull %256, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %395, ptr noundef %397, ptr noundef nonnull %399)
           to label %402 unwind label %419
 
@@ -197287,7 +197287,7 @@ __cxx_global_var_init.191.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %430 unwind label %449
 
 430:                                              ; preds = %428
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_import_TestEEE, i64 0, i32 0, i64 2), ptr %429, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_import_TestEEE, i64 16), ptr %429, align 8
   %431 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.194, ptr noundef null, ptr noundef null, ptr noundef nonnull %253, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %425, ptr noundef %427, ptr noundef nonnull %429)
           to label %432 unwind label %449
 
@@ -197380,7 +197380,7 @@ __cxx_global_var_init.193.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %460 unwind label %479
 
 460:                                              ; preds = %458
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_typeOf_TestEEE, i64 0, i32 0, i64 2), ptr %459, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_typeOf_TestEEE, i64 16), ptr %459, align 8
   %461 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef nonnull %250, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %455, ptr noundef %457, ptr noundef nonnull %459)
           to label %462 unwind label %479
 
@@ -197473,7 +197473,7 @@ __cxx_global_var_init.195.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %490 unwind label %509
 
 490:                                              ; preds = %488
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isNull_TestEEE, i64 0, i32 0, i64 2), ptr %489, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isNull_TestEEE, i64 16), ptr %489, align 8
   %491 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef null, ptr noundef nonnull %247, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %485, ptr noundef %487, ptr noundef nonnull %489)
           to label %492 unwind label %509
 
@@ -197566,7 +197566,7 @@ __cxx_global_var_init.197.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %520 unwind label %539
 
 520:                                              ; preds = %518
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_isFunction_TestEEE, i64 0, i32 0, i64 2), ptr %519, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_isFunction_TestEEE, i64 16), ptr %519, align 8
   %521 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef null, ptr noundef nonnull %244, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %515, ptr noundef %517, ptr noundef nonnull %519)
           to label %522 unwind label %539
 
@@ -197659,7 +197659,7 @@ __cxx_global_var_init.199.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %550 unwind label %569
 
 550:                                              ; preds = %548
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_isInt_TestEEE, i64 0, i32 0, i64 2), ptr %549, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_isInt_TestEEE, i64 16), ptr %549, align 8
   %551 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.202, ptr noundef null, ptr noundef null, ptr noundef nonnull %241, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %545, ptr noundef %547, ptr noundef nonnull %549)
           to label %552 unwind label %569
 
@@ -197752,7 +197752,7 @@ __cxx_global_var_init.201.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %580 unwind label %599
 
 580:                                              ; preds = %578
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_isFloat_TestEEE, i64 0, i32 0, i64 2), ptr %579, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_isFloat_TestEEE, i64 16), ptr %579, align 8
   %581 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.204, ptr noundef null, ptr noundef null, ptr noundef nonnull %238, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %575, ptr noundef %577, ptr noundef nonnull %579)
           to label %582 unwind label %599
 
@@ -197845,7 +197845,7 @@ __cxx_global_var_init.203.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %610 unwind label %629
 
 610:                                              ; preds = %608
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_isString_TestEEE, i64 0, i32 0, i64 2), ptr %609, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_isString_TestEEE, i64 16), ptr %609, align 8
   %611 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.206, ptr noundef null, ptr noundef null, ptr noundef nonnull %235, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %605, ptr noundef %607, ptr noundef nonnull %609)
           to label %612 unwind label %629
 
@@ -197938,7 +197938,7 @@ __cxx_global_var_init.205.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %640 unwind label %659
 
 640:                                              ; preds = %638
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isBool_TestEEE, i64 0, i32 0, i64 2), ptr %639, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isBool_TestEEE, i64 16), ptr %639, align 8
   %641 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.208, ptr noundef null, ptr noundef null, ptr noundef nonnull %232, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %635, ptr noundef %637, ptr noundef nonnull %639)
           to label %642 unwind label %659
 
@@ -198031,7 +198031,7 @@ __cxx_global_var_init.207.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %670 unwind label %689
 
 670:                                              ; preds = %668
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isPath_TestEEE, i64 0, i32 0, i64 2), ptr %669, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isPath_TestEEE, i64 16), ptr %669, align 8
   %671 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef null, ptr noundef nonnull %229, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %665, ptr noundef %667, ptr noundef nonnull %669)
           to label %672 unwind label %689
 
@@ -198124,7 +198124,7 @@ __cxx_global_var_init.209.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %700 unwind label %719
 
 700:                                              ; preds = %698
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_break_TestEEE, i64 0, i32 0, i64 2), ptr %699, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_break_TestEEE, i64 16), ptr %699, align 8
   %701 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef null, ptr noundef nonnull %226, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %695, ptr noundef %697, ptr noundef nonnull %699)
           to label %702 unwind label %719
 
@@ -198217,7 +198217,7 @@ __cxx_global_var_init.211.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %730 unwind label %749
 
 730:                                              ; preds = %728
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_abort_TestEEE, i64 0, i32 0, i64 2), ptr %729, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_abort_TestEEE, i64 16), ptr %729, align 8
   %731 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef null, ptr noundef nonnull %223, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %725, ptr noundef %727, ptr noundef nonnull %729)
           to label %732 unwind label %749
 
@@ -198310,7 +198310,7 @@ __cxx_global_var_init.213.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %760 unwind label %779
 
 760:                                              ; preds = %758
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_throw_TestEEE, i64 0, i32 0, i64 2), ptr %759, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_throw_TestEEE, i64 16), ptr %759, align 8
   %761 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.216, ptr noundef null, ptr noundef null, ptr noundef nonnull %220, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %755, ptr noundef %757, ptr noundef nonnull %759)
           to label %762 unwind label %779
 
@@ -198403,7 +198403,7 @@ __cxx_global_var_init.215.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %790 unwind label %809
 
 790:                                              ; preds = %788
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ErrorTraceTest_addErrorContext_TestEEE, i64 0, i32 0, i64 2), ptr %789, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ErrorTraceTest_addErrorContext_TestEEE, i64 16), ptr %789, align 8
   %791 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.218, ptr noundef null, ptr noundef null, ptr noundef nonnull %217, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %785, ptr noundef %787, ptr noundef nonnull %789)
           to label %792 unwind label %809
 
@@ -198496,7 +198496,7 @@ __cxx_global_var_init.217.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %820 unwind label %839
 
 820:                                              ; preds = %818
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_ceil_TestEEE, i64 0, i32 0, i64 2), ptr %819, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_ceil_TestEEE, i64 16), ptr %819, align 8
   %821 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.220, ptr noundef null, ptr noundef null, ptr noundef nonnull %214, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %815, ptr noundef %817, ptr noundef nonnull %819)
           to label %822 unwind label %839
 
@@ -198589,7 +198589,7 @@ __cxx_global_var_init.219.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %850 unwind label %869
 
 850:                                              ; preds = %848
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_floor_TestEEE, i64 0, i32 0, i64 2), ptr %849, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_floor_TestEEE, i64 16), ptr %849, align 8
   %851 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.233, ptr noundef null, ptr noundef null, ptr noundef nonnull %211, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %845, ptr noundef %847, ptr noundef nonnull %849)
           to label %852 unwind label %869
 
@@ -198682,7 +198682,7 @@ __cxx_global_var_init.232.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %880 unwind label %899
 
 880:                                              ; preds = %878
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_tryEval_TestEEE, i64 0, i32 0, i64 2), ptr %879, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_tryEval_TestEEE, i64 16), ptr %879, align 8
   %881 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.243, ptr noundef null, ptr noundef null, ptr noundef nonnull %208, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %875, ptr noundef %877, ptr noundef nonnull %879)
           to label %882 unwind label %899
 
@@ -198775,7 +198775,7 @@ __cxx_global_var_init.242.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %910 unwind label %929
 
 910:                                              ; preds = %908
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_getEnv_TestEEE, i64 0, i32 0, i64 2), ptr %909, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_getEnv_TestEEE, i64 16), ptr %909, align 8
   %911 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.245, ptr noundef null, ptr noundef null, ptr noundef nonnull %205, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %905, ptr noundef %907, ptr noundef nonnull %909)
           to label %912 unwind label %929
 
@@ -198868,7 +198868,7 @@ __cxx_global_var_init.244.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %940 unwind label %959
 
 940:                                              ; preds = %938
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_seq_TestEEE, i64 0, i32 0, i64 2), ptr %939, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_seq_TestEEE, i64 16), ptr %939, align 8
   %941 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef null, ptr noundef nonnull %202, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %935, ptr noundef %937, ptr noundef nonnull %939)
           to label %942 unwind label %959
 
@@ -198961,7 +198961,7 @@ __cxx_global_var_init.257.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %970 unwind label %989
 
 970:                                              ; preds = %968
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_deepSeq_TestEEE, i64 0, i32 0, i64 2), ptr %969, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_deepSeq_TestEEE, i64 16), ptr %969, align 8
   %971 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.260, ptr noundef null, ptr noundef null, ptr noundef nonnull %199, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %965, ptr noundef %967, ptr noundef nonnull %969)
           to label %972 unwind label %989
 
@@ -199054,7 +199054,7 @@ __cxx_global_var_init.259.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1000 unwind label %1019
 
 1000:                                             ; preds = %998
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_trace_TestEEE, i64 0, i32 0, i64 2), ptr %999, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_trace_TestEEE, i64 16), ptr %999, align 8
   %1001 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.262, ptr noundef null, ptr noundef null, ptr noundef nonnull %196, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %995, ptr noundef %997, ptr noundef nonnull %999)
           to label %1002 unwind label %1019
 
@@ -199147,7 +199147,7 @@ __cxx_global_var_init.261.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1030 unwind label %1049
 
 1030:                                             ; preds = %1028
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_placeholder_TestEEE, i64 0, i32 0, i64 2), ptr %1029, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_placeholder_TestEEE, i64 16), ptr %1029, align 8
   %1031 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.264, ptr noundef null, ptr noundef null, ptr noundef nonnull %193, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1025, ptr noundef %1027, ptr noundef nonnull %1029)
           to label %1032 unwind label %1049
 
@@ -199240,7 +199240,7 @@ __cxx_global_var_init.263.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1060 unwind label %1079
 
 1060:                                             ; preds = %1058
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toPath_TestEEE, i64 0, i32 0, i64 2), ptr %1059, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toPath_TestEEE, i64 16), ptr %1059, align 8
   %1061 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.274, ptr noundef null, ptr noundef null, ptr noundef nonnull %190, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1055, ptr noundef %1057, ptr noundef nonnull %1059)
           to label %1062 unwind label %1079
 
@@ -199333,7 +199333,7 @@ __cxx_global_var_init.273.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1090 unwind label %1109
 
 1090:                                             ; preds = %1088
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_storePath_TestEEE, i64 0, i32 0, i64 2), ptr %1089, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_storePath_TestEEE, i64 16), ptr %1089, align 8
   %1091 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.295, ptr noundef null, ptr noundef null, ptr noundef nonnull %187, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1085, ptr noundef %1087, ptr noundef nonnull %1089)
           to label %1092 unwind label %1109
 
@@ -199426,7 +199426,7 @@ __cxx_global_var_init.294.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1120 unwind label %1139
 
 1120:                                             ; preds = %1118
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_pathExists_TestEEE, i64 0, i32 0, i64 2), ptr %1119, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_pathExists_TestEEE, i64 16), ptr %1119, align 8
   %1121 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.306, ptr noundef null, ptr noundef null, ptr noundef nonnull %184, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1115, ptr noundef %1117, ptr noundef nonnull %1119)
           to label %1122 unwind label %1139
 
@@ -199519,7 +199519,7 @@ __cxx_global_var_init.305.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1150 unwind label %1169
 
 1150:                                             ; preds = %1148
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_baseNameOf_TestEEE, i64 0, i32 0, i64 2), ptr %1149, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_baseNameOf_TestEEE, i64 16), ptr %1149, align 8
   %1151 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.324, ptr noundef null, ptr noundef null, ptr noundef nonnull %181, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1145, ptr noundef %1147, ptr noundef nonnull %1149)
           to label %1152 unwind label %1169
 
@@ -199612,7 +199612,7 @@ __cxx_global_var_init.323.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1180 unwind label %1199
 
 1180:                                             ; preds = %1178
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_dirOf_TestEEE, i64 0, i32 0, i64 2), ptr %1179, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_dirOf_TestEEE, i64 16), ptr %1179, align 8
   %1181 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.334, ptr noundef null, ptr noundef null, ptr noundef nonnull %178, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1175, ptr noundef %1177, ptr noundef nonnull %1179)
           to label %1182 unwind label %1199
 
@@ -199705,7 +199705,7 @@ __cxx_global_var_init.333.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1210 unwind label %1229
 
 1210:                                             ; preds = %1208
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_readFile_TestEEE, i64 0, i32 0, i64 2), ptr %1209, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_readFile_TestEEE, i64 16), ptr %1209, align 8
   %1211 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.336, ptr noundef null, ptr noundef null, ptr noundef nonnull %175, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1205, ptr noundef %1207, ptr noundef nonnull %1209)
           to label %1212 unwind label %1229
 
@@ -199798,7 +199798,7 @@ __cxx_global_var_init.335.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1240 unwind label %1259
 
 1240:                                             ; preds = %1238
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_findFile_TestEEE, i64 0, i32 0, i64 2), ptr %1239, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_findFile_TestEEE, i64 16), ptr %1239, align 8
   %1241 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef null, ptr noundef nonnull %172, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1235, ptr noundef %1237, ptr noundef nonnull %1239)
           to label %1242 unwind label %1259
 
@@ -199891,7 +199891,7 @@ __cxx_global_var_init.337.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1270 unwind label %1289
 
 1270:                                             ; preds = %1268
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_hashFile_TestEEE, i64 0, i32 0, i64 2), ptr %1269, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_hashFile_TestEEE, i64 16), ptr %1269, align 8
   %1271 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.340, ptr noundef null, ptr noundef null, ptr noundef nonnull %169, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1265, ptr noundef %1267, ptr noundef nonnull %1269)
           to label %1272 unwind label %1289
 
@@ -199984,7 +199984,7 @@ __cxx_global_var_init.339.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1300 unwind label %1319
 
 1300:                                             ; preds = %1298
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_readDir_TestEEE, i64 0, i32 0, i64 2), ptr %1299, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_readDir_TestEEE, i64 16), ptr %1299, align 8
   %1301 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.342, ptr noundef null, ptr noundef null, ptr noundef nonnull %166, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1295, ptr noundef %1297, ptr noundef nonnull %1299)
           to label %1302 unwind label %1319
 
@@ -200077,7 +200077,7 @@ __cxx_global_var_init.341.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1330 unwind label %1349
 
 1330:                                             ; preds = %1328
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_toXML_TestEEE, i64 0, i32 0, i64 2), ptr %1329, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_toXML_TestEEE, i64 16), ptr %1329, align 8
   %1331 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.344, ptr noundef null, ptr noundef null, ptr noundef nonnull %163, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1325, ptr noundef %1327, ptr noundef nonnull %1329)
           to label %1332 unwind label %1349
 
@@ -200170,7 +200170,7 @@ __cxx_global_var_init.343.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1360 unwind label %1379
 
 1360:                                             ; preds = %1358
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toJSON_TestEEE, i64 0, i32 0, i64 2), ptr %1359, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toJSON_TestEEE, i64 16), ptr %1359, align 8
   %1361 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.346, ptr noundef null, ptr noundef null, ptr noundef nonnull %160, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1355, ptr noundef %1357, ptr noundef nonnull %1359)
           to label %1362 unwind label %1379
 
@@ -200263,7 +200263,7 @@ __cxx_global_var_init.345.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1390 unwind label %1409
 
 1390:                                             ; preds = %1388
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_fromJSON_TestEEE, i64 0, i32 0, i64 2), ptr %1389, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_fromJSON_TestEEE, i64 16), ptr %1389, align 8
   %1391 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.348, ptr noundef null, ptr noundef null, ptr noundef nonnull %157, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1385, ptr noundef %1387, ptr noundef nonnull %1389)
           to label %1392 unwind label %1409
 
@@ -200356,7 +200356,7 @@ __cxx_global_var_init.347.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1420 unwind label %1439
 
 1420:                                             ; preds = %1418
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toFile_TestEEE, i64 0, i32 0, i64 2), ptr %1419, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toFile_TestEEE, i64 16), ptr %1419, align 8
   %1421 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.350, ptr noundef null, ptr noundef null, ptr noundef nonnull %154, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1415, ptr noundef %1417, ptr noundef nonnull %1419)
           to label %1422 unwind label %1439
 
@@ -200449,7 +200449,7 @@ __cxx_global_var_init.349.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1450 unwind label %1469
 
 1450:                                             ; preds = %1448
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_filterSource_TestEEE, i64 0, i32 0, i64 2), ptr %1449, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_filterSource_TestEEE, i64 16), ptr %1449, align 8
   %1451 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.352, ptr noundef null, ptr noundef null, ptr noundef nonnull %151, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1445, ptr noundef %1447, ptr noundef nonnull %1449)
           to label %1452 unwind label %1469
 
@@ -200542,7 +200542,7 @@ __cxx_global_var_init.351.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1480 unwind label %1499
 
 1480:                                             ; preds = %1478
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_path_TestEEE, i64 0, i32 0, i64 2), ptr %1479, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_path_TestEEE, i64 16), ptr %1479, align 8
   %1481 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.377, ptr noundef null, ptr noundef null, ptr noundef nonnull %148, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1475, ptr noundef %1477, ptr noundef nonnull %1479)
           to label %1482 unwind label %1499
 
@@ -200635,7 +200635,7 @@ __cxx_global_var_init.376.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1510 unwind label %1529
 
 1510:                                             ; preds = %1508
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_attrNames_TestEEE, i64 0, i32 0, i64 2), ptr %1509, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_attrNames_TestEEE, i64 16), ptr %1509, align 8
   %1511 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.379, ptr noundef null, ptr noundef null, ptr noundef nonnull %145, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1505, ptr noundef %1507, ptr noundef nonnull %1509)
           to label %1512 unwind label %1529
 
@@ -200728,7 +200728,7 @@ __cxx_global_var_init.378.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1540 unwind label %1559
 
 1540:                                             ; preds = %1538
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_attrValues_TestEEE, i64 0, i32 0, i64 2), ptr %1539, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_attrValues_TestEEE, i64 16), ptr %1539, align 8
   %1541 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.390, ptr noundef null, ptr noundef null, ptr noundef nonnull %142, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1535, ptr noundef %1537, ptr noundef nonnull %1539)
           to label %1542 unwind label %1559
 
@@ -200821,7 +200821,7 @@ __cxx_global_var_init.389.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1570 unwind label %1589
 
 1570:                                             ; preds = %1568
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_getAttr_TestEEE, i64 0, i32 0, i64 2), ptr %1569, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_getAttr_TestEEE, i64 16), ptr %1569, align 8
   %1571 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.400, ptr noundef null, ptr noundef null, ptr noundef nonnull %139, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1565, ptr noundef %1567, ptr noundef nonnull %1569)
           to label %1572 unwind label %1589
 
@@ -200914,7 +200914,7 @@ __cxx_global_var_init.399.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1600 unwind label %1619
 
 1600:                                             ; preds = %1598
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ErrorTraceTest_unsafeGetAttrPos_TestEEE, i64 0, i32 0, i64 2), ptr %1599, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ErrorTraceTest_unsafeGetAttrPos_TestEEE, i64 16), ptr %1599, align 8
   %1601 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.427, ptr noundef null, ptr noundef null, ptr noundef nonnull %136, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1595, ptr noundef %1597, ptr noundef nonnull %1599)
           to label %1602 unwind label %1619
 
@@ -201007,7 +201007,7 @@ __cxx_global_var_init.426.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1630 unwind label %1649
 
 1630:                                             ; preds = %1628
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_hasAttr_TestEEE, i64 0, i32 0, i64 2), ptr %1629, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_hasAttr_TestEEE, i64 16), ptr %1629, align 8
   %1631 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.429, ptr noundef null, ptr noundef null, ptr noundef nonnull %133, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1625, ptr noundef %1627, ptr noundef nonnull %1629)
           to label %1632 unwind label %1649
 
@@ -201100,7 +201100,7 @@ __cxx_global_var_init.428.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1660 unwind label %1679
 
 1660:                                             ; preds = %1658
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_isAttrs_TestEEE, i64 0, i32 0, i64 2), ptr %1659, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_isAttrs_TestEEE, i64 16), ptr %1659, align 8
   %1661 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.447, ptr noundef null, ptr noundef null, ptr noundef nonnull %130, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1655, ptr noundef %1657, ptr noundef nonnull %1659)
           to label %1662 unwind label %1679
 
@@ -201193,7 +201193,7 @@ __cxx_global_var_init.446.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1690 unwind label %1709
 
 1690:                                             ; preds = %1688
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_removeAttrs_TestEEE, i64 0, i32 0, i64 2), ptr %1689, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_removeAttrs_TestEEE, i64 16), ptr %1689, align 8
   %1691 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.449, ptr noundef null, ptr noundef null, ptr noundef nonnull %127, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1685, ptr noundef %1687, ptr noundef nonnull %1689)
           to label %1692 unwind label %1709
 
@@ -201286,7 +201286,7 @@ __cxx_global_var_init.448.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1720 unwind label %1739
 
 1720:                                             ; preds = %1718
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_listToAttrs_TestEEE, i64 0, i32 0, i64 2), ptr %1719, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_listToAttrs_TestEEE, i64 16), ptr %1719, align 8
   %1721 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.473, ptr noundef null, ptr noundef null, ptr noundef nonnull %124, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1715, ptr noundef %1717, ptr noundef nonnull %1719)
           to label %1722 unwind label %1739
 
@@ -201379,7 +201379,7 @@ __cxx_global_var_init.472.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1750 unwind label %1769
 
 1750:                                             ; preds = %1748
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_intersectAttrs_TestEEE, i64 0, i32 0, i64 2), ptr %1749, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_intersectAttrs_TestEEE, i64 16), ptr %1749, align 8
   %1751 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.517, ptr noundef null, ptr noundef null, ptr noundef nonnull %121, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1745, ptr noundef %1747, ptr noundef nonnull %1749)
           to label %1752 unwind label %1769
 
@@ -201472,7 +201472,7 @@ __cxx_global_var_init.516.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1780 unwind label %1799
 
 1780:                                             ; preds = %1778
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_catAttrs_TestEEE, i64 0, i32 0, i64 2), ptr %1779, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_catAttrs_TestEEE, i64 16), ptr %1779, align 8
   %1781 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.535, ptr noundef null, ptr noundef null, ptr noundef nonnull %118, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1775, ptr noundef %1777, ptr noundef nonnull %1779)
           to label %1782 unwind label %1799
 
@@ -201565,7 +201565,7 @@ __cxx_global_var_init.534.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1810 unwind label %1829
 
 1810:                                             ; preds = %1808
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_functionArgs_TestEEE, i64 0, i32 0, i64 2), ptr %1809, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_functionArgs_TestEEE, i64 16), ptr %1809, align 8
   %1811 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.568, ptr noundef null, ptr noundef null, ptr noundef nonnull %115, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1805, ptr noundef %1807, ptr noundef nonnull %1809)
           to label %1812 unwind label %1829
 
@@ -201658,7 +201658,7 @@ __cxx_global_var_init.567.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1840 unwind label %1859
 
 1840:                                             ; preds = %1838
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_mapAttrs_TestEEE, i64 0, i32 0, i64 2), ptr %1839, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_mapAttrs_TestEEE, i64 16), ptr %1839, align 8
   %1841 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.578, ptr noundef null, ptr noundef null, ptr noundef nonnull %112, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1835, ptr noundef %1837, ptr noundef nonnull %1839)
           to label %1842 unwind label %1859
 
@@ -201751,7 +201751,7 @@ __cxx_global_var_init.577.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1870 unwind label %1889
 
 1870:                                             ; preds = %1868
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_zipAttrsWith_TestEEE, i64 0, i32 0, i64 2), ptr %1869, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_zipAttrsWith_TestEEE, i64 16), ptr %1869, align 8
   %1871 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.588, ptr noundef null, ptr noundef null, ptr noundef nonnull %109, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1865, ptr noundef %1867, ptr noundef nonnull %1869)
           to label %1872 unwind label %1889
 
@@ -201844,7 +201844,7 @@ __cxx_global_var_init.587.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1900 unwind label %1919
 
 1900:                                             ; preds = %1898
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isList_TestEEE, i64 0, i32 0, i64 2), ptr %1899, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isList_TestEEE, i64 16), ptr %1899, align 8
   %1901 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.606, ptr noundef null, ptr noundef null, ptr noundef nonnull %106, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1895, ptr noundef %1897, ptr noundef nonnull %1899)
           to label %1902 unwind label %1919
 
@@ -201937,7 +201937,7 @@ __cxx_global_var_init.605.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1930 unwind label %1949
 
 1930:                                             ; preds = %1928
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_elemAt_TestEEE, i64 0, i32 0, i64 2), ptr %1929, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_elemAt_TestEEE, i64 16), ptr %1929, align 8
   %1931 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.608, ptr noundef null, ptr noundef null, ptr noundef nonnull %103, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1925, ptr noundef %1927, ptr noundef nonnull %1929)
           to label %1932 unwind label %1949
 
@@ -202030,7 +202030,7 @@ __cxx_global_var_init.607.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1960 unwind label %1979
 
 1960:                                             ; preds = %1958
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_head_TestEEE, i64 0, i32 0, i64 2), ptr %1959, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_head_TestEEE, i64 16), ptr %1959, align 8
   %1961 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.634, ptr noundef null, ptr noundef null, ptr noundef nonnull %100, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1955, ptr noundef %1957, ptr noundef nonnull %1959)
           to label %1962 unwind label %1979
 
@@ -202123,7 +202123,7 @@ __cxx_global_var_init.633.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1990 unwind label %2009
 
 1990:                                             ; preds = %1988
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_tail_TestEEE, i64 0, i32 0, i64 2), ptr %1989, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_tail_TestEEE, i64 16), ptr %1989, align 8
   %1991 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.649, ptr noundef null, ptr noundef null, ptr noundef nonnull %97, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %1985, ptr noundef %1987, ptr noundef nonnull %1989)
           to label %1992 unwind label %2009
 
@@ -202216,7 +202216,7 @@ __cxx_global_var_init.648.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2020 unwind label %2039
 
 2020:                                             ; preds = %2018
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_map_TestEEE, i64 0, i32 0, i64 2), ptr %2019, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_map_TestEEE, i64 16), ptr %2019, align 8
   %2021 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.667, ptr noundef null, ptr noundef null, ptr noundef nonnull %94, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2015, ptr noundef %2017, ptr noundef nonnull %2019)
           to label %2022 unwind label %2039
 
@@ -202309,7 +202309,7 @@ __cxx_global_var_init.666.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2050 unwind label %2069
 
 2050:                                             ; preds = %2048
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_filter_TestEEE, i64 0, i32 0, i64 2), ptr %2049, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_filter_TestEEE, i64 16), ptr %2049, align 8
   %2051 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.686, ptr noundef null, ptr noundef null, ptr noundef nonnull %91, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2045, ptr noundef %2047, ptr noundef nonnull %2049)
           to label %2052 unwind label %2069
 
@@ -202402,7 +202402,7 @@ __cxx_global_var_init.685.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2080 unwind label %2099
 
 2080:                                             ; preds = %2078
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_elem_TestEEE, i64 0, i32 0, i64 2), ptr %2079, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_elem_TestEEE, i64 16), ptr %2079, align 8
   %2081 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.715, ptr noundef null, ptr noundef null, ptr noundef nonnull %88, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2075, ptr noundef %2077, ptr noundef nonnull %2079)
           to label %2082 unwind label %2099
 
@@ -202495,7 +202495,7 @@ __cxx_global_var_init.714.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2110 unwind label %2129
 
 2110:                                             ; preds = %2108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_concatLists_TestEEE, i64 0, i32 0, i64 2), ptr %2109, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_concatLists_TestEEE, i64 16), ptr %2109, align 8
   %2111 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.725, ptr noundef null, ptr noundef null, ptr noundef nonnull %85, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2105, ptr noundef %2107, ptr noundef nonnull %2109)
           to label %2112 unwind label %2129
 
@@ -202588,7 +202588,7 @@ __cxx_global_var_init.724.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2140 unwind label %2159
 
 2140:                                             ; preds = %2138
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_length_TestEEE, i64 0, i32 0, i64 2), ptr %2139, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_length_TestEEE, i64 16), ptr %2139, align 8
   %2141 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.749, ptr noundef null, ptr noundef null, ptr noundef nonnull %82, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2135, ptr noundef %2137, ptr noundef nonnull %2139)
           to label %2142 unwind label %2159
 
@@ -202681,7 +202681,7 @@ __cxx_global_var_init.748.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2170 unwind label %2189
 
 2170:                                             ; preds = %2168
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_foldlPrime_TestEEE, i64 0, i32 0, i64 2), ptr %2169, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_foldlPrime_TestEEE, i64 16), ptr %2169, align 8
   %2171 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.765, ptr noundef null, ptr noundef null, ptr noundef nonnull %79, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2165, ptr noundef %2167, ptr noundef nonnull %2169)
           to label %2172 unwind label %2189
 
@@ -202774,7 +202774,7 @@ __cxx_global_var_init.764.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2200 unwind label %2219
 
 2200:                                             ; preds = %2198
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_any_TestEEE, i64 0, i32 0, i64 2), ptr %2199, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_any_TestEEE, i64 16), ptr %2199, align 8
   %2201 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.800, ptr noundef null, ptr noundef null, ptr noundef nonnull %76, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2195, ptr noundef %2197, ptr noundef nonnull %2199)
           to label %2202 unwind label %2219
 
@@ -202867,7 +202867,7 @@ __cxx_global_var_init.799.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2230 unwind label %2249
 
 2230:                                             ; preds = %2228
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_all_TestEEE, i64 0, i32 0, i64 2), ptr %2229, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_all_TestEEE, i64 16), ptr %2229, align 8
   %2231 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.827, ptr noundef null, ptr noundef null, ptr noundef nonnull %73, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2225, ptr noundef %2227, ptr noundef nonnull %2229)
           to label %2232 unwind label %2249
 
@@ -202960,7 +202960,7 @@ __cxx_global_var_init.826.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2260 unwind label %2279
 
 2260:                                             ; preds = %2258
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_genList_TestEEE, i64 0, i32 0, i64 2), ptr %2259, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_genList_TestEEE, i64 16), ptr %2259, align 8
   %2261 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.853, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2255, ptr noundef %2257, ptr noundef nonnull %2259)
           to label %2262 unwind label %2279
 
@@ -203053,7 +203053,7 @@ __cxx_global_var_init.852.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2290 unwind label %2309
 
 2290:                                             ; preds = %2288
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_sort_TestEEE, i64 0, i32 0, i64 2), ptr %2289, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_sort_TestEEE, i64 16), ptr %2289, align 8
   %2291 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.881, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2285, ptr noundef %2287, ptr noundef nonnull %2289)
           to label %2292 unwind label %2309
 
@@ -203146,7 +203146,7 @@ __cxx_global_var_init.880.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2320 unwind label %2339
 
 2320:                                             ; preds = %2318
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_partition_TestEEE, i64 0, i32 0, i64 2), ptr %2319, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_partition_TestEEE, i64 16), ptr %2319, align 8
   %2321 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.913, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2315, ptr noundef %2317, ptr noundef nonnull %2319)
           to label %2322 unwind label %2339
 
@@ -203239,7 +203239,7 @@ __cxx_global_var_init.912.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2350 unwind label %2369
 
 2350:                                             ; preds = %2348
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_groupBy_TestEEE, i64 0, i32 0, i64 2), ptr %2349, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_groupBy_TestEEE, i64 16), ptr %2349, align 8
   %2351 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.939, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2345, ptr noundef %2347, ptr noundef nonnull %2349)
           to label %2352 unwind label %2369
 
@@ -203332,7 +203332,7 @@ __cxx_global_var_init.938.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2380 unwind label %2399
 
 2380:                                             ; preds = %2378
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_concatMap_TestEEE, i64 0, i32 0, i64 2), ptr %2379, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_concatMap_TestEEE, i64 16), ptr %2379, align 8
   %2381 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.965, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2375, ptr noundef %2377, ptr noundef nonnull %2379)
           to label %2382 unwind label %2399
 
@@ -203425,7 +203425,7 @@ __cxx_global_var_init.964.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2410 unwind label %2429
 
 2410:                                             ; preds = %2408
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_add_TestEEE, i64 0, i32 0, i64 2), ptr %2409, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_add_TestEEE, i64 16), ptr %2409, align 8
   %2411 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.997, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2405, ptr noundef %2407, ptr noundef nonnull %2409)
           to label %2412 unwind label %2429
 
@@ -203518,7 +203518,7 @@ __cxx_global_var_init.996.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2440 unwind label %2459
 
 2440:                                             ; preds = %2438
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_sub_TestEEE, i64 0, i32 0, i64 2), ptr %2439, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_sub_TestEEE, i64 16), ptr %2439, align 8
   %2441 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1015, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2435, ptr noundef %2437, ptr noundef nonnull %2439)
           to label %2442 unwind label %2459
 
@@ -203611,7 +203611,7 @@ __cxx_global_var_init.1014.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2470 unwind label %2489
 
 2470:                                             ; preds = %2468
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_mul_TestEEE, i64 0, i32 0, i64 2), ptr %2469, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_mul_TestEEE, i64 16), ptr %2469, align 8
   %2471 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1033, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2465, ptr noundef %2467, ptr noundef nonnull %2469)
           to label %2472 unwind label %2489
 
@@ -203704,7 +203704,7 @@ __cxx_global_var_init.1032.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2500 unwind label %2519
 
 2500:                                             ; preds = %2498
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_div_TestEEE, i64 0, i32 0, i64 2), ptr %2499, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_div_TestEEE, i64 16), ptr %2499, align 8
   %2501 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1051, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2495, ptr noundef %2497, ptr noundef nonnull %2499)
           to label %2502 unwind label %2519
 
@@ -203797,7 +203797,7 @@ __cxx_global_var_init.1050.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2530 unwind label %2549
 
 2530:                                             ; preds = %2528
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_bitAnd_TestEEE, i64 0, i32 0, i64 2), ptr %2529, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_bitAnd_TestEEE, i64 16), ptr %2529, align 8
   %2531 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1077, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2525, ptr noundef %2527, ptr noundef nonnull %2529)
           to label %2532 unwind label %2549
 
@@ -203890,7 +203890,7 @@ __cxx_global_var_init.1076.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2560 unwind label %2579
 
 2560:                                             ; preds = %2558
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_bitOr_TestEEE, i64 0, i32 0, i64 2), ptr %2559, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_bitOr_TestEEE, i64 16), ptr %2559, align 8
   %2561 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1100, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2555, ptr noundef %2557, ptr noundef nonnull %2559)
           to label %2562 unwind label %2579
 
@@ -203983,7 +203983,7 @@ __cxx_global_var_init.1099.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2590 unwind label %2609
 
 2590:                                             ; preds = %2588
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_bitXor_TestEEE, i64 0, i32 0, i64 2), ptr %2589, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_bitXor_TestEEE, i64 16), ptr %2589, align 8
   %2591 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1118, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2585, ptr noundef %2587, ptr noundef nonnull %2589)
           to label %2592 unwind label %2609
 
@@ -204076,7 +204076,7 @@ __cxx_global_var_init.1117.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2620 unwind label %2639
 
 2620:                                             ; preds = %2618
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_lessThan_TestEEE, i64 0, i32 0, i64 2), ptr %2619, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_lessThan_TestEEE, i64 16), ptr %2619, align 8
   %2621 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1136, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2615, ptr noundef %2617, ptr noundef nonnull %2619)
           to label %2622 unwind label %2639
 
@@ -204169,7 +204169,7 @@ __cxx_global_var_init.1135.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2650 unwind label %2669
 
 2650:                                             ; preds = %2648
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_toString_TestEEE, i64 0, i32 0, i64 2), ptr %2649, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_toString_TestEEE, i64 16), ptr %2649, align 8
   %2651 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1161, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2645, ptr noundef %2647, ptr noundef nonnull %2649)
           to label %2652 unwind label %2669
 
@@ -204262,7 +204262,7 @@ __cxx_global_var_init.1160.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2680 unwind label %2699
 
 2680:                                             ; preds = %2678
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_substring_TestEEE, i64 0, i32 0, i64 2), ptr %2679, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_substring_TestEEE, i64 16), ptr %2679, align 8
   %2681 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1173, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2675, ptr noundef %2677, ptr noundef nonnull %2679)
           to label %2682 unwind label %2699
 
@@ -204355,7 +204355,7 @@ __cxx_global_var_init.1172.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2710 unwind label %2729
 
 2710:                                             ; preds = %2708
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_stringLength_TestEEE, i64 0, i32 0, i64 2), ptr %2709, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_stringLength_TestEEE, i64 16), ptr %2709, align 8
   %2711 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1209, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2705, ptr noundef %2707, ptr noundef nonnull %2709)
           to label %2712 unwind label %2729
 
@@ -204448,7 +204448,7 @@ __cxx_global_var_init.1208.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2740 unwind label %2759
 
 2740:                                             ; preds = %2738
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_hashString_TestEEE, i64 0, i32 0, i64 2), ptr %2739, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_hashString_TestEEE, i64 16), ptr %2739, align 8
   %2741 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1219, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2735, ptr noundef %2737, ptr noundef nonnull %2739)
           to label %2742 unwind label %2759
 
@@ -204541,7 +204541,7 @@ __cxx_global_var_init.1218.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2770 unwind label %2789
 
 2770:                                             ; preds = %2768
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_match_TestEEE, i64 0, i32 0, i64 2), ptr %2769, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_match_TestEEE, i64 16), ptr %2769, align 8
   %2771 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1245, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2765, ptr noundef %2767, ptr noundef nonnull %2769)
           to label %2772 unwind label %2789
 
@@ -204634,7 +204634,7 @@ __cxx_global_var_init.1244.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2800 unwind label %2819
 
 2800:                                             ; preds = %2798
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_split_TestEEE, i64 0, i32 0, i64 2), ptr %2799, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_split_TestEEE, i64 16), ptr %2799, align 8
   %2801 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1272, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2795, ptr noundef %2797, ptr noundef nonnull %2799)
           to label %2802 unwind label %2819
 
@@ -204727,7 +204727,7 @@ __cxx_global_var_init.1271.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2830 unwind label %2849
 
 2830:                                             ; preds = %2828
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ErrorTraceTest_concatStringsSep_TestEEE, i64 0, i32 0, i64 2), ptr %2829, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ErrorTraceTest_concatStringsSep_TestEEE, i64 16), ptr %2829, align 8
   %2831 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1298, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2825, ptr noundef %2827, ptr noundef nonnull %2829)
           to label %2832 unwind label %2849
 
@@ -204820,7 +204820,7 @@ __cxx_global_var_init.1297.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2860 unwind label %2879
 
 2860:                                             ; preds = %2858
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_parseDrvName_TestEEE, i64 0, i32 0, i64 2), ptr %2859, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_parseDrvName_TestEEE, i64 16), ptr %2859, align 8
   %2861 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1325, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2855, ptr noundef %2857, ptr noundef nonnull %2859)
           to label %2862 unwind label %2879
 
@@ -204913,7 +204913,7 @@ __cxx_global_var_init.1324.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2890 unwind label %2909
 
 2890:                                             ; preds = %2888
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ErrorTraceTest_compareVersions_TestEEE, i64 0, i32 0, i64 2), ptr %2889, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ErrorTraceTest_compareVersions_TestEEE, i64 16), ptr %2889, align 8
   %2891 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1335, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2885, ptr noundef %2887, ptr noundef nonnull %2889)
           to label %2892 unwind label %2909
 
@@ -205006,7 +205006,7 @@ __cxx_global_var_init.1334.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2920 unwind label %2939
 
 2920:                                             ; preds = %2918
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_splitVersion_TestEEE, i64 0, i32 0, i64 2), ptr %2919, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_splitVersion_TestEEE, i64 16), ptr %2919, align 8
   %2921 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1353, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2915, ptr noundef %2917, ptr noundef nonnull %2919)
           to label %2922 unwind label %2939
 
@@ -205099,7 +205099,7 @@ __cxx_global_var_init.1352.exit:                  ; preds = %_ZNKSt7__cxx1112bas
           to label %2950 unwind label %2969
 
 2950:                                             ; preds = %2948
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_traceVerbose_TestEEE, i64 0, i32 0, i64 2), ptr %2949, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_traceVerbose_TestEEE, i64 16), ptr %2949, align 8
   %2951 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1363, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ErrorTraceTestEE6dummy_E, ptr noundef %2945, ptr noundef %2947, ptr noundef nonnull %2949)
           to label %2952 unwind label %2969
 

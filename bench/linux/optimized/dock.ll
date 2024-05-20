@@ -109,7 +109,7 @@ define dso_local void @register_dock_dependent_device(ptr noundef %0, ptr nounde
   br i1 %25, label %.thread4, label %.thread
 
 .thread4:                                         ; preds = %16, %24
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %27 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 24) #7
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
@@ -869,7 +869,7 @@ define dso_local void @acpi_dock_add(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %49, label %50, label %67
 
 50:                                               ; preds = %47
-  %51 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %52 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %51, i32 noundef 3520, i64 noundef 24) #7
   %53 = icmp eq ptr %52, null
   br i1 %53, label %66, label %54

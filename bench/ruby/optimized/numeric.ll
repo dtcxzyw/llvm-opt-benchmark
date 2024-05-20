@@ -9034,23 +9034,23 @@ rb_class_of.exit:                                 ; preds = %45, %48, %49, %50, 
   %100 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.21, i64 noundef 1) #23
   store i64 %100, ptr @rb_fix_to_s_static, align 16
   %101 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.91, i64 noundef 1) #23
-  store i64 %101, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 1), align 8
+  store i64 %101, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 8), align 8
   %102 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.92, i64 noundef 1) #23
-  store i64 %102, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 2), align 16
+  store i64 %102, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 16), align 16
   %103 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.93, i64 noundef 1) #23
-  store i64 %103, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 3), align 8
+  store i64 %103, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 24), align 8
   %104 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.94, i64 noundef 1) #23
-  store i64 %104, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 4), align 16
+  store i64 %104, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 32), align 16
   %105 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.95, i64 noundef 1) #23
-  store i64 %105, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 5), align 8
+  store i64 %105, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 40), align 8
   %106 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.96, i64 noundef 1) #23
-  store i64 %106, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 6), align 16
+  store i64 %106, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 48), align 16
   %107 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.97, i64 noundef 1) #23
-  store i64 %107, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 7), align 8
+  store i64 %107, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 56), align 8
   %108 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.98, i64 noundef 1) #23
-  store i64 %108, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 8), align 16
+  store i64 %108, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 64), align 16
   %109 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.99, i64 noundef 1) #23
-  store i64 %109, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 9), align 8
+  store i64 %109, ptr getelementptr inbounds (i8, ptr @rb_fix_to_s_static, i64 72), align 8
   br label %110
 
 110:                                              ; preds = %rb_class_of.exit, %110

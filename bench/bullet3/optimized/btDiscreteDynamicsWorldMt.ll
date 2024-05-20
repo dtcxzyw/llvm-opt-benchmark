@@ -276,7 +276,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define dso_local void @_ZN24btConstraintSolverPoolMtC2Ei(ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %solvers = alloca %class.btAlignedObjectArray.0, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -526,7 +526,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btConstraintSolverPoolMtC2EPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef readonly %solvers, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -552,7 +552,7 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24btConstraintSolverPoolMtD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp4 = icmp sgt i32 %0, 0
@@ -632,7 +632,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24btConstraintSolverPoolMtD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp4.i = icmp sgt i32 %0, 0
@@ -775,7 +775,7 @@ declare void @_ZN11btSpinMutex4lockEv(ptr noundef nonnull align 4 dereferenceabl
 define dso_local void @_ZN25btDiscreteDynamicsWorldMtC2EP12btDispatcherP21btBroadphaseInterfaceP24btConstraintSolverPoolMtP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %solverPool, ptr noundef %constraintSolverMt, ptr noundef %collisionConfiguration) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN23btDiscreteDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(508) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %solverPool, ptr noundef %collisionConfiguration)
-  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV25btDiscreteDynamicsWorldMt, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25btDiscreteDynamicsWorldMt, i64 16), ptr %this, align 8
   %m_ownsIslandManager = getelementptr inbounds i8, ptr %this, i64 424
   %0 = load i8, ptr %m_ownsIslandManager, align 8
   %tobool = trunc i8 %0 to i1
@@ -940,7 +940,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26UpdaterUnconstrainedMotion, i64 0, i32 0, i64 2), ptr %update, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV26UpdaterUnconstrainedMotion, i64 16), ptr %update, align 8
   %timeStep2 = getelementptr inbounds i8, ptr %update, i64 8
   store float %timeStep, ptr %timeStep2, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 384
@@ -985,7 +985,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt31UpdaterCreatePredictiveContactsE, i64 0, i32 0, i64 2), ptr %update, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN25btDiscreteDynamicsWorldMt31UpdaterCreatePredictiveContactsE, i64 16), ptr %update, align 8
   %world = getelementptr inbounds i8, ptr %update, i64 24
   store ptr %this, ptr %world, align 8
   %timeStep3 = getelementptr inbounds i8, ptr %update, i64 8
@@ -1037,7 +1037,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt26UpdaterIntegrateTransformsE, i64 0, i32 0, i64 2), ptr %update, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN25btDiscreteDynamicsWorldMt26UpdaterIntegrateTransformsE, i64 16), ptr %update, align 8
   %world = getelementptr inbounds i8, ptr %update, i64 24
   store ptr %this, ptr %world, align 8
   %timeStep2 = getelementptr inbounds i8, ptr %update, i64 8

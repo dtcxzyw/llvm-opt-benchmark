@@ -130,7 +130,7 @@ if.end:                                           ; preds = %entry
 
 land.rhs.preheader:                               ; preds = %if.end
   %1 = load ptr, ptr @cmd_pack_refs.option_excluded_refs, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @cmd_pack_refs.option_excluded_refs, i64 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @cmd_pack_refs.option_excluded_refs, i64 8), align 8
   %add.ptr6 = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %2
   %cmp7 = icmp ult ptr %0, %add.ptr6
   br i1 %cmp7, label %for.body, label %for.end
@@ -142,7 +142,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   call void @add_ref_exclusion(ptr noundef %3, ptr noundef %4) #4
   %incdec.ptr = getelementptr inbounds i8, ptr %item.058, i64 16
   %5 = load ptr, ptr @cmd_pack_refs.option_excluded_refs, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @cmd_pack_refs.option_excluded_refs, i64 0, i32 1), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @cmd_pack_refs.option_excluded_refs, i64 8), align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %5, i64 %6
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end

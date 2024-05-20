@@ -187,7 +187,7 @@ if.then27:                                        ; preds = %if.end21
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then27, %if.end21
-  %10 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp2999.not = icmp eq i32 %10, 0
   br i1 %cmp2999.not, label %for.end, label %for.body
 
@@ -286,7 +286,7 @@ if.then79:                                        ; preds = %land.lhs.true76
 
 for.inc:                                          ; preds = %do.end, %land.lhs.true76, %if.end36, %land.lhs.true, %lor.lhs.false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %25 = zext i32 %24 to i64
   %cmp29 = icmp ult i64 %indvars.iv.next, %25
   br i1 %cmp29, label %for.body, label %for.end, !llvm.loop !5
@@ -432,7 +432,7 @@ for.body.if.end9_crit_edge.i:                     ; preds = %for.body.i
 
 if.then.i48:                                      ; preds = %for.body.i
   %sub1.i.i = xor i32 %call2.i, -1
-  %42 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp5.i.i = icmp ugt i32 %42, %sub1.i.i
   br i1 %cmp5.i.i, label %land.rhs.lr.ph.i.i, label %for.inc.i
 
@@ -602,7 +602,7 @@ for.body.i50:                                     ; preds = %for.inc.i57, %for.b
 
 if.then.i61:                                      ; preds = %for.body.i50
   %sub1.i.i62 = xor i32 %call3.i, -1
-  %67 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp5.i.i63 = icmp ugt i32 %67, %sub1.i.i62
   br i1 %cmp5.i.i63, label %land.rhs.lr.ph.i.i64, label %for.inc.i57
 

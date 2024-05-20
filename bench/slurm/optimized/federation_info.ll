@@ -109,7 +109,7 @@ define void @slurm_print_federation(ptr noundef readonly %0) local_unnamed_addr 
   %7 = load ptr, ptr @working_cluster_rec, align 8
   %.not44 = icmp eq ptr %7, null
   %8 = getelementptr inbounds i8, ptr %7, i64 272
-  %.0.in = select i1 %.not44, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), ptr %8
+  %.0.in = select i1 %.not44, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), ptr %8
   %.0 = load ptr, ptr %.0.in, align 8
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 11, ptr noundef nonnull @.str.1, ptr noundef nonnull %5)
   %10 = getelementptr inbounds i8, ptr %0, i64 16

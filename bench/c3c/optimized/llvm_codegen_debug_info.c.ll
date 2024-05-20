@@ -221,7 +221,7 @@ define dso_local void @llvm_emit_debug_function(ptr nocapture noundef %0, ptr no
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #9
   %24 = tail call zeroext i1 @decl_is_local(ptr noundef nonnull %1) #8
   %25 = zext i1 %24 to i32
-  %26 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 42), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 184), align 8
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
   %29 = tail call ptr @LLVMDIBuilderCreateFunction(ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %20, ptr noundef %22, i64 noundef %23, ptr noundef %18, i32 noundef %spec.store.select, ptr noundef %15, i32 noundef %25, i32 noundef 1, i32 noundef %spec.store.select, i32 noundef %spec.select, i32 noundef %28) #8
@@ -352,7 +352,7 @@ llvm_debug_current_scope.exit:                    ; preds = %51, %.critedge.i
   %60 = getelementptr inbounds i8, ptr %1, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef nonnull readonly %0, ptr noundef %61, ptr noundef %59)
-  %63 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 42), align 8
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 184), align 8
   %64 = icmp ne i32 %63, 0
   %65 = zext i1 %64 to i32
   %66 = getelementptr inbounds i8, ptr %1, i64 40

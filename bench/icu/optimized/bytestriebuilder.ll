@@ -638,7 +638,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 define void @_ZN6icu_7516BytesTrieBuilderC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7517StringTrieBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i64 16), ptr %this, align 8
   %strings = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %strings, i8 0, i64 40, i1 false)
   %0 = load i32, ptr %errorCode, align 4
@@ -692,7 +692,7 @@ declare void @_ZN6icu_7517StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7516BytesTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i64 16), ptr %this, align 8
   %strings = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %strings, align 8
   %isnull = icmp eq ptr %0, null
@@ -1554,7 +1554,7 @@ _ZN6icu_7517StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit: ; preds = %e
   store i32 %len, ptr %length.i, align 8
   %next.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %nextNode, ptr %next.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilder17BTLinearMatchNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516BytesTrieBuilder17BTLinearMatchNodeE, i64 16), ptr %this, align 8
   %s = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %bytes, ptr %s, align 8
   %call = invoke i32 @ustr_hashCharsN_75(ptr noundef %bytes, i32 noundef %len)

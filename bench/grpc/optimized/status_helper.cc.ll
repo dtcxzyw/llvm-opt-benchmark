@@ -1272,7 +1272,7 @@ entry:
   %agg.tmp = alloca %"class.grpc_core::Slice", align 8
   %ref.tmp = alloca %class.anon.47, align 8
   store ptr %arena, ptr %arena.addr, align 8
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__rpc__Status_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @google__rpc__Status_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %0 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -1675,7 +1675,7 @@ lpad:                                             ; preds = %entry
 
 do.end:                                           ; preds = %while.body
   %add.ptr13 = getelementptr inbounds i8, ptr %.fca.1.load.i, i64 %add
-  %8 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__rpc__Status_msg_init, i64 0, i32 2), align 8
+  %8 = load i16, ptr getelementptr inbounds (i8, ptr @google__rpc__Status_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %8 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -1926,7 +1926,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2984,7 +2984,7 @@ declare ptr @_ZN4absl12lts_2023080213time_internal4cctz13utc_time_zoneEv() local
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #13 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #22
   unreachable
 }
@@ -4090,7 +4090,7 @@ _upb_array_reserve.exit.i.i.i.i.i.i:              ; preds = %lor.lhs.false.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_upb_array_reserve.exit.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %size.i.i.i.i.i, align 8
-  %7 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Any_msg_init, i64 0, i32 2), align 8
+  %7 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Any_msg_init, i64 16), align 8
   %conv.i.i.i.i.i.i.i = zext i16 %7 to i64
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 8
   %sub.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 23

@@ -61,7 +61,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_devm_gen_poo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @gen_pool_create(i32 noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_node_trace(ptr noundef %3, i32 noundef 3264, i32 noundef %1, i64 noundef 56) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
@@ -1416,7 +1416,7 @@ define dso_local noundef ptr @devm_gen_pool_create(ptr noundef %0, i32 noundef %
   br i1 %18, label %31, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_node_trace(ptr noundef %20, i32 noundef 3264, i32 noundef %2, i64 noundef 56) #11
   %22 = icmp eq ptr %21, null
   br i1 %22, label %30, label %23

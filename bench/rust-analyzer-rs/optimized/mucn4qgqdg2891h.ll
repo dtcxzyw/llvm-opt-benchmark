@@ -17592,7 +17592,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h10d0c4a57c3d23
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (<{ ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8] }>, ptr @anon.4758def437df510d04930db3bddfd63b.110.llvm.8873333117009505138, i64 0, i32 3), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4758def437df510d04930db3bddfd63b.110.llvm.8873333117009505138, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 
@@ -28007,7 +28007,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   br i1 %171, label %172, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread242
 
 172:                                              ; preds = %169
-  %173 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def4data12FunctionData13fn_data_query10__CALLSITE17h98c04f012807a1cbE, i64 0, i32 1, i64 8) monotonic, align 8
+  %173 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def4data12FunctionData13fn_data_query10__CALLSITE17h98c04f012807a1cbE, i64 16) monotonic, align 8
   switch i8 %173, label %174 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread242
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -30737,7 +30737,7 @@ define hidden { ptr, ptr } @_ZN7hir_def4data8ImplData32impl_data_with_diagnostic
   br i1 %26, label %27, label %.thread143
 
 27:                                               ; preds = %3
-  %28 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def4data8ImplData32impl_data_with_diagnostics_query10__CALLSITE17h71b9bf8807ebc448E, i64 0, i32 1, i64 8) monotonic, align 8
+  %28 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def4data8ImplData32impl_data_with_diagnostics_query10__CALLSITE17h71b9bf8807ebc448E, i64 16) monotonic, align 8
   switch i8 %28, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread143
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -32214,7 +32214,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   br i1 %67, label %68, label %.critedge
 
 68:                                               ; preds = %65
-  %69 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def4data13ProcMacroData21proc_macro_data_query10__CALLSITE17hdb64ab4910f36194E, i64 0, i32 1, i64 8) monotonic, align 8
+  %69 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def4data13ProcMacroData21proc_macro_data_query10__CALLSITE17hdb64ab4910f36194E, i64 16) monotonic, align 8
   switch i8 %69, label %70 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -38694,7 +38694,7 @@ select.unfold:                                    ; preds = %219, %204
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i
 
 301:                                              ; preds = %297
-  %302 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector19seed_with_top_level10__CALLSITE17h63850b35d05e0a11E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !8235
+  %302 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector19seed_with_top_level10__CALLSITE17h63850b35d05e0a11E, i64 16) monotonic, align 8, !noalias !8235
   switch i8 %302, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %.thread336.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -39358,7 +39358,7 @@ _ZN10hir_expand8mod_path7ModPath13from_segments17h2cc56b2afb167e06E.exit.i.i: ; 
   br i1 %529, label %530, label %.critedge.i.i
 
 530:                                              ; preds = %527
-  %531 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector14inject_prelude10__CALLSITE17hbb87c2c2d1f23862E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !8296
+  %531 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector14inject_prelude10__CALLSITE17hbb87c2c2d1f23862E, i64 16) monotonic, align 8, !noalias !8296
   switch i8 %531, label %532 [
     i8 0, label %.critedge.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i
@@ -40975,7 +40975,7 @@ _ZN7hir_def7nameres9collector12DefCollector15seed_with_inner17h41b1781ac1b7a99fE
   br i1 %997, label %998, label %.thread300.i
 
 998:                                              ; preds = %995
-  %999 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector7collect10__CALLSITE17hc626a535bd13291dE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !8957
+  %999 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector7collect10__CALLSITE17hc626a535bd13291dE, i64 16) monotonic, align 8, !noalias !8957
   switch i8 %999, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i175 [
     i8 0, label %.thread300.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i172
@@ -41061,7 +41061,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i141: ; preds = %1011, %.
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit77.i.i
 
 1019:                                             ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i141
-  %1020 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector15resolution_loop10__CALLSITE17h6f7acef5e6833981E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !8970
+  %1020 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector15resolution_loop10__CALLSITE17h6f7acef5e6833981E, i64 16) monotonic, align 8, !noalias !8970
   switch i8 %1020, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.i170 [
     i8 0, label %.thread260.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i168
@@ -41226,7 +41226,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit77.i.i: ; preds = %1031, %
   br i1 %1091, label %1092, label %.thread261.i.i
 
 1092:                                             ; preds = %1089
-  %1093 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector15resolution_loop10__CALLSITE17h4fe59d33a12eff57E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !8970
+  %1093 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector15resolution_loop10__CALLSITE17h4fe59d33a12eff57E, i64 16) monotonic, align 8, !noalias !8970
   switch i8 %1093, label %1094 [
     i8 0, label %.thread261.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit87.thread.i.i
@@ -41330,7 +41330,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit76.i.i: ; preds = %1105, %
   br i1 %1117, label %1118, label %.thread262.i.i
 
 1118:                                             ; preds = %1115
-  %1119 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector15resolution_loop10__CALLSITE17hd58447d7f35368e4E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !8970
+  %1119 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector15resolution_loop10__CALLSITE17hd58447d7f35368e4E, i64 16) monotonic, align 8, !noalias !8970
   switch i8 %1119, label %1120 [
     i8 0, label %.thread262.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit91.thread.i.i
@@ -42815,7 +42815,7 @@ select.unfold.i.i.i:                              ; preds = %.noexc106.i.i, %150
   br i1 %1580, label %1581, label %.critedge.i.i152
 
 1581:                                             ; preds = %1578
-  %1582 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector15resolution_loop10__CALLSITE17hdff6a1ea3bbe0000E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !8970
+  %1582 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector15resolution_loop10__CALLSITE17hdff6a1ea3bbe0000E, i64 16) monotonic, align 8, !noalias !8970
   switch i8 %1582, label %1583 [
     i8 0, label %.critedge.i.i152
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111.thread.i.i
@@ -43124,7 +43124,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
   br label %2058
 
 1661:                                             ; preds = %1656
-  %1662 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector6finish10__CALLSITE17h098fe1b4dc12b182E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !9487
+  %1662 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector6finish10__CALLSITE17h098fe1b4dc12b182E, i64 16) monotonic, align 8, !noalias !9487
   switch i8 %1662, label %1663 [
     i8 0, label %.thread240.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i224
@@ -44302,7 +44302,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   br i1 %2091, label %2092, label %.critedge
 
 2092:                                             ; preds = %2088
-  %2093 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12collect_defs10__CALLSITE17h697de1222ad3b1b0E, i64 0, i32 1, i64 8) monotonic, align 8
+  %2093 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12collect_defs10__CALLSITE17h697de1222ad3b1b0E, i64 16) monotonic, align 8
   switch i8 %2093, label %2094 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -45734,7 +45734,7 @@ define hidden void @_ZN7hir_def7nameres9collector12DefCollector14resolve_import1
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %4
-  %24 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector14resolve_import10__CALLSITE17h0e80919e82167925E, i64 0, i32 1, i64 8) monotonic, align 8
+  %24 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector14resolve_import10__CALLSITE17h0e80919e82167925E, i64 16) monotonic, align 8
   switch i8 %24, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -45855,7 +45855,7 @@ common.resume:                                    ; preds = %58, %53
   br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %60
-  %64 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector14resolve_import10__CALLSITE17h9a5d4eed53face4fE, i64 0, i32 1, i64 8) monotonic, align 8
+  %64 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector14resolve_import10__CALLSITE17h9a5d4eed53face4fE, i64 16) monotonic, align 8
   switch i8 %64, label %65 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit61.thread
@@ -46477,7 +46477,7 @@ define hidden void @_ZN7hir_def7nameres9collector12DefCollector22record_resolved
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
 
 61:                                               ; preds = %2
-  %62 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17hcade6ce31fb8af0cE, i64 0, i32 1, i64 8) monotonic, align 8
+  %62 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17hcade6ce31fb8af0cE, i64 16) monotonic, align 8
   switch i8 %62, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread593
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -46635,7 +46635,7 @@ _ZN7hir_def7nameres9collector21PartialResolvedImport10namespaces17h7b45b5e93bd94
   br i1 %110, label %111, label %.critedge
 
 111:                                              ; preds = %106
-  %112 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17h69ad819d86baba9eE, i64 0, i32 1, i64 8) monotonic, align 8
+  %112 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17h69ad819d86baba9eE, i64 16) monotonic, align 8
   switch i8 %112, label %113 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit317.thread
@@ -46750,7 +46750,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit317
   br i1 %139, label %140, label %.critedge289
 
 140:                                              ; preds = %.thread
-  %141 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17h6efcdc3ba1c46cdcE, i64 0, i32 1, i64 8) monotonic, align 8
+  %141 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17h6efcdc3ba1c46cdcE, i64 16) monotonic, align 8
   switch i8 %141, label %142 [
     i8 0, label %.critedge289
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit321.thread
@@ -47685,7 +47685,7 @@ _ZN7hir_def7nameres9collector12DefCollector6update17h15e3ed038fceab51E.exit386: 
   br i1 %502, label %503, label %.critedge301
 
 503:                                              ; preds = %500
-  %504 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17h4dd4c455648a8f59E, i64 0, i32 1, i64 8) monotonic, align 8
+  %504 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17h4dd4c455648a8f59E, i64 16) monotonic, align 8
   switch i8 %504, label %505 [
     i8 0, label %.critedge301
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit395.thread
@@ -47931,7 +47931,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit395
   br i1 %585, label %586, label %.critedge307
 
 586:                                              ; preds = %.thread575
-  %587 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17hd1737cdf2a3b9b67E, i64 0, i32 1, i64 8) monotonic, align 8
+  %587 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector22record_resolved_import10__CALLSITE17hd1737cdf2a3b9b67E, i64 16) monotonic, align 8
   switch i8 %587, label %588 [
     i8 0, label %.critedge307
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit411.thread
@@ -48821,7 +48821,7 @@ _ZN7hir_def10item_scope9ItemScope17unnamed_trait_vis17hb78da8786cc2c2eaE.exit.th
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h175c5f3ea67d97c7E.exit"
 
 213:                                              ; preds = %170
-  %214 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector16update_recursive10__CALLSITE17h5ac7b12acd3e1513E, i64 0, i32 1, i64 8) monotonic, align 8
+  %214 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector16update_recursive10__CALLSITE17h5ac7b12acd3e1513E, i64 16) monotonic, align 8
   switch i8 %214, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge65
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -49186,7 +49186,7 @@ default.unreachable:                              ; preds = %.critedge
   br i1 %112, label %113, label %.critedge
 
 113:                                              ; preds = %110
-  %114 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector23collect_macro_expansion10__CALLSITE17h07ee6268f1acd2efE, i64 0, i32 1, i64 8) monotonic, align 8
+  %114 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector23collect_macro_expansion10__CALLSITE17h07ee6268f1acd2efE, i64 16) monotonic, align 8
   switch i8 %114, label %115 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -49770,7 +49770,7 @@ select.unfold:                                    ; preds = %250, %235
   br i1 %323, label %324, label %.critedge88
 
 324:                                              ; preds = %321
-  %325 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12DefCollector23collect_macro_expansion10__CALLSITE17hef0183b9da808a28E, i64 0, i32 1, i64 8) monotonic, align 8
+  %325 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12DefCollector23collect_macro_expansion10__CALLSITE17hef0183b9da808a28E, i64 16) monotonic, align 8
   switch i8 %325, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit138 [
     i8 0, label %.critedge88
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit138.thread
@@ -50892,7 +50892,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h26f1ea2b05c55966E.exit.thread1
   br i1 %312, label %313, label %.critedge.i
 
 313:                                              ; preds = %310
-  %314 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12ModCollector18resolve_attributes10__CALLSITE17h3bf2e106c345e540E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !10988
+  %314 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12ModCollector18resolve_attributes10__CALLSITE17h3bf2e106c345e540E, i64 16) monotonic, align 8, !noalias !10988
   switch i8 %314, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -53903,7 +53903,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   br i1 %1365, label %1366, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$$GT$17hba9b78e85af726d1E.exit.i"
 
 1366:                                             ; preds = %"_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.11603491536561601675.exit.thread.i"
-  %1367 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres9collector12ModCollector17collect_macro_def10__CALLSITE17hf2c58849bf59d5ebE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !11807
+  %1367 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres9collector12ModCollector17collect_macro_def10__CALLSITE17hf2c58849bf59d5ebE, i64 16) monotonic, align 8, !noalias !11807
   switch i8 %1367, label %1368 [
     i8 0, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$$GT$17hba9b78e85af726d1E.exit.i"
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i251
@@ -58649,7 +58649,7 @@ define internal fastcc void @_ZN7hir_def7nameres14mod_resolution6ModDir5child17h
   br i1 %18, label %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread8
 
 19:                                               ; preds = %16
-  %20 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres14mod_resolution6ModDir5child10__CALLSITE17h78859fa15876c8adE, i64 0, i32 1, i64 8) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres14mod_resolution6ModDir5child10__CALLSITE17h78859fa15876c8adE, i64 16) monotonic, align 8
   switch i8 %20, label %21 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread8
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -60017,7 +60017,7 @@ define hidden { ptr, i32 } @_ZN7hir_def7nameres15path_resolution34adjust_to_near
   br label %36
 
 16:                                               ; preds = %13
-  %17 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres15path_resolution34adjust_to_nearest_non_block_module10__CALLSITE17h523446ca30e3fd59E, i64 0, i32 1, i64 8) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres15path_resolution34adjust_to_nearest_non_block_module10__CALLSITE17h523446ca30e3fd59E, i64 16) monotonic, align 8
   switch i8 %17, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -60469,7 +60469,7 @@ define hidden noundef nonnull ptr @_ZN7hir_def10import_map9ImportMap16import_map
   br i1 %86, label %87, label %.thread1948
 
 87:                                               ; preds = %3
-  %88 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def10import_map9ImportMap16import_map_query10__CALLSITE17hd8967587abd316e0E, i64 0, i32 1, i64 8) monotonic, align 8
+  %88 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def10import_map9ImportMap16import_map_query10__CALLSITE17hd8967587abd316e0E, i64 16) monotonic, align 8
   switch i8 %88, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread1948
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -60551,7 +60551,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread1948, 
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i
 
 108:                                              ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
-  %109 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def10import_map9ImportMap18collect_import_map10__CALLSITE17h15ad9083a67ed20fE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !13259
+  %109 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def10import_map9ImportMap18collect_import_map10__CALLSITE17h15ad9083a67ed20fE, i64 16) monotonic, align 8, !noalias !13259
   switch i8 %109, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %.thread4245.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -61722,7 +61722,7 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit.thre
   br i1 %415, label %416, label %.thread.i.i
 
 416:                                              ; preds = %413
-  %417 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def10import_map9ImportMap25collect_trait_assoc_items10__CALLSITE17he357b97dc6c24f86E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !13598
+  %417 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def10import_map9ImportMap25collect_trait_assoc_items10__CALLSITE17he357b97dc6c24f86E, i64 16) monotonic, align 8, !noalias !13598
   switch i8 %417, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.i [
     i8 0, label %.thread.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i
@@ -64703,7 +64703,7 @@ default.unreachable237:                           ; preds = %"_ZN98_$LT$alloc..v
   unreachable
 
 39:                                               ; preds = %5
-  %40 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def10import_map19search_dependencies10__CALLSITE17hf2d8ff08a3cde8adE, i64 0, i32 1, i64 8) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def10import_map19search_dependencies10__CALLSITE17hf2d8ff08a3cde8adE, i64 16) monotonic, align 8
   switch i8 %40, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

@@ -78,7 +78,7 @@ define dso_local range(i32 -2147483648, 1) i32 @io_fgetxattr_prep(ptr nocapture 
   br i1 %24, label %25, label %__io_getxattr_prep.exit
 
 25:                                               ; preds = %7
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %27 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 256) #6
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %27, ptr %28, align 8
@@ -146,7 +146,7 @@ define dso_local i32 @io_getxattr_prep(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %24, label %25, label %__io_getxattr_prep.exit.thread
 
 25:                                               ; preds = %7
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %27 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 256) #6
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %27, ptr %28, align 8
@@ -361,7 +361,7 @@ define dso_local i32 @io_setxattr_prep(ptr noundef %0, ptr noundef %1) local_unn
   %21 = load volatile i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %21, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %24 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3264, i64 noundef 256) #6
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %24, ptr %25, align 8
@@ -431,7 +431,7 @@ define dso_local i32 @io_fsetxattr_prep(ptr noundef %0, ptr noundef %1) local_un
   %21 = load volatile i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %21, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %24 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3264, i64 noundef 256) #6
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %24, ptr %25, align 8

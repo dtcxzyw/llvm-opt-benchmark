@@ -530,7 +530,7 @@ declare dso_local ptr @svc_create(ptr noundef, i32 noundef, ptr noundef) local_u
 define internal noundef i32 @lockd(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @lockd_net_id, align 4
   tail call void @__rcu_read_lock() #8
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 41), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 2536), align 8
   %4 = zext i32 %2 to i64
   %5 = getelementptr [0 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8

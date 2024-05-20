@@ -181,7 +181,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
 24:                                               ; preds = %21
   %25 = load ptr, ptr %1, align 8
   %26 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 47) #21
-  store ptr %26, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 1), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %29, label %27
 
@@ -195,7 +195,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
 
 sub_0:                                            ; preds = %29, %27
   %storemerge = phi ptr [ %30, %29 ], [ %28, %27 ]
-  store ptr %storemerge, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 1), align 8
+  store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
   %31 = load i8, ptr %storemerge, align 1
   %32 = zext i8 %31 to i32
   %33 = add nsw i32 %32, -105
@@ -244,7 +244,7 @@ sub_2:                                            ; preds = %sub_1
           to label %56 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 56:                                               ; preds = %53
-  %57 = load ptr, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.45, ptr noundef %55, ptr noundef %57) #22
   tail call void @exit(i32 noundef 0) #20
   unreachable
@@ -1268,7 +1268,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   %storemerge255 = phi ptr [ @.str.42, %487 ], [ %492, %489 ]
   %.0177 = phi ptr [ %488, %487 ], [ %490, %489 ]
   store ptr %storemerge255, ptr @emess_dat, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %.b231 = load i1, ptr @_ZL10very_verby, align 4
   br i1 %.b231, label %495, label %644
 
@@ -1302,9 +1302,9 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
           to label %.noexc273 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc273:                                        ; preds = %.noexc272
-  %502 = load i32, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  %502 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %503 = add nsw i32 %502, 1
-  store i32 %503, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  store i32 %503, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %504 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1000, ptr noundef %.0177)
   store ptr %504, ptr %10, align 8
   %.not4857.i = icmp eq ptr %504, null
@@ -1352,9 +1352,9 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
           to label %.noexc274 unwind label %.loopexit341
 
 .noexc274:                                        ; preds = %.backedge.i
-  %520 = load i32, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  %520 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %521 = add nsw i32 %520, 1
-  store i32 %521, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  store i32 %521, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %522 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1000, ptr noundef %.0177)
   store ptr %522, ptr %10, align 8
   %.not48.i = icmp eq ptr %522, null
@@ -1564,33 +1564,33 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   %614 = fadd double %613, -1.000000e+00
   %615 = fmul double %614, 1.000000e+02
   %616 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, double noundef %613, double noundef %615)
-  %617 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 1), align 8
+  %617 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 8), align 8
   %618 = fadd double %617, -1.000000e+00
   %619 = fmul double %618, 1.000000e+02
   %620 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, double noundef %617, double noundef %619)
-  %621 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 2), align 8
+  %621 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 16), align 8
   %622 = fadd double %621, -1.000000e+00
   %623 = fmul double %622, 1.000000e+02
   %624 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, double noundef %621, double noundef %623)
-  %625 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 3), align 8
+  %625 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 24), align 8
   %626 = fmul double %625, 0x404CA5DC1A63C1F8
   %627 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, double noundef %626)
-  %628 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 4), align 8
+  %628 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 32), align 8
   %629 = fmul double %628, 0x404CA5DC1A63C1F8
   %630 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, double noundef %629)
   %631 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63)
-  %632 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 5), align 8
+  %632 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 40), align 8
   %633 = invoke ptr @proj_rtodms2(ptr noundef nonnull %11, i64 noundef 40, double noundef %632, i32 noundef 0, i32 noundef 0)
           to label %.noexc293 unwind label %.loopexit341
 
 .noexc293:                                        ; preds = %.noexc292
   %634 = load ptr, ptr @stdout, align 8
   %635 = call i32 @fputs(ptr noundef %633, ptr noundef %634)
-  %636 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 5), align 8
+  %636 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 40), align 8
   %637 = fmul double %636, 0x404CA5DC1A63C1F8
   %638 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, double noundef %637)
-  %639 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 6), align 8
-  %640 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 7), align 8
+  %639 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 48), align 8
+  %640 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 56), align 8
   %641 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, double noundef %639, double noundef %640)
   %642 = load ptr, ptr @stdout, align 8
   %643 = call i32 @fflush(ptr noundef %642)
@@ -1618,7 +1618,7 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc274, %.noexc2
 645:                                              ; preds = %.backedge.i299, %644
   %646 = phi i32 [ %.pre435, %.backedge.i299 ], [ 0, %644 ]
   %647 = add nsw i32 %646, 1
-  store i32 %647, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  store i32 %647, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %.b28.i = load i1, ptr @_ZL6bin_in, align 4
   br i1 %.b28.i, label %648, label %650
 
@@ -1677,7 +1677,7 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc274, %.noexc2
   br label %.backedge.i299
 
 .backedge.i299:                                   ; preds = %788, %729, %663, %662
-  %.pre435 = load i32, ptr getelementptr inbounds (%struct.EMESS, ptr @emess_dat, i64 0, i32 2), align 8
+  %.pre435 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   br label %645, !llvm.loop !14
 
 666:                                              ; preds = %.loopexit.i295
@@ -1959,12 +1959,12 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc274, %.noexc2
 
 776:                                              ; preds = %775
   %777 = load double, ptr @_ZL4facs, align 8
-  %778 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 1), align 8
-  %779 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 2), align 8
-  %780 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 3), align 8
+  %778 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 8), align 8
+  %779 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 16), align 8
+  %780 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 24), align 8
   %781 = fmul double %780, 0x404CA5DC1A63C1F8
-  %782 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 6), align 8
-  %783 = load double, ptr getelementptr inbounds (%struct.P5_FACTORS, ptr @_ZL4facs, i64 0, i32 7), align 8
+  %782 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 48), align 8
+  %783 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 56), align 8
   %784 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, double noundef %777, double noundef %778, double noundef %779, double noundef %781, double noundef %782, double noundef %783)
   br label %788
 

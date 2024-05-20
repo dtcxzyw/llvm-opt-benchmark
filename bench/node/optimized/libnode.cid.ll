@@ -85,7 +85,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4node4quic3CIDC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 40
   %cid_2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cid_2, ptr %ptr_, align 8
@@ -98,7 +98,7 @@ define dso_local void @_ZN4node4quic3CIDC2ERK10ngtcp2_cid(ptr noundef nonnull al
 entry:
   %data = getelementptr inbounds i8, ptr %cid, i64 8
   %0 = load i64, ptr %cid, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %cid_2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cid_2.i.i, ptr %ptr_.i.i, align 8
@@ -110,7 +110,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic3CIDC2EPKhm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %data, i64 noundef %len) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_.i = getelementptr inbounds i8, ptr %this, i64 40
   %cid_2.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cid_2.i, ptr %ptr_.i, align 8
@@ -124,7 +124,7 @@ declare void @ngtcp2_cid_init(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic3CIDC2EPK10ngtcp2_cid(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %cid) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %cid, ptr %ptr_, align 8
   %cmp.not = icmp eq ptr %cid, null
@@ -147,7 +147,7 @@ declare void @abort() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic3CIDC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 40
   %cid_2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cid_2, ptr %ptr_, align 8
@@ -399,9 +399,9 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryC2Ev() unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 0, i32 0, i64 2), ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, align 8
-  store i32 4096, ptr getelementptr inbounds (%"class.node::quic::(anonymous namespace)::RandomCIDFactory", ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, i64 0, i32 1), align 8
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull getelementptr inbounds (%"class.node::quic::(anonymous namespace)::RandomCIDFactory", ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, i64 0, i32 3)) #12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, align 8
+  store i32 4096, ptr getelementptr inbounds (i8, ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, i64 8), align 8
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, i64 4112)) #12
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -417,7 +417,7 @@ _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(4152) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 4112
   tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_) #12
   ret void
@@ -472,7 +472,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(4152) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr %this, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 4112
   tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
@@ -510,7 +510,7 @@ _ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit: ; pre
   %2 = trunc i64 %length_hint to i32
   %conv3 = add i32 %1, %2
   store i32 %conv3, ptr %pos_.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %agg.result, align 8
   %ptr_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %cid_2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %cid_2.i.i, ptr %ptr_.i.i, align 8
@@ -574,9 +574,9 @@ define internal void @_GLOBAL__sub_I_cid.cc() #10 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #12
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i64 0, i32 0, i64 2), ptr @_ZN4node4quic3CID8kInvalidE, align 8
-  store ptr getelementptr inbounds (%"class.node::quic::CID", ptr @_ZN4node4quic3CID8kInvalidE, i64 0, i32 1, i32 0), ptr getelementptr inbounds (%"class.node::quic::CID", ptr @_ZN4node4quic3CID8kInvalidE, i64 0, i32 2), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.node::quic::CID", ptr @_ZN4node4quic3CID8kInvalidE, i64 0, i32 1, i32 0), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr @_ZN4node4quic3CID8kInvalidE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4node4quic3CID8kInvalidE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4node4quic3CID8kInvalidE, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4node4quic3CID8kInvalidE, i64 8), align 8
   ret void
 }
 

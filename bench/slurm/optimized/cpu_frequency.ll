@@ -303,7 +303,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %72
-  %79 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %80 = and i64 %79, 2199023255552
   %.not35 = icmp eq i64 %80, 0
   br i1 %.not35, label %85, label %81
@@ -332,7 +332,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %92, label %93, label %100
 
 93:                                               ; preds = %87
-  %94 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %94 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %95 = and i64 %94, 2199023255552
   %.not37 = icmp eq i64 %95, 0
   br i1 %.not37, label %100, label %96
@@ -361,7 +361,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %107, label %108, label %115
 
 108:                                              ; preds = %102
-  %109 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %109 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %110 = and i64 %109, 2199023255552
   %.not39 = icmp eq i64 %110, 0
   br i1 %.not39, label %115, label %111
@@ -390,7 +390,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %122, label %123, label %130
 
 123:                                              ; preds = %117
-  %124 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %124 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %125 = and i64 %124, 2199023255552
   %.not41 = icmp eq i64 %125, 0
   br i1 %.not41, label %130, label %126
@@ -419,7 +419,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %137, label %138, label %145
 
 138:                                              ; preds = %132
-  %139 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %139 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %140 = and i64 %139, 2199023255552
   %.not43 = icmp eq i64 %140, 0
   br i1 %.not43, label %145, label %141
@@ -448,7 +448,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %152, label %153, label %160
 
 153:                                              ; preds = %147
-  %154 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %154 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %155 = and i64 %154, 2199023255552
   %.not45 = icmp eq i64 %155, 0
   br i1 %.not45, label %160, label %156
@@ -600,7 +600,7 @@ _cpu_freq_cpu_avail.exit:                         ; preds = %180, %204, %209
   br i1 %214, label %215, label %.loopexit
 
 215:                                              ; preds = %_cpu_freq_cpu_avail.exit
-  %216 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %216 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %217 = and i64 %216, 2199023255552
   %.not46 = icmp eq i64 %217, 0
   br i1 %.not46, label %.loopexit, label %.preheader
@@ -1177,7 +1177,7 @@ define void @cpu_freq_cpuset_validate(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 85), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 584), align 8
   %11 = tail call ptr @xstrcasestr(ptr noundef %10, ptr noundef nonnull @.str.29) #11
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %.thread
@@ -1215,7 +1215,7 @@ switch.early.test:                                ; preds = %.thread, %15
   %26 = getelementptr inbounds i8, ptr %0, i64 312
   %27 = load i32, ptr %26, align 8
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %6, i32 noundef %27) #11
-  %28 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %29 = and i64 %28, 2199023255552
   %.not41 = icmp eq i64 %29, 0
   br i1 %.not41, label %40, label %30
@@ -1236,7 +1236,7 @@ switch.early.test:                                ; preds = %.thread, %15
   br label %40
 
 40:                                               ; preds = %33, %30, %25
-  %41 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %42 = and i64 %41, 2199023255552
   %.not42 = icmp eq i64 %42, 0
   br i1 %.not42, label %56, label %43
@@ -1260,7 +1260,7 @@ switch.early.test:                                ; preds = %.thread, %15
   br label %56
 
 56:                                               ; preds = %46, %43, %40
-  %57 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %57 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %58 = and i64 %57, 2199023255552
   %.not43 = icmp eq i64 %58, 0
   br i1 %.not43, label %66, label %59
@@ -1504,7 +1504,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 35), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 272), align 8
   store i32 %11, ptr %7, align 4
   br label %12
 
@@ -1901,7 +1901,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %23, label %146, label %24
 
 24:                                               ; preds = %.lr.ph, %12, %16, %20
-  %25 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 2199023255552
   %.not = icmp eq i64 %26, 0
   br i1 %.not, label %40, label %27
@@ -2068,7 +2068,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %119, label %146, label %120
 
 120:                                              ; preds = %116, %112
-  %121 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %121 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %122 = and i64 %121, 2199023255552
   %.not79 = icmp eq i64 %122, 0
   br i1 %.not79, label %146, label %123
@@ -2127,7 +2127,7 @@ define void @cpu_freq_cgroup_validate(ptr nocapture noundef %0, ptr noundef %1) 
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 85), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 584), align 8
   %7 = tail call ptr @xstrcasestr(ptr noundef %6, ptr noundef nonnull @.str.29) #11
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %.thread
@@ -2162,7 +2162,7 @@ switch.early.test:                                ; preds = %.thread, %11
   ]
 
 21:                                               ; preds = %switch.early.test
-  %22 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 2199023255552
   %.not23 = icmp eq i64 %23, 0
   br i1 %.not23, label %34, label %24
@@ -2183,7 +2183,7 @@ switch.early.test:                                ; preds = %.thread, %11
   br label %34
 
 34:                                               ; preds = %27, %24, %21
-  %35 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %36 = and i64 %35, 2199023255552
   %.not24 = icmp eq i64 %36, 0
   br i1 %.not24, label %50, label %37
@@ -2207,7 +2207,7 @@ switch.early.test:                                ; preds = %.thread, %11
   br label %50
 
 50:                                               ; preds = %40, %37, %34
-  %51 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %52 = and i64 %51, 2199023255552
   %.not25 = icmp eq i64 %52, 0
   br i1 %.not25, label %61, label %53
@@ -2226,7 +2226,7 @@ switch.early.test:                                ; preds = %.thread, %11
   br label %61
 
 61:                                               ; preds = %56, %53, %50
-  %62 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %63 = and i64 %62, 2199023255552
   %.not26 = icmp eq i64 %63, 0
   br i1 %.not26, label %70, label %64
@@ -2643,7 +2643,7 @@ define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_scaling_freq(ptr noca
   br label %21
 
 21:                                               ; preds = %18, %16
-  %22 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 2199023255552
   %.not22 = icmp eq i64 %23, 0
   br i1 %.not22, label %28, label %24
@@ -3187,7 +3187,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %115, %108
   br i1 %163, label %188, label %164
 
 164:                                              ; preds = %160, %155
-  %165 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %165 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %166 = and i64 %165, 2199023255552
   %.not43 = icmp eq i64 %166, 0
   br i1 %.not43, label %188, label %167
@@ -3779,7 +3779,7 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
 
 56:                                               ; preds = %.thread110, %55
   %57 = icmp eq ptr %46, null
-  %58 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 35), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 272), align 8
   %59 = icmp eq i32 %58, -2
   %or.cond7 = select i1 %57, i1 %59, i1 false
   br i1 %or.cond7, label %60, label %62
@@ -3848,7 +3848,7 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
 85:                                               ; preds = %.thread102
   %.pre105 = load i32, ptr %3, align 4
   %86 = icmp eq i32 %.pre105, -2
-  %87 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 35), align 8
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 272), align 8
   %88 = icmp ne i32 %87, -2
   %or.cond9 = select i1 %86, i1 %88, i1 false
   br i1 %or.cond9, label %.sink.split, label %.thread107
@@ -3877,7 +3877,7 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
 89:                                               ; preds = %.sink.split, %.thread107
   %.0100 = phi i32 [ %.0.ph, %.thread107 ], [ 0, %.sink.split ]
   %90 = phi i32 [ %.pr, %.thread107 ], [ %.sink, %.sink.split ]
-  %91 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 36), align 4
+  %91 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 276), align 4
   %92 = and i32 %90, 2147483647
   %93 = and i32 %92, %91
   %94 = icmp eq i32 %93, 0
@@ -3891,7 +3891,7 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
 97:                                               ; preds = %89, %95, %.thread107
   %98 = phi i32 [ -2, %95 ], [ %90, %89 ], [ -2, %.thread107 ]
   %.1 = phi i32 [ -1, %95 ], [ %.0100, %89 ], [ %.0.ph, %.thread107 ]
-  %99 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %99 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %100 = and i64 %99, 2199023255552
   %.not94 = icmp eq i64 %100, 0
   br i1 %.not94, label %105, label %101

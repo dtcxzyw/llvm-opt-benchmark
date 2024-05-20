@@ -4090,7 +4090,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %incdec.ptr1.i = getelementptr i8, ptr %t.010.i, i64 1
   %8 = load i8, ptr %incdec.ptr.i, align 1
   store i8 %8, ptr %incdec.ptr1.i, align 1
-  %exitcond1193 = icmp eq ptr %incdec.ptr.i, getelementptr inbounds ([9 x i8], ptr @.str, i64 0, i64 8)
+  %exitcond1193 = icmp eq ptr %incdec.ptr.i, getelementptr inbounds (i8, ptr @.str, i64 8)
   br i1 %exitcond1193, label %while.end.i, label %while.body.i, !llvm.loop !31
 
 while.end.i:                                      ; preds = %while.body.i
@@ -4159,7 +4159,7 @@ while.body.i373:                                  ; preds = %while.body.i373, %w
   %incdec.ptr1.i377 = getelementptr i8, ptr %t.010.i374, i64 1
   %11 = load i8, ptr %incdec.ptr.i376, align 1
   store i8 %11, ptr %incdec.ptr1.i377, align 1
-  %exitcond1192 = icmp eq ptr %incdec.ptr.i376, getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3)
+  %exitcond1192 = icmp eq ptr %incdec.ptr.i376, getelementptr inbounds (i8, ptr @.str.1, i64 3)
   br i1 %exitcond1192, label %while.end.i379, label %while.body.i373, !llvm.loop !31
 
 while.end.i379:                                   ; preds = %while.body.i373

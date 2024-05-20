@@ -243,7 +243,7 @@ if.then13:                                        ; preds = %do.body10
   br label %while.end25
 
 if.else:                                          ; preds = %do.body10
-  store ptr %4, ptr getelementptr inbounds (%union.CPUTailQ, ptr @cpus_queue, i64 0, i32 0, i32 1), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @cpus_queue, i64 8), align 8
   br label %while.end25
 
 while.end25:                                      ; preds = %if.then13, %if.else

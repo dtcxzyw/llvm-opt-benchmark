@@ -150,7 +150,7 @@ cond.false:                                       ; preds = %entry
 invoke.cont:                                      ; preds = %cond.false
   %arg_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %freeFunc_.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 16), ptr %call2, align 8, !tbaa !35
   %timerData_.i = getelementptr inbounds i8, ptr %call2, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !38
   store ptr %this, ptr %arg_.i.i, align 8, !tbaa !42
@@ -207,7 +207,7 @@ cond.false.i:                                     ; preds = %entry
 invoke.cont.i:                                    ; preds = %cond.false.i
   %arg_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %freeFunc_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 16), ptr %call2.i, align 8, !tbaa !35
   %timerData_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
   store i64 0, ptr %timerData_.i.i, align 8, !tbaa !38
   store ptr %0, ptr %arg_.i.i.i, align 8, !tbaa !42
@@ -303,9 +303,9 @@ entry:
   store i32 0, ptr %guardCount_.i.i.i, align 8, !tbaa !7
   %destroyPending_.i.i = getelementptr inbounds i8, ptr %this, i64 196
   store i8 0, ptr %destroyPending_.i.i, align 4, !tbaa !48
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5folly7TimerFDE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly7TimerFDE, i64 72), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5folly7TimerFDE, i64 112), ptr %1, align 8, !tbaa !35
   %ioVecPtr_.i = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %ioVecPtr_.i, align 8, !tbaa !49
   %fd_.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -362,9 +362,9 @@ invoke.cont6:
   store i32 0, ptr %guardCount_.i.i, align 8, !tbaa !7
   %destroyPending_.i = getelementptr inbounds i8, ptr %this, i64 196
   store i8 0, ptr %destroyPending_.i, align 4, !tbaa !48
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5folly7TimerFDE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly7TimerFDE, i64 72), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5folly7TimerFDE, i64 112), ptr %1, align 8, !tbaa !35
   %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !49
   %fd_ = getelementptr inbounds i8, ptr %this, i64 208
@@ -443,11 +443,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 define void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i = alloca %struct.itimerspec, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5folly7TimerFDE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly7TimerFDE, i64 72), ptr %add.ptr, align 8, !tbaa !35
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5folly7TimerFDE, i64 112), ptr %add.ptr2, align 8, !tbaa !35
   %fd_.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_.i.i, align 8, !tbaa !14
   %cmp.i.i = icmp slt i32 %0, 1
