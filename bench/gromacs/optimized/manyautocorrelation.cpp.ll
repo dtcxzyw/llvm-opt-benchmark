@@ -132,7 +132,7 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
 
 26:                                               ; preds = %24
   invoke void @__cxa_throw(ptr %22, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx22InconsistentInputErrorD2Ev) #18
-          to label %90 unwind label %29
+          to label %91 unwind label %29
 
 .thread:                                          ; preds = %21
   %27 = landingpad { ptr, i32 }
@@ -152,7 +152,7 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #7
-  br i1 %.014, label %.sink.split, label %89
+  br i1 %.014, label %.sink.split, label %90
 
 31:                                               ; preds = %1
   %32 = getelementptr inbounds i8, ptr %15, i64 8
@@ -189,7 +189,7 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
 
 45:                                               ; preds = %43
   invoke void @__cxa_throw(ptr %41, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx22InconsistentInputErrorD2Ev) #18
-          to label %90 unwind label %48
+          to label %91 unwind label %48
 
 .thread47:                                        ; preds = %40
   %46 = landingpad { ptr, i32 }
@@ -209,17 +209,17 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #7
-  br i1 %.017, label %.sink.split, label %89
+  br i1 %.017, label %.sink.split, label %90
 
 .lr.ph.preheader:                                 ; preds = %31
-  %50 = mul nsw i64 %38, 3
-  %51 = lshr i64 %50, 1
-  %52 = add nuw i64 %51, 1
+  %50 = lshr i64 %38, 1
+  %51 = add nsw i64 %38, 1
+  %52 = add i64 %51, %50
   store i64 %52, ptr %11, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
-  %.sroa.033.056 = phi ptr [ %67, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit ], [ %15, %.lr.ph.preheader ]
+  %.sroa.033.056 = phi ptr [ %68, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit ], [ %15, %.lr.ph.preheader ]
   store float 0.000000e+00, ptr %12, align 4
   %53 = getelementptr inbounds i8, ptr %.sroa.033.056, i64 8
   %54 = load ptr, ptr %53, align 8
@@ -228,75 +228,75 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 2
-  %.not62 = icmp ugt i64 %59, %51
-  br i1 %.not62, label %62, label %60
+  %60 = icmp ult i64 %59, %52
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %.lr.ph
-  %61 = sub i64 %52, %59
-  call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.033.056, ptr %54, i64 noundef %61, ptr noundef nonnull align 4 dereferenceable(4) %12)
+61:                                               ; preds = %.lr.ph
+  %62 = sub i64 %52, %59
+  call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.033.056, ptr %54, i64 noundef %62, ptr noundef nonnull align 4 dereferenceable(4) %12)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
-62:                                               ; preds = %.lr.ph
-  %63 = icmp ugt i64 %59, %52
-  br i1 %63, label %64, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
+63:                                               ; preds = %.lr.ph
+  %64 = icmp ugt i64 %59, %52
+  br i1 %64, label %65, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds float, ptr %55, i64 %52
-  %.not.i.i = icmp eq ptr %54, %65
-  br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit, label %66
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds float, ptr %55, i64 %52
+  %.not.i.i = icmp eq ptr %54, %66
+  br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit, label %67
 
-66:                                               ; preds = %64
-  store ptr %65, ptr %53, align 8
+67:                                               ; preds = %65
+  store ptr %66, ptr %53, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
-_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %60, %62, %64, %66
-  %67 = getelementptr inbounds i8, ptr %.sroa.033.056, i64 24
-  %.not = icmp eq ptr %67, %14
+_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %61, %63, %65, %67
+  %68 = getelementptr inbounds i8, ptr %.sroa.033.056, i64 24
+  %.not = icmp eq ptr %68, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 4, ptr nonnull @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE.omp_outlined, ptr nonnull %3, ptr nonnull %11, ptr nonnull %7, ptr nonnull %2)
-  %68 = load ptr, ptr %2, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %68, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %.not5457 = icmp eq ptr %69, %71
+  %69 = load ptr, ptr %2, align 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %.not5457 = icmp eq ptr %70, %72
   br i1 %.not5457, label %._crit_edge61, label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %._crit_edge, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %.sroa.029.058 = phi ptr [ %88, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %69, %._crit_edge ]
-  %72 = load i64, ptr %7, align 8
-  %73 = getelementptr inbounds i8, ptr %.sroa.029.058, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %.sroa.029.058, align 8
-  %76 = ptrtoint ptr %74 to i64
+  %.sroa.029.058 = phi ptr [ %89, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %70, %._crit_edge ]
+  %73 = load i64, ptr %7, align 8
+  %74 = getelementptr inbounds i8, ptr %.sroa.029.058, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = load ptr, ptr %.sroa.029.058, align 8
   %77 = ptrtoint ptr %75 to i64
-  %78 = sub i64 %76, %77
-  %79 = ashr exact i64 %78, 2
-  %80 = icmp ult i64 %79, %72
-  br i1 %80, label %81, label %83
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = ashr exact i64 %79, 2
+  %81 = icmp ult i64 %80, %73
+  br i1 %81, label %82, label %84
 
-81:                                               ; preds = %.lr.ph60
-  %82 = sub i64 %72, %79
-  call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.029.058, i64 noundef %82)
+82:                                               ; preds = %.lr.ph60
+  %83 = sub i64 %73, %80
+  call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.029.058, i64 noundef %83)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-83:                                               ; preds = %.lr.ph60
-  %84 = icmp ugt i64 %79, %72
-  br i1 %84, label %85, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+84:                                               ; preds = %.lr.ph60
+  %85 = icmp ugt i64 %80, %73
+  br i1 %85, label %86, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds float, ptr %75, i64 %72
-  %.not.i.i28 = icmp eq ptr %74, %86
-  br i1 %.not.i.i28, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %87
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds float, ptr %76, i64 %73
+  %.not.i.i28 = icmp eq ptr %75, %87
+  br i1 %.not.i.i28, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %88
 
-87:                                               ; preds = %85
-  store ptr %86, ptr %73, align 8
+88:                                               ; preds = %86
+  store ptr %87, ptr %74, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %81, %83, %85, %87
-  %88 = getelementptr inbounds i8, ptr %.sroa.029.058, i64 24
-  %.not54 = icmp eq ptr %88, %71
+_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %82, %84, %86, %88
+  %89 = getelementptr inbounds i8, ptr %.sroa.029.058, i64 24
+  %.not54 = icmp eq ptr %89, %72
   br i1 %.not54, label %._crit_edge61, label %.lr.ph60
 
 ._crit_edge61:                                    ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %._crit_edge
@@ -306,13 +306,13 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %81, %83, %85, %87
   %.sink = phi ptr [ %22, %.thread44 ], [ %22, %.thread ], [ %22, %29 ], [ %41, %.thread51 ], [ %41, %.thread47 ], [ %41, %48 ]
   %.pn23.pn.pn.ph = phi { ptr, i32 } [ %28, %.thread44 ], [ %27, %.thread ], [ %30, %29 ], [ %47, %.thread51 ], [ %46, %.thread47 ], [ %49, %48 ]
   call void @__cxa_free_exception(ptr %.sink) #7
-  br label %89
+  br label %90
 
-89:                                               ; preds = %.sink.split, %48, %29
+90:                                               ; preds = %.sink.split, %48, %29
   %.pn23.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %49, %48 ], [ %.pn23.pn.pn.ph, %.sink.split ]
   resume { ptr, i32 } %.pn23.pn.pn
 
-90:                                               ; preds = %45, %26
+91:                                               ; preds = %45, %26
   unreachable
 }
 
