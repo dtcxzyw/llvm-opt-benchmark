@@ -31903,8 +31903,8 @@ if.then175:                                       ; preds = %cond.end170
 
 cond.true192:                                     ; preds = %if.then175
   %92 = insertelement <4 x float> poison, float %85, i64 0
-  %next_window_rect.sroa.0.0.vecblend = insertelement <4 x float> %92, float %86, i64 1
-  %next_window_rect.sroa.0.0.vec.extract = shufflevector <4 x float> %next_window_rect.sroa.0.0.vecblend, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %next_window_rect.sroa.0.0.vec.expand = insertelement <4 x float> %92, float %86, i64 1
+  %next_window_rect.sroa.0.0.vec.extract = shufflevector <4 x float> %next_window_rect.sroa.0.0.vec.expand, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.0.0.vec.insert.i197 = shufflevector <4 x float> %92, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %retval.sroa.0.4.vec.insert.i198 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i197, float %add10.i, i64 1
   br label %cond.end196
