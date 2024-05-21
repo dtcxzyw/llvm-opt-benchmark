@@ -3922,13 +3922,13 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %wo.sroa.3.0.wo18.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %bssrdfSample.i.i.i.i, i64 88
   store float %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, ptr %wo.sroa.3.0.wo18.sroa_idx.i.i.i.i.i, align 8, !alias.scope !44
   %32 = load float, ptr %bssrdfSample.i.i.i.i, align 8
-  %cmp2.i489.i.i.i.i = fcmp une float %32, 0.000000e+00
+  %cmp2.i490.i.i.i.i = fcmp une float %32, 0.000000e+00
   %33 = extractelement <2 x float> %29, i64 0
-  br i1 %cmp2.i489.i.i.i.i, label %for.body.i31.preheader.i.i.i.i, label %for.cond.i.i.i.i.i
+  br i1 %cmp2.i490.i.i.i.i, label %for.body.i31.preheader.i.i.i.i, label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i.i
-  %indvars.iv.i490.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i490.i.i.i.i, 1
+  %indvars.iv.i491.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
+  %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i491.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
   br i1 %exitcond.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit", label %for.body.i.i.i.i.i, !llvm.loop !47
 
@@ -3939,16 +3939,16 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, label %for.cond.i.i.i.i.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i:     ; preds = %for.body.i.i.i.i.i
-  %cmp.i.le.i.i.i.i = icmp ult i64 %indvars.iv.i490.i.i.i.i, 3
+  %cmp.i.le.i.i.i.i = icmp ult i64 %indvars.iv.i491.i.i.i.i, 3
   br i1 %cmp.i.le.i.i.i.i, label %for.body.i31.preheader.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 for.body.i31.preheader.i.i.i.i:                   ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, %if.end.i.i.i.i
-  %cmp2.i35492.i.i.i.i = fcmp une float %33, 0.000000e+00
-  br i1 %cmp2.i35492.i.i.i.i, label %if.end5.i.i.i.i, label %for.cond.i36.i.i.i.i
+  %cmp2.i35493.i.i.i.i = fcmp une float %33, 0.000000e+00
+  br i1 %cmp2.i35493.i.i.i.i, label %if.end5.i.i.i.i, label %for.cond.i36.i.i.i.i
 
 for.cond.i36.i.i.i.i:                             ; preds = %for.body.i31.preheader.i.i.i.i, %for.body.i31.i.i.i.i
-  %indvars.iv.i32493.i.i.i.i = phi i64 [ %indvars.iv.next.i37.i.i.i.i, %for.body.i31.i.i.i.i ], [ 0, %for.body.i31.preheader.i.i.i.i ]
-  %indvars.iv.next.i37.i.i.i.i = add nuw nsw i64 %indvars.iv.i32493.i.i.i.i, 1
+  %indvars.iv.i32494.i.i.i.i = phi i64 [ %indvars.iv.next.i37.i.i.i.i, %for.body.i31.i.i.i.i ], [ 0, %for.body.i31.preheader.i.i.i.i ]
+  %indvars.iv.next.i37.i.i.i.i = add nuw nsw i64 %indvars.iv.i32494.i.i.i.i, 1
   %exitcond.not.i39.i.i.i.i = icmp eq i64 %indvars.iv.next.i37.i.i.i.i, 4
   br i1 %exitcond.not.i39.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit", label %for.body.i31.i.i.i.i, !llvm.loop !47
 
@@ -3959,7 +3959,7 @@ for.body.i31.i.i.i.i:                             ; preds = %for.cond.i36.i.i.i.
   br i1 %cmp2.i35.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit41.i.i.i.i, label %for.cond.i36.i.i.i.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit41.i.i.i.i:   ; preds = %for.body.i31.i.i.i.i
-  %cmp.i38.le.i.i.i.i = icmp ult i64 %indvars.iv.i32493.i.i.i.i, 3
+  %cmp.i38.le.i.i.i.i = icmp ult i64 %indvars.iv.i32494.i.i.i.i, 3
   br i1 %cmp.i38.le.i.i.i.i, label %if.end5.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 if.end5.i.i.i.i:                                  ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit41.i.i.i.i, %for.body.i31.preheader.i.i.i.i
@@ -4069,11 +4069,11 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit81.i.i.i.i:    ; preds = %for.body.i.i70.i.i.
   %add.ptr11.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %47, i64 %idx.ext.i.i.i.i.i.i
   %retval.sroa.0.0.copyload.i3.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr11.i.i.i.i.i.i, align 16, !noalias !49
   %retval.sroa.2.0.p.addr.0..sroa_idx.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr11.i.i.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i522.i.i488.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i4.i.i.i.i.i.i, align 8, !noalias !49
+  %retval.sroa.2.0.copyload.i522.i.i489.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i4.i.i.i.i.i.i, align 8, !noalias !49
   %ind.sroa.0.0.vec.extract.i.i.i.i.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i3.i.i.i.i.i.i, i64 0
   %ind.sroa.0.4.vec.extract.i.i.i.i.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i3.i.i.i.i.i.i, i64 1
   %wo.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %wo18.i.i.i.i.i, align 8
-  call void @_ZNK4pbrt4BSDF8Sample_fINS_21NormalizedFresnelBxDFEEEN4pstd8optionalINS_10BSDFSampleEEENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr nonnull sret(%"class.pstd::optional.62") align 4 %bsdfSample.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %Sw.i.i.i.i.i, <2 x float> %wo.sroa.0.0.copyload.i.i.i.i, float %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, float noundef %ind.sroa.0.0.vec.extract.i.i.i.i.i.i, <2 x float> %retval.sroa.2.0.copyload.i522.i.i488.i.i.i.i, i32 noundef 0, i32 noundef 3)
+  call void @_ZNK4pbrt4BSDF8Sample_fINS_21NormalizedFresnelBxDFEEEN4pstd8optionalINS_10BSDFSampleEEENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr nonnull sret(%"class.pstd::optional.62") align 4 %bsdfSample.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %Sw.i.i.i.i.i, <2 x float> %wo.sroa.0.0.copyload.i.i.i.i, float %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, float noundef %ind.sroa.0.0.vec.extract.i.i.i.i.i.i, <2 x float> %retval.sroa.2.0.copyload.i522.i.i489.i.i.i.i, i32 noundef 0, i32 noundef 3)
   %set.i.i.i.i.i = getelementptr inbounds i8, ptr %bsdfSample.i.i.i.i, i64 44
   %48 = load i8, ptr %set.i.i.i.i.i, align 4
   %tobool.i.i.i.i.i = trunc i8 %48 to i1
@@ -4216,8 +4216,8 @@ for.body.i.i144.i.i.i.i:                          ; preds = %for.body.i.i144.i.i
 
 invoke.cont74.i.i.i.i:                            ; preds = %for.body.i.i144.i.i.i.i
   %r_l.sroa.0.0.vec.expand478.i.i.i.i = load <4 x float>, ptr %ret.i143.i.i.i.i, align 16
-  %bc510.i.i.i.i = bitcast <4 x float> %r_l.sroa.0.0.vec.expand478.i.i.i.i to <2 x i64>
-  %68 = extractelement <2 x i64> %bc510.i.i.i.i, i64 1
+  %bc511.i.i.i.i = bitcast <4 x float> %r_l.sroa.0.0.vec.expand478.i.i.i.i to <2 x i64>
+  %68 = extractelement <2 x i64> %bc511.i.i.i.i, i64 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i143.i.i.i.i)
   br label %invoke.cont90.i.i.i.i
 
@@ -4378,15 +4378,15 @@ if.end128.ithread-pre-split.loopexit.i.i.i:       ; preds = %for.body.i239.i.i.i
 
 if.end128.i.i.i.i:                                ; preds = %if.end128.ithread-pre-split.loopexit.i.i.i, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit.i.i.i.i
   %84 = phi float [ %.pr.pre.i.i.i, %if.end128.ithread-pre-split.loopexit.i.i.i ], [ %60, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit.i.i.i.i ]
-  %cmp2.i249496.i.i.i.i = fcmp une float %84, 0.000000e+00
-  br i1 %cmp2.i249496.i.i.i.i, label %if.then131.i.i.i.i, label %for.cond.i250.i.i.i.i.preheader
+  %cmp2.i249497.i.i.i.i = fcmp une float %84, 0.000000e+00
+  br i1 %cmp2.i249497.i.i.i.i, label %if.then131.i.i.i.i, label %for.cond.i250.i.i.i.i.preheader
 
 for.cond.i250.i.i.i.i.preheader:                  ; preds = %if.end128.i.i.i.i, %if.end128.i.thread.i.i.i
   br label %for.cond.i250.i.i.i.i
 
 for.cond.i250.i.i.i.i:                            ; preds = %for.cond.i250.i.i.i.i.preheader, %for.body.i245.i.i.i.i
-  %indvars.iv.i246497.i.i.i.i = phi i64 [ %indvars.iv.next.i251.i.i.i.i, %for.body.i245.i.i.i.i ], [ 0, %for.cond.i250.i.i.i.i.preheader ]
-  %indvars.iv.next.i251.i.i.i.i = add nuw nsw i64 %indvars.iv.i246497.i.i.i.i, 1
+  %indvars.iv.i246498.i.i.i.i = phi i64 [ %indvars.iv.next.i251.i.i.i.i, %for.body.i245.i.i.i.i ], [ 0, %for.cond.i250.i.i.i.i.preheader ]
+  %indvars.iv.next.i251.i.i.i.i = add nuw nsw i64 %indvars.iv.i246498.i.i.i.i, 1
   %exitcond.not.i253.i.i.i.i = icmp eq i64 %indvars.iv.next.i251.i.i.i.i, 4
   br i1 %exitcond.not.i253.i.i.i.i, label %if.end165.i.i.i.i, label %for.body.i245.i.i.i.i, !llvm.loop !47
 
@@ -4397,7 +4397,7 @@ for.body.i245.i.i.i.i:                            ; preds = %for.cond.i250.i.i.i
   br i1 %cmp2.i249.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit255.i.i.i.i, label %for.cond.i250.i.i.i.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit255.i.i.i.i:  ; preds = %for.body.i245.i.i.i.i
-  %cmp.i252.le.i.i.i.i = icmp ult i64 %indvars.iv.i246497.i.i.i.i, 3
+  %cmp.i252.le.i.i.i.i = icmp ult i64 %indvars.iv.i246498.i.i.i.i, 3
   br i1 %cmp.i252.le.i.i.i.i, label %if.then131.i.i.i.i, label %if.end165.i.i.i.i
 
 if.then131.i.i.i.i:                               ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit255.i.i.i.i, %if.end128.i.i.i.i
@@ -4709,12 +4709,12 @@ invoke.cont182.i.i.i.i:                           ; preds = %if.then168.i.i.i.i
 
 for.body.i302.preheader.i.i.i.i:                  ; preds = %invoke.cont182.i.i.i.i
   %143 = load float, ptr %ls.i.i.i.i, align 8
-  %cmp2.i306500.i.i.i.i = fcmp une float %143, 0.000000e+00
-  br i1 %cmp2.i306500.i.i.i.i, label %invoke.cont202.i.i.i.i, label %for.cond.i307.i.i.i.i
+  %cmp2.i306501.i.i.i.i = fcmp une float %143, 0.000000e+00
+  br i1 %cmp2.i306501.i.i.i.i, label %invoke.cont202.i.i.i.i, label %for.cond.i307.i.i.i.i
 
 for.cond.i307.i.i.i.i:                            ; preds = %for.body.i302.preheader.i.i.i.i, %for.body.i302.i.i.i.i
-  %indvars.iv.i303501.i.i.i.i = phi i64 [ %indvars.iv.next.i308.i.i.i.i, %for.body.i302.i.i.i.i ], [ 0, %for.body.i302.preheader.i.i.i.i ]
-  %indvars.iv.next.i308.i.i.i.i = add nuw nsw i64 %indvars.iv.i303501.i.i.i.i, 1
+  %indvars.iv.i303502.i.i.i.i = phi i64 [ %indvars.iv.next.i308.i.i.i.i, %for.body.i302.i.i.i.i ], [ 0, %for.body.i302.preheader.i.i.i.i ]
+  %indvars.iv.next.i308.i.i.i.i = add nuw nsw i64 %indvars.iv.i303502.i.i.i.i, 1
   %exitcond.not.i310.i.i.i.i = icmp eq i64 %indvars.iv.next.i308.i.i.i.i, 4
   br i1 %exitcond.not.i310.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit", label %for.body.i302.i.i.i.i, !llvm.loop !47
 
@@ -4725,7 +4725,7 @@ for.body.i302.i.i.i.i:                            ; preds = %for.cond.i307.i.i.i
   br i1 %cmp2.i306.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit312.i.i.i.i, label %for.cond.i307.i.i.i.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit312.i.i.i.i:  ; preds = %for.body.i302.i.i.i.i
-  %cmp.i309.le.i.i.i.i = icmp ult i64 %indvars.iv.i303501.i.i.i.i, 3
+  %cmp.i309.le.i.i.i.i = icmp ult i64 %indvars.iv.i303502.i.i.i.i, 3
   br i1 %cmp.i309.le.i.i.i.i, label %invoke.cont202.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 invoke.cont202.i.i.i.i:                           ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit312.i.i.i.i, %for.body.i302.preheader.i.i.i.i
@@ -4746,12 +4746,12 @@ invoke.cont209.i.i.i.i:                           ; preds = %invoke.cont202.i.i.
   %148 = extractvalue { <2 x float>, <2 x float> } %call216.i.i.i.i, 1
   store <2 x float> %148, ptr %147, align 8
   %149 = extractelement <2 x float> %146, i64 0
-  %cmp2.i329504.i.i.i.i = fcmp une float %149, 0.000000e+00
-  br i1 %cmp2.i329504.i.i.i.i, label %if.end222.i.i.i.i, label %for.cond.i330.i.i.i.i
+  %cmp2.i329505.i.i.i.i = fcmp une float %149, 0.000000e+00
+  br i1 %cmp2.i329505.i.i.i.i, label %if.end222.i.i.i.i, label %for.cond.i330.i.i.i.i
 
 for.cond.i330.i.i.i.i:                            ; preds = %invoke.cont209.i.i.i.i, %for.body.i325.i.i.i.i
-  %indvars.iv.i326505.i.i.i.i = phi i64 [ %indvars.iv.next.i331.i.i.i.i, %for.body.i325.i.i.i.i ], [ 0, %invoke.cont209.i.i.i.i ]
-  %indvars.iv.next.i331.i.i.i.i = add nuw nsw i64 %indvars.iv.i326505.i.i.i.i, 1
+  %indvars.iv.i326506.i.i.i.i = phi i64 [ %indvars.iv.next.i331.i.i.i.i, %for.body.i325.i.i.i.i ], [ 0, %invoke.cont209.i.i.i.i ]
+  %indvars.iv.next.i331.i.i.i.i = add nuw nsw i64 %indvars.iv.i326506.i.i.i.i, 1
   %exitcond.not.i333.i.i.i.i = icmp eq i64 %indvars.iv.next.i331.i.i.i.i, 4
   br i1 %exitcond.not.i333.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit", label %for.body.i325.i.i.i.i, !llvm.loop !47
 
@@ -4762,7 +4762,7 @@ for.body.i325.i.i.i.i:                            ; preds = %for.cond.i330.i.i.i
   br i1 %cmp2.i329.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit335.i.i.i.i, label %for.cond.i330.i.i.i.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit335.i.i.i.i:  ; preds = %for.body.i325.i.i.i.i
-  %cmp.i332.le.i.i.i.i = icmp ult i64 %indvars.iv.i326505.i.i.i.i, 3
+  %cmp.i332.le.i.i.i.i = icmp ult i64 %indvars.iv.i326506.i.i.i.i, 3
   br i1 %cmp.i332.le.i.i.i.i, label %if.end222.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 if.end222.i.i.i.i:                                ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit335.i.i.i.i, %invoke.cont209.i.i.i.i
@@ -4941,7 +4941,7 @@ invoke.cont277.i.i.i.i:                           ; preds = %for.body.i.i434.i.i
 
 invoke.cont281.invoke.cont306_crit_edge.i.i.i.i:  ; preds = %invoke.cont277.i.i.i.i
   %medium3.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %ray267.i.i.i.i, i64 32
-  %.pre508.i.i.i.i = load i64, ptr %medium3.i.phi.trans.insert.i.i.i.i, align 8
+  %.pre509.i.i.i.i = load i64, ptr %medium3.i.phi.trans.insert.i.i.i.i, align 8
   br label %invoke.cont306.i.i.i.i
 
 invoke.cont289.i.i.i.i:                           ; preds = %invoke.cont277.i.i.i.i
@@ -4970,7 +4970,7 @@ invoke.cont289.i.i.i.i:                           ; preds = %invoke.cont277.i.i.
   br label %invoke.cont306.i.i.i.i
 
 invoke.cont306.i.i.i.i:                           ; preds = %invoke.cont289.i.i.i.i, %invoke.cont281.invoke.cont306_crit_edge.i.i.i.i
-  %178 = phi i64 [ %.pre508.i.i.i.i, %invoke.cont281.invoke.cont306_crit_edge.i.i.i.i ], [ %177, %invoke.cont289.i.i.i.i ]
+  %178 = phi i64 [ %.pre509.i.i.i.i, %invoke.cont281.invoke.cont306_crit_edge.i.i.i.i ], [ %177, %invoke.cont289.i.i.i.i ]
   %shadowRayQueue.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 592
   %179 = load ptr, ptr %shadowRayQueue.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp304.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %ray267.i.i.i.i, i64 28, i1 false)
