@@ -2101,6 +2101,14 @@ if.then23:                                        ; preds = %if.then.i22, %_ZNKS
 if.end26:                                         ; preds = %if.then23, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit32
   %offset.0.in = phi i64 [ %8, %if.then23 ], [ %sub.ptr.sub.i31, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit32 ]
   %offset.0 = trunc i64 %offset.0.in to i32
+  %cmp.i.i33 = icmp ult i64 %8, %conv1577
+  br i1 %cmp.i.i33, label %if.then.i.i40, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit41
+
+if.then.i.i40:                                    ; preds = %if.end26
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25, i64 noundef %conv1577, i64 noundef %8) #25
+  unreachable
+
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit41: ; preds = %if.end26
   %sub = sub nsw i32 %offset.0, %start.076
   %conv29 = sext i32 %sub to i64
   %.sroa.speculated.i35 = call i64 @llvm.umin.i64(i64 %sub.i24, i64 %conv29)
@@ -2115,7 +2123,7 @@ if.end26:                                         ; preds = %if.then23, %_ZNKSt1
   %cmp.i44 = icmp eq i64 %15, 0
   br i1 %cmp.i44, label %if.end70, label %if.then33
 
-if.then33:                                        ; preds = %if.end26
+if.then33:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit41
   %17 = load ptr, ptr %map_, align 8
   %call34 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_S9_EEE4findISt17basic_string_viewIcS7_EEENSH_8iteratorERKT_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(16) %proto_file)
   %18 = extractvalue { ptr, ptr } %call34, 0
@@ -2228,7 +2236,7 @@ ehcleanup:                                        ; preds = %lpad66, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #21
   resume { ptr, i32 } %.pn
 
-if.end70:                                         ; preds = %invoke.cont67, %if.end26
+if.end70:                                         ; preds = %invoke.cont67, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit41
   %add71 = add nsw i32 %offset.0, 1
   %conv15 = sext i32 %add71 to i64
   %cmp17 = icmp ugt i64 %8, %conv15

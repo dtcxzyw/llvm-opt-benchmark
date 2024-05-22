@@ -292,9 +292,9 @@ define dso_local noundef i32 @ieee80211_radiotap_iterator_next(ptr nocapture nou
   %126 = add nuw nsw i32 %125, %48
   br label %127
 
-127:                                              ; preds = %._crit_edge, %.loopexit, %.thread10
-  %.pre-phi21 = phi i64 [ %.pre20, %._crit_edge ], [ %70, %.loopexit ], [ %70, %.thread10 ]
-  %128 = phi i32 [ %48, %._crit_edge ], [ %126, %.loopexit ], [ %116, %.thread10 ]
+127:                                              ; preds = %.loopexit, %._crit_edge, %.thread10
+  %.pre-phi21 = phi i64 [ %.pre20, %._crit_edge ], [ %70, %.thread10 ], [ %70, %.loopexit ]
+  %128 = phi i32 [ %48, %._crit_edge ], [ %116, %.thread10 ], [ %126, %.loopexit ]
   store i32 %17, ptr %10, align 8
   store ptr %63, ptr %11, align 8
   store i32 %128, ptr %12, align 4
@@ -358,8 +358,8 @@ define dso_local noundef i32 @ieee80211_radiotap_iterator_next(ptr nocapture nou
   br i1 %.not, label %16, label %.thread12
 
 .thread12:                                        ; preds = %65, %127, %33, %22, %152
-  %155 = phi i32 [ 0, %152 ], [ -22, %127 ], [ -2, %33 ], [ -2, %22 ], [ -22, %65 ]
-  ret i32 %155
+  %.ph = phi i32 [ -22, %65 ], [ -2, %22 ], [ -2, %33 ], [ -22, %127 ], [ 0, %152 ]
+  ret i32 %.ph
 }
 
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

@@ -1256,25 +1256,12 @@ if.then:                                          ; preds = %_ZNSt10shared_ptrIN
   %conv145 = sext i32 %87 to i64
   store i32 1, ptr %ref.tmp, align 4
   %cmp.i = icmp ult i64 %sub.ptr.div.i, %conv145
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+  br i1 %cmp.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
   %sub.i = sub nsw i64 %conv145, %sub.ptr.div.i
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %max_bytes_for_level_multiplier_additional, ptr %85, i64 noundef %sub.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
           to label %if.end unwind label %lpad146
-
-if.else.i:                                        ; preds = %if.then
-  %cmp6.i = icmp ugt i64 %sub.ptr.div.i, %conv145
-  br i1 %cmp6.i, label %if.then7.i, label %if.end
-
-if.then7.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %86, i64 %conv145
-  %tobool.not.i.i = icmp eq ptr %85, %add.ptr.i
-  br i1 %tobool.not.i.i, label %if.end, label %invoke.cont.i.i127
-
-invoke.cont.i.i127:                               ; preds = %if.then7.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i.i71, align 8
-  br label %if.end
 
 lpad:                                             ; preds = %_ZNSt16allocator_traitsISaIN7rocksdb15CompressionTypeEEE8allocateERS2_m.exit.i.i.i.i, %if.end.i.i.i.i.i.i
   %88 = landingpad { ptr, i32 }
@@ -1303,7 +1290,7 @@ lpad146:                                          ; preds = %if.then.i
   call void @_ZNSt6vectorISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %table_properties_collector_factories) #16
   br label %ehcleanup
 
-if.end:                                           ; preds = %invoke.cont.i.i127, %if.then7.i, %if.else.i, %if.then.i, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit
+if.end:                                           ; preds = %if.then, %if.then.i, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit
   ret void
 
 ehcleanup:                                        ; preds = %lpad146, %lpad79
