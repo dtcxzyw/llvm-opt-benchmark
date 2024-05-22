@@ -11,15 +11,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: noreturn nounwind uwtable
 define void @__nxstart() local_unnamed_addr #0 {
   tail call void @x86_64_check_and_enable_capability() #4
-  %1 = icmp ult ptr @_sbss, @_ebss
-  br i1 %1, label %.lr.ph.preheader, label %._crit_edge
+  br i1 icmp ult (ptr @_sbss, ptr @_ebss), label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %0
   %umax = tail call i64 @llvm.umax.i64(i64 ptrtoint (ptr @_ebss to i64), i64 add (i64 ptrtoint (ptr @_sbss to i64), i64 8))
-  %2 = add i64 %umax, xor (i64 ptrtoint (ptr @_sbss to i64), i64 -1)
-  %3 = and i64 %2, -8
-  %4 = add i64 %3, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 @_sbss, i8 0, i64 %4, i1 false)
+  %1 = add i64 %umax, xor (i64 ptrtoint (ptr @_sbss to i64), i64 -1)
+  %2 = and i64 %1, -8
+  %3 = add i64 %2, 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 @_sbss, i8 0, i64 %3, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %0
@@ -28,10 +27,10 @@ define void @__nxstart() local_unnamed_addr #0 {
   tail call void @x86_64_earlyserialinit() #4
   tail call void @x86_64_timer_calibrate_freq() #4
   tail call void @nx_start() #4
-  br label %5
+  br label %4
 
-5:                                                ; preds = %5, %._crit_edge
-  br label %5
+4:                                                ; preds = %4, %._crit_edge
+  br label %4
 }
 
 declare void @x86_64_check_and_enable_capability() local_unnamed_addr #1

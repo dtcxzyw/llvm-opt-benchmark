@@ -1320,7 +1320,7 @@ maybe_install_looping_handler.exit:               ; preds = %134, %135, %137
   br i1 %exitcond.not.i, label %GC_init_headers.exit, label %154, !llvm.loop !7
 
 GC_init_headers.exit:                             ; preds = %154
-  br i1 icmp ne (i64 ptrtoint (ptr @dl_iterate_phdr to i64), i64 0), label %160, label %156
+  br i1 icmp ne (ptr @dl_iterate_phdr, ptr null), label %160, label %156
 
 156:                                              ; preds = %GC_init_headers.exit
   %157 = load i32, ptr @GC_no_dls, align 4
@@ -1351,7 +1351,7 @@ GC_init_linux_data_start.exit:                    ; preds = %156, %158
   br label %165
 
 165:                                              ; preds = %164, %162
-  br i1 icmp ne (i64 ptrtoint (ptr @dl_iterate_phdr to i64), i64 0), label %172, label %166
+  br i1 icmp ne (ptr @dl_iterate_phdr, ptr null), label %172, label %166
 
 166:                                              ; preds = %165
   %167 = load ptr, ptr @GC_data_start, align 8
@@ -32256,7 +32256,7 @@ GC_remove_tmp_roots.exit.i:                       ; preds = %.lr.ph.i.i.i, %37, 
 55:                                               ; preds = %GC_remove_tmp_roots.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  br i1 icmp ne (i64 ptrtoint (ptr @dl_iterate_phdr to i64), i64 0), label %56, label %87
+  br i1 icmp ne (ptr @dl_iterate_phdr, ptr null), label %56, label %87
 
 56:                                               ; preds = %55
   store i32 0, ptr @n_load_segs, align 4
@@ -32341,7 +32341,7 @@ GC_register_dynamic_libraries_dl_iterate_phdr.exit.thread.i.i: ; preds = %76, %8
 87:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 icmp eq (i64 ptrtoint (ptr @_DYNAMIC to i64), i64 0), label %GC_cond_register_dynamic_libraries.exit, label %88
+  br i1 icmp eq (ptr @_DYNAMIC, ptr null), label %GC_cond_register_dynamic_libraries.exit, label %88
 
 88:                                               ; preds = %87
   %89 = load ptr, ptr @GC_FirstDLOpenedLinkMap.cachedResult, align 8

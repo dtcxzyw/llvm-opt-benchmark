@@ -860,37 +860,35 @@ rb_num2ull_inline.exit:                           ; preds = %6, %8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_24(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rjit_insn_exits to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rjit_insn_exits to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_insn_exits to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_insn_exits to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_insn_exits to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_insn_exits to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_29(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_rjit_counters to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_rjit_counters to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_rjit_counters to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_rjit_counters to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_rjit_counters to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_rjit_counters to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
@@ -2264,19 +2262,18 @@ rb_ull2num_inline.exit:                           ; preds = %20, %23
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_249(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_rjit_opts to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_rjit_opts to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_rjit_opts to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_rjit_opts to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_rjit_opts to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_rjit_opts to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
@@ -3960,1225 +3957,1157 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_472(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ary_clear to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ary_clear to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_clear to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_clear to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_clear to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_clear to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_476(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ary_dup to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ary_dup to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_dup to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_dup to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_dup to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_dup to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_480(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ary_entry_internal to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ary_entry_internal to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_entry_internal to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_entry_internal to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_entry_internal to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_entry_internal to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_484(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ary_push to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ary_push to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_push to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_push to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_push to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_push to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_488(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ary_resurrect to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ary_resurrect to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_resurrect to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_resurrect to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_resurrect to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_resurrect to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_492(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ary_store to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ary_store to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_store to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_store to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_store to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_store to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_496(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ary_tmp_new_from_values to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ary_tmp_new_from_values to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_tmp_new_from_values to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_tmp_new_from_values to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_tmp_new_from_values to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_tmp_new_from_values to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_500(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ary_unshift_m to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ary_unshift_m to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_unshift_m to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ary_unshift_m to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_unshift_m to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ary_unshift_m to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_504(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_backref_get to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_backref_get to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_backref_get to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_backref_get to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_backref_get to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_backref_get to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_508(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ec_ary_new_from_values to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ec_ary_new_from_values to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ec_ary_new_from_values to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ec_ary_new_from_values to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ec_ary_new_from_values to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ec_ary_new_from_values to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_512(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ec_str_resurrect to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ec_str_resurrect to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ec_str_resurrect to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ec_str_resurrect to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ec_str_resurrect to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ec_str_resurrect to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_516(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ensure_iv_list_size to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ensure_iv_list_size to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ensure_iv_list_size to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ensure_iv_list_size to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ensure_iv_list_size to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ensure_iv_list_size to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_520(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_fix_aref to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_fix_aref to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_fix_aref to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_fix_aref to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_fix_aref to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_fix_aref to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_524(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_fix_div_fix to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_fix_div_fix to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_fix_div_fix to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_fix_div_fix to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_fix_div_fix to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_fix_div_fix to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_528(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_fix_mod_fix to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_fix_mod_fix to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_fix_mod_fix to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_fix_mod_fix to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_fix_mod_fix to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_fix_mod_fix to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_532(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_fix_mul_fix to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_fix_mul_fix to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_fix_mul_fix to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_fix_mul_fix to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_fix_mul_fix to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_fix_mul_fix to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_536(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_gc_writebarrier to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_gc_writebarrier to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_gc_writebarrier to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_gc_writebarrier to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_gc_writebarrier to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_gc_writebarrier to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_540(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_get_symbol_id to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_get_symbol_id to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_get_symbol_id to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_get_symbol_id to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_get_symbol_id to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_get_symbol_id to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_544(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_gvar_get to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_gvar_get to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_gvar_get to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_gvar_get to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_gvar_get to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_gvar_get to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_548(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_hash_aref to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_hash_aref to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_aref to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_aref to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_aref to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_aref to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_552(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_hash_aset to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_hash_aset to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_aset to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_aset to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_aset to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_aset to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_556(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_hash_bulk_insert to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_hash_bulk_insert to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_bulk_insert to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_bulk_insert to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_bulk_insert to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_bulk_insert to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_560(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_hash_new to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_hash_new to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_new to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_new to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_new to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_new to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_564(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_hash_new_with_size to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_hash_new_with_size to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_new_with_size to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_new_with_size to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_new_with_size to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_new_with_size to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_568(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_hash_resurrect to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_hash_resurrect to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_resurrect to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_hash_resurrect to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_resurrect to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_hash_resurrect to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_572(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ivar_defined to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ivar_defined to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ivar_defined to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ivar_defined to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ivar_defined to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ivar_defined to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_576(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_ivar_get to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_ivar_get to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ivar_get to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_ivar_get to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ivar_get to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_ivar_get to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_580(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_obj_as_string_result to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_obj_as_string_result to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_obj_as_string_result to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_obj_as_string_result to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_obj_as_string_result to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_obj_as_string_result to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_584(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_obj_is_kind_of to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_obj_is_kind_of to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_obj_is_kind_of to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_obj_is_kind_of to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_obj_is_kind_of to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_obj_is_kind_of to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_588(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_range_new to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_range_new to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_range_new to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_range_new to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_range_new to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_range_new to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_592(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_reg_last_match to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_reg_last_match to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_last_match to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_last_match to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_last_match to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_last_match to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_596(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_reg_match_last to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_reg_match_last to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_match_last to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_match_last to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_match_last to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_match_last to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_600(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_reg_match_post to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_reg_match_post to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_match_post to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_match_post to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_match_post to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_match_post to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_604(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_reg_match_pre to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_reg_match_pre to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_match_pre to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_match_pre to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_match_pre to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_match_pre to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_608(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_reg_new_ary to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_reg_new_ary to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_new_ary to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_new_ary to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_new_ary to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_new_ary to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_612(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_reg_nth_match to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_reg_nth_match to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_nth_match to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_reg_nth_match to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_nth_match to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_reg_nth_match to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_616(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_rjit_branch_stub_hit to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_rjit_branch_stub_hit to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_rjit_branch_stub_hit to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_rjit_branch_stub_hit to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_rjit_branch_stub_hit to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_rjit_branch_stub_hit to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_620(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_rjit_entry_stub_hit to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_rjit_entry_stub_hit to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_rjit_entry_stub_hit to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_rjit_entry_stub_hit to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_rjit_entry_stub_hit to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_rjit_entry_stub_hit to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_624(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_str_buf_append to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_str_buf_append to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_buf_append to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_buf_append to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_buf_append to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_buf_append to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_628(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_str_bytesize to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_str_bytesize to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_bytesize to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_bytesize to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_bytesize to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_bytesize to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_632(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_str_concat_literals to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_str_concat_literals to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_concat_literals to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_concat_literals to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_concat_literals to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_concat_literals to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_636(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_str_dup to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_str_dup to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_dup to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_dup to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_dup to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_dup to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_640(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_str_eql_internal to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_str_eql_internal to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_eql_internal to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_eql_internal to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_eql_internal to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_eql_internal to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_644(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_str_getbyte to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_str_getbyte to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_getbyte to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_getbyte to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_getbyte to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_getbyte to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_648(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_str_intern to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_str_intern to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_intern to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_str_intern to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_intern to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_str_intern to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_652(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_sym_to_proc to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_sym_to_proc to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_sym_to_proc to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_sym_to_proc to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_sym_to_proc to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_sym_to_proc to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_656(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_bh_to_procval to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_bh_to_procval to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_bh_to_procval to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_bh_to_procval to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_bh_to_procval to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_bh_to_procval to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_660(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_concat_array to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_concat_array to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_concat_array to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_concat_array to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_concat_array to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_concat_array to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_664(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_defined to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_defined to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_defined to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_defined to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_defined to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_defined to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_668(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_get_ev_const to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_get_ev_const to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_get_ev_const to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_get_ev_const to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_get_ev_const to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_get_ev_const to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_672(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_getclassvariable to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_getclassvariable to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_getclassvariable to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_getclassvariable to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_getclassvariable to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_getclassvariable to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_676(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_ic_hit_p to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_ic_hit_p to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_ic_hit_p to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_ic_hit_p to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_ic_hit_p to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_ic_hit_p to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_680(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_opt_newarray_hash to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_opt_newarray_hash to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_opt_newarray_hash to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_opt_newarray_hash to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_hash to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_hash to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_684(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_opt_newarray_max to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_opt_newarray_max to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_opt_newarray_max to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_opt_newarray_max to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_max to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_max to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_688(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_opt_newarray_min to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_opt_newarray_min to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_opt_newarray_min to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_opt_newarray_min to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_min to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_min to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_692(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_set_ivar_id to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_set_ivar_id to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_set_ivar_id to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_set_ivar_id to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_set_ivar_id to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_set_ivar_id to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_696(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_setclassvariable to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_setclassvariable to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_setclassvariable to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_setclassvariable to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_setclassvariable to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_setclassvariable to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_700(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_setinstancevariable to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_setinstancevariable to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_setinstancevariable to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_setinstancevariable to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_setinstancevariable to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_setinstancevariable to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_704(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_splat_array to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_splat_array to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_splat_array to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_splat_array to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_splat_array to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_splat_array to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_708(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_throw to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_throw to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_throw to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_throw to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_throw to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_throw to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_712(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rb_vm_yield_with_cfunc to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rb_vm_yield_with_cfunc to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_yield_with_cfunc to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rb_vm_yield_with_cfunc to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_yield_with_cfunc to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rb_vm_yield_with_cfunc to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_716(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rjit_build_kwhash to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rjit_build_kwhash to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_build_kwhash to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_build_kwhash to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_build_kwhash to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_build_kwhash to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_720(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rjit_full_cfunc_return to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rjit_full_cfunc_return to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_full_cfunc_return to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_full_cfunc_return to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_full_cfunc_return to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_full_cfunc_return to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_724(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rjit_optimized_call to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rjit_optimized_call to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_optimized_call to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_optimized_call to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_optimized_call to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_optimized_call to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_728(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rjit_rb_ary_subseq_length to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rjit_rb_ary_subseq_length to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_rb_ary_subseq_length to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_rb_ary_subseq_length to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_rb_ary_subseq_length to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_rb_ary_subseq_length to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_732(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rjit_record_exit_stack to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rjit_record_exit_stack to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_record_exit_stack to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_record_exit_stack to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_record_exit_stack to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_record_exit_stack to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_736(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rjit_str_neq_internal to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rjit_str_neq_internal to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_str_neq_internal to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_str_neq_internal to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_str_neq_internal to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_str_neq_internal to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_740(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = icmp ult i64 ptrtoint (ptr @rjit_str_simple_append to i64), 4611686018427387904
-  br i1 %3, label %4, label %6
+  br i1 icmp ult (i64 ptrtoint (ptr @rjit_str_simple_append to i64), i64 4611686018427387904), label %3, label %5
 
-4:                                                ; preds = %2
-  %5 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_str_simple_append to i64), i64 1), 1
+3:                                                ; preds = %2
+  %4 = or disjoint i64 shl (i64 ptrtoint (ptr @rjit_str_simple_append to i64), i64 1), 1
   br label %rb_ull2num_inline.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_str_simple_append to i64)) #17
+5:                                                ; preds = %2
+  %6 = tail call i64 @rb_ull2inum(i64 noundef ptrtoint (ptr @rjit_str_simple_append to i64)) #17
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
+rb_ull2num_inline.exit:                           ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %6, %5 ]
   ret i64 %.0.i
 }
 

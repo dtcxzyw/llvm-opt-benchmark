@@ -1310,8 +1310,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %div = udiv i64 65536, sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64))
-  %cmp26.not = icmp ugt i64 sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64)), 65536
-  br i1 %cmp26.not, label %for.end, label %for.body
+  br i1 icmp ugt (i64 sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64)), i64 65536), label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
   %i.027 = phi i64 [ %inc, %for.body ], [ 0, %if.end ]

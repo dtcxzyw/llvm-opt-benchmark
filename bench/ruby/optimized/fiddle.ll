@@ -323,8 +323,7 @@ rbimpl_intern_const.exit37:                       ; preds = %.lr.ph.i35, %7
   %63 = load i64, ptr @mFiddle, align 8
   tail call void @rb_define_const(i64 noundef %63, ptr noundef nonnull @.str.81, i64 noundef 3) #4
   %64 = load i64, ptr @mFiddle, align 8
-  %or.cond.i = icmp sgt i64 add (i64 ptrtoint (ptr @ruby_xfree to i64), i64 4611686018427387904), -1
-  br i1 %or.cond.i, label %65, label %67
+  br i1 icmp sgt (i64 add (i64 ptrtoint (ptr @ruby_xfree to i64), i64 4611686018427387904), i64 -1), label %65, label %67
 
 65:                                               ; preds = %11
   %66 = or disjoint i64 shl (i64 ptrtoint (ptr @ruby_xfree to i64), i64 1), 1
