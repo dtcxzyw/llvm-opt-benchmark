@@ -559,3 +559,6 @@
 [submodule "bench/proxy/proxy"]
 	path = bench/proxy/proxy
 	url = git@github.com:microsoft/proxy.git
+[submodule "bench/hdf5/hdf5"]
+	path = bench/hdf5/hdf5
+	url = git@github.com:HDFGroup/hdf5.git
