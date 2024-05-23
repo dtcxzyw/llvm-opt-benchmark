@@ -547,3 +547,6 @@
 [submodule "bench/softposit-rs/softposit-rs"]
 	path = bench/softposit-rs/softposit-rs
 	url = https://gitlab.com/burrbull/softposit-rs.git
+[submodule "bench/tokenizers-rs/tokenizers"]
+	path = bench/tokenizers-rs/tokenizers
+	url = git@github.com:huggingface/tokenizers.git
