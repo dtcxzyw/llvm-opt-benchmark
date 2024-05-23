@@ -20598,7 +20598,7 @@ common.resume:                                    ; preds = %512, %515, %.body19
   %521 = getelementptr inbounds i8, ptr %519, i64 3
   %.sroa.01.0.copyload.i.i = load i24, ptr %519, align 1, !noalias !3200
   %522 = add nuw nsw i64 %520, 1
-  %523 = mul nuw i64 %520, 3
+  %523 = mul i64 %520, 3
   %524 = icmp ugt i64 %523, %3
   br i1 %524, label %525, label %527
 
@@ -22413,7 +22413,7 @@ common.resume:                                    ; preds = %512, %515, %.body19
   %521 = getelementptr inbounds i8, ptr %519, i64 3
   %.sroa.01.0.copyload.i.i = load i24, ptr %519, align 1, !noalias !3543
   %522 = add nuw nsw i64 %520, 1
-  %523 = mul nuw i64 %520, 3
+  %523 = mul i64 %520, 3
   %524 = icmp ugt i64 %523, %3
   br i1 %524, label %525, label %527
 

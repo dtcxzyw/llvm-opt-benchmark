@@ -2471,7 +2471,7 @@ define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr nocapture noundef 
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %.not = icmp ult i32 %6, %13
-  br i1 %.not, label %14, label %111
+  br i1 %.not, label %14, label %112
 
 14:                                               ; preds = %11, %2
   %15 = getelementptr inbounds i8, ptr %0, i64 76
@@ -2492,8 +2492,8 @@ define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr nocapture noundef 
   br i1 %25, label %.preheader, label %46
 
 .preheader:                                       ; preds = %14
-  %.not78 = icmp eq i32 %24, 0
-  br i1 %.not78, label %.loopexit, label %.lr.ph73
+  %.not81 = icmp eq i32 %24, 0
+  br i1 %.not81, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.preheader
   %26 = getelementptr inbounds i8, ptr %1, i64 10
@@ -2506,9 +2506,9 @@ define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr nocapture noundef 
   br label %33
 
 33:                                               ; preds = %.lr.ph73, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next, %42 ]
+  %indvars.iv78 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next79, %42 ]
   %.06072 = phi i32 [ 0, %.lr.ph73 ], [ %.1, %42 ]
-  %34 = getelementptr [0 x i16], ptr %26, i64 0, i64 %indvars.iv
+  %34 = getelementptr [0 x i16], ptr %26, i64 0, i64 %indvars.iv78
   %35 = load i16, ptr %34, align 2
   store i16 %28, ptr %3, align 2
   store i16 %29, ptr %30, align 2
@@ -2527,10 +2527,10 @@ define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr nocapture noundef 
 
 42:                                               ; preds = %33, %38
   %.1 = phi i32 [ %39, %38 ], [ %.06072, %33 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %43 = load i32, ptr %23, align 4
   %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next, %44
+  %45 = icmp slt i64 %indvars.iv.next79, %44
   br i1 %45, label %33, label %.loopexit, !llvm.loop !12
 
 46:                                               ; preds = %14
@@ -2560,13 +2560,13 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %61 = icmp ult i16 %.val, 25
   %62 = zext i16 %.val to i32
   %63 = add nuw nsw i32 %62, 262120
-  %64 = lshr i32 %63, 2
-  %65 = trunc i32 %64 to i16
-  %.not646875 = icmp eq i16 %65, 0
+  %64 = and i32 %63, 262140
+  %.not646875 = icmp eq i32 %64, 0
   %.not6468 = select i1 %61, i1 true, i1 %.not646875
   br i1 %.not6468, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
+  %65 = lshr i32 %63, 2
   %66 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %67 = getelementptr inbounds i8, ptr %5, i64 16
   %68 = getelementptr inbounds i8, ptr %5, i64 12
@@ -2577,79 +2577,82 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %73 = getelementptr inbounds i8, ptr %5, i64 6
   %74 = getelementptr inbounds i8, ptr %5, i64 8
   %75 = getelementptr inbounds i8, ptr %0, i64 128
-  br label %76
+  %76 = and i32 %65, 65535
+  %77 = add nuw nsw i32 %76, 1
+  %wide.trip.count = zext nneg i32 %77 to i64
+  br label %78
 
-76:                                               ; preds = %.lr.ph, %108
-  %.270 = phi i32 [ 0, %.lr.ph ], [ %.4, %108 ]
-  %.06169 = phi i16 [ 1, %.lr.ph ], [ %109, %108 ]
-  %77 = zext i16 %.06169 to i64
-  %78 = add nsw i64 %77, -1
-  %79 = getelementptr [0 x %struct.ItemIdData], ptr %66, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, 98304
-  %82 = icmp eq i32 %81, 32768
-  br i1 %82, label %83, label %108
+78:                                               ; preds = %.lr.ph, %110
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %110 ]
+  %.270 = phi i32 [ 0, %.lr.ph ], [ %.4, %110 ]
+  %79 = add nsw i64 %indvars.iv, -1
+  %80 = getelementptr [0 x %struct.ItemIdData], ptr %66, i64 0, i64 %79
+  %81 = load i32, ptr %80, align 4
+  %82 = and i32 %81, 98304
+  %83 = icmp eq i32 %82, 32768
+  br i1 %83, label %84, label %110
 
-83:                                               ; preds = %76
-  %84 = and i32 %80, 32767
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr i8, ptr %.0.i.i, i64 %85
-  store ptr %86, ptr %67, align 8
-  %87 = lshr i32 %80, 17
-  store i32 %87, ptr %5, align 8
-  %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 72
-  %90 = load i32, ptr %89, align 8
-  store i32 %90, ptr %68, align 4
+84:                                               ; preds = %78
+  %85 = and i32 %81, 32767
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr i8, ptr %.0.i.i, i64 %86
+  store ptr %87, ptr %67, align 8
+  %88 = lshr i32 %81, 17
+  store i32 %88, ptr %5, align 8
+  %89 = load ptr, ptr %0, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 72
+  %91 = load i32, ptr %90, align 8
+  store i32 %91, ptr %68, align 4
   store i16 %71, ptr %69, align 4
   store i16 %72, ptr %73, align 2
-  store i16 %.06169, ptr %74, align 8
-  %91 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %5, ptr noundef %21, i32 noundef %18) #11
-  br i1 %91, label %92, label %106
+  %92 = trunc nuw i64 %indvars.iv to i16
+  store i16 %92, ptr %74, align 8
+  %93 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %5, ptr noundef %21, i32 noundef %18) #11
+  br i1 %93, label %94, label %108
 
-92:                                               ; preds = %83
-  %93 = add i32 %.270, 1
-  %94 = sext i32 %.270 to i64
-  %95 = getelementptr [291 x i16], ptr %75, i64 0, i64 %94
-  store i16 %.06169, ptr %95, align 2
-  %96 = load ptr, ptr %0, align 8
-  %97 = load ptr, ptr %67, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 20
-  %99 = load i16, ptr %98, align 4
-  %100 = and i16 %99, 768
-  %101 = icmp eq i16 %100, 768
-  br i1 %101, label %104, label %102
+94:                                               ; preds = %84
+  %95 = add i32 %.270, 1
+  %96 = sext i32 %.270 to i64
+  %97 = getelementptr [291 x i16], ptr %75, i64 0, i64 %96
+  store i16 %92, ptr %97, align 2
+  %98 = load ptr, ptr %0, align 8
+  %99 = load ptr, ptr %67, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 20
+  %101 = load i16, ptr %100, align 4
+  %102 = and i16 %101, 768
+  %103 = icmp eq i16 %102, 768
+  br i1 %103, label %106, label %104
 
-102:                                              ; preds = %92
-  %103 = load i32, ptr %97, align 4
-  br label %104
-
-104:                                              ; preds = %92, %102
-  %105 = phi i32 [ %103, %102 ], [ 2, %92 ]
-  call void @PredicateLockTID(ptr noundef %96, ptr noundef nonnull %69, ptr noundef %21, i32 noundef %105) #11
+104:                                              ; preds = %94
+  %105 = load i32, ptr %99, align 4
   br label %106
 
-106:                                              ; preds = %104, %83
-  %.3 = phi i32 [ %93, %104 ], [ %.270, %83 ]
-  %107 = load ptr, ptr %0, align 8
-  call void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %91, ptr noundef %107, ptr noundef nonnull %5, i32 noundef %18, ptr noundef %21) #11
+106:                                              ; preds = %94, %104
+  %107 = phi i32 [ %105, %104 ], [ 2, %94 ]
+  call void @PredicateLockTID(ptr noundef %98, ptr noundef nonnull %69, ptr noundef %21, i32 noundef %107) #11
   br label %108
 
-108:                                              ; preds = %76, %106
-  %.4 = phi i32 [ %.3, %106 ], [ %.270, %76 ]
-  %109 = add i16 %.06169, 1
-  %.not64 = icmp ugt i16 %109, %65
-  br i1 %.not64, label %.loopexit, label %76, !llvm.loop !13
+108:                                              ; preds = %106, %84
+  %.3 = phi i32 [ %95, %106 ], [ %.270, %84 ]
+  %109 = load ptr, ptr %0, align 8
+  call void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %93, ptr noundef %109, ptr noundef nonnull %5, i32 noundef %18, ptr noundef %21) #11
+  br label %110
 
-.loopexit:                                        ; preds = %108, %42, %BufferGetPage.exit, %.preheader
-  %.5 = phi i32 [ 0, %.preheader ], [ 0, %BufferGetPage.exit ], [ %.1, %42 ], [ %.4, %108 ]
+110:                                              ; preds = %78, %108
+  %.4 = phi i32 [ %.3, %108 ], [ %.270, %78 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond, label %.loopexit, label %78, !llvm.loop !13
+
+.loopexit:                                        ; preds = %110, %42, %BufferGetPage.exit, %.preheader
+  %.5 = phi i32 [ 0, %.preheader ], [ 0, %BufferGetPage.exit ], [ %.1, %42 ], [ %.4, %110 ]
   call void @LockBuffer(i32 noundef %18, i32 noundef 0) #11
   store i32 %.5, ptr %8, align 4
-  %110 = icmp sgt i32 %.5, 0
-  br label %111
+  %111 = icmp sgt i32 %.5, 0
+  br label %112
 
-111:                                              ; preds = %11, %.loopexit
-  %.0 = phi i1 [ %110, %.loopexit ], [ false, %11 ]
+112:                                              ; preds = %11, %.loopexit
+  %.0 = phi i1 [ %111, %.loopexit ], [ false, %11 ]
   ret i1 %.0
 }
 

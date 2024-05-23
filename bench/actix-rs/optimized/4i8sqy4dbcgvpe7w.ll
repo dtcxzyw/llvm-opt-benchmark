@@ -4360,7 +4360,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1274.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i": ; preds = %.lr.ph409.i.i
-  %1137 = sub nuw i64 %1053, %1062
+  %1137 = sub i64 %1053, %1062
   %.not.i.i203.i.i = icmp ult i64 %1137, 8
   br i1 %.not.i.i203.i.i, label %1138, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i"
 
@@ -7577,7 +7577,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1372.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i160": ; preds = %.lr.ph409.i.i155
-  %2257 = sub nuw i64 %2173, %2182
+  %2257 = sub i64 %2173, %2182
   %.not.i.i203.i.i161 = icmp ult i64 %2257, 8
   br i1 %.not.i.i203.i.i161, label %2258, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i162"
 
@@ -10808,7 +10808,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1372.i1013
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i573": ; preds = %.lr.ph409.i.i568
-  %3380 = sub nuw i64 %3296, %3305
+  %3380 = sub i64 %3296, %3305
   %.not.i.i203.i.i574 = icmp ult i64 %3380, 8
   br i1 %.not.i.i203.i.i574, label %3381, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i575"
 

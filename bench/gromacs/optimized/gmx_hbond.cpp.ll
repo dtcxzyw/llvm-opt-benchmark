@@ -10880,7 +10880,7 @@ define internal void @_Z9gmx_hbondiPPc.omp_outlined(ptr noalias nocapture nounde
   %131 = extractvalue { ptr, i32 } %129, 1
   %132 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %133 = icmp eq i32 %131, %132
-  br i1 %133, label %.invoke, label %1671
+  br i1 %133, label %.invoke, label %1670
 
 .invoke:                                          ; preds = %128, %1582, %.body314, %.body
   %.sink2044 = phi ptr [ %478, %.body ], [ %.0209, %.body314 ], [ %1584, %1582 ], [ %130, %128 ]
@@ -11754,7 +11754,7 @@ _ZL13reset_nhbondsP8t_donors.exit:                ; preds = %468, %457
   %479 = extractvalue { ptr, i32 } %eh.lpad-body, 1
   %480 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %481 = icmp eq i32 %479, %480
-  br i1 %481, label %.invoke, label %1671
+  br i1 %481, label %.invoke, label %1670
 
 482:                                              ; preds = %_ZL13reset_nhbondsP8t_donors.exit
   %483 = load i32, ptr %5, align 4
@@ -12265,10 +12265,10 @@ _ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i: ; preds = %_ZL20donor_in
   br label %.backedge.i.i279.outer
 
 .backedge.i.i279.outer:                           ; preds = %792, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i
-  %.ph2423 = phi float [ %793, %792 ], [ %740, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
+  %.ph2424 = phi float [ %793, %792 ], [ %740, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
   %.016.i.i.ph = phi i32 [ %795, %792 ], [ 2, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
   %.1.i.i278.ph = phi i1 [ %.3.i.i282, %792 ], [ true, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
-  %.ph2424 = phi <2 x float> [ %794, %792 ], [ %735, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
+  %.ph2425 = phi <2 x float> [ %794, %792 ], [ %735, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
   br label %.backedge.i.i279
 
 763:                                              ; preds = %.backedge.i.i279
@@ -12293,20 +12293,20 @@ _ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i: ; preds = %_ZL20donor_in
 773:                                              ; preds = %765
   %774 = getelementptr inbounds [3 x float], ptr %3, i64 %766
   %775 = load <2 x float>, ptr %774, align 4
-  %776 = fadd <2 x float> %.ph2424, %775
+  %776 = fadd <2 x float> %.ph2425, %775
   %777 = getelementptr inbounds i8, ptr %774, i64 8
   %778 = load float, ptr %777, align 4, !llvm.access.group !123
-  %779 = fadd float %.ph2423, %778
+  %779 = fadd float %.ph2424, %778
   store <2 x float> %776, ptr %40, align 8
   store float %779, ptr %99, align 8, !llvm.access.group !123
   %.pre.i.i283 = load float, ptr %767, align 4, !llvm.access.group !123
   br label %780
 
 780:                                              ; preds = %773, %765
-  %781 = phi float [ %779, %773 ], [ %.ph2423, %765 ]
+  %781 = phi float [ %779, %773 ], [ %.ph2424, %765 ]
   %782 = phi float [ %.pre.i.i283, %773 ], [ %768, %765 ]
   %.2.i.i281 = phi i1 [ false, %773 ], [ %.1.i.i278, %765 ]
-  %783 = phi <2 x float> [ %776, %773 ], [ %.ph2424, %765 ]
+  %783 = phi <2 x float> [ %776, %773 ], [ %.ph2425, %765 ]
   %784 = fcmp ult float %782, %770
   br i1 %784, label %792, label %785
 
@@ -12329,12 +12329,12 @@ _ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i: ; preds = %_ZL20donor_in
   br label %.backedge.i.i279.outer, !llvm.loop !124
 
 _ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit:   ; preds = %763
-  %796 = extractelement <2 x float> %.ph2424, i64 1
-  %797 = extractelement <2 x float> %.ph2424, i64 0
+  %796 = extractelement <2 x float> %.ph2425, i64 1
+  %797 = extractelement <2 x float> %.ph2425, i64 0
   br label %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i
 
 _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i
-  %798 = phi float [ %740, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %.ph2423, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
+  %798 = phi float [ %740, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %.ph2424, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
   %799 = phi float [ %742, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %796, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
   %800 = phi float [ %741, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %797, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
   %.1.i264 = phi i1 [ false, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %.0.i, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
@@ -12411,10 +12411,10 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_ge
   br i1 %698, label %.preheader143.i.outer, label %.loopexit.i271
 
 .preheader143.i.outer:                            ; preds = %823, %865
-  %.ph2420 = phi float [ %866, %865 ], [ %833, %823 ]
+  %.ph2421 = phi float [ %866, %865 ], [ %833, %823 ]
   %.016.i116.i.ph = phi i32 [ %868, %865 ], [ 2, %823 ]
   %.1.i117.i.ph = phi i1 [ %.3.i122.i, %865 ], [ true, %823 ]
-  %.ph2421 = phi <2 x float> [ %867, %865 ], [ %829, %823 ]
+  %.ph2422 = phi <2 x float> [ %867, %865 ], [ %829, %823 ]
   br label %.preheader143.i
 
 836:                                              ; preds = %.preheader143.i
@@ -12439,20 +12439,20 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_ge
 846:                                              ; preds = %838
   %847 = getelementptr inbounds [3 x float], ptr %3, i64 %839
   %848 = load <2 x float>, ptr %847, align 4
-  %849 = fadd <2 x float> %.ph2421, %848
+  %849 = fadd <2 x float> %.ph2422, %848
   %850 = getelementptr inbounds i8, ptr %847, i64 8
   %851 = load float, ptr %850, align 4, !llvm.access.group !123
-  %852 = fadd float %.ph2420, %851
+  %852 = fadd float %.ph2421, %851
   store <2 x float> %849, ptr %41, align 8
   store float %852, ptr %100, align 8, !llvm.access.group !123
   %.pre.i123.i = load float, ptr %840, align 4, !llvm.access.group !123
   br label %853
 
 853:                                              ; preds = %846, %838
-  %854 = phi float [ %852, %846 ], [ %.ph2420, %838 ]
+  %854 = phi float [ %852, %846 ], [ %.ph2421, %838 ]
   %855 = phi float [ %.pre.i123.i, %846 ], [ %841, %838 ]
   %.2.i121.i = phi i1 [ false, %846 ], [ %.1.i117.i, %838 ]
-  %856 = phi <2 x float> [ %849, %846 ], [ %.ph2421, %838 ]
+  %856 = phi <2 x float> [ %849, %846 ], [ %.ph2422, %838 ]
   %857 = fcmp ult float %855, %843
   br i1 %857, label %865, label %858
 
@@ -12475,12 +12475,12 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_ge
   br label %.preheader143.i.outer, !llvm.loop !124
 
 .loopexit.i271.loopexit:                          ; preds = %836
-  %869 = extractelement <2 x float> %.ph2421, i64 1
-  %870 = extractelement <2 x float> %.ph2421, i64 0
+  %869 = extractelement <2 x float> %.ph2422, i64 1
+  %870 = extractelement <2 x float> %.ph2422, i64 0
   br label %.loopexit.i271
 
 .loopexit.i271:                                   ; preds = %.loopexit.i271.loopexit, %823
-  %.promoted154167.i = phi float [ %833, %823 ], [ %.ph2420, %.loopexit.i271.loopexit ]
+  %.promoted154167.i = phi float [ %833, %823 ], [ %.ph2421, %.loopexit.i271.loopexit ]
   %.promoted153165.i = phi float [ %835, %823 ], [ %869, %.loopexit.i271.loopexit ]
   %.promoted152159.i = phi float [ %834, %823 ], [ %870, %.loopexit.i271.loopexit ]
   %871 = fmul float %.promoted153165.i, %.promoted153165.i
@@ -12528,7 +12528,7 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit135.i.preheader: ; preds = %884, %.thread.i27
 894:                                              ; preds = %886
   %895 = getelementptr inbounds [3 x float], ptr %3, i64 %887
   %896 = load <2 x float>, ptr %895, align 4
-  %897 = fadd <2 x float> %.ph2419, %896
+  %897 = fadd <2 x float> %.ph2420, %896
   %898 = getelementptr inbounds i8, ptr %895, i64 8
   %899 = load float, ptr %898, align 4, !llvm.access.group !123
   %900 = fadd float %.ph, %899
@@ -12541,7 +12541,7 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit135.i.preheader: ; preds = %884, %.thread.i27
   %902 = phi float [ %900, %894 ], [ %.ph, %886 ]
   %903 = phi float [ %.pre.i133.i, %894 ], [ %889, %886 ]
   %.2.i131.i = phi i1 [ false, %894 ], [ %.1.i127.i, %886 ]
-  %904 = phi <2 x float> [ %897, %894 ], [ %.ph2419, %886 ]
+  %904 = phi <2 x float> [ %897, %894 ], [ %.ph2420, %886 ]
   %905 = fcmp ult float %903, %891
   br i1 %905, label %913, label %906
 
@@ -12567,7 +12567,7 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit135.i.preheader: ; preds = %884, %.thread.i27
   %.ph = phi float [ %914, %913 ], [ %883, %.thread.i272 ]
   %.016.i126.i.ph = phi i32 [ %916, %913 ], [ 2, %.thread.i272 ]
   %.1.i127.i.ph = phi i1 [ %.3.i132.i, %913 ], [ true, %.thread.i272 ]
-  %.ph2419 = phi <2 x float> [ %915, %913 ], [ %881, %.thread.i272 ]
+  %.ph2420 = phi <2 x float> [ %915, %913 ], [ %881, %.thread.i272 ]
   br label %.preheader.i276
 
 _ZL15pbc_correct_gemPfPA3_fPKf.exit135.i:         ; preds = %_ZL15pbc_correct_gemPfPA3_fPKf.exit135.i.preheader, %_ZL15pbc_correct_gemPfPA3_fPKf.exit135.i
@@ -13563,7 +13563,7 @@ _ZL20donor_index_functionP8t_donorsiiPKci.exit:   ; preds = %1363
   %.0211 = extractvalue { ptr, i32 } %.pn, 1
   %1386 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %1387 = icmp eq i32 %.0211, %1386
-  br i1 %1387, label %.invoke, label %1671
+  br i1 %1387, label %.invoke, label %1670
 
 1388:                                             ; preds = %_ZL20donor_index_functionP8t_donorsiiPKci.exit
   %1389 = load ptr, ptr %106, align 8, !llvm.access.group !123
@@ -13997,7 +13997,7 @@ _ZL11do_nhb_distP8_IO_FILEP16HydrogenBondDataf.exit: ; preds = %1562
   %1585 = extractvalue { ptr, i32 } %1583, 1
   %1586 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %1587 = icmp eq i32 %1585, %1586
-  br i1 %1587, label %.invoke, label %1671
+  br i1 %1587, label %.invoke, label %1670
 
 1588:                                             ; preds = %1578, %1571
   call void @__kmpc_barrier(ptr nonnull @2, i32 %136)
@@ -14095,7 +14095,7 @@ _ZL11do_nhb_distP8_IO_FILEP16HydrogenBondDataf.exit: ; preds = %1562
   call void @__kmpc_barrier(ptr nonnull @3, i32 %136)
   %1633 = load i32, ptr %30, align 4
   %1634 = icmp sgt i32 %1633, -1
-  br i1 %1634, label %1635, label %1662
+  br i1 %1634, label %1635, label %1661
 
 1635:                                             ; preds = %1632
   store i32 0, ptr %67, align 4
@@ -14107,77 +14107,69 @@ _ZL11do_nhb_distP8_IO_FILEP16HydrogenBondDataf.exit: ; preds = %1562
   %1637 = call i32 @llvm.umin.i32(i32 %1636, i32 %1633)
   store i32 %1637, ptr %68, align 4
   %1638 = load i32, ptr %67, align 4
-  %.not2291271 = icmp ugt i32 %1638, %1637
-  br i1 %.not2291271, label %._crit_edge1273, label %.preheader.lr.ph
-
-.preheader.lr.ph:                                 ; preds = %1635
+  %.not2291271 = icmp ule i32 %1638, %1637
   %1639 = load i32, ptr %28, align 4
   %1640 = icmp sgt i32 %1639, 0
-  br i1 %1640, label %.preheader, label %.preheader.us
+  %or.cond2418 = select i1 %.not2291271, i1 %1640, i1 false
+  br i1 %or.cond2418, label %.preheader, label %._crit_edge1273
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %.preheader.us
-  %.02011272.us = phi i32 [ %1641, %.preheader.us ], [ %1638, %.preheader.lr.ph ]
-  %1641 = add i32 %.02011272.us, 1
-  %.not229.us = icmp ugt i32 %1641, %1637
-  br i1 %.not229.us, label %._crit_edge1273, label %.preheader.us
-
-.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge1270
-  %1642 = phi i32 [ %1659, %._crit_edge1270 ], [ %1637, %.preheader.lr.ph ]
-  %1643 = phi i32 [ %1660, %._crit_edge1270 ], [ %1639, %.preheader.lr.ph ]
-  %.02011272 = phi i32 [ %1661, %._crit_edge1270 ], [ %1638, %.preheader.lr.ph ]
-  %1644 = icmp sgt i32 %1643, 0
-  br i1 %1644, label %.lr.ph1269, label %._crit_edge1270
+.preheader:                                       ; preds = %1635, %._crit_edge1270
+  %1641 = phi i32 [ %1658, %._crit_edge1270 ], [ %1637, %1635 ]
+  %1642 = phi i32 [ %1659, %._crit_edge1270 ], [ %1639, %1635 ]
+  %.02011272 = phi i32 [ %1660, %._crit_edge1270 ], [ %1638, %1635 ]
+  %1643 = icmp sgt i32 %1642, 0
+  br i1 %1643, label %.lr.ph1269, label %._crit_edge1270
 
 .lr.ph1269:                                       ; preds = %.preheader
-  %1645 = sext i32 %.02011272 to i64
-  br label %1646
+  %1644 = sext i32 %.02011272 to i64
+  br label %1645
 
-1646:                                             ; preds = %.lr.ph1269, %1646
-  %indvars.iv1641 = phi i64 [ 0, %.lr.ph1269 ], [ %indvars.iv.next1642, %1646 ]
-  %1647 = load ptr, ptr %21, align 8
-  %1648 = getelementptr inbounds ptr, ptr %1647, i64 %indvars.iv1641
-  %1649 = load ptr, ptr %1648, align 8
-  %1650 = getelementptr inbounds i32, ptr %1649, i64 %1645
-  %1651 = load i32, ptr %1650, align 4
-  %1652 = load ptr, ptr %31, align 8
-  %1653 = getelementptr inbounds i32, ptr %1652, i64 %1645
-  %1654 = load i32, ptr %1653, align 4
-  %1655 = add nsw i32 %1654, %1651
-  store i32 %1655, ptr %1653, align 4
+1645:                                             ; preds = %.lr.ph1269, %1645
+  %indvars.iv1641 = phi i64 [ 0, %.lr.ph1269 ], [ %indvars.iv.next1642, %1645 ]
+  %1646 = load ptr, ptr %21, align 8
+  %1647 = getelementptr inbounds ptr, ptr %1646, i64 %indvars.iv1641
+  %1648 = load ptr, ptr %1647, align 8
+  %1649 = getelementptr inbounds i32, ptr %1648, i64 %1644
+  %1650 = load i32, ptr %1649, align 4
+  %1651 = load ptr, ptr %31, align 8
+  %1652 = getelementptr inbounds i32, ptr %1651, i64 %1644
+  %1653 = load i32, ptr %1652, align 4
+  %1654 = add nsw i32 %1653, %1650
+  store i32 %1654, ptr %1652, align 4
   %indvars.iv.next1642 = add nuw nsw i64 %indvars.iv1641, 1
-  %1656 = load i32, ptr %28, align 4
-  %1657 = sext i32 %1656 to i64
-  %1658 = icmp slt i64 %indvars.iv.next1642, %1657
-  br i1 %1658, label %1646, label %._crit_edge1270.loopexit, !llvm.loop !154
+  %1655 = load i32, ptr %28, align 4
+  %1656 = sext i32 %1655 to i64
+  %1657 = icmp slt i64 %indvars.iv.next1642, %1656
+  br i1 %1657, label %1645, label %._crit_edge1270.loopexit, !llvm.loop !154
 
-._crit_edge1270.loopexit:                         ; preds = %1646
+._crit_edge1270.loopexit:                         ; preds = %1645
   %.pre1657 = load i32, ptr %68, align 4
   br label %._crit_edge1270
 
 ._crit_edge1270:                                  ; preds = %._crit_edge1270.loopexit, %.preheader
-  %1659 = phi i32 [ %.pre1657, %._crit_edge1270.loopexit ], [ %1642, %.preheader ]
-  %1660 = phi i32 [ %1656, %._crit_edge1270.loopexit ], [ %1643, %.preheader ]
-  %1661 = add i32 %.02011272, 1
-  %.not229 = icmp ugt i32 %1661, %1659
+  %1658 = phi i32 [ %.pre1657, %._crit_edge1270.loopexit ], [ %1641, %.preheader ]
+  %1659 = phi i32 [ %1655, %._crit_edge1270.loopexit ], [ %1642, %.preheader ]
+  %1660 = add i32 %.02011272, 1
+  %.not229 = icmp ugt i32 %1660, %1658
   br i1 %.not229, label %._crit_edge1273, label %.preheader, !llvm.loop !155
 
-._crit_edge1273:                                  ; preds = %.preheader.us, %._crit_edge1270, %1635
+._crit_edge1273:                                  ; preds = %._crit_edge1270, %1635
   call void @__kmpc_for_static_fini(ptr nonnull @5, i32 %136)
-  br label %1662
+  br label %1661
 
-1662:                                             ; preds = %._crit_edge1273, %1632
+1661:                                             ; preds = %._crit_edge1273, %1632
   call void @__kmpc_barrier(ptr nonnull @3, i32 %136)
-  %1663 = load ptr, ptr %20, align 8
-  %1664 = getelementptr inbounds ptr, ptr %1663, i64 %74
-  %1665 = load ptr, ptr %1664, align 8
-  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.134, i32 noundef 3087, ptr noundef %1665)
+  %1662 = load ptr, ptr %20, align 8
+  %1663 = getelementptr inbounds ptr, ptr %1662, i64 %74
+  %1664 = load ptr, ptr %1663, align 8
+  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.134, i32 noundef 3087, ptr noundef %1664)
           to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp409
 
-_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit:           ; preds = %1662
-  %1666 = load ptr, ptr %21, align 8
-  %1667 = getelementptr inbounds ptr, ptr %1666, i64 %74
-  %1668 = load ptr, ptr %1667, align 8
-  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.134, i32 noundef 3088, ptr noundef %1668)
+_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit:           ; preds = %1661
+  %1665 = load ptr, ptr %21, align 8
+  %1666 = getelementptr inbounds ptr, ptr %1665, i64 %74
+  %1667 = load ptr, ptr %1666, align 8
+  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.134, i32 noundef 3088, ptr noundef %1667)
           to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit340 unwind label %.loopexit.split-lp409
 
 _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit340:        ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit
@@ -14186,20 +14178,20 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit340:        ; preds = %_ZL14gmx_sfree_impl
 .loopexit408:                                     ; preds = %557
   %lpad.loopexit410 = landingpad { ptr, i32 }
           catch ptr null
-  br label %1669
+  br label %1668
 
-.loopexit.split-lp409:                            ; preds = %.invoke, %32, %1662, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit
+.loopexit.split-lp409:                            ; preds = %.invoke, %32, %1661, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit
   %lpad.loopexit.split-lp411 = landingpad { ptr, i32 }
           catch ptr null
-  br label %1669
+  br label %1668
 
-1669:                                             ; preds = %.loopexit.split-lp409, %.loopexit408
+1668:                                             ; preds = %.loopexit.split-lp409, %.loopexit408
   %lpad.phi412 = phi { ptr, i32 } [ %lpad.loopexit410, %.loopexit408 ], [ %lpad.loopexit.split-lp411, %.loopexit.split-lp409 ]
-  %1670 = extractvalue { ptr, i32 } %lpad.phi412, 0
-  call void @__clang_call_terminate(ptr %1670) #31
+  %1669 = extractvalue { ptr, i32 } %lpad.phi412, 0
+  call void @__clang_call_terminate(ptr %1669) #31
   unreachable
 
-1671:                                             ; preds = %1582, %.body314, %.body, %128
+1670:                                             ; preds = %1582, %.body314, %.body, %128
   %.1210 = phi ptr [ %.0209, %.body314 ], [ %1584, %1582 ], [ %478, %.body ], [ %130, %128 ]
   call void @__clang_call_terminate(ptr %.1210) #31
   unreachable

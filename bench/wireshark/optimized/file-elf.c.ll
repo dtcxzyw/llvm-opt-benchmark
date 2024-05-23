@@ -3094,9 +3094,9 @@ value_guard.exit1083:                             ; preds = %value_guard.exit108
   %1136 = load i32, ptr @hf_elf_entry_bytes, align 4
   %1137 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %564, i32 noundef %1136, ptr noundef %0, i32 noundef %.39651249, i32 noundef %1134, ptr noundef null, ptr noundef nonnull @.str.641, i32 noundef %.39701248) #5
   %1138 = add i32 %.39651249, %1134
-  %1139 = add i32 %.39701248, 1
-  %.not1030 = icmp ugt i32 %1139, %1135
-  br i1 %.not1030, label %value_guard.exit1051, label %value_guard.exit1083, !llvm.loop !13
+  %1139 = add nuw i32 %.39701248, 1
+  %.not1030.not = icmp ult i32 %.39701248, %1135
+  br i1 %.not1030.not, label %value_guard.exit1083, label %value_guard.exit1051, !llvm.loop !13
 
 value_guard.exit1051.sink.split:                  ; preds = %dissect_eh_frame_hdr.exit, %dissect_eh_frame.exit
   %.sink1374 = load ptr, ptr %13, align 8

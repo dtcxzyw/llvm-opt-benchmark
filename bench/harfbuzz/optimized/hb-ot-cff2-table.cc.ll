@@ -8066,15 +8066,17 @@ for.body.lr.ph:                                   ; preds = %entry
   %pt.i = getelementptr inbounds i8, ptr %env, i64 4448
   %1 = load i64, ptr @_hb_NullPool, align 16
   %elements.i.i = getelementptr inbounds i8, ptr %env, i64 24
-  %2 = bitcast i64 %1 to double
+  %2 = and i32 %0, -2
+  %3 = bitcast i64 %1 to double
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33
-  %add107 = phi i32 [ 2, %for.body.lr.ph ], [ %add, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33 ]
-  %i.0106 = phi i32 [ 0, %for.body.lr.ph ], [ %add107, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33 ]
+  %indvars.iv110 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next111, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33 ]
+  %indvars.iv = phi i64 [ 2, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pt1, ptr noundef nonnull align 8 dereferenceable(16) %pt.i, i64 16, i1 false)
-  %3 = load i32, ptr %count.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %3, %i.0106
+  %4 = load i32, ptr %count.i, align 4
+  %5 = zext i32 %4 to i64
+  %cmp.not.i.i = icmp ult i64 %indvars.iv110, %5
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
@@ -8083,14 +8085,13 @@ if.then.i.i:                                      ; preds = %for.body
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
 
 if.end.i.i:                                       ; preds = %for.body
-  %idxprom.i.i = zext i32 %i.0106 to i64
-  %arrayidx.i.i = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i, i64 0, i64 %indvars.iv110
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ @_hb_CrapPool, %if.then.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
-  %add4 = or disjoint i32 %i.0106, 1
-  %cmp.not.i.i25 = icmp ugt i32 %3, %add4
+  %6 = or disjoint i64 %indvars.iv110, 1
+  %cmp.not.i.i25 = icmp ult i64 %6, %5
   br i1 %cmp.not.i.i25, label %if.end.i.i29, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -8099,125 +8100,128 @@ if.then.i.i26:                                    ; preds = %_ZN3CFF20cff2_cs_in
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33
 
 if.end.i.i29:                                     ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
-  %idxprom.i.i31 = zext i32 %add4 to i64
-  %arrayidx.i.i32 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i, i64 0, i64 %idxprom.i.i31
+  %arrayidx.i.i32 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i, i64 0, i64 %6
   %.pre = load double, ptr %arrayidx.i.i32, align 8
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33: ; preds = %if.then.i.i26, %if.end.i.i29
-  %4 = phi double [ %2, %if.then.i.i26 ], [ %.pre, %if.end.i.i29 ]
-  %5 = load double, ptr %retval.0.i.i, align 8
-  %6 = load <2 x double>, ptr %pt1, align 16
-  %7 = insertelement <2 x double> poison, double %5, i64 0
-  %8 = insertelement <2 x double> %7, double %4, i64 1
-  %9 = fadd <2 x double> %6, %8
-  store <2 x double> %9, ptr %pt1, align 16
+  %7 = phi double [ %3, %if.then.i.i26 ], [ %.pre, %if.end.i.i29 ]
+  %8 = load double, ptr %retval.0.i.i, align 8
+  %9 = load <2 x double>, ptr %pt1, align 16
+  %10 = insertelement <2 x double> poison, double %8, i64 0
+  %11 = insertelement <2 x double> %10, double %7, i64 1
+  %12 = fadd <2 x double> %9, %11
+  store <2 x double> %12, ptr %pt1, align 16
   call void @_ZN17cff2_path_param_t7line_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(16) %param, ptr noundef nonnull align 8 dereferenceable(16) %pt1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pt.i, ptr noundef nonnull align 16 dereferenceable(16) %pt1, i64 16, i1 false)
-  %add = add i32 %add107, 2
-  %cmp1.not = icmp ugt i32 %add, %sub
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
+  %indvars = trunc i64 %indvars.iv.next to i32
+  %cmp1.not = icmp ult i32 %sub, %indvars
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 2
   br i1 %cmp1.not, label %for.end, label %for.body, !llvm.loop !34
 
 for.end:                                          ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33
-  %.pre110 = load i32, ptr %count.i, align 4
+  %13 = add i32 %2, -4
+  %14 = trunc nuw i64 %indvars.iv to i32
+  %.pre116 = load i32, ptr %count.i, align 4
   %pt.i34 = getelementptr inbounds i8, ptr %env, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pt17, ptr noundef nonnull align 8 dereferenceable(16) %pt.i34, i64 16, i1 false)
-  %cmp.not.i.i36 = icmp ugt i32 %.pre110, %add107
+  %cmp.not.i.i36 = icmp ugt i32 %.pre116, %14
   br i1 %cmp.not.i.i36, label %if.end.i.i40, label %if.then.i.i37
 
 if.then.i.i37:                                    ; preds = %for.end
   store i8 1, ptr %argStack, align 8
-  %10 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %10, ptr @_hb_CrapPool, align 16
+  %15 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %15, ptr @_hb_CrapPool, align 16
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit44
 
 if.end.i.i40:                                     ; preds = %for.end
   %elements.i.i41 = getelementptr inbounds i8, ptr %env, i64 24
-  %idxprom.i.i42 = zext i32 %add107 to i64
+  %idxprom.i.i42 = and i64 %indvars.iv, 4294967294
   %arrayidx.i.i43 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i41, i64 0, i64 %idxprom.i.i42
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit44
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit44: ; preds = %if.then.i.i37, %if.end.i.i40
   %retval.0.i.i39 = phi ptr [ @_hb_CrapPool, %if.then.i.i37 ], [ %arrayidx.i.i43, %if.end.i.i40 ]
-  %add10 = or disjoint i32 %add107, 1
-  %cmp.not.i.i46 = icmp ugt i32 %.pre110, %add10
+  %add10 = or disjoint i32 %14, 1
+  %cmp.not.i.i46 = icmp ugt i32 %.pre116, %add10
   br i1 %cmp.not.i.i46, label %if.end.i.i50, label %if.then.i.i47
 
 if.then.i.i47:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit44
   store i8 1, ptr %argStack, align 8
-  %11 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %11, ptr @_hb_CrapPool, align 16
-  %12 = bitcast i64 %11 to double
+  %16 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %16, ptr @_hb_CrapPool, align 16
+  %17 = bitcast i64 %16 to double
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit54
 
 if.end.i.i50:                                     ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit44
   %elements.i.i51 = getelementptr inbounds i8, ptr %env, i64 24
   %idxprom.i.i52 = zext i32 %add10 to i64
   %arrayidx.i.i53 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i51, i64 0, i64 %idxprom.i.i52
-  %.pre111 = load double, ptr %arrayidx.i.i53, align 8
+  %.pre117 = load double, ptr %arrayidx.i.i53, align 8
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit54
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit54: ; preds = %if.then.i.i47, %if.end.i.i50
-  %13 = phi double [ %12, %if.then.i.i47 ], [ %.pre111, %if.end.i.i50 ]
-  %14 = load double, ptr %retval.0.i.i39, align 8
-  %15 = load <2 x double>, ptr %pt17, align 16
-  %16 = insertelement <2 x double> poison, double %14, i64 0
-  %17 = insertelement <2 x double> %16, double %13, i64 1
-  %18 = fadd <2 x double> %15, %17
-  store <2 x double> %18, ptr %pt17, align 16
+  %18 = phi double [ %17, %if.then.i.i47 ], [ %.pre117, %if.end.i.i50 ]
+  %19 = load double, ptr %retval.0.i.i39, align 8
+  %20 = load <2 x double>, ptr %pt17, align 16
+  %21 = insertelement <2 x double> poison, double %19, i64 0
+  %22 = insertelement <2 x double> %21, double %18, i64 1
+  %23 = fadd <2 x double> %20, %22
+  store <2 x double> %23, ptr %pt17, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pt2, ptr noundef nonnull align 16 dereferenceable(16) %pt17, i64 16, i1 false)
-  %cmp.not.i.i59 = icmp ugt i32 %.pre110, %add
+  %cmp.not.i.i59 = icmp ugt i32 %.pre116, %13
   br i1 %cmp.not.i.i59, label %if.end.i.i63, label %if.then.i.i60
 
 if.then.i.i60:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit54
   store i8 1, ptr %argStack, align 8
-  %19 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %19, ptr @_hb_CrapPool, align 16
+  %24 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %24, ptr @_hb_CrapPool, align 16
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit67
 
 if.end.i.i63:                                     ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit54
   %elements.i.i64 = getelementptr inbounds i8, ptr %env, i64 24
-  %idxprom.i.i65 = zext i32 %add to i64
+  %idxprom.i.i65 = zext i32 %13 to i64
   %arrayidx.i.i66 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i64, i64 0, i64 %idxprom.i.i65
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit67
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit67: ; preds = %if.then.i.i60, %if.end.i.i63
   %retval.0.i.i62 = phi ptr [ @_hb_CrapPool, %if.then.i.i60 ], [ %arrayidx.i.i66, %if.end.i.i63 ]
-  %add14 = add i32 %add107, 3
-  %cmp.not.i.i69 = icmp ugt i32 %.pre110, %add14
+  %add14 = add i32 %14, 3
+  %cmp.not.i.i69 = icmp ugt i32 %.pre116, %add14
   br i1 %cmp.not.i.i69, label %if.end.i.i73, label %if.then.i.i70
 
 if.then.i.i70:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit67
   store i8 1, ptr %argStack, align 8
-  %20 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %20, ptr @_hb_CrapPool, align 16
-  %21 = bitcast i64 %20 to double
+  %25 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %25, ptr @_hb_CrapPool, align 16
+  %26 = bitcast i64 %25 to double
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit77
 
 if.end.i.i73:                                     ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit67
   %elements.i.i74 = getelementptr inbounds i8, ptr %env, i64 24
   %idxprom.i.i75 = zext i32 %add14 to i64
   %arrayidx.i.i76 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i74, i64 0, i64 %idxprom.i.i75
-  %.pre112 = load double, ptr %arrayidx.i.i76, align 8
+  %.pre118 = load double, ptr %arrayidx.i.i76, align 8
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit77
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit77: ; preds = %if.then.i.i70, %if.end.i.i73
-  %22 = phi double [ %21, %if.then.i.i70 ], [ %.pre112, %if.end.i.i73 ]
-  %23 = load double, ptr %retval.0.i.i62, align 8
-  %24 = load <2 x double>, ptr %pt2, align 16
-  %25 = insertelement <2 x double> poison, double %23, i64 0
-  %26 = insertelement <2 x double> %25, double %22, i64 1
-  %27 = fadd <2 x double> %24, %26
-  store <2 x double> %27, ptr %pt2, align 16
+  %27 = phi double [ %26, %if.then.i.i70 ], [ %.pre118, %if.end.i.i73 ]
+  %28 = load double, ptr %retval.0.i.i62, align 8
+  %29 = load <2 x double>, ptr %pt2, align 16
+  %30 = insertelement <2 x double> poison, double %28, i64 0
+  %31 = insertelement <2 x double> %30, double %27, i64 1
+  %32 = fadd <2 x double> %29, %31
+  store <2 x double> %32, ptr %pt2, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pt3, ptr noundef nonnull align 16 dereferenceable(16) %pt2, i64 16, i1 false)
-  %add16 = add i32 %add107, 4
-  %cmp.not.i.i82 = icmp ugt i32 %.pre110, %add16
+  %add16 = add i32 %14, 4
+  %cmp.not.i.i82 = icmp ugt i32 %.pre116, %add16
   br i1 %cmp.not.i.i82, label %if.end.i.i86, label %if.then.i.i83
 
 if.then.i.i83:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit77
   store i8 1, ptr %argStack, align 8
-  %28 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %28, ptr @_hb_CrapPool, align 16
+  %33 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %33, ptr @_hb_CrapPool, align 16
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit90
 
 if.end.i.i86:                                     ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit77
@@ -8228,32 +8232,32 @@ if.end.i.i86:                                     ; preds = %_ZN3CFF20cff2_cs_in
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit90: ; preds = %if.then.i.i83, %if.end.i.i86
   %retval.0.i.i85 = phi ptr [ @_hb_CrapPool, %if.then.i.i83 ], [ %arrayidx.i.i89, %if.end.i.i86 ]
-  %add18 = add i32 %add107, 5
-  %cmp.not.i.i92 = icmp ugt i32 %.pre110, %add18
+  %add18 = add i32 %14, 5
+  %cmp.not.i.i92 = icmp ugt i32 %.pre116, %add18
   br i1 %cmp.not.i.i92, label %if.end.i.i96, label %if.then.i.i93
 
 if.then.i.i93:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit90
   store i8 1, ptr %argStack, align 8
-  %29 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %29, ptr @_hb_CrapPool, align 16
-  %30 = bitcast i64 %29 to double
+  %34 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %34, ptr @_hb_CrapPool, align 16
+  %35 = bitcast i64 %34 to double
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit100
 
 if.end.i.i96:                                     ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit90
   %elements.i.i97 = getelementptr inbounds i8, ptr %env, i64 24
   %idxprom.i.i98 = zext i32 %add18 to i64
   %arrayidx.i.i99 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i97, i64 0, i64 %idxprom.i.i98
-  %.pre113 = load double, ptr %arrayidx.i.i99, align 8
+  %.pre119 = load double, ptr %arrayidx.i.i99, align 8
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit100
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %if.then.i.i93, %if.end.i.i96
-  %31 = phi double [ %30, %if.then.i.i93 ], [ %.pre113, %if.end.i.i96 ]
-  %32 = load double, ptr %retval.0.i.i85, align 8
-  %33 = load <2 x double>, ptr %pt3, align 16
-  %34 = insertelement <2 x double> poison, double %32, i64 0
-  %35 = insertelement <2 x double> %34, double %31, i64 1
-  %36 = fadd <2 x double> %33, %35
-  store <2 x double> %36, ptr %pt3, align 16
+  %36 = phi double [ %35, %if.then.i.i93 ], [ %.pre119, %if.end.i.i96 ]
+  %37 = load double, ptr %retval.0.i.i85, align 8
+  %38 = load <2 x double>, ptr %pt3, align 16
+  %39 = insertelement <2 x double> poison, double %37, i64 0
+  %40 = insertelement <2 x double> %39, double %36, i64 1
+  %41 = fadd <2 x double> %38, %40
+  store <2 x double> %41, ptr %pt3, align 16
   call void @_ZN17cff2_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(16) %param, ptr noundef nonnull align 8 dereferenceable(16) %pt17, ptr noundef nonnull align 8 dereferenceable(16) %pt2, ptr noundef nonnull align 8 dereferenceable(16) %pt3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pt.i34, ptr noundef nonnull align 16 dereferenceable(16) %pt3, i64 16, i1 false)
   br label %return
