@@ -37,6 +37,7 @@ Currently, this repository contains the following libraries/applications:
 |[flac](https://github.com/xiph/flac)|C|
 |[git](https://github.com/git/git)|C|
 |[graphviz](https://gitlab.com/graphviz/graphviz)|C|
+|[hdf5](https://github.com/HDFGroup/hdf5)|C|
 |[hwloc](https://github.com/open-mpi/hwloc)|C|
 |[jemalloc](https://github.com/jemalloc/jemalloc)|C|
 |[jq](https://github.com/jqlang/jq)|C|
@@ -74,6 +75,7 @@ Currently, this repository contains the following libraries/applications:
 |[sqlite](https://github.com/sqlite/sqlite)|C|
 |[stb](https://github.com/nothings/stb)|C|
 |[sundials](https://github.com/LLNL/sundials)|C|
+|[tokenizers](https://github.com/huggingface/tokenizers)|C|
 |[wireshark](https://github.com/wireshark/wireshark)|C|
 |[wolfssl](https://github.com/wolfSSL/wolfssl)|C|
 |[yosys](https://github.com/YosysHQ/yosys)|C|
@@ -82,6 +84,7 @@ Currently, this repository contains the following libraries/applications:
 |[zlib](https://github.com/madler/zlib)|C|
 |[zstd](https://github.com/facebook/zstd)|C|
 |[abseil-cpp](https://github.com/abseil/abseil-cpp)|C++|
+|[annoy](https://github.com/spotify/annoy)|C++|
 |[arrow](https://github.com/apache/arrow)|C++|
 |[assimp](https://github.com/assimp/assimp)|C++|
 |[box2d](https://github.com/erincatto/box2d)|C++|
@@ -126,6 +129,7 @@ Currently, this repository contains the following libraries/applications:
 |[mixbox](https://github.com/scrtwpns/mixbox)|C++|
 |[mold](https://github.com/rui314/mold)|C++|
 |[msdfgen](https://github.com/Chlumsky/msdfgen)|C++|
+|[msgpack-c](https://github.com/msgpack/msgpack-c)|C++|
 |[nanobind](https://github.com/wjakob/nanobind)|C++|
 |[nghttp2](https://github.com/nghttp2/nghttp2)|C++|
 |[ninja](https://github.com/ninja-build/ninja)|C++|
@@ -142,6 +146,7 @@ Currently, this repository contains the following libraries/applications:
 |[pcg-cpp](https://github.com/imneme/pcg-cpp)|C++|
 |[proj](https://github.com/OSGeo/PROJ)|C++|
 |[protobuf](https://github.com/protocolbuffers/protobuf)|C++|
+|[proxy](https://github.com/microsoft/proxy)|C++|
 |[proxygen](https://github.com/facebook/proxygen)|C++|
 |[pugixml](https://github.com/zeux/pugixml)|C++|
 |[pybind11](https://github.com/pybind/pybind11)|C++|
@@ -150,6 +155,7 @@ Currently, this repository contains the following libraries/applications:
 |[readerwriterqueue](https://github.com/cameron314/readerwriterqueue)|C++|
 |[recastnavigation](https://github.com/recastnavigation/recastnavigation)|C++|
 |[rocksdb](https://github.com/facebook/rocksdb)|C++|
+|[sentencepiece](https://github.com/google/sentencepiece)|C++|
 |[simdjson](https://github.com/simdjson/simdjson)|C++|
 |[snappy](https://github.com/google/snappy)|C++|
 |[spdlog](https://github.com/gabime/spdlog)|C++|
@@ -157,6 +163,7 @@ Currently, this repository contains the following libraries/applications:
 |[taskflow](https://github.com/taskflow/taskflow)|C++|
 |[tev](https://github.com/Tom94/tev)|C++|
 |[tinygltf](https://github.com/syoyo/tinygltf)|C++|
+|[tinympc](https://github.com/TinyMPC/TinyMPC)|C++|
 |[tinyobjloader](https://github.com/tinyobjloader/tinyobjloader)|C++|
 |[tinyrenderer](https://github.com/ssloy/tinyrenderer)|C++|
 |[tomlplusplus](https://github.com/marzer/tomlplusplus)|C++|
@@ -197,6 +204,7 @@ Currently, this repository contains the following libraries/applications:
 |[rustls](https://github.com/rustls/rustls)|Rust|
 |[serde](https://github.com/serde-rs/serde)|Rust|
 |[smol](https://github.com/smol-rs/smol)|Rust|
+|[softposit-rs](https://gitlab.com/burrbull/softposit-rs)|Rust|
 |[syn](https://github.com/dtolnay/syn)|Rust|
 |[tokio](https://github.com/tokio-rs/tokio)|Rust|
 |[tree-sitter](https://github.com/tree-sitter/tree-sitter)|Rust|
