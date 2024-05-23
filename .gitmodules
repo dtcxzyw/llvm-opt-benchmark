@@ -565,3 +565,7 @@
 [submodule "bench/sentencepiece/sentencepiece"]
 	path = bench/sentencepiece/sentencepiece
 	url = git@github.com:google/sentencepiece.git
+[submodule "bench/msgpack/msgpack-c"]
+	path = bench/msgpack/msgpack-c
+	url = git@github.com:msgpack/msgpack-c.git
+	branch = cpp_master
