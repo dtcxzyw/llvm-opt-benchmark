@@ -544,3 +544,6 @@
 [submodule "bench/zxing/zxing-cpp"]
 	path = bench/zxing/zxing-cpp
 	url = git@github.com:zxing-cpp/zxing-cpp.git
+[submodule "bench/softposit-rs/softposit-rs"]
+	path = bench/softposit-rs/softposit-rs
+	url = https://gitlab.com/burrbull/softposit-rs.git
