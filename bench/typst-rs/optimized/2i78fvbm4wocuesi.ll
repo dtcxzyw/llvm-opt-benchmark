@@ -89395,7 +89395,7 @@ _ZN12citationberg11ChooseMatch4test17h29f377b03a59eba4E.exit: ; preds = %.prehea
   %.sroa.4.1 = phi i32 [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h0ba928997dbf6865E.exit" ], [ 0, %27 ], [ %59, %"_ZN77_$LT$citationberg..Choose$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info28_$u7b$$u7b$closure$u7d$$u7d$17hf28056b8e66b9830E.exit.loopexit" ], [ 0, %_ZN12citationberg11ChooseMatch4test17h29f377b03a59eba4E.exit.thread ], [ %92, %"_ZN77_$LT$citationberg..Choose$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info28_$u7b$$u7b$closure$u7d$$u7d$17hf28056b8e66b9830E.exit72.loopexit" ]
   %.sroa.0.1 = phi i8 [ 2, %"_ZN4core6option15Option$LT$T$GT$7or_else17h0ba928997dbf6865E.exit" ], [ 0, %27 ], [ %60, %"_ZN77_$LT$citationberg..Choose$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info28_$u7b$$u7b$closure$u7d$$u7d$17hf28056b8e66b9830E.exit.loopexit" ], [ 0, %_ZN12citationberg11ChooseMatch4test17h29f377b03a59eba4E.exit.thread ], [ %93, %"_ZN77_$LT$citationberg..Choose$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info28_$u7b$$u7b$closure$u7d$$u7d$17hf28056b8e66b9830E.exit72.loopexit" ]
   %.sroa.4.0.insert.ext = zext i32 %.sroa.4.1 to i40
-  %.sroa.4.0.insert.shift = shl nuw nsw i40 %.sroa.4.0.insert.ext, 8
+  %.sroa.4.0.insert.shift = shl nuw i40 %.sroa.4.0.insert.ext, 8
   %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.1 to i40
   %.sroa.0.0.insert.insert = or disjoint i40 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   ret i40 %.sroa.0.0.insert.insert

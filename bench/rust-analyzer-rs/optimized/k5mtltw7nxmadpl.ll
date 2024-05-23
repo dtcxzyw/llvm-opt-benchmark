@@ -96682,7 +96682,7 @@ define noundef zeroext i1 @"_ZN182_$LT$rust_analyzer..config.._..$LT$impl$u20$se
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 67108864) i32 @"_ZN13rust_analyzer6config6Config43did_save_text_document_dynamic_registration28_$u7b$$u7b$closure$u7d$$u7d$17hef4fe0bc29a1209bE.llvm.3663151438746104753"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden i32 @"_ZN13rust_analyzer6config6Config43did_save_text_document_dynamic_registration28_$u7b$$u7b$closure$u7d$$u7d$17hef4fe0bc29a1209bE.llvm.3663151438746104753"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !123, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 3512
   %4 = load i64, ptr %3, align 8, !range !301, !noundef !4

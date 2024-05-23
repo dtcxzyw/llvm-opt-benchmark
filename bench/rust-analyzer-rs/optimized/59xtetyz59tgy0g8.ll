@@ -632,7 +632,7 @@ define hidden noundef i64 @_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.ll
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 0, 268435457) i64 @_ZN15ra_ap_rustc_abi4Size9from_bits17he36a941d4a02a223E.llvm.6424288313766077374(i32 noundef %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693953) i64 @_ZN15ra_ap_rustc_abi4Size9from_bits17he36a941d4a02a223E.llvm.6424288313766077374(i32 noundef %0) unnamed_addr #0 {
   %switch.not.not = icmp sgt i32 %0, -1
   br i1 %switch.not.not, label %3, label %2
 

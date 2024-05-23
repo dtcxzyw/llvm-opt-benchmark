@@ -39328,7 +39328,7 @@ define internal fastcc { ptr, ptr } @_ZN6ide_db6search9def_to_ty17h8397e9ec923e5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i8 0, 16) i8 @_ZN6ide_db6search17ReferenceCategory3new17h491dcef36fb3d4f6E(ptr noundef nonnull align 8 %0, i8 %.0.val, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef i8 @_ZN6ide_db6search17ReferenceCategory3new17h491dcef36fb3d4f6E(ptr noundef nonnull align 8 %0, i8 %.0.val, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca ptr, align 8

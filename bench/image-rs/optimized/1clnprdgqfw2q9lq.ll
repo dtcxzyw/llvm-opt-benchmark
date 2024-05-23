@@ -31444,7 +31444,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u6417h58759bef32f34c5aE.exit130.threa
 
 200:                                              ; preds = %198
   %.sroa.14.2.extract.shift161.i.i = lshr i64 %.sroa.14.3.in.i.i, 16
-  %.sroa.14.2.extract.trunc162.i.i = trunc nuw i64 %.sroa.14.2.extract.shift161.i.i to i16
+  %.sroa.14.2.extract.trunc162.i.i = trunc i64 %.sroa.14.2.extract.shift161.i.i to i16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !6124
   invoke fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7c71d6bc51b1eca7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %20, i16 noundef %.sroa.14.0.extract.trunc156.i.i, i16 %.sroa.14.2.extract.trunc162.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.817.sroa.9.sroa.8.i.i)
           to label %201 unwind label %.loopexit.i.i, !noalias !6120
@@ -32303,7 +32303,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u6417h289e784fb5ff02bfE.exit130.threa
 
 194:                                              ; preds = %192
   %.sroa.14.2.extract.shift161.i.i = lshr i64 %.sroa.14.3.in.i.i, 16
-  %.sroa.14.2.extract.trunc162.i.i = trunc nuw i64 %.sroa.14.2.extract.shift161.i.i to i16
+  %.sroa.14.2.extract.trunc162.i.i = trunc i64 %.sroa.14.2.extract.shift161.i.i to i16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !6249
   invoke fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7c71d6bc51b1eca7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(48) %18, i16 noundef %.sroa.14.0.extract.trunc156.i.i, i16 %.sroa.14.2.extract.trunc162.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.817.sroa.9.sroa.8.i.i)
           to label %195 unwind label %.loopexit.i.i, !noalias !6265

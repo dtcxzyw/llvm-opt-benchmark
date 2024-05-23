@@ -2996,7 +2996,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc range(i48 65536, 2199023255552) i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 %1, i16 %2, i16 %3) unnamed_addr #0 {
+define internal fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 %1, i16 %2, i16 %3) unnamed_addr #0 {
   %5 = load i16, ptr %0, align 2, !range !31, !noundef !3
   switch i16 %5, label %default.unreachable11 [
     i16 0, label %6
@@ -3026,7 +3026,7 @@ default.unreachable11:                            ; preds = %4
   %.sroa.5.0 = phi i16 [ 1, %6 ], [ %1, %4 ], [ %10, %25 ]
   %.sroa.8.0 = phi i16 [ 1, %6 ], [ %2, %4 ], [ %12, %25 ]
   %.sroa.8.0.insert.ext = zext i16 %.sroa.8.0 to i48
-  %.sroa.8.0.insert.shift = shl nuw nsw i48 %.sroa.8.0.insert.ext, 32
+  %.sroa.8.0.insert.shift = shl nuw i48 %.sroa.8.0.insert.ext, 32
   %.sroa.5.0.insert.ext = zext i16 %.sroa.5.0 to i48
   %.sroa.5.0.insert.shift = shl nuw nsw i48 %.sroa.5.0.insert.ext, 16
   %.sroa.5.0.insert.insert = or disjoint i48 %.sroa.8.0.insert.shift, %.sroa.5.0.insert.shift
@@ -3090,7 +3090,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_
   %.sroa.22.0.extract.shift = lshr i48 %1, 16
   %.sroa.22.0.extract.trunc = trunc i48 %.sroa.22.0.extract.shift to i16
   %.sroa.33.0.extract.shift = lshr i48 %1, 32
-  %.sroa.33.0.extract.trunc = trunc nuw nsw i48 %.sroa.33.0.extract.shift to i16
+  %.sroa.33.0.extract.trunc = trunc nuw i48 %.sroa.33.0.extract.shift to i16
   store ptr null, ptr %4, align 8
   %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.311.0..sroa_idx, align 8

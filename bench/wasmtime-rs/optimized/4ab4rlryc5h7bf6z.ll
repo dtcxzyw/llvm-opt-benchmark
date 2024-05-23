@@ -42162,6 +42162,7 @@ define void @"_ZN92_$LT$cranelift_codegen..ir..constant..ConstantData$u20$as$u20
 68:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE.exit"
   %69 = phi i64 [ %64, %.lr.ph ], [ %98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE.exit" ]
   %70 = phi i64 [ 2, %.lr.ph ], [ %97, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE.exit" ]
+  %.sroa.724.092 = phi i64 [ undef, %.lr.ph ], [ %.sroa.724.8.insert.insert, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE.exit" ]
   %.sroa.07.091 = phi i64 [ 0, %.lr.ph ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE.exit" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %71 = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
@@ -42206,20 +42207,23 @@ define void @"_ZN92_$LT$cranelift_codegen..ir..constant..ConstantData$u20$as$u20
 
 86:                                               ; preds = %84
   %87 = extractvalue { i1, i8 } %85, 0
-  br i1 %87, label %99, label %88
+  %88 = extractvalue { i1, i8 } %85, 1
+  %.sroa.628.8.insert.ext = zext i8 %88 to i64
+  %.sroa.724.8.insert.mask = and i64 %.sroa.724.092, -256
+  %.sroa.724.8.insert.insert = or disjoint i64 %.sroa.724.8.insert.mask, %.sroa.628.8.insert.ext
+  br i1 %87, label %99, label %89
 
-88:                                               ; preds = %86
-  %89 = extractvalue { i1, i8 } %85, 1
+89:                                               ; preds = %86
   %90 = load i64, ptr %60, align 8, !alias.scope !7503, !noundef !4
   %91 = load i64, ptr %8, align 8, !alias.scope !7503, !noundef !4
   %92 = icmp eq i64 %90, %91
   br i1 %92, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h84c312f65ab880c2E.llvm.14502953478370073462.exit.i", label %.noexc68
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h84c312f65ab880c2E.llvm.14502953478370073462.exit.i": ; preds = %88
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h84c312f65ab880c2E.llvm.14502953478370073462.exit.i": ; preds = %89
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbd344d8a8762f4daE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %90, i64 noundef 1)
           to label %.noexc68 unwind label %.loopexit
 
-.noexc68:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h84c312f65ab880c2E.llvm.14502953478370073462.exit.i", %88
+.noexc68:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h84c312f65ab880c2E.llvm.14502953478370073462.exit.i", %89
   %93 = load ptr, ptr %59, align 8, !alias.scope !7503, !nonnull !4, !noundef !4
   %.not = icmp eq i64 %90, 0
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE.exit", label %94
@@ -42230,7 +42234,7 @@ define void @"_ZN92_$LT$cranelift_codegen..ir..constant..ConstantData$u20$as$u20
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE.exit": ; preds = %.noexc68, %94
-  store i8 %89, ptr %93, align 1
+  store i8 %88, ptr %93, align 1
   %96 = add i64 %90, 1
   store i64 %96, ptr %60, align 8, !alias.scope !7503
   %.not.not = icmp eq i64 %69, 0

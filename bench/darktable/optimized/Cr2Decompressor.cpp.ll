@@ -958,10 +958,10 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   %303 = phi i64 [ 0, %218 ], [ %231, %276 ], [ %287, %283 ]
   %304 = add i64 %303, %302
   %305 = lshr i64 %303, 32
-  %306 = trunc nuw nsw i64 %305 to i32
+  %306 = trunc nuw i64 %305 to i32
   %307 = lshr i64 %302, 32
-  %308 = trunc nuw nsw i64 %307 to i32
-  %309 = add nuw nsw i32 %306, %308
+  %308 = trunc nuw i64 %307 to i32
+  %309 = add nsw i32 %306, %308
   %310 = trunc i64 %304 to i32
   %311 = icmp eq i32 %97, %310
   %312 = icmp eq i32 %309, %89

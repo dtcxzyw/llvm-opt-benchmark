@@ -112894,7 +112894,7 @@ common.ret:                                       ; preds = %2209, %2192, %2106,
 
 1178:                                             ; preds = %1177
   %.sroa.6112.1.insert.ext.i.i.i = zext i8 %.sroa.11108.0.ph.i.i.i to i32
-  %.sroa.6112.1.insert.shift.i.i.i = shl nuw nsw i32 %.sroa.6112.1.insert.ext.i.i.i, 24
+  %.sroa.6112.1.insert.shift.i.i.i = shl nuw i32 %.sroa.6112.1.insert.ext.i.i.i, 24
   %.sroa.4.1.insert.ext.i.i.i = zext i8 %.sroa.9106.0.ph.i.i.i to i32
   %.sroa.4.1.insert.shift.i.i.i = shl nuw nsw i32 %.sroa.4.1.insert.ext.i.i.i, 8
   %.sroa.2.1.insert.ext.i.i.i = zext i8 %.sroa.8105.0.ph.i.i.i to i32

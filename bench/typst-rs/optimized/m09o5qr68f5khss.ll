@@ -34916,16 +34916,16 @@ _ZN5typst11foundations4args4Args6expect17h5d5b5770fa4d5683E.exit26.thread.i: ; p
   br i1 %65, label %87, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %63, %69
-  %.030.i.i.i = phi i64 [ %72, %69 ], [ 1, %63 ]
-  %.sroa.02.029.i.i.i = phi i64 [ %71, %69 ], [ 0, %63 ]
-  %66 = sub i64 %19, %.sroa.02.029.i.i.i
-  %67 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.030.i.i.i, i64 %66)
+  %.034.i.i.i = phi i64 [ %72, %69 ], [ 1, %63 ]
+  %.sroa.02.033.i.i.i = phi i64 [ %71, %69 ], [ 0, %63 ]
+  %66 = sub i64 %19, %.sroa.02.033.i.i.i
+  %67 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.034.i.i.i, i64 %66)
   %68 = extractvalue { i64, i1 } %67, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i, label %69
 
 69:                                               ; preds = %.preheader.i.i.i
   %70 = extractvalue { i64, i1 } %67, 0
-  %71 = add nuw i64 %.sroa.02.029.i.i.i, 1
+  %71 = add nuw i64 %.sroa.02.033.i.i.i, 1
   %72 = udiv i64 %70, %71
   %exitcond.not.i.i.i = icmp eq i64 %71, %.0.sroa.speculated.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN5typst11foundations4calc10binom_impl17h316f3749ccbb6b67E.exit.i.i, label %.preheader.i.i.i
@@ -106706,16 +106706,16 @@ define void @_ZN5typst11foundations4calc5binom17hdb91a7fcd8c62036E(ptr noalias n
   br i1 %8, label %_ZN5typst11foundations4calc10binom_impl17h316f3749ccbb6b67E.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6, %12
-  %.030.i = phi i64 [ %15, %12 ], [ 1, %6 ]
-  %.sroa.02.029.i = phi i64 [ %14, %12 ], [ 0, %6 ]
-  %9 = sub i64 %1, %.sroa.02.029.i
-  %10 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.030.i, i64 %9)
+  %.034.i = phi i64 [ %15, %12 ], [ 1, %6 ]
+  %.sroa.02.033.i = phi i64 [ %14, %12 ], [ 0, %6 ]
+  %9 = sub i64 %1, %.sroa.02.033.i
+  %10 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.034.i, i64 %9)
   %11 = extractvalue { i64, i1 } %10, 1
   br i1 %11, label %.lr.ph.i.i.i, label %12
 
 12:                                               ; preds = %.preheader.i
   %13 = extractvalue { i64, i1 } %10, 0
-  %14 = add nuw i64 %.sroa.02.029.i, 1
+  %14 = add nuw i64 %.sroa.02.033.i, 1
   %15 = udiv i64 %13, %14
   %exitcond.not.i = icmp eq i64 %14, %.0.sroa.speculated.i.i
   br i1 %exitcond.not.i, label %_ZN5typst11foundations4calc10binom_impl17h316f3749ccbb6b67E.exit, label %.preheader.i

@@ -5724,7 +5724,7 @@ _ZN16wasmtime_runtime6memory6Memory13atomic_notify17hdbd220eaa4b19c52E.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, 1099511627776) i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_wait3217hafc2c7a452591e2aE(ptr noundef nonnull align 16 %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_wait3217hafc2c7a452591e2aE(ptr noundef nonnull align 16 %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, { i64 } }, align 8
   %7 = icmp sgt i64 %4, -1
   br i1 %7, label %8, label %18
@@ -5830,7 +5830,7 @@ _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.13870219068130913800.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, 1099511627776) i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_wait6417h862b18889fbf4207E(ptr noundef nonnull align 16 %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_wait6417h862b18889fbf4207E(ptr noundef nonnull align 16 %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, { i64 } }, align 8
   %7 = icmp sgt i64 %4, -1
   br i1 %7, label %8, label %18

@@ -22832,8 +22832,8 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit.i:         ; preds = %147, %_ZNSt3setIP6C
 
 _ZNK25FilterImgPatchParamPlugin12getNeighborsEP8CVertexORSt3setIP6CFaceOSt4lessIS4_ESaIS4_EE.exit: ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit.i
   %149 = add nsw i32 %.sroa.5.2520, 1
-  %150 = urem i32 %149, 3
-  %151 = zext nneg i32 %150 to i64
+  %150 = srem i32 %149, 3
+  %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds [3 x ptr], ptr %40, i64 0, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, %.sroa.11.0521
@@ -23083,8 +23083,8 @@ _ZNSt8_Rb_treeIP6CFaceOS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1
 
 _ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit:  ; preds = %._crit_edge, %67, %52
   %248 = add nsw i32 %.sroa.5.2520, 1
-  %249 = urem i32 %248, 3
-  %250 = zext nneg i32 %249 to i64
+  %249 = srem i32 %248, 3
+  %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds [3 x ptr], ptr %40, i64 0, i64 %250
   %252 = load ptr, ptr %251, align 8
   %253 = icmp eq ptr %252, %.sroa.11.0521
@@ -23096,7 +23096,7 @@ _ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit:  ; preds = %._crit_edge, %67, %
 
 256:                                              ; preds = %_ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit
   %257 = add nsw i32 %.sroa.5.2520, 2
-  %258 = urem i32 %257, 3
+  %258 = srem i32 %257, 3
   br label %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit
 
 _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit:           ; preds = %_ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit, %256
@@ -27733,8 +27733,8 @@ _ZN3vcg4face3PosI6CFaceOEC2EPS2_P8CVertexO.exit:  ; preds = %_ZN3vcg4face3PosI6C
 
 ._ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit_crit_edge: ; preds = %_ZN3vcg4face3PosI6CFaceOEC2EPS2_P8CVertexO.exit
   %.pre152 = add nsw i32 %.sroa.5.2128, 1
-  %.pre153 = urem i32 %.pre152, 3
-  %.pre155 = zext nneg i32 %.pre153 to i64
+  %.pre153 = srem i32 %.pre152, 3
+  %.pre155 = sext i32 %.pre153 to i64
   br label %_ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit
 
 64:                                               ; preds = %_ZN3vcg4face3PosI6CFaceOEC2EPS2_P8CVertexO.exit
@@ -27884,8 +27884,8 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit.i:         ; preds = %127, %_ZNSt3setIP6C
 
 _ZNK25FilterImgPatchParamPlugin12getNeighborsEP8CVertexORSt3setIP6CFaceOSt4lessIS4_ESaIS4_EE.exit: ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit.i
   %129 = add nsw i32 %.sroa.5.2128, 1
-  %130 = urem i32 %129, 3
-  %131 = zext nneg i32 %130 to i64
+  %130 = srem i32 %129, 3
+  %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 %131
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, %.sroa.11.0129
@@ -28309,7 +28309,7 @@ _ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit:  ; preds = %._ZNSt3setIP6CFaceO
 
 308:                                              ; preds = %_ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit
   %309 = add nsw i32 %.sroa.5.2128, 2
-  %310 = urem i32 %309, 3
+  %310 = srem i32 %309, 3
   br label %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit
 
 _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit:           ; preds = %_ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit, %308

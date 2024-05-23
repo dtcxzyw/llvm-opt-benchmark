@@ -706,17 +706,17 @@ switch.lookup:
   %.sroa.411.1 = phi i8 [ %.sroa.411.0., %55 ], [ 5, %51 ]
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
-  %.sroa.613.0.insert.shift = shl nuw nsw i64 %.sroa.613.0.insert.ext, 32
+  %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %61 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
-  %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
-  %or.cond.i = icmp eq i64 %.sroa.010.0.insert.insert, 0
+  %62 = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
+  %or.cond.i = icmp eq i64 %62, 0
   %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %61
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
   tail call void @"_ZN10hir_expand5attrs8unescape28_$u7b$$u7b$closure$u7d$$u7d$17h877eda1c80a7d153E.llvm.15988534848567551436"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.val, i64 noundef %60, i64 noundef %59, i64 %.sroa.616.20.insert.insert.i)
-  %62 = icmp eq ptr %.sroa.0.4.ph3645, %4
-  br i1 %62, label %.thread, label %7
+  %63 = icmp eq ptr %.sroa.0.4.ph3645, %4
+  br i1 %63, label %.thread, label %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -839,7 +839,7 @@ switch.lookup:
   %.sroa.411.1 = phi i8 [ %.sroa.411.0., %55 ], [ 5, %51 ]
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
-  %.sroa.613.0.insert.shift = shl nuw nsw i64 %.sroa.613.0.insert.ext, 32
+  %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
@@ -1036,13 +1036,13 @@ switch.lookup:
   %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph163, i32 %.sroa.4.0.i.ph8496
   %.51 = zext i1 %or.cond3.not to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
-  %.sroa.619.0.insert.shift = shl nuw nsw i64 %.sroa.619.0.insert.ext, 32
+  %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
   %.sroa.46.0.i = select i1 %or.cond3.not, i64 0, i64 %.sroa.619.0.insert.shift
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.46.0.i, %.51
   %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.018.0.insert.insert, 4864
-  %.sroa.443.0.extract.shift = and i64 %.sroa.03.0.insert.insert.i, 9223372032559813376
+  %.sroa.443.0.extract.shift = and i64 %.sroa.03.0.insert.insert.i, -4294962432
   %.sroa.544.0.extract.shift = lshr exact i64 %.sroa.46.0.i, 16
-  %.sroa.544.0.extract.trunc = trunc nuw nsw i64 %.sroa.544.0.extract.shift to i48
+  %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
   br label %.outer
 
 68:                                               ; preds = %62

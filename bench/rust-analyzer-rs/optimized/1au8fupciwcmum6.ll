@@ -78068,7 +78068,7 @@ define internal fastcc void @"_ZN68_$LT$rust_analyzer..config..Config$u20$as$u20
 
 671:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8c36dd86facd6db4E.exit.i.i.i"
   %.sroa.3.0.insert.ext.i.i.i.i = zext i8 %.sroa.5.0.i.i.i.i to i24
-  %.sroa.3.0.insert.shift.i.i.i.i = shl nuw nsw i24 %.sroa.3.0.insert.ext.i.i.i.i, 16
+  %.sroa.3.0.insert.shift.i.i.i.i = shl nuw i24 %.sroa.3.0.insert.ext.i.i.i.i, 16
   %.sroa.2.0.insert.ext.i.i.i.i = zext nneg i8 %633 to i24
   %.sroa.2.0.insert.shift.i.i.i.i = shl nuw nsw i24 %.sroa.2.0.insert.ext.i.i.i.i, 8
   %.sroa.2.0.insert.insert.i.i.i.i = or disjoint i24 %.sroa.3.0.insert.shift.i.i.i.i, %.sroa.2.0.insert.shift.i.i.i.i

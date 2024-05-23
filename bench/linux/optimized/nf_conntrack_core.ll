@@ -1330,7 +1330,7 @@ nf_ct_put.exit:                                   ; preds = %.loopexit11, %193, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_conntrack_hash_check_insert(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.siphash_key_t, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.siphash_key_t, align 8

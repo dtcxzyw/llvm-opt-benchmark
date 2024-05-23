@@ -25185,7 +25185,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h437fa0bf2a296
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i16 0, 1024) i16 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h442d3bc2d56d1041E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(2) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h442d3bc2d56d1041E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(2) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -28536,7 +28536,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hd9838dc24e215
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i16 0, 2048) i16 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdb80525489437503E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(2) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdb80525489437503E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(2) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 

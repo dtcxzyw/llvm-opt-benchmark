@@ -24868,7 +24868,7 @@ define { i1, i8 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cr
   %.sroa.5.0.extract.shift12 = lshr i40 %3, 24
   %.sroa.5.0.extract.trunc = trunc i40 %.sroa.5.0.extract.shift12 to i8
   %sum.shift = lshr i40 %3, 32
-  %.sroa.68.0.extract.trunc = trunc nuw nsw i40 %sum.shift to i8
+  %.sroa.68.0.extract.trunc = trunc nuw i40 %sum.shift to i8
   %5 = or i8 %.sroa.06.0.extract.trunc, %.sroa.47.0.extract.trunc
   %6 = or i8 %5, %.sroa.5.0.extract.trunc
   %7 = or i8 %6, %.sroa.68.0.extract.trunc
@@ -24904,7 +24904,7 @@ define { i1, i8 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cr
   %.sroa.523.0.extract.shift34 = lshr i40 %3, 24
   %.sroa.523.0.extract.trunc = trunc i40 %.sroa.523.0.extract.shift34 to i8
   %sum.shift = lshr i40 %3, 32
-  %.sroa.624.0.extract.trunc = trunc nuw nsw i40 %sum.shift to i8
+  %.sroa.624.0.extract.trunc = trunc nuw i40 %sum.shift to i8
   %5 = add i8 %.sroa.021.0.extract.trunc, -4
   %6 = icmp ugt i8 %.sroa.021.0.extract.trunc, 3
   br i1 %6, label %7, label %27
@@ -24922,7 +24922,7 @@ define { i1, i8 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cr
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %10
-  %14 = add nsw i8 %.sroa.624.0.extract.trunc, -4
+  %14 = add i8 %.sroa.624.0.extract.trunc, -4
   %15 = icmp ugt i8 %.sroa.624.0.extract.trunc, 3
   br i1 %15, label %16, label %27
 
@@ -24969,8 +24969,8 @@ define { i1, i8 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cr
 
 7:                                                ; preds = %4
   %sum.shift = lshr i40 %3, 32
-  %.sroa.616.0.extract.trunc = trunc nuw nsw i40 %sum.shift to i8
-  %8 = add nsw i8 %.sroa.616.0.extract.trunc, -4
+  %.sroa.616.0.extract.trunc = trunc nuw i40 %sum.shift to i8
+  %8 = add i8 %.sroa.616.0.extract.trunc, -4
   %9 = icmp ugt i8 %.sroa.616.0.extract.trunc, 3
   br i1 %9, label %10, label %21
 
@@ -25010,7 +25010,7 @@ define { i1, i8 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cr
   %.sroa.515.0.extract.shift22 = lshr i40 %3, 24
   %.sroa.515.0.extract.trunc = trunc i40 %.sroa.515.0.extract.shift22 to i8
   %sum.shift = lshr i40 %3, 32
-  %.sroa.616.0.extract.trunc = trunc nuw nsw i40 %sum.shift to i8
+  %.sroa.616.0.extract.trunc = trunc nuw i40 %sum.shift to i8
   %5 = add i8 %.sroa.013.0.extract.trunc, -4
   %6 = icmp ugt i8 %.sroa.013.0.extract.trunc, 3
   br i1 %6, label %7, label %21
@@ -36560,7 +36560,7 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i24 0, -8388608) i24 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18shuffle64_from_imm17h11b8399e952897a6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #2 {
+define i24 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18shuffle64_from_imm17h11b8399e952897a6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !150, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5051)
   %4 = getelementptr inbounds i8, ptr %3, i64 1816
@@ -36649,7 +36649,7 @@ _ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d14
   %.sroa.5.0 = phi i8 [ %42, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit23 ], [ undef, %19 ], [ undef, %32 ], [ undef, %38 ], [ undef, %24 ]
   %.sroa.0.0 = phi i8 [ 1, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit23 ], [ 0, %19 ], [ 0, %32 ], [ 0, %38 ], [ 0, %24 ]
   %.sroa.5.0.insert.ext = zext i8 %.sroa.5.0 to i24
-  %.sroa.5.0.insert.shift = shl nuw nsw i24 %.sroa.5.0.insert.ext, 16
+  %.sroa.5.0.insert.shift = shl nuw i24 %.sroa.5.0.insert.ext, 16
   %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0.i27 to i24
   %.sroa.4.0.insert.shift = shl nuw nsw i24 %.sroa.4.0.insert.ext, 8
   %.sroa.4.0.insert.insert = or disjoint i24 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
@@ -36659,7 +36659,7 @@ _ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d14
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i40 0, -549755813888) i40 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18shuffle32_from_imm17h796bf781f860d0e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #2 {
+define i40 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18shuffle32_from_imm17h796bf781f860d0e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !150, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5072)
   %4 = getelementptr inbounds i8, ptr %3, i64 1816
@@ -36817,7 +36817,7 @@ _ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d14
   %.sroa.6.0 = phi i32 [ %.sroa.01.0.insert.insert, %70 ], [ undef, %19 ], [ undef, %32 ], [ undef, %46 ], [ undef, %60 ], [ undef, %66 ], [ undef, %52 ], [ undef, %38 ], [ undef, %24 ]
   %.sroa.0.0 = phi i8 [ 1, %70 ], [ 0, %19 ], [ 0, %32 ], [ 0, %46 ], [ 0, %60 ], [ 0, %66 ], [ 0, %52 ], [ 0, %38 ], [ 0, %24 ]
   %.sroa.6.0.insert.ext = zext i32 %.sroa.6.0 to i40
-  %.sroa.6.0.insert.shift = shl nuw nsw i40 %.sroa.6.0.insert.ext, 8
+  %.sroa.6.0.insert.shift = shl nuw i40 %.sroa.6.0.insert.ext, 8
   %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.0 to i40
   %.sroa.0.0.insert.insert = or disjoint i40 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext
   ret i40 %.sroa.0.0.insert.insert

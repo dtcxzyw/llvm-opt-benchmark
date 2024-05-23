@@ -4326,7 +4326,7 @@ define dso_local noundef zeroext i1 @compaction_zonelist_suitable(ptr nocapture 
 declare dso_local i64 @zone_reclaimable_pages(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 9) i32 @try_to_compact_pages(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 align 16 {
+define dso_local i32 @try_to_compact_pages(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 align 16 {
   %7 = alloca %struct.compact_control, align 8
   %8 = alloca %struct.capture_control, align 8
   %9 = and i32 %0, 64

@@ -104329,7 +104329,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr116dro
 
 139:                                              ; preds = %138
   %.sroa.6106.1.insert.ext = zext i8 %.sroa.11102.0.ph to i32
-  %.sroa.6106.1.insert.shift = shl nuw nsw i32 %.sroa.6106.1.insert.ext, 24
+  %.sroa.6106.1.insert.shift = shl nuw i32 %.sroa.6106.1.insert.ext, 24
   %.sroa.4.1.insert.ext = zext i8 %.sroa.9100.0.ph to i32
   %.sroa.4.1.insert.shift = shl nuw nsw i32 %.sroa.4.1.insert.ext, 8
   %.sroa.2.1.insert.ext = zext i8 %.sroa.899.0.ph to i32

@@ -1282,7 +1282,7 @@ switch.lookup:
   %.sroa.411.1 = phi i8 [ %.sroa.411.0., %62 ], [ 5, %58 ]
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %62 ], [ %.sroa.613.053, %58 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
-  %.sroa.613.0.insert.shift = shl nuw nsw i64 %.sroa.613.0.insert.ext, 32
+  %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
@@ -1464,11 +1464,10 @@ switch.lookup:
   %.sroa.411.1 = phi i8 [ %.sroa.411.0., %58 ], [ 5, %54 ]
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %58 ], [ %.sroa.613.053, %54 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
-  %.sroa.613.0.insert.shift = shl nuw nsw i64 %.sroa.613.0.insert.ext, 32
+  %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %64 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
-  %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   %65 = icmp ugt i64 %63, 4294967295
   %66 = trunc nuw i64 %63 to i32
@@ -1518,16 +1517,17 @@ switch.lookup:
   unreachable
 
 "_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode28_$u7b$$u7b$closure$u7d$$u7d$17h44cd810d16c81c50E.exit": ; preds = %79
-  %or.cond.i = icmp eq i64 %.sroa.010.0.insert.insert, 0
+  %83 = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
+  %or.cond.i = icmp eq i64 %83, 0
   %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %64
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
-  %83 = extractvalue { i32, i1 } %77, 0
-  %84 = extractvalue { i32, i1 } %80, 0
-  %85 = getelementptr inbounds i8, ptr %74, i64 32
-  %86 = load ptr, ptr %85, align 8, !invariant.load !11, !noalias !266, !nonnull !11
-  tail call void %86(ptr noundef nonnull align 1 %73, i32 noundef %83, i32 noundef %84, i64 %.sroa.616.20.insert.insert.i), !noalias !266
-  %87 = icmp eq ptr %.sroa.0.4.ph3645, %5
-  br i1 %87, label %.thread, label %10
+  %84 = extractvalue { i32, i1 } %77, 0
+  %85 = extractvalue { i32, i1 } %80, 0
+  %86 = getelementptr inbounds i8, ptr %74, i64 32
+  %87 = load ptr, ptr %86, align 8, !invariant.load !11, !noalias !266, !nonnull !11
+  tail call void %87(ptr noundef nonnull align 1 %73, i32 noundef %84, i32 noundef %85, i64 %.sroa.616.20.insert.insert.i), !noalias !266
+  %88 = icmp eq ptr %.sroa.0.4.ph3645, %5
+  br i1 %88, label %.thread, label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1657,7 +1657,7 @@ switch.lookup:
   %.sroa.411.1 = phi i8 [ %.sroa.411.0., %62 ], [ 5, %58 ]
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %62 ], [ %.sroa.613.053, %58 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
-  %.sroa.613.0.insert.shift = shl nuw nsw i64 %.sroa.613.0.insert.ext, 32
+  %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
@@ -1839,11 +1839,10 @@ switch.lookup:
   %.sroa.411.1 = phi i8 [ %.sroa.411.0., %58 ], [ 5, %54 ]
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %58 ], [ %.sroa.613.053, %54 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
-  %.sroa.613.0.insert.shift = shl nuw nsw i64 %.sroa.613.0.insert.ext, 32
+  %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %64 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
-  %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
   %65 = icmp ugt i64 %63, 4294967295
   %66 = trunc nuw i64 %63 to i32
@@ -1893,16 +1892,17 @@ switch.lookup:
   unreachable
 
 "_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode28_$u7b$$u7b$closure$u7d$$u7d$17h0b321f92e754c416E.exit": ; preds = %79
-  %or.cond.i = icmp eq i64 %.sroa.010.0.insert.insert, 0
+  %83 = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
+  %or.cond.i = icmp eq i64 %83, 0
   %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %64
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
-  %83 = extractvalue { i32, i1 } %77, 0
-  %84 = extractvalue { i32, i1 } %80, 0
-  %85 = getelementptr inbounds i8, ptr %74, i64 32
-  %86 = load ptr, ptr %85, align 8, !invariant.load !11, !noalias !278, !nonnull !11
-  tail call void %86(ptr noundef nonnull align 1 %73, i32 noundef %83, i32 noundef %84, i64 %.sroa.616.20.insert.insert.i), !noalias !278
-  %87 = icmp eq ptr %.sroa.0.4.ph3645, %5
-  br i1 %87, label %.thread, label %10
+  %84 = extractvalue { i32, i1 } %77, 0
+  %85 = extractvalue { i32, i1 } %80, 0
+  %86 = getelementptr inbounds i8, ptr %74, i64 32
+  %87 = load ptr, ptr %86, align 8, !invariant.load !11, !noalias !278, !nonnull !11
+  tail call void %87(ptr noundef nonnull align 1 %73, i32 noundef %84, i32 noundef %85, i64 %.sroa.616.20.insert.insert.i), !noalias !278
+  %88 = icmp eq ptr %.sroa.0.4.ph3645, %5
+  br i1 %88, label %.thread, label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2217,13 +2217,13 @@ switch.lookup:
   %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph157, i32 %.sroa.4.0.i.ph7177
   %.51 = zext i1 %or.cond3.not to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
-  %.sroa.619.0.insert.shift = shl nuw nsw i64 %.sroa.619.0.insert.ext, 32
+  %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
   %.sroa.46.0.i = select i1 %or.cond3.not, i64 0, i64 %.sroa.619.0.insert.shift
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.46.0.i, %.51
   %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.018.0.insert.insert, 4864
-  %.sroa.443.0.extract.shift = and i64 %.sroa.03.0.insert.insert.i, 9223372032559813376
+  %.sroa.443.0.extract.shift = and i64 %.sroa.03.0.insert.insert.i, -4294962432
   %.sroa.544.0.extract.shift = lshr exact i64 %.sroa.46.0.i, 16
-  %.sroa.544.0.extract.trunc = trunc nuw nsw i64 %.sroa.544.0.extract.shift to i48
+  %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
   br label %.loopexit
 
 73:                                               ; preds = %67
@@ -2843,13 +2843,13 @@ switch.lookup:
   %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph157, i32 %.sroa.4.0.i.ph7177
   %.51 = zext i1 %or.cond3.not to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
-  %.sroa.619.0.insert.shift = shl nuw nsw i64 %.sroa.619.0.insert.ext, 32
+  %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
   %.sroa.46.0.i = select i1 %or.cond3.not, i64 0, i64 %.sroa.619.0.insert.shift
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.46.0.i, %.51
   %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.018.0.insert.insert, 4864
-  %.sroa.443.0.extract.shift = and i64 %.sroa.03.0.insert.insert.i, 9223372032559813376
+  %.sroa.443.0.extract.shift = and i64 %.sroa.03.0.insert.insert.i, -4294962432
   %.sroa.544.0.extract.shift = lshr exact i64 %.sroa.46.0.i, 16
-  %.sroa.544.0.extract.trunc = trunc nuw nsw i64 %.sroa.544.0.extract.shift to i48
+  %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
   br label %.loopexit
 
 73:                                               ; preds = %67

@@ -143634,8 +143634,8 @@ define internal fastcc void @_ZN9arrow_ipc6reader10read_block17hfea846f92870e89e
   br i1 %8, label %9, label %10
 
 .body:                                            ; preds = %40, %31
-  %eh.lpad-body73 = phi { ptr, i32 } [ %32, %31 ], [ %41, %40 ]
-  resume { ptr, i32 } %eh.lpad-body73
+  %eh.lpad-body75 = phi { ptr, i32 } [ %32, %31 ], [ %41, %40 ]
+  resume { ptr, i32 } %eh.lpad-body75
 
 9:                                                ; preds = %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Seek$u20$for$u20$$RF$mut$u20$S$GT$4seek17h66eec7e2c6e6b34bE.exit"
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78e2cf43c31d963ada85e9db6aba8ffd.399) #43
@@ -143674,9 +143674,9 @@ define internal fastcc void @_ZN9arrow_ipc6reader10read_block17hfea846f92870e89e
   store i64 1, ptr %24, align 8, !noalias !34979
   %25 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %25, align 8, !noalias !34983
-  %.sroa.469.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.471.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   %26 = load <2 x i64>, ptr %5, align 16
-  store <2 x i64> %26, ptr %.sroa.469.0..sroa_idx, align 8, !noalias !34983
+  store <2 x i64> %26, ptr %.sroa.471.0..sroa_idx, align 8, !noalias !34983
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %18, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !34983
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
@@ -143715,8 +143715,8 @@ define internal fastcc void @_ZN9arrow_ipc6reader10read_block17hfea846f92870e89e
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !34979
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %37, align 8
-  %.sroa.467.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %18, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.469.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %18, ptr %.sroa.469.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %20, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 -9223372036854775791, ptr %0, align 8
