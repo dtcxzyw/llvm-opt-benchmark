@@ -556,3 +556,6 @@
 [submodule "bench/annoy/annoy"]
 	path = bench/annoy/annoy
 	url = git@github.com:spotify/annoy.git
+[submodule "bench/proxy/proxy"]
+	path = bench/proxy/proxy
+	url = git@github.com:microsoft/proxy.git
