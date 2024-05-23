@@ -550,3 +550,6 @@
 [submodule "bench/tokenizers-rs/tokenizers"]
 	path = bench/tokenizers-rs/tokenizers
 	url = git@github.com:huggingface/tokenizers.git
+[submodule "bench/tinympc/TinyMPC"]
+	path = bench/tinympc/TinyMPC
+	url = git@github.com:TinyMPC/TinyMPC.git
