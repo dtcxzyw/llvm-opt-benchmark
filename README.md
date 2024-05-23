@@ -29,6 +29,7 @@ Currently, this repository contains the following libraries/applications:
 |[c3c](https://github.com/c3lang/c3c)|C|
 |[chibicc](https://github.com/rui314/chibicc)|C|
 |[cjson](https://github.com/DaveGamble/cJSON)|C|
+|[clamav](https://github.com/Cisco-Talos/clamav)|C|
 |[cmake](https://github.com/Kitware/CMake)|C|
 |[coremark](https://github.com/eembc/coremark)|C|
 |[cpython](https://github.com/python/cpython)|C|
@@ -75,12 +76,10 @@ Currently, this repository contains the following libraries/applications:
 |[sqlite](https://github.com/sqlite/sqlite)|C|
 |[stb](https://github.com/nothings/stb)|C|
 |[sundials](https://github.com/LLNL/sundials)|C|
-|[tokenizers](https://github.com/huggingface/tokenizers)|C|
 |[wireshark](https://github.com/wireshark/wireshark)|C|
 |[wolfssl](https://github.com/wolfSSL/wolfssl)|C|
 |[yosys](https://github.com/YosysHQ/yosys)|C|
 |[yyjson](https://github.com/ibireme/yyjson)|C|
-|[zfp](https://github.com/LLNL/zfp)|C|
 |[zlib](https://github.com/madler/zlib)|C|
 |[zstd](https://github.com/facebook/zstd)|C|
 |[abseil-cpp](https://github.com/abseil/abseil-cpp)|C++|
@@ -174,9 +173,9 @@ Currently, this repository contains the following libraries/applications:
 |[yaml-cpp](https://github.com/jbeder/yaml-cpp)|C++|
 |[yoga](https://github.com/facebook/yoga)|C++|
 |[z3](https://github.com/Z3Prover/z3)|C++|
+|[zfp](https://github.com/LLNL/zfp)|C++|
 |[zxing-cpp](https://github.com/zxing-cpp/zxing-cpp)|C++|
 |[actix-web](https://github.com/actix/actix-web)|Rust|
-|[clamav](https://github.com/Cisco-Talos/clamav)|Rust|
 |[clap](https://github.com/clap-rs/clap)|Rust|
 |[coreutils](https://github.com/uutils/coreutils)|Rust|
 |[delta-rs](https://github.com/delta-io/delta-rs)|Rust|
@@ -206,6 +205,7 @@ Currently, this repository contains the following libraries/applications:
 |[smol](https://github.com/smol-rs/smol)|Rust|
 |[softposit-rs](https://gitlab.com/burrbull/softposit-rs)|Rust|
 |[syn](https://github.com/dtolnay/syn)|Rust|
+|[tokenizers](https://github.com/huggingface/tokenizers)|Rust|
 |[tokio](https://github.com/tokio-rs/tokio)|Rust|
 |[tree-sitter](https://github.com/tree-sitter/tree-sitter)|Rust|
 |[typst](https://github.com/typst/typst)|Rust|

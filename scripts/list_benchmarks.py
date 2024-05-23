@@ -31,11 +31,10 @@ def guess_language(dir):
             continue
         url = get_url(subdir, os.path.join(dir, subdir))
         name = subdir.lower()
-        if os.path.exists(os.path.join(dir, subdir, 'Cargo.toml')):
-            return (name, 'Rust', url)
         
         count_c = 0
         count_cpp = 0
+        count_rs = 0
         for r,ds,fs in os.walk(os.path.join(dir, subdir)):
             if any(key in r for key in filters):
                 continue
@@ -45,9 +44,13 @@ def guess_language(dir):
                     continue
                 if f.endswith('.c'):
                     count_c += os.stat(path).st_size
-                elif f.endswith('.cpp') or f.endswith('.cc') or f.endswith('.cxx'):
+                elif f.endswith('.cpp') or f.endswith('.cc') or f.endswith('.cxx') or f.endswith('.hpp') or f.endswith('.hxx'):
                     count_cpp += os.stat(path).st_size
-        if count_cpp > count_c:
+                elif f.endswith('.rs'):
+                    count_rs += os.stat(path).st_size
+        if count_rs >= count_cpp and count_rs >= count_c:
+            return (name, 'Rust', url)
+        if count_cpp >= count_rs and count_cpp >= count_c:
             return (name, 'C++', url)
         return (name, 'C', url)
 
