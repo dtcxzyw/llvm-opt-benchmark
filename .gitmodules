@@ -553,3 +553,6 @@
 [submodule "bench/tinympc/TinyMPC"]
 	path = bench/tinympc/TinyMPC
 	url = git@github.com:TinyMPC/TinyMPC.git
+[submodule "bench/annoy/annoy"]
+	path = bench/annoy/annoy
+	url = git@github.com:spotify/annoy.git
