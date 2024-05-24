@@ -588,7 +588,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit67:       ; preds = %while.body, %if.the
 
 if.end22:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit67
   %mul = mul nsw i32 %value.078, %conv24
-  %add25 = add nsw i32 %call19, %mul
+  %add25 = add nuw nsw i32 %call19, %mul
   %cmp26.not = icmp sgt i32 %add25, %value.078
   br i1 %cmp26.not, label %if.end28, label %return
 

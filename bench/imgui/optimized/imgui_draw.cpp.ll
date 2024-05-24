@@ -3680,7 +3680,7 @@ if.then399:                                       ; preds = %if.end93
   %130 = load <2 x float>, ptr %arrayidx433, align 4
   %131 = fadd <2 x float> %129, %130
   %mul440 = shl nsw i32 %sub, 2
-  %idxprom442 = sext i32 %mul440 to i64
+  %idxprom442 = zext nneg i32 %mul440 to i64
   %arrayidx443 = getelementptr inbounds %struct.ImVec2, ptr %add.ptr, i64 %idxprom442
   store <2 x float> %131, ptr %arrayidx443, align 4
   %132 = load <2 x float>, ptr %arrayidx92, align 4
@@ -3688,7 +3688,7 @@ if.then399:                                       ; preds = %if.end93
   %134 = load <2 x float>, ptr %arrayidx433, align 4
   %135 = fadd <2 x float> %133, %134
   %add453 = or disjoint i32 %mul440, 1
-  %idxprom454 = sext i32 %add453 to i64
+  %idxprom454 = zext nneg i32 %add453 to i64
   %arrayidx455 = getelementptr inbounds %struct.ImVec2, ptr %add.ptr, i64 %idxprom454
   store <2 x float> %135, ptr %arrayidx455, align 4
   %136 = load <2 x float>, ptr %arrayidx92, align 4
@@ -3696,7 +3696,7 @@ if.then399:                                       ; preds = %if.end93
   %138 = load <2 x float>, ptr %arrayidx433, align 4
   %139 = fsub <2 x float> %138, %137
   %add465 = or disjoint i32 %mul440, 2
-  %idxprom466 = sext i32 %add465 to i64
+  %idxprom466 = zext nneg i32 %add465 to i64
   %arrayidx467 = getelementptr inbounds %struct.ImVec2, ptr %add.ptr, i64 %idxprom466
   store <2 x float> %139, ptr %arrayidx467, align 4
   %140 = load <2 x float>, ptr %arrayidx92, align 4
@@ -3704,7 +3704,7 @@ if.then399:                                       ; preds = %if.end93
   %142 = load <2 x float>, ptr %arrayidx433, align 4
   %143 = fsub <2 x float> %142, %141
   %add478 = or disjoint i32 %mul440, 3
-  %idxprom479 = sext i32 %add478 to i64
+  %idxprom479 = zext nneg i32 %add478 to i64
   %arrayidx480 = getelementptr inbounds %struct.ImVec2, ptr %add.ptr, i64 %idxprom479
   store <2 x float> %143, ptr %arrayidx480, align 4
   br label %for.body487.lr.ph

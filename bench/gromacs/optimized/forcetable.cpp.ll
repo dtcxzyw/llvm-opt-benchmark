@@ -514,22 +514,22 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   %143 = getelementptr inbounds float, ptr %51, i64 %142
   %144 = load float, ptr %143, align 4
   %145 = shl nsw i32 %53, 2
-  %146 = sext i32 %145 to i64
+  %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds float, ptr %50, i64 %146
   store float %144, ptr %147, align 4
   %148 = fneg float %144
   %149 = or disjoint i32 %145, 1
-  %150 = sext i32 %149 to i64
+  %150 = zext nneg i32 %149 to i64
   %151 = getelementptr inbounds float, ptr %50, i64 %150
   store float %148, ptr %151, align 4
   %152 = getelementptr inbounds float, ptr %52, i64 %142
   %153 = load float, ptr %152, align 4
   %154 = or disjoint i32 %145, 2
-  %155 = sext i32 %154 to i64
+  %155 = zext nneg i32 %154 to i64
   %156 = getelementptr inbounds float, ptr %50, i64 %155
   store float %153, ptr %156, align 4
   %157 = or disjoint i32 %145, 3
-  %158 = sext i32 %157 to i64
+  %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds float, ptr %50, i64 %158
   store float 0.000000e+00, ptr %159, align 4
   br label %160

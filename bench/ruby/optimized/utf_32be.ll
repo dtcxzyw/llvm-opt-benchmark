@@ -110,7 +110,7 @@ define internal range(i32 0, 2) i32 @utf32be_is_mbc_newline(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf32be_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 0, -2147483648) i32 @utf32be_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = getelementptr inbounds i8, ptr %0, i64 1

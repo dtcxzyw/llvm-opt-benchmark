@@ -2918,7 +2918,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
 
 1356:                                             ; preds = %1350
   %1357 = mul nsw i32 %731, %1348
-  %1358 = sext i32 %1357 to i64
+  %1358 = zext nneg i32 %1357 to i64
   %1359 = getelementptr inbounds i32, ptr %1272, i64 %1358
   %1360 = zext nneg i32 %1344 to i64
   %1361 = getelementptr inbounds i32, ptr %1359, i64 %1360

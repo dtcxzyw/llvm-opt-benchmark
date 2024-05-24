@@ -1142,33 +1142,27 @@ define void @Fxch_ManSCHashTablesInit(ptr noundef %0) local_unnamed_addr #2 {
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %6
 
-6:                                                ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.01620 = phi i32 [ 0, %.lr.ph ], [ %16, %13 ]
+6:                                                ; preds = %.lr.ph, %6
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
+  %.01620 = phi i32 [ 0, %.lr.ph ], [ %14, %6 ]
   %7 = getelementptr %struct.Vec_Int_t_, ptr %.val18, i64 %indvars.iv, i32 1
   %.val19 = load i32, ptr %7, align 4
   %8 = icmp slt i32 %.val19, 4
-  br i1 %8, label %13, label %9
-
-9:                                                ; preds = %6
-  %10 = add nsw i32 %.val19, -1
-  %11 = mul i32 %10, %.val19
-  %12 = sdiv i32 %11, 2
-  br label %13
-
-13:                                               ; preds = %6, %9
-  %14 = phi i32 [ %12, %9 ], [ %.val19, %6 ]
-  %15 = add i32 %.01620, 1
-  %16 = add i32 %15, %14
+  %9 = add nsw i32 %.val19, -1
+  %10 = mul i32 %9, %.val19
+  %11 = lshr i32 %10, 1
+  %12 = select i1 %8, i32 %.val19, i32 %11
+  %13 = add i32 %.01620, 1
+  %14 = add i32 %13, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !16
 
-.critedge:                                        ; preds = %13, %1
-  %.016.lcssa = phi i32 [ 0, %1 ], [ %16, %13 ]
-  %17 = tail call ptr @Fxch_SCHashTableCreate(ptr noundef nonnull %0, i32 noundef %.016.lcssa) #19
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8
+.critedge:                                        ; preds = %6, %1
+  %.016.lcssa = phi i32 [ 0, %1 ], [ %14, %6 ]
+  %15 = tail call ptr @Fxch_SCHashTableCreate(ptr noundef nonnull %0, i32 noundef %.016.lcssa) #19
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %15, ptr %16, align 8
   ret void
 }
 

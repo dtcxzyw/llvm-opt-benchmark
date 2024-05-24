@@ -10504,7 +10504,7 @@ define internal noundef i32 @_v41_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   %89 = load i16, ptr %88, align 2
   %90 = zext i16 %89 to i32
   %91 = udiv i32 %.06271.i, %90
-  %92 = zext i32 %91 to i64
+  %92 = zext nneg i32 %91 to i64
   %93 = getelementptr inbounds %struct.JOB_RES_SOCKET_t, ptr %86, i64 %92
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8

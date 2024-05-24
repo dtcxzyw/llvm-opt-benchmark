@@ -539,7 +539,7 @@ _ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i: ; p
 if.then.i:                                        ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i
   %cmp.i5.i = icmp slt i32 %17, 32768
   %mul.i.i = shl nsw i32 %17, 3
-  %add.i.i = add i32 %mul.i.i, 44
+  %add.i.i = add nsw i32 %mul.i.i, 44
   %18 = mul i32 %17, 12
   %add2.i.i = add i32 %18, -131028
   %retval.0.in.i.i = select i1 %cmp.i5.i, i32 %add.i.i, i32 %add2.i.i
@@ -621,7 +621,7 @@ _ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i24: ;
 if.then.i29:                                      ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i24
   %cmp.i5.i33 = icmp slt i32 %37, 32768
   %mul.i.i34 = shl nsw i32 %37, 3
-  %add.i.i35 = add i32 %mul.i.i34, 44
+  %add.i.i35 = add nsw i32 %mul.i.i34, 44
   %38 = mul i32 %37, 12
   %add2.i.i36 = add i32 %38, -131028
   %retval.0.in.i.i37 = select i1 %cmp.i5.i33, i32 %add.i.i35, i32 %add2.i.i36
@@ -1531,7 +1531,7 @@ if.then.i:                                        ; preds = %_ZNK4mold3elf6Symbo
   %26 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i43)
   %cmp.i5.i = icmp slt i32 %23, 32768
   %mul.i.i = shl nsw i32 %23, 3
-  %add.i.i = add i32 %mul.i.i, 44
+  %add.i.i = add nsw i32 %mul.i.i, 44
   %27 = mul i32 %23, 12
   %add2.i.i = add i32 %27, -131028
   %retval.0.in.i.i = select i1 %cmp.i5.i, i32 %add.i.i, i32 %add2.i.i

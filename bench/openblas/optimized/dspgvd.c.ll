@@ -158,7 +158,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %95 = fcmp ole double %94, %70
   %96 = select i1 %95, double %70, double %94
   %97 = fptosi double %96 to i32
-  %98 = sitofp i32 %69 to double
+  %98 = uitofp nneg i32 %69 to double
   %99 = load i32, ptr %11, align 4, !tbaa !3
   %100 = sitofp i32 %99 to double
   %101 = fcmp oge double %98, %100

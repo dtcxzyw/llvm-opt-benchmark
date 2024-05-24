@@ -443,14 +443,14 @@ do_range_limit.exit32._crit_edge:                 ; preds = %do_range_limit.exit
   %39 = phi i64 [ %.pre, %do_range_limit.exit32._crit_edge ], [ %36, %do_range_limit.exit32.thread58 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = icmp slt i64 %39, 0
-  %.pre103.pre = load i64, ptr %40, align 8
+  %.pre104.pre = load i64, ptr %40, align 8
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %38
   %.neg.i35 = xor i64 %39, -1
   %43 = udiv i64 %.neg.i35, 60
   %.neg24.i36 = xor i64 %43, -1
-  %44 = add i64 %.pre103.pre, %.neg24.i36
+  %44 = add i64 %.pre104.pre, %.neg24.i36
   store i64 %44, ptr %40, align 8
   %45 = mul nuw nsw i64 %43, 60
   %46 = add nsw i64 %39, 60
@@ -459,7 +459,7 @@ do_range_limit.exit32._crit_edge:                 ; preds = %do_range_limit.exit
   br label %48
 
 48:                                               ; preds = %42, %38
-  %.pre103 = phi i64 [ %44, %42 ], [ %.pre103.pre, %38 ]
+  %.pre104 = phi i64 [ %44, %42 ], [ %.pre104.pre, %38 ]
   %49 = phi i64 [ %47, %42 ], [ %39, %38 ]
   %.fr.i34 = freeze i64 %49
   %.not.i33 = icmp slt i64 %.fr.i34, 60
@@ -467,14 +467,14 @@ do_range_limit.exit32._crit_edge:                 ; preds = %do_range_limit.exit
 
 50:                                               ; preds = %48
   %51 = udiv i64 %.fr.i34, 60
-  %52 = add nsw i64 %.pre103, %51
+  %52 = add nsw i64 %.pre104, %51
   store i64 %52, ptr %40, align 8
   %53 = urem i64 %.fr.i34, 60
   store i64 %53, ptr %24, align 8
   br label %do_range_limit.exit37
 
 do_range_limit.exit37:                            ; preds = %48, %50
-  %54 = phi i64 [ %.pre103, %48 ], [ %52, %50 ]
+  %54 = phi i64 [ %.pre104, %48 ], [ %52, %50 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 16
   %56 = icmp slt i64 %54, 0
   br i1 %56, label %57, label %64
@@ -568,251 +568,251 @@ do_range_limit.exit47:                            ; preds = %do_range_limit.exit
   %100 = mul nsw i64 %99, 10000
   %101 = add nsw i64 %100, 14780
   %102 = sdiv i64 %101, 3652425
-  %.neg29.i = mul nsw i64 %102, -365
-  %.neg30.i = sdiv i64 %101, -14609700
-  %.neg.neg.i = sdiv i64 %101, 365242500
-  %.neg33.i = sdiv i64 %101, -1460970000
-  %.neg31.i = add i64 %.neg30.i, %99
-  %.neg32.i = add i64 %.neg31.i, %.neg.neg.i
-  %.neg34.i = add i64 %.neg32.i, %.neg33.i
-  %103 = add i64 %.neg34.i, %.neg29.i
-  %104 = icmp slt i64 %103, 0
-  br i1 %104, label %105, label %108
+  %103 = lshr i64 %102, 2
+  %104 = udiv i64 %102, 100
+  %105 = udiv i64 %102, 400
+  %.neg38.i = mul nsw i64 %102, -365
+  %.neg40.i = sub nsw i64 %99, %103
+  %.neg41.i = add nsw i64 %.neg40.i, %.neg38.i
+  %.neg42.i = add i64 %.neg41.i, %104
+  %106 = sub i64 %.neg42.i, %105
+  %107 = icmp slt i64 %106, 0
+  br i1 %107, label %108, label %111
 
-105:                                              ; preds = %98
-  %106 = add nsw i64 %102, -1
-  %.neg36.i = mul nsw i64 %106, -365
-  %.neg37.i = sdiv i64 %106, -4
-  %.neg.neg35.i = sdiv i64 %106, 100
-  %.neg40.i = sdiv i64 %106, -400
-  %.neg38.i = add i64 %.neg37.i, %99
-  %.neg39.i = add i64 %.neg38.i, %.neg36.i
-  %.neg41.i = add i64 %.neg39.i, %.neg.neg35.i
-  %107 = add i64 %.neg41.i, %.neg40.i
-  br label %108
+108:                                              ; preds = %98
+  %109 = add nsw i64 %102, -1
+  %.neg29.i = mul nsw i64 %109, -365
+  %.neg30.i = sdiv i64 %109, -4
+  %.neg.neg.i = sdiv i64 %109, 100
+  %.neg33.i = sdiv i64 %109, -400
+  %.neg31.i = add nsw i64 %.neg30.i, %99
+  %.neg32.i = add i64 %.neg31.i, %.neg29.i
+  %.neg34.i = add i64 %.neg32.i, %.neg.neg.i
+  %110 = add i64 %.neg34.i, %.neg33.i
+  br label %111
 
-108:                                              ; preds = %105, %98
-  %.026.i = phi i64 [ %107, %105 ], [ %103, %98 ]
-  %.0.i = phi i64 [ %106, %105 ], [ %102, %98 ]
-  %109 = mul nsw i64 %.026.i, 100
-  %110 = add nsw i64 %109, 52
-  %111 = sdiv i64 %110, 3060
-  %112 = add nsw i64 %111, 2
-  %113 = srem i64 %112, 12
-  %114 = add nsw i64 %113, 1
-  %115 = sdiv i64 %112, 12
-  %116 = add nsw i64 %115, %.0.i
-  %117 = mul nsw i64 %111, 306
-  %118 = add nsw i64 %117, 5
-  %.neg.i48 = sdiv i64 %118, -10
-  %119 = add i64 %.026.i, 1
-  %120 = add i64 %119, %.neg.i48
-  store i64 %116, ptr %0, align 8
-  store i64 %114, ptr %71, align 8
-  store i64 %120, ptr %95, align 8
+111:                                              ; preds = %108, %98
+  %.026.i = phi i64 [ %110, %108 ], [ %106, %98 ]
+  %.0.i = phi i64 [ %109, %108 ], [ %102, %98 ]
+  %112 = mul nsw i64 %.026.i, 100
+  %113 = add nsw i64 %112, 52
+  %114 = sdiv i64 %113, 3060
+  %115 = add nsw i64 %114, 2
+  %116 = srem i64 %115, 12
+  %117 = add nsw i64 %116, 1
+  %118 = sdiv i64 %115, 12
+  %119 = add nsw i64 %118, %.0.i
+  %120 = mul nsw i64 %114, 306
+  %121 = add nsw i64 %120, 5
+  %.neg.i48 = sdiv i64 %121, -10
+  %122 = add i64 %.026.i, 1
+  %123 = add i64 %122, %.neg.i48
+  store i64 %119, ptr %0, align 8
+  store i64 %117, ptr %71, align 8
+  store i64 %123, ptr %95, align 8
   br label %magic_date_calc.exit
 
-magic_date_calc.exit:                             ; preds = %108, %94, %92, %do_range_limit.exit47
-  %.promoted75 = phi i64 [ %114, %108 ], [ 1, %94 ], [ %89, %92 ], [ %89, %do_range_limit.exit47 ]
-  %.promoted74 = phi i64 [ %116, %108 ], [ 1970, %94 ], [ 1970, %92 ], [ %90, %do_range_limit.exit47 ]
-  %121 = getelementptr inbounds i8, ptr %0, i64 16
-  %.promoted73 = load i64, ptr %121, align 8
-  br label %122
+magic_date_calc.exit:                             ; preds = %111, %94, %92, %do_range_limit.exit47
+  %.promoted76 = phi i64 [ %117, %111 ], [ 1, %94 ], [ %89, %92 ], [ %89, %do_range_limit.exit47 ]
+  %.promoted75 = phi i64 [ %119, %111 ], [ 1970, %94 ], [ 1970, %92 ], [ %90, %do_range_limit.exit47 ]
+  %124 = getelementptr inbounds i8, ptr %0, i64 16
+  %.promoted74 = load i64, ptr %124, align 8
+  br label %125
 
-122:                                              ; preds = %do_range_limit_days.exit, %magic_date_calc.exit
-  %123 = phi i64 [ %198, %do_range_limit_days.exit ], [ %.promoted75, %magic_date_calc.exit ]
-  %.promoted77 = phi i64 [ %.promoted78, %do_range_limit_days.exit ], [ %.promoted75, %magic_date_calc.exit ]
-  %124 = phi i64 [ %151, %do_range_limit_days.exit ], [ %.promoted74, %magic_date_calc.exit ]
-  %125 = phi i64 [ %199, %do_range_limit_days.exit ], [ %.promoted73, %magic_date_calc.exit ]
-  %.fr.i50 = freeze i64 %125
-  %126 = add i64 %.fr.i50, -146097
-  %or.cond.i = icmp ult i64 %126, -292193
-  br i1 %or.cond.i, label %127, label %132
+125:                                              ; preds = %do_range_limit_days.exit, %magic_date_calc.exit
+  %126 = phi i64 [ %201, %do_range_limit_days.exit ], [ %.promoted76, %magic_date_calc.exit ]
+  %.promoted78 = phi i64 [ %.promoted79, %do_range_limit_days.exit ], [ %.promoted76, %magic_date_calc.exit ]
+  %127 = phi i64 [ %154, %do_range_limit_days.exit ], [ %.promoted75, %magic_date_calc.exit ]
+  %128 = phi i64 [ %202, %do_range_limit_days.exit ], [ %.promoted74, %magic_date_calc.exit ]
+  %.fr.i50 = freeze i64 %128
+  %129 = add i64 %.fr.i50, -146097
+  %or.cond.i = icmp ult i64 %129, -292193
+  br i1 %or.cond.i, label %130, label %135
 
-127:                                              ; preds = %122
-  %128 = sdiv i64 %.fr.i50, 146097
-  %129 = mul nsw i64 %128, 400
-  %130 = add nsw i64 %124, %129
-  store i64 %130, ptr %0, align 8
-  %131 = srem i64 %.fr.i50, 146097
-  store i64 %131, ptr %121, align 8
-  br label %132
+130:                                              ; preds = %125
+  %131 = sdiv i64 %.fr.i50, 146097
+  %132 = mul nsw i64 %131, 400
+  %133 = add nsw i64 %127, %132
+  store i64 %133, ptr %0, align 8
+  %134 = srem i64 %.fr.i50, 146097
+  store i64 %134, ptr %124, align 8
+  br label %135
 
-132:                                              ; preds = %127, %122
-  %133 = phi i64 [ %130, %127 ], [ %124, %122 ]
-  %134 = phi i64 [ %131, %127 ], [ %.fr.i50, %122 ]
-  %135 = icmp slt i64 %.promoted77, 1
-  br i1 %135, label %136, label %143
+135:                                              ; preds = %130, %125
+  %136 = phi i64 [ %133, %130 ], [ %127, %125 ]
+  %137 = phi i64 [ %134, %130 ], [ %.fr.i50, %125 ]
+  %138 = icmp slt i64 %.promoted78, 1
+  br i1 %138, label %139, label %146
 
-136:                                              ; preds = %132
-  %137 = sub i64 0, %.promoted77
-  %138 = sdiv i64 %137, 12
-  %.neg24.i.i = xor i64 %138, -1
-  %139 = add i64 %133, %.neg24.i.i
-  store i64 %139, ptr %0, align 8
-  %140 = mul nsw i64 %138, 12
-  %141 = add nsw i64 %.promoted77, 12
-  %142 = add i64 %141, %140
-  store i64 %142, ptr %71, align 8
-  br label %143
+139:                                              ; preds = %135
+  %140 = sub i64 0, %.promoted78
+  %141 = sdiv i64 %140, 12
+  %.neg24.i.i = xor i64 %141, -1
+  %142 = add i64 %136, %.neg24.i.i
+  store i64 %142, ptr %0, align 8
+  %143 = mul nsw i64 %141, 12
+  %144 = add nsw i64 %.promoted78, 12
+  %145 = add i64 %144, %143
+  store i64 %145, ptr %71, align 8
+  br label %146
 
-143:                                              ; preds = %136, %132
-  %144 = phi i64 [ %142, %136 ], [ %123, %132 ]
-  %.promoted76 = phi i64 [ %142, %136 ], [ %.promoted77, %132 ]
-  %145 = phi i64 [ %139, %136 ], [ %133, %132 ]
-  %.fr.i.i = freeze i64 %.promoted76
+146:                                              ; preds = %139, %135
+  %147 = phi i64 [ %145, %139 ], [ %126, %135 ]
+  %.promoted77 = phi i64 [ %145, %139 ], [ %.promoted78, %135 ]
+  %148 = phi i64 [ %142, %139 ], [ %136, %135 ]
+  %.fr.i.i = freeze i64 %.promoted77
   %.not.i.i = icmp slt i64 %.fr.i.i, 13
-  br i1 %.not.i.i, label %do_range_limit.exit.i, label %146
+  br i1 %.not.i.i, label %do_range_limit.exit.i, label %149
 
-146:                                              ; preds = %143
-  %147 = udiv i64 %.fr.i.i, 12
-  %148 = add nsw i64 %145, %147
-  store i64 %148, ptr %0, align 8
-  %149 = urem i64 %.fr.i.i, 12
-  store i64 %149, ptr %71, align 8
+149:                                              ; preds = %146
+  %150 = udiv i64 %.fr.i.i, 12
+  %151 = add nsw i64 %148, %150
+  store i64 %151, ptr %0, align 8
+  %152 = urem i64 %.fr.i.i, 12
+  store i64 %152, ptr %71, align 8
   br label %do_range_limit.exit.i
 
-do_range_limit.exit.i:                            ; preds = %146, %143
-  %150 = phi i64 [ %144, %143 ], [ %149, %146 ]
-  %.promoted83 = phi i64 [ %.fr.i.i, %143 ], [ %149, %146 ]
-  %151 = phi i64 [ %145, %143 ], [ %148, %146 ]
-  %152 = and i64 %151, 3
-  %153 = icmp eq i64 %152, 0
-  br i1 %153, label %154, label %160
+do_range_limit.exit.i:                            ; preds = %149, %146
+  %153 = phi i64 [ %147, %146 ], [ %152, %149 ]
+  %.promoted84 = phi i64 [ %.fr.i.i, %146 ], [ %152, %149 ]
+  %154 = phi i64 [ %148, %146 ], [ %151, %149 ]
+  %155 = and i64 %154, 3
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %157, label %163
 
-154:                                              ; preds = %do_range_limit.exit.i
-  %155 = srem i64 %151, 100
-  %.not.i49 = icmp eq i64 %155, 0
-  br i1 %.not.i49, label %156, label %160
+157:                                              ; preds = %do_range_limit.exit.i
+  %158 = srem i64 %154, 100
+  %.not.i49 = icmp eq i64 %158, 0
+  br i1 %.not.i49, label %159, label %163
 
-156:                                              ; preds = %154
-  %157 = srem i64 %151, 400
-  %158 = icmp eq i64 %157, 0
-  %159 = select i1 %158, ptr @days_in_month_leap, ptr @days_in_month
-  br label %160
+159:                                              ; preds = %157
+  %160 = srem i64 %154, 400
+  %161 = icmp eq i64 %160, 0
+  %162 = select i1 %161, ptr @days_in_month_leap, ptr @days_in_month
+  br label %163
 
-160:                                              ; preds = %156, %154, %do_range_limit.exit.i
-  %161 = phi ptr [ @days_in_month, %do_range_limit.exit.i ], [ @days_in_month_leap, %154 ], [ %159, %156 ]
-  %162 = icmp slt i64 %134, 1
-  br i1 %162, label %.lr.ph.i.preheader, label %.lr.ph68.preheader
+163:                                              ; preds = %159, %157, %do_range_limit.exit.i
+  %164 = phi ptr [ @days_in_month, %do_range_limit.exit.i ], [ @days_in_month_leap, %157 ], [ %162, %159 ]
+  %165 = icmp slt i64 %137, 1
+  br i1 %165, label %.lr.ph.i.preheader, label %.lr.ph69.preheader
 
-.lr.ph.i.preheader:                               ; preds = %160
-  %163 = icmp sgt i64 %.promoted83, 0
-  br i1 %163, label %.lr.ph, label %do_range_limit_days.exit.thread
+.lr.ph.i.preheader:                               ; preds = %163
+  %166 = icmp sgt i64 %.promoted84, 0
+  br i1 %166, label %.lr.ph, label %do_range_limit_days.exit.thread
 
 .lr.ph.i:                                         ; preds = %.thread50.i
-  %164 = icmp ugt i64 %165, 1
-  br i1 %164, label %.lr.ph, label %do_range_limit_days.exit
+  %167 = icmp ugt i64 %168, 1
+  br i1 %167, label %.lr.ph, label %do_range_limit_days.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %165 = phi i64 [ %168, %.lr.ph.i ], [ %.promoted83, %.lr.ph.i.preheader ]
-  %166 = phi i64 [ %179, %.lr.ph.i ], [ %134, %.lr.ph.i.preheader ]
-  %167 = icmp eq i64 %165, 1
-  %168 = add nsw i64 %165, -1
-  %169 = sext i1 %167 to i64
-  %.040.i = add nsw i64 %151, %169
-  %.039.i = select i1 %167, i64 12, i64 %168
+  %168 = phi i64 [ %171, %.lr.ph.i ], [ %.promoted84, %.lr.ph.i.preheader ]
+  %169 = phi i64 [ %182, %.lr.ph.i ], [ %137, %.lr.ph.i.preheader ]
+  %170 = icmp eq i64 %168, 1
+  %171 = add nsw i64 %168, -1
+  %172 = sext i1 %170 to i64
+  %.040.i = add nsw i64 %154, %172
+  %.039.i = select i1 %170, i64 12, i64 %171
   %.040.fr.i = freeze i64 %.040.i
-  %170 = and i64 %.040.fr.i, 3
-  %171 = icmp eq i64 %170, 0
-  br i1 %171, label %172, label %.thread50.i
+  %173 = and i64 %.040.fr.i, 3
+  %174 = icmp eq i64 %173, 0
+  br i1 %174, label %175, label %.thread50.i
 
-172:                                              ; preds = %.lr.ph
-  %173 = srem i64 %.040.fr.i, 100
-  %.not48.i = icmp ne i64 %173, 0
-  %174 = srem i64 %.040.fr.i, 400
-  %175 = icmp eq i64 %174, 0
-  %or.cond54.i = or i1 %.not48.i, %175
+175:                                              ; preds = %.lr.ph
+  %176 = srem i64 %.040.fr.i, 100
+  %.not48.i = icmp ne i64 %176, 0
+  %177 = srem i64 %.040.fr.i, 400
+  %178 = icmp eq i64 %177, 0
+  %or.cond54.i = or i1 %.not48.i, %178
   %spec.select.i = select i1 %or.cond54.i, ptr @days_in_month_leap, ptr @days_in_month
   br label %.thread50.i
 
-.thread50.i:                                      ; preds = %172, %.lr.ph
-  %176 = phi ptr [ @days_in_month, %.lr.ph ], [ %spec.select.i, %172 ]
-  %.in.i = getelementptr inbounds [13 x i32], ptr %176, i64 0, i64 %.039.i
-  %177 = load i32, ptr %.in.i, align 4
-  %178 = sext i32 %177 to i64
-  %179 = add nsw i64 %166, %178
-  store i64 %179, ptr %121, align 8
-  store i64 %168, ptr %71, align 8
-  %180 = icmp slt i64 %179, 1
-  br i1 %180, label %.lr.ph.i, label %.lr.ph59.preheader.i
+.thread50.i:                                      ; preds = %175, %.lr.ph
+  %179 = phi ptr [ @days_in_month, %.lr.ph ], [ %spec.select.i, %175 ]
+  %.in.i = getelementptr inbounds [13 x i32], ptr %179, i64 0, i64 %.039.i
+  %180 = load i32, ptr %.in.i, align 4
+  %181 = sext i32 %180 to i64
+  %182 = add nsw i64 %169, %181
+  store i64 %182, ptr %124, align 8
+  store i64 %171, ptr %71, align 8
+  %183 = icmp slt i64 %182, 1
+  br i1 %183, label %.lr.ph.i, label %.lr.ph59.preheader.i
 
 .lr.ph59.preheader.i:                             ; preds = %.thread50.i
-  %181 = icmp ult i64 %168, 13
-  br i1 %181, label %.lr.ph68.preheader, label %do_range_limit_days.exit
+  %184 = icmp ult i64 %171, 13
+  br i1 %184, label %.lr.ph69.preheader, label %do_range_limit_days.exit
 
-.lr.ph68.preheader:                               ; preds = %160, %.lr.ph59.preheader.i
-  %.0.lcssa.ph.i110 = phi i32 [ 1, %.lr.ph59.preheader.i ], [ 0, %160 ]
-  %182 = phi i64 [ %179, %.lr.ph59.preheader.i ], [ %134, %160 ]
-  %.promoted81109 = phi i64 [ %168, %.lr.ph59.preheader.i ], [ %.promoted83, %160 ]
-  %183 = phi i64 [ %168, %.lr.ph59.preheader.i ], [ %150, %160 ]
-  %184 = getelementptr inbounds i32, ptr %161, i64 %.promoted81109
-  %185 = load i32, ptr %184, align 4
-  %186 = sext i32 %185 to i64
-  %187 = icmp sgt i64 %182, %186
-  br i1 %187, label %.lr.ph127, label %do_range_limit_days.exit
+.lr.ph69.preheader:                               ; preds = %163, %.lr.ph59.preheader.i
+  %.0.lcssa.ph.i111 = phi i32 [ 1, %.lr.ph59.preheader.i ], [ 0, %163 ]
+  %185 = phi i64 [ %182, %.lr.ph59.preheader.i ], [ %137, %163 ]
+  %.promoted82110 = phi i64 [ %171, %.lr.ph59.preheader.i ], [ %.promoted84, %163 ]
+  %186 = phi i64 [ %171, %.lr.ph59.preheader.i ], [ %153, %163 ]
+  %187 = getelementptr inbounds i32, ptr %164, i64 %.promoted82110
+  %188 = load i32, ptr %187, align 4
+  %189 = sext i32 %188 to i64
+  %190 = icmp sgt i64 %185, %189
+  br i1 %190, label %.lr.ph128, label %do_range_limit_days.exit
 
-.lr.ph68:                                         ; preds = %.lr.ph127
-  %188 = getelementptr inbounds i32, ptr %161, i64 %195
-  %189 = load i32, ptr %188, align 4
-  %190 = sext i32 %189 to i64
-  %191 = icmp sgt i64 %194, %190
-  br i1 %191, label %.lr.ph127, label %do_range_limit_days.exit
+.lr.ph69:                                         ; preds = %.lr.ph128
+  %191 = getelementptr inbounds i32, ptr %164, i64 %198
+  %192 = load i32, ptr %191, align 4
+  %193 = sext i32 %192 to i64
+  %194 = icmp sgt i64 %197, %193
+  br i1 %194, label %.lr.ph128, label %do_range_limit_days.exit
 
-.lr.ph127:                                        ; preds = %.lr.ph68.preheader, %.lr.ph68
-  %192 = phi i64 [ %190, %.lr.ph68 ], [ %186, %.lr.ph68.preheader ]
-  %193 = phi i64 [ %194, %.lr.ph68 ], [ %182, %.lr.ph68.preheader ]
-  %.promoted80126 = phi i64 [ %195, %.lr.ph68 ], [ %.promoted81109, %.lr.ph68.preheader ]
-  %194 = sub nsw i64 %193, %192
-  store i64 %194, ptr %121, align 8
-  %195 = add nsw i64 %.promoted80126, 1
-  store i64 %195, ptr %71, align 8
-  %196 = icmp sgt i64 %194, 0
-  %197 = icmp slt i64 %.promoted80126, 12
-  %or.cond97 = and i1 %196, %197
-  br i1 %or.cond97, label %.lr.ph68, label %do_range_limit_days.exit
+.lr.ph128:                                        ; preds = %.lr.ph69.preheader, %.lr.ph69
+  %195 = phi i64 [ %193, %.lr.ph69 ], [ %189, %.lr.ph69.preheader ]
+  %196 = phi i64 [ %197, %.lr.ph69 ], [ %185, %.lr.ph69.preheader ]
+  %.promoted81127 = phi i64 [ %198, %.lr.ph69 ], [ %.promoted82110, %.lr.ph69.preheader ]
+  %197 = sub nsw i64 %196, %195
+  store i64 %197, ptr %124, align 8
+  %198 = add nsw i64 %.promoted81127, 1
+  store i64 %198, ptr %71, align 8
+  %199 = icmp sgt i64 %197, 0
+  %200 = icmp slt i64 %.promoted81127, 12
+  %or.cond98 = and i1 %199, %200
+  br i1 %or.cond98, label %.lr.ph69, label %do_range_limit_days.exit
 
-do_range_limit_days.exit:                         ; preds = %.lr.ph.i, %.lr.ph68, %.lr.ph127, %.lr.ph68.preheader, %.lr.ph59.preheader.i
-  %198 = phi i64 [ %168, %.lr.ph59.preheader.i ], [ %183, %.lr.ph68.preheader ], [ %195, %.lr.ph127 ], [ %195, %.lr.ph68 ], [ %168, %.lr.ph.i ]
-  %.promoted78 = phi i64 [ %168, %.lr.ph59.preheader.i ], [ %.promoted81109, %.lr.ph68.preheader ], [ %195, %.lr.ph127 ], [ %195, %.lr.ph68 ], [ 0, %.lr.ph.i ]
-  %199 = phi i64 [ %179, %.lr.ph59.preheader.i ], [ %182, %.lr.ph68.preheader ], [ %194, %.lr.ph127 ], [ %194, %.lr.ph68 ], [ %179, %.lr.ph.i ]
-  %.1.lcssa.i = phi i32 [ 1, %.lr.ph59.preheader.i ], [ %.0.lcssa.ph.i110, %.lr.ph68.preheader ], [ 1, %.lr.ph127 ], [ 1, %.lr.ph68 ], [ 1, %.lr.ph.i ]
+do_range_limit_days.exit:                         ; preds = %.lr.ph.i, %.lr.ph69, %.lr.ph128, %.lr.ph69.preheader, %.lr.ph59.preheader.i
+  %201 = phi i64 [ %171, %.lr.ph59.preheader.i ], [ %186, %.lr.ph69.preheader ], [ %198, %.lr.ph128 ], [ %198, %.lr.ph69 ], [ %171, %.lr.ph.i ]
+  %.promoted79 = phi i64 [ %171, %.lr.ph59.preheader.i ], [ %.promoted82110, %.lr.ph69.preheader ], [ %198, %.lr.ph128 ], [ %198, %.lr.ph69 ], [ 0, %.lr.ph.i ]
+  %202 = phi i64 [ %182, %.lr.ph59.preheader.i ], [ %185, %.lr.ph69.preheader ], [ %197, %.lr.ph128 ], [ %197, %.lr.ph69 ], [ %182, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ 1, %.lr.ph59.preheader.i ], [ %.0.lcssa.ph.i111, %.lr.ph69.preheader ], [ 1, %.lr.ph128 ], [ 1, %.lr.ph69 ], [ 1, %.lr.ph.i ]
   %.not27 = icmp eq i32 %.1.lcssa.i, 0
-  br i1 %.not27, label %do_range_limit_days.exit.thread, label %122
+  br i1 %.not27, label %do_range_limit_days.exit.thread, label %125
 
 do_range_limit_days.exit.thread:                  ; preds = %.lr.ph.i.preheader, %do_range_limit_days.exit
-  %200 = phi i64 [ %198, %do_range_limit_days.exit ], [ %150, %.lr.ph.i.preheader ]
-  %201 = icmp slt i64 %200, 1
-  br i1 %201, label %202, label %209
+  %203 = phi i64 [ %201, %do_range_limit_days.exit ], [ %153, %.lr.ph.i.preheader ]
+  %204 = icmp slt i64 %203, 1
+  br i1 %204, label %205, label %212
 
-202:                                              ; preds = %do_range_limit_days.exit.thread
-  %203 = sub i64 0, %200
-  %204 = sdiv i64 %203, 12
-  %.neg24.i54 = xor i64 %204, -1
-  %205 = add i64 %151, %.neg24.i54
-  store i64 %205, ptr %0, align 8
-  %206 = mul nsw i64 %204, 12
-  %207 = add nsw i64 %200, 12
-  %208 = add i64 %207, %206
-  store i64 %208, ptr %71, align 8
-  br label %209
+205:                                              ; preds = %do_range_limit_days.exit.thread
+  %206 = sub i64 0, %203
+  %207 = sdiv i64 %206, 12
+  %.neg24.i54 = xor i64 %207, -1
+  %208 = add i64 %154, %.neg24.i54
+  store i64 %208, ptr %0, align 8
+  %209 = mul nsw i64 %207, 12
+  %210 = add nsw i64 %203, 12
+  %211 = add i64 %210, %209
+  store i64 %211, ptr %71, align 8
+  br label %212
 
-209:                                              ; preds = %202, %do_range_limit_days.exit.thread
-  %210 = phi i64 [ %205, %202 ], [ %151, %do_range_limit_days.exit.thread ]
-  %211 = phi i64 [ %208, %202 ], [ %200, %do_range_limit_days.exit.thread ]
-  %.fr.i52 = freeze i64 %211
+212:                                              ; preds = %205, %do_range_limit_days.exit.thread
+  %213 = phi i64 [ %208, %205 ], [ %154, %do_range_limit_days.exit.thread ]
+  %214 = phi i64 [ %211, %205 ], [ %203, %do_range_limit_days.exit.thread ]
+  %.fr.i52 = freeze i64 %214
   %.not.i51 = icmp slt i64 %.fr.i52, 13
-  br i1 %.not.i51, label %do_range_limit.exit55, label %212
+  br i1 %.not.i51, label %do_range_limit.exit55, label %215
 
-212:                                              ; preds = %209
-  %213 = udiv i64 %.fr.i52, 12
-  %214 = add nsw i64 %210, %213
-  store i64 %214, ptr %0, align 8
-  %215 = urem i64 %.fr.i52, 12
-  store i64 %215, ptr %71, align 8
+215:                                              ; preds = %212
+  %216 = udiv i64 %.fr.i52, 12
+  %217 = add nsw i64 %213, %216
+  store i64 %217, ptr %0, align 8
+  %218 = urem i64 %.fr.i52, 12
+  store i64 %218, ptr %71, align 8
   br label %do_range_limit.exit55
 
-do_range_limit.exit55:                            ; preds = %209, %212
+do_range_limit.exit55:                            ; preds = %212, %215
   ret void
 }
 

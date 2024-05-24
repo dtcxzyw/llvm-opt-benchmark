@@ -63642,7 +63642,7 @@ _ZL21stbi__mul2sizes_validii.exit.thread15.i.i:   ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit12.i.i:          ; preds = %268
   %270 = udiv i32 2147483647, %262
-  %.not.i.i93 = icmp slt i32 %270, %266
+  %.not.i.i93 = icmp ult i32 %270, %266
   br i1 %.not.i.i93, label %271, label %_ZL21stbi__mad3sizes_validiiii.exit.i
 
 271:                                              ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i, %253
@@ -63662,7 +63662,7 @@ _ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i: ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit12.i.i.i:        ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i
   %273 = udiv i32 2147483647, %262
-  %.not.i.i.i94 = icmp slt i32 %273, %266
+  %.not.i.i.i94 = icmp ult i32 %273, %266
   br i1 %.not.i.i.i94, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i, label %_ZL17stbi__malloc_mad3iiii.exit.i
 
 _ZL17stbi__malloc_mad3iiii.exit.i:                ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i
@@ -66471,13 +66471,13 @@ define internal fastcc noundef ptr @_ZL14stbi__pic_loadP13stbi__contextPiS1_S1_i
   %17 = getelementptr inbounds i8, ptr %0, i64 184
   %18 = getelementptr inbounds i8, ptr %0, i64 57
   %.pre = load ptr, ptr %9, align 8
-  %.pre49 = load ptr, ptr %10, align 8
+  %.pre48 = load ptr, ptr %10, align 8
   br label %19
 
 19:                                               ; preds = %5, %_ZL10stbi__get8P13stbi__context.exit
-  %20 = phi ptr [ %.pre49, %5 ], [ %45, %_ZL10stbi__get8P13stbi__context.exit ]
+  %20 = phi ptr [ %.pre48, %5 ], [ %45, %_ZL10stbi__get8P13stbi__context.exit ]
   %21 = phi ptr [ %.pre, %5 ], [ %46, %_ZL10stbi__get8P13stbi__context.exit ]
-  %.03834 = phi i32 [ 0, %5 ], [ %47, %_ZL10stbi__get8P13stbi__context.exit ]
+  %.03833 = phi i32 [ 0, %5 ], [ %47, %_ZL10stbi__get8P13stbi__context.exit ]
   %22 = icmp ult ptr %21, %20
   br i1 %22, label %23, label %25
 
@@ -66531,7 +66531,7 @@ _ZL10stbi__get8P13stbi__context.exit.sink.split:  ; preds = %_ZL19stbi__refill_b
 _ZL10stbi__get8P13stbi__context.exit:             ; preds = %_ZL10stbi__get8P13stbi__context.exit.sink.split, %25
   %45 = phi ptr [ %20, %25 ], [ %.ph, %_ZL10stbi__get8P13stbi__context.exit.sink.split ]
   %46 = phi ptr [ %21, %25 ], [ %.sink, %_ZL10stbi__get8P13stbi__context.exit.sink.split ]
-  %47 = add nuw nsw i32 %.03834, 1
+  %47 = add nuw nsw i32 %.03833, 1
   %exitcond.not = icmp eq i32 %47, 92
   br i1 %exitcond.not, label %48, label %19, !llvm.loop !1753
 
@@ -66559,8 +66559,8 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %_ZL10stbi__get8P13s
 _ZL12stbi__at_eofP13stbi__context.exit:           ; preds = %48, %57
   %60 = load ptr, ptr %9, align 8
   %61 = load ptr, ptr %10, align 8
-  %.not17 = icmp ult ptr %60, %61
-  br i1 %.not17, label %_ZL12stbi__at_eofP13stbi__context.exit.thread, label %_ZL12stbi__at_eofP13stbi__context.exit.thread6
+  %.not16 = icmp ult ptr %60, %61
+  br i1 %.not16, label %_ZL12stbi__at_eofP13stbi__context.exit.thread, label %_ZL12stbi__at_eofP13stbi__context.exit.thread6
 
 _ZL12stbi__at_eofP13stbi__context.exit.thread6:   ; preds = %57, %_ZL12stbi__at_eofP13stbi__context.exit
   %62 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
@@ -66615,7 +66615,7 @@ _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %_ZL21stbi__mul2size
   %.not47 = icmp eq ptr %80, null
   br i1 %.not47, label %_ZL17stbi__malloc_mad3iiii.exit.thread, label %82
 
-_ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL17stbi__malloc_mad3iiii.exit
+_ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i, %_ZL17stbi__malloc_mad3iiii.exit
   %81 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.114, ptr %81, align 8
   br label %545
@@ -66910,7 +66910,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i:  ; preds = %_ZL12stbi__at_eofP1
 
 .preheader265.lr.ph.i:                            ; preds = %.cont
   %217 = shl nuw nsw i32 %49, 2
-  %.not19 = icmp eq i32 %49, 0
+  %.not18 = icmp eq i32 %49, 0
   %wide.trip.count334.i = zext nneg i32 %50 to i64
   %wide.trip.count.i = zext nneg i32 %indvars.iv325.i to i64
   br label %.preheader265.i
@@ -66935,21 +66935,21 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i:  ; preds = %_ZL12stbi__at_eofP1
   ]
 
 .preheader263.i:                                  ; preds = %222
-  br i1 %.not19, label %.loopexit259.i, label %.lr.ph290.i
+  br i1 %.not18, label %.loopexit259.i, label %.lr.ph290.i
 
 .lr.ph290.i:                                      ; preds = %.preheader263.i
   %226 = getelementptr inbounds i8, ptr %223, i64 2
   br label %380
 
 .preheader261.i:                                  ; preds = %222
-  br i1 %.not19, label %.loopexit259.i, label %.lr.ph298.i
+  br i1 %.not18, label %.loopexit259.i, label %.lr.ph298.i
 
 .lr.ph298.i:                                      ; preds = %.preheader261.i
   %227 = getelementptr inbounds i8, ptr %223, i64 2
   br label %277
 
 .preheader258.i:                                  ; preds = %222
-  br i1 %.not19, label %.loopexit259.i, label %.lr.ph301.i
+  br i1 %.not18, label %.loopexit259.i, label %.lr.ph301.i
 
 .lr.ph301.i:                                      ; preds = %.preheader258.i
   %228 = getelementptr inbounds i8, ptr %223, i64 2
@@ -73087,37 +73087,37 @@ _ZL18stbi__tga_get_compiiPi.exit:                 ; preds = %242, %238
 
 253:                                              ; preds = %252, %250
   %254 = icmp eq i32 %160, 0
-  br i1 %254, label %_ZL21stbi__mul2sizes_validii.exit12.i, label %_ZL21stbi__mul2sizes_validii.exit.i
+  br i1 %254, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i, label %_ZL21stbi__mul2sizes_validii.exit.i
 
 _ZL21stbi__mul2sizes_validii.exit.i:              ; preds = %253
   %255 = udiv i32 2147483647, %160
   %.not23.i = icmp ult i32 %255, %159
-  br i1 %.not23.i, label %260, label %_ZL21stbi__mul2sizes_validii.exit12.i.thread
+  br i1 %.not23.i, label %260, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.thread
 
-_ZL21stbi__mul2sizes_validii.exit12.i:            ; preds = %253
+_ZL21stbi__mul2sizes_validii.exit.thread15.i:     ; preds = %253
   %256 = mul nuw nsw i32 %160, %159
   %257 = udiv i32 2147483647, %.0194.ph
   %.not.i256 = icmp ult i32 %257, %256
   br i1 %.not.i256, label %260, label %_ZL17stbi__malloc_mad3iiii.exit
 
-_ZL21stbi__mul2sizes_validii.exit12.i.thread:     ; preds = %_ZL21stbi__mul2sizes_validii.exit.i
+_ZL21stbi__mul2sizes_validii.exit.thread15.i.thread: ; preds = %_ZL21stbi__mul2sizes_validii.exit.i
   %258 = mul nuw nsw i32 %160, %159
   %259 = udiv i32 2147483647, %.0194.ph
   %.not.i256108 = icmp ult i32 %259, %258
   br i1 %.not.i256108, label %260, label %_ZL21stbi__mul2sizes_validii.exit.i.i
 
-260:                                              ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.thread, %_ZL21stbi__mul2sizes_validii.exit12.i, %_ZL21stbi__mul2sizes_validii.exit.i
+260:                                              ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.thread, %_ZL21stbi__mul2sizes_validii.exit.thread15.i, %_ZL21stbi__mul2sizes_validii.exit.i
   %261 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.99, ptr %261, align 8
   br label %559
 
-_ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.thread
+_ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.thread
   %262 = udiv i32 2147483647, %160
   %.not23.i.i = icmp ult i32 %262, %159
   br i1 %.not23.i.i, label %_ZL17stbi__malloc_mad3iiii.exit.thread, label %_ZL17stbi__malloc_mad3iiii.exit
 
-_ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit12.i
-  %263 = phi i32 [ %258, %_ZL21stbi__mul2sizes_validii.exit.i.i ], [ %256, %_ZL21stbi__mul2sizes_validii.exit12.i ]
+_ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i
+  %263 = phi i32 [ %258, %_ZL21stbi__mul2sizes_validii.exit.i.i ], [ %256, %_ZL21stbi__mul2sizes_validii.exit.thread15.i ]
   %264 = mul nuw nsw i32 %263, %.0194.ph
   %265 = zext nneg i32 %264 to i64
   %266 = tail call noalias noundef ptr @malloc(i64 noundef %265) #52

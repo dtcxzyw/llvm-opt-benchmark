@@ -120,12 +120,12 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 
 41:                                               ; preds = %39
   %42 = mul nsw i32 %.0476, 10
-  %43 = add nsw i32 %42, %40
+  %43 = add nuw nsw i32 %42, %40
   br label %96
 
 44:                                               ; preds = %39
   %45 = mul nsw i32 %.0484, 10
-  %46 = add nsw i32 %45, %40
+  %46 = add nuw nsw i32 %45, %40
   %47 = or i16 %.0441, 128
   br label %96
 
@@ -809,7 +809,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %spec.store.select18 = select i1 %367, ptr @g_nullstring, ptr %366
   %368 = and i16 %spec.select, 256
   %.not542 = icmp eq i16 %368, 0
-  %369 = sext i32 %.0476 to i64
+  %369 = zext nneg i32 %.0476 to i64
   %370 = select i1 %.not542, i64 -1, i64 %369
   %371 = call i64 @strnlen(ptr noundef nonnull %spec.store.select18, i64 noundef %370)
   br label %372

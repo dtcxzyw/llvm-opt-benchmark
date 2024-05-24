@@ -389,7 +389,7 @@ if.then11.i:                                      ; preds = %for.body6.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end16.i
 
 if.then13.i:                                      ; preds = %if.then11.i
-  %add.i = add nsw i32 %j.019.i, %4
+  %add.i = add nuw nsw i32 %j.019.i, %4
   %idxprom14.i = sext i32 %k.121.i to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %arr, i64 %idxprom14.i
   store i32 %add.i, ptr %arrayidx15.i, align 4
@@ -493,7 +493,7 @@ if.then11:                                        ; preds = %for.body6
   br i1 %cmp12, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %if.then11
-  %add = add nsw i32 %j.019, %4
+  %add = add nuw nsw i32 %j.019, %4
   %idxprom14 = sext i32 %k.121 to i64
   %arrayidx15 = getelementptr inbounds i32, ptr %p, i64 %idxprom14
   store i32 %add, ptr %arrayidx15, align 4
@@ -922,7 +922,7 @@ if.then11.i:                                      ; preds = %for.body6.i
   br i1 %cmp12.i.not, label %if.end16.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then11.i
-  %add.i = add nsw i32 %j.019.i, %4
+  %add.i = add nuw nsw i32 %j.019.i, %4
   %idxprom14.i = sext i32 %k.121.i to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %call1, i64 %idxprom14.i
   store i32 %add.i, ptr %arrayidx15.i, align 4
@@ -1044,7 +1044,7 @@ if.then11.i:                                      ; preds = %for.body6.i
   br i1 %cmp12.i.not, label %if.end16.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then11.i
-  %add.i = add nsw i32 %j.019.i, %4
+  %add.i = add nuw nsw i32 %j.019.i, %4
   %idxprom14.i = sext i32 %k.121.i to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %call1, i64 %idxprom14.i
   store i32 %add.i, ptr %arrayidx15.i, align 4
@@ -1707,7 +1707,7 @@ if.then11.i:                                      ; preds = %for.body6.i
   br i1 %cmp12.i.not, label %if.end16.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then11.i
-  %add.i = add nsw i32 %j.019.i, %4
+  %add.i = add nuw nsw i32 %j.019.i, %4
   %idxprom14.i = sext i32 %k.121.i to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %call1, i64 %idxprom14.i
   store i32 %add.i, ptr %arrayidx15.i, align 4
@@ -1863,7 +1863,7 @@ if.then11.i:                                      ; preds = %for.body6.i
   br i1 %cmp12.i.not, label %if.end16.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then11.i
-  %add.i = add nsw i32 %j.019.i, %4
+  %add.i = add nuw nsw i32 %j.019.i, %4
   %idxprom14.i = sext i32 %k.121.i to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %call1, i64 %idxprom14.i
   store i32 %add.i, ptr %arrayidx15.i, align 4
@@ -2397,7 +2397,7 @@ if.then11.i:                                      ; preds = %for.body6.i
   br i1 %cmp12.i.not, label %if.end16.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then11.i
-  %add.i = add nsw i32 %j.019.i, %4
+  %add.i = add nuw nsw i32 %j.019.i, %4
   %idxprom14.i = sext i32 %k.121.i to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %call1, i64 %idxprom14.i
   store i32 %add.i, ptr %arrayidx15.i, align 4

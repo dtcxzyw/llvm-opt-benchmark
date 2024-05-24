@@ -1349,7 +1349,7 @@ if.else:                                          ; preds = %entry
 
 cond.true:                                        ; preds = %if.else
   %mul1 = mul i32 %val, -31
-  %shr2 = ashr i32 %mul1, 5
+  %shr2 = lshr i32 %mul1, 5
   %sub3 = sub nsw i32 0, %shr2
   br label %cond.end
 

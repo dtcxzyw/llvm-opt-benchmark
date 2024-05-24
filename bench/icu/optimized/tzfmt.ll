@@ -8542,7 +8542,7 @@ if.end15:                                         ; preds = %while.end, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat25parseAbuttingOffsetFieldsERKNS_13UnicodeStringEiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %parsedLen) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -2147483648, 86399001) i32 @_ZNK6icu_7514TimeZoneFormat25parseAbuttingOffsetFieldsERKNS_13UnicodeStringEiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %parsedLen) local_unnamed_addr #1 align 2 {
 entry:
   %digits = alloca [6 x i32], align 16
   %parsed = alloca [6 x i32], align 16

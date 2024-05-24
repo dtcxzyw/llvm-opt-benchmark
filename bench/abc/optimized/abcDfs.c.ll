@@ -8015,8 +8015,8 @@ define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef %
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %11, null
-  %12 = sext i32 %6 to i64
-  %13 = shl nsw i64 %12, 3
+  %12 = zext nneg i32 %6 to i64
+  %13 = shl nuw nsw i64 %12, 3
   br i1 %.not9.i, label %16, label %14
 
 14:                                               ; preds = %9

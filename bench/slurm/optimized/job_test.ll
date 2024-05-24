@@ -6333,8 +6333,8 @@ define internal fastcc ptr @_allocate_sc(ptr nocapture noundef readonly %0, ptr 
   %230 = urem i32 %229, %184
   %231 = sub nuw i32 %229, %230
   %232 = zext i16 %.0502.lcssa to i32
-  %233 = sdiv i32 %232, %231
-  %234 = trunc i32 %233 to i16
+  %233 = udiv i32 %232, %231
+  %234 = trunc nuw i32 %233 to i16
   %235 = mul i16 %12, %234
   br label %240
 

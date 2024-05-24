@@ -297,7 +297,7 @@ define void @dorgqr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %147, label %98, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge198, %90, %88
-  %148 = sitofp i32 %.0145181 to double
+  %148 = uitofp nneg i32 %.0145181 to double
   store double %148, ptr %6, align 8
   br label %.thread
 

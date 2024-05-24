@@ -479,7 +479,7 @@ define ptr @xstrdup_printf(ptr nocapture noundef readonly %0, ...) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2147483648) i64 @_xstrdup_vprintf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define range(i64 0, 2147483647) i64 @_xstrdup_vprintf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 100, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 792, ptr noundef nonnull @__func__._xstrdup_vprintf) #22
@@ -510,9 +510,9 @@ define range(i64 0, 2147483648) i64 @_xstrdup_vprintf(ptr nocapture noundef writ
   %12 = phi i32 [ %18, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %.014 = phi i32 [ %.1, %.lr.ph ], [ 100, %.lr.ph.preheader ]
   %13 = add nuw nsw i32 %12, 1
-  %14 = shl nsw i32 %.014, 1
+  %14 = shl nuw nsw i32 %.014, 1
   %.1 = select i1 %11, i32 %13, i32 %14
-  %15 = sext i32 %.1 to i64
+  %15 = zext nneg i32 %.1 to i64
   %16 = call ptr @slurm_xrecalloc(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 809, ptr noundef nonnull @__func__._xstrdup_vprintf) #22
   store ptr %16, ptr %5, align 8
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr %2)

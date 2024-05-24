@@ -997,7 +997,7 @@ if.then15:                                        ; preds = %if.then11
   %call18 = tail call noundef double @_ZN6icu_755Grego11fieldsToDayEiii(i32 noundef %year, i32 noundef %call17, i32 noundef 1)
   %6 = mul i32 %call13, 7
   %mul = add i32 %6, -7
-  %conv = sitofp i32 %mul to double
+  %conv = uitofp nneg i32 %mul to double
   %add = fadd double %call18, %conv
   br label %if.end47
 

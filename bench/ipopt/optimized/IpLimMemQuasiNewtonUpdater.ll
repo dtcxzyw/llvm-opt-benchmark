@@ -13283,8 +13283,8 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit48:        ; preds = %21
 
 .lr.ph92:                                         ; preds = %.preheader
   %43 = mul nsw i32 %27, %10
-  %44 = sext i32 %43 to i64
-  %45 = shl nsw i64 %44, 3
+  %44 = zext nneg i32 %43 to i64
+  %45 = shl nuw nsw i64 %44, 3
   %scevgep = getelementptr i8, ptr %26, i64 %45
   %46 = zext nneg i32 %10 to i64
   %47 = shl nuw nsw i64 %46, 3

@@ -185,12 +185,11 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
 
 131:                                              ; preds = %19
   %132 = mul nuw nsw i64 %2, %0
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %.preheader8.i, label %asum_compute.exit
+  br label %133
 
-.preheader8.i:                                    ; preds = %131, %.preheader8.i
-  %134 = phi float [ %141, %.preheader8.i ], [ 0.000000e+00, %131 ]
-  %135 = phi i64 [ %142, %.preheader8.i ], [ 0, %131 ]
+133:                                              ; preds = %133, %131
+  %134 = phi float [ %141, %133 ], [ 0.000000e+00, %131 ]
+  %135 = phi i64 [ %142, %133 ], [ 0, %131 ]
   %136 = getelementptr inbounds float, ptr %1, i64 %135
   %137 = load float, ptr %136, align 4, !tbaa !7
   %138 = fcmp ogt float %137, 0.000000e+00
@@ -199,7 +198,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %141 = fadd float %134, %140
   %142 = add nuw nsw i64 %135, %2
   %143 = icmp slt i64 %142, %132
-  br i1 %143, label %.preheader8.i, label %asum_compute.exit, !llvm.loop !16
+  br i1 %143, label %133, label %asum_compute.exit, !llvm.loop !16
 
 144:                                              ; preds = %9
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
@@ -223,8 +222,8 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
   br label %asum_compute.exit
 
-asum_compute.exit:                                ; preds = %.preheader8.i, %.preheader.i, %131, %118, %.thread, %.loopexit
-  %156 = phi float [ %155, %.loopexit ], [ 0.000000e+00, %.thread ], [ %119, %118 ], [ 0.000000e+00, %131 ], [ %128, %.preheader.i ], [ %141, %.preheader8.i ]
+asum_compute.exit:                                ; preds = %133, %.preheader.i, %118, %.thread, %.loopexit
+  %156 = phi float [ %155, %.loopexit ], [ 0.000000e+00, %.thread ], [ %119, %118 ], [ %128, %.preheader.i ], [ %141, %133 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret float %156
 }
@@ -396,12 +395,11 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
 
 126:                                              ; preds = %14
   %127 = mul nuw nsw i64 %5, %0
-  %128 = icmp sgt i64 %127, 0
-  br i1 %128, label %.preheader8.i, label %asum_compute.exit
+  br label %128
 
-.preheader8.i:                                    ; preds = %126, %.preheader8.i
-  %129 = phi float [ %136, %.preheader8.i ], [ 0.000000e+00, %126 ]
-  %130 = phi i64 [ %137, %.preheader8.i ], [ 0, %126 ]
+128:                                              ; preds = %128, %126
+  %129 = phi float [ %136, %128 ], [ 0.000000e+00, %126 ]
+  %130 = phi i64 [ %137, %128 ], [ 0, %126 ]
   %131 = getelementptr inbounds float, ptr %4, i64 %130
   %132 = load float, ptr %131, align 4, !tbaa !7
   %133 = fcmp ogt float %132, 0.000000e+00
@@ -410,10 +408,10 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %136 = fadd float %129, %135
   %137 = add nuw nsw i64 %130, %5
   %138 = icmp slt i64 %137, %127
-  br i1 %138, label %.preheader8.i, label %asum_compute.exit, !llvm.loop !16
+  br i1 %138, label %128, label %asum_compute.exit, !llvm.loop !16
 
-asum_compute.exit:                                ; preds = %.preheader8.i, %.preheader.i, %10, %113, %126
-  %139 = phi float [ 0.000000e+00, %10 ], [ %114, %113 ], [ 0.000000e+00, %126 ], [ %123, %.preheader.i ], [ %136, %.preheader8.i ]
+asum_compute.exit:                                ; preds = %128, %.preheader.i, %10, %113
+  %139 = phi float [ 0.000000e+00, %10 ], [ %114, %113 ], [ %123, %.preheader.i ], [ %136, %128 ]
   store float %139, ptr %8, align 4, !tbaa !7
   ret i32 0
 }

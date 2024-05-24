@@ -1599,7 +1599,7 @@ nsvg__isCoordinate.exit.i:                        ; preds = %118, %117
   %142 = load ptr, ptr %88, align 8
   %143 = shl nuw i32 %139, 1
   %144 = add i32 %143, -2
-  %145 = sext i32 %144 to i64
+  %145 = zext nneg i32 %144 to i64
   %146 = getelementptr inbounds float, ptr %142, i64 %145
   %147 = extractelement <2 x float> %138, i64 0
   store float %147, ptr %146, align 4
@@ -8831,7 +8831,7 @@ nsvg__atof.exit:                                  ; preds = %72, %83
   %96 = load ptr, ptr %12, align 8
   %97 = shl nuw i32 %93, 1
   %98 = add i32 %97, -2
-  %99 = sext i32 %98 to i64
+  %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds float, ptr %96, i64 %99
   store float %90, ptr %100, align 4
   %101 = load ptr, ptr %12, align 8
@@ -12314,11 +12314,11 @@ define internal fastcc void @nsvg__lineTo(ptr nocapture noundef %0, float nounde
   %9 = load ptr, ptr %8, align 8
   %10 = shl nuw i32 %5, 1
   %11 = add i32 %10, -2
-  %12 = sext i32 %11 to i64
+  %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %9, i64 %12
   %14 = load float, ptr %13, align 4
   %15 = add i32 %10, -1
-  %16 = sext i32 %15 to i64
+  %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds float, ptr %9, i64 %16
   %18 = load float, ptr %17, align 4
   %19 = fsub float %1, %14

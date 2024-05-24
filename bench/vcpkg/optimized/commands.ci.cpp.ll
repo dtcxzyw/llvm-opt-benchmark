@@ -8832,7 +8832,7 @@ define internal noundef i32 @_ZZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgu
 _ZNSt24uniform_int_distributionIiEclISt13random_deviceEEiRT_.exit: ; preds = %.lr.ph.i.i.i, %4, %12
   %.1.i.i.i = phi i64 [ %10, %4 ], [ %10, %12 ], [ %18, %.lr.ph.i.i.i ]
   %21 = lshr i64 %.1.i.i.i, 32
-  %22 = trunc nuw i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   br label %23
 
 23:                                               ; preds = %2, %_ZNSt24uniform_int_distributionIiEclISt13random_deviceEEiRT_.exit

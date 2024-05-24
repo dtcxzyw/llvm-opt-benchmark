@@ -39724,7 +39724,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%str
   %9 = uitofp nneg i32 %1 to float
   %10 = fdiv float 3.600000e+02, %9
   %11 = add nsw i32 %5, -2
-  %12 = sext i32 %11 to i64
+  %12 = zext nneg i32 %11 to i64
   %13 = insertelement <2 x float> poison, float %2, i64 0
   %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
   br label %.lr.ph
@@ -39759,7 +39759,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%str
   %.sroa.340.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 32
   store float %25, ptr %.sroa.340.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %29 = icmp slt i64 %indvars.iv.next, %12
+  %29 = icmp ult i64 %indvars.iv.next, %12
   br i1 %29, label %.lr.ph, label %.lr.ph95.preheader
 
 .lr.ph95.preheader:                               ; preds = %.lr.ph

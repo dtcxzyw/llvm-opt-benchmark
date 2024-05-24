@@ -796,7 +796,7 @@ if.then5:                                         ; preds = %if.end
   %br.val = load ptr, ptr %5, align 8
   %6 = mul i32 %call1, 3
   %mul.i = add i32 %6, -3
-  %idx.ext.i = sext i32 %mul.i to i64
+  %idx.ext.i = zext nneg i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %br.val, i64 %idx.ext.i
   %call.i = call i32 @get_be24(ptr noundef %add.ptr.i) #11
   br label %if.end8

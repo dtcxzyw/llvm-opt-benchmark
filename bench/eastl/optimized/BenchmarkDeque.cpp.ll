@@ -7084,8 +7084,8 @@ entry:
   %1 = load ptr, ptr %_M_first3.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %first, i64 24
   %2 = load ptr, ptr %_M_node5.i, align 8
-  %childPosition.0.in164.i = shl nsw i64 %position, 1
-  %childPosition.0165.i = add nsw i64 %childPosition.0.in164.i, 2
+  %childPosition.0.in164.i = shl nuw nsw i64 %position, 1
+  %childPosition.0165.i = add nuw nsw i64 %childPosition.0.in164.i, 2
   %cmp166.i = icmp slt i64 %childPosition.0165.i, %heapSize
   br i1 %cmp166.i, label %for.body.i.preheader, label %for.end.i
 
@@ -7238,8 +7238,8 @@ _ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit102.i: ; pr
   %storemerge.i.i95.i = phi ptr [ %add.ptr15.i.i94.i, %cond.end.i.i88.i ], [ %add.ptr.i.i101.i, %if.then.i.i100.i ]
   %9 = load i64, ptr %storemerge.i.i66.i, align 4
   store i64 %9, ptr %storemerge.i.i95.i, align 4
-  %childPosition.0.in.i = shl nsw i64 %spec.select.i, 1
-  %childPosition.0.i = add nsw i64 %childPosition.0.in.i, 2
+  %childPosition.0.in.i = shl nuw nsw i64 %spec.select.i, 1
+  %childPosition.0.i = add nuw nsw i64 %childPosition.0.in.i, 2
   %cmp.i = icmp slt i64 %childPosition.0.i, %heapSize
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !331
 
@@ -8019,8 +8019,8 @@ entry:
   %1 = load ptr, ptr %mpBegin3.i, align 8
   %mpCurrentArrayPtr5.i = getelementptr inbounds i8, ptr %first, i64 24
   %2 = load ptr, ptr %mpCurrentArrayPtr5.i, align 8
-  %childPosition.0.in159.i = shl nsw i64 %position, 1
-  %childPosition.0160.i = add nsw i64 %childPosition.0.in159.i, 2
+  %childPosition.0.in159.i = shl nuw nsw i64 %position, 1
+  %childPosition.0160.i = add nuw nsw i64 %childPosition.0.in159.i, 2
   %cmp161.i = icmp slt i64 %childPosition.0160.i, %heapSize
   br i1 %cmp161.i, label %for.body.i.preheader, label %for.end.i
 
@@ -8133,8 +8133,8 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit99.i
   %storemerge.i.i92.i = phi ptr [ %add.ptr.i.i98.i, %if.then.i.i96.i ], [ %add.ptr7.i.i88.i, %if.else.i.i80.i ]
   %9 = load i64, ptr %storemerge.i.i64.i, align 4
   store i64 %9, ptr %storemerge.i.i92.i, align 4
-  %childPosition.0.in.i = shl nsw i64 %spec.select.i, 1
-  %childPosition.0.i = add nsw i64 %childPosition.0.in.i, 2
+  %childPosition.0.in.i = shl nuw nsw i64 %spec.select.i, 1
+  %childPosition.0.i = add nuw nsw i64 %childPosition.0.in.i, 2
   %cmp.i = icmp slt i64 %childPosition.0.i, %heapSize
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !386
 

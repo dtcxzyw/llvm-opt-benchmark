@@ -1115,7 +1115,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 751619276) i32 @_ZN8rawspeed24UncompressedDecompressor12bytesPerLineEib(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 483183820) i32 @_ZN8rawspeed24UncompressedDecompressor12bytesPerLineEib(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = icmp sgt i32 %0, 0
   tail call void @llvm.assume(i1 %3)
   %4 = mul nuw nsw i32 %0, 12

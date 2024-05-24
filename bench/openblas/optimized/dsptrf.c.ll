@@ -61,8 +61,8 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 30:                                               ; preds = %27
   %31 = add nsw i32 %17, -1
   %32 = mul nsw i32 %31, %17
-  %33 = sdiv i32 %32, 2
-  %34 = add nsw i32 %33, 1
+  %33 = lshr i32 %32, 1
+  %34 = add nuw nsw i32 %33, 1
   br label %35
 
 35:                                               ; preds = %258, %30
@@ -291,21 +291,21 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 187:                                              ; preds = %185
   %188 = add nsw i32 %38, -1
   %189 = mul nsw i32 %188, %38
-  %190 = sdiv i32 %189, 2
-  %191 = add nsw i32 %190, %188
-  %192 = sext i32 %191 to i64
+  %190 = lshr i32 %189, 1
+  %191 = add nuw nsw i32 %190, %188
+  %192 = zext nneg i32 %191 to i64
   %193 = getelementptr inbounds double, ptr %10, i64 %192
   %194 = load double, ptr %193, align 8, !tbaa !7
   %195 = add nsw i32 %38, -2
   %196 = mul nsw i32 %195, %188
-  %197 = sdiv i32 %196, 2
-  %198 = add nsw i32 %197, %188
-  %199 = sext i32 %198 to i64
+  %197 = lshr i32 %196, 1
+  %198 = add nuw nsw i32 %197, %188
+  %199 = zext nneg i32 %198 to i64
   %200 = getelementptr inbounds double, ptr %10, i64 %199
   %201 = load double, ptr %200, align 8, !tbaa !7
   %202 = fdiv double %201, %194
-  %203 = add nsw i32 %190, %38
-  %204 = sext i32 %203 to i64
+  %203 = add nuw nsw i32 %190, %38
+  %204 = zext nneg i32 %203 to i64
   %205 = getelementptr inbounds double, ptr %10, i64 %204
   %206 = load double, ptr %205, align 8, !tbaa !7
   %207 = fdiv double %206, %194
@@ -313,8 +313,8 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %209 = fdiv double 1.000000e+00, %208
   %210 = fdiv double %209, %194
   %211 = zext nneg i32 %195 to i64
-  %212 = sext i32 %190 to i64
-  %213 = sext i32 %197 to i64
+  %212 = zext nneg i32 %190 to i64
+  %213 = zext nneg i32 %197 to i64
   %214 = getelementptr double, ptr %10, i64 %213
   %215 = getelementptr double, ptr %10, i64 %212
   br label %216

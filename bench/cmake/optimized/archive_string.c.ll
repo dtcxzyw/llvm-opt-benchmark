@@ -6984,7 +6984,7 @@ archive_string_append.exit.thread:                ; preds = %70, %.preheader, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -128, -2147483647) i32 @_utf8_to_unicode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #18 {
+define internal fastcc range(i32 -128, -2147483648) i32 @_utf8_to_unicode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #18 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %96, label %5
 

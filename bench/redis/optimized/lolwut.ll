@@ -258,8 +258,8 @@ if.end:                                           ; preds = %lor.lhs.false4
   %pixels = getelementptr inbounds i8, ptr %canvas, i64 8
   %2 = load ptr, ptr %pixels, align 8
   %mul = mul nsw i32 %0, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
+  %add = add nuw nsw i32 %mul, %x
+  %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
   store i8 %conv, ptr %arrayidx, align 1
   br label %return
@@ -291,8 +291,8 @@ if.end:                                           ; preds = %lor.lhs.false4
   %pixels = getelementptr inbounds i8, ptr %canvas, i64 8
   %2 = load ptr, ptr %pixels, align 8
   %mul = mul nsw i32 %0, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
+  %add = add nuw nsw i32 %mul, %x
+  %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %3 to i32
@@ -343,8 +343,8 @@ lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
 if.end.i:                                         ; preds = %lor.lhs.false4.i
   %4 = load ptr, ptr %pixels.i, align 8
   %mul.i = mul nsw i32 %2, %y1.addr.0
-  %add.i = add nsw i32 %mul.i, %x1.addr.0
-  %idxprom.i = sext i32 %add.i to i64
+  %add.i = add nuw nsw i32 %mul.i, %x1.addr.0
+  %idxprom.i = zext nneg i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   br label %lwDrawPixel.exit
@@ -470,8 +470,8 @@ lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i
 if.end.i.i:                                       ; preds = %lor.lhs.false4.i.i
   %13 = load ptr, ptr %pixels.i.i, align 8
   %mul.i.i = mul nsw i32 %11, %y1.addr.0.i
-  %add.i.i = add nsw i32 %mul.i.i, %x1.addr.0.i
-  %idxprom.i.i = sext i32 %add.i.i to i64
+  %add.i.i = add nuw nsw i32 %mul.i.i, %x1.addr.0.i
+  %idxprom.i.i = zext nneg i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   br label %lwDrawPixel.exit.i

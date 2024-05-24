@@ -6725,7 +6725,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %426 = zext i16 %.0 to i32
   %427 = add nsw i32 %426, -1
   %428 = add nsw i32 %427, %425
-  %429 = sdiv i32 %428, %426
+  %429 = udiv i32 %428, %426
   store i32 %429, ptr %5, align 4
   br label %430
 

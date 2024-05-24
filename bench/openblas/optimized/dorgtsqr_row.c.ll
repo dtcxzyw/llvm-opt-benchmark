@@ -87,7 +87,7 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %57 = sub nsw i32 %31, %56
   %58 = tail call i32 @llvm.smax.i32(i32 %56, i32 %57)
   %59 = mul nuw nsw i32 %58, %56
-  %60 = sitofp i32 %59 to double
+  %60 = uitofp nneg i32 %59 to double
   br i1 %27, label %61, label %62
 
 61:                                               ; preds = %55

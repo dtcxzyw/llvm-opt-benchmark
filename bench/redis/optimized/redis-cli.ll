@@ -2575,7 +2575,7 @@ if.end36.i:                                       ; preds = %while.end.i
   %dirty45.i = getelementptr inbounds i8, ptr %65, i64 80
   store i32 1, ptr %dirty45.i, align 8
   %call46.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa463, ptr noundef null, ptr noundef null)
-  %cmp47.i = icmp sgt i32 %call46.i, %call9.i
+  %cmp47.i = icmp ugt i32 %call46.i, %call9.i
   br i1 %cmp47.i, label %if.then49.i, label %if.end52.i
 
 if.then49.i:                                      ; preds = %if.end36.i
@@ -2593,7 +2593,7 @@ while.end53.i:                                    ; preds = %if.end52.i, %if.end
   %call54.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa463, ptr noundef null, ptr noundef null)
   %cmp55.i = icmp eq i32 %call54.i, 0
   %cond.i203 = select i1 %cmp55.i, i32 4, i32 2
-  %cmp59.i = icmp sgt i32 %call54.i, 9999
+  %cmp59.i = icmp ugt i32 %call54.i, 9999
   %.str.210..str.211.i = select i1 %cmp59.i, ptr @.str.210, ptr @.str.211
   %msg.0.i = select i1 %cmp55.i, ptr @.str.209, ptr %.str.210..str.211.i
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef %cond.i203, ptr noundef nonnull @.str.115, ptr noundef nonnull %msg.0.i)
@@ -20853,7 +20853,7 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 declare void @llvm.va_end.p0(ptr) #24
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerGetAntiAffinityScore(ptr nocapture noundef readonly %ipnodes, i32 noundef %ip_count, ptr noundef writeonly %offending, ptr noundef %offending_len) unnamed_addr #2 {
+define internal fastcc range(i32 0, -2147483648) i32 @clusterManagerGetAntiAffinityScore(ptr nocapture noundef readonly %ipnodes, i32 noundef %ip_count, ptr noundef writeonly %offending, ptr noundef %offending_len) unnamed_addr #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   %cmp.not = icmp eq ptr %offending, null
@@ -21030,7 +21030,7 @@ if.end53.us:                                      ; preds = %hi_sdslen.exit.us
   %18 = mul i32 %conv49.us, 10000
   %mul59.us = add i32 %18, -10000
   %mul59.pn.us = select i1 %cmp56.us, i32 %mul59.us, i32 %conv49.us
-  %score.2.us = add nsw i32 %mul59.pn.us, %score.1.ph37.us
+  %score.2.us = add nuw nsw i32 %mul59.pn.us, %score.1.ph37.us
   br label %while.cond.outer36.us
 
 while.cond.us:                                    ; preds = %hi_sdslen.exit.us, %while.cond.outer36.us
@@ -21102,7 +21102,7 @@ if.end53:                                         ; preds = %hi_sdslen.exit
   %25 = mul i32 %conv49, 10000
   %mul59 = add i32 %25, -10000
   %mul59.pn = select i1 %cmp56, i32 %mul59, i32 %conv49
-  %score.2 = add nsw i32 %mul59.pn, %score.1.ph50
+  %score.2 = add nuw nsw i32 %mul59.pn, %score.1.ph50
   %26 = load ptr, ptr @cluster_manager.0, align 8
   call void @listRewind(ptr noundef %26, ptr noundef nonnull %li) #33
   %call6946 = call ptr @listNext(ptr noundef nonnull %li) #33

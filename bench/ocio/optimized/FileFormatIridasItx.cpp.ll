@@ -1363,8 +1363,7 @@ invoke.cont50:                                    ; preds = %invoke.cont39
   %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr55, i64 8
   store i64 6, ptr %_M_precision.i, align 8
   %invariant.gep109 = getelementptr inbounds i8, ptr %call5.i.i.i.i76, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %mul21, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %mul21 to i64
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont50, %for.inc
@@ -3730,9 +3729,6 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19

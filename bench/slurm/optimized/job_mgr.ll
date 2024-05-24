@@ -41143,7 +41143,7 @@ define dso_local zeroext i16 @job_mgr_determine_cpus_per_core(ptr noundef readon
   %26 = zext i16 %25 to i32
   %27 = mul nuw nsw i32 %26, %22
   %28 = icmp ugt i32 %27, %23
-  %29 = trunc i32 %27 to i16
+  %29 = trunc nuw i32 %27 to i16
   %30 = select i1 %28, i16 %8, i16 %29
   br label %31
 

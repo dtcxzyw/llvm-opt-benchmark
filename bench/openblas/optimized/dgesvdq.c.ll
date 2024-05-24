@@ -259,7 +259,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 178:                                              ; preds = %176
   %179 = mul nsw i32 %149, 3
-  %180 = add nsw i32 %179, 1
+  %180 = add nuw nsw i32 %179, 1
   br i1 %59, label %181, label %183
 
 181:                                              ; preds = %178
@@ -346,7 +346,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %226, label %249, label %227
 
 227:                                              ; preds = %224
-  %228 = call i32 @llvm.smax.i32(i32 %180, i32 %191)
+  %228 = call i32 @llvm.umax.i32(i32 %180, i32 %191)
   store i32 %228, ptr %23, align 4, !tbaa !3
   %229 = load i32, ptr %6, align 4, !tbaa !3
   %230 = call i32 @llvm.smax.i32(i32 %228, i32 %188)
@@ -400,7 +400,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 254:                                              ; preds = %253, %252
   %255 = load i32, ptr %6, align 4, !tbaa !3
-  %256 = call i32 @llvm.smax.i32(i32 %180, i32 %191)
+  %256 = call i32 @llvm.umax.i32(i32 %180, i32 %191)
   %257 = add nsw i32 %255, %256
   br i1 %121, label %258, label %387
 
@@ -435,10 +435,10 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %387
 
 273:                                              ; preds = %249
-  %274 = call i32 @llvm.smax.i32(i32 %180, i32 %191)
+  %274 = call i32 @llvm.umax.i32(i32 %180, i32 %191)
   store i32 %274, ptr %23, align 4, !tbaa !3
   %275 = call i32 @llvm.smax.i32(i32 %274, i32 %188)
-  %276 = call i32 @llvm.smax.i32(i32 %275, i32 %179)
+  %276 = call i32 @llvm.umax.i32(i32 %275, i32 %179)
   %277 = select i1 %81, i32 %276, i32 %275
   %278 = load i32, ptr %6, align 4, !tbaa !3
   %279 = add nsw i32 %278, %277
@@ -463,7 +463,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %293 = call i32 @llvm.smax.i32(i32 %291, i32 %292)
   store i32 %293, ptr %23, align 4, !tbaa !3
   %294 = call i32 @llvm.smax.i32(i32 %293, i32 %188)
-  %295 = call i32 @llvm.smax.i32(i32 %294, i32 %179)
+  %295 = call i32 @llvm.umax.i32(i32 %294, i32 %179)
   %296 = select i1 %81, i32 %295, i32 %294
   %297 = add nsw i32 %296, %278
   %298 = call i32 @llvm.smax.i32(i32 %279, i32 %297)
@@ -488,7 +488,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %312 = call i32 @llvm.smax.i32(i32 %310, i32 %311)
   store i32 %312, ptr %23, align 4, !tbaa !3
   %313 = call i32 @llvm.smax.i32(i32 %312, i32 %188)
-  %314 = call i32 @llvm.smax.i32(i32 %313, i32 %179)
+  %314 = call i32 @llvm.umax.i32(i32 %313, i32 %179)
   %315 = select i1 %81, i32 %314, i32 %313
   %316 = add nsw i32 %315, %278
   %317 = call i32 @llvm.smax.i32(i32 %279, i32 %316)

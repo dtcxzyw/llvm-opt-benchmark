@@ -3971,7 +3971,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end22
 
 if.end:                                           ; preds = %entry
-  %conv = sext i32 %mul to i64
+  %conv = zext nneg i32 %mul to i64
   %call1 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #14
   store ptr %call1, ptr %buf, align 8
   %cmp = icmp eq ptr %call1, null

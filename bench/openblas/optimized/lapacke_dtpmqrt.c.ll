@@ -75,8 +75,8 @@ define i32 @LAPACKE_dtpmqrt(i32 noundef %0, i8 noundef signext %1, i8 noundef si
 
 57:                                               ; preds = %53, %50, %46
   %58 = phi i32 [ %49, %46 ], [ %56, %53 ], [ 0, %50 ]
-  %59 = sext i32 %58 to i64
-  %60 = shl nsw i64 %59, 3
+  %59 = zext nneg i32 %58 to i64
+  %60 = shl nuw nsw i64 %59, 3
   %61 = tail call noalias ptr @malloc(i64 noundef %60) #8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.thread3, label %63

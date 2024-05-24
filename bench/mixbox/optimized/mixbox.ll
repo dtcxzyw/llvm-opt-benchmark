@@ -3876,7 +3876,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   %140 = mul nuw nsw i32 %139, 85
   %141 = add nuw nsw i32 %140, %120
   %142 = mul nsw i32 %141, 85
-  %143 = add nsw i32 %142, %115
+  %143 = add nuw nsw i32 %142, %115
   %144 = trunc i32 %143 to i8
   store i8 %144, ptr %14, align 4
   %145 = lshr i32 %143, 8
@@ -3886,7 +3886,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   %148 = trunc i32 %147 to i8
   store i8 %148, ptr %16, align 2
   %149 = lshr i32 %143, 24
-  %150 = trunc nuw i32 %149 to i8
+  %150 = trunc nuw nsw i32 %149 to i8
   store i8 %150, ptr %17, align 1
   %151 = add nsw i32 %110, 5
   store i32 %151, ptr %6, align 4
@@ -4663,7 +4663,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
   %69 = mul nuw nsw i32 %68, 85
   %70 = add nuw nsw i32 %69, %49
   %71 = mul nsw i32 %70, 85
-  %72 = add nsw i32 %71, %44
+  %72 = add nuw nsw i32 %71, %44
   %73 = trunc i32 %72 to i8
   store i8 %73, ptr %7, align 4
   %74 = lshr i32 %72, 8
@@ -4673,7 +4673,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
   %77 = trunc i32 %76 to i8
   store i8 %77, ptr %9, align 2
   %78 = lshr i32 %72, 24
-  %79 = trunc nuw i32 %78 to i8
+  %79 = trunc nuw nsw i32 %78 to i8
   store i8 %79, ptr %10, align 1
   %80 = add nsw i32 %38, 5
   store i32 %80, ptr %5, align 4

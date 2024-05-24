@@ -337,7 +337,7 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
   %26 = getelementptr inbounds i64, ptr %0, i64 %15
   %27 = trunc i64 %15 to i32
   %28 = mul nsw i32 %27, 100
-  %29 = add nsw i32 %28, 20
+  %29 = add nuw nsw i32 %28, 20
   %30 = icmp eq i32 %1, 4
   br i1 %30, label %firstShiftWithOneBit.exit, label %31
 
@@ -392,7 +392,7 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
 
 firstShiftWithOneBit.exit:                        ; preds = %25, %34, %42, %48, %50
   %.021.i = phi i32 [ %36, %34 ], [ %.zext.i, %42 ], [ %49, %48 ], [ %54, %50 ], [ 0, %25 ]
-  %55 = sub nsw i32 %29, %.021.i
+  %55 = sub nuw i32 %29, %.021.i
   store i32 %55, ptr %3, align 4
   %56 = load i64, ptr %26, align 8
   %57 = and i64 %56, %18
@@ -448,7 +448,7 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
   %30 = getelementptr inbounds i64, ptr %0, i64 %18
   %31 = trunc i64 %18 to i32
   %32 = mul nsw i32 %31, 100
-  %33 = add nsw i32 %32, 20
+  %33 = add nuw nsw i32 %32, 20
   %34 = icmp eq i32 %1, 4
   br i1 %34, label %firstShiftWithOneBit.exit, label %35
 
@@ -503,7 +503,7 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
 
 firstShiftWithOneBit.exit:                        ; preds = %29, %38, %46, %52, %54
   %.021.i = phi i32 [ %40, %38 ], [ %.zext.i, %46 ], [ %53, %52 ], [ %58, %54 ], [ 0, %29 ]
-  %59 = sub nsw i32 %33, %.021.i
+  %59 = sub nuw i32 %33, %.021.i
   store i32 %59, ptr %3, align 4
   %60 = load i64, ptr %30, align 8
   %61 = and i64 %60, %21
@@ -561,7 +561,7 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
   %33 = getelementptr inbounds i64, ptr %0, i64 %21
   %34 = trunc i64 %21 to i32
   %35 = mul nsw i32 %34, 100
-  %36 = add nsw i32 %35, 20
+  %36 = add nuw nsw i32 %35, 20
   %37 = icmp eq i32 %1, 4
   br i1 %37, label %firstShiftWithOneBit.exit, label %38
 
@@ -616,7 +616,7 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
 
 firstShiftWithOneBit.exit:                        ; preds = %32, %41, %49, %55, %57
   %.021.i = phi i32 [ %43, %41 ], [ %.zext.i, %49 ], [ %56, %55 ], [ %61, %57 ], [ 0, %32 ]
-  %62 = sub nsw i32 %36, %.021.i
+  %62 = sub nuw i32 %36, %.021.i
   store i32 %62, ptr %5, align 4
   %63 = load i64, ptr %33, align 8
   %64 = and i64 %63, %24
@@ -790,7 +790,7 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
 30:                                               ; preds = %19
   %31 = trunc i64 %20 to i32
   %32 = mul nsw i32 %31, 100
-  %33 = add nsw i32 %32, 20
+  %33 = add nuw nsw i32 %32, 20
   %34 = icmp eq i32 %1, 4
   br i1 %34, label %firstShiftWithOneBit.exit.i, label %35
 
@@ -845,7 +845,7 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
 
 firstShiftWithOneBit.exit.i:                      ; preds = %54, %52, %46, %38, %30
   %.021.i.i = phi i32 [ %40, %38 ], [ %.zext.i.i, %46 ], [ %53, %52 ], [ %58, %54 ], [ 0, %30 ]
-  %59 = sub nsw i32 %33, %.021.i.i
+  %59 = sub nuw i32 %33, %.021.i.i
   %60 = icmp ult i64 %24, %27
   %..i = select i1 %60, i32 0, i32 3
   br label %minTemp0_fast.exit

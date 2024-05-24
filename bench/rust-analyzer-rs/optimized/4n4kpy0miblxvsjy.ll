@@ -17028,7 +17028,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
 
 19:                                               ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit.thread
   %20 = icmp eq i64 %5, 0
-  br i1 %20, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66, label %21
+  br i1 %20, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65, label %21
 
 21:                                               ; preds = %19
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1850
@@ -17040,17 +17040,17 @@ _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %15, %21
   %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65
 
-_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66: ; preds = %19, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
+_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65: ; preds = %19, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
   %25 = phi ptr [ %.sroa.012.2.i.i.pn.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ inttoptr (i64 8 to ptr), %19 ]
   store ptr %25, ptr %13, align 8
   store i64 %5, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread: ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ed05d5d7263b469E.exit.thread.thread", %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit, %3, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66
-  %.sroa.4.0 = phi i64 [ undef, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66 ], [ %5, %3 ], [ %12, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ed05d5d7263b469E.exit.thread.thread" ], [ undef, %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66 ], [ 0, %3 ], [ %24, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ed05d5d7263b469E.exit.thread.thread" ], [ 0, %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit ]
+_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread: ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ed05d5d7263b469E.exit.thread.thread", %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit, %3, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65
+  %.sroa.4.0 = phi i64 [ undef, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65 ], [ %5, %3 ], [ %12, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ed05d5d7263b469E.exit.thread.thread" ], [ undef, %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65 ], [ 0, %3 ], [ %24, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ed05d5d7263b469E.exit.thread.thread" ], [ 0, %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.4.0, 1
   ret { i64, i64 } %27
@@ -17096,7 +17096,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
 
 19:                                               ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit.thread
   %20 = icmp eq i64 %5, 0
-  br i1 %20, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66, label %21
+  br i1 %20, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65, label %21
 
 21:                                               ; preds = %19
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1854
@@ -17108,17 +17108,17 @@ _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %15, %21
   %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65
 
-_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66: ; preds = %19, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
+_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65: ; preds = %19, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
   %25 = phi ptr [ %.sroa.012.2.i.i.pn.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ inttoptr (i64 8 to ptr), %19 ]
   store ptr %25, ptr %13, align 8
   store i64 %5, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread: ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0fa941430a1b4d43E.exit.thread.thread", %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit, %3, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66
-  %.sroa.4.0 = phi i64 [ undef, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66 ], [ %5, %3 ], [ %12, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0fa941430a1b4d43E.exit.thread.thread" ], [ undef, %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread66 ], [ 0, %3 ], [ %24, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0fa941430a1b4d43E.exit.thread.thread" ], [ 0, %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit ]
+_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread: ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0fa941430a1b4d43E.exit.thread.thread", %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit, %3, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65
+  %.sroa.4.0 = phi i64 [ undef, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65 ], [ %5, %3 ], [ %12, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0fa941430a1b4d43E.exit.thread.thread" ], [ undef, %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65 ], [ 0, %3 ], [ %24, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0fa941430a1b4d43E.exit.thread.thread" ], [ 0, %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.4.0, 1
   ret { i64, i64 } %27

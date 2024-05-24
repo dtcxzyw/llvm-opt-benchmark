@@ -933,7 +933,7 @@ _file_bcast.exit:                                 ; preds = %179
 210:                                              ; preds = %204
   %211 = mul i64 %205, -100
   %212 = udiv i64 %211, %151
-  %213 = sub i64 0, %212
+  %213 = sub nsw i64 0, %212
   br label %214
 
 214:                                              ; preds = %210, %207

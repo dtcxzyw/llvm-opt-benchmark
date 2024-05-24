@@ -47332,13 +47332,9 @@ lor.lhs.false13.i:                                ; preds = %lor.lhs.false.i
 
 _ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit: ; preds = %lor.lhs.false13.i
   %mul.i = mul nsw i32 %8, %sub8.i
-  %add.i = add nsw i32 %mul.i, %sub5.i
+  %add.i = add nuw nsw i32 %mul.i, %sub5.i
   %mul25.i = mul nsw i32 %add.i, %7
-  %add26.i = add nsw i32 %mul25.i, %sub.i
-  %cmp = icmp sgt i32 %add26.i, -1
-  br i1 %cmp, label %cond.true, label %return
-
-cond.true:                                        ; preds = %_ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit
+  %add26.i = add nuw nsw i32 %mul25.i, %sub.i
   %call.i.i = tail call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_012ImageBufImpl15validate_pixelsENS_6DoLockE(ptr noundef nonnull align 8 dereferenceable(664) %3, i8 1)
   %deep.i.i = getelementptr inbounds i8, ptr %3, i64 176
   %10 = load i8, ptr %deep.i.i, align 8
@@ -47349,8 +47345,8 @@ cond.true:                                        ; preds = %_ZNK18OpenImageIO_v
   %call9 = tail call noundef i32 @_ZNK18OpenImageIO_v2_6_08DeepData7samplesEl(ptr noundef nonnull align 8 dereferenceable(20) %cond.i.i, i64 noundef %conv)
   br label %return
 
-return:                                           ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false13.i, %cond.true, %_ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call9, %cond.true ], [ 0, %_ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit ], [ 0, %lor.lhs.false13.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false13.i, %_ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call9, %_ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit ], [ 0, %lor.lhs.false13.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -47407,9 +47403,9 @@ lor.lhs.false13.i:                                ; preds = %lor.lhs.false.i
 
 if.end.i:                                         ; preds = %lor.lhs.false13.i
   %mul.i = mul nsw i32 %9, %sub8.i
-  %add.i = add nsw i32 %mul.i, %sub5.i
+  %add.i = add nuw nsw i32 %mul.i, %sub5.i
   %mul25.i = mul nsw i32 %add.i, %8
-  %add26.i = add nsw i32 %mul25.i, %sub.i
+  %add26.i = add nuw nsw i32 %mul25.i, %sub.i
   br label %_ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit
 
 _ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit: ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false13.i, %if.end.i

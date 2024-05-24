@@ -2514,7 +2514,7 @@ _ZN6icu_7510MemoryPoolINS_5units18ConversionRateInfoELi8EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @"_ZZN6icu_755units21ComplexUnitsConverter4initERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCodeEN3$_08__invokeEPKvSC_SC_"(ptr noundef nonnull %context, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #1 align 2 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @"_ZZN6icu_755units21ComplexUnitsConverter4initERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCodeEN3$_08__invokeEPKvSC_SC_"(ptr noundef nonnull %context, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #1 align 2 {
 entry:
   %status.i = alloca i32, align 4
   %left.val = load ptr, ptr %left, align 8

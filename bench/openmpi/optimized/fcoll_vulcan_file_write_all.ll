@@ -2603,20 +2603,20 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
 
 547:                                              ; preds = %582, %.preheader130.i
   %.0108132.i = phi i32 [ %.1113134.i, %.preheader130.i ], [ %.1105.i, %582 ]
-  %548 = shl nsw i32 %.0108132.i, 1
-  %549 = add nsw i32 %548, 2
+  %548 = shl nuw nsw i32 %.0108132.i, 1
+  %549 = add nuw nsw i32 %548, 2
   %.not126.not.i = icmp slt i32 %548, %537
   br i1 %.not126.not.i, label %550, label %565
 
 550:                                              ; preds = %547
   %551 = or disjoint i32 %548, 1
-  %552 = sext i32 %551 to i64
+  %552 = zext nneg i32 %551 to i64
   %553 = getelementptr inbounds i32, ptr %538, i64 %552
   %554 = load i32, ptr %553, align 4
   %555 = sext i32 %554 to i64
   %556 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %502, i64 %555
   %557 = load i64, ptr %556, align 8
-  %558 = sext i32 %.0108132.i to i64
+  %558 = zext nneg i32 %.0108132.i to i64
   %559 = getelementptr inbounds i32, ptr %538, i64 %558
   %560 = load i32, ptr %559, align 4
   %561 = sext i32 %560 to i64
@@ -2634,13 +2634,13 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %.not127.not.i, label %567, label %581
 
 567:                                              ; preds = %566
-  %568 = sext i32 %549 to i64
+  %568 = zext nneg i32 %549 to i64
   %569 = getelementptr inbounds i32, ptr %538, i64 %568
   %570 = load i32, ptr %569, align 4
   %571 = sext i32 %570 to i64
   %572 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %502, i64 %571
   %573 = load i64, ptr %572, align 8
-  %574 = sext i32 %.0104.i to i64
+  %574 = zext nneg i32 %.0104.i to i64
   %575 = getelementptr inbounds i32, ptr %538, i64 %574
   %576 = load i32, ptr %575, align 4
   %577 = sext i32 %576 to i64
@@ -2656,10 +2656,10 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %.not128.not.i, label %.loopexit.i, label %582
 
 582:                                              ; preds = %581
-  %583 = sext i32 %.1105.i to i64
+  %583 = zext nneg i32 %.1105.i to i64
   %584 = getelementptr inbounds i32, ptr %538, i64 %583
   %585 = load i32, ptr %584, align 4
-  %586 = sext i32 %.0108132.i to i64
+  %586 = zext nneg i32 %.0108132.i to i64
   %587 = getelementptr inbounds i32, ptr %538, i64 %586
   %588 = load i32, ptr %587, align 4
   store i32 %588, ptr %584, align 4

@@ -104,7 +104,7 @@ define void @dsysvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %71 = mul nsw i32 %70, %69
   %72 = tail call i32 @llvm.smax.i32(i32 %67, i32 %71)
   %.pr3.pre = load i32, ptr %19, align 4, !tbaa !3
-  %73 = sitofp i32 %72 to double
+  %73 = uitofp nneg i32 %72 to double
   store double %73, ptr %16, align 8, !tbaa !7
   %74 = icmp eq i32 %.pr3.pre, 0
   br i1 %74, label %.thread8, label %.thread4
@@ -117,7 +117,7 @@ define void @dsysvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %93
 
 78:                                               ; preds = %65
-  %79 = sitofp i32 %67 to double
+  %79 = uitofp nneg i32 %67 to double
   store double %79, ptr %16, align 8, !tbaa !7
   br i1 %25, label %93, label %83
 

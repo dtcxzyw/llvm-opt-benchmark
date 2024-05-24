@@ -1905,7 +1905,7 @@ if.end19.i:                                       ; preds = %if.end16.i
 
 while.end.i835:                                   ; preds = %if.end13.i, %if.end16.i, %if.end19.i, %if.end6.i831
   %198 = phi i8 [ %193, %if.end6.i831 ], [ %196, %if.end19.i ], [ %195, %if.end16.i ], [ %195, %if.end13.i ]
-  %value.1.i = phi i32 [ 0, %if.end6.i831 ], [ %sub.i834, %if.end19.i ], [ %mul.i, %if.end16.i ], [ %value.037.i1015, %if.end13.i ]
+  %value.1.i = phi i32 [ 0, %if.end6.i831 ], [ %sub.i834, %if.end19.i ], [ -2147483640, %if.end16.i ], [ %value.037.i1015, %if.end13.i ]
   %erange.0.not.i = phi i1 [ true, %if.end6.i831 ], [ true, %if.end19.i ], [ false, %if.end16.i ], [ false, %if.end13.i ]
   %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i831 ], [ %add.ptr.i, %if.end19.i ], [ %dp.addr.139.i1014, %if.end16.i ], [ %dp.addr.139.i1014, %if.end13.i ]
   %cmp25.not.i = icmp ne ptr %dp.addr.2.i, %dp.addr.0.i
@@ -2486,7 +2486,7 @@ if.end24:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool9.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end24, %while.body, %land.lhs.true, %if.end13, %if.end16, %if.end6
-  %value.1 = phi i32 [ 0, %if.end6 ], [ %mul, %if.end16 ], [ %value.037, %if.end13 ], [ %sub, %land.lhs.true ], [ %value.037, %while.body ], [ %sub, %if.end24 ]
+  %value.1 = phi i32 [ 0, %if.end6 ], [ -2147483640, %if.end16 ], [ %value.037, %if.end13 ], [ %sub, %land.lhs.true ], [ %value.037, %while.body ], [ %sub, %if.end24 ]
   %erange.0.not = phi i1 [ true, %if.end6 ], [ false, %if.end16 ], [ false, %if.end13 ], [ true, %land.lhs.true ], [ true, %while.body ], [ true, %if.end24 ]
   %dp.addr.2 = phi ptr [ %dp.addr.0, %if.end6 ], [ %dp.addr.139, %if.end16 ], [ %dp.addr.139, %if.end13 ], [ %add.ptr, %land.lhs.true ], [ %dp.addr.139, %while.body ], [ %add.ptr, %if.end24 ]
   %cmp25.not = icmp ne ptr %dp.addr.2, %dp.addr.0
@@ -2756,7 +2756,7 @@ if.end26.i:                                       ; preds = %if.end16.i
   br i1 %tobool9.not.i, label %while.end.i, label %while.body.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %if.end26.i, %if.end16.i, %if.end13.i, %while.body.i, %if.end6.i
-  %value.1.i = phi i64 [ 0, %if.end6.i ], [ %sub.i, %if.end26.i ], [ %value.037.i, %while.body.i ], [ %value.037.i, %if.end13.i ], [ %mul.i, %if.end16.i ]
+  %value.1.i = phi i64 [ 0, %if.end6.i ], [ %sub.i, %if.end26.i ], [ %value.037.i, %while.body.i ], [ %value.037.i, %if.end13.i ], [ -9223372036854775800, %if.end16.i ]
   %erange.0.not.i = phi i1 [ true, %if.end6.i ], [ true, %if.end26.i ], [ true, %while.body.i ], [ false, %if.end13.i ], [ false, %if.end16.i ]
   %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i ], [ %add.ptr.i147, %if.end26.i ], [ %dp.addr.139.i, %while.body.i ], [ %dp.addr.139.i, %if.end13.i ], [ %dp.addr.139.i, %if.end16.i ]
   %cmp27.not.i = icmp ne ptr %dp.addr.2.i, %dp.addr.0.i
@@ -2846,7 +2846,7 @@ if.end24.i:                                       ; preds = %if.end19.i
   br i1 %tobool9.not.i172, label %while.end.i173, label %while.body.i154, !llvm.loop !14
 
 while.end.i173:                                   ; preds = %if.end24.i, %if.end16.i164, %if.end13.i162, %while.body.i154, %if.end19.i, %if.end6.i149
-  %value.1.i174 = phi i32 [ 0, %if.end6.i149 ], [ %sub.i167, %if.end19.i ], [ %sub.i167, %if.end24.i ], [ %value.037.i158, %while.body.i154 ], [ %value.037.i158, %if.end13.i162 ], [ %mul.i165, %if.end16.i164 ]
+  %value.1.i174 = phi i32 [ 0, %if.end6.i149 ], [ %sub.i167, %if.end19.i ], [ %sub.i167, %if.end24.i ], [ %value.037.i158, %while.body.i154 ], [ %value.037.i158, %if.end13.i162 ], [ -2147483640, %if.end16.i164 ]
   %erange.0.not.i175 = phi i1 [ true, %if.end6.i149 ], [ true, %if.end19.i ], [ true, %if.end24.i ], [ true, %while.body.i154 ], [ false, %if.end13.i162 ], [ false, %if.end16.i164 ]
   %dp.addr.2.i176 = phi ptr [ %dp.addr.0.i150, %if.end6.i149 ], [ %add.ptr.i168, %if.end19.i ], [ %add.ptr.i168, %if.end24.i ], [ %dp.addr.139.i156, %while.body.i154 ], [ %dp.addr.139.i156, %if.end13.i162 ], [ %dp.addr.139.i156, %if.end16.i164 ]
   %cmp25.not.i = icmp ne ptr %dp.addr.2.i176, %dp.addr.0.i150
@@ -2926,7 +2926,7 @@ if.end24.i217:                                    ; preds = %if.end19.i213
   br i1 %tobool9.not.i221, label %while.end.i222, label %while.body.i199, !llvm.loop !14
 
 while.end.i222:                                   ; preds = %if.end24.i217, %if.end16.i209, %if.end13.i207, %while.body.i199, %if.end19.i213, %if.end6.i193
-  %value.1.i223 = phi i32 [ 0, %if.end6.i193 ], [ %sub.i214, %if.end19.i213 ], [ %sub.i214, %if.end24.i217 ], [ %value.037.i203, %while.body.i199 ], [ %value.037.i203, %if.end13.i207 ], [ %mul.i210, %if.end16.i209 ]
+  %value.1.i223 = phi i32 [ 0, %if.end6.i193 ], [ %sub.i214, %if.end19.i213 ], [ %sub.i214, %if.end24.i217 ], [ %value.037.i203, %while.body.i199 ], [ %value.037.i203, %if.end13.i207 ], [ -2147483640, %if.end16.i209 ]
   %erange.0.not.i224 = phi i1 [ true, %if.end6.i193 ], [ true, %if.end19.i213 ], [ true, %if.end24.i217 ], [ true, %while.body.i199 ], [ false, %if.end13.i207 ], [ false, %if.end16.i209 ]
   %dp.addr.2.i225 = phi ptr [ %dp.addr.0.i195, %if.end6.i193 ], [ %add.ptr.i215, %if.end19.i213 ], [ %add.ptr.i215, %if.end24.i217 ], [ %dp.addr.139.i201, %while.body.i199 ], [ %dp.addr.139.i201, %if.end13.i207 ], [ %dp.addr.139.i201, %if.end16.i209 ]
   %cmp25.not.i226 = icmp ne ptr %dp.addr.2.i225, %dp.addr.0.i195
@@ -2999,7 +2999,7 @@ if.end19.i272:                                    ; preds = %if.end16.i268
   br i1 %tobool9.not.i280, label %while.end.i281, label %while.body.i258, !llvm.loop !14
 
 while.end.i281:                                   ; preds = %if.end19.i272, %if.end16.i268, %if.end13.i266, %while.body.i258, %if.end6.i252
-  %value.1.i282 = phi i32 [ 0, %if.end6.i252 ], [ %sub.i273, %if.end19.i272 ], [ %value.037.i262, %while.body.i258 ], [ %value.037.i262, %if.end13.i266 ], [ %mul.i269, %if.end16.i268 ]
+  %value.1.i282 = phi i32 [ 0, %if.end6.i252 ], [ %sub.i273, %if.end19.i272 ], [ %value.037.i262, %while.body.i258 ], [ %value.037.i262, %if.end13.i266 ], [ -2147483640, %if.end16.i268 ]
   %erange.0.not.i283 = phi i1 [ true, %if.end6.i252 ], [ true, %if.end19.i272 ], [ true, %while.body.i258 ], [ false, %if.end13.i266 ], [ false, %if.end16.i268 ]
   %dp.addr.2.i284 = phi ptr [ %dp.addr.0.i254, %if.end6.i252 ], [ %add.ptr.i274, %if.end19.i272 ], [ %dp.addr.139.i260, %while.body.i258 ], [ %dp.addr.139.i260, %if.end13.i266 ], [ %dp.addr.139.i260, %if.end16.i268 ]
   %cmp25.not.i285 = icmp ne ptr %dp.addr.2.i284, %dp.addr.0.i254
@@ -3067,7 +3067,7 @@ if.end19.i331:                                    ; preds = %if.end16.i327
   br i1 %tobool9.not.i339, label %while.end.i340, label %while.body.i317, !llvm.loop !14
 
 while.end.i340:                                   ; preds = %if.end19.i331, %if.end16.i327, %if.end13.i325, %while.body.i317, %if.end6.i311
-  %value.1.i341 = phi i32 [ 0, %if.end6.i311 ], [ %sub.i332, %if.end19.i331 ], [ %value.037.i321, %while.body.i317 ], [ %value.037.i321, %if.end13.i325 ], [ %mul.i328, %if.end16.i327 ]
+  %value.1.i341 = phi i32 [ 0, %if.end6.i311 ], [ %sub.i332, %if.end19.i331 ], [ %value.037.i321, %while.body.i317 ], [ %value.037.i321, %if.end13.i325 ], [ -2147483640, %if.end16.i327 ]
   %erange.0.not.i342 = phi i1 [ true, %if.end6.i311 ], [ true, %if.end19.i331 ], [ true, %while.body.i317 ], [ false, %if.end13.i325 ], [ false, %if.end16.i327 ]
   %dp.addr.2.i343 = phi ptr [ %dp.addr.0.i313, %if.end6.i311 ], [ %add.ptr.i333, %if.end19.i331 ], [ %dp.addr.139.i319, %while.body.i317 ], [ %dp.addr.139.i319, %if.end13.i325 ], [ %dp.addr.139.i319, %if.end16.i327 ]
   %cmp25.not.i344 = icmp ne ptr %dp.addr.2.i343, %dp.addr.0.i313
@@ -3135,7 +3135,7 @@ if.end19.i390:                                    ; preds = %if.end16.i386
   br i1 %tobool9.not.i398, label %while.end.i399, label %while.body.i376, !llvm.loop !14
 
 while.end.i399:                                   ; preds = %if.end19.i390, %if.end16.i386, %if.end13.i384, %while.body.i376, %if.end6.i370
-  %value.1.i400 = phi i32 [ 0, %if.end6.i370 ], [ %sub.i391, %if.end19.i390 ], [ %value.037.i380, %while.body.i376 ], [ %value.037.i380, %if.end13.i384 ], [ %mul.i387, %if.end16.i386 ]
+  %value.1.i400 = phi i32 [ 0, %if.end6.i370 ], [ %sub.i391, %if.end19.i390 ], [ %value.037.i380, %while.body.i376 ], [ %value.037.i380, %if.end13.i384 ], [ -2147483640, %if.end16.i386 ]
   %erange.0.not.i401 = phi i1 [ true, %if.end6.i370 ], [ true, %if.end19.i390 ], [ true, %while.body.i376 ], [ false, %if.end13.i384 ], [ false, %if.end16.i386 ]
   %dp.addr.2.i402 = phi ptr [ %dp.addr.0.i372, %if.end6.i370 ], [ %add.ptr.i392, %if.end19.i390 ], [ %dp.addr.139.i378, %while.body.i376 ], [ %dp.addr.139.i378, %if.end13.i384 ], [ %dp.addr.139.i378, %if.end16.i386 ]
   %cmp25.not.i403 = icmp ne ptr %dp.addr.2.i402, %dp.addr.0.i372
@@ -3212,7 +3212,7 @@ if.end19.i449:                                    ; preds = %if.end16.i445
   br i1 %tobool9.not.i457, label %while.end.i458, label %while.body.i435, !llvm.loop !14
 
 while.end.i458:                                   ; preds = %if.end19.i449, %if.end16.i445, %if.end13.i443, %while.body.i435, %if.end6.i429
-  %value.1.i459 = phi i32 [ 0, %if.end6.i429 ], [ %sub.i450, %if.end19.i449 ], [ %value.037.i439, %while.body.i435 ], [ %value.037.i439, %if.end13.i443 ], [ %mul.i446, %if.end16.i445 ]
+  %value.1.i459 = phi i32 [ 0, %if.end6.i429 ], [ %sub.i450, %if.end19.i449 ], [ %value.037.i439, %while.body.i435 ], [ %value.037.i439, %if.end13.i443 ], [ -2147483640, %if.end16.i445 ]
   %erange.0.not.i460 = phi i1 [ true, %if.end6.i429 ], [ true, %if.end19.i449 ], [ true, %while.body.i435 ], [ false, %if.end13.i443 ], [ false, %if.end16.i445 ]
   %dp.addr.2.i461 = phi ptr [ %dp.addr.0.i431, %if.end6.i429 ], [ %add.ptr.i451, %if.end19.i449 ], [ %dp.addr.139.i437, %while.body.i435 ], [ %dp.addr.139.i437, %if.end13.i443 ], [ %dp.addr.139.i437, %if.end16.i445 ]
   %cmp25.not.i462 = icmp ne ptr %dp.addr.2.i461, %dp.addr.0.i431
@@ -3290,7 +3290,7 @@ if.end24.i512:                                    ; preds = %if.end19.i508
   br i1 %tobool9.not.i516, label %while.end.i517, label %while.body.i494, !llvm.loop !14
 
 while.end.i517:                                   ; preds = %if.end24.i512, %if.end16.i504, %if.end13.i502, %while.body.i494, %if.end19.i508, %if.end6.i488
-  %value.1.i518 = phi i32 [ 0, %if.end6.i488 ], [ %sub.i509, %if.end19.i508 ], [ %sub.i509, %if.end24.i512 ], [ %value.037.i498, %while.body.i494 ], [ %value.037.i498, %if.end13.i502 ], [ %mul.i505, %if.end16.i504 ]
+  %value.1.i518 = phi i32 [ 0, %if.end6.i488 ], [ %sub.i509, %if.end19.i508 ], [ %sub.i509, %if.end24.i512 ], [ %value.037.i498, %while.body.i494 ], [ %value.037.i498, %if.end13.i502 ], [ -2147483640, %if.end16.i504 ]
   %erange.0.not.i519 = phi i1 [ true, %if.end6.i488 ], [ true, %if.end19.i508 ], [ true, %if.end24.i512 ], [ true, %while.body.i494 ], [ false, %if.end13.i502 ], [ false, %if.end16.i504 ]
   %dp.addr.2.i520 = phi ptr [ %dp.addr.0.i490, %if.end6.i488 ], [ %add.ptr.i510, %if.end19.i508 ], [ %add.ptr.i510, %if.end24.i512 ], [ %dp.addr.139.i496, %while.body.i494 ], [ %dp.addr.139.i496, %if.end13.i502 ], [ %dp.addr.139.i496, %if.end16.i504 ]
   %cmp25.not.i521 = icmp ne ptr %dp.addr.2.i520, %dp.addr.0.i490
@@ -3368,7 +3368,7 @@ if.end24.i571:                                    ; preds = %if.end19.i567
   br i1 %tobool9.not.i575, label %while.end.i576, label %while.body.i553, !llvm.loop !14
 
 while.end.i576:                                   ; preds = %if.end24.i571, %if.end16.i563, %if.end13.i561, %while.body.i553, %if.end19.i567, %if.end6.i547
-  %value.1.i577 = phi i32 [ 0, %if.end6.i547 ], [ %sub.i568, %if.end19.i567 ], [ %sub.i568, %if.end24.i571 ], [ %value.037.i557, %while.body.i553 ], [ %value.037.i557, %if.end13.i561 ], [ %mul.i564, %if.end16.i563 ]
+  %value.1.i577 = phi i32 [ 0, %if.end6.i547 ], [ %sub.i568, %if.end19.i567 ], [ %sub.i568, %if.end24.i571 ], [ %value.037.i557, %while.body.i553 ], [ %value.037.i557, %if.end13.i561 ], [ -2147483640, %if.end16.i563 ]
   %erange.0.not.i578 = phi i1 [ true, %if.end6.i547 ], [ true, %if.end19.i567 ], [ true, %if.end24.i571 ], [ true, %while.body.i553 ], [ false, %if.end13.i561 ], [ false, %if.end16.i563 ]
   %dp.addr.2.i579 = phi ptr [ %dp.addr.0.i549, %if.end6.i547 ], [ %add.ptr.i569, %if.end19.i567 ], [ %add.ptr.i569, %if.end24.i571 ], [ %dp.addr.139.i555, %while.body.i553 ], [ %dp.addr.139.i555, %if.end13.i561 ], [ %dp.addr.139.i555, %if.end16.i563 ]
   %cmp25.not.i580 = icmp ne ptr %dp.addr.2.i579, %dp.addr.0.i549
@@ -3446,7 +3446,7 @@ if.end24.i630:                                    ; preds = %if.end19.i626
   br i1 %tobool9.not.i634, label %while.end.i635, label %while.body.i612, !llvm.loop !14
 
 while.end.i635:                                   ; preds = %if.end24.i630, %if.end16.i622, %if.end13.i620, %while.body.i612, %if.end19.i626, %if.end6.i606
-  %value.1.i636 = phi i32 [ 0, %if.end6.i606 ], [ %sub.i627, %if.end19.i626 ], [ %sub.i627, %if.end24.i630 ], [ %value.037.i616, %while.body.i612 ], [ %value.037.i616, %if.end13.i620 ], [ %mul.i623, %if.end16.i622 ]
+  %value.1.i636 = phi i32 [ 0, %if.end6.i606 ], [ %sub.i627, %if.end19.i626 ], [ %sub.i627, %if.end24.i630 ], [ %value.037.i616, %while.body.i612 ], [ %value.037.i616, %if.end13.i620 ], [ -2147483640, %if.end16.i622 ]
   %erange.0.not.i637 = phi i1 [ true, %if.end6.i606 ], [ true, %if.end19.i626 ], [ true, %if.end24.i630 ], [ true, %while.body.i612 ], [ false, %if.end13.i620 ], [ false, %if.end16.i622 ]
   %dp.addr.2.i638 = phi ptr [ %dp.addr.0.i608, %if.end6.i606 ], [ %add.ptr.i628, %if.end19.i626 ], [ %add.ptr.i628, %if.end24.i630 ], [ %dp.addr.139.i614, %while.body.i612 ], [ %dp.addr.139.i614, %if.end13.i620 ], [ %dp.addr.139.i614, %if.end16.i622 ]
   %cmp25.not.i639 = icmp ne ptr %dp.addr.2.i638, %dp.addr.0.i608
@@ -3560,7 +3560,7 @@ if.end26.i693:                                    ; preds = %if.end16.i684
   br i1 %tobool9.not.i697, label %while.end.i698, label %while.body.i674, !llvm.loop !22
 
 while.end.i698:                                   ; preds = %if.end26.i693, %if.end16.i684, %if.end13.i682, %while.body.i674, %if.end6.i668
-  %value.1.i699 = phi i64 [ 0, %if.end6.i668 ], [ %sub.i690, %if.end26.i693 ], [ %value.037.i678, %while.body.i674 ], [ %value.037.i678, %if.end13.i682 ], [ %mul.i685, %if.end16.i684 ]
+  %value.1.i699 = phi i64 [ 0, %if.end6.i668 ], [ %sub.i690, %if.end26.i693 ], [ %value.037.i678, %while.body.i674 ], [ %value.037.i678, %if.end13.i682 ], [ -9223372036854775800, %if.end16.i684 ]
   %erange.0.not.i700 = phi i1 [ true, %if.end6.i668 ], [ true, %if.end26.i693 ], [ true, %while.body.i674 ], [ false, %if.end13.i682 ], [ false, %if.end16.i684 ]
   %dp.addr.2.i701 = phi ptr [ %dp.addr.0.i670, %if.end6.i668 ], [ %add.ptr.i691, %if.end26.i693 ], [ %dp.addr.139.i676, %while.body.i674 ], [ %dp.addr.139.i676, %if.end13.i682 ], [ %dp.addr.139.i676, %if.end16.i684 ]
   %cmp27.not.i702 = icmp ne ptr %dp.addr.2.i701, %dp.addr.0.i670
@@ -4396,7 +4396,7 @@ if.end26:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool9.not, label %while.end, label %while.body, !llvm.loop !22
 
 while.end:                                        ; preds = %if.end26, %while.body, %land.lhs.true, %if.end13, %if.end16, %if.end6
-  %value.1 = phi i64 [ 0, %if.end6 ], [ %mul, %if.end16 ], [ %value.037, %if.end13 ], [ %sub, %land.lhs.true ], [ %value.037, %while.body ], [ %sub, %if.end26 ]
+  %value.1 = phi i64 [ 0, %if.end6 ], [ -9223372036854775800, %if.end16 ], [ %value.037, %if.end13 ], [ %sub, %land.lhs.true ], [ %value.037, %while.body ], [ %sub, %if.end26 ]
   %erange.0.not = phi i1 [ true, %if.end6 ], [ false, %if.end16 ], [ false, %if.end13 ], [ true, %land.lhs.true ], [ true, %while.body ], [ true, %if.end26 ]
   %dp.addr.2 = phi ptr [ %dp.addr.0, %if.end6 ], [ %dp.addr.139, %if.end16 ], [ %dp.addr.139, %if.end13 ], [ %add.ptr, %land.lhs.true ], [ %dp.addr.139, %while.body ], [ %add.ptr, %if.end26 ]
   %cmp27.not = icmp ne ptr %dp.addr.2, %dp.addr.0
@@ -4490,7 +4490,7 @@ if.end24.i:                                       ; preds = %if.end19.i
   br i1 %tobool9.not.i, label %while.end.i, label %while.body.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %if.end24.i, %if.end16.i, %if.end13.i, %while.body.i, %if.end19.i, %if.end6.i
-  %value.1.i = phi i32 [ 0, %if.end6.i ], [ %sub.i, %if.end19.i ], [ %sub.i, %if.end24.i ], [ %value.037.i, %while.body.i ], [ %value.037.i, %if.end13.i ], [ %mul.i, %if.end16.i ]
+  %value.1.i = phi i32 [ 0, %if.end6.i ], [ %sub.i, %if.end19.i ], [ %sub.i, %if.end24.i ], [ %value.037.i, %while.body.i ], [ %value.037.i, %if.end13.i ], [ -2147483640, %if.end16.i ]
   %erange.0.not.i = phi i1 [ true, %if.end6.i ], [ true, %if.end19.i ], [ true, %if.end24.i ], [ true, %while.body.i ], [ false, %if.end13.i ], [ false, %if.end16.i ]
   %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i ], [ %add.ptr.i, %if.end19.i ], [ %add.ptr.i, %if.end24.i ], [ %dp.addr.139.i, %while.body.i ], [ %dp.addr.139.i, %if.end13.i ], [ %dp.addr.139.i, %if.end16.i ]
   %cmp25.not.i = icmp ne ptr %dp.addr.2.i, %dp.addr.0.i
@@ -4579,7 +4579,7 @@ if.end24.i60:                                     ; preds = %if.end19.i56
   br i1 %tobool9.not.i64, label %while.end.i65, label %while.body.i42, !llvm.loop !14
 
 while.end.i65:                                    ; preds = %if.end24.i60, %if.end16.i52, %if.end13.i50, %while.body.i42, %if.end19.i56, %if.end6.i36
-  %value.1.i66 = phi i32 [ 0, %if.end6.i36 ], [ %sub.i57, %if.end19.i56 ], [ %sub.i57, %if.end24.i60 ], [ %value.037.i46, %while.body.i42 ], [ %value.037.i46, %if.end13.i50 ], [ %mul.i53, %if.end16.i52 ]
+  %value.1.i66 = phi i32 [ 0, %if.end6.i36 ], [ %sub.i57, %if.end19.i56 ], [ %sub.i57, %if.end24.i60 ], [ %value.037.i46, %while.body.i42 ], [ %value.037.i46, %if.end13.i50 ], [ -2147483640, %if.end16.i52 ]
   %erange.0.not.i67 = phi i1 [ true, %if.end6.i36 ], [ true, %if.end19.i56 ], [ true, %if.end24.i60 ], [ true, %while.body.i42 ], [ false, %if.end13.i50 ], [ false, %if.end16.i52 ]
   %dp.addr.2.i68 = phi ptr [ %dp.addr.0.i38, %if.end6.i36 ], [ %add.ptr.i58, %if.end19.i56 ], [ %add.ptr.i58, %if.end24.i60 ], [ %dp.addr.139.i44, %while.body.i42 ], [ %dp.addr.139.i44, %if.end13.i50 ], [ %dp.addr.139.i44, %if.end16.i52 ]
   %cmp25.not.i69 = icmp ne ptr %dp.addr.2.i68, %dp.addr.0.i38
@@ -4669,7 +4669,7 @@ if.end24.i119:                                    ; preds = %if.end19.i115
   br i1 %tobool9.not.i123, label %while.end.i124, label %while.body.i101, !llvm.loop !14
 
 while.end.i124:                                   ; preds = %if.end24.i119, %if.end16.i111, %if.end13.i109, %while.body.i101, %if.end19.i115, %if.end6.i95
-  %value.1.i125 = phi i32 [ 0, %if.end6.i95 ], [ %sub.i116, %if.end19.i115 ], [ %sub.i116, %if.end24.i119 ], [ %value.037.i105, %while.body.i101 ], [ %value.037.i105, %if.end13.i109 ], [ %mul.i112, %if.end16.i111 ]
+  %value.1.i125 = phi i32 [ 0, %if.end6.i95 ], [ %sub.i116, %if.end19.i115 ], [ %sub.i116, %if.end24.i119 ], [ %value.037.i105, %while.body.i101 ], [ %value.037.i105, %if.end13.i109 ], [ -2147483640, %if.end16.i111 ]
   %erange.0.not.i126 = phi i1 [ true, %if.end6.i95 ], [ true, %if.end19.i115 ], [ true, %if.end24.i119 ], [ true, %while.body.i101 ], [ false, %if.end13.i109 ], [ false, %if.end16.i111 ]
   %dp.addr.2.i127 = phi ptr [ %dp.addr.0.i97, %if.end6.i95 ], [ %add.ptr.i117, %if.end19.i115 ], [ %add.ptr.i117, %if.end24.i119 ], [ %dp.addr.139.i103, %while.body.i101 ], [ %dp.addr.139.i103, %if.end13.i109 ], [ %dp.addr.139.i103, %if.end16.i111 ]
   %cmp25.not.i128 = icmp ne ptr %dp.addr.2.i127, %dp.addr.0.i97

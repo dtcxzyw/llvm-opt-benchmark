@@ -74,8 +74,8 @@ define void @dsptrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 39:                                               ; preds = %36
   %40 = mul nsw i32 %35, %23
-  %41 = sdiv i32 %40, 2
-  %42 = add nsw i32 %41, 1
+  %41 = lshr i32 %40, 1
+  %42 = add nuw nsw i32 %41, 1
   br label %43
 
 43:                                               ; preds = %72, %39

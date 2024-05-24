@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [35 x i8] c"%s, %02d %s %4d %02d:%02d:%02d GMT\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @evutil_tv_to_msec_(ptr nocapture noundef readonly %tv) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775808, 9223372036854775001) i64 @evutil_tv_to_msec_(ptr nocapture noundef readonly %tv) local_unnamed_addr #0 {
 entry:
   %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %0 = load i64, ptr %tv_usec, align 8

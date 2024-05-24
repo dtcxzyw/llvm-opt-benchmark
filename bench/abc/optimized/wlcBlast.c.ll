@@ -18870,8 +18870,7 @@ Wlc_ObjFaninId.exit3799:                          ; preds = %Wlc_ObjHasArray.exi
   %3560 = getelementptr inbounds i8, ptr %3555, i64 8
   store float %3559, ptr %3560, align 4
   %invariant.gep4886 = getelementptr inbounds i8, ptr %3555, i64 12
-  %umax5297 = tail call i32 @llvm.umax.i32(i32 %3551, i32 1)
-  %wide.trip.count5298 = zext nneg i32 %umax5297 to i64
+  %wide.trip.count5298 = zext nneg i32 %3551 to i64
   br label %3561
 
 3561:                                             ; preds = %3548, %3561

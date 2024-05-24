@@ -1561,7 +1561,7 @@ declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @_exit(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @sentinelScriptRetryDelay(i32 noundef %retry_num) local_unnamed_addr #17 {
+define dso_local range(i64 1, -9223372036854775808) i64 @sentinelScriptRetryDelay(i32 noundef %retry_num) local_unnamed_addr #17 {
 entry:
   %0 = load i64, ptr @sentinel_script_retry_delay, align 8
   %cmp2 = icmp sgt i32 %retry_num, 1
@@ -1571,7 +1571,7 @@ while.body:                                       ; preds = %entry, %while.body
   %delay.04 = phi i64 [ %mul, %while.body ], [ %0, %entry ]
   %retry_num.addr.03 = phi i32 [ %dec, %while.body ], [ %retry_num, %entry ]
   %dec = add nsw i32 %retry_num.addr.03, -1
-  %mul = shl nsw i64 %delay.04, 1
+  %mul = shl nuw nsw i64 %delay.04, 1
   %cmp = icmp ugt i32 %retry_num.addr.03, 2
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
 
@@ -1672,7 +1672,7 @@ while.body.i19:                                   ; preds = %if.then22, %while.b
   %delay.04.i = phi i64 [ %mul.i, %while.body.i19 ], [ %9, %if.then22 ]
   %retry_num.addr.03.i = phi i32 [ %dec.i, %while.body.i19 ], [ %8, %if.then22 ]
   %dec.i = add nsw i32 %retry_num.addr.03.i, -1
-  %mul.i = shl nsw i64 %delay.04.i, 1
+  %mul.i = shl nuw nsw i64 %delay.04.i, 1
   %cmp.i = icmp ugt i32 %retry_num.addr.03.i, 2
   br i1 %cmp.i, label %while.body.i19, label %sentinelScriptRetryDelay.exit, !llvm.loop !13
 

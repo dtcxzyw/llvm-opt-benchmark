@@ -67,20 +67,20 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
 
 19:                                               ; preds = %54, %.preheader131
   %.0109133 = phi i32 [ %.1114135, %.preheader131 ], [ %.1106, %54 ]
-  %20 = shl nsw i32 %.0109133, 1
-  %21 = add nsw i32 %20, 2
+  %20 = shl nuw nsw i32 %.0109133, 1
+  %21 = add nuw nsw i32 %20, 2
   %.not127.not = icmp slt i32 %20, %4
   br i1 %.not127.not, label %22, label %37
 
 22:                                               ; preds = %19
   %23 = or disjoint i32 %20, 1
-  %24 = sext i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds i32, ptr %9, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds %struct.iovec, ptr %0, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = sext i32 %.0109133 to i64
+  %30 = zext nneg i32 %.0109133 to i64
   %31 = getelementptr inbounds i32, ptr %9, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
@@ -98,13 +98,13 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
   br i1 %.not128.not, label %39, label %53
 
 39:                                               ; preds = %38
-  %40 = sext i32 %21 to i64
+  %40 = zext nneg i32 %21 to i64
   %41 = getelementptr inbounds i32, ptr %9, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds %struct.iovec, ptr %0, i64 %43
   %45 = load ptr, ptr %44, align 8
-  %46 = sext i32 %.0105 to i64
+  %46 = zext nneg i32 %.0105 to i64
   %47 = getelementptr inbounds i32, ptr %9, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
@@ -120,10 +120,10 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
   br i1 %.not129.not, label %.loopexit, label %54
 
 54:                                               ; preds = %53
-  %55 = sext i32 %.1106 to i64
+  %55 = zext nneg i32 %.1106 to i64
   %56 = getelementptr inbounds i32, ptr %9, i64 %55
   %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %.0109133 to i64
+  %58 = zext nneg i32 %.0109133 to i64
   %59 = getelementptr inbounds i32, ptr %9, i64 %58
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %56, align 4

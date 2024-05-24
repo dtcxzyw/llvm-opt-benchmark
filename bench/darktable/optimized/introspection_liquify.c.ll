@@ -971,8 +971,8 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
 519:                                              ; preds = %516
   %520 = fneg reassoc nsz arcp contract afn <2 x float> %503
   %521 = mul nsw i32 %510, %501
-  %522 = add nsw i32 %521, %507
-  %523 = sext i32 %522 to i64
+  %522 = add nuw nsw i32 %521, %507
+  %523 = zext nneg i32 %522 to i64
   %524 = getelementptr inbounds { float, float }, ptr %473, i64 %523
   store <2 x float> %520, ptr %524, align 8
   %525 = load i32, ptr %71, align 4, !tbaa !30

@@ -1904,7 +1904,7 @@ if.else17:                                        ; preds = %if.else
 if.then26:                                        ; preds = %if.else17
   %sub = shl nuw i32 %0, 1
   %mul = add i32 %sub, -4
-  %conv = sext i32 %mul to i64
+  %conv = zext nneg i32 %mul to i64
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv) #10
   %5 = load i32, ptr %argc, align 8
   %cmp2956 = icmp sgt i32 %5, 2
@@ -1985,7 +1985,7 @@ if.else82:                                        ; preds = %if.else56
 if.then92:                                        ; preds = %if.else82
   %sub95 = shl nuw i32 %0, 1
   %mul96 = add i32 %sub95, -4
-  %conv97 = sext i32 %mul96 to i64
+  %conv97 = zext nneg i32 %mul96 to i64
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv97) #10
   %20 = load i32, ptr %argc, align 8
   %cmp10054 = icmp sgt i32 %20, 2

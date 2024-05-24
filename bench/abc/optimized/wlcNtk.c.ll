@@ -5091,7 +5091,7 @@ Wlc_ObjFanin0.exit792:                            ; preds = %Wlc_ObjFanin0.exit7
   %1240 = tail call i32 @llvm.abs.i32(i32 %1239, i1 true)
   %1241 = add nuw nsw i32 %1240, 1
   %1242 = mul nsw i32 %1241, %1230
-  %1243 = sdiv i32 %1242, 8
+  %1243 = lshr i32 %1242, 3
   %1244 = getelementptr inbounds i8, ptr %54, i64 16
   br i1 %1218, label %Wlc_ObjHasArray.exit.thread.i.i.i793, label %Wlc_ObjFanin0.exit795
 
@@ -5112,7 +5112,7 @@ Wlc_ObjFanin0.exit795:                            ; preds = %Wlc_ObjFanin0.exit7
   %1253 = tail call i32 @llvm.abs.i32(i32 %1252, i1 true)
   %1254 = mul i32 %1253, 5
   %1255 = add i32 %1254, 5
-  %1256 = sdiv i32 %1255, 2
+  %1256 = lshr i32 %1255, 1
   %.val367 = load ptr, ptr %6, align 8
   %1257 = getelementptr inbounds i8, ptr %.val367, i64 204
   %1258 = load i32, ptr %1257, align 4

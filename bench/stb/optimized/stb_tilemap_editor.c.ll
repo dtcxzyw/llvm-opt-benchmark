@@ -8039,8 +8039,8 @@ land.lhs.true:                                    ; preds = %if.then8
 
 if.then16:                                        ; preds = %land.lhs.true
   %mul = mul nsw i32 %10, %sub9
-  %add24 = add nsw i32 %mul, %sub
-  %idxprom25 = sext i32 %add24 to i64
+  %add24 = add nuw nsw i32 %mul, %sub
+  %idxprom25 = zext nneg i32 %add24 to i64
   %arrayidx26 = getelementptr inbounds [65536 x [8 x i16]], ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5588), i64 0, i64 %idxprom25
   %cur_layer.i = getelementptr inbounds i8, ptr %tm, i64 800044
   %12 = load i32, ptr %cur_layer.i, align 4

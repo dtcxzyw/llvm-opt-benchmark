@@ -36,15 +36,15 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %call = tail call noundef double @_ZN4absl15random_internal21InverseNormalSurvivalEd(double noundef %sub)
   %mul = mul nuw nsw i32 %dof, 9
-  %conv = sitofp i32 %mul to double
+  %conv = uitofp nneg i32 %mul to double
   %div = fdiv double 2.000000e+00, %conv
   %cmp8 = fcmp une double %div, 0.000000e+00
   br i1 %cmp8, label %if.then9, label %if.end17
 
 if.then9:                                         ; preds = %if.then3
   %sub4 = fsub double 1.000000e+00, %div
-  %call10 = tail call double @sqrt(double noundef %div) #8
-  %0 = tail call double @llvm.fmuladd.f64(double %call, double %call10, double %sub4)
+  %sqrt = tail call double @llvm.sqrt.f64(double %div)
+  %0 = tail call double @llvm.fmuladd.f64(double %call, double %sqrt, double %sub4)
   %conv12 = uitofp nneg i32 %dof to double
   %mul13 = fmul double %0, %0
   %mul14 = fmul double %0, %mul13
@@ -57,7 +57,7 @@ if.end17:                                         ; preds = %if.then3, %if.end
 
 if.end20:                                         ; preds = %if.end17
   %conv21 = uitofp nneg i32 %dof to double
-  %call22 = tail call double @sqrt(double noundef %sub) #8
+  %call22 = tail call double @sqrt(double noundef %sub) #9
   %div23 = fdiv double %conv21, %call22
   br label %while.body
 
@@ -97,9 +97,9 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = uitofp nneg i32 %dof to double
   %div = fdiv double %chi_square, %conv
-  %call = tail call double @pow(double noundef %div, double noundef 0x3FD5555555555555) #8
+  %call = tail call double @pow(double noundef %div, double noundef 0x3FD5555555555555) #9
   %mul = mul nuw nsw i32 %dof, 9
-  %conv1 = sitofp i32 %mul to double
+  %conv1 = uitofp nneg i32 %mul to double
   %div2 = fdiv double 2.000000e+00, %conv1
   %cmp6 = fcmp une double %div2, 0.000000e+00
   br i1 %cmp6, label %if.then7, label %if.end19
@@ -107,8 +107,8 @@ if.then:                                          ; preds = %entry
 if.then7:                                         ; preds = %if.then
   %sub = fsub double 1.000000e+00, %div2
   %sub8 = fsub double %call, %sub
-  %call9 = tail call double @sqrt(double noundef %div2) #8
-  %div10 = fdiv double %sub8, %call9
+  %sqrt = tail call double @llvm.sqrt.f64(double %div2)
+  %div10 = fdiv double %sub8, %sqrt
   %cmp11 = fcmp ogt double %div10, 0.000000e+00
   br i1 %cmp11, label %for.body.i.i, label %if.else
 
@@ -172,7 +172,7 @@ if.end25:                                         ; preds = %if.end22
   br i1 %cmp.i, label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit", label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end25
-  %call.i = tail call double @exp(double noundef %fneg27) #8
+  %call.i = tail call double @exp(double noundef %fneg27) #9
   br label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit"
 
 "_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit": ; preds = %if.end25, %cond.false.i
@@ -180,7 +180,7 @@ cond.false.i:                                     ; preds = %if.end25
   br i1 %tobool.not, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit"
-  %call30 = tail call double @sqrt(double noundef %chi_square) #8
+  %call30 = tail call double @sqrt(double noundef %chi_square) #9
   %cmp.i48 = fcmp oeq double %call30, 0.000000e+00
   br i1 %cmp.i48, label %cond.end, label %if.end.i
 
@@ -253,7 +253,7 @@ if.end36:                                         ; preds = %cond.end
   br i1 %cmp.i, label %if.then44, label %if.end55
 
 if.then44:                                        ; preds = %if.end36
-  %call47 = tail call double @log(double noundef %mul26) #8
+  %call47 = tail call double @log(double noundef %mul26) #9
   %cmp4869 = fcmp ugt double %cond42, %mul39
   br i1 %cmp4869, label %return, label %while.body.preheader
 
@@ -265,7 +265,7 @@ while.body:                                       ; preds = %while.body.preheade
   %e.072 = phi double [ %add, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61" ], [ %cond46, %while.body.preheader ]
   %z40.071 = phi double [ %add54, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61" ], [ %cond42, %while.body.preheader ]
   %s.070 = phi double [ %add53, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61" ], [ %cond, %while.body.preheader ]
-  %call49 = tail call double @log(double noundef %z40.071) #8
+  %call49 = tail call double @log(double noundef %z40.071) #9
   %add = fadd double %e.072, %call49
   %15 = tail call double @llvm.fmuladd.f64(double %call47, double %z40.071, double %fneg27)
   %sub51 = fsub double %15, %add
@@ -273,7 +273,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp.i57, label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61", label %cond.false.i58
 
 cond.false.i58:                                   ; preds = %while.body
-  %call.i59 = tail call double @exp(double noundef %sub51) #8
+  %call.i59 = tail call double @exp(double noundef %sub51) #9
   br label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61"
 
 "_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61": ; preds = %while.body, %cond.false.i58
@@ -287,7 +287,7 @@ if.end55:                                         ; preds = %if.end36
   br i1 %tobool.not, label %cond.end62, label %cond.false59
 
 cond.false59:                                     ; preds = %if.end55
-  %call60 = tail call double @sqrt(double noundef %mul26) #8
+  %call60 = tail call double @sqrt(double noundef %mul26) #9
   %div61 = fdiv double 0x3FE20DD750429B6D, %call60
   br label %cond.end62
 
@@ -336,9 +336,12 @@ declare double @llvm.fabs.f64(double) #5
 define internal void @_GLOBAL__sub_I_chi_square.cc() #7 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -348,7 +351,8 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-p
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nofree nounwind memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

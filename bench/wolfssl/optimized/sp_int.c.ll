@@ -11315,7 +11315,7 @@ if.end32:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -268435455, 268435456) i32 @sp_unsigned_bin_size(ptr noundef readonly %a) local_unnamed_addr #9 {
+define i32 @sp_unsigned_bin_size(ptr noundef readonly %a) local_unnamed_addr #9 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true.i

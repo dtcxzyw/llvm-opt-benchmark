@@ -155,7 +155,7 @@ define i32 @PMPI_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef 
   %75 = icmp eq i32 %58, 0
   %or.cond82 = and i1 %75, %.not78
   %76 = mul nsw i32 %71, %67
-  %77 = icmp slt i32 %76, %63
+  %77 = icmp ult i32 %76, %63
   %or.cond84 = select i1 %or.cond82, i1 %77, i1 false
   br i1 %or.cond84, label %78, label %80
 

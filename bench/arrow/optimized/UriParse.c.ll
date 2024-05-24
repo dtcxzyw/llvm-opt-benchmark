@@ -1397,7 +1397,7 @@ if.end265:                                        ; preds = %if.then257
   %idx.ext271 = sext i32 %mul261 to i64
   %add.ptr272 = getelementptr inbounds i8, ptr %41, i64 %idx.ext271
   %sub273 = sub nsw i32 16, %mul261
-  %conv274 = sext i32 %sub273 to i64
+  %conv274 = zext nneg i32 %sub273 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr272, i8 0, i64 %conv274, i1 false)
   %add.ptr275 = getelementptr inbounds i8, ptr %first.addr.2, i64 2
   %cmp276.not = icmp ult ptr %add.ptr275, %afterLast
@@ -3032,7 +3032,7 @@ if.end257:                                        ; preds = %if.then249
   %idx.ext263 = sext i32 %mul253 to i64
   %add.ptr264 = getelementptr inbounds i8, ptr %42, i64 %idx.ext263
   %sub265 = sub nsw i32 16, %mul253
-  %conv266 = sext i32 %sub265 to i64
+  %conv266 = zext nneg i32 %sub265 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr264, i8 0, i64 %conv266, i1 false)
   %add.ptr267 = getelementptr inbounds i8, ptr %first.addr.2, i64 8
   %cmp268.not = icmp ult ptr %add.ptr267, %afterLast

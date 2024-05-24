@@ -18407,7 +18407,7 @@ sljit_emit_op2.exit.i:                            ; preds = %sljit_emit_op2.exit
 sljit_emit_op1.exit58.i:                          ; preds = %emit_mov.exit71.i, %sljit_emit_op2.exit.i
   %86 = shl i32 %56, 3
   %.in.i = add i32 %86, 16
-  %87 = sext i32 %.in.i to i64
+  %87 = zext i32 %.in.i to i64
   %88 = load i64, ptr %53, align 8
   %89 = getelementptr inbounds i8, ptr %9, i64 152
   store i32 0, ptr %89, align 8

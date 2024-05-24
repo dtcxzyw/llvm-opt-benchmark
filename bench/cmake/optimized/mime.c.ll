@@ -3289,25 +3289,24 @@ define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %0, i64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @encoder_base64_size(ptr nocapture noundef readonly %0) #11 {
+define internal range(i64 4, 1) i64 @encoder_base64_size(ptr nocapture noundef readonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = icmp slt i64 %3, 1
-  br i1 %4, label %14, label %5
+  br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
   %6 = add nsw i64 %3, -1
   %7 = udiv i64 %6, 3
   %8 = shl nuw i64 %7, 2
   %9 = add nuw i64 %8, 4
-  %10 = or disjoint i64 %8, 3
-  %11 = sdiv i64 %10, 76
-  %12 = shl nsw i64 %11, 1
-  %13 = add nsw i64 %9, %12
-  br label %14
+  %10 = udiv i64 %6, 57
+  %11 = shl nuw nsw i64 %10, 1
+  %12 = add nuw nsw i64 %9, %11
+  br label %13
 
-14:                                               ; preds = %1, %5
-  %.0 = phi i64 [ %13, %5 ], [ %3, %1 ]
+13:                                               ; preds = %1, %5
+  %.0 = phi i64 [ %12, %5 ], [ %3, %1 ]
   ret i64 %.0
 }
 

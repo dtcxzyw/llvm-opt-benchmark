@@ -330,8 +330,8 @@ _ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit51: ; 
   br i1 %.not73.us.i, label %83, label %.split115.us.i
 
 83:                                               ; preds = %79
-  %84 = add nsw i32 %91, %82
-  %85 = sext i32 %84 to i64
+  %84 = add nuw nsw i32 %91, %82
+  %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds %union.t_iparams, ptr %60, i64 %85, i32 0, i32 0, i64 1
   %87 = load float, ptr %86, align 4
   %88 = fcmp ogt float %87, %.394.us.i

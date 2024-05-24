@@ -1137,7 +1137,7 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %39 = lshr i32 %spec.select68, 1
   %40 = mul nuw nsw i32 %39, 2971
   %41 = add nsw i32 %38, -2011
-  %42 = add i32 %41, %40
+  %42 = add nuw i32 %41, %40
   %43 = urem i32 %42, %.val.i71
   %44 = getelementptr i8, ptr %0, i64 104
   %.val21.i = load ptr, ptr %44, align 8
@@ -2409,9 +2409,9 @@ define i32 @Gia_ManHashAndTry(ptr nocapture noundef readonly %0, i32 noundef %1,
   %24 = trunc i32 %spec.select32 to i1
   %25 = select i1 %24, i32 353, i32 0
   %26 = add nsw i32 %19, -2011
-  %27 = add nsw i32 %26, %23
-  %28 = add i32 %27, %21
-  %29 = add i32 %28, %25
+  %27 = add nuw nsw i32 %26, %23
+  %28 = add nuw i32 %27, %21
+  %29 = add nuw i32 %28, %25
   %30 = urem i32 %29, %.val.i
   %31 = getelementptr i8, ptr %0, i64 104
   %.val21.i = load ptr, ptr %31, align 8

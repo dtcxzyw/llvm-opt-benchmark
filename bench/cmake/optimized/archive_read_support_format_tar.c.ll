@@ -2543,7 +2543,7 @@ define internal fastcc i32 @header_pax_extensions(ptr noundef %0, ptr noundef %1
 
 99:                                               ; preds = %96
   %100 = mul nsw i64 %.04376.i.i.i.i, 10
-  %101 = add nsw i64 %100, %98
+  %101 = add nuw nsw i64 %100, %98
   %102 = getelementptr inbounds i8, ptr %.24974.i.i.i.i, i64 1
   %103 = add i64 %.275.i.i.i.i, -1
   %.039.in.in.i.i.i.i = load i8, ptr %102, align 1
@@ -3417,7 +3417,7 @@ pax_time.exit272.i.i:                             ; preds = %444, %.preheader.i2
 
 469:                                              ; preds = %466
   %470 = mul nsw i64 %.04376.i.i293.i.i, 10
-  %471 = add nsw i64 %470, %468
+  %471 = add nuw nsw i64 %470, %468
   %472 = getelementptr inbounds i8, ptr %.24974.i.i295.i.i, i64 1
   %473 = add i64 %.275.i.i294.i.i, -1
   %.039.in.in.i.i301.i.i = load i8, ptr %472, align 1
@@ -3638,7 +3638,7 @@ pax_time.exit323.i.i:                             ; preds = %525, %.preheader.i3
 
 556:                                              ; preds = %553
   %557 = mul nsw i64 %.04376.i.i344.i.i, 10
-  %558 = add nsw i64 %557, %555
+  %558 = add nuw nsw i64 %557, %555
   %559 = getelementptr inbounds i8, ptr %.24974.i.i346.i.i, i64 1
   %560 = add i64 %.275.i.i345.i.i, -1
   %.039.in.in.i.i352.i.i = load i8, ptr %559, align 1
@@ -3758,7 +3758,7 @@ tar_atol10.exit355.i.i:                           ; preds = %553, %551, %.crited
 
 591:                                              ; preds = %588
   %592 = mul nsw i64 %.04376.i.i376.i.i, 10
-  %593 = add nsw i64 %592, %590
+  %593 = add nuw nsw i64 %592, %590
   %594 = getelementptr inbounds i8, ptr %.24974.i.i378.i.i, i64 1
   %595 = add i64 %.275.i.i377.i.i, -1
   %.039.in.in.i.i384.i.i = load i8, ptr %594, align 1
@@ -4631,7 +4631,7 @@ define internal fastcc i64 @tar_atol10(ptr nocapture noundef readonly %0, i64 no
 
 17:                                               ; preds = %14
   %18 = mul nsw i64 %.04376.i, 10
-  %19 = add nsw i64 %18, %16
+  %19 = add nuw nsw i64 %18, %16
   %20 = getelementptr inbounds i8, ptr %.24974.i, i64 1
   %21 = add i64 %.275.i, -1
   %.039.in.in.i = load i8, ptr %20, align 1
@@ -4751,7 +4751,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
 
 32:                                               ; preds = %29
   %33 = mul nsw i64 %.04376.i.i, 10
-  %34 = add nsw i64 %33, %31
+  %34 = add nuw nsw i64 %33, %31
   %35 = getelementptr inbounds i8, ptr %.24974.i.i, i64 1
   %36 = add i64 %.275.i.i, -1
   %.039.in.in.i.i = load i8, ptr %35, align 1
@@ -4833,7 +4833,7 @@ tar_atol10.exit:                                  ; preds = %27, %29, %.critedge
 
 55:                                               ; preds = %52
   %56 = mul nsw i64 %.04376.i.i49, 10
-  %57 = add nsw i64 %56, %54
+  %57 = add nuw nsw i64 %56, %54
   %58 = getelementptr inbounds i8, ptr %.24974.i.i51, i64 1
   %59 = add i64 %.275.i.i50, -1
   %.039.in.in.i.i57 = load i8, ptr %58, align 1
@@ -5083,7 +5083,7 @@ define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %
 
 32:                                               ; preds = %29
   %33 = mul nsw i64 %.04376.i.i, 10
-  %34 = add nsw i64 %33, %31
+  %34 = add nuw nsw i64 %33, %31
   %35 = getelementptr inbounds i8, ptr %.24974.i.i, i64 1
   %36 = add i64 %.275.i.i, -1
   %.039.in.in.i.i = load i8, ptr %35, align 1

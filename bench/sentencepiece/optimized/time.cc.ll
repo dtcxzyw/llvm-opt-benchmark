@@ -42,7 +42,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef zeroext i1 @_ZN6google8protobuf8internal17SecondsToDateTimeElPNS1_8DateTimeE(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = add i64 %0, 62135596800
   %or.cond = icmp ult i64 %3, 315537897600
-  br i1 %or.cond, label %4, label %70
+  br i1 %or.cond, label %4, label %69
 
 4:                                                ; preds = %2
   %5 = icmp sgt i64 %0, -49512816001
@@ -70,98 +70,97 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17SecondsToDateTimeElPNS1
   %.152.lcssa = phi i32 [ %.051, %12 ], [ %16, %.lr.ph ]
   %.1.lcssa = phi i64 [ %.050, %12 ], [ %15, %.lr.ph ]
   %.152.lcssa.fr = freeze i32 %.152.lcssa
-  br label %20
+  br label %19
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.0.i110 = phi i64 [ %.0.i, %.lr.ph ], [ %.0.i106, %12 ]
   %.1109 = phi i64 [ %15, %.lr.ph ], [ %.050, %12 ]
   %.152108 = phi i32 [ %16, %.lr.ph ], [ %.051, %12 ]
   %15 = sub nsw i64 %.1109, %.0.i110
-  %16 = add nsw i32 %.152108, 100
-  %17 = srem i32 %16, 400
-  %18 = icmp eq i32 %17, 0
-  %19 = icmp sgt i32 %17, 300
-  %or.cond.i = or i1 %18, %19
+  %16 = add nuw nsw i32 %.152108, 100
+  %17 = urem i32 %16, 400
+  %18 = add nsw i32 %17, -301
+  %or.cond.i = icmp ult i32 %18, -300
   %.0.i = select i1 %or.cond.i, i64 3155760000, i64 3155673600
   %.not = icmp slt i64 %15, %.0.i
   br i1 %.not, label %.preheader100, label %.lr.ph, !llvm.loop !4
 
-20:                                               ; preds = %.preheader100, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
-  %.253 = phi i32 [ %29, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69 ], [ %.152.lcssa.fr, %.preheader100 ]
-  %.2 = phi i64 [ %28, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69 ], [ %.1.lcssa, %.preheader100 ]
-  %21 = srem i32 %.253, 100
-  %22 = icmp eq i32 %21, 0
-  %23 = icmp sgt i32 %21, 96
-  %or.cond.i64 = or i1 %22, %23
-  br i1 %or.cond.i64, label %24, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread86
+19:                                               ; preds = %.preheader100, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
+  %.253 = phi i32 [ %28, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69 ], [ %.152.lcssa.fr, %.preheader100 ]
+  %.2 = phi i64 [ %27, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69 ], [ %.1.lcssa, %.preheader100 ]
+  %20 = srem i32 %.253, 100
+  %21 = icmp eq i32 %20, 0
+  %22 = icmp sgt i32 %20, 96
+  %or.cond.i64 = or i1 %21, %22
+  br i1 %or.cond.i64, label %23, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread86
 
-24:                                               ; preds = %20
-  %25 = srem i32 %.253, 400
-  %26 = icmp eq i32 %25, 0
-  %27 = icmp sgt i32 %25, 396
-  %or.cond7.i = or i1 %26, %27
+23:                                               ; preds = %19
+  %24 = srem i32 %.253, 400
+  %25 = icmp eq i32 %24, 0
+  %26 = icmp sgt i32 %24, 396
+  %or.cond7.i = or i1 %25, %26
   br i1 %or.cond7.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread
 
-_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit: ; preds = %24
+_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit: ; preds = %23
   %.not59 = icmp slt i64 %.2, 126230400
   br i1 %.not59, label %.preheader.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
 
-_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread86: ; preds = %20
+_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread86: ; preds = %19
   %.not5987 = icmp slt i64 %.2, 126230400
   br i1 %.not5987, label %.preheader.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
 
 .preheader.preheader:                             ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread86
   br label %.preheader
 
-_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread: ; preds = %24
+_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread: ; preds = %23
   %.not5979 = icmp slt i64 %.2, 126144000
   br i1 %.not5979, label %.preheader.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
 
 _ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread86, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread
   %.0.i67.neg = phi i64 [ -126144000, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread ], [ -126230400, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread86 ], [ -126230400, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit ]
-  %28 = add nsw i64 %.0.i67.neg, %.2
-  %29 = add i32 %.253, 4
-  br label %20, !llvm.loop !6
+  %27 = add nsw i64 %.0.i67.neg, %.2
+  %28 = add i32 %.253, 4
+  br label %19, !llvm.loop !6
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73
-  %.354 = phi i32 [ %38, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73 ], [ %.253, %.preheader.preheader ]
-  %.3 = phi i64 [ %37, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73 ], [ %.2, %.preheader.preheader ]
-  %30 = srem i32 %.354, 400
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit, label %32
+  %.354 = phi i32 [ %37, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73 ], [ %.253, %.preheader.preheader ]
+  %.3 = phi i64 [ %36, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73 ], [ %.2, %.preheader.preheader ]
+  %29 = srem i32 %.354, 400
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit, label %31
 
-32:                                               ; preds = %.preheader
-  %33 = and i32 %.354, 3
-  %34 = icmp eq i32 %33, 0
-  %35 = srem i32 %.354, 100
-  %36 = icmp ne i32 %35, 0
-  %or.cond.i70 = and i1 %34, %36
+31:                                               ; preds = %.preheader
+  %32 = and i32 %.354, 3
+  %33 = icmp eq i32 %32, 0
+  %34 = srem i32 %.354, 100
+  %35 = icmp ne i32 %34, 0
+  %or.cond.i70 = and i1 %33, %35
   br i1 %or.cond.i70, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread89, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread
 
 _ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit: ; preds = %.preheader
   %.not60 = icmp slt i64 %.3, 31622400
   br i1 %.not60, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73
 
-_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread89: ; preds = %32
+_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread89: ; preds = %31
   %.not6090 = icmp slt i64 %.3, 31622400
   br i1 %.not6090, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73
 
-_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread: ; preds = %32
+_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread: ; preds = %31
   %.not6080 = icmp slt i64 %.3, 31536000
   br i1 %.not6080, label %.thread82, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73
 
 _ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread89, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread
   %.neg = phi i64 [ -31536000, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread ], [ -31622400, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit ], [ -31622400, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread89 ]
-  %37 = add nsw i64 %.neg, %.3
-  %38 = add i32 %.354, 1
+  %36 = add nsw i64 %.neg, %.3
+  %37 = add i32 %.354, 1
   br label %.preheader, !llvm.loop !7
 
 .thread82:                                        ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread
-  %brmerge.demorgan = and i1 %34, %36
+  %brmerge.demorgan = and i1 %33, %35
   br i1 %brmerge.demorgan, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us
 
 _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread89
-  br i1 %36, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us
+  br i1 %35, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us
 
 _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit, %.thread82, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split
@@ -171,85 +170,85 @@ _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us: ; preds 
   br i1 %.not6184.us113, label %.split.us, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us
 
 _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us
-  %39 = phi i32 [ %43, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us ], [ 31, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
+  %38 = phi i32 [ %42, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us ], [ 31, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us ], [ 1, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
-  %.4.us115 = phi i64 [ %41, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us ], [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
-  %40 = sext i32 %39 to i64
-  %.neg99.us = mul nsw i64 %40, -86400
-  %41 = add i64 %.neg99.us, %.4.us115
+  %.4.us115 = phi i64 [ %40, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us ], [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
+  %39 = sext i32 %38 to i64
+  %.neg99.us = mul nsw i64 %39, -86400
+  %40 = add i64 %.neg99.us, %.4.us115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv.next
-  %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %43 to i64
-  %45 = mul nsw i64 %44, 86400
-  %.not6184.us = icmp slt i64 %41, %45
+  %41 = getelementptr inbounds [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv.next
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %44 = mul nsw i64 %43, 86400
+  %.not6184.us = icmp slt i64 %40, %44
   br i1 %.not6184.us, label %.split.us.loopexit119, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us, !llvm.loop !8
 
 _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77 ], [ 1, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader ]
-  %.4 = phi i64 [ %52, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77 ], [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader ]
-  %46 = icmp eq i64 %indvars.iv128, 2
-  br i1 %46, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
+  %.4 = phi i64 [ %51, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77 ], [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader ]
+  %45 = icmp eq i64 %indvars.iv128, 2
+  br i1 %45, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
 
 _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split
   %.not61 = icmp slt i64 %.4, 2505600
   br i1 %.not61, label %.split.us, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77
 
 _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split
-  %47 = getelementptr inbounds [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv128
-  %48 = load i32, ptr %47, align 4
-  %49 = sext i32 %48 to i64
-  %50 = mul nsw i64 %49, 86400
-  %.not6184 = icmp slt i64 %.4, %50
-  br i1 %.not6184, label %.split.us.loopexit.split.loop.exit, label %51
+  %46 = getelementptr inbounds [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv128
+  %47 = load i32, ptr %46, align 4
+  %48 = sext i32 %47 to i64
+  %49 = mul nsw i64 %48, 86400
+  %.not6184 = icmp slt i64 %.4, %49
+  br i1 %.not6184, label %.split.us.loopexit.split.loop.exit, label %50
 
-51:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
-  %.neg99 = mul nsw i64 %49, -86400
+50:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
+  %.neg99 = mul nsw i64 %48, -86400
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77
 
-_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, %51
-  %.0.i76.neg = phi i64 [ %.neg99, %51 ], [ -2505600, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
-  %52 = add i64 %.0.i76.neg, %.4
+_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, %50
+  %.0.i76.neg = phi i64 [ %.neg99, %50 ], [ -2505600, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
+  %51 = add i64 %.0.i76.neg, %.4
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split, !llvm.loop !8
 
 .split.us.loopexit119:                            ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us
-  %53 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.split.us
 
 .split.us.loopexit.split.loop.exit:               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
-  %54 = trunc nuw nsw i64 %indvars.iv128 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv128 to i32
   br label %.split.us
 
 .split.us:                                        ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, %.split.us.loopexit.split.loop.exit, %.split.us.loopexit119, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us
-  %.us-phi = phi i32 [ 1, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ], [ %53, %.split.us.loopexit119 ], [ %54, %.split.us.loopexit.split.loop.exit ], [ 2, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
-  %.us-phi112 = phi i64 [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ], [ %41, %.split.us.loopexit119 ], [ %.4, %.split.us.loopexit.split.loop.exit ], [ %.4, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
-  %55 = sdiv i64 %.us-phi112, 86400
-  %56 = trunc i64 %55 to i32
-  %57 = add i32 %56, 1
-  %58 = srem i64 %.us-phi112, 86400
-  %.lhs.trunc = trunc nsw i64 %58 to i32
-  %59 = sdiv i32 %.lhs.trunc, 3600
-  %60 = srem i32 %.lhs.trunc, 3600
-  %.lhs.trunc95 = trunc nsw i32 %60 to i16
-  %61 = sdiv i16 %.lhs.trunc95, 60
-  %62 = sext i16 %61 to i32
-  %63 = srem i16 %.lhs.trunc95, 60
+  %.us-phi = phi i32 [ 1, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ], [ %52, %.split.us.loopexit119 ], [ %53, %.split.us.loopexit.split.loop.exit ], [ 2, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
+  %.us-phi112 = phi i64 [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ], [ %40, %.split.us.loopexit119 ], [ %.4, %.split.us.loopexit.split.loop.exit ], [ %.4, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
+  %54 = sdiv i64 %.us-phi112, 86400
+  %55 = trunc i64 %54 to i32
+  %56 = add i32 %55, 1
+  %57 = srem i64 %.us-phi112, 86400
+  %.lhs.trunc = trunc nsw i64 %57 to i32
+  %58 = sdiv i32 %.lhs.trunc, 3600
+  %59 = srem i32 %.lhs.trunc, 3600
+  %.lhs.trunc95 = trunc nsw i32 %59 to i16
+  %60 = sdiv i16 %.lhs.trunc95, 60
+  %61 = sext i16 %60 to i32
+  %62 = srem i16 %.lhs.trunc95, 60
   store i32 %.354, ptr %1, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 %.us-phi, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %57, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 %59, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 16
-  store i32 %62, ptr %67, align 4
-  %68 = sext i16 %63 to i32
-  %69 = getelementptr inbounds i8, ptr %1, i64 20
-  store i32 %68, ptr %69, align 4
-  br label %70
+  %63 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %.us-phi, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %56, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 %58, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  store i32 %61, ptr %66, align 4
+  %67 = sext i16 %62 to i32
+  %68 = getelementptr inbounds i8, ptr %1, i64 20
+  store i32 %67, ptr %68, align 4
+  br label %69
 
-70:                                               ; preds = %2, %.split.us
+69:                                               ; preds = %2, %.split.us
   ret i1 %or.cond
 }
 

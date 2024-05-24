@@ -15,7 +15,7 @@ define void @dscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 10:                                               ; preds = %4
   %11 = icmp eq i32 %7, 1
-  br i1 %11, label %.preheader41, label %30
+  br i1 %11, label %.preheader41, label %.lr.ph.preheader
 
 .preheader41:                                     ; preds = %10
   %12 = icmp ugt i32 %5, 5
@@ -66,27 +66,23 @@ define void @dscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph47, !llvm.loop !6
 
-30:                                               ; preds = %10
-  %31 = mul nuw nsw i32 %7, %5
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph.preheader, label %.loopexit
-
-.lr.ph.preheader:                                 ; preds = %30
-  %33 = zext nneg i32 %7 to i64
+.lr.ph.preheader:                                 ; preds = %10
+  %30 = mul nuw nsw i32 %7, %5
+  %31 = zext nneg i32 %7 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
-  %35 = load double, ptr %34, align 8
-  %36 = fmul double %6, %35
-  store double %36, ptr %34, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %33
-  %37 = trunc nuw i64 %indvars.iv.next to i32
-  %38 = icmp sgt i32 %31, %37
-  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !7
+  %32 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %33 = load double, ptr %32, align 8
+  %34 = fmul double %6, %33
+  store double %34, ptr %32, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %31
+  %35 = trunc nuw i64 %indvars.iv.next to i32
+  %36 = icmp sgt i32 %30, %35
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph47, %30, %.preheader, %4
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph47, %.preheader, %4
   ret void
 }
 

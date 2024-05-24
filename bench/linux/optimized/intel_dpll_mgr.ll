@@ -3734,7 +3734,7 @@ define internal noundef zeroext i1 @combo_pll_get_hw_state(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @icl_ddi_combo_pll_get_freq(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 0, 858993460) i32 @icl_ddi_combo_pll_get_freq(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 5976
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 38400

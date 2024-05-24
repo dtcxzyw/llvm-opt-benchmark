@@ -3677,7 +3677,7 @@ parsedigit.exit62:                                ; preds = %.thread91, %74, %76
 91:                                               ; preds = %88
   %92 = mul nsw i64 %.14273, %81
   %93 = zext nneg i32 %.174 to i64
-  %94 = add nsw i64 %92, %93
+  %94 = add nuw nsw i64 %92, %93
   %95 = getelementptr inbounds i8, ptr %86, i64 1
   store ptr %95, ptr %0, align 8
   %96 = load i8, ptr %95, align 1

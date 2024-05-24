@@ -218,8 +218,8 @@ _ZNK5ZXing9BitMatrix4isInIiEEbNS_6PointTIT_EEi.exit.i29: ; preds = %45
 
 50:                                               ; preds = %_ZNK5ZXing9BitMatrix4isInIiEEbNS_6PointTIT_EEi.exit.i29
   %51 = mul nsw i32 %46, %44
-  %52 = add nsw i32 %51, %43
-  %53 = sext i32 %52 to i64
+  %52 = add nuw nsw i32 %51, %43
+  %53 = zext nneg i32 %52 to i64
   %54 = load ptr, ptr %35, align 8
   %55 = load ptr, ptr %34, align 8
   %56 = ptrtoint ptr %54 to i64
@@ -2480,9 +2480,9 @@ _ZNK5ZXing9BitMatrix4isInIiEEbNS_6PointTIT_EEi.exit.i10: ; preds = %29
 
 35:                                               ; preds = %_ZNK5ZXing9BitMatrix4isInIiEEbNS_6PointTIT_EEi.exit.i10
   %36 = mul nsw i32 %30, %28
-  %37 = add nsw i32 %36, %27
+  %37 = add nuw nsw i32 %36, %27
   %38 = getelementptr inbounds i8, ptr %4, i64 8
-  %39 = sext i32 %37 to i64
+  %39 = zext nneg i32 %37 to i64
   %40 = getelementptr inbounds i8, ptr %4, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %38, align 8

@@ -10289,8 +10289,8 @@ if.else57:                                        ; preds = %if.else48
   %precision61 = getelementptr inbounds i8, ptr %52, i64 4
   %53 = load i32, ptr %precision61, align 4
   %mul62 = mul i32 %add45574, -137
-  %add63 = add nsw i32 %mul62, 136
-  %div64 = sdiv i32 %add63, 59
+  %add63 = add nuw nsw i32 %mul62, 136
+  %div64 = udiv i32 %add63, 59
   %add65 = add i32 %53, %div64
   call void @_ZNK4llvh5APInt4zextEj(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(12) %significand, i32 noundef %add65) #26
   %54 = load i32, ptr %BitWidth.i.i, align 8

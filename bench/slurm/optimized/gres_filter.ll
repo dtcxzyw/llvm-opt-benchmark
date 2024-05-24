@@ -933,7 +933,7 @@ _shared_gres_task_limit.exit:                     ; preds = %371, %355, %333, %.
   br i1 %432, label %433, label %435
 
 433:                                              ; preds = %422
-  %434 = trunc i32 %429 to i16
+  %434 = trunc nuw i32 %429 to i16
   store i16 %434, ptr %6, align 2
   br label %435
 
@@ -1312,7 +1312,7 @@ _shared_gres_task_limit.exit:                     ; preds = %371, %355, %333, %.
   br i1 %610, label %611, label %613
 
 611:                                              ; preds = %600
-  %612 = trunc i32 %607 to i16
+  %612 = trunc nuw i32 %607 to i16
   store i16 %612, ptr %6, align 2
   br label %613
 
@@ -1428,7 +1428,7 @@ _shared_gres_task_limit.exit:                     ; preds = %371, %355, %333, %.
   br i1 %662, label %663, label %.loopexit
 
 663:                                              ; preds = %651
-  %664 = trunc i32 %659 to i16
+  %664 = trunc nuw i32 %659 to i16
   store i16 %664, ptr %6, align 2
   br label %.loopexit
 

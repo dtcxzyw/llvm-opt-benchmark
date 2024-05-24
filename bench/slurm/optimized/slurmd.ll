@@ -5668,11 +5668,11 @@ define internal fastcc void @_resource_spec_init() unnamed_addr #0 {
   %30 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %29, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 2587, ptr noundef nonnull @__func__._core_spec_init) #19
   store ptr %30, ptr @res_abs_cores, align 8
   %31 = load i32, ptr @ncores, align 4
-  %32 = sext i32 %31 to i64
+  %32 = zext nneg i32 %31 to i64
   %33 = tail call ptr @bit_alloc(i64 noundef %32) #19
   store ptr %33, ptr @res_core_bitmap, align 8
   %34 = load i32, ptr @ncpus, align 4
-  %35 = sext i32 %34 to i64
+  %35 = zext nneg i32 %34 to i64
   %36 = tail call ptr @bit_alloc(i64 noundef %35) #19
   store ptr %36, ptr @res_cpu_bitmap, align 8
   store i8 0, ptr @res_abs_cpus, align 16
@@ -6068,7 +6068,7 @@ _resource_spec_fini.exit42.i:                     ; preds = %216, %214
 
 218:                                              ; preds = %217
   %219 = load i32, ptr @ncpus, align 4
-  %220 = sext i32 %219 to i64
+  %220 = zext nneg i32 %219 to i64
   %221 = tail call ptr @bit_alloc(i64 noundef %220) #19
   store ptr %221, ptr %1, align 8
   %222 = load ptr, ptr @res_mac_cpus, align 8
@@ -6136,7 +6136,7 @@ _resource_spec_fini.exit45.i:                     ; preds = %239, %237
 
 244:                                              ; preds = %203
   %245 = load i32, ptr @ncpus, align 4
-  %246 = sext i32 %245 to i64
+  %246 = zext nneg i32 %245 to i64
   %247 = tail call ptr @bit_alloc(i64 noundef %246) #19
   store ptr %247, ptr %1, align 8
   %248 = load ptr, ptr @res_mac_cpus, align 8

@@ -2036,12 +2036,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
-  %add2 = shl nuw i32 %conv, 1
-  %mul = add i32 %add2, 4
-  %conv3 = sext i32 %mul to i64
-  %mul4 = shl nsw i64 %conv3, 1
+  %add2 = shl i64 %call, 2
+  %conv3 = add nuw nsw i64 %add2, 8
+  %mul4 = and i64 %conv3, 8589934588
   %call5 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul4) #9
-  %conv10 = trunc i64 %mul4 to i32
+  %conv10 = trunc i64 %conv3 to i32
   %call11 = tail call noundef ptr @_Z26ufmt_defaultCPToUnicode_75PKciPDsi(ptr noundef nonnull %0, i32 noundef %add, ptr noundef %call5, i32 noundef %conv10)
   %cmp12 = icmp eq ptr %call11, null
   br i1 %cmp12, label %return, label %if.end17

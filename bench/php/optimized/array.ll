@@ -25076,7 +25076,7 @@ define internal range(i32 -1, 2) i32 @php_array_key_compare_numeric(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_key_compare_string_case(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string_case(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
@@ -25660,7 +25660,7 @@ define internal i32 @php_array_key_compare_string_natural(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal i32 @php_array_reverse_key_compare_string_locale(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string_locale(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
@@ -25937,7 +25937,7 @@ define internal i32 @php_array_key_compare_string_locale(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_key_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -26555,7 +26555,7 @@ define internal fastcc i32 @php_array_natural_general_compare(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_numeric(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_numeric(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @numeric_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
@@ -26600,7 +26600,7 @@ define internal i32 @php_array_data_compare_numeric(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_string_case(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_string_case(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_case_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
@@ -26645,7 +26645,7 @@ define internal i32 @php_array_data_compare_string_case(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_string(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_string(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
@@ -26690,7 +26690,7 @@ define internal i32 @php_array_data_compare_string(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_natural_case_compare(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_natural_case_compare(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @php_array_natural_general_compare(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
@@ -26713,7 +26713,7 @@ define internal i32 @php_array_reverse_natural_case_compare(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_natural_compare(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_natural_compare(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @php_array_natural_general_compare(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
@@ -26736,7 +26736,7 @@ define internal i32 @php_array_reverse_natural_compare(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_string_locale(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_string_locale(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_locale_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
@@ -26781,7 +26781,7 @@ define internal i32 @php_array_data_compare_string_locale(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #18
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -26958,7 +26958,7 @@ define internal i32 @php_array_data_compare(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_numeric_unstable(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_numeric_unstable(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @numeric_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   ret i32 %4
@@ -26973,7 +26973,7 @@ define internal i32 @php_array_data_compare_numeric_unstable(ptr noundef %0, ptr
 declare i32 @numeric_compare_function(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_string_case_unstable(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_string_case_unstable(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_case_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   ret i32 %4
@@ -26988,7 +26988,7 @@ define internal i32 @php_array_data_compare_string_case_unstable(ptr noundef %0,
 declare i32 @string_case_compare_function(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_string_unstable(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_string_unstable(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   ret i32 %4
@@ -27003,7 +27003,7 @@ define internal i32 @php_array_data_compare_string_unstable(ptr noundef %0, ptr 
 declare i32 @string_compare_function(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_natural_case_compare_unstable(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_natural_case_compare_unstable(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @php_array_natural_general_compare(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   %4 = sub nsw i32 0, %3
   ret i32 %4
@@ -27016,7 +27016,7 @@ define internal i32 @php_array_natural_case_compare_unstable(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_natural_compare_unstable(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_natural_compare_unstable(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @php_array_natural_general_compare(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %4 = sub nsw i32 0, %3
   ret i32 %4
@@ -27029,7 +27029,7 @@ define internal i32 @php_array_natural_compare_unstable(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_string_locale_unstable(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_string_locale_unstable(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_locale_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   ret i32 %4
@@ -27044,7 +27044,7 @@ define internal i32 @php_array_data_compare_string_locale_unstable(ptr noundef %
 declare i32 @string_locale_compare_function(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_data_compare_unstable(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_compare_unstable(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #18
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8

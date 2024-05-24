@@ -113,7 +113,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr nocapture noundef readonly %0, i
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv73
   %42 = load i8, ptr %gep, align 1
   %43 = zext i8 %42 to i32
-  %44 = shl nuw i32 %43, %55
+  %44 = shl nuw nsw i32 %43, %55
   %45 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv73
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %44, %46
@@ -450,7 +450,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr nocapture noundef readonly %0,
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv72
   %43 = load i8, ptr %gep, align 1
   %44 = zext i8 %43 to i32
-  %45 = shl nuw i32 %44, %56
+  %45 = shl nuw nsw i32 %44, %56
   %46 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv72
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %45, %47
@@ -618,7 +618,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr nocapture noundef readonly %0
   %41 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
-  %44 = shl nuw i32 %43, %48
+  %44 = shl nuw nsw i32 %43, %48
   %45 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %44, %46

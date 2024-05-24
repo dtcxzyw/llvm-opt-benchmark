@@ -4561,8 +4561,8 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
 
 217:                                              ; preds = %212
   %218 = mul nsw i32 %210, %214
-  %219 = add nsw i32 %218, %204
-  %220 = sext i32 %219 to i64
+  %219 = add nuw nsw i32 %218, %204
+  %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds float, ptr %3, i64 %220
   %222 = load float, ptr %221, align 4
   %223 = fpext float %222 to double

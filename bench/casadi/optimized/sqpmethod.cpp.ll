@@ -15828,8 +15828,8 @@ _ZN6casadi11casadi_fillIdEEvPT_xS1_.exit181:      ; preds = %.lr.ph.i177, %_ZN6c
 120:                                              ; preds = %_ZN6casadi11casadi_fillIdEEvPT_xS1_.exit181
   %121 = add nsw i64 %118, -1
   %122 = mul nsw i64 %121, %118
-  %123 = sdiv i64 %122, 2
-  %124 = sitofp i64 %123 to double
+  %123 = lshr i64 %122, 1
+  %124 = uitofp nneg i64 %123 to double
   %125 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %124) #22
   %126 = fmul double %125, %3
   br label %127

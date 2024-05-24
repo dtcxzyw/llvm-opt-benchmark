@@ -86,7 +86,7 @@ if.end21:                                         ; preds = %if.end16
   %idxprom = sext i32 %sub31 to i64
   %arrayidx32 = getelementptr inbounds i8, ptr %add.ptr18, i64 %idxprom
   store i8 1, ptr %arrayidx32, align 1
-  %idx.ext33 = sext i32 %sub to i64
+  %idx.ext33 = zext nneg i32 %sub to i64
   %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr18, i64 %idx.ext33
   %idx.ext35 = sext i32 %flen to i64
   %idx.neg = sub nsw i64 0, %idx.ext35

@@ -309,7 +309,7 @@ define void @sorglq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %157, label %103, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge197, %94, %92
-  %158 = sitofp i32 %.0144179 to float
+  %158 = uitofp nneg i32 %.0144179 to float
   store float %158, ptr %6, align 4
   br label %.thread
 

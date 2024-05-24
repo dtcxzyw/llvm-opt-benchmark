@@ -252,7 +252,7 @@ if.else5.i:                                       ; preds = %if.end.i
   %cmp14.i = icmp sgt i32 %imonth.0, 7
   %4 = mul i32 %imonth.0, 30
   %mul17.i = add i32 %4, -210
-  %conv18.i = sitofp i32 %mul17.i to double
+  %conv18.i = uitofp nneg i32 %mul17.i to double
   %add19.i = fadd double %add13.i, %conv18.i
   %jd.0.i = select i1 %cmp14.i, double %add19.i, double %add13.i
   br label %_ZN6icu_75L10IndianToJDEiii.exit

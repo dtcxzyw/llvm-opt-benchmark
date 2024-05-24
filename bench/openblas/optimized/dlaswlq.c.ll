@@ -68,7 +68,7 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %47
-  %52 = sitofp i32 %48 to double
+  %52 = uitofp nneg i32 %48 to double
   store double %52, ptr %8, align 8, !tbaa !7
   %53 = tail call i32 @llvm.umin.i32(i32 %25, i32 %28)
   %54 = icmp eq i32 %53, 0

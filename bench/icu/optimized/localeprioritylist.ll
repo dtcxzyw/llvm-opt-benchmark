@@ -1008,29 +1008,29 @@ if.end12:                                         ; preds = %if.end5, %if.end
   %tobool15.not = icmp eq i8 %4, 0
   br i1 %tobool15.not, label %if.end23, label %if.end23.thread
 
-lpad.thread:                                      ; preds = %if.end71, %if.then.i.i, %if.then.i
-  %lpad.thr_comm62 = landingpad { ptr, i32 }
+lpad.thread:                                      ; preds = %if.end71, %if.then.i.i, %if.then59
+  %lpad.thr_comm59 = landingpad { ptr, i32 }
           cleanup
   br label %delete.notnull.i22
 
 lpad:                                             ; preds = %if.then27
-  %lpad.thr_comm.split-lp63 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp60 = landingpad { ptr, i32 }
           cleanup
   %isnull.i21 = icmp eq ptr %7, null
   br i1 %isnull.i21, label %_ZN6icu_7512LocalPointerINS_6LocaleEED2Ev.exit, label %delete.notnull.i22
 
 delete.notnull.i22:                               ; preds = %lpad.thread, %lpad
-  %lpad.phi68 = phi { ptr, i32 } [ %lpad.thr_comm62, %lpad.thread ], [ %lpad.thr_comm.split-lp63, %lpad ]
-  %clone.sroa.0.067 = phi ptr [ %clone.sroa.0.2, %lpad.thread ], [ %7, %lpad ]
-  %vtable.i23 = load ptr, ptr %clone.sroa.0.067, align 8
+  %lpad.phi65 = phi { ptr, i32 } [ %lpad.thr_comm59, %lpad.thread ], [ %lpad.thr_comm.split-lp60, %lpad ]
+  %clone.sroa.0.064 = phi ptr [ %clone.sroa.0.2, %lpad.thread ], [ %7, %lpad ]
+  %vtable.i23 = load ptr, ptr %clone.sroa.0.064, align 8
   %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 8
   %5 = load ptr, ptr %vfn.i24, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(217) %clone.sroa.0.067) #13
+  call void %5(ptr noundef nonnull align 8 dereferenceable(217) %clone.sroa.0.064) #13
   br label %_ZN6icu_7512LocalPointerINS_6LocaleEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6LocaleEED2Ev.exit:   ; preds = %lpad, %delete.notnull.i22
-  %lpad.phi69 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp63, %lpad ], [ %lpad.phi68, %delete.notnull.i22 ]
-  resume { ptr, i32 } %lpad.phi69
+  %lpad.phi66 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp60, %lpad ], [ %lpad.phi65, %delete.notnull.i22 ]
+  resume { ptr, i32 } %lpad.phi66
 
 if.end23:                                         ; preds = %if.end12
   %cmp24 = icmp slt i32 %weight, 1
@@ -1049,8 +1049,8 @@ if.end23.thread:                                  ; preds = %if.end12
   %8 = load i32, ptr %numRemoved, align 4
   %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %numRemoved, align 4
-  %cmp2475 = icmp slt i32 %weight, 1
-  br i1 %cmp2475, label %if.then27, label %if.end32
+  %cmp2472 = icmp slt i32 %weight, 1
+  br i1 %cmp2472, label %if.then27, label %if.end32
 
 if.then27:                                        ; preds = %if.end23.thread
   %9 = load ptr, ptr %map, align 8
@@ -1094,17 +1094,13 @@ if.then59:                                        ; preds = %if.end53
   %cmp61 = icmp slt i32 %12, 50
   %mul = shl nsw i32 %12, 2
   %spec.select = select i1 %cmp61, i32 100, i32 %mul
-  %cmp.i35 = icmp sgt i32 %spec.select, 0
-  br i1 %cmp.i35, label %if.then.i, label %if.then69
-
-if.then.i:                                        ; preds = %if.then59
-  %conv.i36 = zext nneg i32 %spec.select to i64
-  %mul.i = shl nuw nsw i64 %conv.i36, 4
-  %call.i37 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #14
+  %conv.i35 = zext nneg i32 %spec.select to i64
+  %mul.i = shl nuw nsw i64 %conv.i35, 4
+  %call.i36 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #14
           to label %call.i.noexc unwind label %lpad.thread
 
-call.i.noexc:                                     ; preds = %if.then.i
-  %cmp2.not.i = icmp eq ptr %call.i37, null
+call.i.noexc:                                     ; preds = %if.then59
+  %cmp2.not.i = icmp eq ptr %call.i36, null
   br i1 %cmp2.not.i, label %if.then69, label %if.then3.i
 
 if.then3.i:                                       ; preds = %call.i.noexc
@@ -1118,7 +1114,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   %16 = load ptr, ptr %13, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64
   %mul13.i = shl nsw i64 %conv12.i, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i37, ptr align 8 %16, i64 %mul13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i36, ptr align 8 %16, i64 %mul13.i, i1 false)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then5.i, %if.then3.i
@@ -1133,15 +1129,15 @@ if.then.i.i:                                      ; preds = %if.end14.i
           to label %invoke.cont66 unwind label %lpad.thread
 
 invoke.cont66:                                    ; preds = %if.end14.i, %if.then.i.i
-  store ptr %call.i37, ptr %13, align 8
+  store ptr %call.i36, ptr %13, align 8
   store i32 %spec.select, ptr %14, align 8
   store i8 1, ptr %17, align 4
   %.pre = load i32, ptr %listLength, align 8
   br label %if.end71
 
-if.then69:                                        ; preds = %call.i.noexc, %if.then59
+if.then69:                                        ; preds = %call.i.noexc
   store i32 7, ptr %errorCode, align 4
-  br label %delete.notnull.i42
+  br label %delete.notnull.i41
 
 if.end71:                                         ; preds = %invoke.cont66, %if.end53
   %18 = phi i32 [ %.pre, %invoke.cont66 ], [ %12, %if.end53 ]
@@ -1151,22 +1147,22 @@ if.end71:                                         ; preds = %invoke.cont66, %if.
 
 invoke.cont76:                                    ; preds = %if.end71
   %20 = load i32, ptr %errorCode, align 4
-  %cmp.i38 = icmp slt i32 %20, 1
-  br i1 %cmp.i38, label %if.end82, label %delete.notnull.i42
+  %cmp.i37 = icmp slt i32 %20, 1
+  br i1 %cmp.i37, label %if.end82, label %delete.notnull.i41
 
 if.end82:                                         ; preds = %invoke.cont76
   %21 = load ptr, ptr %this, align 8
   %22 = load i32, ptr %listLength, align 8
   %conv87 = sext i32 %22 to i64
   %.val17 = load ptr, ptr %21, align 8
-  %arrayidx.i40 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::LocaleAndWeight", ptr %.val17, i64 %conv87
-  store ptr %clone.sroa.0.2, ptr %arrayidx.i40, align 8
-  %weight93 = getelementptr inbounds i8, ptr %arrayidx.i40, i64 8
+  %arrayidx.i39 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::LocaleAndWeight", ptr %.val17, i64 %conv87
+  store ptr %clone.sroa.0.2, ptr %arrayidx.i39, align 8
+  %weight93 = getelementptr inbounds i8, ptr %arrayidx.i39, i64 8
   store i32 %weight, ptr %weight93, align 8
   %23 = load i32, ptr %listLength, align 8
   %inc95 = add nsw i32 %23, 1
   store i32 %inc95, ptr %listLength, align 8
-  %index96 = getelementptr inbounds i8, ptr %arrayidx.i40, i64 12
+  %index96 = getelementptr inbounds i8, ptr %arrayidx.i39, i64 12
   store i32 %23, ptr %index96, align 4
   %cmp97 = icmp ult i32 %weight, 1000
   br i1 %cmp97, label %if.then98, label %return
@@ -1177,22 +1173,22 @@ if.then98:                                        ; preds = %if.end82
   br label %return
 
 cleanup:                                          ; preds = %if.then27, %if.then51
-  %cmp2478 = phi i1 [ true, %if.then27 ], [ false, %if.then51 ]
+  %cmp2475 = phi i1 [ true, %if.then27 ], [ false, %if.then51 ]
   %clone.sroa.0.3 = phi ptr [ %7, %if.then27 ], [ %call38, %if.then51 ]
-  %isnull.i41 = icmp eq ptr %clone.sroa.0.3, null
-  br i1 %isnull.i41, label %return, label %delete.notnull.i42
+  %isnull.i40 = icmp eq ptr %clone.sroa.0.3, null
+  br i1 %isnull.i40, label %return, label %delete.notnull.i41
 
-delete.notnull.i42:                               ; preds = %invoke.cont76, %if.then69, %cleanup
-  %clone.sroa.0.394 = phi ptr [ %clone.sroa.0.3, %cleanup ], [ %clone.sroa.0.2, %if.then69 ], [ %clone.sroa.0.2, %invoke.cont76 ]
-  %cmp247893 = phi i1 [ %cmp2478, %cleanup ], [ false, %if.then69 ], [ false, %invoke.cont76 ]
-  %vtable.i43 = load ptr, ptr %clone.sroa.0.394, align 8
-  %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 8
-  %24 = load ptr, ptr %vfn.i44, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(217) %clone.sroa.0.394) #13
+delete.notnull.i41:                               ; preds = %invoke.cont76, %if.then69, %cleanup
+  %clone.sroa.0.391 = phi ptr [ %clone.sroa.0.3, %cleanup ], [ %clone.sroa.0.2, %if.then69 ], [ %clone.sroa.0.2, %invoke.cont76 ]
+  %cmp247590 = phi i1 [ %cmp2475, %cleanup ], [ false, %if.then69 ], [ false, %invoke.cont76 ]
+  %vtable.i42 = load ptr, ptr %clone.sroa.0.391, align 8
+  %vfn.i43 = getelementptr inbounds i8, ptr %vtable.i42, i64 8
+  %24 = load ptr, ptr %vfn.i43, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(217) %clone.sroa.0.391) #13
   br label %return
 
-return:                                           ; preds = %if.end23, %if.end82, %if.then98, %delete.notnull.i42, %cleanup, %if.end5, %if.then2, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %if.then2 ], [ false, %if.end5 ], [ %cmp2478, %cleanup ], [ %cmp247893, %delete.notnull.i42 ], [ true, %if.then98 ], [ true, %if.end82 ], [ true, %if.end23 ]
+return:                                           ; preds = %if.end23, %if.end82, %if.then98, %delete.notnull.i41, %cleanup, %if.end5, %if.then2, %entry
+  %retval.1 = phi i1 [ false, %entry ], [ true, %if.then2 ], [ false, %if.end5 ], [ %cmp2475, %cleanup ], [ %cmp247590, %delete.notnull.i41 ], [ true, %if.then98 ], [ true, %if.end82 ], [ true, %if.end23 ]
   ret i1 %retval.1
 }
 

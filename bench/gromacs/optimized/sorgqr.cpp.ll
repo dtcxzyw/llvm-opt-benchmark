@@ -297,7 +297,7 @@ define void @sorgqr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %147, label %98, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge198, %90, %88
-  %148 = sitofp i32 %.0145181 to float
+  %148 = uitofp nneg i32 %.0145181 to float
   store float %148, ptr %6, align 4
   br label %.thread
 

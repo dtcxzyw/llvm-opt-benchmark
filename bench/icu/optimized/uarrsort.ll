@@ -319,7 +319,7 @@ uprv_stableBinarySearch_75.exit.i.i:              ; preds = %if.end22.i.i.i, %wh
 
 if.then4.i.i:                                     ; preds = %uprv_stableBinarySearch_75.exit.i.i
   %mul5.i.i = mul nsw i32 %insertionPoint.0.i.i, %itemSize
-  %idx.ext6.i.i = sext i32 %mul5.i.i to i64
+  %idx.ext6.i.i = zext nneg i32 %mul5.i.i to i64
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %array, i64 %idx.ext6.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %add.ptr.i.i, i64 %5, i1 false)
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %5
@@ -591,7 +591,7 @@ uprv_stableBinarySearch_75.exit.i:                ; preds = %if.end22.i.i, %whil
 
 if.then4.i:                                       ; preds = %uprv_stableBinarySearch_75.exit.i
   %mul5.i = mul nsw i32 %insertionPoint.0.i, %itemSize
-  %idx.ext6.i = sext i32 %mul5.i to i64
+  %idx.ext6.i = zext nneg i32 %mul5.i to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext6.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %px, ptr align 1 %add.ptr.i, i64 %conv4, i1 false)
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %conv4

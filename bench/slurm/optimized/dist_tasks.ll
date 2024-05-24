@@ -230,7 +230,7 @@ define internal fastcc ptr @_get_avail_map(ptr noundef %0, ptr nocapture noundef
   %.131.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %56, %54 ]
   %.02330.i = phi i32 [ 0, %.lr.ph.i ], [ %57, %54 ]
   %.12529.i = phi i32 [ %.024.i, %.lr.ph.i ], [ %55, %54 ]
-  %55 = add nsw i32 %.12529.i, %53
+  %55 = add nuw nsw i32 %.12529.i, %53
   %56 = add nsw i32 %.131.i, 1
   %57 = add nuw nsw i32 %.02330.i, 1
   %58 = icmp ult i32 %57, %41
@@ -296,8 +296,8 @@ _get_local_node_info.exit._crit_edge:             ; preds = %_get_local_node_inf
   %93 = phi i32 [ 0, %.lr.ph ], [ %103, %101 ]
   %.07098 = phi i16 [ 0, %.lr.ph ], [ %102, %101 ]
   %94 = load ptr, ptr %91, align 8
-  %95 = add nsw i32 %93, %.127.lcssa.i
-  %96 = sext i32 %95 to i64
+  %95 = add nuw nsw i32 %93, %.127.lcssa.i
+  %96 = zext nneg i32 %95 to i64
   %97 = tail call i32 @slurm_bit_test(ptr noundef %94, i64 noundef %96) #8
   %.not85 = icmp eq i32 %97, 0
   br i1 %.not85, label %101, label %98
@@ -450,12 +450,12 @@ _get_local_node_info.exit._crit_edge:             ; preds = %_get_local_node_inf
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i32
   %169 = mul nsw i32 %165, %168
-  %170 = add nsw i32 %169, %.068118
+  %170 = add nuw nsw i32 %169, %.068118
   %171 = getelementptr inbounds i8, ptr %160, i64 4232
   %172 = load i16, ptr %171, align 8
   %173 = zext i16 %172 to i32
-  %174 = srem i32 %170, %173
-  %175 = sext i32 %174 to i64
+  %174 = urem i32 %170, %173
+  %175 = zext nneg i32 %174 to i64
   call void @slurm_bit_clear(ptr noundef %90, i64 noundef %175) #8
   %176 = add nsw i32 %.3106, -1
   %177 = icmp ugt i32 %.0.in107, 1
@@ -1472,7 +1472,7 @@ _validate_map.exit:                               ; preds = %162, %164, %167, %1
   br label %_task_layout_lllp_cyclic.exit
 
 351:                                              ; preds = %.thread.i155
-  %352 = icmp slt i32 %342, %311
+  %352 = icmp ult i32 %342, %311
   br i1 %352, label %353, label %363
 
 353:                                              ; preds = %351
@@ -2393,13 +2393,13 @@ switch.early.test:                                ; preds = %59
   %74 = mul nuw nsw i32 %.168.us.us.us, %70
   %75 = add nuw nsw i32 %74, %.170128.us.us.us
   %76 = mul nsw i32 %75, %65
-  %77 = add nsw i32 %76, %.166133.us.us
+  %77 = add nuw nsw i32 %76, %.166133.us.us
   %78 = load ptr, ptr @conf, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 4232
   %80 = load i16, ptr %79, align 8
   %81 = zext i16 %80 to i32
-  %82 = srem i32 %77, %81
-  %83 = sext i32 %82 to i64
+  %82 = urem i32 %77, %81
+  %83 = zext nneg i32 %82 to i64
   call void @slurm_bit_clear(ptr noundef %18, i64 noundef %83) #8
   %84 = add nsw i32 %.2124.us.us.us, -1
   %85 = icmp sgt i32 %.168.in123.us.us.us, 1
@@ -2560,7 +2560,7 @@ define internal fastcc range(i32 0, 4034) i32 @_task_layout_lllp_block(ptr nocap
   br label %192
 
 61:                                               ; preds = %.thread
-  %62 = icmp slt i32 %52, %20
+  %62 = icmp ult i32 %52, %20
   br i1 %62, label %63, label %72
 
 63:                                               ; preds = %61

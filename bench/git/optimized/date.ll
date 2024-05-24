@@ -176,7 +176,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.152 = private unnamed_addr constant [6 x i8] c"weeks\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -133143986176, 135291469762) i64 @tm_to_time_t(ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
+define dso_local range(i64 -128849018880, 135291469762) i64 @tm_to_time_t(ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
 entry:
   %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
   %0 = load i32, ptr %tm_year, align 4
@@ -228,12 +228,12 @@ if.end17:                                         ; preds = %lor.lhs.false14
   %conv = sext i32 %mul23 to i64
   %mul24 = mul nsw i64 %conv, 60
   %mul27 = mul i32 %4, 3600
-  %conv28 = sext i32 %mul27 to i64
+  %conv28 = zext nneg i32 %mul27 to i64
   %mul31 = mul nuw nsw i32 %5, 60
   %conv32 = zext nneg i32 %mul31 to i64
   %conv35 = zext nneg i32 %6 to i64
-  %add29 = add nsw i64 %conv32, %conv28
-  %add33 = add nsw i64 %add29, %conv35
+  %add29 = add nuw nsw i64 %conv32, %conv28
+  %add33 = add nuw nsw i64 %add29, %conv35
   %add36 = add nsw i64 %add33, %mul24
   br label %return
 
@@ -556,6 +556,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @show_date(i64 noundef %git_time, i32 noundef %tz, ptr nocapture noundef readonly %mode) local_unnamed_addr #1 {
 entry:
+  %t.i67 = alloca i64, align 8
   %t.i65 = alloca i64, align 8
   %t.i = alloca i64, align 8
   %tm.i = alloca %struct.tm, align 8
@@ -677,34 +678,85 @@ if.then18:                                        ; preds = %if.end15
   br label %if.end21
 
 if.else:                                          ; preds = %if.end15
-  %call20 = call fastcc ptr @time_to_tm(i64 noundef %git_time, i32 noundef %tz.addr.0, ptr noundef nonnull %tmbuf)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i65)
+  %cmp.i.i = icmp slt i32 %tz.addr.0, 0
+  %cond.i.i = call i32 @llvm.abs.i32(i32 %tz.addr.0, i1 true)
+  %div.i.i = udiv i32 %cond.i.i, 100
+  %mul.i.i = mul nuw nsw i32 %div.i.i, 60
+  %rem.i.i = urem i32 %cond.i.i, 100
+  %add.i.i = add nuw nsw i32 %mul.i.i, %rem.i.i
+  %sub3.i.i = sub nsw i32 0, %add.i.i
+  %cond6.i.i = select i1 %cmp.i.i, i32 %sub3.i.i, i32 %add.i.i
+  %cmp7.i.i = icmp sgt i32 %cond6.i.i, 0
+  br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %if.else
+  %mul8.i.i = mul nuw nsw i32 %cond6.i.i, 60
+  %conv.i.i = zext nneg i32 %mul8.i.i to i64
+  %sub9.i.i = xor i64 %git_time, -1
+  %cmp10.i.i = icmp ugt i64 %conv.i.i, %sub9.i.i
+  br i1 %cmp10.i.i, label %if.then12.i.i, label %if.end20.i.i
+
+if.then12.i.i:                                    ; preds = %if.then.i.i
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.44, i64 noundef %git_time, i32 noundef %tz.addr.0) #21
+  unreachable
+
+if.else.i.i:                                      ; preds = %if.else
+  %mul14.i.i = mul i32 %cond6.i.i, -60
+  %conv15.i.i = zext nneg i32 %mul14.i.i to i64
+  %cmp16.i.i = icmp ugt i64 %conv15.i.i, %git_time
+  br i1 %cmp16.i.i, label %if.then18.i.i, label %if.else.if.end20_crit_edge.i.i
+
+if.else.if.end20_crit_edge.i.i:                   ; preds = %if.else.i.i
+  %.pre.i.i = mul nsw i32 %cond6.i.i, 60
+  br label %if.end20.i.i
+
+if.then18.i.i:                                    ; preds = %if.else.i.i
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.45, i64 noundef %git_time, i32 noundef %tz.addr.0) #21
+  unreachable
+
+if.end20.i.i:                                     ; preds = %if.else.if.end20_crit_edge.i.i, %if.then.i.i
+  %mul21.pre-phi.i.i = phi i32 [ %.pre.i.i, %if.else.if.end20_crit_edge.i.i ], [ %mul8.i.i, %if.then.i.i ]
+  %conv22.i.i = sext i32 %mul21.pre-phi.i.i to i64
+  %add23.i.i = add i64 %conv22.i.i, %git_time
+  %tobool.not.i.i = icmp sgt i64 %add23.i.i, -1
+  br i1 %tobool.not.i.i, label %time_to_tm.exit, label %if.then24.i.i
+
+if.then24.i.i:                                    ; preds = %if.end20.i.i
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.43, i64 noundef %add23.i.i) #21
+  unreachable
+
+time_to_tm.exit:                                  ; preds = %if.end20.i.i
+  store i64 %add23.i.i, ptr %t.i65, align 8
+  %call1.i66 = call ptr @gmtime_r(ptr noundef nonnull %t.i65, ptr noundef nonnull %tmbuf) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i65)
   br label %if.end21
 
-if.end21:                                         ; preds = %if.else, %if.then18
-  %tm.0 = phi ptr [ %call.i64, %if.then18 ], [ %call20, %if.else ]
+if.end21:                                         ; preds = %time_to_tm.exit, %if.then18
+  %tm.0 = phi ptr [ %call.i64, %if.then18 ], [ %call1.i66, %time_to_tm.exit ]
   %tobool22.not = icmp eq ptr %tm.0, null
   br i1 %tobool22.not, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i65)
-  store i64 0, ptr %t.i65, align 8
-  %call1.i66 = call ptr @gmtime_r(ptr noundef nonnull %t.i65, ptr noundef nonnull %tmbuf) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i65)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i67)
+  store i64 0, ptr %t.i67, align 8
+  %call1.i76 = call ptr @gmtime_r(ptr noundef nonnull %t.i67, ptr noundef nonnull %tmbuf) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i67)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end21
   %tz.addr.1 = phi i32 [ %tz.addr.0, %if.end21 ], [ 0, %if.then23 ]
-  %tm.1 = phi ptr [ %tm.0, %if.end21 ], [ %call1.i66, %if.then23 ]
+  %tm.1 = phi ptr [ %tm.0, %if.end21 ], [ %call1.i76, %if.then23 ]
   store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
-  %cmp3.not.i67 = icmp eq ptr %8, @strbuf_slopbuf
-  br i1 %cmp3.not.i67, label %strbuf_setlen.exit69, label %if.then4.i68
+  %cmp3.not.i77 = icmp eq ptr %8, @strbuf_slopbuf
+  br i1 %cmp3.not.i77, label %strbuf_setlen.exit79, label %if.then4.i78
 
-if.then4.i68:                                     ; preds = %if.end25
+if.then4.i78:                                     ; preds = %if.end25
   store i8 0, ptr %8, align 1
-  br label %strbuf_setlen.exit69
+  br label %strbuf_setlen.exit79
 
-strbuf_setlen.exit69:                             ; preds = %if.end25, %if.then4.i68
+strbuf_setlen.exit79:                             ; preds = %if.end25, %if.then4.i78
   %9 = load i32, ptr %mode, align 8
   switch i32 %9, label %if.else74 [
     i32 3, label %if.then28
@@ -714,7 +766,7 @@ strbuf_setlen.exit69:                             ; preds = %if.end25, %if.then4
     i32 7, label %if.then71
   ]
 
-if.then28:                                        ; preds = %strbuf_setlen.exit69
+if.then28:                                        ; preds = %strbuf_setlen.exit79
   %tm_year = getelementptr inbounds i8, ptr %tm.1, i64 20
   %10 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %10, 1900
@@ -726,7 +778,7 @@ if.then28:                                        ; preds = %strbuf_setlen.exit6
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.23, i32 noundef %add, i32 noundef %add29, i32 noundef %12) #19
   br label %return
 
-if.then33:                                        ; preds = %strbuf_setlen.exit69
+if.then33:                                        ; preds = %strbuf_setlen.exit79
   %tm_year34 = getelementptr inbounds i8, ptr %tm.1, i64 20
   %13 = load i32, ptr %tm_year34, align 4
   %add35 = add nsw i32 %13, 1900
@@ -743,7 +795,7 @@ if.then33:                                        ; preds = %strbuf_setlen.exit6
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.24, i32 noundef %add35, i32 noundef %add37, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %tz.addr.1) #19
   br label %return
 
-if.then42:                                        ; preds = %strbuf_setlen.exit69
+if.then42:                                        ; preds = %strbuf_setlen.exit79
   %cmp43 = icmp sgt i32 %tz.addr.1, -1
   %19 = call i32 @llvm.abs.i32(i32 %tz.addr.1, i1 true)
   %tm_year44 = getelementptr inbounds i8, ptr %tm.1, i64 20
@@ -765,7 +817,7 @@ if.then42:                                        ; preds = %strbuf_setlen.exit6
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.25, i32 noundef %add45, i32 noundef %add47, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %conv52, i32 noundef %div, i32 noundef %rem) #19
   br label %return
 
-if.then57:                                        ; preds = %strbuf_setlen.exit69
+if.then57:                                        ; preds = %strbuf_setlen.exit79
   %tm_wday = getelementptr inbounds i8, ptr %tm.1, i64 24
   %26 = load i32, ptr %tm_wday, align 8
   %idxprom = sext i32 %26 to i64
@@ -789,7 +841,7 @@ if.then57:                                        ; preds = %strbuf_setlen.exit6
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.26, ptr noundef %27, i32 noundef %28, ptr noundef %30, i32 noundef %add63, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %tz.addr.1) #19
   br label %return
 
-if.then71:                                        ; preds = %strbuf_setlen.exit69
+if.then71:                                        ; preds = %strbuf_setlen.exit79
   %strftime_fmt = getelementptr inbounds i8, ptr %mode, i64 8
   %35 = load ptr, ptr %strftime_fmt, align 8
   %36 = load i32, ptr %local, align 8
@@ -798,7 +850,7 @@ if.then71:                                        ; preds = %strbuf_setlen.exit6
   call void @strbuf_addftime(ptr noundef nonnull @show_date.timebuf, ptr noundef %35, ptr noundef %tm.1, i32 noundef %tz.addr.1, i32 noundef %lnot.ext) #19
   br label %return
 
-if.else74:                                        ; preds = %strbuf_setlen.exit69
+if.else74:                                        ; preds = %strbuf_setlen.exit79
   %37 = load i32, ptr %local, align 8
   %tobool.i = icmp ne i32 %37, 0
   %cmp.i = icmp eq i32 %tz.addr.1, %human_tz.0
@@ -811,9 +863,9 @@ if.else74:                                        ; preds = %strbuf_setlen.exit6
   %cmp2.i = icmp eq i32 %39, %40
   %41 = zext i1 %cmp2.i to i8
   %bf.set6.i = or disjoint i8 %bf.shl.i, %41
-  br i1 %cmp2.i, label %if.then.i70, label %if.end42.i
+  br i1 %cmp2.i, label %if.then.i80, label %if.end42.i
 
-if.then.i70:                                      ; preds = %if.else74
+if.then.i80:                                      ; preds = %if.else74
   %tm_mon.i = getelementptr inbounds i8, ptr %tm.1, i64 16
   %42 = load i32, ptr %tm_mon.i, align 8
   %tm_mon11.i = getelementptr inbounds i8, ptr %human_tm, i64 16
@@ -821,31 +873,31 @@ if.then.i70:                                      ; preds = %if.else74
   %cmp12.i = icmp eq i32 %42, %43
   br i1 %cmp12.i, label %if.then14.i, label %if.end42.i
 
-if.then14.i:                                      ; preds = %if.then.i70
+if.then14.i:                                      ; preds = %if.then.i80
   %tm_mday.i = getelementptr inbounds i8, ptr %tm.1, i64 12
   %44 = load i32, ptr %tm_mday.i, align 4
   %tm_mday15.i = getelementptr inbounds i8, ptr %human_tm, i64 12
   %45 = load i32, ptr %tm_mday15.i, align 4
   %cmp16.i = icmp sgt i32 %44, %45
-  br i1 %cmp16.i, label %if.end42.i, label %if.else.i71
+  br i1 %cmp16.i, label %if.end42.i, label %if.else.i81
 
-if.else.i71:                                      ; preds = %if.then14.i
+if.else.i81:                                      ; preds = %if.then14.i
   %cmp21.i = icmp eq i32 %44, %45
   br i1 %cmp21.i, label %if.then23.i, label %if.else30.i
 
-if.then23.i:                                      ; preds = %if.else.i71
+if.then23.i:                                      ; preds = %if.else.i81
   %bf.set29.i = or disjoint i8 %bf.set6.i, 6
   br label %if.end42.i
 
-if.else30.i:                                      ; preds = %if.else.i71
+if.else30.i:                                      ; preds = %if.else.i81
   %add.i = add nsw i32 %44, 5
   %cmp33.i = icmp sgt i32 %add.i, %45
   %bf.set38.i = or disjoint i8 %bf.set6.i, 2
   %spec.select.i = select i1 %cmp33.i, i8 %bf.set38.i, i8 %bf.set6.i
   br label %if.end42.i
 
-if.end42.i:                                       ; preds = %if.else30.i, %if.then23.i, %if.then14.i, %if.then.i70, %if.else74
-  %hide.sroa.0.0.i = phi i8 [ %bf.set6.i, %if.then14.i ], [ %bf.set29.i, %if.then23.i ], [ %bf.set6.i, %if.then.i70 ], [ %bf.set6.i, %if.else74 ], [ %spec.select.i, %if.else30.i ]
+if.end42.i:                                       ; preds = %if.else30.i, %if.then23.i, %if.then14.i, %if.then.i80, %if.else74
+  %hide.sroa.0.0.i = phi i8 [ %bf.set6.i, %if.then14.i ], [ %bf.set29.i, %if.then23.i ], [ %bf.set6.i, %if.then.i80 ], [ %bf.set6.i, %if.else74 ], [ %spec.select.i, %if.else30.i ]
   %46 = and i8 %hide.sroa.0.0.i, 4
   %tobool46.not.i = icmp eq i8 %46, 0
   br i1 %tobool46.not.i, label %if.end48.i, label %if.then47.i
@@ -1012,12 +1064,12 @@ tm_to_time_t.exit:                                ; preds = %lor.lhs.false14.i
   %conv.i = sext i32 %mul23.i to i64
   %mul24.i = mul nsw i64 %conv.i, 60
   %mul27.i = mul i32 %4, 3600
-  %conv28.i = sext i32 %mul27.i to i64
+  %conv28.i = zext nneg i32 %mul27.i to i64
   %mul31.i = mul nuw nsw i32 %5, 60
   %conv32.i = zext nneg i32 %mul31.i to i64
   %conv35.i = zext nneg i32 %6 to i64
-  %add29.i = add nsw i64 %conv32.i, %conv28.i
-  %add33.i = add nsw i64 %add29.i, %conv35.i
+  %add29.i = add nuw nsw i64 %conv32.i, %conv28.i
+  %add33.i = add nuw nsw i64 %add29.i, %conv35.i
   %add36.i = add nsw i64 %add33.i, %mul24.i
   %cmp = icmp eq i64 %add36.i, -1
   br i1 %cmp, label %return, label %if.end
@@ -1040,63 +1092,6 @@ if.end:                                           ; preds = %tm_to_time_t.exit
 return:                                           ; preds = %if.end6.i, %lor.lhs.false12.i, %lor.lhs.false14.i, %entry, %tm_to_time_t.exit, %if.end
   %retval.0 = phi i32 [ %mul8, %if.end ], [ 0, %tm_to_time_t.exit ], [ 0, %entry ], [ 0, %lor.lhs.false14.i ], [ 0, %lor.lhs.false12.i ], [ 0, %if.end6.i ]
   ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @time_to_tm(i64 noundef %git_time, i32 noundef %tz, ptr noundef %tm) unnamed_addr #1 {
-entry:
-  %t = alloca i64, align 8
-  %cmp.i = icmp slt i32 %tz, 0
-  %cond.i = tail call i32 @llvm.abs.i32(i32 %tz, i1 true)
-  %div.i = udiv i32 %cond.i, 100
-  %mul.i = mul nuw nsw i32 %div.i, 60
-  %rem.i = urem i32 %cond.i, 100
-  %add.i = add nuw nsw i32 %mul.i, %rem.i
-  %sub3.i = sub nsw i32 0, %add.i
-  %cond6.i = select i1 %cmp.i, i32 %sub3.i, i32 %add.i
-  %cmp7.i = icmp sgt i32 %cond6.i, 0
-  br i1 %cmp7.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  %mul8.i = mul nuw nsw i32 %cond6.i, 60
-  %conv.i = zext nneg i32 %mul8.i to i64
-  %sub9.i = xor i64 %git_time, -1
-  %cmp10.i = icmp ugt i64 %conv.i, %sub9.i
-  br i1 %cmp10.i, label %if.then12.i, label %if.end20.i
-
-if.then12.i:                                      ; preds = %if.then.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.44, i64 noundef %git_time, i32 noundef %tz) #21
-  unreachable
-
-if.else.i:                                        ; preds = %entry
-  %mul14.i = mul i32 %cond6.i, -60
-  %conv15.i = sext i32 %mul14.i to i64
-  %cmp16.i = icmp ugt i64 %conv15.i, %git_time
-  br i1 %cmp16.i, label %if.then18.i, label %if.else.if.end20_crit_edge.i
-
-if.else.if.end20_crit_edge.i:                     ; preds = %if.else.i
-  %.pre.i = mul nsw i32 %cond6.i, 60
-  br label %if.end20.i
-
-if.then18.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.45, i64 noundef %git_time, i32 noundef %tz) #21
-  unreachable
-
-if.end20.i:                                       ; preds = %if.else.if.end20_crit_edge.i, %if.then.i
-  %mul21.pre-phi.i = phi i32 [ %.pre.i, %if.else.if.end20_crit_edge.i ], [ %mul8.i, %if.then.i ]
-  %conv22.i = sext i32 %mul21.pre-phi.i to i64
-  %add23.i = add i64 %conv22.i, %git_time
-  %tobool.not.i = icmp sgt i64 %add23.i, -1
-  br i1 %tobool.not.i, label %gm_time_t.exit, label %if.then24.i
-
-if.then24.i:                                      ; preds = %if.end20.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.43, i64 noundef %add23.i) #21
-  unreachable
-
-gm_time_t.exit:                                   ; preds = %if.end20.i
-  store i64 %add23.i, ptr %t, align 8
-  %call1 = call ptr @gmtime_r(ptr noundef nonnull %t, ptr noundef %tm) #19
-  ret ptr %call1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2089,12 +2084,12 @@ if.end17.i:                                       ; preds = %lor.lhs.false14.i
   %conv.i87 = sext i32 %mul23.i to i64
   %mul24.i = mul nsw i64 %conv.i87, 60
   %mul27.i = mul i32 %124, 3600
-  %conv28.i = sext i32 %mul27.i to i64
+  %conv28.i = zext nneg i32 %mul27.i to i64
   %mul31.i = mul nuw nsw i32 %125, 60
   %conv32.i88 = zext nneg i32 %mul31.i to i64
   %conv35.i = zext nneg i32 %126 to i64
-  %add29.i = add nsw i64 %conv32.i88, %conv28.i
-  %add33.i = add nsw i64 %add29.i, %conv35.i
+  %add29.i = add nuw nsw i64 %conv32.i88, %conv28.i
+  %add33.i = add nuw nsw i64 %add29.i, %conv35.i
   %add36.i = add nsw i64 %add33.i, %mul24.i
   br label %tm_to_time_t.exit
 
@@ -3766,11 +3761,11 @@ if.end17.i:                                       ; preds = %lor.lhs.false14.i
   %conv.i3 = zext i32 %mul23.i to i64
   %mul24.i = mul nuw nsw i64 %conv.i3, 60
   %mul27.i = mul i32 %4, 3600
-  %conv28.i4 = zext i32 %mul27.i to i64
+  %conv28.i = zext nneg i32 %mul27.i to i64
   %mul31.i = mul nuw nsw i32 %5, 60
   %conv32.i = zext nneg i32 %mul31.i to i64
   %conv35.i = zext nneg i32 %6 to i64
-  %add29.i = add nuw nsw i64 %conv32.i, %conv28.i4
+  %add29.i = add nuw nsw i64 %conv32.i, %conv28.i
   %add33.i = add nuw nsw i64 %add29.i, %conv35.i
   %add36.i = add nuw nsw i64 %add33.i, %mul24.i
   br label %tm_to_time_t.exit
@@ -4202,11 +4197,11 @@ tm_to_time_t.exit:                                ; preds = %if.end6.i.cont.cont
   %conv.i = sext i32 %mul23.i to i64
   %mul24.i = mul nsw i64 %conv.i, 60
   %mul27.i = mul i32 %check.sroa.3.0.copyload, 3600
-  %conv28.i = sext i32 %mul27.i to i64
+  %conv28.i = zext nneg i32 %mul27.i to i64
   %mul31.i = mul nuw nsw i32 %check.sroa.2.0.copyload, 60
   %narrow = add nuw i32 %mul31.i, %check.sroa.0.0.copyload
   %add29.i = zext i32 %narrow to i64
-  %add33.i = add nsw i64 %add29.i, %conv28.i
+  %add33.i = add nuw nsw i64 %add29.i, %conv28.i
   %add36.i = add nsw i64 %add33.i, %mul24.i
   %cmp35.not = icmp ne i64 %add36.i, -1
   %add37 = add nsw i64 %now, 864000

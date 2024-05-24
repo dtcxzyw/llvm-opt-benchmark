@@ -39569,7 +39569,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   %313 = add nsw i32 %103, -1
   %314 = shl i32 %312, 1
   %315 = mul i32 %314, %313
-  %316 = sext i32 %315 to i64
+  %316 = zext nneg i32 %315 to i64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %12, i8 0, i64 57, i1 false)
   %317 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %1, i64 noundef %316, ptr noundef nonnull align 8 dereferenceable(57) %12)

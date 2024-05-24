@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrie_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define range(i32 4176, 15) i32 @utrie_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false

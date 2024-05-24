@@ -160811,8 +160811,8 @@ _ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11resu
   %55 = mul nsw i32 %.sroa.5.0.i.i.i, %.sroa.0.0.extract.trunc.i
   %56 = mul nsw i32 %.sroa.0.0.i.i.i, %.sroa.0.0.extract.trunc.i
   %57 = mul nuw nsw i32 %.sroa.5.0.i.i.i, %.sroa.10.0.extract.trunc.i
-  %.sroa.speculated13.i = tail call i32 @llvm.smin.i32(i32 %55, i32 %54)
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %56, i32 %57)
+  %.sroa.speculated13.i = tail call i32 @llvm.umin.i32(i32 %55, i32 %54)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %56, i32 %57)
   br label %_ZN4CGALmlINS_4SignEEENS_9UncertainIT_EES4_S4_.exit
 
 _ZN4CGALmlINS_4SignEEENS_9UncertainIT_EES4_S4_.exit: ; preds = %30, %37, %45, %50, %53
@@ -160920,8 +160920,8 @@ _ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11resu
   %106 = mul nsw i32 %.sroa.5.0.i.i.i30, %.sroa.0.0.extract.trunc.i41
   %107 = mul nsw i32 %.sroa.0.0.i.i.i31, %.sroa.0.0.extract.trunc.i41
   %108 = mul nuw nsw i32 %.sroa.5.0.i.i.i30, %.sroa.10.0.extract.trunc.i43
-  %.sroa.speculated13.i44 = call i32 @llvm.smin.i32(i32 %106, i32 %105)
-  %.sroa.speculated.i45 = call i32 @llvm.smax.i32(i32 %107, i32 %108)
+  %.sroa.speculated13.i44 = call i32 @llvm.umin.i32(i32 %106, i32 %105)
+  %.sroa.speculated.i45 = call i32 @llvm.umax.i32(i32 %107, i32 %108)
   br label %_ZN4CGALmlINS_4SignEEENS_9UncertainIT_EES4_S4_.exit56
 
 _ZN4CGALmlINS_4SignEEENS_9UncertainIT_EES4_S4_.exit56: ; preds = %81, %88, %96, %101, %104
@@ -161045,8 +161045,8 @@ _ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11resu
   %165 = mul nsw i32 %.sroa.5.0.i.i.i57, %.sroa.0.0.extract.trunc.i68
   %166 = mul nsw i32 %.sroa.0.0.i.i.i58, %.sroa.0.0.extract.trunc.i68
   %167 = mul nuw nsw i32 %.sroa.5.0.i.i.i57, %.sroa.10.0.extract.trunc.i70
-  %.sroa.speculated13.i71 = call i32 @llvm.smin.i32(i32 %165, i32 %164)
-  %.sroa.speculated.i72 = call i32 @llvm.smax.i32(i32 %166, i32 %167)
+  %.sroa.speculated13.i71 = call i32 @llvm.umin.i32(i32 %165, i32 %164)
+  %.sroa.speculated.i72 = call i32 @llvm.umax.i32(i32 %166, i32 %167)
   br label %_ZN4CGALmlINS_4SignEEENS_9UncertainIT_EES4_S4_.exit83
 
 _ZN4CGALmlINS_4SignEEENS_9UncertainIT_EES4_S4_.exit83: ; preds = %140, %147, %155, %160, %163

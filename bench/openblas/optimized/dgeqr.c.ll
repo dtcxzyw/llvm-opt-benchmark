@@ -196,7 +196,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   br i1 %116, label %117, label %.thread13
 
 117:                                              ; preds = %107
-  %118 = tail call i32 @llvm.smax.i32(i32 %108, i32 1)
+  %118 = tail call i32 @llvm.umax.i32(i32 %108, i32 1)
   %119 = icmp sge i32 %77, %118
   %120 = or i1 %27, %119
   %121 = or i1 %115, %120

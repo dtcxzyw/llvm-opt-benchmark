@@ -88,8 +88,8 @@ define ptr @SUNNonlinSol_FixedPoint(ptr noundef %0, i32 noundef %1, ptr noundef 
   store ptr %57, ptr %59, align 8
   %60 = shl nuw i32 %1, 1
   %61 = add i32 %60, 2
-  %62 = sext i32 %61 to i64
-  %63 = shl nsw i64 %62, 3
+  %62 = zext nneg i32 %61 to i64
+  %63 = shl nuw nsw i64 %62, 3
   %64 = tail call noalias ptr @malloc(i64 noundef %63) #13
   %65 = load ptr, ptr %4, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 64
@@ -453,7 +453,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   %177 = load ptr, ptr %176, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %177, ptr noundef %2) #12
   %178 = mul nsw i32 %93, %32
-  %179 = sext i32 %178 to i64
+  %179 = zext nneg i32 %178 to i64
   %invariant.gep133.i = getelementptr double, ptr %55, i64 %179
   br label %180
 

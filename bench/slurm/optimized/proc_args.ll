@@ -885,7 +885,7 @@ define ptr @base_name(ptr noundef %0) local_unnamed_addr #2 {
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define i64 @str_to_mbytes(ptr noundef %0) local_unnamed_addr #6 {
+define range(i64 -2, -9223372036854775808) i64 @str_to_mbytes(ptr noundef %0) local_unnamed_addr #6 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @__errno_location() #22
   store i32 0, ptr %3, align 4

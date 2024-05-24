@@ -735,7 +735,7 @@ Ptngc_out8bits.exit.preheader:                    ; preds = %.lr.ph.i
 Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit.preheader, %Ptngc_out8bits.exit
   %.0135208 = phi i32 [ %105, %Ptngc_out8bits.exit ], [ %4, %Ptngc_out8bits.exit.preheader ]
   %.0136207 = phi i32 [ %104, %Ptngc_out8bits.exit ], [ %75, %Ptngc_out8bits.exit.preheader ]
-  %104 = shl i32 %.0136207, 1
+  %104 = shl nuw i32 %.0136207, 1
   %105 = add i32 %.0135208, 1
   %.not = icmp ult i32 %.0133.lcssa, %104
   br i1 %.not, label %.preheader190, label %Ptngc_out8bits.exit, !llvm.loop !15

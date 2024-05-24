@@ -237,12 +237,11 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
 
 134:                                              ; preds = %7
   %135 = mul nuw nsw i64 %2, %0
-  %136 = icmp sgt i64 %135, 0
-  br i1 %136, label %.preheader8, label %.loopexit
+  br label %136
 
-.preheader8:                                      ; preds = %134, %.preheader8
-  %137 = phi double [ %144, %.preheader8 ], [ 0.000000e+00, %134 ]
-  %138 = phi i64 [ %145, %.preheader8 ], [ 0, %134 ]
+136:                                              ; preds = %134, %136
+  %137 = phi double [ %144, %136 ], [ 0.000000e+00, %134 ]
+  %138 = phi i64 [ %145, %136 ], [ 0, %134 ]
   %139 = getelementptr inbounds double, ptr %1, i64 %138
   %140 = load double, ptr %139, align 8, !tbaa !7
   %141 = fcmp ogt double %140, 0.000000e+00
@@ -251,10 +250,10 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %144 = fadd double %137, %143
   %145 = add nuw nsw i64 %138, %2
   %146 = icmp slt i64 %145, %135
-  br i1 %146, label %.preheader8, label %.loopexit, !llvm.loop !17
+  br i1 %146, label %136, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.preheader8, %.preheader, %134, %121, %3
-  %147 = phi double [ 0.000000e+00, %3 ], [ %122, %121 ], [ 0.000000e+00, %134 ], [ %131, %.preheader ], [ %144, %.preheader8 ]
+.loopexit:                                        ; preds = %136, %.preheader, %121, %3
+  %147 = phi double [ 0.000000e+00, %3 ], [ %122, %121 ], [ %131, %.preheader ], [ %144, %136 ]
   ret double %147
 }
 

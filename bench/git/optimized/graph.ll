@@ -2844,7 +2844,7 @@ land.lhs.true:                                    ; preds = %for.body
 if.then5:                                         ; preds = %land.lhs.true
   %sub = shl nuw i32 %5, 1
   %mul = add i32 %sub, -4
-  %conv = sext i32 %mul to i64
+  %conv = zext nneg i32 %mul to i64
   %6 = load ptr, ptr %line, align 8
   tail call void @strbuf_addchars(ptr noundef %6, i32 noundef 32, i64 noundef %conv) #15
   br label %for.inc

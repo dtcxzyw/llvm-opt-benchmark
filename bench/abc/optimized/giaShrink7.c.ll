@@ -670,8 +670,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph169.preheader:                              ; preds = %.critedge
   %102 = add nsw i32 %.val92, -1
   %103 = mul nsw i32 %102, %.val92
-  %104 = sdiv i32 %103, 2
-  %105 = add nsw i32 %104, %.078173
+  %104 = lshr i32 %103, 1
+  %105 = add nuw nsw i32 %104, %.078173
   %106 = trunc nuw nsw i64 %indvars.iv186 to i32
   %107 = trunc nuw nsw i64 %indvars.iv186 to i32
   br label %.lr.ph169

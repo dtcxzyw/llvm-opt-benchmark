@@ -206,7 +206,7 @@ define void @dsyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread:                                          ; preds = %99
   %103 = mul nuw nsw i32 %64, 33
   %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 %.0284)
-  %105 = sitofp i32 %104 to double
+  %105 = uitofp nneg i32 %104 to double
   store double %105, ptr %16, align 8
   store i32 %.0, ptr %18, align 4
   br i1 %49, label %.thread323, label %106

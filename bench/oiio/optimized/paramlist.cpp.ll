@@ -4243,7 +4243,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %2 = load ptr, ptr %m_data.i, align 8
   %cond.i = select i1 %tobool.i, ptr %2, ptr %m_data.i
   %mul = mul nsw i32 %conv, %beginindex
-  %idx.ext = sext i32 %mul to i64
+  %idx.ext = zext nneg i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %cond.i, i64 %idx.ext
   br label %for.body.us
 
@@ -4357,7 +4357,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %2 = load ptr, ptr %m_data.i, align 8
   %cond.i = select i1 %tobool.i, ptr %2, ptr %m_data.i
   %mul = mul nsw i32 %conv, %beginindex
-  %idx.ext = sext i32 %mul to i64
+  %idx.ext = zext nneg i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %cond.i, i64 %idx.ext
   br label %for.body.us
 

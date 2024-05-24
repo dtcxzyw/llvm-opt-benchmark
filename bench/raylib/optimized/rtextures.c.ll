@@ -21405,7 +21405,7 @@ define void @UnloadImagePalette(ptr nocapture noundef %0) local_unnamed_addr #1 
 ; Function Attrs: nounwind uwtable
 define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %1, -1
-  br i1 %4, label %5, label %317
+  br i1 %4, label %5, label %347
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21417,12 +21417,12 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, %2
   %or.cond89 = select i1 %or.cond, i1 %12, i1 false
-  br i1 %or.cond89, label %13, label %317
+  br i1 %or.cond89, label %13, label %347
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  switch i32 %15, label %316 [
+  switch i32 %15, label %346 [
     i32 1, label %16
     i32 2, label %23
     i32 5, label %35
@@ -21441,31 +21441,31 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8
   %18 = mul nsw i32 %7, %2
-  %19 = add nsw i32 %18, %1
-  %20 = sext i32 %19 to i64
+  %19 = add nuw nsw i32 %18, %1
+  %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
   %22 = load i8, ptr %21, align 1
-  br label %318
+  br label %348
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr %0, align 8
   %25 = mul nsw i32 %7, %2
-  %26 = add nsw i32 %25, %1
-  %27 = shl nsw i32 %26, 1
-  %28 = sext i32 %27 to i64
+  %26 = add nuw nsw i32 %25, %1
+  %27 = shl nuw nsw i32 %26, 1
+  %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %24, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = or disjoint i32 %27, 1
-  %32 = sext i32 %31 to i64
+  %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %24, i64 %32
   %34 = load i8, ptr %33, align 1
-  br label %318
+  br label %348
 
 35:                                               ; preds = %13
   %36 = load ptr, ptr %0, align 8
   %37 = mul nsw i32 %7, %2
-  %38 = add nsw i32 %37, %1
-  %39 = sext i32 %38 to i64
+  %38 = add nuw nsw i32 %37, %1
+  %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds i16, ptr %36, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = lshr i16 %41, 8
@@ -21479,13 +21479,13 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %49 = and i8 %48, -8
   %50 = and i8 %.tr86, 1
   %51 = sub nsw i8 0, %50
-  br label %318
+  br label %348
 
 52:                                               ; preds = %13
   %53 = load ptr, ptr %0, align 8
   %54 = mul nsw i32 %7, %2
-  %55 = add nsw i32 %54, %1
-  %56 = sext i32 %55 to i64
+  %55 = add nuw nsw i32 %54, %1
+  %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds i16, ptr %53, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = lshr i16 %58, 8
@@ -21496,13 +21496,13 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %64 = and i8 %63, -4
   %.tr = trunc i16 %58 to i8
   %65 = shl i8 %.tr, 3
-  br label %318
+  br label %348
 
 66:                                               ; preds = %13
   %67 = load ptr, ptr %0, align 8
   %68 = mul nsw i32 %7, %2
-  %69 = add nsw i32 %68, %1
-  %70 = sext i32 %69 to i64
+  %69 = add nuw nsw i32 %68, %1
+  %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds i16, ptr %67, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = lshr i16 %72, 12
@@ -21517,62 +21517,62 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %82 = mul nuw i8 %81, 17
   %83 = and i8 %80, 15
   %84 = mul nuw i8 %83, 17
-  br label %318
+  br label %348
 
 85:                                               ; preds = %13
   %86 = load ptr, ptr %0, align 8
   %87 = mul nsw i32 %7, %2
-  %88 = add nsw i32 %87, %1
+  %88 = add nuw nsw i32 %87, %1
   %89 = shl nsw i32 %88, 2
-  %90 = sext i32 %89 to i64
+  %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds i8, ptr %86, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = or disjoint i32 %89, 1
-  %94 = sext i32 %93 to i64
+  %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %86, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = or disjoint i32 %89, 2
-  %98 = sext i32 %97 to i64
+  %98 = zext nneg i32 %97 to i64
   %99 = getelementptr inbounds i8, ptr %86, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = or disjoint i32 %89, 3
-  %102 = sext i32 %101 to i64
+  %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %86, i64 %102
   %104 = load i8, ptr %103, align 1
-  br label %318
+  br label %348
 
 105:                                              ; preds = %13
   %106 = load ptr, ptr %0, align 8
   %107 = mul nsw i32 %7, %2
-  %108 = add nsw i32 %107, %1
+  %108 = add nuw nsw i32 %107, %1
   %109 = mul nsw i32 %108, 3
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %106, i64 %110
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr i8, ptr %106, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = getelementptr i8, ptr %111, i64 1
   %114 = load i8, ptr %113, align 1
   %115 = getelementptr i8, ptr %111, i64 2
   %116 = load i8, ptr %115, align 1
-  br label %318
+  br label %348
 
 117:                                              ; preds = %13
   %118 = load ptr, ptr %0, align 8
   %119 = mul nsw i32 %7, %2
-  %120 = add nsw i32 %119, %1
-  %121 = sext i32 %120 to i64
+  %120 = add nuw nsw i32 %119, %1
+  %121 = zext nneg i32 %120 to i64
   %122 = getelementptr inbounds float, ptr %118, i64 %121
   %123 = load float, ptr %122, align 4
   %124 = fmul float %123, 2.550000e+02
   %125 = fptoui float %124 to i8
-  br label %318
+  br label %348
 
 126:                                              ; preds = %13
   %127 = load ptr, ptr %0, align 8
   %128 = mul nsw i32 %7, %2
-  %129 = add nsw i32 %128, %1
+  %129 = add nuw nsw i32 %128, %1
   %130 = mul nsw i32 %129, 3
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds float, ptr %127, i64 %131
+  %131 = zext nneg i32 %130 to i64
+  %132 = getelementptr float, ptr %127, i64 %131
   %133 = load float, ptr %132, align 4
   %134 = fmul float %133, 2.550000e+02
   %135 = fptoui float %134 to i8
@@ -21584,25 +21584,25 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %141 = load float, ptr %140, align 4
   %142 = fmul float %141, 2.550000e+02
   %143 = fptoui float %142 to i8
-  br label %318
+  br label %348
 
 144:                                              ; preds = %13
   %145 = load ptr, ptr %0, align 8
   %146 = mul nsw i32 %7, %2
-  %147 = add nsw i32 %146, %1
+  %147 = add nuw nsw i32 %146, %1
   %148 = shl nsw i32 %147, 2
-  %149 = sext i32 %148 to i64
+  %149 = zext nneg i32 %148 to i64
   %150 = getelementptr inbounds float, ptr %145, i64 %149
   %151 = load float, ptr %150, align 4
   %152 = fmul float %151, 2.550000e+02
   %153 = fptoui float %152 to i8
-  br label %318
+  br label %348
 
 154:                                              ; preds = %13
   %155 = load ptr, ptr %0, align 8
   %156 = mul nsw i32 %7, %2
-  %157 = add nsw i32 %156, %1
-  %158 = sext i32 %157 to i64
+  %157 = add nuw nsw i32 %156, %1
+  %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds i16, ptr %155, i64 %158
   %160 = load i16, ptr %159, align 2
   %161 = zext i16 %160 to i32
@@ -21634,15 +21634,15 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %185 = bitcast i32 %184 to float
   %186 = fmul float %185, 2.550000e+02
   %187 = fptoui float %186 to i8
-  br label %318
+  br label %348
 
 188:                                              ; preds = %13
   %189 = load ptr, ptr %0, align 8
   %190 = mul nsw i32 %7, %2
-  %191 = add nsw i32 %190, %1
+  %191 = add nuw nsw i32 %190, %1
   %192 = mul nsw i32 %191, 3
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i16, ptr %189, i64 %193
+  %193 = zext nneg i32 %192 to i64
+  %194 = getelementptr i16, ptr %189, i64 %193
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i32
   %197 = lshr i32 %196, 10
@@ -21735,14 +21735,14 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %278 = bitcast i32 %277 to float
   %279 = fmul float %278, 2.550000e+02
   %280 = fptoui float %279 to i8
-  br label %318
+  br label %348
 
 281:                                              ; preds = %13
   %282 = load ptr, ptr %0, align 8
   %283 = mul nsw i32 %7, %2
-  %284 = add nsw i32 %283, %1
+  %284 = add nuw nsw i32 %283, %1
   %285 = shl nsw i32 %284, 2
-  %286 = sext i32 %285 to i64
+  %286 = zext nneg i32 %285 to i64
   %287 = getelementptr inbounds i16, ptr %282, i64 %286
   %288 = load i16, ptr %287, align 2
   %289 = zext i16 %288 to i32
@@ -21774,21 +21774,53 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %313 = bitcast i32 %312 to float
   %314 = fmul float %313, 2.550000e+02
   %315 = fptoui float %314 to i8
-  br label %318
+  %316 = sext i32 %285 to i64
+  %317 = getelementptr inbounds i16, ptr %282, i64 %316
+  %318 = load i16, ptr %317, align 2
+  %319 = zext i16 %318 to i32
+  %320 = lshr i32 %319, 10
+  %321 = and i32 %320, 31
+  %322 = shl nuw nsw i32 %319, 13
+  %323 = and i32 %322, 8380416
+  %324 = uitofp nneg i32 %323 to float
+  %325 = bitcast float %324 to i32
+  %326 = lshr i32 %325, 23
+  %.signext.i98 = sext i16 %318 to i32
+  %327 = and i32 %.signext.i98, -2147483648
+  %.not.i99 = icmp eq i32 %321, 0
+  %328 = shl nuw nsw i32 %321, 23
+  %329 = add nuw nsw i32 %328, 939524096
+  %330 = or disjoint i32 %329, %323
+  %331 = select i1 %.not.i99, i32 0, i32 %330
+  %332 = or disjoint i32 %331, %327
+  %333 = icmp ne i32 %323, 0
+  %334 = and i1 %.not.i99, %333
+  %335 = and i32 %325, 2139095040
+  %336 = add nsw i32 %335, -310378496
+  %337 = sub nsw i32 150, %326
+  %338 = shl i32 %322, %337
+  %339 = and i32 %338, 8380416
+  %340 = or disjoint i32 %339, %336
+  %341 = select i1 %334, i32 %340, i32 0
+  %342 = or i32 %332, %341
+  %343 = bitcast i32 %342 to float
+  %344 = fmul float %343, 2.550000e+02
+  %345 = fptoui float %344 to i8
+  br label %348
 
-316:                                              ; preds = %13
+346:                                              ; preds = %13
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.61) #49
-  br label %318
+  br label %348
 
-317:                                              ; preds = %5, %3
+347:                                              ; preds = %5, %3
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %1, i32 noundef %2) #49
-  br label %318
+  br label %348
 
-318:                                              ; preds = %16, %23, %35, %52, %66, %85, %105, %117, %126, %144, %154, %188, %281, %316, %317
-  %.sroa.41.0 = phi i8 [ 0, %316 ], [ %315, %281 ], [ -1, %188 ], [ -1, %154 ], [ %153, %144 ], [ -1, %126 ], [ -1, %117 ], [ -1, %105 ], [ %104, %85 ], [ %84, %66 ], [ -1, %52 ], [ %51, %35 ], [ %34, %23 ], [ -1, %16 ], [ 0, %317 ]
-  %.sroa.28.0 = phi i8 [ 0, %316 ], [ %315, %281 ], [ %280, %188 ], [ 0, %154 ], [ %153, %144 ], [ %143, %126 ], [ 0, %117 ], [ %116, %105 ], [ %100, %85 ], [ %82, %66 ], [ %65, %52 ], [ %49, %35 ], [ %30, %23 ], [ %22, %16 ], [ 0, %317 ]
-  %.sroa.15.0 = phi i8 [ 0, %316 ], [ %315, %281 ], [ %251, %188 ], [ 0, %154 ], [ %153, %144 ], [ %139, %126 ], [ 0, %117 ], [ %114, %105 ], [ %96, %85 ], [ %79, %66 ], [ %64, %52 ], [ %47, %35 ], [ %30, %23 ], [ %22, %16 ], [ 0, %317 ]
-  %.sroa.0.0 = phi i8 [ 0, %316 ], [ %315, %281 ], [ %222, %188 ], [ %187, %154 ], [ %153, %144 ], [ %135, %126 ], [ %125, %117 ], [ %112, %105 ], [ %92, %85 ], [ %75, %66 ], [ %61, %52 ], [ %44, %35 ], [ %30, %23 ], [ %22, %16 ], [ 0, %317 ]
+348:                                              ; preds = %16, %23, %35, %52, %66, %85, %105, %117, %126, %144, %154, %188, %281, %346, %347
+  %.sroa.41.0 = phi i8 [ 0, %346 ], [ %345, %281 ], [ -1, %188 ], [ -1, %154 ], [ %153, %144 ], [ -1, %126 ], [ -1, %117 ], [ -1, %105 ], [ %104, %85 ], [ %84, %66 ], [ -1, %52 ], [ %51, %35 ], [ %34, %23 ], [ -1, %16 ], [ 0, %347 ]
+  %.sroa.28.0 = phi i8 [ 0, %346 ], [ %345, %281 ], [ %280, %188 ], [ 0, %154 ], [ %153, %144 ], [ %143, %126 ], [ 0, %117 ], [ %116, %105 ], [ %100, %85 ], [ %82, %66 ], [ %65, %52 ], [ %49, %35 ], [ %30, %23 ], [ %22, %16 ], [ 0, %347 ]
+  %.sroa.15.0 = phi i8 [ 0, %346 ], [ %345, %281 ], [ %251, %188 ], [ 0, %154 ], [ %153, %144 ], [ %139, %126 ], [ 0, %117 ], [ %114, %105 ], [ %96, %85 ], [ %79, %66 ], [ %64, %52 ], [ %47, %35 ], [ %30, %23 ], [ %22, %16 ], [ 0, %347 ]
+  %.sroa.0.0 = phi i8 [ 0, %346 ], [ %315, %281 ], [ %222, %188 ], [ %187, %154 ], [ %153, %144 ], [ %135, %126 ], [ %125, %117 ], [ %112, %105 ], [ %92, %85 ], [ %75, %66 ], [ %61, %52 ], [ %44, %35 ], [ %30, %23 ], [ %22, %16 ], [ 0, %347 ]
   %.sroa.41.0.insert.ext = zext i8 %.sroa.41.0 to i32
   %.sroa.41.0.insert.shift = shl nuw i32 %.sroa.41.0.insert.ext, 24
   %.sroa.28.0.insert.ext = zext i8 %.sroa.28.0 to i32
@@ -21980,8 +22012,8 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %33 = fmul float %32, 2.550000e+02
   %34 = fptoui float %33 to i8
   %35 = mul nsw i32 %13, %2
-  %36 = add nsw i32 %35, %1
-  %37 = sext i32 %36 to i64
+  %36 = add nuw nsw i32 %35, %1
+  %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %8, i64 %37
   store i8 %34, ptr %38, align 1
   br label %388
@@ -22000,9 +22032,9 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %50 = fmul float %49, 2.550000e+02
   %51 = fptoui float %50 to i8
   %52 = mul nsw i32 %13, %2
-  %53 = add nsw i32 %52, %1
-  %54 = shl nsw i32 %53, 1
-  %55 = sext i32 %54 to i64
+  %53 = add nuw nsw i32 %52, %1
+  %54 = shl nuw nsw i32 %53, 1
+  %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %8, i64 %55
   store i8 %51, ptr %56, align 1
   %57 = load ptr, ptr %0, align 8
@@ -22038,8 +22070,8 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %84 = extractelement <2 x i16> %80, i64 1
   %85 = or i16 %83, %84
   %86 = mul nsw i32 %13, %2
-  %87 = add nsw i32 %86, %1
-  %88 = sext i32 %87 to i64
+  %87 = add nuw nsw i32 %86, %1
+  %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds i16, ptr %8, i64 %88
   store i16 %85, ptr %89, align 2
   br label %388
@@ -22072,8 +22104,8 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %115 = extractelement <2 x i16> %110, i64 1
   %116 = or i16 %114, %115
   %117 = mul nsw i32 %13, %2
-  %118 = add nsw i32 %117, %1
-  %119 = sext i32 %118 to i64
+  %118 = add nuw nsw i32 %117, %1
+  %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds i16, ptr %8, i64 %119
   store i16 %116, ptr %120, align 2
   br label %388
@@ -22108,17 +22140,17 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %148 = extractelement <2 x i16> %143, i64 1
   %149 = or i16 %147, %148
   %150 = mul nsw i32 %13, %2
-  %151 = add nsw i32 %150, %1
-  %152 = sext i32 %151 to i64
+  %151 = add nuw nsw i32 %150, %1
+  %152 = zext nneg i32 %151 to i64
   %153 = getelementptr inbounds i16, ptr %8, i64 %152
   store i16 %149, ptr %153, align 2
   br label %388
 
 154:                                              ; preds = %19
   %155 = mul nsw i32 %13, %2
-  %156 = add nsw i32 %155, %1
+  %156 = add nuw nsw i32 %155, %1
   %157 = mul nsw i32 %156, 3
-  %158 = sext i32 %157 to i64
+  %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds i8, ptr %8, i64 %158
   %160 = extractelement <2 x i8> %7, i64 1
   store i8 %160, ptr %159, align 1
@@ -22145,9 +22177,9 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
 
 178:                                              ; preds = %19
   %179 = mul nsw i32 %13, %2
-  %180 = add nsw i32 %179, %1
+  %180 = add nuw nsw i32 %179, %1
   %181 = shl nsw i32 %180, 2
-  %182 = sext i32 %181 to i64
+  %182 = zext nneg i32 %181 to i64
   %183 = getelementptr inbounds i8, ptr %8, i64 %182
   %184 = extractelement <2 x i8> %7, i64 1
   store i8 %184, ptr %183, align 1
@@ -22193,8 +22225,8 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %219 = extractelement <2 x float> %216, i64 0
   %220 = fadd float %219, %218
   %221 = mul nsw i32 %13, %2
-  %222 = add nsw i32 %221, %1
-  %223 = sext i32 %222 to i64
+  %222 = add nuw nsw i32 %221, %1
+  %223 = zext nneg i32 %222 to i64
   %224 = getelementptr inbounds float, ptr %8, i64 %223
   store float %220, ptr %224, align 4
   br label %388
@@ -22209,9 +22241,9 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %232 = uitofp i8 %231 to float
   %233 = fdiv float %232, 2.550000e+02
   %234 = mul nsw i32 %13, %2
-  %235 = add nsw i32 %234, %1
+  %235 = add nuw nsw i32 %234, %1
   %236 = mul nsw i32 %235, 3
-  %237 = sext i32 %236 to i64
+  %237 = zext nneg i32 %236 to i64
   %238 = getelementptr inbounds float, ptr %8, i64 %237
   store float %228, ptr %238, align 4
   %239 = load ptr, ptr %0, align 8
@@ -22246,9 +22278,9 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %264 = uitofp i8 %.sroa.40.0.extract.trunc to float
   %265 = fdiv float %264, 2.550000e+02
   %266 = mul nsw i32 %13, %2
-  %267 = add nsw i32 %266, %1
+  %267 = add nuw nsw i32 %266, %1
   %268 = shl nsw i32 %267, 2
-  %269 = sext i32 %268 to i64
+  %269 = zext nneg i32 %268 to i64
   %270 = getelementptr inbounds float, ptr %8, i64 %269
   store float %258, ptr %270, align 4
   %271 = load ptr, ptr %0, align 8
@@ -22293,8 +22325,8 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %305 = fadd float %304, %303
   %306 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %305)
   %307 = mul nsw i32 %13, %2
-  %308 = add nsw i32 %307, %1
-  %309 = sext i32 %308 to i64
+  %308 = add nuw nsw i32 %307, %1
+  %309 = zext nneg i32 %308 to i64
   %310 = getelementptr inbounds i16, ptr %8, i64 %309
   store i16 %306, ptr %310, align 2
   br label %388
@@ -22310,9 +22342,9 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %319 = fdiv float %318, 2.550000e+02
   %320 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %314)
   %321 = mul nsw i32 %13, %2
-  %322 = add nsw i32 %321, %1
+  %322 = add nuw nsw i32 %321, %1
   %323 = mul nsw i32 %322, 3
-  %324 = sext i32 %323 to i64
+  %324 = zext nneg i32 %323 to i64
   %325 = getelementptr inbounds i16, ptr %8, i64 %324
   store i16 %320, ptr %325, align 2
   %326 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %316)
@@ -22350,7 +22382,7 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %354 = fdiv float %353, 2.550000e+02
   %355 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %347)
   %356 = mul nsw i32 %13, %2
-  %357 = add nsw i32 %356, %1
+  %357 = add nuw nsw i32 %356, %1
   %358 = shl nsw i32 %357, 2
   %359 = sext i32 %358 to i64
   %360 = getelementptr inbounds i16, ptr %8, i64 %359

@@ -4332,8 +4332,8 @@ define dso_local void @_ZN3tev11ImageCanvas18getValuesAtNanoPosEN7nanogui5ArrayI
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %25, i64 32
   %44 = mul nsw i32 %39, %.sroa.4.0.extract.trunc.i
-  %45 = add nsw i32 %44, %.sroa.0.0.extract.trunc.i
-  %46 = sext i32 %45 to i64
+  %45 = add nuw nsw i32 %44, %.sroa.0.0.extract.trunc.i
+  %46 = zext nneg i32 %45 to i64
   %47 = load ptr, ptr %43, align 8
   %48 = getelementptr inbounds float, ptr %47, i64 %46
   %49 = load float, ptr %48, align 4
@@ -4493,8 +4493,8 @@ _ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit: ; preds = %92, %88
 120:                                              ; preds = %115
   %121 = getelementptr inbounds i8, ptr %112, i64 32
   %122 = mul nsw i32 %117, %.sroa.3.0.extract.trunc
-  %123 = add nsw i32 %122, %.sroa.0.0.extract.trunc
-  %124 = sext i32 %123 to i64
+  %123 = add nuw nsw i32 %122, %.sroa.0.0.extract.trunc
+  %124 = zext nneg i32 %123 to i64
   %125 = load ptr, ptr %121, align 8
   %126 = getelementptr inbounds float, ptr %125, i64 %124
   %127 = load float, ptr %126, align 4
@@ -63350,8 +63350,8 @@ define internal fastcc void @"_ZZN3tev11ImageCanvas18channelsFromImagesENSt3__11
 
 61:                                               ; preds = %.lr.ph88.split.us
   %62 = mul nsw i32 %59, %.03390
-  %63 = add nsw i32 %62, %.03287.us
-  %64 = sext i32 %63 to i64
+  %63 = add nuw nsw i32 %62, %.03287.us
+  %64 = zext nneg i32 %63 to i64
   %65 = load ptr, ptr %49, align 8
   %66 = getelementptr inbounds float, ptr %65, i64 %64
   %67 = load float, ptr %66, align 4
@@ -63390,8 +63390,8 @@ _ZNK3tev7Channel4evalEN7nanogui5ArrayIiLm2EEE.exit.us: ; preds = %61, %.lr.ph88.
 
 87:                                               ; preds = %.lr.ph88.split
   %88 = mul nsw i32 %85, %.03390
-  %89 = add nsw i32 %88, %.03287
-  %90 = sext i32 %89 to i64
+  %89 = add nuw nsw i32 %88, %.03287
+  %90 = zext nneg i32 %89 to i64
   %91 = load ptr, ptr %49, align 8
   %92 = getelementptr inbounds float, ptr %91, i64 %90
   %93 = load float, ptr %92, align 4
@@ -63420,8 +63420,8 @@ _ZNK3tev7Channel4evalEN7nanogui5ArrayIiLm2EEE.exit: ; preds = %.lr.ph88.split, %
 
 105:                                              ; preds = %101
   %106 = mul nsw i32 %102, %99
-  %107 = add nsw i32 %106, %96
-  %108 = sext i32 %107 to i64
+  %107 = add nuw nsw i32 %106, %96
+  %108 = zext nneg i32 %107 to i64
   %109 = load ptr, ptr %53, align 8
   %110 = getelementptr inbounds float, ptr %109, i64 %108
   %111 = load float, ptr %110, align 4
@@ -63479,8 +63479,8 @@ _ZNK3tev7Channel4evalEN7nanogui5ArrayIiLm2EEE.exit46: ; preds = %105, %101, %_ZN
 
 141:                                              ; preds = %.lr.ph.split.us
   %142 = mul nsw i32 %139, %.03185
-  %143 = add nsw i32 %142, %.084.us
-  %144 = sext i32 %143 to i64
+  %143 = add nuw nsw i32 %142, %.084.us
+  %144 = zext nneg i32 %143 to i64
   %145 = load ptr, ptr %39, align 8
   %146 = getelementptr inbounds float, ptr %145, i64 %144
   %147 = load float, ptr %146, align 4
@@ -63547,8 +63547,8 @@ _ZN3tev11ImageCanvas11applyMetricEffNS_7EMetricE.exit.us: ; preds = %158, %156, 
 
 177:                                              ; preds = %.lr.ph.split
   %178 = mul nsw i32 %175, %.03185
-  %179 = add nsw i32 %178, %.084
-  %180 = sext i32 %179 to i64
+  %179 = add nuw nsw i32 %178, %.084
+  %180 = zext nneg i32 %179 to i64
   %181 = load ptr, ptr %39, align 8
   %182 = getelementptr inbounds float, ptr %181, i64 %180
   %183 = load float, ptr %182, align 4
@@ -63577,8 +63577,8 @@ _ZNK3tev7Channel4evalEN7nanogui5ArrayIiLm2EEE.exit56: ; preds = %.lr.ph.split, %
 
 195:                                              ; preds = %191
   %196 = mul nsw i32 %192, %189
-  %197 = add nsw i32 %196, %186
-  %198 = sext i32 %197 to i64
+  %197 = add nuw nsw i32 %196, %186
+  %198 = zext nneg i32 %197 to i64
   %199 = load ptr, ptr %43, align 8
   %200 = getelementptr inbounds float, ptr %199, i64 %198
   %201 = load float, ptr %200, align 4

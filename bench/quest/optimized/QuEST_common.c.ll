@@ -2528,7 +2528,7 @@ define void @densmatr_mixMultiQubitKrausMap(ptr nocapture noundef readonly byval
   br i1 %10, label %12, label %.lr.ph.i20
 
 12:                                               ; preds = %5
-  %13 = shl nuw i32 1, %11
+  %13 = shl nuw nsw i32 1, %11
   %14 = zext nneg i32 %13 to i64
   %15 = tail call ptr @llvm.stacksave.p0()
   %16 = zext nneg i32 %11 to i64

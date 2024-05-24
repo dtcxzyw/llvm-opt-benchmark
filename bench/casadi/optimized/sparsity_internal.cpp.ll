@@ -24211,7 +24211,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal6get_nzExx(ptr nocapture nounde
 
 184:                                              ; preds = %180
   %185 = mul nsw i64 %51, %58
-  %186 = add nsw i64 %185, %43
+  %186 = add nuw nsw i64 %185, %43
   br label %.loopexit
 
 187:                                              ; preds = %180

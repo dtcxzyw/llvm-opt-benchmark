@@ -2617,7 +2617,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i118:     ; preds = %638, %635
 839:                                              ; preds = %831
   %.not118.i = icmp ne i32 %630, 0
   %840 = mul nuw nsw i32 %630, 5
-  %841 = icmp slt i32 %840, %626
+  %841 = icmp ult i32 %840, %626
   %or.cond121.i = select i1 %.not118.i, i1 %841, i1 false
   br i1 %or.cond121.i, label %842, label %849
 
