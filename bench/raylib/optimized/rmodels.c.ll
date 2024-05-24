@@ -40155,30 +40155,29 @@ define void @GenMeshCube(ptr dead_on_unwind noalias nocapture writable sret(%str
   store float %15, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 20
   %16 = extractelement <4 x float> %9, i64 2
-  store float %16, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
   %17 = extractelement <4 x float> %9, i64 3
-  store float %17, ptr %.sroa.7.0..sroa_idx, align 4
+  %18 = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 2, i32 3>
+  store <2 x float> %18, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 28
-  %18 = extractelement <2 x float> %12, i64 0
-  store float %18, ptr %.sroa.8.0..sroa_idx, align 4
+  %19 = extractelement <2 x float> %12, i64 0
+  store float %19, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 32
   store float %16, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 36
-  %19 = extractelement <4 x float> %9, i64 0
-  store float %19, ptr %.sroa.10.0..sroa_idx, align 4
+  %20 = extractelement <4 x float> %9, i64 0
+  store float %20, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 40
-  store float %18, ptr %.sroa.11.0..sroa_idx, align 4
+  store float %19, ptr %.sroa.11.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 44
   store float %16, ptr %.sroa.12.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 48
-  %20 = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %20, ptr %.sroa.13.0..sroa_idx, align 4
+  %21 = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x float> %21, ptr %.sroa.13.0..sroa_idx, align 4
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 56
-  %21 = extractelement <2 x float> %12, i64 1
-  store float %21, ptr %.sroa.15.0..sroa_idx, align 4
+  %22 = extractelement <2 x float> %12, i64 1
+  store float %22, ptr %.sroa.15.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 60
-  store float %19, ptr %.sroa.16.0..sroa_idx, align 4
+  store float %20, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 64
   store <2 x float> %12, ptr %.sroa.17.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 72
@@ -40190,45 +40189,41 @@ define void @GenMeshCube(ptr dead_on_unwind noalias nocapture writable sret(%str
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 88
   store float %15, ptr %.sroa.23.0..sroa_idx, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 92
-  store float %21, ptr %.sroa.24.0..sroa_idx, align 4
+  store float %22, ptr %.sroa.24.0..sroa_idx, align 4
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 96
-  store float %19, ptr %.sroa.25.0..sroa_idx, align 4
+  store float %20, ptr %.sroa.25.0..sroa_idx, align 4
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 100
   store <2 x float> %12, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 108
-  store float %19, ptr %.sroa.28.0..sroa_idx, align 4
+  store float %20, ptr %.sroa.28.0..sroa_idx, align 4
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 112
-  store float %18, ptr %.sroa.29.0..sroa_idx, align 4
+  store float %19, ptr %.sroa.29.0..sroa_idx, align 4
   %.sroa.30.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 116
-  store float %16, ptr %.sroa.30.0..sroa_idx, align 4
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 120
-  store float %17, ptr %.sroa.31.0..sroa_idx, align 4
+  store <2 x float> %18, ptr %.sroa.30.0..sroa_idx, align 4
   %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 124
-  store float %18, ptr %.sroa.32.0..sroa_idx, align 4
+  store float %19, ptr %.sroa.32.0..sroa_idx, align 4
   %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 128
-  store float %16, ptr %.sroa.33.0..sroa_idx, align 4
-  %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 132
-  store float %17, ptr %.sroa.34.0..sroa_idx, align 4
+  store <2 x float> %18, ptr %.sroa.33.0..sroa_idx, align 4
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 136
   store <2 x float> %12, ptr %.sroa.35.0..sroa_idx, align 4
   %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 144
-  store <2 x float> %20, ptr %.sroa.37.0..sroa_idx, align 4
+  store <2 x float> %21, ptr %.sroa.37.0..sroa_idx, align 4
   %.sroa.39.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 152
-  store float %21, ptr %.sroa.39.0..sroa_idx, align 4
+  store float %22, ptr %.sroa.39.0..sroa_idx, align 4
   %.sroa.40.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 156
   store float %17, ptr %.sroa.40.0..sroa_idx, align 4
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 160
   store float %15, ptr %.sroa.41.0..sroa_idx, align 4
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 164
-  store float %21, ptr %.sroa.42.0..sroa_idx, align 4
+  store float %22, ptr %.sroa.42.0..sroa_idx, align 4
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 168
-  %22 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 3, i32 1, i32 2, i32 0>
-  store <4 x float> %22, ptr %.sroa.43.0..sroa_idx, align 4
+  %23 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 3, i32 1, i32 2, i32 0>
+  store <4 x float> %23, ptr %.sroa.43.0..sroa_idx, align 4
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 184
-  %23 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 1>
-  store <4 x float> %23, ptr %.sroa.47.0..sroa_idx, align 4
+  %24 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 1>
+  store <4 x float> %24, ptr %.sroa.47.0..sroa_idx, align 4
   %.sroa.51.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 200
-  store float %21, ptr %.sroa.51.0..sroa_idx, align 4
+  store float %22, ptr %.sroa.51.0..sroa_idx, align 4
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 204
   store float %17, ptr %.sroa.52.0..sroa_idx, align 4
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 208
@@ -40236,67 +40231,67 @@ define void @GenMeshCube(ptr dead_on_unwind noalias nocapture writable sret(%str
   %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 216
   store float %17, ptr %.sroa.55.0..sroa_idx, align 4
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 220
-  store float %18, ptr %.sroa.56.0..sroa_idx, align 4
+  store float %19, ptr %.sroa.56.0..sroa_idx, align 4
   %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 224
-  %24 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 1, i32 2>
-  store <4 x float> %24, ptr %.sroa.57.0..sroa_idx, align 4
+  %25 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 1, i32 2>
+  store <4 x float> %25, ptr %.sroa.57.0..sroa_idx, align 4
   %.sroa.61.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 240
-  store <2 x float> %20, ptr %.sroa.61.0..sroa_idx, align 4
+  store <2 x float> %21, ptr %.sroa.61.0..sroa_idx, align 4
   %.sroa.63.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 248
-  store float %21, ptr %.sroa.63.0..sroa_idx, align 4
+  store float %22, ptr %.sroa.63.0..sroa_idx, align 4
   %.sroa.64.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 252
-  %25 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  store <4 x float> %25, ptr %.sroa.64.0..sroa_idx, align 4
+  %26 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  store <4 x float> %26, ptr %.sroa.64.0..sroa_idx, align 4
   %.sroa.68.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 268
-  store float %18, ptr %.sroa.68.0..sroa_idx, align 4
+  store float %19, ptr %.sroa.68.0..sroa_idx, align 4
   %.sroa.69.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 272
   store float %16, ptr %.sroa.69.0..sroa_idx, align 4
   %.sroa.70.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 276
-  store float %19, ptr %.sroa.70.0..sroa_idx, align 4
+  store float %20, ptr %.sroa.70.0..sroa_idx, align 4
   %.sroa.71.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 280
   store <2 x float> %12, ptr %.sroa.71.0..sroa_idx, align 4
-  %26 = tail call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #55
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %26, ptr %27, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(192) %26, ptr noundef nonnull align 16 dereferenceable(192) @__const.GenMeshCube.texcoords, i64 192, i1 false)
-  %28 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #55
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %28, ptr %29, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(288) %28, ptr noundef nonnull align 16 dereferenceable(288) @__const.GenMeshCube.normals, i64 288, i1 false)
-  %30 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #55
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %30, ptr %31, align 8
-  br label %32
+  %27 = tail call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #55
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %27, ptr %28, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(192) %27, ptr noundef nonnull align 16 dereferenceable(192) @__const.GenMeshCube.texcoords, i64 192, i1 false)
+  %29 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #55
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %29, ptr %30, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(288) %29, ptr noundef nonnull align 16 dereferenceable(288) @__const.GenMeshCube.normals, i64 288, i1 false)
+  %31 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #55
+  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %31, ptr %32, align 8
+  br label %33
 
-32:                                               ; preds = %4, %32
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %32 ]
-  %.08687 = phi i16 [ 0, %4 ], [ %44, %32 ]
-  %33 = shl i16 %.08687, 2
-  %34 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv
-  store i16 %33, ptr %34, align 2
-  %35 = or disjoint i16 %33, 1
-  %36 = or disjoint i64 %indvars.iv, 1
-  %37 = getelementptr inbounds i16, ptr %30, i64 %36
-  store i16 %35, ptr %37, align 2
-  %38 = or disjoint i16 %33, 2
-  %39 = getelementptr inbounds i8, ptr %34, i64 4
-  store i16 %38, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %34, i64 6
-  store i16 %33, ptr %40, align 2
-  %41 = getelementptr inbounds i8, ptr %34, i64 8
-  store i16 %38, ptr %41, align 2
-  %42 = or disjoint i16 %33, 3
-  %43 = getelementptr inbounds i8, ptr %34, i64 10
-  store i16 %42, ptr %43, align 2
-  %44 = add nuw nsw i16 %.08687, 1
+33:                                               ; preds = %4, %33
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %33 ]
+  %.08687 = phi i16 [ 0, %4 ], [ %45, %33 ]
+  %34 = shl i16 %.08687, 2
+  %35 = getelementptr inbounds i16, ptr %31, i64 %indvars.iv
+  store i16 %34, ptr %35, align 2
+  %36 = or disjoint i16 %34, 1
+  %37 = or disjoint i64 %indvars.iv, 1
+  %38 = getelementptr inbounds i16, ptr %31, i64 %37
+  store i16 %36, ptr %38, align 2
+  %39 = or disjoint i16 %34, 2
+  %40 = getelementptr inbounds i8, ptr %35, i64 4
+  store i16 %39, ptr %40, align 2
+  %41 = getelementptr inbounds i8, ptr %35, i64 6
+  store i16 %34, ptr %41, align 2
+  %42 = getelementptr inbounds i8, ptr %35, i64 8
+  store i16 %39, ptr %42, align 2
+  %43 = or disjoint i16 %34, 3
+  %44 = getelementptr inbounds i8, ptr %35, i64 10
+  store i16 %43, ptr %44, align 2
+  %45 = add nuw nsw i16 %.08687, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 6
-  %45 = icmp ult i64 %indvars.iv, 30
-  br i1 %45, label %32, label %46
+  %46 = icmp ult i64 %indvars.iv, 30
+  br i1 %46, label %33, label %47
 
-46:                                               ; preds = %32
+47:                                               ; preds = %33
   store i32 24, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 12, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 12, ptr %48, align 4
   tail call void @UploadMesh(ptr noundef nonnull %0, i1 noundef zeroext false)
   ret void
 }

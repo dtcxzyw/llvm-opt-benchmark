@@ -1356,38 +1356,36 @@ for.body1024:                                     ; preds = %if.then991, %for.bo
 for.end1119:                                      ; preds = %for.body1024
   %433 = bitcast <2 x i64> %xor.i2704 to <4 x i32>
   %add.i2321 = add <4 x i32> %396, %433
-  %434 = shufflevector <4 x i32> %add.i2321, <4 x i32> poison, <8 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %434 = shufflevector <4 x i32> %add.i2321, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %435 = shufflevector <4 x i32> %add.i2321, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %add.i2318 = add <4 x i32> %permil1103, %393
+  %436 = shufflevector <4 x i32> %add.i2318, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %add.i2315 = add <4 x i32> %permil1109, %394
+  %437 = shufflevector <4 x i32> %add.i2315, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %438 = shufflevector <4 x i32> %add.i2315, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %add.i2312 = add <4 x i32> %permil1115, %395
-  %435 = shufflevector <4 x i32> %add.i2312, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecext.i3387 = extractelement <4 x i32> %add.i2321, i64 0
-  store i32 %vecext.i3387, ptr %partialblock, align 16
-  %add.ptr1169 = getelementptr inbounds i8, ptr %partialblock, i64 4
-  %add.ptr1171 = getelementptr inbounds i8, ptr %partialblock, i64 52
-  %add.ptr1173 = getelementptr inbounds i8, ptr %partialblock, i64 36
-  %436 = shufflevector <4 x i32> %add.i2315, <4 x i32> %add.i2312, <2 x i32> <i32 1, i32 6>
-  store <2 x i32> %436, ptr %add.ptr1171, align 4
-  %vecext.i3351 = extractelement <4 x i32> %add.i2321, i64 3
-  %add.ptr1211 = getelementptr inbounds i8, ptr %partialblock, i64 60
-  store i32 %vecext.i3351, ptr %add.ptr1211, align 4
-  %437 = shufflevector <4 x i32> %add.i2312, <4 x i32> %add.i2318, <4 x i32> <i32 1, i32 poison, i32 7, i32 4>
-  %438 = shufflevector <4 x i32> %437, <4 x i32> %add.i2321, <4 x i32> <i32 0, i32 6, i32 2, i32 3>
-  store <4 x i32> %438, ptr %add.ptr1173, align 4
-  %439 = shufflevector <4 x i32> %add.i2318, <4 x i32> %add.i2315, <8 x i32> <i32 1, i32 6, i32 poison, i32 poison, i32 poison, i32 2, i32 7, i32 4>
-  %440 = shufflevector <8 x i32> %439, <8 x i32> %435, <8 x i32> <i32 0, i32 1, i32 11, i32 8, i32 poison, i32 5, i32 6, i32 7>
-  %441 = shufflevector <8 x i32> %440, <8 x i32> %434, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 9, i32 5, i32 6, i32 7>
-  store <8 x i32> %441, ptr %add.ptr1169, align 4
+  %439 = shufflevector <4 x i32> %add.i2312, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %add.ptr1149 = getelementptr inbounds i8, ptr %partialblock, i64 32
+  %440 = shufflevector <4 x i32> %add.i2315, <4 x i32> %add.i2312, <8 x i32> <i32 0, i32 5, i32 poison, i32 poison, i32 poison, i32 1, i32 6, i32 poison>
+  %441 = shufflevector <8 x i32> %440, <8 x i32> %434, <8 x i32> <i32 0, i32 1, i32 10, i32 poison, i32 poison, i32 5, i32 6, i32 poison>
+  %442 = shufflevector <8 x i32> %441, <8 x i32> %436, <8 x i32> <i32 0, i32 1, i32 2, i32 11, i32 8, i32 5, i32 6, i32 poison>
+  %443 = shufflevector <8 x i32> %442, <8 x i32> %435, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 11>
+  store <8 x i32> %443, ptr %add.ptr1149, align 16
+  %444 = shufflevector <4 x i32> %add.i2321, <4 x i32> %add.i2318, <8 x i32> <i32 0, i32 5, i32 poison, i32 poison, i32 poison, i32 1, i32 6, i32 poison>
+  %445 = shufflevector <8 x i32> %444, <8 x i32> %437, <8 x i32> <i32 0, i32 1, i32 10, i32 poison, i32 poison, i32 5, i32 6, i32 poison>
+  %446 = shufflevector <8 x i32> %445, <8 x i32> %439, <8 x i32> <i32 0, i32 1, i32 2, i32 11, i32 8, i32 5, i32 6, i32 poison>
+  %447 = shufflevector <8 x i32> %446, <8 x i32> %438, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 11>
+  store <8 x i32> %447, ptr %partialblock, align 16
   br label %for.body1223
 
 for.body1223:                                     ; preds = %for.end1119, %for.body1223
   %conv12201674 = phi i64 [ 0, %for.end1119 ], [ %conv1220, %for.body1223 ]
   %i1020.11673 = phi i32 [ 0, %for.end1119 ], [ %inc1234, %for.body1223 ]
   %arrayidx1224 = getelementptr i8, ptr %m.addr.4.lcssa, i64 %conv12201674
-  %442 = load i8, ptr %arrayidx1224, align 1
+  %448 = load i8, ptr %arrayidx1224, align 1
   %arrayidx1227 = getelementptr [64 x i8], ptr %partialblock, i64 0, i64 %conv12201674
-  %443 = load i8, ptr %arrayidx1227, align 1
-  %xor12291581 = xor i8 %443, %442
+  %449 = load i8, ptr %arrayidx1227, align 1
+  %xor12291581 = xor i8 %449, %448
   %arrayidx1232 = getelementptr i8, ptr %c.addr.4.lcssa, i64 %conv12201674
   store i8 %xor12291581, ptr %arrayidx1232, align 1
   %inc1234 = add i32 %i1020.11673, 1
